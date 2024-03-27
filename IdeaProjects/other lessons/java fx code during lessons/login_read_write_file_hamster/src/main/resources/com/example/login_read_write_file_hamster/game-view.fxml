@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login_read_write_file_hamster.GUI.controller.GameViewController">
+   <children>
+      <Button layoutX="258.0" layoutY="133.0" mnemonicParsing="false" text="hello :)" />
+      <Button fx:id="logoutButton" layoutX="258.0" layoutY="168.0" mnemonicParsing="false" onAction="#doLogout" text="bye :(" />
+   </children>
+</AnchorPane>
