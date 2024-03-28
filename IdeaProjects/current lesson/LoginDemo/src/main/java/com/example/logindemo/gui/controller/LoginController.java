@@ -42,6 +42,7 @@ public class LoginController {
             Scene scene = new Scene(fxmlLoader.load(), 480, 200);
             stage.setTitle("Welcome " + "TODO:insert user name" + "!");
             stage.setScene(scene);
+
         }
         catch (WrongPasswordException e) {
 

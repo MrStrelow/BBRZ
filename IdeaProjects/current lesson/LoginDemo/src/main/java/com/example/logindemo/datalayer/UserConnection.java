@@ -42,6 +42,6 @@ public class UserConnection {
     }
 
     public User findUser(User user) {
-        return null;
+        return null; //TODO:
     }
 }
