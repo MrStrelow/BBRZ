@@ -1,5 +1,6 @@
 package com.example.logindemo.gui.controller;
 
+import com.example.logindemo.DTO.User;
 import com.example.logindemo.LoginApplication;
 import com.example.logindemo.datalayer.UserConnection;
 import com.example.logindemo.services.UserService;
@@ -79,6 +80,8 @@ public class RegisterController {
 
         } else {
             // user anlegen und speichern in die "datenbank"
+            User user = new User(username, firstPassword);
+            userService.createUser(user);
 
             try {
                 Stage stage = (Stage) createUserButton.getScene().getWindow();

@@ -10,7 +10,7 @@ public class User {
     }
 
     public String toString() {
-        return userName + "~" + passwort;
+        return userName + "~" + passwort + "\n";
     }
 
     public String getUserName() {

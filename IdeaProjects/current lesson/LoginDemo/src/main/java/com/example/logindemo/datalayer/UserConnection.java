@@ -26,11 +26,9 @@ public class UserConnection {
 
     // CRUD (Create Read Update Delete) -> das wollen wir mindestens hier implementieren
     public User createUser(User user) {
-        try {
+        try(UserFileWriter writer = new UserFileWriter(database.getPath(), true)) {
 
-            UserFileWriter writer = new UserFileWriter(database.getPath(), true); // getName oder getPath
             writer.write(user);
-            writer.close();
 
         } catch (IOException e) {
             System.err.println("Error - der User: " + user + " konnte nicht angelegt werden\n" + e.getMessage());
