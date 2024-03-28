@@ -8,10 +8,10 @@ import com.example.logindemo.services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import com.example.logindemo.gui.MyAlert;
 
 import java.io.IOException;
 
@@ -51,15 +51,13 @@ public class LoginController {
             stage.setScene(scene);
 
         }
-        catch (WrongPasswordException | UserNotFoundException e) {
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Username does not exist or password entered is wrong");
-            alert.setHeaderText(null);
-            alert.setContentText("Username does not exist or password entered is wrong");
-            alert.showAndWait();
-
-        } catch (IOException e) {
+        catch (WrongPasswordException e) {
+            MyAlert.initAlert("Entered password is wrong.");
+        }
+        catch (UserNotFoundException e){
+            MyAlert.initAlert("User does not exist in the database.");
+        }
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
