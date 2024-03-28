@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class RegisterController {
-    public String test;
-
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-.]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,3}$";
     private static final String LOWER_CASE_REGEX = "(?=.*[a-z])";
     private static final String UPPER_CASE_REGEX = "(?=.*[A-Z])";
