@@ -9,6 +9,10 @@ public class User {
         this.passwort = passwort;
     }
 
+    public String toString() {
+        return userName + "~" + passwort;
+    }
+
     public String getUserName() {
         return userName;
     }
