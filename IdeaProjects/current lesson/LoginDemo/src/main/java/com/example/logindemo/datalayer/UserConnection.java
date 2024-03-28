@@ -34,7 +34,7 @@ public class UserConnection {
             System.err.println("Error - der User: " + user + " konnte nicht angelegt werden\n" + e.getMessage());
         }
 
-        return null;
+        return user;
     }
 
     public User updateUser(User user) {

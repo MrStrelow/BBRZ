@@ -18,6 +18,7 @@ public class LoginController {
 
     @FXML
     protected void doLogin() {
+
     }
 
     @FXML
