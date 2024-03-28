@@ -2,6 +2,7 @@ package com.example.logindemo.gui.controller;
 
 import com.example.logindemo.DTO.User;
 import com.example.logindemo.LoginApplication;
+import com.example.logindemo.exceptions.UserNotFoundException;
 import com.example.logindemo.exceptions.WrongPasswordException;
 import com.example.logindemo.services.UserService;
 import javafx.fxml.FXML;
@@ -44,7 +45,7 @@ public class LoginController {
             stage.setScene(scene);
 
         }
-        catch (WrongPasswordException e) {
+        catch (WrongPasswordException | UserNotFoundException e) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Username does not exist or password entered is wrong");

@@ -1,6 +1,7 @@
 package com.example.logindemo.datalayer;
 
 import com.example.logindemo.DTO.User;
+import com.example.logindemo.exceptions.UserNotFoundException;
 import javafx.scene.Scene;
 
 import java.io.File;
@@ -44,7 +45,7 @@ public class UserConnection {
         return null;
     }
 
-    public User findUser(User guiUser) {
+    public User findUser(User guiUser) throws UserNotFoundException {
         // aufgrund vom Namen des users suche diesen in der "Datenbank"
         try {
 
