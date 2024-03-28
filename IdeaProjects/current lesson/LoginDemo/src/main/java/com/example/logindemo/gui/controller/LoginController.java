@@ -1,19 +1,14 @@
 package com.example.logindemo.gui.controller;
 
 import com.example.logindemo.DTO.User;
-import com.example.logindemo.LoginApplication;
 import com.example.logindemo.exceptions.UserNotFoundException;
 import com.example.logindemo.exceptions.WrongPasswordException;
+import com.example.logindemo.gui.MyStageConponents;
 import com.example.logindemo.services.UserService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import com.example.logindemo.gui.MyAlert;
-
-import java.io.IOException;
 
 public class LoginController {
     private UserService userService = new UserService();
@@ -35,20 +30,17 @@ public class LoginController {
         User guiUser = new User(usernameTextField.getText(), passwordTextField.getText());
 
         try {
-
             User databaseUser = userService.doUserLogin(guiUser);
 
-            Stage stage = (Stage) loginButton.getScene().getWindow();
+            MyStageConponents stageComponents = new MyStageConponents(loginButton, "game-view");
+            GameViewController gameViewController = stageComponents.getController();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("game-view.fxml"));
+            String welcomeText = "Welcome " + databaseUser.getUserName() + "!";
 
-            Scene scene = new Scene(fxmlLoader.load(), 800, 400);
-            stage.setTitle("Welcome " + databaseUser.getUserName() + "!");
+            gameViewController.setWelcomeTextsText(welcomeText);
+            stageComponents.getStage().setTitle(welcomeText);
 
-            GameViewController gameViewController = fxmlLoader.getController();
-            gameViewController.setWelcomeTextsText("Welcome " + databaseUser.getUserName() + "!");
-
-            stage.setScene(scene);
+            stageComponents.changeScene();
 
         }
         catch (WrongPasswordException e) {
@@ -57,23 +49,11 @@ public class LoginController {
         catch (UserNotFoundException e){
             MyAlert.initAlert("User does not exist in the database.");
         }
-        catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @FXML
     protected void doRegister() {
-        try {
-            Stage stage = (Stage) registerButton.getScene().getWindow();
-
-            FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("register-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 236, 152);
-            stage.setTitle("Pleaser Register!");
-            stage.setScene(scene);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        new MyStageConponents(registerButton, "register-view").changeScene();
     }
 
     @FXML

@@ -2,11 +2,9 @@ package com.example.logindemo.datalayer;
 
 import com.example.logindemo.DTO.User;
 import com.example.logindemo.exceptions.UserNotFoundException;
-import javafx.scene.Scene;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 

@@ -3,6 +3,8 @@ package com.example.logindemo.gui.controller;
 import com.example.logindemo.DTO.User;
 import com.example.logindemo.LoginApplication;
 import com.example.logindemo.datalayer.UserConnection;
+import com.example.logindemo.gui.MyAlert;
+import com.example.logindemo.gui.MyStageConponents;
 import com.example.logindemo.services.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,27 +74,14 @@ public class RegisterController {
 
         if (failed) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle(failedText);
-            alert.setHeaderText(null);
-            alert.setContentText(failedText);
-            alert.showAndWait();
+            MyAlert.initAlert(failedText);
 
         } else {
             // user anlegen und speichern in die "datenbank"
             User user = new User(username, firstPassword);
             userService.createUser(user);
 
-            try {
-                Stage stage = (Stage) createUserButton.getScene().getWindow();
-
-                FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("login-view.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 460, 150);
-                stage.setTitle("Hello, please log-in!");
-                stage.setScene(scene);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            new MyStageConponents(createUserButton, "login-view").changeScene();
         }
     }
 
