@@ -36,12 +36,18 @@ public class LoginController {
 
         try {
 
-            userService.doUserLogin(guiUser);
+            User databaseUser = userService.doUserLogin(guiUser);
+
             Stage stage = (Stage) loginButton.getScene().getWindow();
 
             FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("game-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 480, 200);
-            stage.setTitle("Welcome " + "TODO:insert user name" + "!");
+
+            Scene scene = new Scene(fxmlLoader.load(), 800, 400);
+            stage.setTitle("Welcome " + databaseUser.getUserName() + "!");
+
+            GameViewController gameViewController = fxmlLoader.getController();
+            gameViewController.setWelcomeTextsText("Welcome " + databaseUser.getUserName() + "!");
+
             stage.setScene(scene);
 
         }
