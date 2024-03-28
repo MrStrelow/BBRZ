@@ -18,7 +18,16 @@ public class LoginController {
 
     @FXML
     protected void doLogin() {
+        try {
+            Stage stage = (Stage) loginButton.getScene().getWindow();
 
+            FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("game-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 480, 200);
+            stage.setTitle("Welcome " + "TODO:insert user name" + "!" );
+            stage.setScene(scene);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

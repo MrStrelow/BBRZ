@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.logindemo.gui.controller.GameViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.logindemo.gui.controller.GameViewController">
+   <children>
+      <Button fx:id="logout" layoutX="108.0" layoutY="94.0" mnemonicParsing="false" onAction="#doLogout" prefHeight="214.0" prefWidth="401.0" text="Bye" />
+      <Label fx:id="welcomeText" layoutX="295.0" layoutY="37.0" />
+   </children>
 </AnchorPane>
