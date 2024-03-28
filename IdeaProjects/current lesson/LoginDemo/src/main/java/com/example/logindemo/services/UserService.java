@@ -26,6 +26,6 @@ public class UserService {
         } else {
             throw new WrongPasswordException(guiUser);
         }
-        return null;
+        return databaseUser;
     }
 }

@@ -1,10 +1,13 @@
 package com.example.logindemo.datalayer;
 
 import com.example.logindemo.DTO.User;
+import javafx.scene.Scene;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class UserConnection {
     private File database;
@@ -41,7 +44,29 @@ public class UserConnection {
         return null;
     }
 
-    public User findUser(User user) {
-        return null; //TODO:
+    public User findUser(User guiUser) {
+        // aufgrund vom Namen des users suche diesen in der "Datenbank"
+        try {
+
+            Scanner scanner = new Scanner(database);
+
+            while (scanner.hasNextLine()) {
+                String result = scanner.nextLine();
+                String[] line = result.split("~");
+
+                String databaseUserName = line[0];
+                String databaseUserPassword = line[1];
+
+                if(databaseUserName.equals(guiUser.getUserName())) {
+                    scanner.close();
+                    return new User(databaseUserName, databaseUserPassword);
+                }
+            }
+
+            throw new UserNotFoundException(guiUser);
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
