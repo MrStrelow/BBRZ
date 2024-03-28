@@ -5,4 +5,6 @@ module com.example.logindemo {
 
     opens com.example.logindemo to javafx.fxml;
     exports com.example.logindemo;
+    exports com.example.logindemo.gui.controller;
+    opens com.example.logindemo.gui.controller to javafx.fxml;
 }
