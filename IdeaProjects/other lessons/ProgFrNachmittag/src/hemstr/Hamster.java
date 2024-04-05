@@ -10,6 +10,7 @@ public class Hamster {
     private Integer x;
     private Integer y;
     private String feldZumMerken;
+    private Boolean istHungrig;
 
     // hat-Relationen
     private Spielfeld spielfeld;
@@ -34,8 +35,14 @@ public class Hamster {
         spielfeld.bewegeHamster(this, richtung);
     }
 
-    //TODO 2: essen
-    //TODO 2: hamstern
+    public void essen() {
+        istHungrig = false;
+    }
+
+    //TODO 1: essen (wenn Hunger groß genug ist)
+    //TODO 2: hamstern (wenn kein hunger da ist)
+    //TODO 3: nicht passierbare felder einbauen (wie steine oder, ab jetzt dann hamster! -  mit exception)
+    //TODO 4: verschiedene typen von hamstern bzw. essen
 
     // getter-setter
     public Integer getX() {
@@ -62,5 +69,13 @@ public class Hamster {
 
     public String getFeldZumMerken() {
         return this.feldZumMerken;
+    }
+
+    public Boolean getIstHungrig() {
+        return istHungrig;
+    }
+
+    public void setIstHungrig(Boolean istHungrig) {
+        this.istHungrig = istHungrig;
     }
 }
