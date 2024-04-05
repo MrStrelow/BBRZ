@@ -9,7 +9,6 @@ public class Spielfeld {
     private String[][] spielfeld;
     private String bodenSymbol = "🟫";
     private String samenSymbol = "🌱";
-    private String hamsterSymbol = "🐹"; //Character.toString( 58660 );
     private int groesse = 5;
 
     // hat-Relationen
@@ -79,7 +78,7 @@ public class Spielfeld {
             hamster.setX(x);
             hamster.setY(y);
 
-            spielfeld[y][x] = hamsterSymbol;
+            spielfeld[y][x] = hamster.getDarstellung();
         } else {
 
             // rekursion!!! wenns spielfeld bereits voll ist, probiers nocheinmal.
@@ -89,40 +88,33 @@ public class Spielfeld {
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
+
         switch (richtung) {
             case rechts -> {
                 if(groesse-1 != hamster.getX()) {
-                    spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
                     hamster.setX(hamster.getX() + 1);
-                    hamster.setFeldZumMerken( spielfeld[hamster.getY()][hamster.getX()] );
-                    spielfeld[hamster.getY()][hamster.getX()] = hamsterSymbol;
                 }
             }
             case links -> {
                 if(0 != hamster.getX()) {
-                    spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
                     hamster.setX(hamster.getX() - 1);
-                    hamster.setFeldZumMerken( spielfeld[hamster.getY()][hamster.getX()] );
-                    spielfeld[hamster.getY()][hamster.getX()] = hamsterSymbol;
                 }
             }
             case oben -> {
                 if(0 != hamster.getY()) {
-                    spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
                     hamster.setY(hamster.getY() - 1);
-                    hamster.setFeldZumMerken( spielfeld[hamster.getY()][hamster.getX()] );
-                    spielfeld[hamster.getY()][hamster.getX()] = hamsterSymbol;
                 }
             }
             case unten -> {
                 if(groesse-1 != hamster.getY()) {
-                    spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
                     hamster.setY(hamster.getY() + 1);
-                    hamster.setFeldZumMerken( spielfeld[hamster.getY()][hamster.getX()] );
-                    spielfeld[hamster.getY()][hamster.getX()] = hamsterSymbol;
                 }
             }
-        };
+        }
+
+        hamster.setFeldZumMerken( spielfeld[hamster.getY()][hamster.getX()] );
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
     }
 
 
@@ -175,10 +167,6 @@ public class Spielfeld {
 
     public String getBodenSymbol() {
         return bodenSymbol;
-    }
-
-    public String getHamsterSymbol() {
-        return hamsterSymbol;
     }
 
     public String getSamenSymbol() {

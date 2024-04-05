@@ -9,6 +9,7 @@ import java.util.Random;
 public class Hamster {
     // Attribute
     private String namen;
+    private String darstellung;
     private Integer x;
     private Integer y;
     private String feldZumMerken;
@@ -25,6 +26,7 @@ public class Hamster {
         this.feldZumMerken = spielfeld.getBodenSymbol();
         this.istHungrig = false;
         backenSpeicher = new ArrayList<>();
+        darstellung = "🐹"; //Character.toString( 58660 );
     }
 
     // hier wird der hamster dem spielfeld zugewiesen. Siehe Samen.
@@ -70,7 +72,7 @@ public class Hamster {
     }
 
     public void setFeldZumMerken(String feldZumMerken) {
-        if(!feldZumMerken.equals(spielfeld.getHamsterSymbol())) {
+        if(!feldZumMerken.equals(darstellung) || !feldZumMerken.equals(new HungrigerHamster(spielfeld).getDarstellung())) {
             this.feldZumMerken = feldZumMerken;
         }
     }
@@ -89,5 +91,13 @@ public class Hamster {
 
     public List<Samen> getBackenSpeicher() {
         return backenSpeicher;
+    }
+
+    public String getDarstellung() {
+        return darstellung;
+    }
+
+    public void setDarstellung(String darstellung) {
+        this.darstellung = darstellung;
     }
 }
