@@ -124,6 +124,10 @@ public class Spielfeld {
     }
 
 
+    public void hamsterIsstSamen() {
+    }
+
+
 
     public void printSpielfeld() {
         for (int i = 0; i < groesse; i++) {
@@ -151,5 +155,9 @@ public class Spielfeld {
 
     public String getHamsterSymbol() {
         return hamsterSymbol;
+    }
+
+    public Samen[] getSamen() {
+        return samen;
     }
 }

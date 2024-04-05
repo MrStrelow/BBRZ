@@ -10,12 +10,17 @@ public class Main {
                     Hamster hamster = meinFeld.getHamsters()[i];
 
                     if (hamster.getIstHungrig()) {
-                        hamster.essen();
 
                         // zugriff auf samen array vom spielfeld -> samen hat x und y koordinate
-                        // steht der hamster auf einem samen -> hamster hat x und y koordinate
-                        // vergleiche die koordinaten, wenn ja, dann isst der hamster den samen.
-                        // samen muss aus dem spielfeld gelöscht werden
+                        for (int samenIndex = 0; samenIndex < meinFeld.getSamen().length; samenIndex++) {
+                            Samen samen = meinFeld.getSamen()[samenIndex];
+
+                            // steht der hamster auf einem samen -> hamster hat x und y koordinate
+                            // vergleiche die koordinaten, wenn ja, dann isst der hamster den samen.
+                            if (hamster.getX() == samen.getX() && hamster.getY() == samen.getY()) {
+                                hamster.essen();
+                            }
+                        }
                     }
 
                     hamster.bewegen();
