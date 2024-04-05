@@ -7,25 +7,25 @@ public class Main {
         Spielfeld meinFeld = new Spielfeld();
 
         while (true) {
-            for (int i = 0; i < meinFeld.getHamsters().length; i++) {
-                if(meinFeld.getHamsters()[i] != null) {
-                    Hamster hamster = meinFeld.getHamsters()[i];
+            for (Hamster hamster : meinFeld.getHamsters()) {
 
-                    if (hamster.getIstHungrig() && hamster.getFeldZumMerken().equals(meinFeld.getSamenSymbol())) {
+                boolean stehtAufEssen = hamster.getFeldZumMerken().equals(meinFeld.getSamenSymbol());
 
-                        hamster.essen();
-
-                        //TODO: Das ist sehr "rechen" intensiv -  können wir es mithilfe von FeldZumMerken einfacher machen?
-                    }
-
-                    Random random = new Random();
-                    if( random.nextDouble() < 0.1) {
-                        hamster.setIstHungrig(true);
-                    }
-
-                    hamster.bewegen();
-
+                if (hamster.getIstHungrig() && stehtAufEssen) {
+                    hamster.essen();
                 }
+
+                if (!hamster.getIstHungrig() && stehtAufEssen) {
+                    hamster.hamstern();
+                }
+
+                Random random = new Random();
+                if( random.nextDouble() < 0.1) {
+                    hamster.setIstHungrig(true);
+                }
+
+                hamster.bewegen();
+
             }
 
             meinFeld.printSpielfeld();
