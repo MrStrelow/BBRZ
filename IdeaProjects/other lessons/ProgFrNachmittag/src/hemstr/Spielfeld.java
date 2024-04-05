@@ -127,16 +127,34 @@ public class Spielfeld {
 
 
     public void hamsterIsstSamen(Hamster hamster) {
+        for (Samen s : samen) {
+
+            boolean hamsterStehtDrauf = hamster.getX().equals(s.getX()) && hamster.getY().equals(s.getY());
+
+            if (hamsterStehtDrauf) {
+                samen.remove(s);
+                break;
+            }
+        }
+
         // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
         hamster.setFeldZumMerken(bodenSymbol);
     }
 
     public void hamsterHamstertSamen(Hamster hamster) {
         // wir wollen hier den backenspeicher mit einem essen befüllen
-        hamster.getBackenSpeicher().add();
+        for (Samen s : samen) {
 
-        // aus dem array vom spielfeld wo essen gespeichert wird dieses essen entfernen.
+            boolean hamsterStehtDrauf = hamster.getX().equals(s.getX()) && hamster.getY().equals(s.getY());
 
+            if (hamsterStehtDrauf) {
+                hamster.getBackenSpeicher().add(s);
+                samen.remove(s);
+                break;
+            }
+        }
+
+        hamster.setFeldZumMerken(bodenSymbol);
     }
 
     public void printSpielfeld() {

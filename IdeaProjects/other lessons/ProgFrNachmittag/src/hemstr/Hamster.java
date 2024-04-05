@@ -2,6 +2,7 @@ package hemstr;
 
 import javax.security.sasl.SaslException;
 import java.nio.channels.WritableByteChannel;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -23,6 +24,7 @@ public class Hamster {
         this.spielfeld.weiseHamsterZu(this);
         this.feldZumMerken = spielfeld.getBodenSymbol();
         this.istHungrig = false;
+        backenSpeicher = new ArrayList<>();
     }
 
     // hier wird der hamster dem spielfeld zugewiesen. Siehe Samen.
