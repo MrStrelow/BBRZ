@@ -88,8 +88,12 @@ public class Spielfeld {
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
-        spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
+        // setze vorheriges Feld auf das Feld welches ich bald verlassen werde
+        if (hamster.getFeldZumMerken() != null) {
+            spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
+        }
 
+        // ich bewege mich
         switch (richtung) {
             case rechts -> {
                 if(groesse-1 != hamster.getX()) {
@@ -113,8 +117,17 @@ public class Spielfeld {
             }
         }
 
-        hamster.setFeldZumMerken( spielfeld[hamster.getY()][hamster.getX()] );
-        spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
+        // ist das neue Feld, auf das ich gehe ein Hamster?
+        boolean normalerHamsterAufDemFeld = spielfeld[hamster.getY()][hamster.getX()].equals(hamster.getNormaleDarstellung());
+        boolean hungrigerHamsterAufDemFeld = spielfeld[hamster.getY()][hamster.getX()].equals(hamster.getHungrigeDarstellung());
+
+        // wenn es kein Hamster ist, merke es dir
+        // wenn es ein Hamster ist, vergiss dein gemerktes feld
+        if(!(normalerHamsterAufDemFeld || hungrigerHamsterAufDemFeld)) {
+            hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
+        } else {
+            hamster.setFeldZumMerken(null);
+        }
     }
 
 
@@ -150,11 +163,19 @@ public class Spielfeld {
     }
 
     public void printSpielfeld() {
+        aktualisiereHamster();
+
         for (int i = 0; i < groesse; i++) {
             for (int j = 0; j < groesse; j++) {
                 System.out.print(spielfeld[i][j]);
             }
             System.out.println();
+        }
+    }
+
+    private void aktualisiereHamster() {
+        for (Hamster hamster : hamsters) {
+            spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
         }
     }
 

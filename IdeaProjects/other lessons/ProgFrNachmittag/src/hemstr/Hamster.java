@@ -100,7 +100,7 @@ public class Hamster {
     }
 
     public void setFeldZumMerken(String feldZumMerken) {
-        if(!feldZumMerken.equals(normaleDarstellung) || !feldZumMerken.equals(hungrigeDarstellung)) {
+        if(feldZumMerken != null) {
             this.feldZumMerken = feldZumMerken;
         }
     }
