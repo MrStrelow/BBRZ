@@ -48,17 +48,37 @@ public class Hamster {
         spielfeld.bewegeHamster(this, richtung);
     }
 
-    public void essen() {
+    public void verstoffwechselen() {
+        wirdZufaelligHungrig();
+
+        boolean stehtAufEssen = feldZumMerken.equals(spielfeld.getSamenSymbol());
+        if (istHungrig && stehtAufEssen) {
+            essen();
+        }
+
+        if (!istHungrig && stehtAufEssen) {
+            hamstern();
+        }
+    }
+
+    private void wirdZufaelligHungrig() {
+        Random random = new Random();
+        if( random.nextDouble() < 0.1) {
+            istHungrig = true;
+            darstellung = hungrigeDarstellung;
+        }
+    }
+
+    private void essen() {
         istHungrig = false;
         darstellung = normaleDarstellung;
         spielfeld.hamsterIsstSamen(this);
     }
 
-    public void hamstern() {
+    private void hamstern() {
         spielfeld.hamsterHamstertSamen(this);
     }
 
-    //TODO 2: hamstern (wenn kein hunger da ist)
     //TODO 3: nicht passierbare felder einbauen (wie steine oder, ab jetzt dann hamster! -  mit exception)
     //TODO 4: verschiedene typen von hamstern bzw. essen
 

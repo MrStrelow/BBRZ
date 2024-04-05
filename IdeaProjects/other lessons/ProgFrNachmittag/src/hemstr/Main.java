@@ -8,32 +8,15 @@ public class Main {
 
         while (true) {
             for (Hamster hamster : meinFeld.getHamsters()) {
-
-                boolean stehtAufEssen = hamster.getFeldZumMerken().equals(meinFeld.getSamenSymbol());
-
-                if (hamster.getIstHungrig() && stehtAufEssen) {
-                    hamster.essen();
-                }
-
-                if (!hamster.getIstHungrig() && stehtAufEssen) {
-                    hamster.hamstern();
-                }
-
-                Random random = new Random();
-                if( random.nextDouble() < 0.1) {
-                    hamster.setIstHungrig(true);
-                    hamster.setDarstellung(hamster.getHungrigeDarstellung());
-                }
-
+                hamster.verstoffwechselen();
                 hamster.bewegen();
-
             }
 
             meinFeld.printSpielfeld();
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
