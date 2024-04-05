@@ -23,17 +23,17 @@ public class Hamster {
 
     // Konstruktor
     public Hamster(Spielfeld spielfeld) {
-        this.spielfeld = spielfeld;
-        this.spielfeld.weiseHamsterZu(this);
-        this.feldZumMerken = spielfeld.getBodenSymbol();
+        backenSpeicher = new ArrayList<>();
+        this.istHungrig = false;
 
         normaleDarstellung = "🐹"; //Character.toString( 58660 );
         hungrigeDarstellung = "🐰";
 
-        this.istHungrig = false;
+        this.spielfeld = spielfeld;
+        this.feldZumMerken = spielfeld.getBodenSymbol();
         darstellung = normaleDarstellung;
 
-        backenSpeicher = new ArrayList<>();
+        this.spielfeld.weiseHamsterZu(this);
     }
 
     // hier wird der hamster dem spielfeld zugewiesen. Siehe Samen.
