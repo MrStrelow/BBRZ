@@ -37,7 +37,7 @@ public class Hamster {
 
     public void essen() {
         istHungrig = false;
-        spielfeld.hamsterIsstSamen();
+        spielfeld.hamsterIsstSamen(this);
     }
 
     //TODO 1: essen (wenn Hunger groß genug ist)

@@ -21,7 +21,11 @@ public class Main {
                                 hamster.essen();
                             }
                         }
+
+                        //TODO: Das ist sehr "rechen" intensiv -  können wir es mithilfe von FeldZumMerken einfacher machen?
                     }
+
+                    //TODO: wann wird hamster hungrig? Der hunger wird nie gesetzt! ist also null wenn ein hamster erzeugt wird.
 
                     hamster.bewegen();
 

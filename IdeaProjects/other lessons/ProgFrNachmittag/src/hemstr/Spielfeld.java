@@ -124,7 +124,9 @@ public class Spielfeld {
     }
 
 
-    public void hamsterIsstSamen() {
+    public void hamsterIsstSamen(Hamster hamster) {
+        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
+        hamster.setFeldZumMerken(bodenSymbol);
     }
 
 
