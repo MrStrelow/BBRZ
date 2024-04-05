@@ -10,6 +10,8 @@ public class Hamster {
     // Attribute
     private String namen;
     private String darstellung;
+    private String normaleDarstellung;
+    private String hungrigeDarstellung;
     private Integer x;
     private Integer y;
     private String feldZumMerken;
@@ -24,9 +26,14 @@ public class Hamster {
         this.spielfeld = spielfeld;
         this.spielfeld.weiseHamsterZu(this);
         this.feldZumMerken = spielfeld.getBodenSymbol();
+
+        normaleDarstellung = "🐹"; //Character.toString( 58660 );
+        hungrigeDarstellung = "🐰";
+
         this.istHungrig = false;
+        darstellung = normaleDarstellung;
+
         backenSpeicher = new ArrayList<>();
-        darstellung = "🐹"; //Character.toString( 58660 );
     }
 
     // hier wird der hamster dem spielfeld zugewiesen. Siehe Samen.
@@ -43,6 +50,7 @@ public class Hamster {
 
     public void essen() {
         istHungrig = false;
+        darstellung = normaleDarstellung;
         spielfeld.hamsterIsstSamen(this);
     }
 
@@ -72,7 +80,7 @@ public class Hamster {
     }
 
     public void setFeldZumMerken(String feldZumMerken) {
-        if(!feldZumMerken.equals(darstellung) || !feldZumMerken.equals(new HungrigerHamster(spielfeld).getDarstellung())) {
+        if(!feldZumMerken.equals(normaleDarstellung) || !feldZumMerken.equals(hungrigeDarstellung)) {
             this.feldZumMerken = feldZumMerken;
         }
     }
@@ -99,5 +107,13 @@ public class Hamster {
 
     public void setDarstellung(String darstellung) {
         this.darstellung = darstellung;
+    }
+
+    public String getHungrigeDarstellung() {
+        return hungrigeDarstellung;
+    }
+
+    public String getNormaleDarstellung() {
+        return normaleDarstellung;
     }
 }

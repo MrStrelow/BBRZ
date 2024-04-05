@@ -22,6 +22,7 @@ public class Main {
                 Random random = new Random();
                 if( random.nextDouble() < 0.1) {
                     hamster.setIstHungrig(true);
+                    hamster.setDarstellung(hamster.getHungrigeDarstellung());
                 }
 
                 hamster.bewegen();
