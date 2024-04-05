@@ -21,6 +21,7 @@ public class Hamster {
         this.spielfeld = spielfeld;
         this.spielfeld.weiseHamsterZu(this);
         this.feldZumMerken = spielfeld.getBodenSymbol();
+        this.istHungrig = false;
     }
 
     // hier wird der hamster dem spielfeld zugewiesen. Siehe Samen.

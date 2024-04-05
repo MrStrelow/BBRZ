@@ -159,6 +159,10 @@ public class Spielfeld {
         return hamsterSymbol;
     }
 
+    public String getSamenSymbol() {
+        return samenSymbol;
+    }
+
     public Samen[] getSamen() {
         return samen;
     }

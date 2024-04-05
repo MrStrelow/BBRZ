@@ -1,5 +1,7 @@
 package hemstr;
 
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
         Spielfeld meinFeld = new Spielfeld();
@@ -9,23 +11,17 @@ public class Main {
                 if(meinFeld.getHamsters()[i] != null) {
                     Hamster hamster = meinFeld.getHamsters()[i];
 
-                    if (hamster.getIstHungrig()) {
+                    if (hamster.getIstHungrig() && hamster.getFeldZumMerken().equals(meinFeld.getSamenSymbol())) {
 
-                        // zugriff auf samen array vom spielfeld -> samen hat x und y koordinate
-                        for (int samenIndex = 0; samenIndex < meinFeld.getSamen().length; samenIndex++) {
-                            Samen samen = meinFeld.getSamen()[samenIndex];
-
-                            // steht der hamster auf einem samen -> hamster hat x und y koordinate
-                            // vergleiche die koordinaten, wenn ja, dann isst der hamster den samen.
-                            if (hamster.getX() == samen.getX() && hamster.getY() == samen.getY()) {
-                                hamster.essen();
-                            }
-                        }
+                        hamster.essen();
 
                         //TODO: Das ist sehr "rechen" intensiv -  können wir es mithilfe von FeldZumMerken einfacher machen?
                     }
 
-                    //TODO: wann wird hamster hungrig? Der hunger wird nie gesetzt! ist also null wenn ein hamster erzeugt wird.
+                    Random random = new Random();
+                    if( random.nextDouble() < 0.1) {
+                        hamster.setIstHungrig(true);
+                    }
 
                     hamster.bewegen();
 
