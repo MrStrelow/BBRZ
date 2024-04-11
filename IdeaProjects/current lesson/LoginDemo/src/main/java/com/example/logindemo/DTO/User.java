@@ -26,9 +26,18 @@ public class User {
     public User(String userName, String passwort, Boolean rememberMe) {
         this.userName = userName;
         this.passwort = passwort;
-        this.lastLogin = null;
         this.rememberMe = rememberMe;
+        this.lastLogin = null;
         this.isActive = true;
+    }
+
+    // dieser Konstruktor ist für das Registrieren eines uses zuständig.
+    public User(String userName, String passwort) {
+        this.userName = userName;
+        this.passwort = passwort;
+        this.rememberMe = false;
+        this.lastLogin = null;
+        this.isActive = false;
     }
 
 
