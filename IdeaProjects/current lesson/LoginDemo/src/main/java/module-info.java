@@ -1,6 +1,7 @@
 module com.example.logindemo {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.example.logindemo to javafx.fxml;
