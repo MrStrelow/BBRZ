@@ -7,6 +7,7 @@ import com.example.logindemo.gui.MyStageConponents;
 import com.example.logindemo.services.UserService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import com.example.logindemo.gui.MyAlert;
 
@@ -26,8 +27,11 @@ public class LoginController {
     private TextField usernameTextField;
 
     @FXML
+    private CheckBox rememberMeCheckBox;
+
+    @FXML
     protected void doLogin() {
-        User guiUser = new User(usernameTextField.getText(), passwordTextField.getText());
+        User guiUser = new User(usernameTextField.getText(), passwordTextField.getText(), rememberMeCheckBox.isSelected());
 
         try {
             User databaseUser = userService.doUserLogin(guiUser);

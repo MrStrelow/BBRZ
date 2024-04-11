@@ -6,6 +6,9 @@ import com.example.logindemo.exceptions.UserNotFoundException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserConnection {
@@ -55,10 +58,18 @@ public class UserConnection {
 
                 String databaseUserName = line[0];
                 String databaseUserPassword = line[1];
+                Boolean databaseRememberMe = line[2].equals("true");
+
+                LocalDateTime databaseLastLogin = null;
+                if(!line[3].equals("null")) {
+                    databaseLastLogin = LocalDateTime.parse(line[3], DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+                }
+
+                Boolean databaseIsActive = line[4].equals("true");
 
                 if(databaseUserName.equals(guiUser.getUserName())) {
                     scanner.close();
-                    return new User(databaseUserName, databaseUserPassword);
+                    return new User(databaseUserName, databaseUserPassword, databaseRememberMe, databaseLastLogin, databaseIsActive);
                 }
             }
 

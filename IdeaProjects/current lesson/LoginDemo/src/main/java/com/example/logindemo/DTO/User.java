@@ -1,5 +1,6 @@
 package com.example.logindemo.DTO;
 
+import javax.swing.text.StyledEditorKit;
 import java.time.LocalDateTime;
 
 public class User {
@@ -19,6 +20,17 @@ public class User {
         this.lastLogin = lastLogin;
         this.isActive =  isActive;
     }
+
+
+    // dieser Konstruktor ist für den login zuständig.
+    public User(String userName, String passwort, Boolean rememberMe) {
+        this.userName = userName;
+        this.passwort = passwort;
+        this.lastLogin = null;
+        this.rememberMe = rememberMe;
+        this.isActive = true;
+    }
+
 
     public String toString() {
         return userName + "~" + passwort + "~" + rememberMe + "~" + lastLogin + "~" + isActive + "\n";
