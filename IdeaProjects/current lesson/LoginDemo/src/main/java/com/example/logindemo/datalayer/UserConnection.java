@@ -5,6 +5,7 @@ import com.example.logindemo.exceptions.UserNotFoundException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -42,7 +43,35 @@ public class UserConnection {
         return user;
     }
 
-    public User updateUser(User user) {
+
+    //ACHTUNG! nur komplette guiUser hier übergeben!
+    public User updateUser(User guiUser) {
+        try(
+                Scanner scanner = new Scanner(database);
+                FileWriter writer = new FileWriter(database, false);
+        ) {
+            StringBuilder content = new StringBuilder();
+
+            while (scanner.hasNextLine()) {
+
+                String result = scanner.nextLine();
+                String[] line = result.split("~");
+
+                String presentUserName = line[0];
+
+                if (presentUserName.equals(guiUser.getUserName())) {
+                    content.append(guiUser);
+                } else {
+                    content.append(result).append("\n");
+                }
+            }
+
+            writer.write(content.toString());
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         return null;
     }
 

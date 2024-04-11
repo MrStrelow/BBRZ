@@ -5,6 +5,8 @@ import com.example.logindemo.datalayer.UserConnection;
 import com.example.logindemo.exceptions.UserNotFoundException;
 import com.example.logindemo.exceptions.WrongPasswordException;
 
+import java.time.LocalDateTime;
+
 public class UserService {
 
     private UserConnection userConnection;
@@ -22,11 +24,13 @@ public class UserService {
 
         if(guiUser.getPasswort().equals( databaseUser.getPasswort() )) {
 
-            // happy
+            databaseUser.setLastLogin(LocalDateTime.now());
+            databaseUser.setActive(true);
+
+            return userConnection.updateUser(databaseUser);
 
         } else {
             throw new WrongPasswordException(guiUser);
         }
-        return databaseUser;
     }
 }
