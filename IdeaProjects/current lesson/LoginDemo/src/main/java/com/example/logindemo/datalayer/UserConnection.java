@@ -45,11 +45,12 @@ public class UserConnection {
 
 
     //ACHTUNG! nur komplette guiUser hier übergeben!
-    public User updateUser(User guiUser) {
+    public User updateUser(User guiUser) throws UserNotFoundException {
         try(
                 Scanner scanner = new Scanner(database);
                 FileWriter writer = new FileWriter(database, false);
         ) {
+            Boolean userFound = false;
             StringBuilder content = new StringBuilder();
 
             while (scanner.hasNextLine()) {
@@ -61,6 +62,7 @@ public class UserConnection {
 
                 if (presentUserName.equals(guiUser.getUserName())) {
                     content.append(guiUser);
+                    userFound = true;
                 } else {
                     content.append(result).append("\n");
                 }
@@ -68,11 +70,16 @@ public class UserConnection {
 
             writer.write(content.toString());
 
+            if (userFound) {
+                return guiUser;
+            } else {
+                throw new UserNotFoundException(guiUser);
+            }
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        return null;
     }
 
     public User findUser(User guiUser) throws UserNotFoundException {
