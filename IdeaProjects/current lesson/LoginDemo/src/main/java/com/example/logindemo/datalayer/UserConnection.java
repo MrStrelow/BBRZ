@@ -46,12 +46,10 @@ public class UserConnection {
 
     //ACHTUNG! nur komplette guiUser hier übergeben!
     public User updateUser(User guiUser) throws UserNotFoundException {
-        try(
-                Scanner scanner = new Scanner(database);
-                FileWriter writer = new FileWriter(database, false);
-        ) {
+        try {
             Boolean userFound = false;
             StringBuilder content = new StringBuilder();
+            Scanner scanner = new Scanner(database);
 
             while (scanner.hasNextLine()) {
 
@@ -68,7 +66,12 @@ public class UserConnection {
                 }
             }
 
+            FileWriter writer = new FileWriter(database, false);
+
             writer.write(content.toString());
+
+            writer.close();
+            scanner.close();
 
             if (userFound) {
                 return guiUser;

@@ -26,6 +26,7 @@ public class UserService {
 
             databaseUser.setLastLogin(LocalDateTime.now());
             databaseUser.setActive(true);
+            databaseUser.setRememberMe(guiUser.getRememberMe());
 
             return userConnection.updateUser(databaseUser);
 
