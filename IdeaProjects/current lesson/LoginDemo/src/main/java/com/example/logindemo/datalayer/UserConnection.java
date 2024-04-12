@@ -65,8 +65,8 @@ public class UserConnection {
                 }
             }
 
-            FileWriter writer = new FileWriter(database, false);
 
+            FileWriter writer = new FileWriter(database, false);
             writer.write(content.toString());
 
             writer.close();
