@@ -17,6 +17,6 @@
         </rowConstraints>
       </GridPane>
       <Button fx:id="logoutButton" layoutX="238.0" layoutY="306.0" mnemonicParsing="false" onAction="#doLogout" prefHeight="80.0" prefWidth="124.0" text="Bye" />
-      <Label fx:id="welcomeText" contentDisplay="CENTER" layoutX="288.0" layoutY="28.0" onMousePressed="#toggleState" />
+      <Label fx:id="welcomeText" contentDisplay="CENTER" layoutX="288.0" layoutY="28.0" />
    </children>
 </AnchorPane>
