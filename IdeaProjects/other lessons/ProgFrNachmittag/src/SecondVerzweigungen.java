@@ -1,6 +1,4 @@
-import java.util.Random;
-
-public class Verzweigungen {
+public class SecondVerzweigungen {
     public static void main(String[] args) {
         Integer first = 5;
         Integer second = 37;

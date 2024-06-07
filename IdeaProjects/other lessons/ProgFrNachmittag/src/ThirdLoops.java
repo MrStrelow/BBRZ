@@ -1,4 +1,4 @@
-public class Loops {
+public class ThirdLoops {
     public static void main(String[] args) {
 
 //        System.out.println(1);

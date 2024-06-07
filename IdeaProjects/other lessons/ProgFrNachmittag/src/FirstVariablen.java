@@ -1,4 +1,4 @@
-public class Variablen {
+public class FirstVariablen {
     public static void main(String[] args) {
 
         // Variable deklarieren (keinen Wert zuweisen)

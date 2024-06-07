@@ -1,4 +1,4 @@
-public class AufgabenMitZahlen {
+public class FourthAufgabenMitZahlen {
     public static void main(String[] args) {
         // Wir wollen die kumulierte Summe von Zahlen [1, 2, 3, 4, 5, 6] bilden.
         // Das heißt wir wollen 1 + 2 = 3 rechnen, das Ergebnis ausgeben.
