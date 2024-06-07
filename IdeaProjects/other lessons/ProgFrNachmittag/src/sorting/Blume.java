@@ -1,6 +1,6 @@
 package sorting;
 
-public class Blume implements Comparable{
+public class Blume implements Comparable {
     public int hoehe;
     public int breite;
 
