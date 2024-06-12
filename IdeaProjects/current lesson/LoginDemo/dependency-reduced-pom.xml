@@ -21,9 +21,16 @@
         <version>0.0.8</version>
         <executions>
           <execution>
-            <goals>
-              <goal>jlink</goal>
-            </goals>
+            <id>default-cli</id>
+            <configuration>
+              <mainClass>com.example.logindemo/com.example.logindemo.LoginApplication</mainClass>
+              <launcher>app</launcher>
+              <jlinkZipName>app</jlinkZipName>
+              <jlinkImageName>app</jlinkImageName>
+              <noManPages>true</noManPages>
+              <stripDebug>true</stripDebug>
+              <noHeaderFiles>true</noHeaderFiles>
+            </configuration>
           </execution>
         </executions>
         <configuration>
