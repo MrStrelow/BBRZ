@@ -35,13 +35,27 @@ public class Main {
         String ausgabe = (meinErsterString + meinZweiterInteger) + meinErsteInteger;
         System.out.println( ausgabe );
 
-        ausgabe = meinZweiterInteger + meinErsterString + (meinZweiterInteger * meinErsteInteger);
+        ausgabe = meinZweiterInteger + meinErsterString + (meinZweiterInteger + meinErsteInteger);
         System.out.println( ausgabe );
 
 //        System.out.println( Math.addExact(meinErsteInteger, meinZweiterInteger) );
 
 //        System.out.println(meinZweiterSting);
 //        System.out.println(meinErsterString);
+
+        meinErsterDouble = 7.0;
+
+        System.out.println( meinErsteInteger / meinErsterDouble );
+
+        System.out.println( meinZweiterInteger / meinErsteInteger);
+
+        System.out.println( 11 / 5 );
+
+        System.out.println( 11.0 / 5);
+
+        System.out.println( Math.divideExact(11, 5) );
+
+        System.out.println( 11 % 5 );
 
     }
 }
