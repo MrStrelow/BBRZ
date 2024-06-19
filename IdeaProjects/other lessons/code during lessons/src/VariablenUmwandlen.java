@@ -18,6 +18,11 @@ public class VariablenUmwandlen {
         Beim Deklarieren weisen wir keinen Wert zu. Die Variable kann also nicht weiter verwendet werden.
         Wir koennen aber der Variable spaeter einen Wert zuweisen. z.B. "x = 25;" wenn wir weiter oben im Code "Integer x" bereits geschrieben haben  */
 
+        // //        Character output = userinput.charValue(); // gibts leider nicht.
+        ////        Character output = new Character(userinput);
+        ////        Character output = Character.toChars(userinput)[0];
+        // Point something number mehtod.
+
         // definieren
         Integer kleineGanzeZahl = 1;
         int kleineGanzePrimitiveZahl = 10;

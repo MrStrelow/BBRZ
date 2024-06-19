@@ -9,19 +9,19 @@ public class FourthAufgabenMitZahlen {
 
         System.out.println("~~~~~~~~~~~~~~~~~~ 1 . Beispiel ~~~~~~~~~~~~~~~~~~");
 //        int ergebnis = 1;
-//        int zwischenergebnis = 1;
+//        int vorherigesErgebnis = ergebnis;
 //
-//        for (int zaehlvariable = 1; zaehlvariable < 6; zaehlvariable++) {
+//        for (int zahlvariable = 1; zahlvariable < 6; zahlvariable++ ) {
+//            ergebnis = ergebnis + zahlvariable + 1;
 //
-//            ergebnis = zwischenergebnis + zaehlvariable + 1;
+//            System.out.println(ergebnis + " = " + vorherigesErgebnis + " + " + (zahlvariable + 1));
 //
-//            System.out.println( ergebnis + " = " + zwischenergebnis + " + " + (zaehlvariable + 1) );
-//            zwischenergebnis = ergebnis;
+//            vorherigesErgebnis = ergebnis;
 //        }
 
         System.out.println("~~~~~~~~~~~~~~~~~~ 2 . Beispiel ~~~~~~~~~~~~~~~~~~");
 
-        // Wie 1. Aufgabe, aber wenn das Ergebnis in einem Schritt durch 3 teilbar ist,
+        // Wie 1. Aufgabe, aber wenn das vorherige Ergebnis in einem Schritt durch 3 teilbar ist,
         // dann zählen wir nicht die nächste Zahl dazu, sondern dessen Quadrat.
         // also nicht 3 + (2+1) sondern 3 + (2+1)^2. (wie schreibe ich das Quadrat einer Zahl in JAVA? Es ist leider nicht x^2.)
         // Input:  [1, 2, 3,  4,  5,  6]
@@ -29,49 +29,40 @@ public class FourthAufgabenMitZahlen {
         //Notiz: hier ist 3, 12 und 33 durch 3 teilbar!
 
 //        int ergebnis = 1;
-//        int zwischenergebnis = 1;
+//        int vorherigesErgebnis = 1;
 //
 //        for (int zaehlvariable = 1; zaehlvariable < 6; zaehlvariable++) {
 //
-//            if (ergebnis % 3 == 0) {
-//                ergebnis = zwischenergebnis + (zaehlvariable + 1)*(zaehlvariable + 1);
-//                System.out.println( ergebnis + " = " + zwischenergebnis + " + " + (zaehlvariable + 1) * (zaehlvariable + 1) );
+//            if (vorherigesErgebnis % 3 == 0) {
+//                ergebnis = vorherigesErgebnis + (zaehlvariable + 1)*(zaehlvariable + 1);
+//                System.out.println( ergebnis + " = " + vorherigesErgebnis + " + " + (zaehlvariable + 1) * (zaehlvariable + 1) );
 //            } else {
-//                ergebnis = zwischenergebnis + zaehlvariable + 1;
-//                System.out.println( ergebnis + " = " + zwischenergebnis + " + " + (zaehlvariable + 1) );
+//                ergebnis = vorherigesErgebnis + zaehlvariable + 1;
+//                System.out.println( ergebnis + " = " + vorherigesErgebnis + " + " + (zaehlvariable + 1) );
 //            }
-//            zwischenergebnis = ergebnis;
+//            vorherigesErgebnis = ergebnis;
 //        }
 
         // Wie 2. nur mit anderem Input. Wir können hier nicht mehr mit der for schleife die [95, 207, 34,  4,  1,  6] Zahlen erzeugen.
         // Davor konnten wir leicht [1, 2, 3, 4, 5, 6] mit der Schleifenvariable erzeugen.
         // Tipp: welches Sprachkonstrukt (Verzweigung, Schleife, ...) haben wir bis jetzt noch nicht verwendet?
         // Input:  [95, 207, 34,  4,  1,  6]
-        // Output: [95+207=302, 302+34=336, 336+16=352, 352+1=353, 353+6=359]
+        // Output: [95+207=302, 302+34=336, 336+4^2=352, 352+1=353, 353+6=359]
 
-        int[] input = {95, 207, 34,  4,  1,  6};
-        int ergebnis = input[0];
-        int zwischenergebnis = ergebnis;
+        int[] schloss = {95, 207, 34,  4,  1,  6};
+        int ergebnis = schloss[0];
+        int vorherigesErgebnis = ergebnis;
 
-        for (int zaehlvariable = 0; zaehlvariable < input.length-1; zaehlvariable++) {
-
-            if (ergebnis % 3 == 0) {
-                ergebnis = zwischenergebnis + input[zaehlvariable + 1] * input[zaehlvariable + 1];
-                System.out.println( ergebnis + " = " + zwischenergebnis + " + " + input[zaehlvariable + 1] * input[zaehlvariable + 1] );
+        for (int schluessel = 0; schluessel < 5; schluessel++ ) {
+            if (vorherigesErgebnis % 3 == 0) {
+                ergebnis = ergebnis + schloss[schluessel + 1] * schloss[schluessel + 1];
+                System.out.println(ergebnis + "\t = " + vorherigesErgebnis + "\t + " + schloss[schluessel + 1] + "^2" );
             } else {
-                ergebnis = zwischenergebnis + input[zaehlvariable + 1];
-                System.out.println( ergebnis + " = " + zwischenergebnis + " + " + input[zaehlvariable + 1] );
+                ergebnis = ergebnis + schloss[schluessel + 1];
+                System.out.println(ergebnis + "\t = " + vorherigesErgebnis + "\t + " + schloss[schluessel + 1]);
             }
-            zwischenergebnis = ergebnis;
+
+            vorherigesErgebnis = ergebnis;
         }
-
-//        int zaehlvar = 0;
-//        while (zaehlvar <= 6) {
-//            System.out.println(zaehlvar);
-//
-//            zaehlvar++;
-//        }
-
-        // Notiz: Input kann array sein.
     }
 }
