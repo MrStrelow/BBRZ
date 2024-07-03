@@ -145,10 +145,12 @@ public class L03Operatoren {
         //      - wenn wir eine kompliziertere Aussage negieren wollen, müssen wir eine Klammer setzen: !(a && b)
         // - && (und):
         //      - nur wenn beide input Variablen des Operators wahr sind, dann ist der output wahr.
+        //      Wir haben hier die Logik im Kopf, dass jede Variable ein Puzzlestein ist, den ich alle brauche um ans Ziel zu kommen.
         //      - wir modellieren damit eine Kette von Aussagen, welche alle eintreten müssen. z.B.
         //          der user muss berechtigt && aktiv && Ausweis ist hinterlegt && alter > 18
         // - || (oder):
         //      - wenn eine der input Variablen des Operators wahr ist, dann ist der output wahr.
+        //      Wir haben hier die Logik im Kopf, dass jede Variable uns schon direkt ans Ziel bringt, wir aber mehrere Möglichkeiten haben um dort hinzukommen.
         //      - wir modellieren damit eine Kette von Aussagen, wo nur eine eintreten muss. z.B.
         //          der user kommt im Spiel weiter, wenn dieser genug Punkte || genug Zeit || genug Geld verwendet hat
 
@@ -205,13 +207,14 @@ public class L03Operatoren {
         // Wir stellen bei "==" uns die Frage "ist 7 dasselbe wie 8?"
         // Auch "!=" ist möglich. Hier ist die Frage "ist 7 nicht das dasselbe wie 8?"
         // Wir werden später bei komplexeren Datentypen (Objekte) sehen, dass wir mit == wirklich das SELBE meinen und nicht das GLEICHE.
-        int a = 10;
-        int b = 10;
-        int c = 20;
+        Integer a = 10;
+        Integer b = 10;
+        Integer c = 20;
 
-        System.out.println("a == b: " + (a == b));
-        System.out.println("a == c: " + (a == c));
-        System.out.println("a != c: " + (a != c));
+        System.out.println("a == b: " + (a == b) );
+        System.out.println("a == c: " + (a == c) );
+        System.out.println("a != c: " + !(a == c) );
+        System.out.println("a != c: " + (a != c) );
 
         String str1 = "hello";
         String str2 = "hello";
