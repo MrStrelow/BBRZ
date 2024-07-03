@@ -247,6 +247,9 @@ public class L03Operatoren {
         String password = correctPassword; // Ändere diesen Text auf "TODO CHANGE THIS";
 
         result =
+                false;
+
+        result =
                 username.equals(correctUsername + "das ist ein gehackter teil des textes") &&
                 password.equals(correctPassword) &&
                 active &&
@@ -296,10 +299,13 @@ public class L03Operatoren {
         // Dieser Operator ist also ein unärer Operator wie das "!". Ansonsten waren bisher alle Operatoren binär.
         // Es gibt hier noch eine Anmerkung zu den Inkrement/Dekrement Operator.
         // Wir können beider schreiben und es wird das Gleiche ausgegeben.
+        System.out.println("start here:");
+        alter = 25;
         alter++;
         System.out.println(alter);
 
         ++alter;
+        alter = alter + 1;
         System.out.println(alter);
 
         // Der Unterschied ist subtil und hier nicht erkennbar.
