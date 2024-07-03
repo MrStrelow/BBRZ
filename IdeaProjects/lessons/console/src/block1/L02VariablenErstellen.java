@@ -57,7 +57,7 @@ public class L02VariablenErstellen {
             // - byte oder Byte     (ganze Zahl -> [-2^4,   +2^4],  keine Kommazahlen)
         // - Kommazahlen:
             // - float oder Float   (Kommazahl, weniger genau wie Double)
-            // - double oder Double (Kommazahl)
+            // - Double oder Double (Kommazahl)
         // - logische Werte:
             // - boolean oder Boolean (hat 0 oder 1 als Wert)
 
@@ -382,19 +382,19 @@ public class L02VariablenErstellen {
         System.out.println(myStrngeAndBigDouble);
 
         // Hier ein paar kurze Beispiele zu den Rundungsfehlern der Fließkommadarstellung der Zahlen.
-        double doubleA = 0.1;     // nicht genau darstellbar   - ?
-//        double doubleA = 0.2;     // nicht genau darstellbar   - ?
-//        double doubleA = 0.5;     // genau darstellbar       - summe genau darstellbar
-//        double doubleA = 0.4;     // nicht genau darstellbar - summe genau darstellbar
-//        double doubleA = 0.0;     // genau darstellbar       - summe genau GENUG darstellbar
+        Double doubleA = 0.1;     // nicht genau darstellbar   - ?
+//        Double doubleA = 0.2;     // nicht genau darstellbar   - ?
+//        Double doubleA = 0.5;     // genau darstellbar       - summe genau darstellbar
+//        Double doubleA = 0.4;     // nicht genau darstellbar - summe genau darstellbar
+//        Double doubleA = 0.0;     // genau darstellbar       - summe genau GENUG darstellbar
 
-        double doubleB = 0.2;     // nicht genau darstellbar   - ?
-//        double doubleB = 0.2;     // nicht genau darstellbar   - ?
-//        double doubleB = 0.25;    // genau darstellbar       - summe genau darstellbar
-//        double doubleB = 0.35;    // nicht genau darstellbar - summe genau darstellbar
-//        double doubleB = 0.3;     // nicht genau darstellbar - summe genau GENUG darstellbar
+        Double doubleB = 0.2;     // nicht genau darstellbar   - ?
+//        Double doubleB = 0.2;     // nicht genau darstellbar   - ?
+//        Double doubleB = 0.25;    // genau darstellbar       - summe genau darstellbar
+//        Double doubleB = 0.35;    // nicht genau darstellbar - summe genau darstellbar
+//        Double doubleB = 0.3;     // nicht genau darstellbar - summe genau GENUG darstellbar
 
-        double sum = doubleA + doubleB;
+        Double sum = doubleA + doubleB;
         System.out.println("a: " + doubleA);
         System.out.println("b: " + doubleB);
         System.out.println("Sum: " + sum);
@@ -410,8 +410,8 @@ public class L02VariablenErstellen {
         // Wichtig hier ist, dass die Summe der beiden Zahlen gut mit einer 2er-Potenz darstellbar ist.
 
         // Ein Weiteres Beispiel, welches wiederholt zahlen zusammenzählt, welche sehr unterschiedlich von der Größe sind.
-        double x = 1e6;
-        double epsilon = 1e-10;
+        Double x = 1e6;
+        Double epsilon = 1e-10;
 
         // Adding epsilon to x in a loop
         for (int i = 0; i < 10; i++) {

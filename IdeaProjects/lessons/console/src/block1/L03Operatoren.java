@@ -2,7 +2,7 @@ package block1;
 
 public class L03Operatoren {
     public static void main(String[] args) {
-        // block1.Operatoren verknüpfen Variablen bzw. Werte miteinander und erzeugen basierend auf denen einen neuen Wert.
+        // Operatoren verknüpfen Variablen bzw. Werte miteinander und erzeugen basierend auf denen einen neuen Wert.
         // Der folgende "+" Operator, welcher die Bedeutung "Addition" hat, verknüpft die Zahlen 35 und 17 und erzeugt den neuen Wert 52.
         System.out.println( 35 + 17 );
 
@@ -21,7 +21,7 @@ public class L03Operatoren {
         System.out.println(firstString + secondString);
 
         // Im Allgemeinen kann angenommen werden, wenn ein "Ausdruck", was auch immer er ist, einen Wert mit einem Typ erzeugt,
-        // kann dieses Ergebnis mit block1.Operatoren weiter verknüpft werden.
+        // kann dieses Ergebnis mit Operatoren weiter verknüpft werden.
         // Es kann also eine Kette gebildet werden.
         System.out.println(firstInt + secondInt + firstInt + secondInt);
 
@@ -36,40 +36,40 @@ public class L03Operatoren {
         // Das Ergebnis bleibt jedoch das gleiche, denn bei der Addition ist die Reihenfolge der Auswertung egal.
         System.out.println( (firstInt + secondInt) + (firstInt  +  secondInt) );
 
-        // Für die andren arithmetischen block1.Operatoren der Zahlen, "-", "*", "/" der Zahlen gelten die Regeln aus der Mathematik.
+        // Für die andren arithmetischen Operatoren der Zahlen, "-", "*", "/" der Zahlen gelten die Regeln aus der Mathematik.
 
-        //#################################### Arten von block1.Operatoren ####################################
-        // Unterschiedliche Bedeutungen von block1.Operatoren, haben zur Folge, dass verschiedene Namen für diese existieren.
+        //#################################### Arten von Operatoren ####################################
+        // Unterschiedliche Bedeutungen von Operatoren, haben zur Folge, dass verschiedene Namen für diese existieren.
         // Diese unterschiedlichen Bedeutungen sind meistens aufgrund der Typen der Werte welche in eine Variable "reinfließen" bzw. "rausfließen"
-        // Wir unterscheiden in folgende block1.Operatoren:
-        // - block1.Operatoren welche den Typ erhalten:
+        // Wir unterscheiden in folgende Operatoren:
+        // - Operatoren welche den Typ erhalten:
         //      - string operatoren:
         //          - "+": concatenate bedeutet, füge Zeichen bzw. Zeichenketten zusammen.
-        //      - arithmetische block1.Operatoren:
+        //      - arithmetische Operatoren:
         //          - "+", "-", "*", "/", bei Variablen welche Zahlen darstellen
-        //      - logische (oder auch boolesche) block1.Operatoren:
+        //      - logische (oder auch boolesche) Operatoren:
         //          - "!", "||", "&&", "^": das sind beispielsweise das logische nicht, logische und, logische oder, und exclusive oder.
-        //      - bitweise block1.Operatoren:
+        //      - bitweise Operatoren:
         //          - "|", "&", "^", "~", "<<", ">>", ">>>": bitweise operatoren nehmen die binäre Darstellung eine Zahl und verknüft diese bit pro bit. also 5 & 6 = 101 & 110 = [1&1 = 1, 0&1 = 0, 1&0=0] = 100 = 4
-        // - block1.Operatoren welche den Typ nicht erhalten:
+        // - Operatoren welche den Typ nicht erhalten:
         //      - Vergleichsoperatoren:
         //          - "==", "<", ">", "<=", ">=", "instanceof": hier ist "==" eine Frage.
         //              Ist der linke und der rechte Input in einer Beziehung? Wenn ja, dann gib "Wahr" zurück, wenn nein "Falsch".
         // - Zuweisungsoperatoren:
         //      - wir haben in JAVA nur einen und dieser ist das "=". Dieser weist den rechts stehenden Ausdruck der links
         //      stehenden Variable zu.
-        // - gemischte block1.Operatoren:
+     // - gemischte Operatoren:
         //      - "+=", "-=", "*=", "/=": diese sind eine Kombination aus zuweisung und arithmetischen Oparatoren.
-        //      - "++", "--": diese werden inkrement und dekrement block1.Operatoren genannt und sind eine Kombination aus "x=x+1".
-        // - selbst definierte Opertoren
+        //      - "++", "--": diese werden inkrement und dekrement Operatoren genannt und sind eine Kombination aus "x=x+1".
+        // - selbst definierte Operatoren
         //      - das ist in JAVA nicht möglich (C++). Wir können aber Methoden erstellen, welche ein solches Verhalten abbilden.
 
-        // Wir unterscheiden zudem in unäre, binäre und tertiäre block1.Operatoren. Diese Kategorisierung gibt an, wie viele Inputs diese annehmen.
+        // Wir unterscheiden zudem in unäre, binäre und tertiäre Operatoren. Diese Kategorisierung gibt an, wie viele Inputs diese annehmen.
         // Achtung, damit ist nicht deren Verkettung gemeint, sondern wirklich ein Operator nimmt 1, 2 oder 3 Inputs an.
         // Beispiel für einen unären Operator ist:
 
         System.out.println(!true);
-        // Beispiel für binäre block1.Operatoren ist (hier sind sogar 2 binäre block1.Operatoren mit einem neuen gemischten Operator zusammengefasst):
+        // Beispiel für binäre Operatoren ist (hier sind sogar 2 binäre Operatoren mit einem neuen gemischten Operator zusammengefasst):
         System.out.println(firstInt *= 10);
         firstInt = firstInt * 10;
 
@@ -81,7 +81,7 @@ public class L03Operatoren {
         Boolean ergebnis = !( firstBoolean && firstBoolean);
 
 
-        // #################################### Zeichen(ketten) block1.Operatoren ####################################
+        // #################################### Zeichen(ketten) Operatoren ####################################
         // Das gewohnte "+".
         System.out.println( "hallo" + " " + "wir " + "verknüpfen" + " Strings");
 
@@ -93,12 +93,12 @@ public class L03Operatoren {
         // Achtung" hier ist '"' ein Character wir können also nicht '"undnochmehr' schreiben, da dies eine Zeichenkette wäre.
 
 
-        // #################################### arithmetische block1.Operatoren ####################################
+        // #################################### arithmetische Operatoren ####################################
         // Typ des Inputs:  [Zahl, Zahl]
         // Typ des Outputs: [Zahl]
-        // arithmetisch bedeutet hier "Grundlegende Operationen auf Zahlen bezogen". Streng genommen sind auch die boolschen block1.Operatoren artimetisch,
+        // arithmetisch bedeutet hier "Grundlegende Operationen auf Zahlen bezogen". Streng genommen sind auch die boolschen Operatoren artimetisch,
         // aber wir verwenden den Begriff um auf plus, minus, mal und dividiert in den Zahlen zu verweisen.
-        // Wichtig hier ist, dass die block1.Operatoren überladen werden können. Bedeutet also ein Operator wie "/" kann mehrere Bedeutungen haben.
+        // Wichtig hier ist, dass die Operatoren überladen werden können. Bedeutet also ein Operator wie "/" kann mehrere Bedeutungen haben.
         // Schauen wir uns dazu folgendes an
         Double meinErsterDouble = 2.0;
         Integer meinErsteInteger = 2;
@@ -111,14 +111,14 @@ public class L03Operatoren {
         System.out.println( meinZweiterInteger / meinErsterDouble );
 
         // Wir haben als Input 2 Integer und bekommen einen Integer zurück. Wir haben also einen Operator der dividiert,
-        // aber ohne Kommadarstellung. Da block1.Operatoren nur einen Wert zurückgeben können, ist dies der Quotient (Dividend / Divisor = Quotient + Rest).
+        // aber ohne Kommadarstellung. Da Operatoren nur einen Wert zurückgeben können, ist dies der Quotient (Dividend / Divisor = Quotient + Rest).
         System.out.println( 5 / 2 );
 
         // Den Rest (Dividend / Divisor = Quotient + Rest) können wir mit einem eigenen Operator, den Modulo Operator, bekommen.
         System.out.println( 5 % 2 );
 
         // Um klarzumachen, dass wir eine "fließkomma Division" haben wollen, müssen wir dem Operator einen anderen Typ als Input geben.
-        // Wir können nicht anders mit block1.Operatoren "kommunizieren", deshalb ist das der einzige Weg.
+        // Wir können nicht anders mit Operatoren "kommunizieren", deshalb ist das der einzige Weg.
         // Wenn wir eines der Inputs eine Kommazahl ist, dann versteht JAVA dies als "Quotient=2.5"
         System.out.println( 5 / 2.);  // double
         System.out.println( 5 / 2.0); // double
@@ -127,18 +127,18 @@ public class L03Operatoren {
         System.out.println( 5 / 2F);  // float
         System.out.println( 5 / 2f);  // float
 
-        // Ein übersichtlicherer Weg, block1.Operatoren darzustellen ist durch Methoden. Hier ist die divide Exact Methode verwendet worden.
+        // Ein übersichtlicherer Weg, Operatoren darzustellen ist durch Methoden. Hier ist die divide Exact Methode verwendet worden.
         // Wir haben dadurch leider einen wenig kompakte schreibweise, jedoch ist hier klar welche Inputs und Outputs erzeugt werden.
         System.out.println( Math.divideExact(5, 2) );
 
-        // #################################### logische block1.Operatoren ####################################
+        // #################################### logische Operatoren ####################################
         // Typ des Inputs:  [Boolean, Boolean]
         // Typ des Outputs: [Boolean]
-        // Logische block1.Operatoren verknüpfen Variablen vom Typ boolean. Also Wahrheitswerte. Wir verwenden solche Ausdrücke
+        // Logische Operatoren verknüpfen Variablen vom Typ boolean. Also Wahrheitswerte. Wir verwenden solche Ausdrücke
         // um den Ablauf des Programms zu steuern.
         // Solche Aussagen sind "Wenn i kleiner als 6 und die Eingabe vom User eine Stadt in Europa ist, dann brich das Programm ab".
         // Mehr dazu bei Verzweigungen und Schleifen.
-        // Zuerst wollen wir aber solche logischen Aussagen mithilfe von block1.Operatoren erstellen.
+        // Zuerst wollen wir aber solche logischen Aussagen mithilfe von Operatoren erstellen.
         // Diese sind:
         // - ! (nicht):
         //      - negiert eine Aussage -> z.B. der Wert wahr wird zu falsch mit !wahr
@@ -169,7 +169,7 @@ public class L03Operatoren {
 
         System.out.println(result);
 
-        // #################################### bitweise block1.Operatoren ####################################
+        // #################################### bitweise Operatoren ####################################
         // Typ des Inputs:  [Boolean, Boolean]
         // Typ des Outputs: [Boolean]
         // Aber der Operator nimmt eine Zahl, und vergleicht die binäre Darstellung dieser, Bit für Bit.
@@ -197,7 +197,7 @@ public class L03Operatoren {
         // Typ des Outputs: [Boolean]
         // Wir sehen, ein unbekannter Typ X, wird mit einem anderen Typ Y verglichen (input kann auch vom selben Typ sein).
         // Danach ist aber das Ergebnis IMMER vom Typ Boolean!
-        // Wir können also Vergleichsoperatoren verwenden, um dessen Ergebnis mit logischen block1.Operatoren weiter zu verknüpfen.
+        // Wir können also Vergleichsoperatoren verwenden, um dessen Ergebnis mit logischen Operatoren weiter zu verknüpfen.
         // Konzeptionell, stellen bei Vergleichsoperatoren immer eine ja/nein-Frage. "Ist die 8 größer wie 7?" -> "ja".
 
         // Schauen wir uns zuerst "==" an.
@@ -227,10 +227,10 @@ public class L03Operatoren {
         // Wir werden das aber näher behandeln, wenn wir Variablen umwandeln.
         System.out.println("str1 das GLEICHE wie str3: " + str1.equals(str3));
 
-        // Nun schauen wir uns die angesprochene Verbindung mit logischen block1.Operatoren (und auch arithmetischen) an.
-        // Alles ein Puzzle was wir zusammenstecken müssen. Die Teile sind die Typen der block1.Operatoren.
+        // Nun schauen wir uns die angesprochene Verbindung mit logischen Operatoren (und auch arithmetischen) an.
+        // Alles ein Puzzle was wir zusammenstecken müssen. Die Teile sind die Typen der Operatoren.
         // Wichtig ist, wenn ein Operator einen booleschen Wert (wahr oder falsch) erzeugt, können wir diesen weiter
-        // mit logischen block1.Operatoren verknüpfen. Das sehen wir in folgendem Beispiel.
+        // mit logischen Operatoren verknüpfen. Das sehen wir in folgendem Beispiel.
 
         String correctUsername = "admin";
         String correctPassword = "password123";
@@ -253,11 +253,11 @@ public class L03Operatoren {
 
         System.out.println(result);
 
-        // Ähnlich dazu ist kleiner "5 < 6", größer "8 > 8", sowie die kleiner oder gleich "<=" bzw. größer oder gleich ">=" block1.Operatoren.
+        // Ähnlich dazu ist kleiner "5 < 6", größer "8 > 8", sowie die kleiner oder gleich "<=" bzw. größer oder gleich ">=" Operatoren.
         // Ein weiterer Vergleichsoperator ist "instanceof". Dieser ist nur als Anmerkung hier angeführt da wir diesen erst in der Objektorientierung verwenden werden:
-        // Es soll nur ein Beispiel sein, dass es auch andere, "abstraktere" block1.Operatoren geben kann.
+        // Es soll nur ein Beispiel sein, dass es auch andere, "abstraktere" Operatoren geben kann.
 
-        // #################################### gemischte block1.Operatoren ####################################
+        // #################################### gemischte Operatoren ####################################
         // Wir haben mit diesen die Möglichkeit z.B. eine Zuweisung und eine arithmetische Opearation, mit einem Operator durchzuführen.
         // Beginnen wir mit:
         // - "+=", "-=", "*=", "/=": diese sind eine Kombination aus zuweisung und arithmetischen Oparatoren.
@@ -276,7 +276,7 @@ public class L03Operatoren {
 
         // Als Nächstes schauen wir uns Inkremente und Dekremente an.
         // Ein Inkrement bedeutet eine Erhöhung um eine Einheit, ein Dekrement eine Verringerung um eine Einheit.
-        // - "++", "--": diese werden inkrement und dekrement block1.Operatoren genannt und sind eine Kombination aus "x=x+1".
+        // - "++", "--": diese werden inkrement und dekrement Operatoren genannt und sind eine Kombination aus "x=x+1".
         // Diese sind ähnlich zu "+=", jedoch spezieller. Wir zählen nämlich immer 1 dazu oder ziehen 1 ab.
         // Folgendes ist also
         alter = alter + 1;
@@ -290,7 +290,7 @@ public class L03Operatoren {
         alter--;
         System.out.println(alter);
 
-        // Dieser Operator ist also ein unärer Operator wie das "!". Ansonsten waren bisher alle block1.Operatoren binär.
+        // Dieser Operator ist also ein unärer Operator wie das "!". Ansonsten waren bisher alle Operatoren binär.
         // Es gibt hier noch eine Anmerkung zu den Inkrement/Dekrement Operator.
         // Wir können beider schreiben und es wird das Gleiche ausgegeben.
         alter++;
@@ -339,8 +339,8 @@ public class L03Operatoren {
 
 
         // // #################################### OPERATOREN VS. METHODEN ####################################
-        // in der Praxis werden block1.Operatoren meist bei Zahlen verwendet und methoden für alles andere.
-        // In C++ oder C# können auch block1.Operatoren "überladen" werden. Also das z.B. "+" Symbol kann für das Kombinieren von eigenen block2.Klassen verwendet werden.
+        // in der Praxis werden Operatoren meist bei Zahlen verwendet und methoden für alles andere.
+        // In C++ oder C# können auch Operatoren "überladen" werden. Also das z.B. "+" Symbol kann für das Kombinieren von eigenen block2.Klassen verwendet werden.
         // ASCII - Table -> gibt Nummer rein, hier 195 und gibt das Symbol an dieser Stelle aus.
         // a -> 97, b -> 98, usw.
 
