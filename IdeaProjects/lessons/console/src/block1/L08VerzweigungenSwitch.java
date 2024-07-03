@@ -1,6 +1,6 @@
 package block1;
 
-public class VerzweigungenSwitch {
+public class L08VerzweigungenSwitch {
     public static void main(String[] args) {
 
         //

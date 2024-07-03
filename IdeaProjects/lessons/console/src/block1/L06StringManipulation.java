@@ -1,6 +1,6 @@
 package block1;
 
-public class StringManipulation {
+public class L06StringManipulation {
 
     /*
         Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,

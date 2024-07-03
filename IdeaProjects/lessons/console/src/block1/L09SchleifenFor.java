@@ -2,7 +2,7 @@ package block1;
 
 import java.util.Scanner;
 
-public class SchleifenFor {
+public class L09SchleifenFor {
     /*
         Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,
         aber fuers prinzipielle Verstaendnis nicht unbedingt notwendig ist, gemeint.

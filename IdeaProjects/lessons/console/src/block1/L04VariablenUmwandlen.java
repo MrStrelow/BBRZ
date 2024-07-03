@@ -3,7 +3,7 @@ package block1;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class VariablenUmwandlen {
+public class L04VariablenUmwandlen {
     public static void main(String[] args) {
         /*
         Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,

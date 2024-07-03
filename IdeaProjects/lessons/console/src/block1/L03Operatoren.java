@@ -1,6 +1,6 @@
 package block1;
 
-public class Operatoren {
+public class L03Operatoren {
     public static void main(String[] args) {
         // block1.Operatoren verknüpfen Variablen bzw. Werte miteinander und erzeugen basierend auf denen einen neuen Wert.
         // Der folgende "+" Operator, welcher die Bedeutung "Addition" hat, verknüpft die Zahlen 35 und 17 und erzeugt den neuen Wert 52.

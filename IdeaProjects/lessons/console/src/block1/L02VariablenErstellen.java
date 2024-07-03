@@ -1,6 +1,6 @@
 package block1;
 
-public class VariablenErstellen {
+public class L02VariablenErstellen {
     public static void main(String[] args) {
         // Variablen sind Platzhalter für Wertes eines bestimmten Typs.
         // Mögliche Werte einer Variable vom Typ String (eine Zeichenkette) sind

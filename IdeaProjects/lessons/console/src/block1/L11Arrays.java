@@ -3,7 +3,7 @@ package block1;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Arrays {
+public class L11Arrays {
 
     /*
         Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,

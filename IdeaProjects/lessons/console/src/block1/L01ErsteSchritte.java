@@ -1,6 +1,6 @@
 package block1;
 
-public class ErsteSchritte {
+public class L01ErsteSchritte {
     // Java ist eine objektorientierte Sprache, welche dadurch am Anfang Dinge verwendet, welche wir noch nicht erklärt haben.
     // Das bedeutet wir müssen für unsere ersten Programme folgendes berücksichtigen.
     // 1) Wir müssen unser File, welches den Programmcode enthält, in einem Projekt anlegen.

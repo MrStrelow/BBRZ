@@ -1,6 +1,6 @@
-package block1.sonstige;
+package block1;
 
-public class SecondVerzweigungen {
+public class L07VerzweigungenIf {
     public static void main(String[] args) {
         Integer first = 5;
         Integer second = 37;
