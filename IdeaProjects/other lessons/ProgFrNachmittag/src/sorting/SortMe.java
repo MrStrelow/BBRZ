@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class SortMe {
     public static void main(String[] args) {
+        // 1. Ziel: vertausche die ersten zwei Zahlen des Arrays.
+        // 2. Ziel: schiebe die größere Zahl immer weiter bis ans Ende des Arrays. Verwende dazu das Vertauschen aus 1.)
+        // 3. Ziel: wiederhole nun 2. damit immer wieder die erste Zahl nach rechts geschoben wird.
+
         //1) vergleiche die ersten 2 zahlen im array und wenn die linke zahl größer als die rechte zahl ist,
         // dann schiebe diese nach rechts. sonts mach nix.
         Blume blume1 = new Blume(10, 5);

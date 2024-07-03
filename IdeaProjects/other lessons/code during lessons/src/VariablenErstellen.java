@@ -118,7 +118,7 @@ public class VariablenErstellen {
         // Wir reden von Symbolen wie 'a', 'ø' oder '҈', wieso beginnen wir also mit einer Variable userInput,
         // welche zwar vom Typ Character ist, aber den Wert einer Zahl zugewiesen bekommt?
         Character userInputDecimalNumber = 97;
-        Character userInputHexNumber = 0x61;
+        Character userInputHexNumber = 0x018E;
         Character userInputChar = 'a';
 
         System.out.println("'" + userInputChar + "' ist das gleiche wie '" + userInputDecimalNumber + "' und auch das gleich wie '" + userInputHexNumber + "'");
@@ -164,6 +164,9 @@ public class VariablenErstellen {
         Character AMitToupee = 195;
 
         System.out.println(aPlusB + " ist das gleiche Symbol wie " + AMitToupee);
+
+        Character asdf = 'a' + 'b';
+        System.out.println("ich bin hier: " + asdf);
 
         // Wenn wir nun die Zahlen zuerst in Variablen mit Typ Integer speichern funktioniert, das leider nicht mehr.
         // Wir müssen jetzt dem Computer explizit sagen, dass er aus den Variablen welche den Typ Integer haben, in einen Character umwandeln soll.
@@ -375,6 +378,49 @@ public class VariablenErstellen {
         // Durch die Art wie wir Fließkommazahlen darstellen, ist es uns möglich scheinbar größere Zahlen als mit Long darzustellen.
         Double myStrngeAndBigDouble = 18225545918452735554995884998125521044555555555555555555544444444444481521515.0;
         System.out.println(myStrngeAndBigDouble);
+
+        // Hier ein paar kurze Beispiele zu den Rundungsfehlern der Fließkommadarstellung der Zahlen.
+        double doubleA = 0.1;     // nicht genau darstellbar   - ?
+//        double doubleA = 0.2;     // nicht genau darstellbar   - ?
+//        double doubleA = 0.5;     // genau darstellbar       - summe genau darstellbar
+//        double doubleA = 0.4;     // nicht genau darstellbar - summe genau darstellbar
+//        double doubleA = 0.0;     // genau darstellbar       - summe genau GENUG darstellbar
+
+        double doubleB = 0.2;     // nicht genau darstellbar   - ?
+//        double doubleB = 0.2;     // nicht genau darstellbar   - ?
+//        double doubleB = 0.25;    // genau darstellbar       - summe genau darstellbar
+//        double doubleB = 0.35;    // nicht genau darstellbar - summe genau darstellbar
+//        double doubleB = 0.3;     // nicht genau darstellbar - summe genau GENUG darstellbar
+
+        double sum = doubleA + doubleB;
+        System.out.println("a: " + doubleA);
+        System.out.println("b: " + doubleB);
+        System.out.println("Sum: " + sum);
+
+        // Wir sehen:
+        //  - Die Summe aus genau darstellbaren Zahlen ist genau.
+        //  - Die Summe aus genau und ungenau darstellbaren Zahlen ist meistens genau genug.
+        //  - Die Summe aus ungenau darstellbaren Zahlen kann genau oder auch ungenau sein.
+        //  - Die Summe aus ungenau darstellbaren Zahlen welche eine genau darstellbare ergeben ist genau.
+
+        // Übung: tausche nun die Kommazahl gegen eine "2er Potenz" aus. z.B 0.5 und 0.25
+        // -> wir schneiden alle möglichen Nachkommastellen in 2 Gebiete. Alle größer wie 0.5 und alle kleiner.
+        // Wichtig hier ist, dass die Summe der beiden Zahlen gut mit einer 2er-Potenz darstellbar ist.
+
+        // Ein Weiteres Beispiel, welches wiederholt zahlen zusammenzählt, welche sehr unterschiedlich von der Größe sind.
+        double x = 1e6;
+        double epsilon = 1e-10;
+
+        // Adding epsilon to x in a loop
+        for (int i = 0; i < 10; i++) {
+            x = x + epsilon;
+        }
+
+        // Wir zählen 10 mal 0.0000000001 (1 an 10. nachkommastelle), also 0.000000001 (1 an 9. Nachkommastelle), dazu.
+        System.out.println(x);
+
+        // Wir erwarten 1000000.000000001 bekommen aber 1000000.0000000012
+        System.out.println(x == 1000000.000000001);
 
         // #################################### Boolesche Werte ####################################
         // Jetzt zu einem ganz andern Typ von Variablen. Boolesche Werte sind 2 Wertige Variablen wie "Falsch" und "Wahr",
