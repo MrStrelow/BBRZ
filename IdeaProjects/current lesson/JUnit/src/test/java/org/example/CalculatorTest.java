@@ -26,16 +26,20 @@ public class CalculatorTest {
     // TODO: Erstelle eine Methode welche public ist und testDivide heißt.
     //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
 
+    // TODO: Erstelle eine Methode welche public ist und testDivideByZero heißt.
+    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
     // Um testen zu können ob eine Exception geworfen wird ist die Methode "assertThrows" anwendbar.
     // Erstelle dazu eine "Anonyme Klasse" Executable executable = new Executable() {...};.
     // Dies ist eine Klasse welche noch nicht alle Methoden implementiert hat.
     // Diese ist für uns public void execute() {  }
     // In diese Methode kommt nun der Aufruf der divide methode rein.
-    // Danach müssen wir sicherstellen, dass die richtige Exception geworfen wurde.
-    // AssertThrows
+    // Danach müssen außerhalb von Executable executable = new Executable() {...}; sicherstellen,
+    // dass die richtige Exception geworfen wurde. Verwende dazu assertThrows().
+    // Das erste Argument dieser Methode ist die Exception welche wir erwarten. Wir geben diese mit IllegalArgumentException.class an.
+    // Das zweite Argument ist das erstellte objekt executable.
     // Optional: verwende noch assertEquals(...); um den Text der Geworfenen Exception abzufragen.
-    // TODO: Erstelle eine Methode welche public ist und testDivideByZero heißt.
-    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
+    // Die Methode assertThrows gibt dir eine Exception zurück.
+    // Diese Rückgabe können wir also einer Variable zuweisen und danach den Text der Exception abfragen.
 
     // Versuche nun diese Methode als Lambda Ausdruck zu implementieren
     // (Intellij schlägt es dir vor, versuche zu verstehen was der Unterschied ist).
