@@ -37,12 +37,17 @@ public class CalculatorTest {
     // dass die richtige Exception geworfen wurde. Verwende dazu assertThrows().
     // Das erste Argument dieser Methode ist die Exception welche wir erwarten. Wir geben diese mit IllegalArgumentException.class an.
     // Das zweite Argument ist das erstellte objekt executable.
+
     // Optional: verwende noch assertEquals(...); um den Text der Geworfenen Exception abzufragen.
     // Die Methode assertThrows gibt dir eine Exception zurück.
     // Diese Rückgabe können wir also einer Variable zuweisen und danach den Text der Exception abfragen.
 
-    // Versuche nun diese Methode als Lambda Ausdruck zu implementieren
-    // (Intellij schlägt es dir vor, versuche zu verstehen was der Unterschied ist).
+    // Optional: Versuche nun diese Methode als Lambda Ausdruck zu implementieren
+    // Intellij schlägt es dir vor, wenn du über new Executable() mit der Maus "hoverst".
+    // Nimm diesen Vorschlag an um es direkt in einen Lambda umzuschreiben.
+    // Versuche zu verstehen was der Unterschied ist.
+
+
     // TODO: Erstelle eine Methode welche public ist und testDivideByZeroWithLambda heißt.
     //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
 
