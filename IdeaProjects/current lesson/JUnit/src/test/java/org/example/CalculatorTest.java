@@ -1,24 +1,41 @@
 package org.example;
 
-import org.junit.jupiter.api.function.Executable;
 import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.example.solution.Calculator;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CalculatorTest {
 
     // TODO: Erstelle ein Objekt Calculator als Attribut der Klasse CalculatorTest
+    private Calculator calculator = new Calculator();
 
     // TODO: Erstelle eine Methode welche public ist und testAdd heißt.
-    //  Diese hat keine Argumente und void als Rückgabetyp hat. Schreibe dort @Test darüber.
+    //  Diese hat keine Argumente und void als Rückgabetyp. Schreibe dort @Test darüber.
     // Wir verwenden nun die methode "assertEquals" von JUnit (unsere Testing Library).
     // Diese Methode hat 2 Argumente.
     // - das 1. ist das Ergebnis, welches wir erwarten und
     // - das 2. ist der Aufruf der Methode welche zu testen ist.
 
+    @Test
+    public void testAdd() {
+        Integer expected = 65;
+        Integer provided = calculator.add(18, 47);
+
+        assertEquals(expected, provided);
+    }
+
     // TODO: Erstelle eine Methode welche public ist und testSubtract heißt.
     //  Diese hat keine Argumente und void als Rückgabetyp hat. Schreibe dort @Test darüber.
+    @Test
+    public void testSubtract() {
+        Integer expected = -29;
+        Integer provided = calculator.subtract(18, 47);
+
+        assertEquals(expected, provided);
+    }
 
     // TODO: Erstelle eine Methode welche public ist und testMultiply heißt.
     //  Diese hat keine Argumente und void als Rückgabetyp hat. Schreibe dort @Test darüber.
@@ -38,6 +55,12 @@ public class CalculatorTest {
     // Das erste Argument dieser Methode ist die Exception welche wir erwarten. Wir geben diese mit IllegalArgumentException.class an.
     // Das zweite Argument ist das erstellte objekt executable.
 
+    @Test
+    public void testDivideByZero() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(4515, 0));
+        assertEquals("Division by zero", exception.getMessage());
+    }
+
     // Optional: verwende noch assertEquals(...); um den Text der Geworfenen Exception abzufragen.
     // Die Methode assertThrows gibt dir eine Exception zurück.
     // Diese Rückgabe können wir also einer Variable zuweisen und danach den Text der Exception abfragen.
@@ -56,4 +79,9 @@ public class CalculatorTest {
     // Wenn wir erwarten, dass diese wahr zurückgeben soll, dann verwenden wir assertTrue, ansonsten assertFalse.
     // TODO: Erstelle eine Methode welche public ist und testIstTeilbarDurch heißt.
     //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
+    @Test
+    public void testIstTeilbarDurch() {
+        assertTrue(calculator.istTeilbarDurch(10,2));
+        assertFalse(calculator.istTeilbarDurch(10,3));
+    }
 }

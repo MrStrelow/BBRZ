@@ -10,26 +10,23 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
     private final String NAME = "Dubi Doe Joe";
-    private UserService userService;
+    private UserService userServiceSolution;
 
     // Hier sagen wir, erstelle einen Mock von dem userRepository.
     @Mock
-    private UserRepository userRepository;
+    private UserRepository userRepositorySolution;
 
     // Da wir bei der initialisierung des userServices ein userRepository brauchen welches nicht null ist,
     // können wir hier eine art initialisierungs methode definieren, in der unser userService mit dem Mock angelegt wird.
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        userService = new UserService(userRepository);
+        userServiceSolution = new UserService(userRepositorySolution);
     }
 
     // TODO: teste hier wenn die findById Methode lege dazu einen User an und verwende folgende Logik.
@@ -41,7 +38,7 @@ public class UserServiceTest {
     // Das definiert unseren gemocktes userRepository für genau diesen einen Fall.
     @Test
     void testGetUserById() {
-        User mockUser = new User("1", NAME, 28);
+        User mockUserSolution = new User("1", NAME, 28);
         //TODO: impement when() and thenResturn()
 
         // TODO: verwende nun den UserService und suche nach einem User welcher die id="1" hat.

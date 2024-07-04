@@ -12,7 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -36,31 +35,30 @@ public class UserServiceTest {
         User mockUser = new User("1", NAME, 28);
         when(userRepository.findById("1")).thenReturn(mockUser);
 
-        User user = userService.getUserById("1");
+        User userSolution = userService.getUserById("1");
 
-        assertNotNull(user);
-        assertEquals(NAME, user.getName());
+        assertNotNull(userSolution);
+        assertEquals(NAME, userSolution.getName());
+
         verify(userRepository, times(1)).findById("1");
     }
 
     @Test
     void testSaveUser() {
-        User user = new User("2", NAME, 20);
+        User userSolution = new User("2", NAME, 20);
 
-        userService.saveUser(user);
+        userService.saveUser(userSolution);
 
-        verify(userRepository, times(1)).save(user);
+        verify(userRepository, times(1)).save(userSolution);
     }
 
     @Test
     void testSaveUserUnderage() {
-        User user = new User("3", NAME, 17);
+        User userSolution = new User("3", NAME, 17);
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            userService.saveUser(user);
-        });
-
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> userService.saveUser(userSolution));
         assertEquals("User must be an adult", exception.getMessage());
-        verify(userRepository, times(0)).save(user);
+
+        verify(userRepository, times(0)).save(userSolution);
     }
 }
