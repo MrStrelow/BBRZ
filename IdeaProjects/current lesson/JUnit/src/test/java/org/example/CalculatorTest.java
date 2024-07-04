@@ -8,26 +8,26 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
 
-    // Erstelle ein Objekt Calculator als Attribut der Klasse CalculatorTest
+    // TODO: Erstelle ein Objekt Calculator als Attribut der Klasse CalculatorTest
 
+    // TODO: Erstelle eine Methode welche public ist und testAdd heißt.
+    //  Diese hat keine Argumente und void als Rückgabetyp  hat. Schreibe dort @Test darüber.
     // Wir verwenden nun die methode "assertEquals" von JUnit (unsere Testing Library).
     // Diese Methode hat 2 Argumente.
     // - das 1. ist das Ergebnis, welches wir erwarten und
     // - das 2. ist der Aufruf der Methode welche zu testen ist.
-    // TODO: Erstelle eine Methode welche public ist und testAdd heißt.
-    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
 
     // TODO: Erstelle eine Methode welche public ist und testSubtract heißt.
-    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
+    //  Diese hat keine Argumente und void als Rückgabetyp  hat. Schreibe dort @Test darüber.
 
     // TODO: Erstelle eine Methode welche public ist und testMultiply heißt.
-    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
+    //  Diese hat keine Argumente und void als Rückgabetyp  hat. Schreibe dort @Test darüber.
 
     // TODO: Erstelle eine Methode welche public ist und testDivide heißt.
-    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
+    //  Diese hat keine Argumente und void als Rückgabetyp  hat. Schreibe dort @Test darüber.
 
     // TODO: Erstelle eine Methode welche public ist und testDivideByZero heißt.
-    //  Diese hat keine argumente hat und void als rückgabe hat. Schreibe dort @Test darüber.
+    //  Diese hat keine Argumente und void als Rückgabetyp hat. Schreibe dort @Test darüber.
     // Um testen zu können ob eine Exception geworfen wird ist die Methode "assertThrows" anwendbar.
     // Erstelle dazu eine "Anonyme Klasse" Executable executable = new Executable() {...};.
     // Dies ist eine Klasse welche noch nicht alle Methoden implementiert hat.
