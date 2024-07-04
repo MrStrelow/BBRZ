@@ -12,7 +12,7 @@ public class Calculator {
 
     //TODO: Implementiere die multipliziere Methode, welche zwei Zahlen miteinander multipliziert und das Ergebnis zurückgibt.
 
-    //TODO: Implementiere die addiere Methode, welche zwei Zahlen miteinander dividiert und das Ergebnis zurückgibt.
+    //TODO: Implementiere die dividiere Methode, welche zwei Zahlen miteinander dividiert und das Ergebnis zurückgibt.
     // es soll eine Exception geworfen werden (IllegalArgumentException) wenn durch die Zahl 0 dividiert wird.
     
     //TODO: Implementiere die istTeilbarDurch Methode. Diese überprüft ob eine Zahl durch eine andere Zahl teilbar ist.
