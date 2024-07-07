@@ -1,4 +1,4 @@
-package block1.uebungen.loesungen;
+package uebungen.loesungen;
 
 import java.util.Scanner;
 

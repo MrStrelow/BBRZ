@@ -1,4 +1,4 @@
-package block1.uebungen.loesungen;
+package uebungen.loesungen;
 
 public class Ue01Variablen_solution {
 

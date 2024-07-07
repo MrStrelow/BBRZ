@@ -1,4 +1,4 @@
-package block1.uebungen;
+package uebungen;
 
 public class Ue03Verzweigung01_empty {
     public static void main(String[] args) {

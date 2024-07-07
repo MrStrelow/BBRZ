@@ -1,4 +1,4 @@
-package block1.uebungen;
+package uebungen;
 
 public class Ue01Variablen_empty {
 

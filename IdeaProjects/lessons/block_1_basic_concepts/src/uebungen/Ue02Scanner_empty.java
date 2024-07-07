@@ -1,4 +1,4 @@
-package block1.uebungen;
+package uebungen;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package block1.uebungen;
+package uebungen;
 
 public class Ue00Einfuehrung_empty {
 
