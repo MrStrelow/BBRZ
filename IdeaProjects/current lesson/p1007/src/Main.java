@@ -22,5 +22,15 @@ public class Main {
         myInteger = ((Integer) (myPrimitiveInt + myInteger)).intValue();
 //        myInteger = ((Integer) myPrimitiveInt + myInteger).intValue(); geht nicht!? -> weil Reihenfolge der Auswertung zu einem primitiven (int) Typ zuerkommt.
 
+        // 2. Zahl zu String
+        String myString = Integer.toString(myPrimitiveInt);
+        myString = Integer.toString(myInteger);
+
+        myString = myInteger.toString();
+
+        // 3. String zu Zahl
+        myInteger = Integer.parseInt("1");
+        myDouble = Double.parseDouble("1.0");
+        myDouble = Double.parseDouble("1");
     }
 }
