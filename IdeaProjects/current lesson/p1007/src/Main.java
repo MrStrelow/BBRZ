@@ -4,16 +4,20 @@ import java.util.Scanner;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        Scanner myScanner = new Scanner(System.in);
+        // 1 Zahl zu Zahl
+        Double myDouble = 1.5;
+        Integer myInteger;
 
-        System.out.println("Gib erstes ein: ");
-        Integer meinErsterInput = myScanner.nextInt();
-        String meinZweiterInput = myScanner.nextLine();
+        double myPrimitiveDouble = myDouble;
+        int myPrimitiveInt;
 
-        System.out.println("Deine erste Eingabe war " + meinErsterInput + " - deine zweite Eingabe war " + meinZweiterInput + ".");
+        myInteger = myDouble.intValue();
+        myPrimitiveInt = (int) myPrimitiveDouble;
 
-        System.out.println("gib bitte eine Zeile ein: ");
-        String meinDritterInput = myScanner.nextLine();
-        System.out.println(meinDritterInput);
+        System.out.println(myInteger + " " + myPrimitiveInt );
+
+        myInteger = (((Integer) myPrimitiveInt) + 5).;
+        myInteger = ((Integer) myPrimitiveInt).intValue();
+
     }
 }
