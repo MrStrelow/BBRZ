@@ -56,22 +56,42 @@ public class L05UserInput {
 
         System.out.println("meine Erste Eingabe: " + meineErsteEingabe + " - und meine zweite Eingabe: " + meineZweiteEingabe);
 
-        // Wir sehen nun, was der Unterschied ist! nextLine liest solange bis ein \n kommt (INKLUSIVE DEM \n!) und
-        // next liest bis ein Leerzeichen bzw. das ein \n kommt (EXKLUSIVE DEM \n!).
-        // Wir können spezifizieren, was dieses Trennzeichen ist. In diesem Fall ist es "ZZzZZ".
-        // (Für jene welche wissen was ein RegEx ist - Regular Expression, eine solche kann auch hier verwendet werden!).
-        // ACHTUNG! Hier wird nur mehr da Symbol ZZzZZ als Trennzeichen verwendet. \n nicht mehr!
-        // Wir müssen also, wenn wir "a" und "b" einlesen wollen ZZzZZ hinter a und b schreiben!
+        // Wir sehen nun den Unterschied! Die Methode "nextLine" liest so lange bis ein das Haltesymbol "\n" vorkommt.
+        // Jedoch wird hier das "\n" nicht im String gespeichert. Es wird verworfen und der Curser in die nächste Zeile gesetzt.
+        // Die Methode "next" liest bis ein Leerzeichen oder ein "\n" vorkommt. Aber verwirft das "\n" nicht!
+        // Es kann also vorkommen, wenn wir "next" und "nextLine" hintereinander verwenden, dass dadurch ein
+        // ungewolltes Verhalten entsteht. Wir betrachten dieses Beispiel weiter unten.
+
+        // Anmerkung: Genau genommen ist jede Art von Leerzeichen - also Tabulator \t, feed \f, carriage returns \r in
+        // dem Muster des Haltesymbols der Methode "next" enthalten.
+
+        // Wir können zudem dieses Trennzeichen/Haltesymbol für unsere Zwecke anpassen! In diesem Fall ist es "ZZzZZ".
+        // (fortgeschritten: Das anzugebende Muster kann durch einen sogenannte Regular Expression - RegEx - angegeben werden.
+        // Wir können damit fast beliebige Textmuster abfragen!
+        // Ein Beispiel dafür wäre das Extrahieren von Vor- und Nachnamen aus E-Mail-Adressen.)
+
+        // Achtung! Hier wird nur mehr da Symbol "ZZzZZ" als Haltesymbol verwendet.
+        // "\n" wird nicht mehr verwendet, da wir dieses nicht spezifiziert haben.
+        // Wir müssen also, wenn wir "a" und "b" einlesen wollen "ZZzZZ" hinter "a" und "b" schreiben!
         myScanner.useDelimiter("ZZzZZ");
 
-        // Wenn wir nun die Eingabe von davor wiederholen sollte folgendes passieren.
+        // Wenn wir die vorherige Aufgabe mit dem neuen Haltesymbol "ZZzZZ" wiederholen, sollte folgendes passieren.
         System.out.println("Bitte gib nochmal zwei Zahlen welches das Haltesymbol ZZzZZ hat ein z.B. 'aZZzZZbZZzZZ', und bestätigen Sie mit <Enter>: ");
         meineErsteEingabe = myScanner.next();
         meineZweiteEingabe = myScanner.next();
 
         System.out.println("meine Erste Eingabe: " + meineErsteEingabe + " - und meine zweite Eingabe: " + meineZweiteEingabe);
 
+        // Wir sehen jedoch, dass auf einmal "\na" in der Variable meineErsteEingabe vorkommt.
+        // Wir haben noch ein unbearbeitetes "\n" von der vorherigen Eingabe "herumliegen".
+        // Dieses matcht nun auch für die Methode "next", da wir den Delimiter so spezifiziert haben,
+        // dass dieser nur mehr bei dem Muster "ZZzZZ" hält. Dies ist ein ungewolltes Verhalten!
+
         // Wenn wir nun der scanner nach ZZzZZ oder \n halten soll, müssen wir das angeben.
+        // Damit wir nicht wieder vom vorherigen Beispiel ein "\n" mitnehmen, da wir den Delimiter verändert haben,
+        // lesen wir einen leeren nextLine() call alles ein und verwerfen damit vorherige Symbole.
+        myScanner.nextLine();
+
         // Hier nochmal das Beispiel:
         myScanner.useDelimiter("ZZzZZ|\n");
 
