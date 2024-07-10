@@ -16,8 +16,11 @@ public class Main {
 
         System.out.println(myInteger + " " + myPrimitiveInt );
 
-        myInteger = (((Integer) myPrimitiveInt) + 5).;
+        // int vs Integer
         myInteger = ((Integer) myPrimitiveInt).intValue();
+
+        myInteger = ((Integer) (myPrimitiveInt + myInteger)).intValue();
+//        myInteger = ((Integer) myPrimitiveInt + myInteger).intValue(); geht nicht!? -> weil Reihenfolge der Auswertung zu einem primitiven (int) Typ zuerkommt.
 
     }
 }

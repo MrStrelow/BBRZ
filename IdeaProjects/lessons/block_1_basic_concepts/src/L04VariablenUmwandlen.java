@@ -103,6 +103,54 @@ public class L04VariablenUmwandlen {
         System.out.println("Was ist es? - " + kleineKommaZahl.getClass().getSimpleName());
         System.out.println("Was ist es? - " + grosseKommaZahl.getClass().getSimpleName());
 
+        // Was tun wir jedoch, wenn wir primitive Typen haben? Diese sind int, double, long, usw.
+        // Dort können wir keine Methoden von der Variable aufrufen.
+        // Hier gibt es ein Konzept, welches Typecasting genannt wird.
+        // Wir schreiben dazu zwei geschwungene Klammern und in diesen den gewünschten Typ.
+        // z.B. (int)
+        ganzePrimitiveZahl       = (int) grossePrimitiveKommaZahl;
+
+        // In diesem Fall wird sogar automatisch (int) aufgerufen. Da wir nichts falsch machen, wenn wir eine ganze Zahl
+        // z.B. 25 zu einer Kommazahl 25.0 umschreiben.
+        // Im umgekehrten Fall verlieren wir die Kommastellen.
+        // z.B. 25.4 wird zu 25. Deshalb ist im vorherigen Beispiel der Aufruf von (int) notwendig,
+        // der von (double) hier jedoch nicht.
+        grossePrimitiveKommaZahl = (double) ganzePrimitiveZahl;
+
+        // Achtung! Mit den komplexen Datentypen der Zahlen funktioniert dies leider nicht immer.
+        // ganzeZahl = (Integer) grosseKommaZahl; // Fehler!
+        // ganzeZahl = (int) grosseKommaZahl; // Fehler!
+
+        // Verwende hier die vorher genannten Methoden:
+        ganzeZahl = grosseKommaZahl.intValue();
+
+        // Achtung! Hier ist jedoch die Reihenfolge der Aufrufe zu beachten.
+        // Folgendes Beispiel soll dies verdeutlichen.
+        // Die Umwandlung zwischen int und Integer ist jedoch nicht sehr nützlich,
+        // jedoch soll es die wichtigkeit der korrekten Reihenfolge der Auswertung verdeutlichen.
+        ganzeZahl = ((Integer) ganzePrimitiveZahl).intValue();
+
+        // Ohne der Klammerung wäre es ein Fehler.
+        // ganzeZahl = (Integer) ganzePrimitiveZahl.intValue(); // Fehler!
+
+        // Wir haben somit eine Reihenfolge der Auswertung von "." bindet stärker als (Integer).
+        // Zuerst wird die ganzePrimitiveZahl mit dem "." verbunden.
+        // Das führt zu dem Fehler, denn dieser primitive Typ hat keine Methoden.
+        // Wenn wir klammern, dann führen wir zuerst die Umwandlung zu (Integer) durch. Danach ist der Aufruf der Methoden möglich.
+
+        // Was passiert jedoch, wenn wir noch einen anderen Operator hinzufügen? Wie sieht hier die Reihenfole aus?
+        // Wir verwenden hier dazu das "+".
+        // Wir klammern nun korrekt, jedoch ist hier wieder ein Fehler. Wir sehen dadurch, dass (Integer) stärker als "+" bindet.
+        // Bedeutet, wir wandeln zuerst die ganzePrimitive Zahl in einen Integer um.
+        // Danach zählen wir diese mit dem Integer ganzeZahl zusammen.
+        // Das Ergebnis des "+" Operators ist jedoch ein Wert welcher einen primitiven Typ int hat!
+        // Danach ist der Aufruf der Methode intValue() nicht möglich, da der primitive Typ int vorliegt.
+        // ganzeZahl = ((Integer) ganzePrimitiveZahl + ganzeZahl).intValue(); // Fehler!
+
+        // Wir müssen also zuerst die Addition Klammern, da sie schwächer bindet, danach (Integer), denn (Integer) bindet
+        // schwächer als ".". Danach kommt ein Wert raus, welcher den Typ Integer besitzt und der Aufruf von intValue() ist möglich.
+        ganzeZahl = ((Integer) (ganzePrimitiveZahl + ganzeZahl)).intValue();
+
         // ############# 2. Zahl zu String #############
 
         // Hier haben wir 2 Möglichkeiten, wenn ein komplexer Datentyp (objekt) vorliegt.
