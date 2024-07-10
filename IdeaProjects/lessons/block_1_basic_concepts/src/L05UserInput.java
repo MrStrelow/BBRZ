@@ -50,7 +50,7 @@ public class L05UserInput {
         meineEingabe = myScanner.next();
 
         // Auf den ersten Blick scheint nichts anders zu sein, aber versuchen wir nun folgendes.
-        System.out.println("Bitte gib zwei Zahlen getrennt mit leertaste ein z.B. 'a b', und bestätigen Sie mit <Enter>: ");
+        System.out.println("Bitte gib zwei Zahlen getrennt durch die leertaste ein z.B. 'a b', und bestätigen Sie mit <Enter>: ");
         String meineErsteEingabe = myScanner.next();
         String meineZweiteEingabe = myScanner.next();
 
@@ -58,7 +58,79 @@ public class L05UserInput {
 
         // Wir sehen nun, was der Unterschied ist! nextLine liest solange bis ein \n kommt (INKLUSIVE DEM \n!) und
         // next liest bis ein Leerzeichen bzw. das ein \n kommt (EXKLUSIVE DEM \n!).
-        // Wir können spezifizieren, was dieses Trennzeichen ist.
+        // Wir können spezifizieren, was dieses Trennzeichen ist. In diesem Fall ist es "ZZzZZ".
+        // (Für jene welche wissen was ein RegEx ist - Regular Expression, eine solche kann auch hier verwendet werden!).
+        // ACHTUNG! Hier wird nur mehr da Symbol ZZzZZ als Trennzeichen verwendet. \n nicht mehr!
+        // Wir müssen also, wenn wir "a" und "b" einlesen wollen ZZzZZ hinter a und b schreiben!
+        myScanner.useDelimiter("ZZzZZ");
 
+        // Wenn wir nun die Eingabe von davor wiederholen sollte folgendes passieren.
+        System.out.println("Bitte gib nochmal zwei Zahlen welches das Haltesymbol ZZzZZ hat ein z.B. 'aZZzZZbZZzZZ', und bestätigen Sie mit <Enter>: ");
+        meineErsteEingabe = myScanner.next();
+        meineZweiteEingabe = myScanner.next();
+
+        System.out.println("meine Erste Eingabe: " + meineErsteEingabe + " - und meine zweite Eingabe: " + meineZweiteEingabe);
+
+        // Wenn wir nun der scanner nach ZZzZZ oder \n halten soll, müssen wir das angeben.
+        // Hier nochmal das Beispiel:
+        myScanner.useDelimiter("ZZzZZ|\n");
+
+        // Wenn wir nun die Eingabe von davor wiederholen sollte folgendes passieren.
+        System.out.println("Bitte gib nochmal zwei Zahlen getrennt durch ZZzZZ ein z.B. 'aZZzZZb', und bestätigen Sie mit <Enter>: ");
+        meineErsteEingabe = myScanner.next();
+        meineZweiteEingabe = myScanner.next();
+
+        System.out.println("meine Erste Eingabe: " + meineErsteEingabe + " - und meine zweite Eingabe: " + meineZweiteEingabe);
+
+        // Wir haben jedoch noch nicht einen Fall besprochen welches zu einem unerwarteten Verhalten führt.
+        // Wenn wir zuerst die Methode "next" verwenden und danach "nextLine" haben wir folgendes komisches Verhalten.
+        System.out.println("komische eingabe: ");
+        meineErsteEingabe = myScanner.next();
+
+        System.out.println("komische zweite eingabe welche aber übersprungen wird!: ");
+        meineZweiteEingabe = myScanner.nextLine();
+
+        // Hier wird die Eingabe folgendermaßen aufgeteilt. Der eingegebene Text wird bis zum \n der Variable meineErsteEingabe
+        // zugewiesen. nextLine springt aber auch auf das Symbol \n ohne weiteren Text an. Bedeutet die Variable meineZweiteEingabe
+        // wird mit \n belegt, denn eine leer Zeile welche nur das Symbol \n besitzt ist auch eine Zeile.
+        // Um dieses ungewollte Verhalten zu verhindern, müssen wir:
+        //  1) next für meineErsteVariable verwenden
+        //  2) nextLine für das übrig gebliebene \n
+        //  3) nextLine für den Text welchen wir meinerZweitenVariable zuweisen wollen
+
+        // Also:
+        System.out.println("unkomische eingabe: ");
+        meineErsteEingabe = myScanner.next();
+        myScanner.nextLine();
+
+        System.out.println("unkomische zweite eingabe welche nicht mehr übersprungen wird: ");
+        meineZweiteEingabe = myScanner.nextLine();
+
+        // Eine Variante welch ein solches Verhalten vermeidet, ist IMMER nextLine zu verwenden und danach die Variablen
+        // entsprechend verarbeiten.
+        // z.B
+        System.out.println("meine ganzahlige Eingabe welche aber als 'String' mit 'nextLine' eingelesen wird.");
+        Integer myInteger = Integer.parseInt(myScanner.nextLine());
+
+        // z.B - Achtung hier wird ein neues Konzept verwendet! Ein Array! Dazu aber später mehr.
+
+        System.out.println("meine doppelte Eingabe 'a b' welche ich danach Bearbeite");
+        String ganzzeiligeEingabe = myScanner.nextLine();
+
+        String[] mehrereStrings = ganzzeiligeEingabe.split(" ");
+        meineErsteEingabe = mehrereStrings[0];
+        meineErsteEingabe = mehrereStrings[1];
+
+        System.out.println("meine Erste Eingabe: " + meineErsteEingabe + " - und meine zweite Eingabe: " + meineZweiteEingabe);
+
+        // Am Schluss können/müssen wir noch den Scanner "schließen". Bedeutet wir geben die Verbindung zur Console auf und beenden diese.
+        // Falls wir hier an einem Server arbeiten oder ein Programm verwenden, welches immer läuft, würde hier immer mehr
+        // Ressourcen für offene Verbindungen verwenden. Um dies zu verhindern schreiben wir
+
+        myScanner.close();
+
+        // ACHTUNG! wenn der scanner geschlossen wird, kann die Conole nicht merh verwendet werden!
+        // Auch ein neues Anlegen eines scanners mit = new Scanner(System.in) funktioniert dann nicht mehr!
+        // Also nur den Scanner schließen wenn wir ihn nicht mehr benötigen!
     }
 }
