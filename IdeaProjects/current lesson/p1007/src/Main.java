@@ -32,5 +32,7 @@ public class Main {
         myInteger = Integer.parseInt("1");
         myDouble = Double.parseDouble("1.0");
         myDouble = Double.parseDouble("1");
+
+
     }
 }

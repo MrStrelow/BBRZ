@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class L05UserInput {
+public class L04UserInput {
     public static void main(String[] args) {
         // Wir wollen uns in diesem Dokument den Scanner Typ (Klasse) anschauen.
         // Diese erlaubt und mit dem User auf der Console zu interagieren.

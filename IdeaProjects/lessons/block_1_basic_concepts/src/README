@@ -5,8 +5,8 @@ Reihenfolge:
  - 1. ErsteSchritte
  - 2. VariablenErstellen  (Ue00)
  - 3. Operatoren          (Ue01)
- - 4. VariablenUmwandlen
  - 5. UserInput           (Ue02)
+ - 4. VariablenUmwandlen  (Ue02)
  - 6. StringManipulation
  - 7. VerzweigungenIf     (Ue3.0 - Ue3.3)
  - 8. VerzweigungenSwitch (Ue4.0 - Ue4.2, Ue 5)

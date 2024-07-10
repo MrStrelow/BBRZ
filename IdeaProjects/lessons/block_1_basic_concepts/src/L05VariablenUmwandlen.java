@@ -1,7 +1,7 @@
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class L04VariablenUmwandlen {
+public class L05VariablenUmwandlen {
     public static void main(String[] args) {
         //  Wir wollen hier Umwandlungen zwischen verschiedenen Typen (String, Double, Integer, Boolean, Float, Long, ...) kennenlernen.
         //  Wir behandeln die Klassen "Integer/Double/..." usw. und auch primitive Datentypen "int/double/..." usw.
