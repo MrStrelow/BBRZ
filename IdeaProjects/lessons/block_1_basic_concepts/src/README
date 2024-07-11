@@ -5,12 +5,12 @@ Reihenfolge:
  - 1. ErsteSchritte
  - 2. VariablenErstellen  (Ue00)
  - 3. Operatoren          (Ue01)
- - 5. UserInput           (Ue02)
- - 4. VariablenUmwandlen  (Ue02)
- - 6. StringManipulation
- - 7. VerzweigungenIf     (Ue3.0 - Ue3.3)
- - 8. VerzweigungenSwitch (Ue4.0 - Ue4.2, Ue 5)
- - 9. SchleifenFor        (Ue8)
- - 10. SchleifenWhile     (Ue7)
+ - 4. UserInput           (Ue02)
+ - 5. VariablenUmwandlen  (Ue02)
+ - 6. VerzweigungenIf     (Ue3.0 - Ue3.3)
+ - 7. VerzweigungenSwitch (Ue4.0 - Ue4.2, Ue 5)
+ - 8. SchleifenFor        (Ue8)
+ - 9. SchleifenWhile      (Ue7)
+ - 10. StringManipulation
  - 11. Arrays             (Ue9)
  - test

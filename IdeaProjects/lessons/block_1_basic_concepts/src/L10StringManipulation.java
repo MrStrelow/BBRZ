@@ -1,7 +1,8 @@
-public class L06StringManipulation {
+public class L10StringManipulation {
 
     public static void main(String[] args) {
 
+        //
         // Übungen zur String manipulation
         // Strings können mittels befehlen manipuliert werden. (Für bessere handhabung siehe die StringBulider Klasse).
         // Es gibt zahlreiche Manipulationen aber, wichtig hier ein paar wichtige,

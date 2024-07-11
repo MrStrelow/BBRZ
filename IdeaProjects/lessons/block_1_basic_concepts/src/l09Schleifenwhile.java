@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class L10SchleifenWhile {
+public class l09Schleifenwhile {
     /*
         Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,
         aber fuers prinzipielle Verstaendnis nicht unbedingt notwendig ist, gemeint.

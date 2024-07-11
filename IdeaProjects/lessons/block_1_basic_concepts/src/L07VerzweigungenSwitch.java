@@ -1,4 +1,4 @@
-public class L08VerzweigungenSwitch {
+public class L07VerzweigungenSwitch {
     public static void main(String[] args) {
 
         //
