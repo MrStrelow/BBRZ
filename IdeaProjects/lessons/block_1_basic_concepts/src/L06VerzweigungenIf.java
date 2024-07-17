@@ -415,8 +415,10 @@ public class L06VerzweigungenIf {
         // 5 )
         // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
 
-        // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
-        // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
+        // Wir haben Wochentage:
+        // Wenn eine Integer-Variable (userInput) gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
+        // die Integer-Variable gleich 2 "Dienstag", usw. wenn bis Integer-Variable gleich 7, dann gib "Sonntag" aus.
+        // Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
 
         Integer input = 1;
 
