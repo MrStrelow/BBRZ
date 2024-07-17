@@ -370,7 +370,7 @@ public class L06VerzweigungenIf {
         if (sympathisch) {
             System.out.println("oag, geht mir auch so!");
             System.out.println("oag, geht mir auch so!");
-        } else if(verwandt) {
+        } else if (verwandt) {
             System.out.println("OK. Danke.");
         } else {
             System.out.println("hupf in gatsch, schleich di");
@@ -400,11 +400,11 @@ public class L06VerzweigungenIf {
             System.out.println("oag, geht mir auch so!");
             System.out.println("oag, geht mir auch so!");
 
-            if(sehrSympathisch) {
+            if (sehrSympathisch) {
                 System.out.print(" :) :) :)");
             }
 
-        } else if(verwandt) {
+        } else if (verwandt) {
             System.out.println("OK. Danke.");
         } else {
             System.out.println("hupf in gatsch, schleich di");
@@ -580,136 +580,5 @@ public class L06VerzweigungenIf {
         } else {
             System.out.println(output);
         }
-
-        // ############################## SWITCH ##############################
-
-        // Wir haben nur mit der IF-Verzweigung begonnen. Jedoch ist es manchmal syntaktisch angenehmer ein anderes Sprachkonstrukt
-        // zu verwenden. Die SWITCH-Verzweigung. Diese eignet sich, wenn wir mit dem Vergleichsoperator "==" bzw. ".equals();" verwenden.
-        // Die Variablen, welche wir mit dem genannten Vergleichsoperator in dem SWITCH vergleichen können, sind Strings und Zahlen (leider keine eigenen Objekte).
-        // Wir geben dazu die Variable innerhalb der runden Klammern "switch(<hier>)".
-        // Danach geben wir die Fälle an, welche wir mit dem Vergleichsoperator vergleichen wollen.
-        // z.B. wenn die Variable "input" den Typ Integer hat, kann diese gleich "1" sein. Also input == 1.
-        // Das schreiben wir im Switch mit "case 1:". Weiters folgt dann der Code welcher ausgeführt werden soll, wenn diese Bedingung eintritt.
-        // ACHTUNG: wir müssen am Ende des Code Blockes ein "break;" schreiben um nicht alle cases durchzugehen.
-
-        // 8) das gleiche mit Switch.
-        // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
-
-        // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
-        // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
-
-        input = 1;
-
-        switch (input) {
-            case 1: System.out.println("Montag :("); break;
-            case 2: System.out.println("Dienstag"); break;
-            case 3: System.out.println("Mittwoch"); break;
-            case 4: System.out.println("Donnerstag"); break;
-            case 5: System.out.println("Freitag :)"); break;
-            case 6: System.out.println("Samstag"); break;
-            case 7: System.out.println("Sonntag"); break;
-            default: System.out.println("Kein Wochentag.");
-        }
-
-
-        input = 4;
-
-        output = switch (input) {
-            case 1 -> "Montag :(";
-            case 2 -> "Dienstag";
-            case 3 -> "Mittwoch";
-            case 4 -> "Donnerstag";
-            case 5 -> "Freitag :)";
-            case 6 -> "Samstag";
-            case 7 -> "Sonntag";
-            default -> "kein Wochentag";
-        };
-
-        System.out.println(output);
-
-        output = switch (input) {
-            case 1 -> {
-
-                String res = "Freitag :)";
-
-                if (zufallszahl < 0.3) {
-                    res = res + ":)".repeat(7);
-                }
-
-                yield(res);
-
-            }
-            case 2 -> "Dienstag";
-            case 3 -> "Mittwoch";
-            case 4 -> "Donnerstag";
-            case 5 -> "Freitag :)";
-            case 6 -> "Samstag";
-            case 7 -> "Sonntag";
-            default -> "kein Wochentag";
-        };
-
-        System.out.println(output);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//        if( (first == second) && (first < third) ) {
-//            System.out.println("Bedingung ist wahr");
-//        }
-//
-//        if( (first == second) ) {
-//            if ( first < third ) {
-//                System.out.println("Bedingung ist wahr");
-//            }
-//        }
-//
-//        //|| boolean, boolean -> boolean
-//
-//
-//        if ( ( (5+8+7/2) == (9/8-6+2) ) || ( (5+8+7/2) == (9/8-6+2) ) ) {
-//            System.out.println("wird nie ausgegeben");
-//        } else {
-//            System.out.println("wird immer ausgegeben");
-//        }
-////
-//        if (true) {
-//            System.out.println("hallo1");
-//        }
-//        System.out.println("nein1");
-//
-//        //
-//
-//        if (false) {
-//            System.out.println("hallo2");
-//        } else {
-//            System.out.println("nein2");
-//        }
-//
-//        //
-//        if (true) {
-//            System.out.println("variante 1");
-//        } else if(true) {
-//            System.out.println("variante 2");
-//        } else {
-//            System.out.println("variante 3");
-//        }
     }
 }
