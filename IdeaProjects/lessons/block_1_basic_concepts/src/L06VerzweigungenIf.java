@@ -16,25 +16,6 @@ public class L06VerzweigungenIf {
         // - if/if-else/else-if (und wir erwähnen den ternärer Operator)
         // - switch
 
-        // Kurz ein paar Worte zur Theorie. Das Konzept "Verzweigung" ist semantisches Konzept. Ein solches spiegelt
-        // die Bedeutung unseres Vorhabens wider. Dieses Vorhaben ist eben dem Programm zu sagen
-        // "führe einen Teil des Programmes aus, aber nur wenn ein gewisser Zustand bereits eingetreten ist".
-        // Wir müssen nun die Bedeutung (die Semantik), die wir im Kopf haben, in unserer Programmiersprache formulieren.
-        // Diese Formulierung ist dann nicht mehr ein semantisches Konzept, sondern ein syntaktisches.
-        // Wir schreiben dann
-
-        if (x == 5) {
-            System.out.println("mal schauen ob es ausgeführt wird.");
-        }
-
-        // Semantik ist also die Bedeutung unseres Vorhabens und die Syntax die Art wie wir es in unserer
-        // Programmiersprache formulieren. Wenn wir es in einer anderen Sprache formulieren wollen, ist die Syntax eine andere.
-        // Die Bedeutung des Programmes ist aber die gleiche und unabhängig von der Sprache.
-        // Wir können nun mit Logik unser Programm mathematisch analysieren, ob es das tut, was es soll.
-        // Diese Analyse ist dann auf der semantischen Ebene.
-        // Dies wird benötigt um Autopiloten von Flugzeugen, Software für Atomkraftwerke, NASA, usw. zu schreiben.
-        // Theorie ende.
-
         // Wir betrachten nun wie wir in JAVA Verzweigungen formulieren können.
         // Wir haben dazu die genannten 2 Möglichkeiten.
         // - if/if-else/else-if und switch.
@@ -268,8 +249,155 @@ public class L06VerzweigungenIf {
 
         }
 
-        // Hier noch unabhängig von den Verzweigungen ein Thema, welches jetzt zum Ersten mal relevant wird.
+        // Wir sehen, dieses Programm ist syntaktisch unterschiedlich wie das vorherige, jedoch semantisch das Gleiche.
+        // In normaler Sprache, "der Code ist anders, aber er macht das gleiche".
+
+        // ########## Zusammenhang mit Logischen Operatoren ##########
+        // Wir können Verschachtelungen von Verzweigungen auch durch logische Operatoren vermeiden.
+        // Dazu schauen wir uns folgendes an:
+
+        Boolean esRegnet = true;
+        Boolean esIstKalt = true;
+
+        if (esRegnet) {
+            if (esIstKalt) {
+                System.out.println("wir bleiben zuhause");
+            }
+        }
+
+        // Hier haben wir eine Verschachtelung, welche zuerst abfragt ob "es regnet" und danach ob "es kalt ist".
+        // Wenn beide Variablen "wahr" sind, wird "Es ist kalt und regnet" ausgegeben.
+        // Wenn eine der beiden Variablen "falsch" ist, bzw. beide "falsch" sind,
+        // dann werden wir nicht "Es ist kalt und regnet" ausgegeben.
+        // Dieses Verhalten entspricht jenem eines logischen UND. Deshalb kann dieses auch so dargestellt werden:
+        if (esRegnet && esIstKalt) {
+            System.out.println("wir bleiben zuhause");
+        }
+
+        // Wir können auch ein Verhalten erzeugen welches dem logischen ODER entspricht.
+        // Dazu schauen wir uns folgendes an:
+        if (esRegnet) {
+            System.out.println("wir bleiben zuhause");
+        }
+
+        if (esIstKalt) {
+            System.out.println("wir bleiben zuhause");
+        }
+
+        // Hier ist keine Verschachtelung gegebe, jedoch ist hier ein hintereinanderschalten von IF Verzweigungen gegeben.
+        // Wir bleiben hier zu Hause, wenn es regnet. Wir bleiben hier zu Hause, wenn es kalt ist. Wir bleiben (sogar doppelt)
+        // zu Hause, wenn beides eintritt. Wir nehmen an, dass die doppelte Ausgabe der IFs das Gleiche ist, wie eine einzige Ausgabe.
+        // Dann können wir beobachten, dass dieser Zustand ein logisches ODER ist. Deshalb kann dieses auch so dargestellt werden:
+        if (esRegnet || esIstKalt) {
+            System.out.println("wir bleiben zuhause");
+        }
+        // ACHTUNG! Das funktioniert nur, wenn der gleiche Code innerhalb der IF Blöcke steht.
+
+        // Wir werden diese Schreibweisen in Zukunft ausnutzen, um sogenannte "Guard Clauses" zu erstellen.
+        // Diese funktionieren immer (... oft), da wir folgenden logischen Zusammenhang haben:
+        // !(A && B) ist das gleiche wie !A || !B, deshalb ist A && B ist das gleiche wie !( !A || !B).
+        // Verneine dazu beide Aussagen und bemerke, dass sich eine doppelte Negation aufhebt.
+        // Deshalb kann ein "verschachteltes IF" zu einem "untereinander geschriebenen IF" umgeschrieben werden!
+        // Die untereinander geschriebenen IFs bieten oft eine schönere Darstellung welche "Guard Clauses" genannt werden.
+        // Folgendes Programm ist also das gleiche wie...
+        Boolean userExistiert = false;
+        Boolean userIstAltGenug = false;
+        Boolean userIstPremiumAccount = true;
+        Boolean userIstUnauffaellig = true;
+
+        Boolean ressourceExistiert = false;
+        Boolean ressourceIstAmNeuestenStand = true;
+        Boolean ressourceUnauffaellig = true;
+
+        System.out.println("----------Verschachteltes IF----------");
+
+        if (userExistiert) {
+            if (userIstAltGenug) {
+                if (userIstPremiumAccount) {
+                    if (userIstUnauffaellig) {
+                        if (ressourceExistiert) {
+                            if (ressourceIstAmNeuestenStand) {
+                                if (ressourceUnauffaellig) {
+                                    System.out.println("Passt! User bekommt was er will.");
+                                } else {
+                                    System.out.println("Fehler 7!");
+                                }
+                            } else {
+                                System.out.println("Fehler 6!");
+                            }
+                        } else {
+                            System.out.println("Fehler 5!");
+                        }
+                    } else {
+                        System.out.println("Fehler 4!");
+                    }
+                } else {
+                    System.out.println("Fehler 3!");
+                }
+            } else {
+                System.out.println("Fehler 2!");
+            }
+        } else {
+            System.out.println("Fehler 1!");
+        }
+
+
+        // ... dieses Programm hier.
+        System.out.println("----------Guard Clauses----------");
+
+        if (!userExistiert) {
+            System.out.println("Fehler 1!");
+            System.exit(0);
+        }
+
+        if (!userIstAltGenug) {
+            System.out.println("Fehler 2!");
+            System.exit(0);
+        }
+
+        if (!userIstPremiumAccount) {
+            System.out.println("Fehler 3!");
+            System.exit(0);
+        }
+
+        if (!ressourceExistiert) {
+            System.out.println("Fehler 4!");
+            System.exit(0);
+        }
+
+        if (!userIstUnauffaellig) {
+            System.out.println("Fehler 5!");
+            System.exit(0);
+        }
+
+        if (!ressourceIstAmNeuestenStand) {
+            System.out.println("Fehler 6!");
+            System.exit(0);
+        }
+
+        if (!ressourceUnauffaellig) {
+            System.out.println("Fehler 7!");
+            System.exit(0);
+        }
+
+        System.out.println("Passt! User bekommt was er will.");
+
+        // Kurz ein paar Worte zur Theorie. Das Konzept "Verzweigung" ist semantisches Konzept. Ein solches spiegelt
+        // die Bedeutung unseres Vorhabens wider. Dieses Vorhaben ist eben dem Programm zu sagen
+        // "führe einen Teil des Programmes aus, aber nur wenn ein gewisser Zustand bereits eingetreten ist".
+        // Wir müssen nun die Bedeutung (die Semantik), die wir im Kopf haben, in unserer Programmiersprache formulieren.
+        // Diese Formulierung ist dann nicht mehr ein semantisches Konzept, sondern ein syntaktisches.
+
+        // Semantik ist also die Bedeutung unseres Vorhabens und die Syntax die Art wie wir es in unserer
+        // Programmiersprache formulieren. Wenn wir es in einer anderen Sprache formulieren wollen, ist die Syntax eine andere.
+        // Die Bedeutung des Programmes ist aber die gleiche und unabhängig von der Sprache.
+        // Wir können nun mit Logik unser Programm mathematisch analysieren, ob es das tut, was es soll.
+        // Diese Analyse ist dann auf der semantischen Ebene.
+        // Dies wird benötigt um Autopiloten von Flugzeugen, Software für Atomkraftwerke, NASA, usw. zu schreiben.
+        // Theorie ende.
+
         // ################## Namespaces ##################
+        // Hier noch unabhängig von den Verzweigungen ein Thema, welches jetzt zum Ersten mal relevant wird.
         // Namensräume/Namespaces sind bereiche des Codes in welcher Variablen erkannt werden, und somit mit deren Namen
         // angesprochen werden können.
         // Diese Räume sind in JAVA innerhalb von den geschwungenen Klammern gegeben.
@@ -298,123 +426,9 @@ public class L06VerzweigungenIf {
         // Dieses Konzept ist immer anwendbar, wenn eine geschwungene Klammer gesehen wird,
         // unabhängig vom genauen Sprachkonstrukt. Hier ist es das IF/IF-ELSE/ELSE-IF Konstrukt.
 
-        // ########### Hier nun ein paar Beispiele zum mitlesen zu der IF/IF-ELSE/ELSE-IF Verzweigung ############
+        // ########### Hier nun ein paar Beispiele zum Mitlesen zu der IF/IF-ELSE/ELSE-IF Verzweigung ############
 
         // 1 )
-        // --------------------------- NUR if - ich möchte im Programm einmal Abzweigen. -------------------------------
-        System.out.println("----- if -----");
-        System.out.println("Hallo :)");
-
-        // Versuche folgende Verzweigung in JAVA zu schreiben.
-        // Lege dazu eine boolesche Variable an welche "sympatisch" darstellt.
-        // Wie diese zustande kommt, ist nicht relevant. Setze diese im einfachsten Fall auf true.
-        // Aussage:
-        // "Wenn mir die person sympathisch ist, dann rede ich noch einen Satz mit Ihr."
-        // Rede einen Satz ist als System.out.println(); darzustellen.
-
-        // Als Erinnering: wenn die if Bedingung wahr ist, dann führe den Code in der geschwungenen Klammer aus.
-        Boolean sympathisch = (first == second) && (first < third);
-
-        if (sympathisch) {
-            System.out.println("oag, geht mir auch so!");
-        }
-
-        // Der Code welcher unabhängig von der Verzweigung geschrieben ist, wird immer ausgeführt.
-        System.out.println("Tschau :(");
-
-        // Bemerkung: Variablen welche in einer geschwungenen Klammer definiert bzw. deklariert werden, sind nach
-        // der geschlossenen geschwungenen Klammer weg. (Variable nur im Block/Namespace gültig)
-        if (true) {
-            // a = 5 aber a gibt es nur bis "}"
-            Integer a = 5;
-        }
-        // den Ausdruck "Integer a = 5" gibt es nicht mehr, also kann ich es neu definieren!
-        Integer a = 4;
-
-
-        // 2 )
-        // --------------------------- if mit else - ich möchte im Programm "zwei-mal gleichzeitig" Abzweigen. -------------------------------
-        System.out.println("----- if mit else -----");
-        System.out.println("Hallo :)");
-
-        // WENN mir die person SYMPATISCH ist,
-        // DANN rede ich noch einen Satz mit Ihr,
-        // ANDERNFALLS,
-        // sage ich "hupf in gatsch, schleich di".
-
-        // wenn nach if die Bedingung wahr ist -> dann führe den Code in der geschwungenen Klammer aus.
-
-        if (sympathisch) {
-            System.out.println("oag, geht mir auch so!");
-        } else {
-            System.out.println("hupf in gatsch, schleich di");
-        }
-
-        System.out.println("Tschau :(");
-
-        // 3 )
-        // --------------------------- else-if - ich möchte im Programm "öfters gleichzeitig" Abzweigen. -------------------------------
-        System.out.println("----- else-if -----");
-        System.out.println("Hallo :)");
-
-        // nur WENN mir die person SYMPATHISCH ist,
-        // DANN rede viel,
-        // ANDERNFALLS, WENN sie VERWANDT ist
-        // DANN rede ich noch einen Satz mit Ihr,
-        // ANDERNFALLS,
-        // sage ich "hupf in gatsch, schleich di".
-        // wenn nach if die Bedingung wahr ist -> dann führe den Code in der geschwungenen Klammer aus.
-
-        Boolean verwandt = (first != second) && (first < third);
-
-        if (sympathisch) {
-            System.out.println("oag, geht mir auch so!");
-            System.out.println("oag, geht mir auch so!");
-        } else if (verwandt) {
-            System.out.println("OK. Danke.");
-        } else {
-            System.out.println("hupf in gatsch, schleich di");
-        }
-
-        System.out.println("Tschau :(");
-
-
-        // 4 )
-        // --------------------------- diverse Kombinationen von 1-3 -------------------------------
-        System.out.println("----- diverse Kombinationen -----");
-        System.out.println("Hallo :)");
-
-        // (nur WENN mir die person SYMPATHISCH ist,
-        // DANN rede viel,
-        // WENN sie SEHR SYMPATHISCH ist,
-        // DANN lache viel)
-        // ANDERNFALLS, WENN sie VERWANDT ist
-        // DANN rede ich noch einen Satz mit Ihr,
-        // ANDERNFALLS,
-        // sage ich "hupf in gatsch, schleich di".
-        // wenn nach if die Bedingung wahr ist -> dann führe den Code in der geschwungenen Klammer aus.
-
-        Boolean sehrSympathisch = (first != second) || (first < third);
-
-        if (sympathisch) {
-            System.out.println("oag, geht mir auch so!");
-            System.out.println("oag, geht mir auch so!");
-
-            if (sehrSympathisch) {
-                System.out.print(" :) :) :)");
-            }
-
-        } else if (verwandt) {
-            System.out.println("OK. Danke.");
-        } else {
-            System.out.println("hupf in gatsch, schleich di");
-        }
-
-        System.out.println("Tschau :(");
-
-        // 5 )
-        // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
-
         // Wir haben Wochentage:
         // Wenn eine Integer-Variable (userInput) gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
         // die Integer-Variable gleich 2 "Dienstag", usw. wenn bis Integer-Variable gleich 7, dann gib "Sonntag" aus.
@@ -448,16 +462,14 @@ public class L06VerzweigungenIf {
         }
 
 
-        // 6 )
-        // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
-
+        // 2 )
         // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
         // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
         // Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also :(:(:(:(:( zum String "Montag :(" hinzuzufügen.
         // Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also :):):):):):):) zum String "Freitag :(" hinzuzufügen.
 
         Double zufallszahl = Math.random();
-//        verwende allgemein besser die Random Klasse.
+//        oder verwende die Random Klasse.
 //        Random random = new Random();
 //        Double zufallszahl = random.nextDouble();
 
@@ -530,9 +542,7 @@ public class L06VerzweigungenIf {
         }
 
 
-        // 7)
-        // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
-
+        // 3)
         // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
         // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
         // Zusätzlich hat der Montag eine Chance von 80% 5 mal ":(", also :(:(:(:(:( zum String "Montag :(" hinzuzufügen.
