@@ -21,34 +21,34 @@ public class Main {
                      ||
          */
 
-//        if (userInputZahl == 5) {
-//            System.out.println("mal schauen ob es ausgeführt wird.");
-//            userInputZahl *= 2;
-//        }
-//
-//        System.out.println("Der User hat die Zahl " + userInputZahl + " eingegeben.");
-//
-//
-//        // WENN
-//        //      der userInput gleich 5 ist
-//        // DANN
-//        //      verdopple den userInput und gib einen Text deiner Wahl aus.
-//        // ANSONSTEN
-//        //      halbiere den userInput
-//
-//
-//        /*        ()  ()
-//                   \  /
-//           x == 5   \/   ELSE
-//                    ||
-//         */
-//
-//        if (userInputZahl == 5) {
-//            System.out.println("mal schauen ob es ausgeführt wird.");
-//            userInputZahl *= 2;
-//        } else {
-//            userInputZahl /= 2;
-//        }
+        if (userInputZahl == 5) {
+            System.out.println("mal schauen ob es ausgeführt wird.");
+            userInputZahl *= 2;
+        }
+
+        System.out.println("Der User hat die Zahl " + userInputZahl + " eingegeben.");
+
+
+        // WENN
+        //      der userInput gleich 5 ist
+        // DANN
+        //      verdopple den userInput und gib einen Text deiner Wahl aus.
+        // ANSONSTEN
+        //      halbiere den userInput
+
+
+        /*        ()  ()
+                   \  /
+           x == 5   \/   ELSE
+                    ||
+         */
+
+        if (userInputZahl == 5) {
+            System.out.println("mal schauen ob es ausgeführt wird.");
+            userInputZahl *= 2;
+        } else {
+            userInputZahl /= 2;
+        }
 
         // Wir haben Wochentage:
         // Wenn eine Integer-Variable (userInput) gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
@@ -72,7 +72,6 @@ public class Main {
                     ||
          */
 
-//        Integer userInputZahl = Integer.parseInt(userInput);
 
         if (userInputZahl == 1) {
             System.out.println("Montag");
@@ -143,6 +142,13 @@ public class Main {
         //  DANN gib 'mal schauen ob es ausgeführt wird'. aus.
         //  ANSONSTEN gib ':(' aus und verdopple x"
 
+        if (userInputZahl == 5) {
+            System.out.println("mal schauen ob es ausgeführt wird");
+        } else {
+            System.out.println(":(");
+            userInputZahl *= 2;
+        }
+
 
         // 2.)
         // "WENN die Zahl die er User eingibt gleich 5 ist,
@@ -151,6 +157,26 @@ public class Main {
         //      WENN die Zahl die er User eingibt kleiner 5 ist
         //      DANN gib ':)' aus und halbiere x"
         //      ANSONSTEN gib ':(' aus und verdopple x".
+
+        if (userInputZahl == 5) {
+
+            System.out.println("mal schauen ob es ausgeführt wird");
+
+        } else {
+
+            if (userInputZahl < 5) {
+
+                System.out.println(":)");
+                userInputZahl /= 2;
+
+            } else {
+
+                System.out.println(":(");
+                userInputZahl *= 2;
+
+            }
+
+        }
 
         // 3.)
         // "WENN die Zahl die er User eingibt UNgleich 5 ist,
@@ -161,10 +187,51 @@ public class Main {
         //  ANSONSTEN
         //  gib 'mal schauen ob es ausgeführt wird'. aus.
 
+        if (userInputZahl != 5) {
+
+           if (userInputZahl < 5) {
+               System.out.println(":)");
+               userInputZahl /= 2;
+           } else {
+               System.out.println(":(");
+               userInputZahl *= 2;
+           }
+
+        } else {
+
+            System.out.println("mal schauen ob es ausgeführt wird");
+
+        }
+
+
         // 4.)
         // "WENN die Zahl die er User eingibt gleich 5 ist,
         //  DANN weise einem String 'user hat den 5er eingegeben'.
         //  ANSONSTEN weise den gleichen String 'user hat nicht den 5er eingegeben'
 
+        String userString;
+
+        if (userInputZahl == 5) {
+            userString = "user hat den 5er eingegeben";
+        } else {
+            userString = "user hat nicht den 5er eingegeben";
+        }
+
+        System.out.println(userString);
+
+        // tenärer Operator
+        String userStringShort = userInputZahl == 5 ? "user hat größer 5 eingegeben" : "user hat kleiner 5 eingegeben";
+
+
+        // tenärer Operator - verschachtelt!
+        userStringShort =
+            userInputZahl != 5 ?
+                (userInputZahl > 5 ?
+                        "user hat größer 5 eingegeben" :
+                        "user hat kleiner 5 eingegeben"
+                ) :
+                "user hat den 5er eingegeben";
+
+        System.out.println(userStringShort);
     }
 }
