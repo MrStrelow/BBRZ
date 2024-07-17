@@ -1,6 +1,6 @@
 package uebungen;
 
-public class Ue03Verzweigung00_empty {
+public class Ue06Verzweigung00_empty {
     public static void main(String[] args) {
 //        Alle Eingaben sollen über die Konsole erfolgen
 

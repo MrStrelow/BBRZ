@@ -2,7 +2,7 @@ package uebungen.loesungen;
 
 import java.util.Scanner;
 
-public class Ue02Scanner_solution {
+public class Ue04Scanner_solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

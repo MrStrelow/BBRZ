@@ -1,6 +1,6 @@
 package uebungen;
 
-public class Ue01Variablen_empty {
+public class Ue02Variablen_empty {
 
     public static void main(String[] args) {
         // Erkennen von Typen

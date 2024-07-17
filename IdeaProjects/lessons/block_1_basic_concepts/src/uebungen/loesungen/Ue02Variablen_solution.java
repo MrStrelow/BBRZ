@@ -1,6 +1,6 @@
 package uebungen.loesungen;
 
-public class Ue01Variablen_solution {
+public class Ue02Variablen_solution {
 
     static final Integer K1 = 111;
     static final Integer cola = 2;

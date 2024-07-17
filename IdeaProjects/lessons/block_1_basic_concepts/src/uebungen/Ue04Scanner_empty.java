@@ -1,8 +1,6 @@
 package uebungen;
 
-import java.util.Arrays;
-
-public class Ue02Scanner_empty {
+public class Ue04Scanner_empty {
     public static void main(String[] args) {
 //        1. - Abfragen von Strings
 //        Fragen Sie den Benutzer nach 3 Strings ab. Geben Sie anschließend alle drei Strings aus.

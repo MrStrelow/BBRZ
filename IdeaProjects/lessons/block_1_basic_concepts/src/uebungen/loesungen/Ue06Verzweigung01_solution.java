@@ -2,7 +2,7 @@ package uebungen.loesungen;
 
 import java.util.Scanner;
 
-public class Ue03Verzweigung01_solution {
+public class Ue06Verzweigung01_solution {
     public static void main(String[] args) {
 //        Die Eingabe ist über die Konsole zu erfassen.
         Scanner scanner = new Scanner(System.in);

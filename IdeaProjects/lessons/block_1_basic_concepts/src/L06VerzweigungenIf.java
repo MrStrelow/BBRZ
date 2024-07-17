@@ -583,6 +583,15 @@ public class L06VerzweigungenIf {
 
         // ############################## SWITCH ##############################
 
+        // Wir haben nur mit der IF-Verzweigung begonnen. Jedoch ist es manchmal syntaktisch angenehmer ein anderes Sprachkonstrukt
+        // zu verwenden. Die SWITCH-Verzweigung. Diese eignet sich, wenn wir mit dem Vergleichsoperator "==" bzw. ".equals();" verwenden.
+        // Die Variablen, welche wir mit dem genannten Vergleichsoperator in dem SWITCH vergleichen können, sind Strings und Zahlen (leider keine eigenen Objekte).
+        // Wir geben dazu die Variable innerhalb der runden Klammern "switch(<hier>)".
+        // Danach geben wir die Fälle an, welche wir mit dem Vergleichsoperator vergleichen wollen.
+        // z.B. wenn die Variable "input" den Typ Integer hat, kann diese gleich "1" sein. Also input == 1.
+        // Das schreiben wir im Switch mit "case 1:". Weiters folgt dann der Code welcher ausgeführt werden soll, wenn diese Bedingung eintritt.
+        // ACHTUNG: wir müssen am Ende des Code Blockes ein "break;" schreiben um nicht alle cases durchzugehen.
+
         // 8) das gleiche mit Switch.
         // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
 
