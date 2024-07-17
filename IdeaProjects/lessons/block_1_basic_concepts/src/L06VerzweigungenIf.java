@@ -70,7 +70,7 @@ public class L06VerzweigungenIf {
         // Dieses nennen wir "else" und ist Teil der IF-Verzweigung.
         // Wir formulieren also:
         // "WENN die Zahl die er User eingibt gleich 5 ist,
-        //  DANN gib 'mal schauen ob es ausgeführt wird. aus.
+        //  DANN gib 'mal schauen ob es ausgeführt wird'. aus.
         //  ANSONSTEN gib ':(' aus und verdopple x"
         if (x == 5) {
 
@@ -116,7 +116,7 @@ public class L06VerzweigungenIf {
         // WENN DANN ANSONSTEN WENN DANN ANSONSTEN WENN DANN ...
         // Konkreter:
         // "WENN die Zahl die er User eingibt gleich 5 ist,
-        //  DANN gib 'mal schauen ob es ausgeführt wird. aus.
+        //  DANN gib 'mal schauen ob es ausgeführt wird'. aus.
         //  ANSONSTEN
         //      WENN die Zahl die er User eingibt kleiner 5 ist
         //      DANN gib ':)' aus und halbiere x"
@@ -239,16 +239,16 @@ public class L06VerzweigungenIf {
 
         // Betrachten wir nun eine geschachtelte if-else Anweisung welche nicht als else-if darstellbar ist.
         // Konkreter:
-        // "WENN die Zahl die er User eingibt gleich 5 ist,
+        // "WENN die Zahl die er User eingibt UNgleich 5 ist,
         //  DANN
         //      WENN die Zahl die er User eingibt kleiner 5 ist
         //      DANN gib ':)' aus und halbiere x"
         //      ANSONSTEN gib ':(' aus und verdopple x".
         //  ANSONSTEN
-        //  gib 'mal schauen ob es ausgeführt wird. aus.
+        //  gib 'mal schauen ob es ausgeführt wird'. aus.
 
         // Wir haben hier also vertauscht was im ELSE Zweig dargestellt wird.
-        if (x == 5) {
+        if (x != 5) {
 
             if (x < 5) {
 
