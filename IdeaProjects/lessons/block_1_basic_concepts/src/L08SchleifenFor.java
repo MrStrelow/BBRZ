@@ -1,12 +1,6 @@
 import java.util.Scanner;
 
 public class L08SchleifenFor {
-    /*
-        Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,
-        aber fuers prinzipielle Verstaendnis nicht unbedingt notwendig ist, gemeint.
-
-        Wenn (MERKE) neben einer Zeile steht, dann gibt es hier eine Kleinigkeit, welche praktisch ist und sehr wohl zum Verständnis beiträgt.
-    */
     public static void main(String[] args) {
 
 //        For-Schleife - Erste Kontakte:
@@ -17,6 +11,7 @@ public class L08SchleifenFor {
         for (int zaehlvariableDerForLoop = 1; zaehlvariableDerForLoop <= 10; zaehlvariableDerForLoop++) {
             System.out.println("FOR: wir haben " + zaehlvariableDerForLoop + " mal den Code in der Schleife ausgeführt.");
         }
+
 //        hat die gleiche Bedeutung wie
         int zaehlvariableDerWhileLoop = 0;
         while (zaehlvariableDerWhileLoop < 10) {

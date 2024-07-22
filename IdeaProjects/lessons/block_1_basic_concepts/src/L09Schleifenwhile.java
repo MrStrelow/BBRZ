@@ -10,7 +10,7 @@ public class L09Schleifenwhile {
     public static void main(String[] args) {
 
         // Eine While Schleife ist eine Schleife. Bedeutet also wir wiederholen so lange einen Teil des Codes bis eine Bedingung nicht mehr erfüllt wird.
-        // Die Bedingungne könnne hier beliebig sein, jedoch wichtig ist, dass am Schluss ein boolescher Wert rauskommt.
+        // Die Bedingungen können hier beliebig sein, jedoch wichtig ist, dass am Schluss ein boolescher Wert rauskommt.
         // Hier ist dies i < 3. Solange diese Schleifenbedingung erfüllt ist, also auf true auswertet, wird der Code welcher unter der
         // While Schleife steht, ausgeführt. Dies ist hier  System.out.println(" :) "); und i = i + 1;
 
@@ -34,7 +34,6 @@ public class L09Schleifenwhile {
             System.out.println(" :) ");
             i = i + 1;
         }
-
 
         // Hier wird das Alter vom User eingegeben und erst wenn diese In Ordnung ist
         Scanner scanner = new Scanner(System.in);
