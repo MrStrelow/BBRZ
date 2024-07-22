@@ -284,7 +284,7 @@ public class L06VerzweigungenIf {
             System.out.println("wir bleiben zuhause");
         }
 
-        // Hier ist keine Verschachtelung gegebe, jedoch ist hier ein hintereinanderschalten von IF Verzweigungen gegeben.
+        // Hier ist keine Verschachtelung gegeben, jedoch ist hier ein hintereinanderschalten von IF Verzweigungen gegeben.
         // Wir bleiben hier zu Hause, wenn es regnet. Wir bleiben hier zu Hause, wenn es kalt ist. Wir bleiben (sogar doppelt)
         // zu Hause, wenn beides eintritt. Wir nehmen an, dass die doppelte Ausgabe der IFs das Gleiche ist, wie eine einzige Ausgabe.
         // Dann können wir beobachten, dass dieser Zustand ein logisches ODER ist. Deshalb kann dieses auch so dargestellt werden:
@@ -429,10 +429,10 @@ public class L06VerzweigungenIf {
         // ########### Hier nun ein paar Beispiele zum Mitlesen zu der IF/IF-ELSE/ELSE-IF Verzweigung ############
 
         // 1 )
-        // Wir haben Wochentage:
-        // Wenn eine Integer-Variable (userInput) gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
-        // die Integer-Variable gleich 2 "Dienstag", usw. wenn bis Integer-Variable gleich 7, dann gib "Sonntag" aus.
-        // Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
+        // Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
+        //  - Wenn eine Integer-Variable, welche der User eingibt gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
+        //    die Integer-Variable gleich 2 ist "Dienstag", usw. bis, wenn die Integer-Variable gleich 7 ist, dann gib "Sonntag" aus.
+        //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
 
         Integer input = 1;
 
@@ -463,10 +463,12 @@ public class L06VerzweigungenIf {
 
 
         // 2 )
-        // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
-        // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
-        // Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also :(:(:(:(:( zum String "Montag :(" hinzuzufügen.
-        // Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also :):):):):):):) zum String "Freitag :(" hinzuzufügen.
+        // Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
+        //  - Wenn eine Integer-Variable, welche der User eingibt gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
+        //    die Integer-Variable gleich 2 ist "Dienstag", usw. bis, wenn die Integer-Variable gleich 7 ist, dann gib "Sonntag" aus.
+        //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
+        //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
+        //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
 
         Double zufallszahl = Math.random();
 //        oder verwende die Random Klasse.
@@ -543,11 +545,13 @@ public class L06VerzweigungenIf {
 
 
         // 3)
-        // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
-        // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
-        // Zusätzlich hat der Montag eine Chance von 80% 5 mal ":(", also :(:(:(:(:( zum String "Montag :(" hinzuzufügen.
-        // Zusätzlich hat der Montag eine Chance von 30% 7 mal ":(", also :):):):):):):) zum String "Freitag :(" hinzuzufügen.
-        // Zusätzlich hat jeder Tag eine Chance von 1%, einen ":)" hat.
+        // Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
+        //  - Wenn eine Integer-Variable, welche der User eingibt gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
+        //    die Integer-Variable gleich 2 ist "Dienstag", usw. bis, wenn die Integer-Variable gleich 7 ist, dann gib "Sonntag" aus.
+        //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
+        //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
+        //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
+        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen Smiley ":)" hat.
 
 
         System.out.println("######################### HERE #########################");
