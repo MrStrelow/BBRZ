@@ -252,8 +252,38 @@ public class L06VerzweigungenIf {
         // Wir sehen, dieses Programm ist syntaktisch unterschiedlich wie das vorherige, jedoch semantisch das Gleiche.
         // In normaler Sprache, "der Code ist anders, aber er macht das gleiche".
 
+        // ########## tenärer Operator ##########
+        // Wir schauen uns kurz hier die Logik einer "wenn-dann-ansonsten" Verzweigung mittels dem "ternären" Operators an.
+        // Da wir nur einen ternären (3-ternär, 2-binär, 1-unär) Operator haben, hat er keinen spezielleren Namen.
+        // In anderen Sprachen (z.B. Python) wird dieser "conditional expressions" genannt.
+        // Wir können damit folgendes Modellieren.
+        // Umgangssprachlich:
+        // "<wenn> es regnet <dann> gehe ich schwimmen <ansonsten> bleibe ich zu Hause.
+        // In Python verschieben wir die Reihenfolge der Aussage. Es würde dann so geschrieben werden (ohne <>).
+        // "gehe schwimmen <if> es regnet <else> bleibe zu Hause". Hier verschwindet das <dann> vor dem "gehe schwimmen"
+        // In JAVA schreiben wir dies kryptischer aber wieder in der ursprünglichen Reihenfolge wie in der umgangssprachlichen Version.
+        // es regnet ? gehe schwimmen : bleibe zu Hause.
+
+        // Was tut dieser Ausdruck nun?
+        Integer userInput = Integer.parseInt(scanner.nextLine());
+        String userStringShort = userInput == 5 ? "user hat größer 5 eingegeben" : "user hat kleiner 5 eingegeben";
+
+
+        // Wir können diese Verzweigung, wie das IF, auch verschachteln.
+        userStringShort =
+                userInput != 5 ?
+                        (userInput > 5 ?
+                                "user hat größer 5 eingegeben" :
+                                "user hat kleiner 5 eingegeben"
+                        ) :
+                        "user hat den 5er eingegeben";
+
+        System.out.println(userStringShort);
+
         // ########## Zusammenhang mit Logischen Operatoren ##########
         // Wir können Verschachtelungen von Verzweigungen auch durch logische Operatoren vermeiden.
+        // Ob ein solches Umschreiben sinnvoll ist, kommt immer auf den speziellen Anwendungsfall an
+        // und kann nicht allgemein beantwortet werden.
         // Dazu schauen wir uns folgendes an:
 
         Boolean esRegnet = true;
@@ -434,31 +464,32 @@ public class L06VerzweigungenIf {
         //    die Integer-Variable gleich 2 ist "Dienstag", usw. bis, wenn die Integer-Variable gleich 7 ist, dann gib "Sonntag" aus.
         //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
 
-        Integer input = 1;
+        System.out.print("Geben Sie eine Zahl zwischen 1 und 7 ein um einen Wochentag zu erhalten: ");
+        Integer input = Integer.parseInt(scanner.nextLine());
 
         if (input == 1) {
-            System.out.println("Montag :(");
+            System.out.print("Montag :(");
 
         } else if (input == 2) {
-            System.out.println("Dienstag");
+            System.out.print("Dienstag");
 
         } else if (input == 3) {
-            System.out.println("Mittwoch");
+            System.out.print("Mittwoch");
 
         } else if (input == 4) {
-            System.out.println("Donnerstag");
+            System.out.print("Donnerstag");
 
         } else if (input == 5) {
-            System.out.println("Freitag :)");
+            System.out.print("Freitag :)");
 
         } else if (input == 6) {
-            System.out.println("Samstag");
+            System.out.print("Samstag");
 
         } else if (input == 7) {
-            System.out.println("Sonntag");
+            System.out.print("Sonntag");
 
         } else {
-            System.out.println("Kein Wochentag.");
+            System.out.print("Kein Wochentag.");
         }
 
 

@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class L07VerzweigungenSwitch {
     public static void main(String[] args) {
@@ -10,16 +11,23 @@ public class L07VerzweigungenSwitch {
         // Wir geben dazu die Variable innerhalb der runden Klammern "switch(<hier>)".
         // Danach geben wir die Fälle an, welche wir mit dem Vergleichsoperator vergleichen wollen.
         // z.B. wenn die Variable "input" den Typ Integer hat, kann diese gleich "1" sein. Also input == 1.
-        // Das schreiben wir im Switch mit "case 1:". Weiters folgt dann der Code welcher ausgeführt werden soll, wenn diese Bedingung eintritt.
-        // ACHTUNG: wir müssen am Ende des Code Blockes ein "break;" schreiben um nicht alle cases durchzugehen.
+        // Das schreiben wir im Switch mit "case 1:".
+        // Weiters folgt dann der Code welcher ausgeführt werden soll, wenn diese Bedingung eintritt.
+        // ACHTUNG: wir müssen am Ende des Codeblockes ein "break;" schreiben um nicht alle cases durchzugehen.
+        // OPTIONAL: Wir können zudem einen Fall festlegen, wenn keines des cases als korrekt ausgewertet wird.
+        // Das wird mit dem keyword "optional" angegeben. Wir schreiben dies anstatt des wortes "case".
 
+        // Schauen wir uns dazu die Übungen aus der IF Verzweigung an.
+        // 1 )
+        // Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
+        //  - Wenn eine Integer-Variable, welche der User eingibt gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
+        //    die Integer-Variable gleich 2 ist "Dienstag", usw. bis, wenn die Integer-Variable gleich 7 ist, dann gib "Sonntag" aus.
+        //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
 
-        // --------------------------- ÜBUNG: diverse Kombinationen von 1-3 -------------------------------
+        Scanner scanner = new Scanner(System.in);
 
-        // Wir haben Wochentage: und wenn eine Integer Variable 1 ist, dann gib montag aus, andernfalls 2 dienstag, usw.
-        // Wenn wir Freitag ausgeben wollen füge ":)". Wenn wir Montag ausgeben füge einen ":(" hinzu.
-
-        Integer input = 1;
+        System.out.print("Geben Sie eine Zahl zwischen 1 und 7 ein um einen Wochentag zu erhalten: ");
+        Integer input = Integer.parseInt(scanner.nextLine());
 
         switch (input) {
             case 1: System.out.println("Montag :("); break;
@@ -37,8 +45,7 @@ public class L07VerzweigungenSwitch {
         // Damit meinen wir Folgendes.
         // Hier wird der String "Montag :(" welcher in case 1 zurückgegeben wird, der Variable "output" zugewiesen.
         // Das passiert nur, wenn die Variable "input" den Wert "1" hat.
-
-        input = 4;
+        // Wir sehen hier auch keine Anwendung des keywords "break".
 
         String output = switch (input) {
             case 1 -> "Montag :(";
@@ -53,10 +60,19 @@ public class L07VerzweigungenSwitch {
 
         System.out.println(output);
 
+        // Hier eine kleine Modifikation um "mehr Code" zu ermöglichen. Also mehrere Zeilen code pro case ausführen zu können.
         // Wir können mit dieser Schreibweise auch komplizierteren Code schreiben, wenn der Fall "input == 1", also case 1, eintritt.
         // Dazu geben wir geschwungene Klammern nach dem "->" hinzu und gehen diesen Block von oben nach unten ab.
         // Am Ende müssen wir ein Ergebnis zurückgeben, welches der Variable "output" zugewiesen wird.
         // Das machen wir mit dem Befehl "yield".
+
+        // 2 )
+        // Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
+        //  - Wenn eine Integer-Variable, welche der User eingibt gleich 1 ist, dann gib "Montag" aus, andernfalls, wenn
+        //    die Integer-Variable gleich 2 ist "Dienstag", usw. bis, wenn die Integer-Variable gleich 7 ist, dann gib "Sonntag" aus.
+        //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
+        //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
+        //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
 
 //        Double zufallszahl = Math.random(); // das ist eine Andere Variante.
         Random random = new Random();
@@ -64,7 +80,18 @@ public class L07VerzweigungenSwitch {
 
         output = switch (input) {
             case 1 -> {
+                String res = "Montag :)";
 
+                if (zufallszahl < 0.8) {
+                    res = res + ":(".repeat(5);
+                }
+
+                yield(res);
+            }
+            case 2 -> "Dienstag";
+            case 3 -> "Mittwoch";
+            case 4 -> "Donnerstag";
+            case 5 -> {
                 String res = "Freitag :)";
 
                 if (zufallszahl < 0.3) {
@@ -72,12 +99,7 @@ public class L07VerzweigungenSwitch {
                 }
 
                 yield(res);
-
             }
-            case 2 -> "Dienstag";
-            case 3 -> "Mittwoch";
-            case 4 -> "Donnerstag";
-            case 5 -> "Freitag :)";
             case 6 -> "Samstag";
             case 7 -> "Sonntag";
             default -> "kein Wochentag";
@@ -85,49 +107,26 @@ public class L07VerzweigungenSwitch {
 
         System.out.println(output);
 
-
-        // Hier noch ein Beispiel in die andere Richtung, ohne dem "->".
-        String wochentag="Montag";
-        int num;
+        // Wir können zusätzlich zu ganzen Zahlen auch Strings mit dem switch in cases aufspalten.
+        // Wir sehen zudem, dass auch in der Basisvariante mehrere Zeilen Code in einem case hintereinander ausgeführt werden können.
+        // Hier ein Beispiel:
+        String wochentag = "Montag";
+        Integer res;
 
         switch (wochentag) {
             case "Montag":
-                num = 1;
-                System.out.println("num");
+                res = 1;
+                System.out.println("Heute ist Montag");
                 break;
 
             case "Dienstag":
-                num = 2;
-                System.out.println("helle chello");
+                res = 2;
+                System.out.println("Heute ist Dienstag");
                 break;
 
             default:
-                num = -1;
+                res = -1;
+                System.out.println("Heute ist irgend ein anderer Tag");
         }
-
-        // Die elegantere Variante ist folgende welche einem eine Zuweisung erlaubt.
-        // hier wird eine art Rückgabe, das bei "->" steht, dem was am Anfang steht zugewiesen. Hier "num ="
-
-        num = switch (wochentag) {
-            case "Montag" -> 1;
-            case "Dienstag" -> 2;
-            default -> -1;
-        };
-
-        System.out.println("das ist nach der switch! :) "+num);
-
-        // Hier eine kleine Modifikation um "mehr Code" zu ermöglichen. Also mehrere Zeilen code pro case ausführen zu können.
-        // hier wird eine art Rückgabe, das bei "yield" steht, dem was am Anfang steht zugewiesen. Hier "num ="
-        // Das was nach dem "->" steht ist der Block welcher ausgeführt wird.
-        num = switch (wochentag) {
-            case "Montag" -> {
-                System.out.println("this is hello");
-                yield 1;
-            }
-            case "Dienstag" -> 2;
-            default -> -1;
-        };
-
-        System.out.println("das ist nach der switch! :) "+num);
     }
 }
