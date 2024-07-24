@@ -502,21 +502,21 @@ public class L06VerzweigungenIf {
         //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
         //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen zusätzlichen Smiley ":)" hat.
 
-        Double zufallszahlMontag = Math.random();
-        Double zufallszahlFreitag = Math.random();
+        Double zufallszahl = Math.random();
         Double zufallszahlJederTag = Math.random();
 
 //        oder verwende die Random Klasse.
 //        Random random = new Random();
-//        Double zufallszahlMontag = random.nextDouble();
-//        Double zufallszahlFreitag = random.nextDouble();
+//        Double zufallszahl = random.nextDouble();
 //        Double zufallszahlJederTag = random.nextDouble();
+
+        // Warum ist hier eine zusätzliche Zufallszahl für "jeden Tag" notwendig, aber für Freitag und Montag nicht?
 
         if (input == 1) {
 
             String output = "Montag :(";
 
-            if (zufallszahlMontag < 0.8) {
+            if (zufallszahl < 0.8) {
                 System.out.println(output + ":(".repeat(5));
 
             } else if (zufallszahlJederTag < 0.01) {
@@ -559,7 +559,7 @@ public class L06VerzweigungenIf {
         } else if (input == 5) {
             String output = "Freitag :)";
 
-            if (zufallszahlFreitag < 0.3) {
+            if (zufallszahl < 0.3) {
                 System.out.print(output + ":)".repeat(7));
 
             } else if (zufallszahlJederTag < 0.01) {
@@ -614,7 +614,7 @@ public class L06VerzweigungenIf {
         if (input == 1) {
             output = "Montag :(";
 
-            if (zufallszahlMontag < 0.8) {
+            if (zufallszahl < 0.8) {
                 output = output + ":(".repeat(5);
             }
 
@@ -630,7 +630,7 @@ public class L06VerzweigungenIf {
         } else if (input == 5) {
             output = "Freitag :)";
 
-            if (zufallszahlFreitag < 0.3) {
+            if (zufallszahl < 0.3) {
                 output = output + ":)".repeat(7);
             }
 
