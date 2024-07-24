@@ -343,10 +343,6 @@ public class L08SchleifenWhile {
 
         // Es mag nun die Nützlichkeit der DO-WHILE hier nicht sehr dramatisch ausfallen, was nach dem ganzen Aufbau
         // ernüchternd erscheinen mag.
-        // Jedoch betrachte folgendes Beispiel welches den gleichen Vorteil hat, wie das Beispiel zuvor.
-        // Dieser ist die initialisierung der Variable "draw".
-        // Stellen wir uns folgendes Problem vor.
-
         // Wir verwenden also ein DO-WHILE, wenn wir:
         //  - code einmal ausführen müssen und nicht eine Bedingung zusätzlich festlegen bzw. eine Variable initialisieren wollen.
         // Mehr nicht.
