@@ -37,8 +37,17 @@ public class L06TaschenrechnerTerminalRelease {
         }
 
         Integer positionsToShift = instructions.length() + userInput.length();
+
+        // ANSICODE: dieser Code stellt einen Speziellen String dar, welcher uns erlaubt die Console zu manipulieren.
+        // Ähnlich der Übung00 mit den Farben. Wir manipulieren damit den Ort des Cursors.
+        // Wir springen eine zeile hoch und ganz nach links.
+        // - "\033" ist ein Code für "escape the next characters" - das Bedeutet diese werden nicht ausgegeben,
+        //   sondern als "spezieller" Befehl interpretiert.
+        // - "[" ist ein Symbol für den Start einer "Control sequence" - es wird also etwas manipuliert.
+        // - "F" bedeutet springe eine Zeile hoch und ganz nach links.
         System.out.print("\033[F");
-        // nC, wobei n eine ganze Zahl ist, erlaubt uns n Symbole nach rechts zu springen.
+
+        // Hier ebenso. Hier erlaubt uns "<ganzeZahl>C", uns <ganzeZahl> Symbole nach rechts zu springen.
         System.out.print("\033[" + positionsToShift + "C");
 
         System.out.print(" = " + result);
