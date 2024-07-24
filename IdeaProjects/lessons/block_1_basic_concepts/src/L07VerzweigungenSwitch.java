@@ -73,16 +73,19 @@ public class L07VerzweigungenSwitch {
         //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
         //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
         //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
+        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen zusätzlichen Smiley ":)" hat.
 
-//        Double zufallszahl = Math.random(); // das ist eine Andere Variante.
+//        Double zufallszahl = Math.random(); // das ist eine andere Variante.
         Random random = new Random();
-        Double zufallszahl = random.nextDouble();
+        Double zufallszahlMontag = random.nextDouble();
+        Double zufallszahlFreitag = random.nextDouble();
+        Double zufallszahlJederTag = random.nextDouble();
 
         output = switch (input) {
             case 1 -> {
                 String res = "Montag :)";
 
-                if (zufallszahl < 0.8) {
+                if (zufallszahlMontag < 0.8) {
                     res = res + ":(".repeat(5);
                 }
 
@@ -94,7 +97,7 @@ public class L07VerzweigungenSwitch {
             case 5 -> {
                 String res = "Freitag :)";
 
-                if (zufallszahl < 0.3) {
+                if (zufallszahlFreitag < 0.3) {
                     res = res + ":)".repeat(7);
                 }
 
@@ -105,7 +108,11 @@ public class L07VerzweigungenSwitch {
             default -> "kein Wochentag";
         };
 
-        System.out.println(output);
+        if (zufallszahlJederTag < 0.01) {
+            System.out.print(output + ":)");
+        } else {
+            System.out.println(output);
+        }
 
         // Wir können zusätzlich zu ganzen Zahlen auch Strings mit dem switch in cases aufspalten.
         // Wir sehen zudem, dass auch in der Basisvariante mehrere Zeilen Code in einem case hintereinander ausgeführt werden können.
