@@ -51,7 +51,7 @@ public class Main {
         //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen zusätzlichen Smiley ":)" hat.
 
         Double chance = Math.random();
-        // ACHTUNG! Wir müssen immer verschiedene Zufallszahlen für Montag, Freitag und jeden Tag generieren!
+        // ACHTUNG! Wir müssen eine zusätzliche Zufallszahl für "jeden Tag" generieren!
         // Wir lassen das aber für den Anfang aus, da es einfach am Ende hinzuzufügen ist.
 
 //        Random random = new Random();
