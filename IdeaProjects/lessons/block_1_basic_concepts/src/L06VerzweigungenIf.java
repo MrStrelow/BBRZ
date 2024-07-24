@@ -593,6 +593,10 @@ public class L06VerzweigungenIf {
             System.out.println("Kein Wochentag.");
         }
 
+        // Wir können dieses Programm jedoch kürzer schreiben, denn wir führen die 1%-Chance in jedem Pfad aus.
+        // Wir können daher versuchen die 1%-Zuweisung nach der Verzweigung hinzufügen und sparen uns diese in jedem Pfad.
+        // Das ist jedoch nur möglich, wenn wir uns die Ausgabe in einer Variable "output" merken.
+        // Siehe dazu folgenden Code.
 
         // 3)
         // Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
@@ -640,6 +644,8 @@ public class L06VerzweigungenIf {
             output = "";
             System.out.println("Kein Wochentag.");
         }
+
+        // Außerhalb der ursprünglichen Schleife!
 
         if (zufallszahlJederTag < 0.01) {
             System.out.print(output + ":)");
