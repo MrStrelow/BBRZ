@@ -2,14 +2,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class L11Arrays {
-
-    /*
-        Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,
-        aber fuers prinzipielle Verstaendnis nicht unbedingt notwendig ist, gemeint.
-
-        Wenn (MERKE) neben einer Zeile steht, dann gibt es hier eine Kleinigkeit, welche praktisch ist und sehr wohl zum Verständnis beiträgt.
-    */
-
     public static void main(String[] args) {
 
         // Bis jetzt waren Variablen nur Zuständig einen bestimmten Wert zu halten. Wie z.B. int a = 5;.

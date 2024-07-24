@@ -1,45 +1,69 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class L09SchleifenWhile {
+public class L08SchleifenWhile {
     public static void main(String[] args) {
 
         // ############# WHILE #############
-        // Eine While Schleife ist eine Schleife. Bedeutet also wir wiederholen so lange einen Teil des Codes bis eine Bedingung nicht mehr erfüllt wird.
-        // Die Bedingungen können hier beliebig sein, jedoch wichtig ist, dass am Schluss ein boolescher Wert rauskommt.
-        // Hier ist dies i < 3. Solange diese Schleifenbedingung erfüllt ist, also auf true auswertet, wird der Code welcher unter der
-        // While Schleife steht, ausgeführt. Dies ist hier  System.out.println(" :) "); und i = i + 1;
+        // Die letzte Zutat fehlt uns um alles berechnen zu können, was wir uns vorstellen können! (zumindest ist noch nichts anders von der Theorie bewiesen worden)
+        // Schleifen! (bzw. im Englischen, Loop).
+        // Ohne diese müssten wir aussagen hintereinanderschreiben. wie z.B.:
+        System.out.println(":)");
+        System.out.println(":)");
+        System.out.println(":)");
+        System.out.println(":)");
 
-        Integer i = 0; // i = 1;
-        while (i < 3) { // i <= 3;
-            System.out.println(" :) ");
-            i = i + 1;
+        // Wie oft aber soll das geschehen? Wenn wir die Anzahl nicht fixieren, sondern z.B. dem User als eingabe überlassen,
+        // dann können wir ein solches Problem nicht lösen.
+        // Genauer: "Lass den User eine Zahl eingeben, und gib so oft ':)' aus".
+        // Wir müssten dazu eine unendlich lange Verzweigung schreiben.
+        // Cheating! ":)".repeat(userInput) darf natürlich nicht verwendet werden! Das ist quasi eine Schleife!
+
+        Scanner scanner = new Scanner(System.in);
+        Integer userInput = Integer.parseInt(scanner.nextLine());
+
+        switch (userInput) {
+            case 1 -> System.out.print(":)\n");
+            case 2 -> System.out.print(":)\n:)\n");
+            case 3 -> System.out.print(":)\n:)\n:)\n");
+            case 4 -> System.out.print(":)\n:)\n:)\n:)\n");
+            default -> System.out.println("Ich kanns nicht ohne Schleife lösen :(");
         }
 
-        // Hier ist i eine Zählvariable, und zählt wie oft die Schleife ausgeführt wurde. Meistens wenn gezählt wird und mit
-        // der Zählvariable nicht wilde Dinge passieren (erhöht, und dann verringert in einem nicht vorhersehbaren Ausmaß),
-        // dann ist eine For Schleife besser geeignet. Siehe ForSchleife.java. Wenn aber nicht klar ist, wie oft etwas ausgeführt wird,
-        // also eben wilde Dinge mit der Zählvariable passieren, oder wir einfach nicht wissen wann z.B. der User mit einer Ausgabe zufireden ist,
+        // Deshalb hier die allgemeinste Schleife. Die WHILE-Schleife. Allgemein bedeutet hier, dass alle anderen Schleifen, als diese dargestellt werden können.
+        // Die Essenz einer While-Schleife ist ein Wiederholen eines Teils des Codes, bis eine Bedingung nicht mehr erfüllt wird.
+        // Die Bedingungen können hier beliebig konstruiert werden, jedoch ist wichtig, dass am Schluss ein boolescher Wert rauskommt.
+        // Hier ist dies "zaehlvariable < 3". Solange diese Schleifenbedingung erfüllt ist, also auf true auswertet, wird der Code welcher unter der
+        // While Schleife steht, ausgeführt. Dies ist hier  System.out.println(" :) "); und zaehlvariable = zaehlvariable + 1;
+
+        Integer zaehlvariable = 0; // zaehlvariable = 1;
+        while (zaehlvariable < 3) { // zaehlvariable <= 3;
+            System.out.println(" :) ");
+            zaehlvariable = zaehlvariable + 1;
+        }
+
+        // Hier ist zaehlvariable eine Zählvariable und zählt wie oft die Schleife ausgeführt wurde. Diese wird meist mit "i" geschrieben.
+        // Meistens wenn gezählt wird und mit der Zählvariable nicht wilde Dinge passieren
+        // (erhöht, und dann verringert in einem nicht vorhersehbaren Ausmaß), dann ist eine For Schleife besser geeignet.
+        // Siehe ForSchleife.java. Wenn aber nicht klar ist, wie oft etwas ausgeführt wird,
+        // also eben wilde Dinge mit der Zählvariable passieren, oder wir einfach nicht wissen, wann z.B. der User mit einer Ausgabe zufireden ist,
         // dann wird eine While Schleife benötigt.
 
         // Beachte hier, dass es nur wichtig ist, wie oft etwas ausgeführt wird und nicht was der Wert der Zählvariable ist.
         // Es ist also wichtig, dass 3 Mal die Schleife ausgeführt wird. Der Unterschied zwischen der ersten Zuweisung von i (i=1) und
         // deren Abbruchbedingung mit dem "<" Operator (i <= 3 wird i < 4) ergibt die Anzahl der Schleifendurchläufe. Also 4-1 = 3.
-        i = 1; // i = 101;
+        int i = 1; // i = 101;
         while (i <= 3) { // i <= 103;
             System.out.println(" :) ");
             i = i + 1;
         }
 
-        // Hier wird das Alter vom User eingegeben und erst wenn diese In Ordnung ist
-        Scanner scanner = new Scanner(System.in);
-        Integer alter;
-
+        // Hier wird das Alter vom User eingegeben und erst wenn dieses "plausibel" ist, fahren wir mit dem restlichen Programm fort.
         System.out.print("Bitte Alter eingeben: ");
-        alter = Integer.parseInt(scanner.nextLine());
+        Integer alter = Integer.parseInt(scanner.nextLine());
 
-        while ( alter < 5 || alter > 100) {
-            System.out.print("Bitte Alter eingeben: ");
+        while ( alter < 18 || alter > 120) {
+            System.out.print("Bitte korrektes Alter eingeben: ");
             alter = Integer.parseInt(scanner.nextLine());
         }
 
@@ -48,23 +72,23 @@ public class L09SchleifenWhile {
         System.out.print("Bitte Alter eingeben: ");
         alter = Integer.parseInt(scanner.nextLine());
 
-        while ( !(alter >= 5 && alter <= 100) ) {
-            System.out.print("Bitte Alter eingeben: ");
+        while ( !(alter >= 5 && alter <= 120) ) {
+            System.out.print("Bitte korrektes Alter eingeben: ");
             alter = Integer.parseInt(scanner.nextLine());
         }
 
         // Achtung! Mit While Schleifen können endlose Programme entstehen!
-        // Damit ist gemeint dass die Schleifenbedingung immer true ist.
+        // Damit ist gemeint, dass die Schleifenbedingung immer true ist.
 //        while (true) {
-//            System.out.println("erste loop");
+//            System.out.println("das ist der letzte Durchlauf... oder?");
 //        }
 
         // Wir können aber mit dem Befehlt "break" aus einer Schleife rausspringen, wenn nötig.
         // Bedeutet also, wenn wir in einer Schleife "break" sagen, ist egal, ob die Schleifenbedingung erfüllt ist, diese Beendet.
         while (true) {
-            System.out.println("erste loop");
+            System.out.println("erste ewige Schleife");
             while (true) {
-                System.out.println("zweite loop");
+                System.out.println("zweite ewige Schleife");
                 if (true) {
                     break;
                 }
@@ -73,7 +97,7 @@ public class L09SchleifenWhile {
         }
 
         // es gibt auch den Befehlt "condinue", dieser ist ähnlich wie "break", jedoch beenden wir nicht die Schleife, sondern
-        // gebinnen sie von oben wieder. Hier wird also nie das print verwendet.
+        // beginnen sie von oben wieder. Hier wird also nie das "ich bin nicht bei Hallo 5 da" print verwendet.
 //        i = 0;
 
 //        while (i<10) {
@@ -96,7 +120,7 @@ public class L09SchleifenWhile {
             System.out.println("ich bin nicht bei Hallo 5 da");
         }
 
-        // ############# DO-WHILE #############
+        // ############# Auf der Suche nach der DO-WHILE Schleife #############
         // Schauen wir uns zuerst folgendes Scenario an.
         // wir schreiben eine While Schleife, welche aufgrund eines User-Inputs entscheiden soll, ob die Schleifer weiter
         // fortgeführt werden soll, oder nicht.
@@ -144,6 +168,7 @@ public class L09SchleifenWhile {
         // Wir stoßen hier aber auf ein Problem. Wir können nicht guess und draw vergleichen,
         // wenn wir guess erst innerhalb der schleife zum ersten Mal mit einem Wert belegen (guess wird initialisiert).
         // Bedeutet wir können, um dieses Problem zu umgehen außerhalb der Schleife "ein mal" den gesamten Inhalt dieser ausführen.
+        // TODO: vermeide doppelten Code! Schwer zu warten.
         System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
 
         guess = Integer.parseInt(scanner.nextLine());
@@ -176,7 +201,6 @@ public class L09SchleifenWhile {
 
             } else {
                 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
-                break;
             }
         }
 
@@ -198,15 +222,15 @@ public class L09SchleifenWhile {
         // Dadurch wissen wir, dass nach der WHILE Schleife der Spieler die Zahl erraten hat.
         // Wir können dadurch den ELSE Teil und das break entfernen.
         // Wir sehen jetzt, dass wir in beiden IF's der gleiche "sout" steht und somit außerhalb der Verzweigung stehen kann.
-        // Wir sehen auch, dass ein simples IF, welches Variablen Werte zuweist, mit einem Ternären-Operator geschrieben werden kann.
-        // Wir haben hier aber einen Fehler eingebaut! Welcher? Gewinne dazu das Spiel um es zu sehen.
+        // Wir sehen auch, dass ein simples IF-ELSE, welches Variablen Werte zuweist, mit einem Ternären-Operator geschrieben werden kann.
+        // TODO: Wir haben hier aber einen Fehler eingebaut! Welcher? Gewinne dazu das Spiel um es zu sehen.
+        trials = 0;
+
         while (guess != draw) {
             guess = Integer.parseInt(scanner.nextLine());
 
-            // if (guess != draw) {
             hint = guess > draw ? "groß" : "klein";
             System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
-            // }
 
             trials++;
         }
@@ -216,16 +240,37 @@ public class L09SchleifenWhile {
         // Wir sehen, dass dadurch unser Programm kürzer geworden ist.
         // Kürzer bedeutet nicht immer lesbarer, jedoch sollte dies auch hier der Fall sein.
         // Wir bemerken jedoch, dass wir hier Glück hatten.
-        // Wenn es sehr kompliziert ist eine korrekte (immer! für alle Fälle!) Belegung von der Variable "guess" zu finden,
+        // Wenn es sehr kompliziert ist eine korrekte (bedeutet immer bzw. für jede) Belegung von der Variable "guess" zu finden,
         // kommt es im schlimmsten Fall zur Variante "einmal den Schleifeninhalt vor der Schleife ausführen".
         // Das soll unbedingt vermieden werden!
 
-        // Um diesen Fehler ausbessern zu können, müssen wir ein "if (guess != draw)" schreiben (siehe Kommentar im Code).
-        // Es schaut aber komisch aus, denn wir haben bereits die gleiche Bedingung in der WHILE Schleife geschrieben.
+        // TODO: Der Fehler war, dass wir hier ein else-if in ein if-else (in der form eines ternären Operators) umgewandelt haben.
+        //  Es ist irreführend, dass hier guess != draw in der Bedingung der While-Schleife steht.
+        //  Jedoch ist der Fall, dass guess == draw während der Schleife nicht ausgeschlossen und muss deshalb noch behandelt werden.
+
+        // Um diesen Fehler ausbessern zu können, müssen wir ein "if (guess != draw)" schreiben.
+        trials = 0;
+
+        while (guess != draw) {
+            guess = Integer.parseInt(scanner.nextLine());
+
+            if (guess != draw) {
+                hint = guess > draw ? "groß" : "klein";
+                System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
+            }
+
+            trials++;
+        }
+
+        // Es schaut aber komisch aus, denn wir haben bereits die gleiche Bedingung, welche in der IF-Verzweigung ist
+        // in der WHILE Schleife geschrieben.
         // Wir haben jedoch das Problem, dass nach der Überprüfung der Schleife "while(guess != draw)" unser
         // relevanter Input erst nach dieser Überprüfung eingelesen wird.
         // Versuchen wir deshalb folgendes: Schieben wir den User-Input ans Ende der Schleife,
         // dann wird im nächsten Schritt der passende User-Input in der While Bedingung verglichen.
+
+        //TODO: Leider ist auch hier ein Fehler. Beginne das Spiel um diesen zu sehen.
+        trials = 0;
 
         while (guess != draw) {
             hint = guess > draw ? "groß" : "klein";
@@ -238,12 +283,38 @@ public class L09SchleifenWhile {
 
         System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
 
-        // Aber... nun vergleichen wir den standard Wert des von "guess" welcher "-5" ist, immer am Anfang.
-        // Dies erzeugt immer einen falschen Vergleich. Wir kommen also unsrem Problem nicht aus.
+        // TODO: der Fehler war folgendes. Wir vergleichen den standard Wert von "guess", welcher "-5" ist, während des
+        //  ersten Schleifendurchlaufs. Dies erzeugt immer einen falschen Vergleich.
 
-        // Deshalb... gibt es die DO-WHILE Schleife!
+        // Wir kommen also unsrem Problem nicht aus.
+        // Eine Möglichkeit das zu umgehen ist die erste Iteration der Schleife auszuschalten. Dies ist auch mit einem
+        // if() innerhalb der Schleife möglich.
+        // Jedoch sind meist sogenannte "of by one Conditions" wenn möglich zu vermeiden. "Off by one" bedeutet hier,
+        // der Code der Schleife ist korrekt für alle Schleifeniterationen, jedoch nicht für den 1. oder letzten.
+        // Diese verursachen zusätzlichen Code, wie hier das "if(trials > 0)"
+        trials = 0;
 
-        // Diese erlaubt uns genau dieses Problem zu lösen.
+        // TODO: können wir eine "of by one Condition" vermeiden?
+        while (guess != draw) {
+            if (trials > 0) {
+                hint = guess > draw ? "groß" : "klein";
+                System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
+            }
+
+            guess = Integer.parseInt(scanner.nextLine());
+
+            trials++;
+        }
+
+        System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
+
+        // Eine kleine Vereinfachung erlaubt uns die DO-WHILE Schleife.
+        // Damit können wir in diesem Fall:
+        // - doppelten Code vermeiden,
+        // - pre (vorher) initialisierung von guess,
+        // - ABER nicht die if Verzweigungen.
+
+        // Zuerst schauen wir uns aber die Syntax der DO-WHILE Schleife an.
         // Es wird zuerst einmal der Block der Schleife ausgeführt, und erst danach die Bedingung überprüft.
         // Dadurch haben wir kein Problem mit der Weiterverarbeitung der Eingabe des Users.
 
@@ -251,20 +322,33 @@ public class L09SchleifenWhile {
         // wir beginnen mit dem Keyword "do" und geben das keyword "while" am Ende der Schleife hin.
         // Dies soll auf die Überprüfung nach dem einmaligen Ausführen des Codes im Block der Schleife hinweisen.
 
-        // Wir müssen uns nun nicht mehr um die Initialisierung von "guess" kümmern. Es muss jedoch leider diese vor der
-        // Schleife deklariert werden. Frage: warum?
+        // Wir müssen uns nun nicht mehr um die Initialisierung von "guess" kümmern.
+        // TODO: Es muss jedoch leider diese vor der Schleife deklariert werden. Frage: warum?
+
         Integer guessDoWhile;
 
         do {
             guessDoWhile = Integer.parseInt(scanner.nextLine());
 
-            hint = guessDoWhile > draw ? "groß" : "klein";
-            System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
+            if (guessDoWhile != draw) {
+//            if (trials == 0) {
+                hint = guessDoWhile > draw  ? "groß" : "klein";
+                System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
+            }
 
             trials++;
         } while (guessDoWhile != draw);
 
         System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
 
+        // Es mag nun die Nützlichkeit der DO-WHILE hier nicht sehr dramatisch ausfallen, was nach dem ganzen Aufbau
+        // ernüchternd erscheinen mag.
+        // Jedoch betrachte folgendes Beispiel welches den gleichen Vorteil hat, wie das Beispiel zuvor.
+        // Dieser ist die initialisierung der Variable "draw".
+        // Stellen wir uns folgendes Problem vor.
+
+        // Wir verwenden also ein DO-WHILE, wenn wir:
+        //  - code einmal ausführen müssen und nicht eine Bedingung zusätzlich festlegen bzw. eine Variable initialisieren wollen.
+        // Mehr nicht.
     }
 }

@@ -1,8 +1,6 @@
-package block1.sonstige;
-
 import java.util.Scanner;
 
-public class HangMan {
+public class L08HangMan {
     // Hangman
     public static void main(String[] args) {
         final int laenge = 3;

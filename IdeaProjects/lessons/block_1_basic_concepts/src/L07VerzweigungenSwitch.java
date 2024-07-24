@@ -136,5 +136,25 @@ public class L07VerzweigungenSwitch {
                 res = -1;
                 System.out.println("Heute ist irgend ein anderer Tag");
         }
+
+        System.out.println("res (old Switch): " + res);
+
+        // Hier noch die 2. Form des Switch.
+        res = switch (wochentag) {
+            case "Montag" -> {
+                System.out.println("Heute ist Montag");
+                yield(1);
+            }
+            case "Dienstag" -> {
+                System.out.println("Heute ist Dienstag");
+                yield(2);
+            }
+            default -> {
+                System.out.println("Heute ist irgend ein anderer Tag");
+                yield(-1);
+            }
+        };
+
+        System.out.println("res (new Switch): " + res);
     }
 }

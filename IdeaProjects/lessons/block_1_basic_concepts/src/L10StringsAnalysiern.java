@@ -1,6 +1,4 @@
-package block1.sonstige;
-
-public class ThirdLoops {
+public class L10StringsAnalysiern {
     public static void main(String[] args) {
 
 //        System.out.println(1);
