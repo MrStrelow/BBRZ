@@ -48,9 +48,12 @@ public class Main {
         //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
         //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
         //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
-        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen Smiley ":)" hat.
+        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen zusätzlichen Smiley ":)" hat.
 
         Double chance = Math.random();
+        // ACHTUNG! Wir müssen immer verschiedene Zufallszahlen für Montag, Freitag und jeden Tag generieren!
+        // Wir lassen das aber für den Anfang aus, da es einfach am Ende hinzuzufügen ist.
+
 //        Random random = new Random();
 //        random.nextInt(10,20);
 //        random.nextDouble(0,1);
