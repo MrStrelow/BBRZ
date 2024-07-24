@@ -500,7 +500,7 @@ public class L06VerzweigungenIf {
         //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
         //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
         //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
-        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen Smiley ":)" hat.
+        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen zusätzlichen Smiley ":)" hat.
 
         Double zufallszahlMontag = Math.random();
         Double zufallszahlFreitag = Math.random();
@@ -601,7 +601,7 @@ public class L06VerzweigungenIf {
         //  - Wenn wir "Freitag" ausgeben wollen füge ":)" dem Wochentag hinzu. Wenn wir Montag ausgeben füge einen ":(" hinzu.
         //  - Zusätzlich hat der Montag eine chance von 80% 5 mal ":(", also ":(:(:(:(:(" zum String "Montag :(" hinzuzufügen.
         //  - Zusätzlich hat der Freitag eine chance von 30% 7 mal ":(", also ":):):):):):):)" zum String "Freitag :)" hinzuzufügen.
-        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen Smiley ":)" hat.
+        //  - Zusätzlich hat jeder Tag eine Chance von 1%, dass dieser einen zusätzlichen Smiley ":)" hat.
 
 
         System.out.println("######################### HERE #########################");
