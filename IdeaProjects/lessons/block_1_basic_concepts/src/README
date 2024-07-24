@@ -1,16 +1,2 @@
 Siehe "Fortschritts-Excel" für mehr Infos.
 https://docs.google.com/spreadsheets/d/1y681dy92rwST6NudBb6Fp33QFVjuz4rfw9iGzLDUoQw/edit?gid=0#gid=0
-
-Reihenfolge:
- - 1. ErsteSchritte
- - 2. VariablenErstellen  (Ue00)
- - 3. Operatoren          (Ue01)
- - 4. UserInput           (Ue02)
- - 5. VariablenUmwandlen  (Ue02)
- - 6. VerzweigungenIf     (Ue3.0 - Ue3.3)
- - 7. VerzweigungenSwitch (Ue4.0 - Ue4.2, Ue 5)
- - 8. SchleifenFor        (Ue8)
- - 9. SchleifenWhile      (Ue7)
- - 10. StringManipulation
- - 11. Arrays             (Ue9)
- - test
