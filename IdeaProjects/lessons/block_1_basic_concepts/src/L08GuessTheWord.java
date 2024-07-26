@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class L08HangMan {
+public class L08GuessTheWord {
     // Hangman
     public static void main(String[] args) {
         final int laenge = 3;
