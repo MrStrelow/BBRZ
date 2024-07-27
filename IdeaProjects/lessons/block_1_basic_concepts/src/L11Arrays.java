@@ -4,10 +4,10 @@ import java.util.Scanner;
 public class L11Arrays {
     public static void main(String[] args) {
 
-        // Bis jetzt waren Variablen nur Zuständig einen bestimmten Wert zu halten. Wie z.B. int a = 5;.
+        // Bis jetzt waren Variablen nur Zuständig einen bestimmten Wert zu halten. Wie z.B. "int a = 5;".
         // Mit Arrays können nun mehrere Werte in einer Variable gespeichert werden. Ein Wert in einem Array wird unter anderem Element genannt.
         // Arrays gibts es von allen Variablen, welche wir bis jetzt behandelt haben. Also Boolean, bool, Integer, int, usw.
-        // und auch noch von selbst erstellten block2.Klassen. Werden wir aber sehen, wenn wir Objektorientierung behandeln.
+        // und auch noch von selbst erstellten Klassen. Werden wir aber sehen, wenn wir Objektorientierung behandeln.
 
         // Hier wird ein Array von bekannten Strings erzeugt. Die Größe des Arrays muss immer am Anfang bekannt sein.
         // Hier ist es einfach die Anzahl an Wörtern. Zusätzlich ist die Dimension hier 1. Bedeutet wir haben eine Kette an Strings.

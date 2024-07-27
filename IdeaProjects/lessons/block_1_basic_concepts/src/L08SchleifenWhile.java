@@ -154,12 +154,19 @@ public class L08SchleifenWhile {
             }
         }
 
-        // Es treten hier 2 Probleme auf:
+        // Es fallen uns hier 2 Dinge auf:
         //  - Die While Schleife müssen wir mittels break beenden. Wir benötigen dazu keine Bedingung in der While Schleife.
-        //    Eine häufige Verwendung von "break" und "continue" macht den Code unleserlich und schwer wartbar.
+        //    Eine häufige bzw. verschachtelte Verwendung von "break" und "continue" macht den Code unleserlich und schwer wartbar.
+
+        //    (ABER wir werden später sehen dass unser 1. Versuch hier, gar nicht so schlecht ist!
+        //    "continue", "break", usw. sind Werkzeuge und wenn wir diese sinnvoll verwenden können, sollen wir diese verwenden!
+        //    Die Kunst ist zu wissen, wann und wann nicht.
+        //    Hier eine Daumenregel, als Guards bzw. wenn keine Verschachtelungen vorhanden sind, sind break und continue gut.
+        //    Schlecht sind diese in der "Kernlogik" eines Programmes welche komplexere Logik hat. Dort kann schwer vorhersehbares Verhalten entstehen.)
+
         //  - An sich wird die Steuerung, ob die Schleife beendet wird in der Bedingung der While Schleife gesteuert.
         //    Diese wird in den Runden Klammern gegeben. Da wir mit break arbeiten brauchen wir
-        //    zusätzliche IF-Verzweigungen. Diese sind aber nicht in diesem Ausmaß notwendig.
+        //    zusätzliche IF-Verzweigungen. Diese sind aber möglicherweise nicht in diesem Ausmaß notwendig.
 
         // Versuchen wir es nun ohne break zu schreiben.
         draw = random.nextInt(101);
