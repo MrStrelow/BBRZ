@@ -101,8 +101,6 @@ public class MainIF {
 
         } else if (input == 3) {
             System.out.print("Mittwoch");
-            System.out.println("QWEREW");
-            input = 7;
 
         } else if (input == 4) {
             System.out.print("Donnerstag");
