@@ -43,5 +43,21 @@ public class MainSwitch {
         };
 
         System.out.println(zuweisung);
+
+        zuweisung = switch (input) {
+            case 1 -> {
+                System.out.println("Montag!");
+                yield("Montag :(");
+            }
+            case 2 -> "Dienstag";
+            case 3 -> "Mittwoch";
+            case 4 -> "Donnerstag";
+            case 5 -> "Freitag :)";
+            case 6 -> "Samstag";
+            case 7 -> "Sonntag";
+            default -> "Kein Wochentag.";
+        };
+
+        System.out.println(zuweisung);
     }
 }
