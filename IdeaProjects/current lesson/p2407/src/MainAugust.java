@@ -29,18 +29,16 @@ public class MainAugust {
 //        Eine Firma die Tiernahrung verkauft hat Sie gebeten eine Software zu schreiben, welche den passenden
 //        Mengenrabatt bei einer Bestellung berechnet. Ab 10kg soll es einen Rabatt von 10% geben und ab 50kg
 //        von 20%. Schreiben Sie ein Programm, welches zunächst den Preis pro Kilogramm und danach die
-//        Bestellmenge einließt. Danach soll das Programm den Preis ohne Rabatt, mit Rabatt und die Differenz
+//        Bestellmenge [kg] einließt. Danach soll das Programm den Preis ohne Rabatt, mit Rabatt und die Differenz
 //        ausgeben.
 
         System.out.println("Bitte geben Sie den Preis pro Gewicht des Einkaufs ein [€/kg] ");
         Double preisProGewicht = Double.parseDouble(myScanner.nextLine());
 
-        System.out.println("Bitte geben Sie die Bestellmenge des Einkaufs ein [Stück] ");
-        Double bestellmenge = Double.parseDouble(myScanner.nextLine());
+        System.out.println("Bitte geben Sie die Bestellmenge des Einkaufs ein [kg] ");
+        Double gewicht = Double.parseDouble(myScanner.nextLine());
 
-
-
-        Integer gewicht = ; // TODO: gwicht berechnen.
+        Double gesamtpreis = preisProGewicht * gewicht;
         Double rabatt;
 
         if (10 < gewicht && gewicht < 50) {
@@ -53,11 +51,10 @@ public class MainAugust {
             rabatt = 0.0;
         }
 
-        System.out.println("Preis: " + "?" + ", Rabatt in Prozent: " + rabatt * 100 + "[%], Neuer Preis: " + "?" );
+        Double rabattInEuro = gesamtpreis * rabatt;
+        Double neuePreis = gesamtpreis - gesamtpreis * rabatt;;
 
-        // wenn einkauf > 10 kg dann gib 10%
-        // ansonsten, wenn einkauf > 50 kg gib 20%
-        // ansonsten kein rabatt.
+        System.out.println("Preis: " + gesamtpreis + ", Rabatt in Prozent: " + rabatt * 100 + "[%], neuer Preis: " + neuePreis)
 
 
 //        Schaltjahrberechnung
