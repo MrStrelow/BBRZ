@@ -54,7 +54,7 @@ public class MainAugust {
         Double rabattInEuro = gesamtpreis * rabatt;
         Double neuePreis = gesamtpreis - gesamtpreis * rabatt;;
 
-        System.out.println("Preis: " + gesamtpreis + ", Rabatt in Prozent: " + rabatt * 100 + "[%], neuer Preis: " + neuePreis)
+        System.out.println("Preis: " + gesamtpreis + ", Rabatt in Prozent: " + rabatt * 100 + "[%], neuer Preis: " + neuePreis);
 
 
 //        Schaltjahrberechnung
