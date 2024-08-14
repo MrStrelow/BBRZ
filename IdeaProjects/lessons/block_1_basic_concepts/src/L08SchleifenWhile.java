@@ -146,7 +146,7 @@ public class L08SchleifenWhile {
 
             } else if (guess < draw) {
                 hint = "klein";
-                System.out.println("Inkorrekt! - Zahl ist zu  " + hint + "!");
+                System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
 
             } else {
                 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
