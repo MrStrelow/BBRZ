@@ -59,5 +59,16 @@ public class MainSwitch {
         };
 
         System.out.println(zuweisung);
+
+        Integer zuweisungInt = switch (zuweisung) {
+            case "Montag :(" -> 1;
+            case "Dienstag" -> 2;
+            case "Mittwoch" -> 3;
+            case "Donnerstag" -> 4;
+            case "Freitag :)" -> 5;
+            case "Samstag" -> 6;
+            case "Sonntag" -> 7;
+            default -> -1;
+        };
     }
 }
