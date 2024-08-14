@@ -58,7 +58,7 @@ public class Ue06Verzweigung02_solution {
 
         } else {
 
-            if (userEingabe == "a" || userEingabe == "e" || userEingabe == "i" || userEingabe == "o" || userEingabe == "u") {
+            if (userEingabe.equals("a") || userEingabe == "e" || userEingabe == "i" || userEingabe == "o" || userEingabe == "u") {
                 System.out.println("Das ist ein Vokal");
             } else {
                 System.out.println("Das ist ein Konsonant");
@@ -200,6 +200,9 @@ public class Ue06Verzweigung02_solution {
 
         Double gewichtProPreis = 1/preisProGewicht;
         gewicht = gewichtProPreis * gesamtpreis;
+
+        // aber... geht das nicht einfacher?
+        // bestellmenge sind die kg! also "bestellmenge = gewicht"!
 
         Double rabattInProzent;
 
