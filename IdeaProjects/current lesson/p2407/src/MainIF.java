@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MainAugust {
+public class MainIF {
     public static void main(String[] args) {
 //        Vokal?
 //        Schreiben Sie ein Java-Programm, das den Benutzer nach einem Buchstaben fragt und überprüft, ob es
