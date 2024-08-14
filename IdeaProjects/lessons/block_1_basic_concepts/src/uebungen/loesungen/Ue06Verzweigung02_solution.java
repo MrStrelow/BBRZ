@@ -193,26 +193,20 @@ public class Ue06Verzweigung02_solution {
         System.out.println("Bitte geben Sie den Preis pro Gewicht des Einkaufs ein [€/kg]: ");
         Double preisProGewicht = Double.parseDouble(scanner.nextLine());
 
-        System.out.println("Bitte geben Sie die Bestellmenge des Einkaufs ein [Stück]: ");
-        Double bestellmenge = Double.parseDouble(scanner.nextLine());
-
-        Double gesamtpreis = preisProGewicht * bestellmenge;
-
-        Double gewichtProPreis = 1/preisProGewicht;
-        gewicht = gewichtProPreis * gesamtpreis;
-
-        // aber... geht das nicht einfacher?
         // bestellmenge sind die kg! also "bestellmenge = gewicht"!
+        System.out.println("Bitte geben Sie die Bestellmenge des Einkaufs ein [kg]: ");
+        Double bestellmenge = Double.parseDouble(scanner.nextLine());
+        Double gesamtpreis = preisProGewicht * bestellmenge; // [€/kg]*[kg] -> [€]
 
         Double rabattInProzent;
 
-        if (10 < gewicht) {
+        if (10 < bestellmenge) {
             rabattInProzent = 0.;
 
-        } else if (10 < gewicht && gewicht < 50) {
+        } else if (10 < bestellmenge && bestellmenge < 50) {
             rabattInProzent = 0.1;
 
-        } else  { //if (50 < gewicht)
+        } else  { //if (50 < bestellmenge)
             rabattInProzent = 0.2;
 
         }
