@@ -88,5 +88,35 @@ public class MainIF {
 
         }
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Geben Sie eine Zahl zwischen 1 und 7 ein um einen Wochentag zu erhalten: ");
+        Integer input = Integer.parseInt(scanner.nextLine());
+
+        if (input == 1) {
+            System.out.print("Montag :(");
+
+        } else if (input == 2) {
+            System.out.print("Dienstag");
+
+        } else if (input == 3) {
+            System.out.print("Mittwoch");
+
+        } else if (input == 4) {
+            System.out.print("Donnerstag");
+
+        } else if (input == 5) {
+            System.out.print("Freitag :)");
+
+        } else if (input == 6) {
+            System.out.print("Samstag");
+
+        } else if (input == 7) {
+            System.out.print("Sonntag");
+
+        } else {
+            System.out.print("Kein Wochentag.");
+        }
+
     }
 }
