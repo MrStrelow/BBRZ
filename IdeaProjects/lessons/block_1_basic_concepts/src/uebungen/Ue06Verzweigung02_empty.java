@@ -84,5 +84,6 @@ public class Ue06Verzweigung02_empty {
 //        Ist es auch ganzzahlig durch 100 teilbar, so ist es kein Schaltjahr, außer ...
 //          - ... das Jahr ist ebenfalls ganzzahlig durch 400 teilbar
 //        Beispiel für Schaltjahre: 1808, 1904 2000, 2112, 2244, 2332, 2380, 2400
+//        Kein Schaltjahr: 2100 (durch 4 teilbar, durch 100, und nicht durch 400)
     }
 }

@@ -224,6 +224,33 @@ public class Ue06Verzweigung02_solution {
 //        Es ist ein Schaltjahr, wenn die Jahreszahl durch 4 teilbar ist
 //        Ist es auch ganzzahlig durch 100 teilbar, so ist es kein Schaltjahr, außer ...
 //          - ... das Jahr ist ebenfalls ganzzahlig durch 400 teilbar
-//        Beispiel für Schaltjahre: 1808, 1904 2000, 2112, 2244, 2332, 2380, 2400
+//        Beispiel für Schaltjahre: 1808, 1904, 2000, 2112, 2244, 2332, 2380, 2400
+//          Kein Schaltjahr: 2100 (durch 4 teilbar, durch 100, und nicht durch 400)
+
+        System.out.print("Geben sie ein Jahr ein um zu überprüfen ob es ein Schaltjahr ist: ");
+        Integer jahr = Integer.parseInt(scanner.nextLine());
+
+        if (jahr % 4 == 0) {
+
+            if (jahr % 100 == 0) {
+
+                if (jahr % 400 == 0) {
+                    System.out.println("Schaltjahr, da durch 4 und durch 400 teilbar.");
+                } else {
+                    System.out.println("Kein Schaltjahr, da durch 100, jedoch nicht durch 400 teilbar.");
+                }
+
+            } else {
+
+                System.out.println("Schaltjahr, da durch 4 Teilbar aber nicht durch 100.");
+
+            }
+
+        } else {
+
+            System.out.println("Kein Schaltjahr, da nicht durch 4 teilbar.");
+
+        }
+
     }
 }
