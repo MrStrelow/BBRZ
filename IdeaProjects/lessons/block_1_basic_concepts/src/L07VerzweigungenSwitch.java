@@ -40,8 +40,28 @@ public class L07VerzweigungenSwitch {
             default: System.out.println("Kein Wochentag.");
         }
 
-        // Wir Können das SWITCH statement auch in einer anderen Variante schreiben welche es erlaubt eine Rückgabe zu erzeugen,
-        // welche wir in eine Variable speichern.
+        // Alternativ ist auch eine "neue" Schreibweise ohne break möglich.
+        // Diese geht nicht alle Fälle durch, sondern hat das "break" im hintergrund eingebaut.
+        switch (input) {
+            case 1 -> System.out.println("Montag :(");
+            case 2 -> System.out.println("Dienstag");
+            case 3 -> System.out.println("Mittwoch");
+            case 4 -> System.out.println("Donnerstag");
+            case 5 -> System.out.println("Freitag :)");
+            case 6 -> System.out.println("Samstag");
+            case 7 -> System.out.println("Sonntag");
+            default -> System.out.println("Kein Wochentag.");
+        }
+
+        // Weiters können wir mehrere cases zusammenfassen (also mit oder Verknüpfen). Das geht mit einem Beisprich ",".
+        switch (input) {
+            case 1 -> System.out.println("Montag :(");
+            case 2,3,4,5,6,7 -> System.out.println("jeder andere Tag, außer Montag");
+            default -> System.out.println("Kein Wochentag.");
+        }
+
+        // Wir Können das SWITCH statement auch zusätzlich mit dieser neuen Variante verwenden, um eine Zuweisung durchzuführen.
+        // Dieses SWITCH erlaubt es also eine Rückgabe zu erzeugen, welche wir in eine Variable speichern.
         // Damit meinen wir Folgendes.
         // Hier wird der String "Montag :(" welcher in case 1 zurückgegeben wird, der Variable "output" zugewiesen.
         // Das passiert nur, wenn die Variable "input" den Wert "1" hat.

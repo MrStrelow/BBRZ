@@ -70,5 +70,16 @@ public class MainSwitch {
             case "Sonntag" -> 7;
             default -> -1;
         };
+
+        zuweisungInt = switch (zuweisung) {
+            case "Montag :(", "QWER" -> 1;
+            case "Dienstag" -> 2;
+            case "Mittwoch" -> 3;
+            case "Donnerstag" -> 4;
+            case "Freitag :)" -> 5;
+            case "Samstag" -> 6;
+            case "Sonntag" -> 7;
+            default -> -1;
+        };
     }
 }
