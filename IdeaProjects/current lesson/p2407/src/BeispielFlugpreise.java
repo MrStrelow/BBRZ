@@ -15,6 +15,11 @@ public class BeispielFlugpreise {
         String klasse = myScanner.nextLine();
 
         // 2. Ticketpreis berechnen
+
+        // 1. Info aus der Tabelle - Entfernung - Zeile 1
         Double basispreis = entfernung * 0.02;
+
+        // 2. Info aus der Tabelle - Klasse - Zeile 2 bis 4
+        // 3. Info aus der Tabelle - Monat - Zeile 5 bis 6
     }
 }
