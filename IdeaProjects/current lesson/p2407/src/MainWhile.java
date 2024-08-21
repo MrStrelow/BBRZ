@@ -8,6 +8,10 @@ public class MainWhile {
 
         Random random = new Random();
         Integer toBeGuessed = random.nextInt(0,100);
+        Integer versuche = 1; // Das ist eine Zählvariable
+
+        System.out.print("Wie oft sollst du maximal raten können?: ");
+        Integer maximaleVersuche = Integer.parseInt(scanner.nextLine());
 
         while (true) {
 
@@ -15,7 +19,7 @@ public class MainWhile {
             Integer guess = Integer.parseInt(scanner.nextLine());
 
             if (guess == toBeGuessed) {
-                System.out.println("Die Zahl wurde erraten!");
+                System.out.println("Die Zahl wurde erraten! Sie haben " + versuche + " Versuche gebraucht.");
                 break;
 
             } else if (guess > toBeGuessed) {
@@ -25,6 +29,7 @@ public class MainWhile {
                 System.out.println("Dein Guess war zu klein.");
             }
 
+            versuche++;
         }
     }
 }
