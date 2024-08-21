@@ -1,0 +1,2 @@
+public class WhileUebung2 {
+}
