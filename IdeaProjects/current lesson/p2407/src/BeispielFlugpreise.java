@@ -1,6 +1,4 @@
-package test;
-
-public class MainMuster {
+public class BeispielFlugpreise {
     public static void main(String[] args) {
 
     }
