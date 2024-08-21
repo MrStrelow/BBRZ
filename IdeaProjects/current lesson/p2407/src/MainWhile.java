@@ -14,16 +14,17 @@ public class MainWhile {
         Integer maximaleVersuche = Integer.parseInt(scanner.nextLine());
 
         while (true) {
-
             // habe ich genug Versuche?
             if (versuche > maximaleVersuche) {
                 System.out.println("Verloren! Keine Versuche mehr vorhanden.");
                 break;
             }
 
+            // das ist der userinput
             System.out.print("Gib eine Zahl ein: ");
             Integer guess = Integer.parseInt(scanner.nextLine());
 
+            // das ist die "kernspiellogik"
             if (guess == toBeGuessed) {
                 System.out.println("Gewonnen! Die Zahl wurde erraten! Sie haben " + versuche + " Versuche gebraucht.");
                 break;
