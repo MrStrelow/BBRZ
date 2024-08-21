@@ -14,7 +14,7 @@ public class WhileUebung2 {
         Integer zaehler = untereGrenze;
 
         // Ich verwende eine Bedingung in der While Schleife, mit der ich weiter mache. Diese ist "solange der zaehler kleiner gleich der obereGrenze ist, mache weiter"
-        while ( zaehler  <= obereGrenze) {
+        while ( zaehler <= obereGrenze) {
 
             // wenn zahl gerade dann gib "gerade" aus.
             if (zaehler % 2 == 0) {
