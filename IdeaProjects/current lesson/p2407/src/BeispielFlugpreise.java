@@ -9,9 +9,12 @@ public class BeispielFlugpreise {
         Double entfernung = Double.parseDouble(myScanner.nextLine());
 
         System.out.print("Reisemonat: ");
+        Integer monat = Integer.parseInt(myScanner.nextLine());
 
         System.out.print("Buchungsklasse: ");
+        String klasse = myScanner.nextLine();
 
-        // 2. preise berechnen
+        // 2. Ticketpreis berechnen
+
     }
 }
