@@ -20,6 +20,16 @@ public class BeispielFlugpreise {
         Double basispreis = entfernung * 0.02;
 
         // 2. Info aus der Tabelle - Klasse - Zeile 2 bis 4
+        if (klasse.equals("economy")) {
+
+        } else if (klasse.equals("premium")) {
+
+        } else if (klasse.equals("erste")) {
+
+        } else {
+            System.out.println("Fehler.");
+        }
+
         // 3. Info aus der Tabelle - Monat - Zeile 5 bis 6
     }
 }
