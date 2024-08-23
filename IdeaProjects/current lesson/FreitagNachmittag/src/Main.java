@@ -7,17 +7,24 @@ public class Main {
         //hier gehts los
         // <Typ> <Name> <Zuweisungsoperator> <alles was einen Wert erzeugt der den gleichen Typ hat wie ganz links steht>;
 
-        String meinText = "System.out.println();";
-        Integer a = 5;
-        Double b = .5;
-        Boolean myBoolean = true; //false;
-
-        String deinText = meinText;
-        String nochEinText = a.toString();
-
-        Scanner myScanner = new Scanner(System.in);
+//        String meinText = "System.out.println();";
+//        Integer a = 5;
+//        Double b = .5;
+//        Boolean myBoolean = true; //false;
+//
+//        String deinText = meinText;
+//        String nochEinText = a.toString();
+//
+//        Scanner myScanner = new Scanner(System.in);
 
         System.out.println("####### Operatoren #######");
+        System.out.println( 35 + 17 );
+        System.out.println( "35" + "17" );
+        System.out.println( "hallo" + " du" );
+
+
+        System.out.println( "hallo" + " du" );
+
 
 
 
