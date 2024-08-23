@@ -37,7 +37,7 @@ public class Main {
 
         System.out.println("#### dividieren? ####");
 
-        Double meineVariable = 5.;
+        Integer meineVariable = 5;
 //        Integer meineVariable = 5;
 
         // ganzzahlige Division mit Rest
@@ -49,7 +49,14 @@ public class Main {
         System.out.println( 11  / 3. ); // 1. Input ist vom Typ Double
         System.out.println( 11. / 3 );  // 2. Input ist vom Typ Double
 
-        System.out.println( 11 / (3 + meineVariable * 7 / 2) );
+        System.out.println( 11 / (3 + meineVariable * 7 / 2) + "2");
+
+        meineVariable = meineVariable + 1;
+        meineVariable += 1;
+        meineVariable++;
+        ++meineVariable;
+
+//        System.out.println( Math.divideExact(11, Math.addExact(3, Math.divideExact( Math.multiplyExact(meineVariable, 7), 2) ) + "2" );
 
 
         //#################################### Arten von Operatoren ####################################
