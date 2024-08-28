@@ -7,14 +7,16 @@ public class WhileUebung3 {
 
         // ohne format
         Integer zaehlvariable = 10;
+        final Integer untereGrenze = 1;
 
-        while (zaehlvariable >= 1) {
-            if (zaehlvariable == 1) {
+        while (zaehlvariable >= untereGrenze) {
+
+            if (zaehlvariable == untereGrenze) {
                 System.out.print(zaehlvariable);
-            } else {
 
+            } else {
+                System.out.print(zaehlvariable + "-");
             }
-            System.out.print(zaehlvariable + "-");
 
             zaehlvariable--;
         }
