@@ -2,8 +2,28 @@ package uebungen.loesungen;
 
 import java.util.Scanner;
 
-public class Ue07Switch_und_If {
+public class Ue07Switch_und_If_solution {
     public static void main(String[] args) {
+
+//        Flugpreise
+//        Sie entwickeln eine Anwendung für eine Fluggesellschaft, die den Ticketpreis basierend auf verschiedenen
+//        Kriterien berechnet. Bitten Sie den Benutzer um folgende Informationen:
+//          - Die Entfernung in Kilometern für die Flugstrecke.
+//          - Das Reisedatum (Monat) als Ganzzahlwert (z.B., 1 für Januar, 2 für Februar usw.).
+//          - Die Buchungsklasse (Erste Klasse, Premium Economy oder Economy).
+//          Verwenden Sie eine
+//          Kombination von switch und if-Anweisungen, um den Ticketpreis basierend auf diesen Informationen
+//          zu berechnen. Zum Beispiel können Sie verschiedene Preise für verschiedene Entfernungen und
+//          Monate festlegen, und je nach Buchungsklasse den Preis entsprechend anpassen.
+//        Land                      Preis
+//        ---------------------------------
+//        Strecke je km               0,02€
+//        Economy Aufschlag           0,00€
+//        Premium Economy Aufschlag 200,00€
+//        Erste Klasse Aufschlag    400,00€
+//        Aufschlag Juli-September   20,00€
+//        Aufschlag Dezember         15,00€
+
         // 1. userinput - wir lesen hier die benötigten informationen ein.
         Scanner myScanner = new Scanner(System.in);
 
