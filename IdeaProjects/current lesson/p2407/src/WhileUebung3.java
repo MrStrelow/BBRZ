@@ -5,7 +5,7 @@ public class WhileUebung3 {
 //        - Speichern Sie hierbei die Zahl 10 in der Konstante *bound*
 //        - Ändern Sie nun bound auf 100
 
-        // ohne format
+        // Ohne Konstante.
         Integer zaehlvariable = 10;
         final Integer untereGrenze = 1;
 
@@ -20,6 +20,33 @@ public class WhileUebung3 {
 
             zaehlvariable--;
         }
+
+        System.out.println();
+
+        // Mit Konstante
+        final Integer bound = 10;
+        zaehlvariable = 0;
+
+        while (zaehlvariable < bound) {
+
+            if (zaehlvariable == bound-1) {
+                System.out.print(bound-zaehlvariable);
+
+            } else {
+                System.out.print(bound-zaehlvariable + "-");
+            }
+
+            zaehlvariable++;
+        }
+
+//        Schreiben Sie ein Programm, das eine Zahl vom Benutzer einliest und dann die Summe aller Zahlen
+//        von 1 bis zur eingegebenen Zahl ausgibt
+
+
+
+//        Schreiben Sie ein Programm, das den Benutzer nach einer Zahl fragt und dann die Fakultät dieser
+//        Zahl berechnet. Verwenden Sie dazu eine While-Schleife. (Hinweis: Fakultät von 3 = 123 = 6, Fakultät
+//        von 4 = 123*4 =24)
 
     }
 }

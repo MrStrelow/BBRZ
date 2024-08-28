@@ -64,18 +64,41 @@ public class Ue8While_solution {
 //        - Speichern Sie hierbei die Zahl 10 in der Konstante *bound*
 //        - Ändern Sie nun bound auf 100
 
-        final Integer bound = 10; // = 100;
+        // Mit Konstante
+        final Integer bound = 10;
+        zaehlvariable = 0;
 
-        while (zaehlvariable >= 1) {
-            if (zaehlvariable != 1) {
-                System.out.print(zaehlvariable + "-");
+        while (zaehlvariable < bound) {
+
+            if (zaehlvariable == bound-1) {
+                System.out.print(bound-zaehlvariable);
 
             } else {
+                System.out.print(bound-zaehlvariable + "-");
+            }
+
+            zaehlvariable++;
+        }
+
+        System.out.println();
+
+        // Ohne Konstante.
+        zaehlvariable = 10;
+        untereGrenze = 1;
+
+        while (zaehlvariable >= untereGrenze) {
+
+            if (zaehlvariable == untereGrenze) {
                 System.out.print(zaehlvariable);
+
+            } else {
+                System.out.print(zaehlvariable + "-");
             }
 
             zaehlvariable--;
         }
+
+        System.out.println();
 
 //        Schreiben Sie ein Programm, das eine Zahl vom Benutzer einliest und dann die Summe aller Zahlen
 //        von 1 bis zur eingegebenen Zahl ausgibt.
