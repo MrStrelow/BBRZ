@@ -1,4 +1,4 @@
-package block1.test;
+package test;
 
 import java.util.Random;
 import java.util.Scanner;
