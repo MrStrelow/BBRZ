@@ -27,17 +27,7 @@ public class WhileUebung3 {
         final Integer bound = 10;
         zaehlvariable = 0;
 
-        while (zaehlvariable < bound) {
 
-            if (zaehlvariable == bound-1) {
-                System.out.print(bound-zaehlvariable);
-
-            } else {
-                System.out.print(bound-zaehlvariable + "-");
-            }
-
-            zaehlvariable++;
-        }
 
 //        Schreiben Sie ein Programm, das eine Zahl vom Benutzer einliest und dann die Summe aller Zahlen
 //        von 1 bis zur eingegebenen Zahl ausgibt
