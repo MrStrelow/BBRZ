@@ -73,5 +73,25 @@ public class WhileUebung3 {
 //        Zahl berechnet. Verwenden Sie dazu eine While-Schleife. (Hinweis: Fakultät von 3 = 123 = 6, Fakultät
 //        von 4 = 123*4 =24)
 
+        scanner = new Scanner(System.in);
+        System.out.print("Bitte gib Zahl ein: ");
+        userInput = Integer.parseInt(scanner.nextLine());
+
+        // 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1
+
+        // 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10
+        zaehlvariable = 1;
+        Integer fakultaet = 0;
+
+        while (zaehlvariable <= userInput) {
+            fakultaet += zaehlvariable;
+
+//            System.out.println(summe + " : " + zaehlvariable);
+
+            zaehlvariable++;
+        }
+
+        System.out.println("Die summe von 1 bis " + userInput + " ist: " + fakultaet);
+
     }
 }
