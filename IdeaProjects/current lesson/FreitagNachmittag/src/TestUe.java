@@ -99,8 +99,7 @@ public class TestUe {
                 break;
 
             } else {
-
-                System.out.print("Wollen Sie bestehende Kosten ändern oder alles neu eingeben? [ja/nein]: ");
+                System.out.print("Budget reicht nicht aus! Wollen Sie bestehende Kosten ändern oder alles neu eingeben? [ja/nein]: ");
                 String entscheidung = sc.next().toLowerCase();
 
                 switch (entscheidung) {
@@ -132,13 +131,12 @@ public class TestUe {
                         }
                     }
 
+                    if (budget >= gesamteAusgaben) {
+                        break;
 
-
+                    }
                 }
-
-                System.out.println("Budget reicht nicht aus! Bitte anpassen.");
             }
-
         }
 
 
