@@ -30,17 +30,18 @@ public class TestUe {
 //        Double budget = Math.max(anotherDouble, anotherDouble+2);
 
         // Wir deklarieren hier eine Variable mit dem Namen "budget".
-        Double budget;
+        Double budget = null;
 
         Double kostenUnterkunft;
         Double kostenVerpflegung;
         Double kostenTransport;
         Double kostenAktivitaeten;
 
-        String[] familienMitglieder;
-        Double[] beitragVonFamilienMitglieder;
+        Integer anzahlFamilienmitglieder = null;
 
-        Integer anzahlFamilienmitglieder;
+        String[] familienMitglieder = null;
+        Double[] beitragVonFamilienMitglieder = null;
+
         Double gesamterBeitragVonFamilienmitglieder = 0.0;
         Boolean benutzerMussBudgetAnpassen = false;
         Boolean benutzerWillKostenÄndern = false;
@@ -52,11 +53,9 @@ public class TestUe {
 
 
         // Logik:
+        Boolean benutzerWillNeueEingabe = true;
 
-        // Wir wiederholen die schleife für immer. Deswegen true bei der while-Schleife.
-        // Aber ganz unten ist eine if-Verzweigung, welche, wenn wir genug budget haben, die Schleife verlässt.
-        // Das machen wir mit break;
-        while (true) {
+        while (benutzerWillNeueEingabe) {
             System.out.print("Bitte geben Sie Ihr Urlaubsbudget ein: ");
             budget = sc.nextDouble();
 
@@ -99,47 +98,110 @@ public class TestUe {
                 break;
 
             } else {
-                System.out.print("Budget reicht nicht aus! Wollen Sie bestehende Kosten ändern oder alles neu eingeben? [ja/nein]: ");
-                String entscheidung = sc.next().toLowerCase();
 
-                switch (entscheidung) {
-                    case "ja" -> benutzerWillKostenÄndern = true;
-                    case "nein" -> benutzerWillKostenÄndern = false;
-                }
+                Boolean weitereAenderungenNotwendig = true;
 
-                if (benutzerWillKostenÄndern) {
-                    System.out.println("Welche kosten sollen geändet werden?: [unterkunft/verpflegung/transport/aktivitäten]");
+                do {
+                    System.out.print("Budget reicht nicht aus! Wollen Sie bestehende Kosten ändern oder alles neu eingeben? [ändern/neu]: ");
 
-                    entscheidung = sc.next().toLowerCase();
+                    String entscheidung;
+                    Boolean nochmalsFragen = false;
 
-                    switch (entscheidung) {
-                        case "unterkunft" -> {
-                            System.out.println("Kosten Unterkunft: " + kostenUnterkunft + " ändern: ");
-                            kostenUnterkunft += sc.nextDouble();
+                    do {
+                        entscheidung = sc.next().toLowerCase();
+
+                        switch (entscheidung) {
+                            case "ändern" -> {
+                                benutzerWillKostenÄndern = true;
+
+                                benutzerWillNeueEingabe = false;
+                                nochmalsFragen = false;
+                            }
+                            case "neu" -> {
+                                benutzerWillNeueEingabe = true;
+
+                                benutzerWillKostenÄndern = false;
+                                nochmalsFragen = false;
+                            }
+                            default -> {
+                                nochmalsFragen = true;
+                                System.out.print("Fehlerhafte Eingabe: Bitte nochmals eingeben: ");
+                            }
                         }
-                        case "verpflegung" -> {
-                            System.out.println("Kosten Verpflegung: " + kostenVerpflegung + " ändern: ");
-                            kostenVerpflegung += sc.nextDouble();
+
+                    } while (nochmalsFragen);
+
+                    if (benutzerWillKostenÄndern) {
+
+                        System.out.println("Welche kosten sollen geändet werden?");
+                        nochmalsFragen = false;
+
+                        do {
+                            System.out.println("Budget: ");
+                            System.out.println("\t\t\t\t\t" + budget);
+                            System.out.println("Kosten:");
+                            System.out.println("\tUnterkunft:\t\t" + kostenUnterkunft);
+                            System.out.println("\tVerpflegung:\t" + kostenVerpflegung);
+                            System.out.println("\tTransport:\t\t" + kostenTransport);
+                            System.out.println("\tAktivitäten:\t" + kostenAktivitaeten);
+                            System.out.println("________________________________________");
+                            System.out.println("Verbleibende Budget: " + verbleibendesBudget);
+
+                            System.out.print("Eingabe [unterkunft/verpflegung/transport/aktivitäten]: ");
+                            entscheidung = sc.next().toLowerCase();
+
+                            switch (entscheidung) {
+                                case "unterkunft" -> {
+                                    System.out.println("Kosten Unterkunft: " + kostenUnterkunft + " ändern: ");
+                                    kostenUnterkunft += sc.nextDouble();
+                                }
+                                case "verpflegung" -> {
+                                    System.out.println("Kosten Verpflegung: " + kostenVerpflegung + " ändern: ");
+                                    kostenVerpflegung += sc.nextDouble();
+                                }
+                                case "transport" -> {
+                                    System.out.println("Kosten Transport: " + kostenTransport + " ändern: ");
+                                    kostenTransport += sc.nextDouble();
+                                }
+                                case "aktivitäten" -> {
+                                    System.out.println("Kosten Aktivitäten: " + kostenAktivitaeten + " ändern: ");
+                                    kostenAktivitaeten += sc.nextDouble();
+                                }
+                                default -> {
+                                    nochmalsFragen = true;
+                                    System.out.print("Fehlerhafte Eingabe: Bitte nochmals eingeben: ");
+                                }
+                            }
+
+                        } while (nochmalsFragen);
+
+                        gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
+
+                        if (budget >= gesamteAusgaben) {
+                            System.out.println("Budget deckt nun die Kosten!");
+                            weitereAenderungenNotwendig = false;
+
+                        } else {
+                            System.out.println("Budget deckt die Kosten nicht! Bitte weitere Änderungen vornehmen.");
+                            weitereAenderungenNotwendig = true;
                         }
-                        case "transport" -> {
-                            System.out.println("Kosten Transport: " + kostenTransport + " ändern: ");
-                            kostenTransport += sc.nextDouble();
-                        }
-                        case "aktivitäten" -> {
-                            System.out.println("Kosten Aktivitäten: " + kostenAktivitaeten + " ändern: ");
-                            kostenAktivitaeten += sc.nextDouble();
-                        }
+
+                    } else {
+                        weitereAenderungenNotwendig = false;
+                        benutzerWillNeueEingabe = true;
                     }
 
-                    if (budget >= gesamteAusgaben) {
-                        break;
+                } while (weitereAenderungenNotwendig);
 
-                    }
+                if (!weitereAenderungenNotwendig && !benutzerWillNeueEingabe) {
+                    break;
                 }
             }
         }
 
-
+        // Wir wiederholen die schleife für immer. Deswegen true bei der while-Schleife.
+        // Aber ganz unten ist eine if-Verzweigung, welche, wenn wir genug budget haben, die Schleife verlässt.
+        // Das machen wir mit break;
         while (true) {
     //        for (int i = 0; i < familienMitglieder.length; i++) { // ist das gleiche
             for (int i = 0; i < anzahlFamilienmitglieder; i++) {
@@ -151,10 +213,10 @@ public class TestUe {
 
                 gesamterBeitragVonFamilienmitglieder += beitragVonFamilienMitglieder[i];
 
-                // um Inhalt des Arrays mit dem Auge überprüfen zu können
-    //            System.out.println(Arrays.asList(familienMitglieder));
-                // um Inhalt des Arrays mit dem Auge überprüfen zu können
-    //            System.out.println(Arrays.asList(beitragVonFamilienMitglieder));
+////                 um Inhalt des Arrays mit dem Auge überprüfen zu können
+//                System.out.println(Arrays.asList(familienMitglieder));
+////                 um Inhalt des Arrays mit dem Auge überprüfen zu können
+//                System.out.println(Arrays.asList(beitragVonFamilienMitglieder));
             }
 
             if( gesamterBeitragVonFamilienmitglieder >= budget ) {
