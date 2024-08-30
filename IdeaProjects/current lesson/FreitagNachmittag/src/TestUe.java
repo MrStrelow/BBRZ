@@ -40,53 +40,131 @@ public class TestUe {
         String[] familienMitglieder;
         Double[] beitragVonFamilienMitglieder;
 
+        Integer anzahlFamilienmitglieder;
+        Double gesamterBeitragVonFamilienmitglieder = 0.0;
+        Boolean benutzerMussBudgetAnpassen = false;
+        Boolean benutzerWillKostenÄndern = false;
+
+        Boolean benutzerWillUnterkunftÄndern;
+        Boolean benutzerWillVerpflegungÄndern;
+        Boolean benutzerWillTransportÄndern;
+        Boolean benutzerWillAktivitaetÄndern;
+
+
         // Logik:
-        System.out.print("Bitte geben Sie Ihr Urlaubsbudget ein: ");
-        budget = sc.nextDouble();
+
+        // Wir wiederholen die schleife für immer. Deswegen true bei der while-Schleife.
+        // Aber ganz unten ist eine if-Verzweigung, welche, wenn wir genug budget haben, die Schleife verlässt.
+        // Das machen wir mit break;
+        while (true) {
+            System.out.print("Bitte geben Sie Ihr Urlaubsbudget ein: ");
+            budget = sc.nextDouble();
 
 
-        System.out.print("Bitte geben Sie die Kosten für die Unterkunft ein: ");
-        kostenUnterkunft = sc.nextDouble();
+            System.out.print("Bitte geben Sie die Kosten für die Unterkunft ein: ");
+            kostenUnterkunft = sc.nextDouble();
 
-        System.out.print("Bitte geben Sie die Kosten für die Verpflegung ein: ");
-        kostenVerpflegung = sc.nextDouble();
+            System.out.print("Bitte geben Sie die Kosten für die Verpflegung ein: ");
+            kostenVerpflegung = sc.nextDouble();
 
-        System.out.print("Bitte geben Sie die Kosten für die Transport ein: ");
-        kostenTransport = sc.nextDouble();
+            System.out.print("Bitte geben Sie die Kosten für die Transport ein: ");
+            kostenTransport = sc.nextDouble();
 
-        System.out.print("Bitte geben Sie die Kosten für die Aktivitäten ein: ");
-        kostenAktivitaeten = sc.nextDouble();
-
-
-        System.out.print("Bitte geben Sie die Anzahl der Familienmitglieder ein: ");
-        Integer anzahlFamilienmitglieder = sc.nextInt();
-//        familienMitglieder = new String[sc.nextInt()]; // geht auch so.
-
-        familienMitglieder = new String[anzahlFamilienmitglieder];
-        beitragVonFamilienMitglieder = new Double[anzahlFamilienmitglieder];
+            System.out.print("Bitte geben Sie die Kosten für die Aktivitäten ein: ");
+            kostenAktivitaeten = sc.nextDouble();
 
 
-        Double verbleibendesBudget = budget - kostenUnterkunft - kostenVerpflegung - kostenTransport - kostenAktivitaeten;
+            System.out.print("Bitte geben Sie die Anzahl der Familienmitglieder ein: ");
+            anzahlFamilienmitglieder = sc.nextInt();
+    //        familienMitglieder = new String[sc.nextInt()]; // geht auch so.
 
-        System.out.println("Budget: ");
-        System.out.println("\t\t\t\t\t" + budget);
-        System.out.println("Kosten:");
-        System.out.println("\tUnterkunft:\t\t" + kostenUnterkunft);
-        System.out.println("\tVerpflegung:\t" + kostenVerpflegung);
-        System.out.println("\tTransport:\t\t" + kostenTransport);
-        System.out.println("\tAktivitäten:\t" + kostenAktivitaeten);
-        System.out.println("________________________________________");
-        System.out.println("Verbleibende Budget: " + verbleibendesBudget);
+            familienMitglieder = new String[anzahlFamilienmitglieder];
+            beitragVonFamilienMitglieder = new Double[anzahlFamilienmitglieder];
 
-//        for (int i = 0; i < familienMitglieder.length; i++) { // ist das gleiche
-        for (int i = 0; i < anzahlFamilienmitglieder; i++) {
-            System.out.print("Bitte den Namen vom " + (i + 1) + ". Familienmitglied eingeben: ");
-            familienMitglieder[i] = sc.next();
 
-            System.out.println(Arrays.asList(familienMitglieder));
+            Double gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
+            Double verbleibendesBudget = budget - gesamteAusgaben;
 
-            System.out.print("Bitte den Beitrag vom " + (i + 1) + " Familienmitglied eingeben: ");
-            beitragVonFamilienMitglieder[i] = sc.nextDouble();
+            System.out.println("Budget: ");
+            System.out.println("\t\t\t\t\t" + budget);
+            System.out.println("Kosten:");
+            System.out.println("\tUnterkunft:\t\t" + kostenUnterkunft);
+            System.out.println("\tVerpflegung:\t" + kostenVerpflegung);
+            System.out.println("\tTransport:\t\t" + kostenTransport);
+            System.out.println("\tAktivitäten:\t" + kostenAktivitaeten);
+            System.out.println("________________________________________");
+            System.out.println("Verbleibende Budget: " + verbleibendesBudget);
+
+            if (budget >= gesamteAusgaben) {
+                break;
+
+            } else {
+
+                System.out.print("Wollen Sie bestehende Kosten ändern oder alles neu eingeben? [ja/nein]: ");
+                String entscheidung = sc.next().toLowerCase();
+
+                switch (entscheidung) {
+                    case "ja" -> benutzerWillKostenÄndern = true;
+                    case "nein" -> benutzerWillKostenÄndern = false;
+                }
+
+                if (benutzerWillKostenÄndern) {
+                    System.out.println("Welche kosten sollen geändet werden?: [unterkunft/verpflegung/transport/aktivitäten]");
+
+                    entscheidung = sc.next().toLowerCase();
+
+                    switch (entscheidung) {
+                        case "unterkunft" -> {
+                            System.out.println("Kosten Unterkunft: " + kostenUnterkunft + " ändern: ");
+                            kostenUnterkunft += sc.nextDouble();
+                        }
+                        case "verpflegung" -> {
+                            System.out.println("Kosten Verpflegung: " + kostenVerpflegung + " ändern: ");
+                            kostenVerpflegung += sc.nextDouble();
+                        }
+                        case "transport" -> {
+                            System.out.println("Kosten Transport: " + kostenTransport + " ändern: ");
+                            kostenTransport += sc.nextDouble();
+                        }
+                        case "aktivitäten" -> {
+                            System.out.println("Kosten Aktivitäten: " + kostenAktivitaeten + " ändern: ");
+                            kostenAktivitaeten += sc.nextDouble();
+                        }
+                    }
+
+
+
+                }
+
+                System.out.println("Budget reicht nicht aus! Bitte anpassen.");
+            }
+
+        }
+
+
+        while (true) {
+    //        for (int i = 0; i < familienMitglieder.length; i++) { // ist das gleiche
+            for (int i = 0; i < anzahlFamilienmitglieder; i++) {
+                System.out.print("Bitte den Namen vom " + (i + 1) + ". Familienmitglied eingeben: ");
+                familienMitglieder[i] = sc.next().toLowerCase();
+
+                System.out.print("Bitte den Beitrag vom " + (i + 1) + " Familienmitglied eingeben: ");
+                beitragVonFamilienMitglieder[i] = sc.nextDouble();
+
+                gesamterBeitragVonFamilienmitglieder += beitragVonFamilienMitglieder[i];
+
+                // um Inhalt des Arrays mit dem Auge überprüfen zu können
+    //            System.out.println(Arrays.asList(familienMitglieder));
+                // um Inhalt des Arrays mit dem Auge überprüfen zu können
+    //            System.out.println(Arrays.asList(beitragVonFamilienMitglieder));
+            }
+
+            if( gesamterBeitragVonFamilienmitglieder >= budget ) {
+                break;
+
+            } else {
+                System.out.println("Beitrag reicht nicht aus. Kein Urlaub :(. Bitte Beiträge neu eingeben.");
+            }
         }
 
         // Ausgabe:

@@ -32,7 +32,7 @@ Arithmetische Berechnungen:
 Berechnen Sie die Gesamtausgaben, indem Sie die einzelnen Kostenkategorien addieren.
 Ermitteln Sie das verbleibende Budget, indem Sie die Gesamtausgaben vom gesamten Budget subtrahieren.
 Berechnen Sie den gesamten Beitrag aller Familienmitglieder und stellen Sie sicher,
-dass dieser das geplante Budget nicht überschreitet.
+dass dieser das geplante Budget nicht (unter?)überschreitet.
 
 String-Operationen:
 Verwenden Sie String-Methoden wie toLowerCase() oder toUpperCase(),
