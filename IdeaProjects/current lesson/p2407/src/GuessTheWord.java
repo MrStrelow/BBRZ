@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class GuessTheWord {
     public static void main(String[] args) {
-        // - User interaktion
-        // - [x] Eingabe des users, welche, falls diese falsch ist, wiederholt werden muss.
-        // - [] Wiederholtes abfragen des Rateversuches des Users.
-        // - laufende Ausgabe des Ratewortes
+        // - User interaktion:
+        //      - [x] Eingabe des users, welche, falls diese falsch ist, wiederholt werden muss.
+        // - [x] Wiederholtes abfragen des Rateversuches des Users.
+        // - [x] laufende Ausgabe des Ratewortes
 
         // Variablen
         Scanner scanner = new Scanner(System.in);
