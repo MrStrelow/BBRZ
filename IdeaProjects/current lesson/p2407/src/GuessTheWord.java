@@ -16,10 +16,11 @@ public class GuessTheWord {
         String wortZuErraten;
         Character korrekteEingabe = null;
         String eingabeZumRaten;
+        String filler = "_";
 
         Boolean wortErraten = false;
 
-        String anzeigeWort = "_".repeat(laengeDesWortes);
+        String anzeigeWort = filler.repeat(laengeDesWortes);
 
         // - Eingabe des users, welche, falls diese falsch ist, wiederholt werden muss.
         do {
@@ -61,6 +62,11 @@ public class GuessTheWord {
             if (rateVersuchIstTeilDesWortes) {
                 // schau nach wo es übereinstimmt und überschreibe den string wortErraten
                 System.out.println("ich schaue nach :)");
+            }
+
+//            if (anzeigeWort.equals(wortZuErraten)) {
+            if (!anzeigeWort.contains(filler)) {
+                System.out.println("Gewonnen!");
             }
 
             System.out.println(anzeigeWort);
