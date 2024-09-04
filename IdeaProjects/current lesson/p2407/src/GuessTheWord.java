@@ -1,3 +1,4 @@
+import java.time.chrono.MinguoDate;
 import java.util.Scanner;
 
 public class GuessTheWord {
@@ -9,8 +10,8 @@ public class GuessTheWord {
 
         // Variablen
         Scanner scanner = new Scanner(System.in);
-        Integer laengeDesWortes = 3;
-        Integer maximaleSpielzüge = 6;
+        Integer laengeDesWortes = 5;
+        Integer maximaleSpielzüge = 12;
 
         Integer verwendeteSpielzüge = 0;
         String wortZuErraten;
@@ -18,9 +19,9 @@ public class GuessTheWord {
         String eingabeZumRaten;
         String filler = "_";
 
-        Boolean wortErraten = false;
+        Boolean gewonnen = false;
 
-        String anzeigeWort = filler.repeat(laengeDesWortes);
+        StringBuilder anzeigeWort = new StringBuilder(filler.repeat(laengeDesWortes));
 
         // - Eingabe des users, welche, falls diese falsch ist, wiederholt werden muss.
         do {
@@ -37,7 +38,7 @@ public class GuessTheWord {
         System.out.println(anzeigeWort);
 
         // - Wiederholtes abfragen des Rateversuches des Users.
-        while ( verwendeteSpielzüge < maximaleSpielzüge && !wortErraten ) {
+        while ( verwendeteSpielzüge < maximaleSpielzüge && !gewonnen ) {
 //        while ( !(verwendeteSpielzüge >= maximaleSpielzüge || wortErraten) ) {
             // 0 | 0 | 1 | Ergebnis oder: 0 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
             // 0 | 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
@@ -60,12 +61,22 @@ public class GuessTheWord {
             Boolean rateVersuchIstTeilDesWortes = wortZuErraten.contains(korrekteEingabe.toString());
 
             if (rateVersuchIstTeilDesWortes) {
-                // schau nach wo es übereinstimmt und überschreibe den string wortErraten
-                System.out.println("ich schaue nach :)");
+                // schau nach an welcher Stelle der Rateversuch und das zu erratende Wort übereinstimmt und überschreibe den string wortErraten.
+                Integer index = -1;
+
+                do {
+                    index = wortZuErraten.indexOf(korrekteEingabe, index+1);
+
+                    if (index != -1) {
+                        anzeigeWort.replace(index, index+1, korrekteEingabe.toString());
+                    }
+
+                } while (index >= 0);
             }
 
-//            if (anzeigeWort.equals(wortZuErraten)) {
-            if (!anzeigeWort.contains(filler)) {
+//            if (anzeigeWort.toString().equals(wortZuErraten)) {
+            if (!anzeigeWort.toString().contains(filler)) {
+                gewonnen = true;
                 System.out.println("Gewonnen!");
             }
 
