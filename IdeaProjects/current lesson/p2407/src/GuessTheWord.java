@@ -14,7 +14,9 @@ public class GuessTheWord {
 
         Integer verwendeteSpielzüge = 0;
         String wortZuErraten;
-        Character eingabeZumRaten;
+        Character korrekteEingabe;
+        String eingabeZumRaten;
+
         Boolean wortErraten = false;
 
         String anzeigeWort = "_".repeat(laengeDesWortes);
@@ -34,14 +36,34 @@ public class GuessTheWord {
         System.out.println(anzeigeWort);
 
         // - Wiederholtes abfragen des Rateversuches des Users.
-        while (verwendeteSpielzüge < maximaleSpielzüge || wortErraten ) {
-            // 0 | 0 | Ergebnis oder: 0 | Ergebnis und: 0
-            // 0 | 1 | Ergebnis oder: 1 | Ergebnis und: 0
-            // 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 0
+        while ( verwendeteSpielzüge < maximaleSpielzüge && !wortErraten ) {
+//        while ( !(verwendeteSpielzüge >= maximaleSpielzüge || wortErraten) ) {
+            // 0 | 0 | 1 | Ergebnis oder: 0 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
+            // 0 | 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
+            // 1 | 0 | 1 | Ergebnis oder: 1 | Ergebnis und: 0 | Ergebnis was wir wollen: 1
+            // 1 | 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 1 | Ergebnis was wir wollen: 0
 
-            // 1 | 1 | Ergebnis oder: 1 | Ergebnis und: 1
+            // usereingabe - handling von falschen input
+            do {
+                eingabeZumRaten = scanner.nextLine();
 
-            System.out.println(verwendeteSpielzüge);
+                if (eingabeZumRaten.length() != 1) {
+                    System.out.println("Es darf nicht mehr wie ein Buchstabe eingegeben werden. Bitte wiederholde deinen Rateversuch.");
+
+                } else {
+                    korrekteEingabe = eingabeZumRaten.charAt(0);
+                }
+            } while (eingabeZumRaten.length() != 1);
+
+
+            Boolean rateVersuchIstTeilDesWortes = wortZuErraten.contains(wortZuErraten);
+
+            if (rateVersuchIstTeilDesWortes) {
+                // schau nach wo es übereinstimmt und überschreibe den string wortErraten
+                System.out.println("ich schaue nach :)");
+            }
+
+            System.out.println(anzeigeWort);
 
             verwendeteSpielzüge++;
         }
