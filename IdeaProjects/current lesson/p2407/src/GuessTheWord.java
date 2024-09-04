@@ -14,7 +14,7 @@ public class GuessTheWord {
 
         Integer verwendeteSpielzüge = 0;
         String wortZuErraten;
-        Character korrekteEingabe;
+        Character korrekteEingabe = null;
         String eingabeZumRaten;
 
         Boolean wortErraten = false;
@@ -56,7 +56,7 @@ public class GuessTheWord {
             } while (eingabeZumRaten.length() != 1);
 
 
-            Boolean rateVersuchIstTeilDesWortes = wortZuErraten.contains(wortZuErraten);
+            Boolean rateVersuchIstTeilDesWortes = wortZuErraten.contains(korrekteEingabe.toString());
 
             if (rateVersuchIstTeilDesWortes) {
                 // schau nach wo es übereinstimmt und überschreibe den string wortErraten
