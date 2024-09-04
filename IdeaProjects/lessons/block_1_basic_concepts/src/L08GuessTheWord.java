@@ -2,66 +2,86 @@ import java.util.Scanner;
 
 public class L08GuessTheWord {
     public static void main(String[] args) {
-        final int laenge = 3;
+        // - User interaktion:
+        //      - [x] Eingabe des users, welche, falls diese falsch ist, wiederholt werden muss.
+        // - [x] Wiederholtes abfragen des Rateversuches des Users.
+        // - [x] laufende Ausgabe des Ratewortes
 
-        // Frage nach Wort mit 3 Buchstaben.
+        // Variablen
         Scanner scanner = new Scanner(System.in);
-        String wortZuRaten;
+        Integer laengeDesWortes = 5;
+        Integer maximaleSpielzüge = 12;
 
+        Integer verwendeteSpielzuege = 0;
+        String wortZuErraten;
+        Character korrekteEingabe = null;
+        String eingabeZumRaten;
+        String filler = "_";
+
+        Boolean gewonnen = false;
+
+        StringBuilder anzeigeWort = new StringBuilder(filler.repeat(laengeDesWortes));
+
+        // - Eingabe des users, welche, falls diese falsch ist, wiederholt werden muss.
         do {
-            System.out.println("Eingabe des Ratewortes!");
-            wortZuRaten = scanner.nextLine();
+            System.out.println("Bitte gib ein Wort mit " + laengeDesWortes + " Buchstaben ein, welches erraten werden muss.");
+            wortZuErraten = scanner.nextLine();
 
-            if(wortZuRaten.length() != laenge) {
-                System.out.println("Unpassende Laenge! Bitte Wort mit 3 Buchstaben eingeben.");
+            if (wortZuErraten.length() != laengeDesWortes) {
+                System.out.println("Unpassende Länge! [" + wortZuErraten.length() + "]. Bitte Wort mit " + laengeDesWortes + " Buchstaben eingeben.");
             }
+        } while (wortZuErraten.length() != laengeDesWortes);
 
-        } while (wortZuRaten.length() != laenge);
+        // Anzeige vom Ratezustand
+        System.out.println("Beginne das Wort zu erraten!");
+        System.out.println(anzeigeWort);
 
-        // anzeige des rate status ___
-        StringBuilder rateAusgabe = new StringBuilder("_".repeat(laenge));
+        // - Wiederholtes abfragen des Rateversuches des Users.
+        while ( verwendeteSpielzuege < maximaleSpielzüge && !gewonnen ) {
+//        while ( !(verwendeteSpielzüge >= maximaleSpielzüge || wortErraten) ) {
+            // 0 | 0 | 1 | Ergebnis oder: 0 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
+            // 0 | 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
+            // 1 | 0 | 1 | Ergebnis oder: 1 | Ergebnis und: 0 | Ergebnis was wir wollen: 1
+            // 1 | 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 1 | Ergebnis was wir wollen: 0
 
-        System.out.println("Raten Sie!");
-        System.out.println(rateAusgabe);
+            // usereingabe - handling von falschen input
+            do {
+                eingabeZumRaten = scanner.nextLine();
 
-        //rate solange bis erraten oder abbruch
+                if (eingabeZumRaten.length() != 1) {
+                    System.out.println("Es darf nicht mehr wie ein Buchstabe eingegeben werden. Bitte wiederholde deinen Rateversuch.");
 
-        int maximaleSpielzuege = 6;
-        int verwendeteSpielzuege = 0;
-        String rateEingabe;
+                } else {
+                    korrekteEingabe = eingabeZumRaten.charAt(0);
+                }
+            } while (eingabeZumRaten.length() != 1);
 
-        while (verwendeteSpielzuege < maximaleSpielzuege) {
-            rateEingabe = scanner.nextLine();
-            boolean istTeilDesWortes = wortZuRaten.contains(rateEingabe);
 
-            if (istTeilDesWortes) {
-                int index = -1;
+            Boolean rateVersuchIstTeilDesWortes = wortZuErraten.contains(korrekteEingabe.toString());
+
+            if (rateVersuchIstTeilDesWortes) {
+                // schau nach an welcher Stelle der Rateversuch und das zu erratende Wort übereinstimmt und überschreibe den string wortErraten.
+                Integer index = -1;
 
                 do {
-                    index = wortZuRaten.indexOf(rateEingabe, index+1);
+                    index = wortZuErraten.indexOf(korrekteEingabe, index+1);
 
-                    if(index!=-1) {
-                        rateAusgabe = rateAusgabe.replace(index, index+1, rateEingabe);
+                    if (index != -1) {
+                        anzeigeWort.replace(index, index+1, korrekteEingabe.toString());
                     }
 
                 } while (index >= 0);
-
             }
 
-            System.out.println(rateAusgabe);
-
-            if (rateAusgabe.toString().equals(wortZuRaten)) {
-                System.out.println("Gratuliere! :) das wort ist " + wortZuRaten);
-                System.exit(0);
+//            if (anzeigeWort.toString().equals(wortZuErraten)) {
+            if (!anzeigeWort.toString().contains(filler)) {
+                gewonnen = true;
+                System.out.println("Gewonnen!");
             }
 
-            //Zeichnen!
-//            System.out.println();
+            System.out.println(anzeigeWort);
 
             verwendeteSpielzuege++;
         }
-
-        System.out.println("dead :(");
-
     }
 }

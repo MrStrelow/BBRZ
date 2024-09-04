@@ -13,7 +13,7 @@ public class GuessTheWord {
         Integer laengeDesWortes = 5;
         Integer maximaleSpielzüge = 12;
 
-        Integer verwendeteSpielzüge = 0;
+        Integer verwendeteSpielzuege = 0;
         String wortZuErraten;
         Character korrekteEingabe = null;
         String eingabeZumRaten;
@@ -38,7 +38,7 @@ public class GuessTheWord {
         System.out.println(anzeigeWort);
 
         // - Wiederholtes abfragen des Rateversuches des Users.
-        while ( verwendeteSpielzüge < maximaleSpielzüge && !gewonnen ) {
+        while ( verwendeteSpielzuege < maximaleSpielzüge && !gewonnen ) {
 //        while ( !(verwendeteSpielzüge >= maximaleSpielzüge || wortErraten) ) {
             // 0 | 0 | 1 | Ergebnis oder: 0 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
             // 0 | 1 | 0 | Ergebnis oder: 1 | Ergebnis und: 0 | Ergebnis was wir wollen: 0
@@ -82,7 +82,7 @@ public class GuessTheWord {
 
             System.out.println(anzeigeWort);
 
-            verwendeteSpielzüge++;
+            verwendeteSpielzuege++;
         }
 
     }
