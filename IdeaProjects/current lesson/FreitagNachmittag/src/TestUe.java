@@ -165,19 +165,19 @@ public class TestUe {
 
                             switch (entscheidung) {
                                 case "unterkunft" -> {
-                                    System.out.println("Kosten Unterkunft: " + kostenUnterkunft + " ändern: ");
+                                    System.out.print("Kosten Unterkunft: " + kostenUnterkunft + " ändern: ");
                                     kostenUnterkunft += sc.nextDouble();
                                 }
                                 case "verpflegung" -> {
-                                    System.out.println("Kosten Verpflegung: " + kostenVerpflegung + " ändern: ");
+                                    System.out.print("Kosten Verpflegung: " + kostenVerpflegung + " ändern: ");
                                     kostenVerpflegung += sc.nextDouble();
                                 }
                                 case "transport" -> {
-                                    System.out.println("Kosten Transport: " + kostenTransport + " ändern: ");
+                                    System.out.print("Kosten Transport: " + kostenTransport + " ändern: ");
                                     kostenTransport += sc.nextDouble();
                                 }
                                 case "aktivitäten" -> {
-                                    System.out.println("Kosten Aktivitäten: " + kostenAktivitaeten + " ändern: ");
+                                    System.out.print("Kosten Aktivitäten: " + kostenAktivitaeten + " ändern: ");
                                     kostenAktivitaeten += sc.nextDouble();
                                 }
                                 default -> {
@@ -227,19 +227,13 @@ public class TestUe {
 
                 if (!nameWurdeSchonEingegeben) {
                     System.out.print("Bitte den Namen vom " + (i + 1) + ". Familienmitglied eingeben: ");
-                    familienMitglieder[i] = sc.next().toLowerCase();
+                    familienMitglieder[i] = sc.next();
                 }
 
                 System.out.print("Bitte den Beitrag von: " + familienMitglieder[i] + " eingeben: ");
                 beitragVonFamilienMitglieder[i] += sc.nextDouble();
                 gesamterBeitragVonFamilienmitglieder += beitragVonFamilienMitglieder[i];
 //                beitragVonFamilienMitglieder[i] = sc.nextDouble(); // VARIANTE 2.
-
-
-////                 um Inhalt des Arrays mit dem Auge überprüfen zu können
-//                System.out.println(Arrays.asList(familienMitglieder));
-////                 um Inhalt des Arrays mit dem Auge überprüfen zu können
-//                System.out.println(Arrays.asList(beitragVonFamilienMitglieder));
             }
 
             nameWurdeSchonEingegeben = true;
@@ -256,6 +250,13 @@ public class TestUe {
         }
 
         // Ausgabe:
+        //  um Inhalt des Arrays mit dem Auge überprüfen zu können
+//        System.out.println(Arrays.asList(familienMitglieder)); oder
+        System.out.println("#################### ENDE ####################");
+        System.out.println("Budget: " + budget);
+        System.out.println("Beitrag jedes Familienmitglieds:");
+        System.out.println(Arrays.toString(familienMitglieder));
+        System.out.println(Arrays.toString(beitragVonFamilienMitglieder));
 
     }
 }
