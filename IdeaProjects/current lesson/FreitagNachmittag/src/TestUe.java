@@ -80,7 +80,6 @@ public class TestUe {
             familienMitglieder = new String[anzahlFamilienmitglieder];
             beitragVonFamilienMitglieder = new Double[anzahlFamilienmitglieder];
 
-
             Double gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
             Double verbleibendesBudget = budget - gesamteAusgaben;
 
@@ -95,6 +94,7 @@ public class TestUe {
             System.out.println("Verbleibende Budget: " + verbleibendesBudget);
 
             if (budget >= gesamteAusgaben) {
+//                benutzerWillNeueEingabe = false;
                 break;
 
             } else {
@@ -107,6 +107,15 @@ public class TestUe {
                     String entscheidung;
                     Boolean nochmalsFragen = false;
 
+                    // Unterschied zur While Schleife:
+                    // - wir führen einmal den Block (also das in den geschwungenen Klammern {}) immer ein mal aus.
+                    //  Am Ende überprüfen wir eine boolesche Variable, ob diese True ist,
+                    //      - wenn ja, dann wiederhole die Schleife
+                    //      - wenn nein, dann beende diese.
+
+
+                    // Wenn der user einen Blödsinn eingibt, dann soll nochmal gefragt werden,
+                    // was der User wirklich eingeben will.
                     do {
                         entscheidung = sc.next().toLowerCase();
 
@@ -176,6 +185,7 @@ public class TestUe {
                         } while (nochmalsFragen);
 
                         gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
+                        verbleibendesBudget = budget - gesamteAusgaben;
 
                         if (budget >= gesamteAusgaben) {
                             System.out.println("Budget deckt nun die Kosten!");
@@ -204,12 +214,15 @@ public class TestUe {
         // Das machen wir mit break;
         while (true) {
     //        for (int i = 0; i < familienMitglieder.length; i++) { // ist das gleiche
+            System.out.println("Bitte gib deinen Beitrag ein: ");
+
             for (int i = 0; i < anzahlFamilienmitglieder; i++) {
                 System.out.print("Bitte den Namen vom " + (i + 1) + ". Familienmitglied eingeben: ");
                 familienMitglieder[i] = sc.next().toLowerCase();
 
                 System.out.print("Bitte den Beitrag vom " + (i + 1) + " Familienmitglied eingeben: ");
-                beitragVonFamilienMitglieder[i] = sc.nextDouble();
+                beitragVonFamilienMitglieder[i] += sc.nextDouble();
+//                beitragVonFamilienMitglieder[i] = sc.nextDouble(); // VARIANTE 2.
 
                 gesamterBeitragVonFamilienmitglieder += beitragVonFamilienMitglieder[i];
 
@@ -223,12 +236,14 @@ public class TestUe {
                 break;
 
             } else {
-                System.out.println("Beitrag reicht nicht aus. Kein Urlaub :(. Bitte Beiträge neu eingeben.");
+                System.out.println("Beitrag reicht nicht aus.");
+                System.out.println("Es fehlen noch " + (budget - gesamterBeitragVonFamilienmitglieder) + "€.");
+                System.out.println("Teile nun den fehlenden Betrag auf! Das geld aus der 1. Runde wurde gespeichert");
+//                gesamterBeitragVonFamilienmitglieder = 0.0; //VARIANTE 2: ohne akkumulierende Beiträge
             }
         }
 
         // Ausgabe:
-
 
     }
 }
