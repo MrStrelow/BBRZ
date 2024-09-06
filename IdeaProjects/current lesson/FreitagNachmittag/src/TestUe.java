@@ -80,6 +80,10 @@ public class TestUe {
             familienMitglieder = new String[anzahlFamilienmitglieder];
             beitragVonFamilienMitglieder = new Double[anzahlFamilienmitglieder];
 
+            for (int i = 0; i < anzahlFamilienmitglieder; i++) {
+                beitragVonFamilienMitglieder[i] = 0.0;
+            }
+
             Double gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
             Double verbleibendesBudget = budget - gesamteAusgaben;
 
@@ -212,25 +216,33 @@ public class TestUe {
         // Wir wiederholen die schleife für immer. Deswegen true bei der while-Schleife.
         // Aber ganz unten ist eine if-Verzweigung, welche, wenn wir genug budget haben, die Schleife verlässt.
         // Das machen wir mit break;
+
+        Boolean nameWurdeSchonEingegeben = false;
+
         while (true) {
     //        for (int i = 0; i < familienMitglieder.length; i++) { // ist das gleiche
             System.out.println("Bitte gib deinen Beitrag ein: ");
 
             for (int i = 0; i < anzahlFamilienmitglieder; i++) {
-                System.out.print("Bitte den Namen vom " + (i + 1) + ". Familienmitglied eingeben: ");
-                familienMitglieder[i] = sc.next().toLowerCase();
 
-                System.out.print("Bitte den Beitrag vom " + (i + 1) + " Familienmitglied eingeben: ");
+                if (!nameWurdeSchonEingegeben) {
+                    System.out.print("Bitte den Namen vom " + (i + 1) + ". Familienmitglied eingeben: ");
+                    familienMitglieder[i] = sc.next().toLowerCase();
+                }
+
+                System.out.print("Bitte den Beitrag von: " + familienMitglieder[i] + " eingeben: ");
                 beitragVonFamilienMitglieder[i] += sc.nextDouble();
+                gesamterBeitragVonFamilienmitglieder += beitragVonFamilienMitglieder[i];
 //                beitragVonFamilienMitglieder[i] = sc.nextDouble(); // VARIANTE 2.
 
-                gesamterBeitragVonFamilienmitglieder += beitragVonFamilienMitglieder[i];
 
 ////                 um Inhalt des Arrays mit dem Auge überprüfen zu können
 //                System.out.println(Arrays.asList(familienMitglieder));
 ////                 um Inhalt des Arrays mit dem Auge überprüfen zu können
 //                System.out.println(Arrays.asList(beitragVonFamilienMitglieder));
             }
+
+            nameWurdeSchonEingegeben = true;
 
             if( gesamterBeitragVonFamilienmitglieder >= budget ) {
                 break;
