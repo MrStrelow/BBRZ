@@ -1,11 +1,14 @@
 public class dfsg {
     public static void main(String[] args) {
-        String behaelter = "";
+//        Double[][] kosten = new Double[3][4];
 
-        for (int i = 0; i < 5; i++) {
-            behaelter += "hallo";
-        }
-
-        System.out.println(behaelter); //hallohallohallohallohallo
+        Double[][] kosten =
+                {
+                    {1., 1., 1., 1.},
+                    {1., 1., 1., 1.},
+                    {1., 1., 1., 1.}
+                };
     }
+
+
 }

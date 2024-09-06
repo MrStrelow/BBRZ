@@ -1,3 +1,4 @@
+import java.nio.DoubleBuffer;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -84,8 +85,10 @@ public class TestUe {
                 beitragVonFamilienMitglieder[i] = 0.0;
             }
 
-            Double gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
-            Double verbleibendesBudget = budget - gesamteAusgaben;
+            Double[] kosten = {kostenUnterkunft, kostenVerpflegung, kostenTransport, kostenAktivitaeten};
+
+            Double gesamteAusgaben = berechneGesamtausgaben(kosten);
+            Double verbleibendesBudget = berechneVerbleibendesBudget(budget, gesamteAusgaben);
 
             System.out.println("Budget: ");
             System.out.println("\t\t\t\t\t" + budget);
@@ -188,8 +191,11 @@ public class TestUe {
 
                         } while (nochmalsFragen);
 
-                        gesamteAusgaben = kostenUnterkunft + kostenVerpflegung + kostenTransport + kostenAktivitaeten;
-                        verbleibendesBudget = budget - gesamteAusgaben;
+
+                        kosten = new Double[]{kostenUnterkunft, kostenVerpflegung, kostenTransport, kostenAktivitaeten};
+
+                        gesamteAusgaben = berechneGesamtausgaben(kosten);
+                        verbleibendesBudget = berechneVerbleibendesBudget(budget, gesamteAusgaben);
 
                         if (budget >= gesamteAusgaben) {
                             System.out.println("Budget deckt nun die Kosten!");
@@ -259,4 +265,21 @@ public class TestUe {
         System.out.println(Arrays.toString(beitragVonFamilienMitglieder));
 
     }
+
+    public static Double berechneGesamtausgaben(Double[] kosten) {
+        // [10., 20., 10., 10., 10.]
+        Double gesamteAusgaben = 0.0;
+
+        for (int i = 0; i < kosten.length; i++) {
+            gesamteAusgaben += kosten[i];
+        }
+
+        return gesamteAusgaben;
+    }
+
+
+    public static Double berechneVerbleibendesBudget(Double budget, Double gesamtausgaben) {
+        return budget - gesamtausgaben;
+    }
+
 }
