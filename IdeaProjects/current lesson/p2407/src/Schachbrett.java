@@ -83,7 +83,7 @@ public class Schachbrett {
 
         for (int x = 1; x <= deltaX; x++) {
             Integer y = Math.toIntExact( Math.round(steigung * x) );
-            brett[y][x] = "~";
+            brett[yStart + y][xStart + x] = "~";
         }
 
         for (int i = 0; i < brett.length; i++) {
