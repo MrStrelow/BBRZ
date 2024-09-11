@@ -76,7 +76,15 @@ public class Schachbrett {
         brett[yStart][xStart] = "O";
         brett[yZiel][xZiel] = "X";
 
+        Double deltaY = Math.abs(yZiel - yStart) + 0.;
+        Double deltaX = Math.abs(xZiel - xStart) + 0.;
 
+        Double steigung = deltaY / deltaX;
+
+        for (int x = 1; x <= deltaX; x++) {
+            Integer y = Math.toIntExact( Math.round(steigung * x) );
+            brett[y][x] = "~";
+        }
 
         for (int i = 0; i < brett.length; i++) {
             for (int j = 0; j < brett[0].length; j++) {
