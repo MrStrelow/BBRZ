@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ArraysUe {
     public static void main(String[] args) {
         // 1. Art der Definition
-        String[] myStringArray = {"null", "qwer"}; // AChtung! "null" ist nicht gleich null.
+        String[] myStringArray = {"#", "#"}; // AChtung! "null" ist nicht gleich null.
 
         // die Länge des Arrays kann mit .length abgefragt werden.
 //        System.out.println(myStringArray.length); // Hier kommt "out of bounds" Fehler!
