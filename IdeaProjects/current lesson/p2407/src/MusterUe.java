@@ -82,6 +82,14 @@ public class MusterUe {
             System.out.println();
         }
 
+        for (int zeilen = limit-1; zeilen >= 1; zeilen--) {
+            for (int spalten = 1; spalten <= zeilen; spalten++) {
+                System.out.print("#");
+                //  + zeilen + " " + spalten
+            }
+            System.out.println();
+        }
+
 
 
 
