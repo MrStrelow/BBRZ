@@ -1,9 +1,10 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ArraysUe {
     public static void main(String[] args) {
         // 1. Art der Definition
-        String[] myStringArray = {"null", "qwer"};
+        String[] myStringArray = {"null", "qwer"}; // AChtung! "null" ist nicht gleich null.
 
         // die Länge des Arrays kann mit .length abgefragt werden.
 //        System.out.println(myStringArray.length); // Hier kommt "out of bounds" Fehler!
@@ -11,8 +12,16 @@ public class ArraysUe {
 
         // 2. Art der "leeren" Definition
         String[] myEmptyStringArray = new String[2];
+
+        // Inhalt in Array reinschreiben.
+        myEmptyStringArray[0] = "nicht mehr null";
+        myEmptyStringArray[1] = "nicht mehr null aber anderer Text";
+
+        // Ausgabe eines Arrays.
         System.out.println(Arrays.toString(myEmptyStringArray));
+
         System.out.println(Arrays.toString(myStringArray));
+
         myEmptyStringArray[0].repeat(2); // Hier kommt ein "null" Fehler!
 
         // Positionen der Arrays:
@@ -28,7 +37,5 @@ public class ArraysUe {
         for (int i = 0; i < myStringArray.length; i++) {
             System.out.println(myStringArray[i]);
         }
-
-
     }
 }
