@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ArraysUe {
@@ -37,5 +38,19 @@ public class ArraysUe {
         for (int i = 0; i < myStringArray.length; i++) {
             System.out.println(myStringArray[i]);
         }
+
+
+        // Beispiel:
+        System.out.println("\nBeispiel:");
+        String[] verschiedeneWoerter = {"Hund", "PC", "Haus", "Busch", "Auto", "Baum"};
+        Random random = new Random();
+
+        Integer anzahlWoerter = 2;
+
+        // Gib hier "anzahlWoerter" viele Wörter aus dem String Array "verschiedeneWoerter" aus.
+        for (int i = 0; i < anzahlWoerter; i++) {
+            System.out.print(verschiedeneWoerter[random.nextInt(0, verschiedeneWoerter.length)]);
+        }
+
     }
 }
