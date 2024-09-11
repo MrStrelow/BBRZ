@@ -112,7 +112,23 @@ public class L09SchleifenFor {
 
         System.out.println();
         System.out.println("------Aufgabe 1------");
+        System.out.println("Lösung mit zwei verschachtelten Schleifen - ohne die repeat methode");
 
+        for (int zeilen = 1; zeilen <= oberesLimit; zeilen++) {
+            for (int spalten = 1; spalten <= zeilen; spalten++) {
+                System.out.print("#");
+                //  + zeilen + " " + spalten
+            }
+            System.out.println();
+        }
+
+        System.out.println("Lösung mit einer Schleife - mit der repeat methode");
+        // Die repeat Methode ist hier eine "kürzere" Variante.
+        // Wir wollen mit der zweite verschachtelten Schleife im obigen Beispiel, zeichen wiederholt, nebeneinander ausgeben.
+        // Das ist der gleiche Anwendungsfall wie die "repeat" Methode.
+        // Hier ist quasi eine Schleife in der repeat Methode versteckt.
+        // Wir haben also immer noch den Fall, dass wir "alle Symbole in der Richtung der Zeilen (y-Achse) und
+        // Richtung der Spalten (x-Achse) abgehen.
         for (int i = 1; i <= oberesLimit; i++ ) {
             System.out.println("#".repeat(i));
         }
