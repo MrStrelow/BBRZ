@@ -59,12 +59,30 @@ public class Schachbrett {
 
         // Userinput
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Wähle die Figur [x y]: ");
+        System.out.print("Wähle die Figur... [x y]: ");
         String[] userinput = scanner.nextLine().split(" ");
 
-        Integer x = Integer.parseInt( userinput[0] );
-        Integer y = Integer.parseInt( userinput[1] );
+        Integer xStart = Integer.parseInt( userinput[0] );
+        Integer yStart = Integer.parseInt( userinput[1] );
 
-        brett
+        System.out.print("... und wähle das Ziel [x y]: ");
+        userinput = scanner.nextLine().split(" ");
+
+        Integer xZiel = Integer.parseInt( userinput[0] );
+        Integer yZiel = Integer.parseInt( userinput[1] );
+
+        System.out.println(xStart + yStart + xZiel + yZiel);
+
+        brett[xStart][yStart] = "O";
+        brett[xZiel][yZiel] = "X";
+
+
+
+        for (int i = 0; i < brett.length; i++) {
+            for (int j = 0; j < brett[0].length; j++) {
+                System.out.print(brett[i][j]);
+            }
+        System.out.println();
+        }
     }
 }
