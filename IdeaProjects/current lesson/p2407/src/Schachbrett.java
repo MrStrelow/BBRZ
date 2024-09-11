@@ -71,7 +71,7 @@ public class Schachbrett {
         Integer xZiel = Integer.parseInt( userinput[0] );
         Integer yZiel = Integer.parseInt( userinput[1] );
 
-        System.out.println(xStart + yStart + xZiel + yZiel);
+        System.out.println("" + xStart + yStart + xZiel + yZiel);
 
         brett[xStart][yStart] = "O";
         brett[xZiel][yZiel] = "X";
