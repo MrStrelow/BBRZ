@@ -74,6 +74,8 @@ public class MusterUe {
 //        ##
 //        #
 
+        limit = 10;
+
         for (int zeilen = 1; zeilen <= limit; zeilen++) {
             for (int spalten = 1; spalten <= zeilen; spalten++) {
                 System.out.print("#");
@@ -90,15 +92,15 @@ public class MusterUe {
             System.out.println();
         }
 
+        // alternativ
+        for (int i = 0; i < limit; i++) {
+            System.out.println("#".repeat(i));
+        }
+
+        for (int i = limit; i >= 0; i--) {
+            System.out.println("#".repeat(i));
+        }
 
 
-
-//        for (int i = 0; i < limit; i++) {
-//            System.out.println("#".repeat(i));
-//        }
-//
-//        for (int i = limit; i >= 0; i--) {
-//            System.out.println("#".repeat(i));
-//        }
     }
 }

@@ -133,7 +133,25 @@ public class L09SchleifenFor {
 //        #
         System.out.println();
         System.out.println("------Aufgabe 2------");
-        System.out.println("Lösung mit zwei Schleifen");
+        System.out.println("Lösung mit zwei verschachtelten Schleifen zwei mal hintereinander - ohne die repeat methode");
+        for (int zeilen = 1; zeilen <= oberesLimit; zeilen++) {
+            for (int spalten = 1; spalten <= zeilen; spalten++) {
+                System.out.print("#");
+            }
+
+            System.out.println();
+        }
+
+        for (int zeilen = oberesLimit-1; zeilen >= 1; zeilen--) {
+            for (int spalten = 1; spalten <= zeilen; spalten++) {
+                System.out.print("#");
+            }
+
+            System.out.println();
+        }
+
+
+        System.out.println("Lösung mit zwei Schleifen - mit der repeat methode");
 
         for (int i = 1; i <= oberesLimit; i++) {
             System.out.println("#".repeat(i));
@@ -146,13 +164,16 @@ public class L09SchleifenFor {
         System.out.println("Lösung mit einer Schleife");
         int j = 6;
 
-        for (int i = 1; i <= 11; i++ ) {
-            if (i > 6) {
+        for (int i = 1; i <= 2*oberesLimit-1; i++ ) {
+
+            if (i > oberesLimit) {
                 j = j - 1;
                 System.out.println("#".repeat(j));
+
             } else {
                 System.out.println("#".repeat(i));
             }
+
         }
 
 
