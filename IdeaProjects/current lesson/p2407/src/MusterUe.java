@@ -102,5 +102,24 @@ public class MusterUe {
         }
 
 
+//        Aufgabe 4
+//        Gib folgendes Muster mithilfe von Schleifen in der Konsole aus.
+//        #
+//        ###
+//        ##
+//        ####
+//        ###
+//        #####
+//        ####
+//        ######
+//        #####
+//        #######
+//        ######
+//        ########
+
+
+
+
+
     }
 }
