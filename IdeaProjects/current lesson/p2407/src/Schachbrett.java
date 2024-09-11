@@ -81,7 +81,7 @@ public class Schachbrett {
 
         Double steigung = deltaY / deltaX;
 
-        for (int x = 1; x <= deltaX; x++) {
+        for (int x = 1; x < deltaX; x++) {
             Integer y = Math.toIntExact( Math.round(steigung * x) );
             brett[yStart + y][xStart + x] = "~";
         }
