@@ -120,8 +120,23 @@ public class MusterUe {
 
         System.out.println("AUFGABE 4");
 
-        for (int i = 0; i < limit * 2; i++) {
-            System.out.println("#".repeat(i));
+        // Aufgabe j: zähle spalten
+        int j = 1;
+
+        // Aufgabe i: zähle zeilen
+        for (int i = 1; i <= limit * 2; i++) {
+
+            System.out.println("#".repeat(j));
+
+            // Springe von muster 1 zu muster 2
+            if (i % 2 == 1) {
+                // ungerade zeilen
+                j += 2;
+
+            } else {
+                // gerade zeilen
+                j -= 1;
+            }
         }
 
 //        for (int i = 1; i <= limit; i++) {
