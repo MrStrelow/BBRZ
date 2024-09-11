@@ -73,8 +73,8 @@ public class Schachbrett {
 
         System.out.println("" + xStart + yStart + xZiel + yZiel);
 
-        brett[xStart][yStart] = "O";
-        brett[xZiel][yZiel] = "X";
+        brett[yStart][xStart] = "O";
+        brett[yZiel][xZiel] = "X";
 
 
 
