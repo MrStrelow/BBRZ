@@ -18,24 +18,30 @@ public class Schachbrett {
         for (int i = 0; i < brett.length; i++) {
             for (int j = 0; j < brett[0].length; j++) {
 
-                if (i % 2 == 0) {
-
-                    if (j % 2 == 0) {
-                        brett[i][j] = whiteSquareSymbol;
-
-                    } else {
-                        brett[i][j] = blackSquareSymbol;
-                    }
-
+                if ( (i % 2 == 0 && j % 2 == 1) || (i % 2 == 1 && j % 2 == 0) ) {
+                    brett[i][j] = blackSquareSymbol;
                 } else {
-
-                    if (j % 2 == 0) {
-                        brett[i][j] = blackSquareSymbol;
-
-                    } else {
-                        brett[i][j] = whiteSquareSymbol;
-                    }
+                    brett[i][j] = whiteSquareSymbol;
                 }
+
+//                if (i % 2 == 0) {
+//
+//                    if (j % 2 == 0) {
+//                        brett[i][j] = whiteSquareSymbol;
+//
+//                    } else {
+//                        brett[i][j] = blackSquareSymbol;
+//                    }
+//
+//                } else {
+//
+//                    if (j % 2 == 0) {
+//                        brett[i][j] = blackSquareSymbol;
+//
+//                    } else {
+//                        brett[i][j] = whiteSquareSymbol;
+//                    }
+//                }
 
                 System.out.print(brett[i][j]); // Index: zuerst Zeilen, dann Spalten angeben.
             }
