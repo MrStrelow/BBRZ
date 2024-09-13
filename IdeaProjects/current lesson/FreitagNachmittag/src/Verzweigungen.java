@@ -76,9 +76,12 @@ public class Verzweigungen {
         // Schreibe es mit if, if-else, else-if artigen Konstrukten.
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        int idWochentag;
+
+        do {
             System.out.print("Geben Sie eine Zahl zwischen 1 und 7 ein um den entsprechenden Wochentag zu erhalten: ");
-            int idWochentag = scanner.nextInt();
+
+            idWochentag = scanner.nextInt();
 
             if (idWochentag == 1) {
                 System.out.println("Montag");
@@ -104,7 +107,7 @@ public class Verzweigungen {
             } else {
                 System.out.println("Fehler");
             }
-        }
+        } while ( !(1 <= idWochentag && idWochentag <= 7) );
 
         // Schreibe es mit einem switch.
 
