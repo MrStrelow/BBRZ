@@ -1,0 +1,7 @@
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\bin\Debug\OopKonzepte.exe.config
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\bin\Debug\OopKonzepte.exe
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\bin\Debug\OopKonzepte.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\obj\Debug\OopKonzepte.csproj.AssemblyReference.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\obj\Debug\OopKonzepte.csproj.CoreCompileInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\obj\Debug\OopKonzepte.exe
+C:\Users\c4321116\Documents\GitHub\BBRZ\OopKonzepte\OopKonzepte\obj\Debug\OopKonzepte.pdb
