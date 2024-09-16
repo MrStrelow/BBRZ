@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L06SingeltonAndDecorator", "L06Singelton\L06SingeltonAndDecorator.csproj", "{B4505F1D-FE13-487C-BC8B-7A04187739AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4505F1D-FE13-487C-BC8B-7A04187739AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4505F1D-FE13-487C-BC8B-7A04187739AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4505F1D-FE13-487C-BC8B-7A04187739AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4505F1D-FE13-487C-BC8B-7A04187739AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9BE7D17-DDCB-4F03-A96A-8F528DD38EB0}
+	EndGlobalSection
+EndGlobal

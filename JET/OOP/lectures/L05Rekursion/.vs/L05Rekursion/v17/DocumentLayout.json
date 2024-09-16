@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L05Rekursion\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B74F0E2F-1475-4052-A486-460CDDDEF973}|L05Rekursion\\L05Rekursion.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l05rekursion\\l05rekursion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B74F0E2F-1475-4052-A486-460CDDDEF973}|L05Rekursion\\L05Rekursion.csproj|solutionrelative:l05rekursion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 203,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L05Rekursion\\L05Rekursion\\Program.cs",
+              "RelativeDocumentMoniker": "L05Rekursion\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L05Rekursion\\L05Rekursion\\Program.cs",
+              "RelativeToolTip": "L05Rekursion\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T11:26:18.995Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

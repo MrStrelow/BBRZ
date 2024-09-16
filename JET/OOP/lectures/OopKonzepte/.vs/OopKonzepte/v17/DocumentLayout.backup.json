@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\oopkonzepte\\oopkonzepte\\b.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\b.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\a.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\source\\summierbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\source\\summierbar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\source\\izahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\source\\izahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\source\\zahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\source\\zahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\source\\dezimalezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\source\\dezimalezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\source\\binaerezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\source\\binaerezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\oopkonzepte\\c.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BA905F6-449D-4D2E-9D21-895EDB338393}|OopKonzepte\\OopKonzepte.csproj|solutionrelative:oopkonzepte\\c.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 287,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "C.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\C.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\C.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\C.cs",
+              "RelativeToolTip": "OopKonzepte\\C.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:04:31.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "B.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\B.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\B.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\B.cs",
+              "RelativeToolTip": "OopKonzepte\\B.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:01:07.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "A.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\A.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\A.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\A.cs",
+              "RelativeToolTip": "OopKonzepte\\A.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T21:01:02.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Summierbar.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\Summierbar.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\source\\Summierbar.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\Summierbar.cs",
+              "RelativeToolTip": "OopKonzepte\\source\\Summierbar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T19:23:55.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IZahl.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\IZahl.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\source\\IZahl.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\IZahl.cs",
+              "RelativeToolTip": "OopKonzepte\\source\\IZahl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T18:47:29.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Zahl.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\Zahl.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\source\\Zahl.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\Zahl.cs",
+              "RelativeToolTip": "OopKonzepte\\source\\Zahl.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T18:44:56.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DezimaleZahl.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\DezimaleZahl.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\source\\DezimaleZahl.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\DezimaleZahl.cs",
+              "RelativeToolTip": "OopKonzepte\\source\\DezimaleZahl.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T18:47:06.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BinaereZahl.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\BinaereZahl.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\source\\BinaereZahl.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\source\\BinaereZahl.cs",
+              "RelativeToolTip": "OopKonzepte\\source\\BinaereZahl.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAmwCAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T18:49:42.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\Program.cs",
+              "RelativeDocumentMoniker": "OopKonzepte\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\OopKonzepte\\OopKonzepte\\Program.cs",
+              "RelativeToolTip": "OopKonzepte\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T18:49:06.167Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

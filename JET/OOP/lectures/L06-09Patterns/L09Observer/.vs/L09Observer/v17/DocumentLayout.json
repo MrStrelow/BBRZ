@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L06-09Patterns\\L09Decorator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DCE223BC-B9FE-4921-B03A-FF8719E9EF1F}|L09Decorator\\L09Decorator.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l06-09patterns\\l09decorator\\l09decorator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DCE223BC-B9FE-4921-B03A-FF8719E9EF1F}|L09Decorator\\L09Decorator.csproj|solutionrelative:l09decorator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 203,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L06-09Patterns\\L09Decorator\\L09Decorator\\Program.cs",
+              "RelativeDocumentMoniker": "L09Decorator\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L06-09Patterns\\L09Decorator\\L09Decorator\\Program.cs",
+              "RelativeToolTip": "L09Decorator\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T11:36:24.178Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
