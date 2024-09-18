@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Schachbrett {
+public class ArraysSchachbrett {
     public static void main(String[] args) {
         String[][] brett = new String[8][8];
 
@@ -19,19 +19,21 @@ public class Schachbrett {
         for (int i = 0; i < brett.length; i++) {
             for (int j = 0; j < brett[0].length; j++) {
 
+                // das ist besser wenn viele verschiedene bedingen für symoble enstehen
                 // GERADE zeilen (wir beginnen bei 0 und das ist gerade) haben an den UNGERADEN Spalten ein Schwarzes Symbol.
-                if ( (i % 2 == 0 && j % 2 == 1) || (i % 2 == 1 && j % 2 == 0) ) {
+//                if ( (i % 2 == 0 && j % 2 == 1) || (i % 2 == 1 && j % 2 == 0)) {
+                if ( (i + j) % 2 == 0 ) {
                     brett[i][j] = blackSquareSymbol;
+                } else {
+                    brett[i][j] = whiteSquareSymbol;
                 }
                     // Ansonsten ist das Symbol weiß.
                 // (explizit, also direkt ist die Formel für weiß...)
                 // Achtung! das Gegenteil ist nicht einfach die 0 zu 1 machen!
                 // Ja in den Spalten ist es so, aber die Logik der Zeilen bleibt gleich.
 //                if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1) ){
-                else {
-                    brett[i][j] = whiteSquareSymbol;
-                }
 
+                // intuitiver.
 //                if (i % 2 == 0) {
 //
 //                    if (j % 2 == 0) {

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9C615E93-8146-4A6F-BADA-03154412B498}</ProjectGuid>
+    <ProjectGuid>{78E45FD0-04B7-4608-B0C4-72D67B186CA8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>L01KapselungZusammenhaltKoppelung</RootNamespace>
     <AssemblyName>L01KapselungZusammenhaltKoppelung</AssemblyName>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,6 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="taxonomy\people\accessories\Address.cs" />
+    <Compile Include="taxonomy\people\accessories\Authentication.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\Bus.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\CheeringTool.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\IdCard.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\Passport.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\Tandem.cs" />
+    <Compile Include="taxonomy\people\accessories\PersonalInformation.cs" />
+    <Compile Include="taxonomy\people\accessories\Tool.cs" />
+    <Compile Include="taxonomy\people\accessories\TransportationVehicle.cs" />
+    <Compile Include="taxonomy\people\athletes\Athlete.cs" />
+    <Compile Include="taxonomy\people\athletes\Trainer.cs" />
+    <Compile Include="taxonomy\people\athletes\FanClub.cs" />
+    <Compile Include="taxonomy\people\athletes\impl\SockerAthlete.cs" />
+    <Compile Include="taxonomy\people\athletes\impl\TennisAthlete.cs" />
+    <Compile Include="taxonomy\people\athletes\Team.cs" />
+    <Compile Include="taxonomy\people\equipment\impl\SockerShoes.cs" />
+    <Compile Include="taxonomy\people\equipment\impl\TennisShoes.cs" />
+    <Compile Include="taxonomy\people\equipment\Racket.cs" />
+    <Compile Include="taxonomy\people\equipment\Shoes.cs" />
+    <Compile Include="taxonomy\people\Fan.cs" />
+    <Compile Include="taxonomy\people\Human.cs" />
+    <Compile Include="taxonomy\people\accessories\Nationality.cs" />
+    <Compile Include="taxonomy\people\staff\Ordner.cs" />
+    <Compile Include="taxonomy\people\staff\Police.cs" />
+    <Compile Include="taxonomy\people\staff\SecurityForce.cs" />
+    <Compile Include="taxonomy\people\staff\SupportStaff.cs" />
+    <Compile Include="taxonomy\places\Place.cs" />
+    <Compile Include="taxonomy\places\Requirements.cs" />
+    <Compile Include="taxonomy\places\Stadion.cs" />
+    <Compile Include="taxonomy\sport\impl\Socker.cs" />
+    <Compile Include="taxonomy\sport\impl\Tennis.cs" />
+    <Compile Include="taxonomy\sport\Sport.cs" />
+    <Compile Include="temporal\**\*.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
