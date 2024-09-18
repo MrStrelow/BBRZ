@@ -137,8 +137,6 @@ public class L10StringManipulation {
                 isPalindrome = true;
             }
         }
-        //FIXME
-
         System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
 
 //        Übung 2: Zeichen zählen
