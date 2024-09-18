@@ -126,6 +126,21 @@ public class L10StringManipulation {
         boolean isPalindrome = verdrehterInput.equals(cleanInput);
         System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
 
+        // Andere Variante: ohne Umdrehen des strings - wir drehen den Ansatz um! - Schritte von links und rechts gleichzeitig und vergleiche diese
+        for (int left = 0; left < input.length(); left++) {
+            int right = input.length()-1-left;
+
+            if( input.charAt(left) != input.charAt(right) ) {
+                isPalindrome = false;
+                break;
+            } else {
+                isPalindrome = true;
+            }
+        }
+        //FIXME
+
+        System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
+
 //        Übung 2: Zeichen zählen
 //        a) Bestimme die Anzahl eines bestimmten Zeichens in einem String.
 //        b) Bestimme die Anzahl aller Zeichens in einem String.

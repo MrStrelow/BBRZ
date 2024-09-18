@@ -356,7 +356,10 @@ internal class Program
         );
 
         // ####################### TEAM #######################
-        var austrianTennisTeam = new Team(trainer: trainerAut, muster, thiem);
+        var autBus = new Bus();
+        var gerTandem = new Tandem();
+
+        var austrianTennisTeam = new Team(trainer: trainerAut, transportation: autBus, muster, thiem);
         var germanTennisTeam = new Team(trainer: trainerGer, kuster, diem);
 
         Place tennisStation = new Stadion(capacity: 10e3, SecurityForce: SecurityForce, List<Human> participants);

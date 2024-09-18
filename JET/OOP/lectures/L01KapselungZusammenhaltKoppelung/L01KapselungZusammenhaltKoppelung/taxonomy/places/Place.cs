@@ -8,4 +8,11 @@ namespace L01KapselungZusammenhaltKoppelung;
 
 internal class Place
 {
+    public Address Address { get; }
+    public (decimal longitude, decimal latitude) location;
+
+    public override string ToString()
+    {
+        return location.ToString();
+    }
 }
