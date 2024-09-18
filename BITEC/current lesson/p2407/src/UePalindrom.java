@@ -30,6 +30,7 @@ public class UePalindrom {
 
          System.out.println("########## Variante 3 ##########");
         // Variante 3
+        // TODO: FIXME
         istPalindrom = true;
 
         while (true) {
@@ -39,8 +40,9 @@ public class UePalindrom {
             if (s.charAt(links) != s.charAt(rechts)) {
                 istPalindrom = false;
                 break;
-            } else {
+            } else if (links >= rechts){
                 istPalindrom = true;
+                break;
             }
         }
 
