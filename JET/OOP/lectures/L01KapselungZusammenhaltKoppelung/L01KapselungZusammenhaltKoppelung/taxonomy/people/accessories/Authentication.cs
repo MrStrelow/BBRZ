@@ -8,7 +8,7 @@ namespace L01KapselungZusammenhaltKoppelung;
 
 internal abstract class Authentication
 {
-    public string Id { get; protected set; }
+    public string Id { get; protected set; } // or { get; init; } for immutability.
 
     public Authentication(string id)
     {
