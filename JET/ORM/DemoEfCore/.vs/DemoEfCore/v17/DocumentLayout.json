@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\",
+  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\models\\importantproductsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\models\\importantproductsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\models\\importantproductsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\scripts\\view.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\scripts\\view.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\scripts\\view.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\data\\pizzacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\data\\pizzacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\data\\pizzacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\orm\\demoefcore\\demoefcore\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|c:\\users\\c4321116\\source\\repos\\demoefcore\\demoefcore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C371EB52-0B5A-4DE6-8D2E-BC8C054B26DF}|DemoEfCore\\DemoEfCore.csproj|solutionrelative:demoefcore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,15 +38,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\Order.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\Order.cs",
               "RelativeDocumentMoniker": "DemoEfCore\\Models\\Order.cs",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\Order.cs",
               "RelativeToolTip": "DemoEfCore\\Models\\Order.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -55,11 +55,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\Customer.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "DemoEfCore\\Models\\Customer.cs",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\Customer.cs",
               "RelativeToolTip": "DemoEfCore\\Models\\Customer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -68,11 +68,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PizzaContext.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Data\\PizzaContext.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Data\\PizzaContext.cs",
               "RelativeDocumentMoniker": "DemoEfCore\\Data\\PizzaContext.cs",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Data\\PizzaContext.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Data\\PizzaContext.cs",
               "RelativeToolTip": "DemoEfCore\\Data\\PizzaContext.cs",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAABMAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -80,22 +80,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "view.sql",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Scripts\\view.sql",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Scripts\\view.sql",
               "RelativeDocumentMoniker": "DemoEfCore\\Scripts\\view.sql",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Scripts\\view.sql",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Scripts\\view.sql",
               "RelativeToolTip": "DemoEfCore\\Scripts\\view.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2024-09-05T09:52:14.21Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ImportantProductsView.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\ImportantProductsView.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\ImportantProductsView.cs",
               "RelativeDocumentMoniker": "DemoEfCore\\Models\\ImportantProductsView.cs",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\ImportantProductsView.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\ImportantProductsView.cs",
               "RelativeToolTip": "DemoEfCore\\Models\\ImportantProductsView.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -103,28 +103,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Program.cs",
               "RelativeDocumentMoniker": "DemoEfCore\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Program.cs",
               "RelativeToolTip": "DemoEfCore\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-04T22:31:22.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\Product.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\Product.cs",
               "RelativeDocumentMoniker": "DemoEfCore\\Models\\Product.cs",
-              "ToolTip": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\Models\\Product.cs",
               "RelativeToolTip": "DemoEfCore\\Models\\Product.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAtAAAA",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T10:21:34.954Z"
+              "WhenOpened": "2024-09-05T10:21:34.954Z",
+              "EditorCaption": ""
             }
           ]
         }

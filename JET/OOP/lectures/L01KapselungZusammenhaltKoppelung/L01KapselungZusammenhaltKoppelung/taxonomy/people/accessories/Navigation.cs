@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
-internal class Racket
+
+internal abstract class Navigation
 {
+    public abstract void findAndDisplayRoute(Place place);
 }

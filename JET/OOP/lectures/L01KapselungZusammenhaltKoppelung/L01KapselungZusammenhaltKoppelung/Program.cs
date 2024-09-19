@@ -8,9 +8,15 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using L01KapselungZusammenhaltKoppelung.taxonomy.people.athletes;
+
 using static System.Net.Mime.MediaTypeNames;
 using static L01KapselungZusammenhaltKoppelung.Nationality;
+using static L01KapselungZusammenhaltKoppelung.TennisShoeProperties;
+using static L01KapselungZusammenhaltKoppelung.TennisRacketProperties;
+using static L01KapselungZusammenhaltKoppelung.FootballShoeProperties;
+using static L01KapselungZusammenhaltKoppelung.Quality;
+using static L01KapselungZusammenhaltKoppelung.Brand;
+using static L01KapselungZusammenhaltKoppelung.Club;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
@@ -64,7 +70,7 @@ internal class Program
     // - GENERIZITÄT, - ERSETZBARKEIT (Typ Beziehungen)
     // eine gute FAKTORISIERUNG erreichen zu können.
 
-    // Da diese Richtlinien sich manchmal wiedersprechen, führt uns dies zu so Entwicklungs Mustern (Software Patterns),
+    // Da diese Richtlinien sich manchmal wiedersprechen, führt uns dies zu so Entwurfsmustern (Software Patterns),
     // welche speziell in der OOP Anwendung finden. 
     // Diese sind ebenso Richtlinien um eine gute FAKTORISIERNG erreichen zu können. 
     // Leider ist die Anwendung solcher Muster abhängig vom
@@ -89,7 +95,7 @@ internal class Program
     // - Ersetzbarkeit (Typ Beziehungen)
 
     // Objekte: 
-    // - kapseln Variablen und Methoden zu logischen Einheiten (KAPSELUNG) und
+    // - Kategorisieren von MITGLIEDER zu logischen Einheiten (KAPSELUNG) und
     // - schützen privater MITGLIEDER vor Zugriffen von außen (DATA-HIDING).
     // Zusammen wird dies DATENABSTRAKTION genannt und erlaubt das Objekt die Einheit zu sein,
     // um Verhalten unserer Software abzubilden.
@@ -252,7 +258,24 @@ internal class Program
     // - viele Methoden und Variablen nach außen sichtbar sind (DATA-HIDING)
     // - im laufenden System Variablenzugriffe (FELDER) zwischen unterschiedlichen Objekten häufig auftreten
     // - und die Anzahl der PARAMETER/ARGUMENTE dieser Methoden groß ist
-
+    // Bei kleinen Systemen, oder Teilen eines Systems, wo erwartet wird, dass diese sich nicht sehr stark ändern
+    // ist ein stärkere Koppelung manchmal akzeptabel. Denn eine auflösung von einer Koppelung ist nicht so einfach.
+    // Wir werden sehen, für "normale" Systeme reicht es ein Interface ode Abstrakte Klasse zu verwenden.
+    // Wenn wir jedoch große, komplexe und wichtige Zusammenhänge in einem System haben, dann sind
+    // z.B. Entwurfsmuster zu verwenden welche sich mit KOPPELUNG beschäftigen.
+    // Diese haben jedoch einen Preis wie wir später sehen werden. Komplexität.
+    // Aus 2 Klassen werden 14 mit kryptischen Begriffen. Es ist abzuschätzen ob ein solcher
+    // Implementierungsaufwand sich rentiert.
+    // An den Meisten Stellen eher nicht, an sehr speziellen Stellen sehr.
+    // Beispiele für Entwurfsmuster sind welche sich mit KOPPELUNG beschäftigen sind:
+    // - Command Pattern, oder
+    // - Dependency Injection
+    //   (welche mit Inversion of Control umgesetzt wird, bedeutet ein Framework kümmert sich drum
+    //   z.B. Spring in JAVA oder .NET in C#).
+    // Auch Muster auf einer höheren Ebene sind möglich. Damit sind Architektur Muster gemeint.
+    // Hier gibt es z.B. Service Architekturen, z.B. die Event Driven Architecture.
+    // Auch beschäftigen sich Model View Control (MCV) und die 3-Layer Architektur mit der KOPPELUNG,
+    // Diese Architektur Muster versuchen jedoch eher mit VERANTWORTLICHKEITEN und ZUSAMMENHALT.
 
     static void Main(string[] args)
     {
@@ -289,7 +312,47 @@ internal class Program
         // TODO: DATA-HIDING - using get/set and Object Initializers
         // vs. constructor and get public properties
 
+
+        // Hier schauen wir uns die DATENABSTRAKTION an.
+        // Das bedeutet, - KAPSELUNG und DATA-HIDING.
+        // - DATA-HIDING: wir erlauben so wenig wie möglich Zugriffe der MITGLIEDER von außen.
+        // - KAPSELUNG: wir fügen MITGLIEDER so zusammen, dass diese Sinn machen.
+        //              Ich KAPLSE so, dass KOPPELUNG niedrig und ZUSAMMENHALT hoch ist
+
         // ####################### ATHLETES #######################
+
+        var tennisShoe = new TennisShoes() 
+        { 
+            Brand = Nike,
+            ShoeSize = 42,
+            Quality = Quality.Medium,
+            TennisShoeProperties = Sand
+        };
+
+        var tennisRacket = new TennisRacket()
+        {
+            Brand = Nike,
+            Quality = Quality.Medium,
+            TennisRacketProperties = TennisRacketProperties.Hard
+        };
+
+
+        // Hier haben wir im Bezug auf DATA-HIDING:
+        // - Wir verwenden keinen Konstruktor bei PersonalInformation, nur uneingeschränktes get und set.
+        // - Dadurch können NULL Werte entstehen,
+        //   wenn ein FELD im "object initialiser" (der { }) vergessen wird.
+        // - Warum erlauben wir das hier? Üblicherweise leben PersonalInformation in der Datenbank. 
+        //   Da diese Objekte nur NULL sind wenn diese inder Datenbank NULL sind (falls das nicht in der Datenbank verboten ist),
+        //   werden diese Objekte einfach von dieser Befüllt und nicht durch uns händeisch, wie hier.
+        // - Wir behandeln es also wie ein Data Transfer Object oder Bean (JAVA) welche hier ist
+        //   um Daten, ohne Funktionalität (Methoden und Beziehungen) zu halten.
+        // - Der Athlet hier, welcher einen konkreten Konstruktor definiert hat,
+        //   ist jedoch nicht sonderlich unterschiedlich zur PersonalInformation. Es dient nur zu Demonstationszwecken
+        // - Dieser hat einen definierten Konstruktor, denn wir wollen hier genau steuern
+        //   welche FELDER bei der initialisierung gesetzt werden.
+        //   Dazu nutzen wir die die TYPBEZIEHUNG aus.
+        //   Damit ist gemeint, dass wenn Athlete einen konkreten Konstruktor besitzt, TennisAthlete auf diesen
+        //   zugreifen kann, um doppelten Code bei der Initialisierungzu vermeiden.
         Athlete thiem = new TennisAthlete
         (
             data: new PersonalInformation() { 
@@ -297,6 +360,8 @@ internal class Program
                 LastName = "Thiem", 
                 Address = dummyAutAddress 
             },
+            footGear: tennisShoe,
+            handGear: tennisRacket,
             id: dummyIdCard
         );
 
@@ -307,6 +372,8 @@ internal class Program
                 LastName = "Muster", 
                 Address = dummyAutAddress 
             },
+            footGear: tennisShoe,
+            handGear: tennisRacket,
             id: dummyIdCard
         );
 
@@ -318,6 +385,8 @@ internal class Program
                 LastName = "Diem",
                 Address = dummyGerAddress
             },
+            footGear: tennisShoe,
+            handGear: tennisRacket,
             id: dummyIdCard
         );
 
@@ -329,10 +398,16 @@ internal class Program
                 LastName = "Kuster",
                 Address = dummyGerAddress
             },
+            footGear: tennisShoe,
+            handGear: tennisRacket,
             id: dummyIdCard
         );
 
         // ####################### COACHES #######################
+
+        // warum wird hier ein leerer konstruktor geduldet?
+        ClubExchange worldTrainerExchange = new ClubExchange(TC_Madrid);
+
         var trainerAut = new Trainer
         (
             data: new PersonalInformation()
@@ -341,6 +416,8 @@ internal class Program
                 LastName = "kKotsch",
                 Address = dummyAutAddress
             },
+            currentClub: TC_Wien,
+            clubExchange: worldTrainerExchange,
             id: dummyIdCard
         );
 
@@ -352,25 +429,44 @@ internal class Program
                 LastName = "Kotsch",
                 Address = dummyGerAddress
             },
+            currentClub: TC_Berlin,
+            clubExchange: worldTrainerExchange,
             id: dummyIdCard
         );
 
         // ####################### TEAM #######################
-        var autBus = new Bus();
-        var gerTandem = new Tandem();
+        // das kann ein Blödsinn sein. wer steuert mir dass addresse und location zusammenpassen?
+        var franceStadium = new Place()
+        {
+            Address = dummyGerAddress,
+            location = (10,10)
+        };
+
+        var busNavi = new GpsNavi();
+        var humanNavi = new HumanNavi(trainerGer);
+
+        var autBus = new Bus
+        (
+            capacity: 56,
+            currentLocation: franceStadium,
+            dimension: (hoehe: 4, breite:3, laenge:13),
+            navi: busNavi,
+            costToOperatePerHour: 10,
+            fuelConsumptionPer100km: 10
+        );
+        
+        var gerTandem = new Tandem
+        (
+            capacity: 56,
+            currentLocation: franceStadium,
+            dimension: (hoehe: 4, breite: 3, laenge: 13),
+            navi: busNavi
+        );
 
         var austrianTennisTeam = new Team(trainer: trainerAut, transportation: autBus, muster, thiem);
-        var germanTennisTeam = new Team(trainer: trainerGer, kuster, diem);
-
-        Place tennisStation = new Stadion(capacity: 10e3, SecurityForce: SecurityForce, List<Human> participants);
+        var germanTennisTeam = new Team(trainer: trainerGer, gerTandem, kuster, diem);
 
         // ####################### FANS #######################
-
-        FanClub austrianTennisFanClub = new FanClub(
-            new Fan(),
-            new Fan()
-        )
-
 
         // Erstelle Event
         // Erstelle Sport

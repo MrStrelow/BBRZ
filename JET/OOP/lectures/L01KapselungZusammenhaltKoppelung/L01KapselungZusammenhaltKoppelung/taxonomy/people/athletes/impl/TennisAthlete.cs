@@ -8,5 +8,17 @@ namespace L01KapselungZusammenhaltKoppelung;
 
 internal class TennisAthlete : Athlete
 {
-    public TennisAthlete(PersonalInformation data, Authentication id) : base(data, id) { }
+    // Koppelung?
+    public Shoes FootGear { get; set; }
+    public TennisRacket handGear { get; set; }
+    
+    public TennisAthlete(PersonalInformation data, Authentication id, Shoes footGear, TennisRacket handGear) : base(data, id) 
+    { 
+    }
+
+    public void competeAgainst(Athlete opponent)
+    {
+        Console.WriteLine($"Competing against {opponent}");
+    }
+
 }

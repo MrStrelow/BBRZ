@@ -8,12 +8,17 @@ namespace L01KapselungZusammenhaltKoppelung;
 
 internal class Tandem : TransportationVehicle
 {
-    public Tandem(int capacity, Place currentLocation) : base(capacity, currentLocation)
-    {
+    public Tandem(
+        int capacity,
+        Place currentLocation,
+        (int hoehe, int breite, int laenge) dimension,
+        Navigation navi
+    ) : base(capacity, currentLocation, dimension, navi)
+    { 
     }
 
-    public override void moveTo(Place place)
+    protected override decimal calculateCost(Place place)
     {
-        base.moveTo(place);
+        return 0;
     }
 }

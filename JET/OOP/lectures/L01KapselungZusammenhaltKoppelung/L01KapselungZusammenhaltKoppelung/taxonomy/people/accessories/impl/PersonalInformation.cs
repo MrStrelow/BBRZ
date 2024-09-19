@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class Shoes : Equipment
+internal class PersonalInformation
 {
-   public double ShoeSize { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public Address Address { get; set; }
 }
-

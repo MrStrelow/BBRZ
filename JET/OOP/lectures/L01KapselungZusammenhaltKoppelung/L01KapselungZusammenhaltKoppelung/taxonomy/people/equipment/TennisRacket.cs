@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
-
-internal class Shoes : Equipment
+internal class TennisRacket : Equipment
 {
-   public double ShoeSize { get; set; }
+    public TennisRacketProperties TennisRacketProperties { get; set; }
 }
 
+enum TennisRacketProperties
+{
+    Hard, Medium, Soft
+}

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class Shoes : Equipment
+internal enum Brand
 {
-   public double ShoeSize { get; set; }
+    // Was wenn es ein gewisses Brand nicht gibt für eine Sprotart?
+    Adidas, Nike
 }
-

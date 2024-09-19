@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class Shoes : Equipment
+internal enum Club
 {
-   public double ShoeSize { get; set; }
+    TC_Wien, TC_Berlin, TC_Madrid
 }
-

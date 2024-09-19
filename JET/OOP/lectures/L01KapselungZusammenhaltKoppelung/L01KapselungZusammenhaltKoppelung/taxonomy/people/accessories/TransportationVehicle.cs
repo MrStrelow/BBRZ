@@ -12,20 +12,29 @@ internal abstract class TransportationVehicle
 {
     public int Capacity { get; set; }
     public Place CurrentLocation { get; set; }
-    public (int hoehe, int breite, int laenge) dimension { get; }
-
+    public (int Hoehe, int Breite, int Laenge) Dimension { get; }
     public Navigation Navi { get; }
 
-    public TransportationVehicle(int capacity, Place currentLocation, )
+    public TransportationVehicle(
+        int capacity, 
+        Place currentLocation, 
+        (int hoehe, int breite, int laenge) dimension, 
+        Navigation navi
+    )
     {
-        CurrentLocation = currentLocation;
         Capacity = capacity;
+        CurrentLocation = currentLocation;
+        Dimension = dimension;
+        Navi = navi;
     }
 
-    public virtual void moveTo(Place place)
+    public void moveTo(Place place)
     {
         Navi.findAndDisplayRoute(place);
         CurrentLocation = place;
-        Console.WriteLine("moving to");
+        Console.WriteLine($"moving to {place}");
+        Console.WriteLine($"This trip costs: {calculateCost(place)} €");
     }
+
+    protected abstract decimal calculateCost(Place place);
 }

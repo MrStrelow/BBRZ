@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
-
-internal class Shoes : Equipment
+internal enum Quality
 {
-   public double ShoeSize { get; set; }
+    High, Medium, Low
 }
 

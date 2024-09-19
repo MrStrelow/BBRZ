@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AhKvmxPee1o=",
+  "dgSpecHash": "pGyfZFBHCnQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\DemoEfCore.csproj",
+  "projectFilePath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\DemoEfCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\c4321116\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\c4321116\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

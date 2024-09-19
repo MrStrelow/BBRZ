@@ -4112,11 +4112,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\DemoEfCore.csproj",
+      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\DemoEfCore.csproj",
       "projectName": "DemoEfCore",
-      "projectPath": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\DemoEfCore.csproj",
+      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\DemoEfCore.csproj",
       "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\c4321116\\source\\repos\\DemoEfCore\\DemoEfCore\\obj\\",
+      "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\ORM\\DemoEfCore\\DemoEfCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

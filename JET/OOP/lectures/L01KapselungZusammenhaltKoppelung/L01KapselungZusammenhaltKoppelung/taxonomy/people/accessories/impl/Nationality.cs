@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class Shoes : Equipment
+internal enum Nationality
 {
-   public double ShoeSize { get; set; }
+    AUT, GER, FRA, ITA, ESP, PL, SLOV
 }
-
