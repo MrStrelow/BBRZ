@@ -12,7 +12,7 @@ public class flugpreise {
         Integer reiseDatum = scanner.nextInt();
 
         System.out.print("Buchungsklasse: ");
-        String reiseKlasse = scanner.next();
+        String reiseKlasse = scanner.next().toLowerCase();
 
         System.out.println(entfernung + " " + reiseDatum + " " + reiseKlasse);
 
@@ -23,15 +23,21 @@ public class flugpreise {
         Double preis = entfernung * 0.02;
 
         // wenn user economy eingibt, dann +200, ansonsten, wenn user first eingibt, dann +400 ansonsten +0
-        if (reiseKlasse.equals("first")) {
-            preis += 400;
-        } else if (reiseKlasse.equals("premium")) {
-            preis += 200;
-        } else {
-            preis += 0;
-        }
+//        if (reiseKlasse.equals("first")) {
+//            preis += 400;
+//        } else if (reiseKlasse.equals("premium")) {
+//            preis += 200;
+//        }
+// //        else {
+// //            preis += 0;
+// //        }
 
-        switch ()
+        switch (reiseKlasse) {
+            case "premium" -> preis += 200;
+            case "first" -> preis += 400;
+//            case "economy" -> preis += 0;
+//            default -> preis += 0;
+        }
 
         if (7 <= reiseDatum && reiseDatum <= 9) {
             preis += 20;
