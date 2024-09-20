@@ -11,7 +11,6 @@ internal class IdCard : Authentication
     public IdCard(string id) : base(id)
     {
         Console.WriteLine($"ich habe zugriff auf {Id}");
-        Id = "";
         Console.WriteLine($"und kann es manipulieren {Id}");
     }
 }

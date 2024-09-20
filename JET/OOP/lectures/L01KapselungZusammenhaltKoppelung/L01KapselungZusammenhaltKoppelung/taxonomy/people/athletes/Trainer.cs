@@ -13,7 +13,10 @@ internal class Trainer : Human
     public Club CurrentClub { get; set; }
     public ClubExchange ClubExchange { get; set; }
     
-    public Trainer(PersonalInformation data, Authentication id, Club currentClub, ClubExchange clubExchange) : base(data, id)
+    public Trainer(
+        PersonalInformation data, Authentication id, 
+        Club currentClub, ClubExchange clubExchange
+    ) : base(data, id)
     {
         CurrentClub = currentClub;
         ClubExchange = clubExchange;

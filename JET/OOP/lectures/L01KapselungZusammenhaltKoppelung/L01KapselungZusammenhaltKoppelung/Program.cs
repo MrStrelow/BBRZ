@@ -90,7 +90,7 @@ internal class Program
     // - Verantwortlichkeiten
     // - Klassen-Zusammenhalt, 
     // - Objekt-Kopplung,
-    // - Modulariseriung und Vererbung,
+    // - Modularisíerung und Vererbung,
     // - Generizität,
     // - Ersetzbarkeit (Typ Beziehungen)
 

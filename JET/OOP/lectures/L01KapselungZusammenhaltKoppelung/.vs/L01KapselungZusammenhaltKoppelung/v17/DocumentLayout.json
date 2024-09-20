@@ -7,8 +7,24 @@
       "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\athletes\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\human.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\human.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\accessories\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\accessories\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\accessories\\impl\\idcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\accessories\\impl\\idcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\athletes\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\taxonomy\\people\\athletes\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,21 +33,46 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 203,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 221,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
               "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Program.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
               "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Program.cs",
-              "ViewState": "AgIAAGABAAAAAAAAAAAQwHEBAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAACEBAAAAAAAAAAASwC4BAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T18:38:56.162Z",
-              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Human.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\Human.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\Human.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\Human.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\Human.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwA0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T11:42:12.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Authentication.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\Authentication.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\Authentication.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\Authentication.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\Authentication.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T11:42:03.712Z",
               "EditorCaption": ""
             },
             {
@@ -42,9 +83,41 @@
               "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Team.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Team.cs",
               "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Team.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-19T10:51:39.84Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 185,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Trainer.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Trainer.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Trainer.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Trainer.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\athletes\\Trainer.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T11:15:12.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IdCard.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\impl\\IdCard.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\impl\\IdCard.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\impl\\IdCard.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\taxonomy\\people\\accessories\\impl\\IdCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T12:34:46.62Z",
               "EditorCaption": ""
             }
           ]

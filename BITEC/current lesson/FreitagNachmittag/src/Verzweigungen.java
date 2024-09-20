@@ -111,6 +111,5 @@ public class Verzweigungen {
 
         // Schreibe es mit einem switch.
 
-
     }
 }
