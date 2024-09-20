@@ -14,8 +14,6 @@ public class flugpreise {
         System.out.print("Buchungsklasse: ");
         String reiseKlasse = scanner.next().toLowerCase();
 
-        System.out.println(entfernung + " " + reiseDatum + " " + reiseKlasse);
-
         // Ticketpreise berechnen
 
         // 1. Info: Entfernung
