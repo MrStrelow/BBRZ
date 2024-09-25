@@ -38,6 +38,15 @@ public class ArraysPhrasomat {
 //                unzufriedenPhrase = true;
 //            }
 
+            switch (meinung) {
+                case "ja" -> unzufriedenPhrase = false;
+                case "nein" -> unzufriedenPhrase = true;
+                default -> {
+                    System.out.println("Bitte geben Sie ja oder nein ein");
+                    unzufriedenPhrase = true;
+                }
+            }
+
             System.out.println("##########################################");
             System.out.println("Die generierte Phrase ist: " + phrase);
         }
