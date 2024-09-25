@@ -38,37 +38,99 @@ public class ArraysPhrasomat {
 
         while (unzufriedenPhrase) {
             // 1 a)
-            Integer randomNumberFirstNomen = random.nextInt(0, nomen.length);
-            Integer randomNumberSecondNomen = random.nextInt(0, nomen.length);
-            Integer randomNumberVerb = random.nextInt(0, verb.length);
-            Integer randomNumberAdjective = random.nextInt(0, adjektiv.length);
+            Integer randomIndexFirstNomen      = random.nextInt(0, nomen.length);
+            Integer randomIndexSecondNomen     = random.nextInt(0, nomen.length);
+            Integer randomIndexVerb            = random.nextInt(0, verb.length);
+            Integer randomIndexFirstAdjective  = random.nextInt(0, adjektiv.length);
+            Integer randomIndexSecondAdjective = random.nextInt(0, adjektiv.length);
+            Integer randomIndexThirdAdjective  = random.nextInt(0, adjektiv.length);
+            Integer randomIndexFourthAdjective = random.nextInt(0, adjektiv.length);
+
+            Double randomNumber = random.nextDouble();
+
 
             switch (anzahlWoerter) {
                 case 3 -> {
                     phrase =
-                             ANSI_BLUE + nomen[randomNumberFirstNomen] + " " +
-                             ANSI_RED  + verb[randomNumberVerb]        + " " +
-                             ANSI_BLUE + nomen[randomNumberSecondNomen];
+                             ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                             ANSI_RED  + verb[randomIndexVerb]        + " " +
+                             ANSI_BLUE + nomen[randomIndexSecondNomen];
                 }
                 case 4 -> {
-                    if (random.nextDouble() < 0.5) {
+                    if (randomNumber < 0.5) {
                         phrase =
-                                 ANSI_GREEN + adjektiv[randomNumberAdjective] + " " +
-                                 ANSI_BLUE  + nomen[randomNumberFirstNomen]   + " " +
-                                 ANSI_RED   + verb[randomNumberVerb]          + " " +
-                                 ANSI_BLUE  + nomen[randomNumberSecondNomen];
+                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                 ANSI_BLUE  + nomen[randomIndexFirstNomen]        + " " +
+                                 ANSI_RED   + verb[randomIndexVerb]               + " " +
+                                 ANSI_BLUE  + nomen[randomIndexSecondNomen];
                     } else {
                         phrase =
-                                ANSI_BLUE  + nomen[randomNumberFirstNomen]   + " " +
-                                ANSI_RED   + verb[randomNumberVerb]          + " " +
-                                ANSI_GREEN + adjektiv[randomNumberAdjective] + " " +
-                                ANSI_BLUE  + nomen[randomNumberSecondNomen];
+                                ANSI_BLUE  + nomen[randomIndexFirstNomen]        + " " +
+                                ANSI_RED   + verb[randomIndexVerb]               + " " +
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_BLUE  + nomen[randomIndexSecondNomen];
                     }
                 }
                 case 5 -> {
+                    if (randomNumber < 0.33) {
+                        phrase =
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
 
+                    } else if (0.34 < randomNumber && randomNumber < 0.67) {
+                        phrase =
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+
+                    } else {
+                        phrase =
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+                    }
                 }
-                case 6 -> {}
+                case 6 -> {
+                    if (randomNumber < 0.25) {
+                        phrase =
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+
+                    } else if (0.26 < randomNumber && randomNumber < 0.5) {
+                        phrase =
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+
+                    } else if (0.5 < randomNumber && randomNumber < 0.75) {
+                        phrase =
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+                    } else {
+                        phrase =
+                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                                ANSI_RED + verb[randomIndexVerb] + " " +
+                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+                    }
+                }
                 case 7 -> {}
                 default -> {}
             }
