@@ -7,15 +7,16 @@ public class Sortieren {
 //        zahlenzwei[0].doubleValue();
 //        System.out.println(Arrays.toString(zahlenzwei));
 
-        Integer[] zahlen = {28, 2, 6, 4, 26};
+        Integer[] zahlen = {28, 26, 6, 4, 2};
         // Schritt 2: Wiederhole 1. für alle Paare mit Index 0 und 1, 1 und 2, 2 und 3, 3 und 4.
 
         Integer platzhalter;
 
-        for (int j = 0; j < zahlen.length; j++) {
+//        for (int j = zahlen.length; j > 0; j--) {
+        for (int j = 0; j < zahlen.length - 1; j++) {
             System.out.println((j+1) + " Durchlauf");
 
-            for (int i = 0; i < zahlen.length - 1; i++) {
+            for (int i = 0; i < zahlen.length - 1 - j; i++) {
                 // Schritt 1: Vergleiche die 1. (Index 0) und 2. (Index 1) Zahl im Array.
                 // Falls die 1. größer ist wie die 2., dann vertausche diese, andernfalls mach nichts.
                 if (zahlen[i] > zahlen[i+1]) {
