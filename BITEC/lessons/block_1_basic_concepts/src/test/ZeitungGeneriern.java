@@ -4,14 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ZeitungGeneriern {
-
-    /*
-        Wenn (ANMERKUNG) neben einer Zeile steht, dann ist hier eine Kleinigkeit, welche praktisch sein kann,
-        aber fuers prinzipielle Verstaendnis nicht unbedingt notwendig ist, gemeint.
-
-        Wenn (MERKE) neben einer Zeile steht, dann gibt es hier eine Kleinigkeit, welche praktisch ist und sehr wohl zum Verständnis beiträgt.
-    */
-
     public static void main(String[] args) {
 
         // Pools von Wörtern je Wortgruppe (Nomen und Verben)
