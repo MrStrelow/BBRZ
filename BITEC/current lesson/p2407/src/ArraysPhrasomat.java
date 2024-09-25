@@ -29,7 +29,7 @@ public class ArraysPhrasomat {
         Boolean unzufriedenPhrase = true;
 
         // Variablen
-        String phrase; // TODO: nur zum testen, damit wir nicht alle 7 fälle des switches und
+        String phrase; //nur zum testen, String phrase = ""; damit wir nicht alle 7 fälle des switches und
         // default ausprogrammieren müssen bevor wir das programm ausführen könne
 
         // 2)
@@ -57,49 +57,49 @@ public class ArraysPhrasomat {
                              ANSI_BLUE + nomen[randomIndexSecondNomen];
                 }
                 case 4 -> {
-                    if (randomNumber < 0.5) {
-                        phrase =
-                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
-                                 ANSI_BLUE  + nomen[randomIndexFirstNomen]        + " " +
-                                 ANSI_RED   + verb[randomIndexVerb]               + " " +
-                                 ANSI_BLUE  + nomen[randomIndexSecondNomen];
-                    } else {
-                        phrase =
-                                ANSI_BLUE  + nomen[randomIndexFirstNomen]        + " " +
-                                ANSI_RED   + verb[randomIndexVerb]               + " " +
-                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
-                                ANSI_BLUE  + nomen[randomIndexSecondNomen];
-                    }
+                    String phraseEins =
+                             ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                             ANSI_BLUE  + nomen[randomIndexFirstNomen]        + " " +
+                             ANSI_RED   + verb[randomIndexVerb]               + " " +
+                             ANSI_BLUE  + nomen[randomIndexSecondNomen];
+
+                    String phraseZwei =
+                            ANSI_BLUE  + nomen[randomIndexFirstNomen]        + " " +
+                            ANSI_RED   + verb[randomIndexVerb]               + " " +
+                            ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                            ANSI_BLUE  + nomen[randomIndexSecondNomen];
+
+                    String[] moeglichkeiten = {phraseEins, phraseZwei};
+                    phrase = moeglichkeiten[random.nextInt(0,moeglichkeiten.length)];
+
                 }
                 case 5 -> {
-                    if (randomNumber < 0.33) {
-                        phrase =
-                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
-                                ANSI_RED + verb[randomIndexVerb] + " " +
-                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
-                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
-                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+                    String phraseEins =
+                            ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                            ANSI_RED + verb[randomIndexVerb] + " " +
+                            ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                            ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                            ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else if (0.34 < randomNumber && randomNumber < 0.67) {
-                        phrase =
-                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
-                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
-                                ANSI_RED + verb[randomIndexVerb] + " " +
-                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
-                                ANSI_BLUE + nomen[randomIndexSecondNomen];
+                    String phraseZwei =
+                            ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                            ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                            ANSI_RED + verb[randomIndexVerb] + " " +
+                            ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                            ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else {
-                        phrase =
-                                ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
-                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
-                                ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
-                                ANSI_RED + verb[randomIndexVerb] + " " +
-                                ANSI_BLUE + nomen[randomIndexSecondNomen];
-                    }
+                    String phraseDrei =
+                            ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                            ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                            ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
+                            ANSI_RED + verb[randomIndexVerb] + " " +
+                            ANSI_BLUE + nomen[randomIndexSecondNomen];
+
+                    String[] moeglichkeiten = {phraseEins, phraseZwei, phraseDrei};
+                    phrase = moeglichkeiten[random.nextInt(0,moeglichkeiten.length)];
                 }
                 case 6 -> {
-                    if (randomNumber < 0.25) {
-                        phrase =
+                        String phraseEins =
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
@@ -107,8 +107,7 @@ public class ArraysPhrasomat {
                                 ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else if (0.26 < randomNumber && randomNumber < 0.5) {
-                        phrase =
+                        String phraseZwei =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
@@ -116,27 +115,27 @@ public class ArraysPhrasomat {
                                 ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else if (0.5 < randomNumber && randomNumber < 0.75) {
-                        phrase =
+                        String phraseDrei =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
-                    } else {
-                        phrase =
+
+                        String phraseVier =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
-                    }
+
+                    String[] moeglichkeiten = {phraseEins, phraseZwei, phraseDrei, phraseVier};
+                    phrase = moeglichkeiten[random.nextInt(0,moeglichkeiten.length)];
                 }
                 case 7 -> {
-                    if (randomNumber < 0.20) {
-                        phrase =
+                        String phraseEins =
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
@@ -145,8 +144,7 @@ public class ArraysPhrasomat {
                                 ANSI_GREEN + adjektiv[randomIndexFourthAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else if (0.21 < randomNumber && randomNumber < 0.4) {
-                        phrase =
+                        String phraseZwei =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
@@ -155,8 +153,7 @@ public class ArraysPhrasomat {
                                 ANSI_GREEN + adjektiv[randomIndexFourthAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else if (0.4 < randomNumber && randomNumber < 0.6) {
-                        phrase =
+                        String phraseDrei =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
@@ -165,8 +162,7 @@ public class ArraysPhrasomat {
                                 ANSI_GREEN + adjektiv[randomIndexFourthAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
 
-                    } else if (0.6 < randomNumber && randomNumber < 0.8) {
-                        phrase =
+                        String phraseVier =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
@@ -174,8 +170,8 @@ public class ArraysPhrasomat {
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexFourthAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
-                    } else {
-                        phrase =
+
+                        String phraseFuenf =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
@@ -183,7 +179,9 @@ public class ArraysPhrasomat {
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
-                    }
+
+                    String[] moeglichkeiten = {phraseEins, phraseZwei, phraseDrei, phraseVier, phraseFuenf};
+                    phrase = moeglichkeiten[random.nextInt(0,moeglichkeiten.length)];
                 }
                 default -> {
                     System.out.println("Die Zahl ist nicht zwischen 3 und 7. Bitte erneut eingeben");
