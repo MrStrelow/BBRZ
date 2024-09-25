@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal abstract class Athlete : Human
+internal interface ICompetitor<T> where T : ICompetitor<T>
 {
-    public Athlete(PersonalInformation data, Authentication id) : base(data, id)
-    {
-    }
+    public T Compete(T opponent);
 }

@@ -6,20 +6,23 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class Team
+internal class Team<T> : ICompetitor<Team<T>> where T : ICompetitor<T>
 {
-    public Club Club { get; set; }
-    public List<Athlete> team { get; } = new List<Athlete>();
+    public string Name { get; set; }
+    public SportClub Club { get; set; }
+    public List<T> team { get; } = new List<T>();
     public Trainer Trainer { get; }
     public TransportationVehicle Transportation { get; }
 
     public Team(
+        string name,
         Trainer trainer, 
         TransportationVehicle transportation, 
-        Athlete firstAthlete, params Athlete[] athletes
+        T firstAthlete, params T[] athletes
     )
     {
-        // ist das gut so?
+        Name = name;    
+        // ist das gut so?0
         Club = trainer.CurrentClub;
         Trainer = trainer;
         Transportation = transportation;
@@ -30,5 +33,25 @@ internal class Team
         {
             team.Add(item);
         }
+    }
+
+    public Team<T> Compete(Team<T> opponent)
+    {
+        Console.WriteLine($"TeamEvent: {this.Name} is competing against {opponent.Name}");
+        double result = new Random().NextDouble();
+
+        if (result < 0.5)
+        {
+            return opponent;
+        }
+        else
+        {
+            return this;
+        }
+    }
+
+    public override string ToString()
+    {
+        return Name;
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace L01KapselungZusammenhaltKoppelung
+namespace L01KapselungZusammenhaltKoppelung;
+
+internal enum SportClub
 {
-    internal class Socker
-    {
-    }
+    TC_Wien, TC_Berlin, TC_Madrid
 }

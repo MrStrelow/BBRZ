@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class SockerShoes : Shoes
+internal class SoccerShoes : Shoes
 {
     public FootballShoeProperties FootballShoeProperties { get; set; }
 }

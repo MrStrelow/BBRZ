@@ -16,7 +16,7 @@ using static L01KapselungZusammenhaltKoppelung.TennisRacketProperties;
 using static L01KapselungZusammenhaltKoppelung.FootballShoeProperties;
 using static L01KapselungZusammenhaltKoppelung.Quality;
 using static L01KapselungZusammenhaltKoppelung.Brand;
-using static L01KapselungZusammenhaltKoppelung.Club;
+using static L01KapselungZusammenhaltKoppelung.SportClub;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
@@ -353,7 +353,7 @@ internal class Program
         //   Dazu nutzen wir die die TYPBEZIEHUNG aus.
         //   Damit ist gemeint, dass wenn Athlete einen konkreten Konstruktor besitzt, TennisAthlete auf diesen
         //   zugreifen kann, um doppelten Code bei der Initialisierungzu vermeiden.
-        Athlete thiem = new TennisAthlete
+        var thiem = new TennisAthlete
         (
             data: new PersonalInformation() { 
                 FirstName = "Dominik", 
@@ -365,7 +365,7 @@ internal class Program
             id: dummyIdCard
         );
 
-        Athlete muster = new TennisAthlete
+        var muster = new TennisAthlete
         (
             data: new PersonalInformation() { 
                 FirstName = "Thomas", 
@@ -377,7 +377,7 @@ internal class Program
             id: dummyIdCard
         );
 
-        Athlete diem = new TennisAthlete
+        var diem = new TennisAthlete
         (
             data: new PersonalInformation()
             {
@@ -390,7 +390,7 @@ internal class Program
             id: dummyIdCard
         );
 
-        Athlete kuster = new TennisAthlete
+        var kuster = new TennisAthlete
         (
             data: new PersonalInformation()
             {
@@ -406,7 +406,7 @@ internal class Program
         // ####################### COACHES #######################
 
         // warum wird hier ein leerer konstruktor geduldet?
-        ClubExchange worldTrainerExchange = new ClubExchange(TC_Madrid);
+        TrainerExchange worldTrainerExchange = new TrainerExchange(TC_Madrid);
 
         var trainerAut = new Trainer
         (
@@ -417,7 +417,7 @@ internal class Program
                 Address = dummyAutAddress
             },
             currentClub: TC_Wien,
-            clubExchange: worldTrainerExchange,
+            trainerExchange: worldTrainerExchange,
             id: dummyIdCard
         );
 
@@ -430,7 +430,7 @@ internal class Program
                 Address = dummyGerAddress
             },
             currentClub: TC_Berlin,
-            clubExchange: worldTrainerExchange,
+            trainerExchange: worldTrainerExchange,
             id: dummyIdCard
         );
 
@@ -454,7 +454,7 @@ internal class Program
             costToOperatePerHour: 10,
             fuelConsumptionPer100km: 10
         );
-        
+
         var gerTandem = new Tandem
         (
             capacity: 56,
@@ -463,12 +463,39 @@ internal class Program
             navi: busNavi
         );
 
-        var austrianTennisTeam = new Team(trainer: trainerAut, transportation: autBus, muster, thiem);
-        var germanTennisTeam = new Team(trainer: trainerGer, gerTandem, kuster, diem);
+        var austrianTennisTeam = new Team<TennisAthlete>(
+            name: "AutTeam",
+            trainer: trainerAut,
+            transportation: autBus, 
+            muster, thiem
+        );
+
+        var germanTennisTeam = new Team<TennisAthlete>(
+            name: "GerTeam",
+            trainer: trainerGer,
+            transportation: gerTandem,
+            kuster, diem
+        );
 
         // ####################### FANS #######################
+        // TODO:
 
-        // Erstelle Event
+        // ####################### EVENTS #######################
+        // TODO: design flaw, date is not a key for a match.
+        // location and time is the key.
+        var tennisSoloCoupSchedule = new Schedule<TennisAthlete>();
+        tennisSoloCoupSchedule.AddMatch(DateTime.Now, new TennisMatch<TennisAthlete>(muster, kuster));
+        tennisSoloCoupSchedule.AddMatch(DateTime.Now.AddMinutes(1), new TennisMatch<TennisAthlete>(thiem, diem));
+
+        var tennisSoloCoup = new TennisEvent<TennisAthlete>(tennisSoloCoupSchedule);
+        tennisSoloCoup.Start();
+
+        var tennisGroupCoupSchedule = new Schedule<Team<TennisAthlete>>();
+        tennisGroupCoupSchedule.AddMatch(DateTime.Now, new TennisMatch<Team<TennisAthlete>>(austrianTennisTeam, germanTennisTeam));
+
+        var tennisGroupCoup = new TennisEvent<Team<TennisAthlete>>(tennisGroupCoupSchedule);
+        tennisGroupCoup.Start();
+
         // Erstelle Sport
         // Erstelle Places
     }

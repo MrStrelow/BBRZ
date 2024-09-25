@@ -1,41 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class TennisAthlete : Athlete, ICompetitor<TennisAthlete>
+internal class SoccerAthlete : Athlete, ICompetitor<SoccerAthlete>
 {
-    // Koppelung?
-    public Shoes FootGear { get; set; }
-    public TennisRacket HandGear { get; set; }
+    // warum hier FootGear und nicht in Athlete wenn beides in Soccer und Tennis ist? Doppelter Code?
+    public Shoes FootGear {  get; set; }
     
-    public TennisAthlete(PersonalInformation data, Authentication id, Shoes footGear, TennisRacket handGear) : base(data, id) 
-    { 
+    public SoccerAthlete(PersonalInformation data, Authentication id, Shoes footGear) : base(data, id)
+    {
+        FootGear = footGear;
     }
 
     // TODO: fan athlete wird durch decorator ersetzt. kein copy constructor mehr nötig.
     // Copy Constructor: in ef core die id kopieren, und es wird kein neues objekt angelegt.
-    public TennisAthlete(TennisAthleteFan athlete) : base(athlete.Data, athlete.Id)
+    public SoccerAthlete(SoccerAthleteFan athlete) : base(athlete.Data, athlete.Id)
     {
         FootGear = athlete.FootGear;
-        HandGear = athlete.HandGear;
     }
 
-    public TennisAthlete Compete(TennisAthlete opponent)
+    public SoccerAthlete Compete(SoccerAthlete opponent)
     {
-        Console.WriteLine($"Tennis: {this.Data.LastName} is competing against {opponent.Data.LastName}");
+        Console.WriteLine($"Soccer: Competing against {opponent}");
         double result = new Random().NextDouble();
 
         if (result < 0.5)
         {
             return opponent;
         }
-        else
+        else 
         {
             return this;
         }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal abstract class Athlete : Human
+internal class AlpHorn : CheeringTool
 {
-    public Athlete(PersonalInformation data, Authentication id) : base(data, id)
+    public override string UseMe()
     {
+        return "Broooooom";
     }
 }

@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace L01KapselungZusammenhaltKoppelung
+namespace L01KapselungZusammenhaltKoppelung;
+
+internal class TeamEvent
 {
-    internal class TeamEvent
-    {
-    }
 }

@@ -46,35 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="taxonomy\people\accessories\ClubExchange.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\AlpHorn.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\PlasticCheeringStick.cs" />
+    <Compile Include="taxonomy\people\accessories\impl\Ratsche.cs" />
+    <Compile Include="taxonomy\people\accessories\TrainerExchange.cs" />
     <Compile Include="taxonomy\people\accessories\impl\Address.cs" />
     <Compile Include="taxonomy\people\accessories\Authentication.cs" />
-    <Compile Include="taxonomy\people\accessories\impl\GpsNavi.cs" />
-    <Compile Include="taxonomy\people\accessories\impl\Bus.cs" />
-    <Compile Include="taxonomy\people\accessories\impl\CheeringTool.cs" />
-    <Compile Include="taxonomy\people\accessories\impl\HumanNavi.cs" />
+    <Compile Include="taxonomy\people\athletes\ICompetitor.cs" />
+    <Compile Include="taxonomy\people\athletes\impl\SoccerAthleteFan.cs" />
+    <Compile Include="taxonomy\vehicles\impl\GpsNavi.cs" />
+    <Compile Include="taxonomy\vehicles\impl\Bus.cs" />
+    <Compile Include="taxonomy\people\accessories\CheeringTool.cs" />
+    <Compile Include="taxonomy\vehicles\impl\HumanNavi.cs" />
     <Compile Include="taxonomy\people\accessories\impl\IdCard.cs" />
     <Compile Include="taxonomy\people\accessories\impl\Passport.cs" />
-    <Compile Include="taxonomy\people\accessories\impl\Tandem.cs" />
-    <Compile Include="taxonomy\people\accessories\Navigation.cs" />
+    <Compile Include="taxonomy\vehicles\impl\Tandem.cs" />
+    <Compile Include="taxonomy\vehicles\Navigation.cs" />
     <Compile Include="taxonomy\people\accessories\impl\PersonalInformation.cs" />
     <Compile Include="taxonomy\people\accessories\Tool.cs" />
-    <Compile Include="taxonomy\people\accessories\TransportationVehicle.cs" />
+    <Compile Include="taxonomy\vehicles\TransportationVehicle.cs" />
     <Compile Include="taxonomy\people\athletes\Athlete.cs" />
-    <Compile Include="taxonomy\people\athletes\impl\Club.cs" />
+    <Compile Include="taxonomy\people\athletes\impl\TennisAthleteFan.cs" />
+    <Compile Include="taxonomy\people\athletes\impl\SportClub.cs" />
     <Compile Include="taxonomy\people\athletes\Trainer.cs" />
-    <Compile Include="taxonomy\people\athletes\FanClub.cs" />
-    <Compile Include="taxonomy\people\athletes\impl\SockerAthlete.cs" />
+    <Compile Include="taxonomy\people\athletes\impl\SoccerAthlete.cs" />
     <Compile Include="taxonomy\people\athletes\impl\TennisAthlete.cs" />
     <Compile Include="taxonomy\people\athletes\Team.cs" />
     <Compile Include="taxonomy\people\equipment\Equipment.cs" />
     <Compile Include="taxonomy\people\equipment\impl\Brand.cs" />
     <Compile Include="taxonomy\people\equipment\impl\Quality.cs" />
-    <Compile Include="taxonomy\people\equipment\impl\SockerShoes.cs" />
+    <Compile Include="taxonomy\people\equipment\impl\SoccerShoes.cs" />
     <Compile Include="taxonomy\people\equipment\impl\TennisShoes.cs" />
     <Compile Include="taxonomy\people\equipment\TennisRacket.cs" />
     <Compile Include="taxonomy\people\equipment\Shoes.cs" />
-    <Compile Include="taxonomy\people\Fan.cs" />
+    <Compile Include="taxonomy\people\fans\AustrianFan.cs" />
+    <Compile Include="taxonomy\people\fans\FanClub.cs" />
+    <Compile Include="taxonomy\people\fans\GermanFan.cs" />
+    <Compile Include="taxonomy\people\fans\IFan.cs" />
     <Compile Include="taxonomy\people\Human.cs" />
     <Compile Include="taxonomy\people\accessories\impl\Nationality.cs" />
     <Compile Include="taxonomy\people\staff\Ordner.cs" />
@@ -84,7 +92,7 @@
     <Compile Include="taxonomy\places\Place.cs" />
     <Compile Include="taxonomy\places\Requirements.cs" />
     <Compile Include="taxonomy\places\Stadion.cs" />
-    <Compile Include="taxonomy\sport\impl\Socker.cs" />
+    <Compile Include="taxonomy\sport\impl\Soccer.cs" />
     <Compile Include="taxonomy\sport\impl\Tennis.cs" />
     <Compile Include="taxonomy\sport\Sport.cs" />
     <Compile Include="temporal\**\*.cs" />
@@ -94,5 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

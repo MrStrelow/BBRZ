@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung
 {
-    internal class SockerEvent
+    internal class Soccer
     {
     }
 }

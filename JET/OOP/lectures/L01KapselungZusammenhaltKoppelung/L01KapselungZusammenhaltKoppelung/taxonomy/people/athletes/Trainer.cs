@@ -9,17 +9,18 @@ namespace L01KapselungZusammenhaltKoppelung;
 internal class Trainer : Human
 {
     // Koppelung: Trainer kümmer sich um was der Verein für eine Datenstruktur ist.
-    public ICollection<Club> TrackRecord { get; set; } = new List<Club>();
-    public Club CurrentClub { get; set; }
-    public ClubExchange ClubExchange { get; set; }
+    // TODO: hier dependency injection.
+    public ICollection<SportClub> TrackRecord { get; set; } = new List<SportClub>();
+    public SportClub CurrentClub { get; set; }
+    public TrainerExchange TrainerExchange { get; set; }
     
     public Trainer(
         PersonalInformation data, Authentication id, 
-        Club currentClub, ClubExchange clubExchange
+        SportClub currentClub, TrainerExchange trainerExchange
     ) : base(data, id)
     {
         CurrentClub = currentClub;
-        ClubExchange = clubExchange;
+        TrainerExchange = trainerExchange;
     }
 
     // Haben wir vor Human als simples Objekt ohne Methoden zu haben?
@@ -30,7 +31,7 @@ internal class Trainer : Human
     {
         Console.WriteLine($"{this} is leaving {CurrentClub}...");
         
-        CurrentClub = ClubExchange.signContractWithCoach(this);
+        CurrentClub = TrainerExchange.signContractWithCoach(this);
 
         Console.WriteLine($"... and starts at {CurrentClub}");
     }

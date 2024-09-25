@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal enum Club
+internal class PlasticCheeringStick : CheeringTool
 {
-    TC_Wien, TC_Berlin, TC_Madrid
+    public override string UseMe()
+    {
+        return "pum pum pum pum";
+    }
 }

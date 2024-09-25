@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class ClubExchange
+internal class TrainerExchange
 {
     // wollen wir hier ICollection? was ist mit add und get methoden?
-    private ICollection<Club> _clubsWithoutCoach = new List<Club>();
+    private ICollection<SportClub> _clubsWithoutCoach = new List<SportClub>();
 
     // Methoden überladen
-    public ClubExchange(params Club[] clubsWithoutCoach)
+    public TrainerExchange(params SportClub[] clubsWithoutCoach)
     {
         foreach (var item in clubsWithoutCoach)
         {
@@ -22,17 +22,17 @@ internal class ClubExchange
     }
 
     // Methoden überladen
-    public ClubExchange(ICollection<Club> clubsWithoutCoach)
+    public TrainerExchange(ICollection<SportClub> clubsWithoutCoach)
     {
         _clubsWithoutCoach = clubsWithoutCoach;
     }
 
-    public void AddclubWithoutCoach(Club club)
+    public void AddclubWithoutCoach(SportClub club)
     {
         _clubsWithoutCoach.Add(club);
     }
 
-    public Club signContractWithCoach(Trainer coach)
+    public SportClub signContractWithCoach(Trainer coach)
     {
         var position = new Random().Next(0, _clubsWithoutCoach.Count - 1);
         //var chosenClub = _clubsWithoutCoach.OrderBy(x => position).First();

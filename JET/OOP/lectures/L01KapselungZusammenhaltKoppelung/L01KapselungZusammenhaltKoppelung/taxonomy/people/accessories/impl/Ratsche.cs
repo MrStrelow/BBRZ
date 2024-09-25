@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class CheeringTool : Tool
+internal class Ratsche : CheeringTool
 {
+    public override string UseMe()
+    {
+        return "Rattaataaa";
+    }
 }

@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace L01KapselungZusammenhaltKoppelung;
 
-internal class Fan : Human
+
+internal interface IFan
 {
     public CheeringTool cheeringTool { get; set; }
 
-    public Fan(PersonalInformation data, Authentication id, CheeringTool toolsForCheering) : base(data, id)
-    { 
-    }
+    public String Cheer();
+
+    //TODO: oberservable pattern
+    public String Boo();
+
 }
