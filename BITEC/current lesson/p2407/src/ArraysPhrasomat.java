@@ -113,19 +113,22 @@ public class ArraysPhrasomat {
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
 
                     } else if (0.5 < randomNumber && randomNumber < 0.75) {
                         phrase =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
-                                ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
                     } else {
                         phrase =
                                 ANSI_GREEN + adjektiv[randomIndexFirstAdjective] + " " +
                                 ANSI_GREEN + adjektiv[randomIndexSecondAdjective] + " " +
+                                ANSI_GREEN + adjektiv[randomIndexThirdAdjective] + " " +
                                 ANSI_BLUE + nomen[randomIndexFirstNomen] + " " +
                                 ANSI_RED + verb[randomIndexVerb] + " " +
                                 ANSI_BLUE + nomen[randomIndexSecondNomen];
