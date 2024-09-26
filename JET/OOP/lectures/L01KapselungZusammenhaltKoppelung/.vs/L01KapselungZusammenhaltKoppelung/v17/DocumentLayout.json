@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\services\\competeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\services\\competeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\entities\\tennisathlete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\entities\\tennisathlete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\interfaces\\icompetitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\interfaces\\icompetitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\entities\\soccerathlete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\athletemanagement\\entities\\soccerathlete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +35,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CompeteService.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Services\\CompeteService.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Services\\CompeteService.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Services\\CompeteService.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Services\\CompeteService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T11:08:07.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SoccerAthlete.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\SoccerAthlete.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\SoccerAthlete.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\SoccerAthlete.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\SoccerAthlete.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA0wCkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T10:56:07.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TennisAthlete.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\TennisAthlete.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\TennisAthlete.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\TennisAthlete.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Entities\\TennisAthlete.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA0wCYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T10:54:44.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICompetitor.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Interfaces\\ICompetitor.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Interfaces\\ICompetitor.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Interfaces\\ICompetitor.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\AthleteManagement\\Interfaces\\ICompetitor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T10:53:56.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
               "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Program.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
               "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAAASwL0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-17T18:38:56.162Z",
               "EditorCaption": ""
