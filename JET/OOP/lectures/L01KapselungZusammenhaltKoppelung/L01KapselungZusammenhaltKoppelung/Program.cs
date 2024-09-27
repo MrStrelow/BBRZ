@@ -187,7 +187,7 @@ internal class Program
             id: dummyIdCard
         );
 
-        thiem.Compete(null);
+        //thiem.Compete(null);
 
         var muster = new TennisAthlete
         (

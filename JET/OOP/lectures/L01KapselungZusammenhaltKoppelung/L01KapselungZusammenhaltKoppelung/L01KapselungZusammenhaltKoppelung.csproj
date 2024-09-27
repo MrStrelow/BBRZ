@@ -72,7 +72,7 @@
     <Compile Include="Domain\TrainerManagement\Entities\Trainer.cs" />
     <Compile Include="Domain\AthleteManagement\Entities\SoccerAthlete.cs" />
     <Compile Include="Domain\AthleteManagement\Entities\TennisAthlete.cs" />
-    <Compile Include="Domain\AthleteManagement\Entities\Team.cs" />
+    <Compile Include="Domain\AthleteManagement\Aggregates\Team.cs" />
     <Compile Include="Domain\Equipment\Interfaces\Equipment.cs" />
     <Compile Include="Domain\Equipment\Value\Brand.cs" />
     <Compile Include="Domain\Equipment\Value\Quality.cs" />
@@ -114,7 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\" />
-    <Folder Include="Domain\AthleteManagement\Aggregates\" />
     <Folder Include="Domain\AthleteManagement\Repositories\" />
     <Folder Include="Domain\Equipment\Aggregates\" />
     <Folder Include="Domain\Equipment\Repositories\" />
