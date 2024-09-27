@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\humannavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\humannavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\gpsnavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\gpsnavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\interfaces\\navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\interfaces\\navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\humannavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\humannavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\gpsnavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\gpsnavi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{78E45FD0-04B7-4608-B0C4-72D67B186CA8}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\oop\\lectures\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\domain\\vehicle\\entities\\bus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HumanNavi.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\HumanNavi.cs",
               "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\HumanNavi.cs",
@@ -71,13 +71,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Navigation.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Interfaces\\Navigation.cs",
               "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Interfaces\\Navigation.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Interfaces\\Navigation.cs",
               "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Interfaces\\Navigation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-26T12:39:45.887Z",
               "EditorCaption": ""
@@ -93,6 +93,19 @@
               "ViewState": "AgIAAAUAAAAAAAAAAAAiwB8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-26T12:38:51.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "ViewState": "AgIAAAEBAAAAAAAAAAASwAwBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T18:38:56.162Z",
               "EditorCaption": ""
             },
             {
@@ -119,19 +132,6 @@
               "ViewState": "AgIAAAoAAAAAAAAAAAAuwA0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-26T12:27:05.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
-              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
-              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Program.cs",
-              "ViewState": "AgIAAAEBAAAAAAAAAAASwAwBAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-17T18:38:56.162Z",
               "EditorCaption": ""
             },
             {
@@ -194,13 +194,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GpsNavi.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\GpsNavi.cs",
               "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\GpsNavi.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\GpsNavi.cs",
-              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\GpsNavi.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\OOP\\lectures\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\GpsNavi.cs*",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Domain\\Vehicle\\Entities\\GpsNavi.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-26T12:38:55.433Z",
               "EditorCaption": ""
