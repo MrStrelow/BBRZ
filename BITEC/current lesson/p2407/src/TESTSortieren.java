@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Sortieren {
+public class TESTSortieren {
     public static void main(String[] args) {
 // erzuegt null pointer exception: Fehler, belege zuerst die Positionen mit Zahlen dass nicht mehr null drinnen steht.
 //        Integer[] zahlenzwei = new Integer[5];
