@@ -26,7 +26,8 @@ public class ArraysPhrasomat {
         Random random = new Random();
 
         // SchleifenBedingungen
-        Boolean unzufriedenPhrase = true;
+        Boolean unzufriedenUeberschrift = true;
+        Boolean unzufriedenArtikelInhalt = true;
         Boolean habeBlödsinnEingegeben = false;
 
         // Variablen
@@ -38,7 +39,7 @@ public class ArraysPhrasomat {
         Integer anzahlWoerter = Integer.parseInt(scanner.nextLine());
 
         // Code einer Überschrift eines Zeitungsartikels generieren
-        while (unzufriedenPhrase) {
+        while (unzufriedenUeberschrift) {
             // 1 a)
             Integer randomIndexFirstNomen      = random.nextInt(0, nomen.length);
             Integer randomIndexSecondNomen     = random.nextInt(0, nomen.length);
@@ -199,16 +200,16 @@ public class ArraysPhrasomat {
 
             switch (meinung) {
                 case "ja" -> {
-                    unzufriedenPhrase = false;
+                    unzufriedenUeberschrift = false;
                     habeBlödsinnEingegeben = false;
                 }
                 case "nein" -> {
-                    unzufriedenPhrase = true;
+                    unzufriedenUeberschrift = true;
                     habeBlödsinnEingegeben = false;
                 }
                 default -> {
                     System.out.println("Bitte geben Sie ja oder nein ein");
-                    unzufriedenPhrase = true;
+                    unzufriedenUeberschrift = true;
                     habeBlödsinnEingegeben = true;
                 }
             }
@@ -216,11 +217,35 @@ public class ArraysPhrasomat {
         phrase += ANSI_RESET;
 
         // Code des Inhaltes eines Zeitungsartikels
-        System.out.println("Geben Sie nun den Text des Zeitungsartikels ein: ");
-        String zeitungsArtikelInhalt = scanner.nextLine();
+        String zeitungsArtikelInhalt = null;
+
+        while (unzufriedenArtikelInhalt) {
+            if (!habeBlödsinnEingegeben) {
+                System.out.println("Geben Sie nun den Text des Zeitungsartikels ein: ");
+                zeitungsArtikelInhalt = scanner.nextLine();
+            }
+
+            System.out.println("Sind Sie zufrieden mit dem Inhalt? [ja/nein]: ");
+            String zufriedenMitInhalt = scanner.nextLine();
+
+            switch (zufriedenMitInhalt) {
+                case "ja" -> {
+                    unzufriedenArtikelInhalt = false;
+                    habeBlödsinnEingegeben = false;
+                }
+                case "nein" -> {
+                    unzufriedenArtikelInhalt = true;
+                    habeBlödsinnEingegeben = false;
+                }
+                default -> {
+                    System.out.println("Bitte geben Sie ja oder nein ein");
+                    unzufriedenArtikelInhalt = true;
+                    habeBlödsinnEingegeben = true;
+                }
+            }
+        }
 
         String zeitungsArtikel = "~~~~~~~~~~~~~~ " + phrase + " ~~~~~~~~~~~~~~" + "\n" + zeitungsArtikelInhalt;
-
         System.out.println(zeitungsArtikel);
 
     }
