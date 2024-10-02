@@ -36,7 +36,7 @@ public class ArraysPhrasomat {
 
         // Variablen
         String ueberschrift = null; //nur zum testen, String phrase = ""; damit wir nicht alle 7 fälle des switches und
-        String zeitungsInhalt = null; // HERE
+        String zeitungsInhalt = null;
         String zeitungsArtikel = null;
         // default ausprogrammieren muessen bevor wir das programm ausfuehren koenne
 
@@ -47,7 +47,7 @@ public class ArraysPhrasomat {
         while (!mitArtikelZufriedenEndeDesProgrammes) {
             // Code einer Ueberschrift eines Zeitungsartikels generieren
             while (unzufriedenUeberschrift || !mitUeberschriftZufriedenEndeDesProgrammes) {
-                mitUeberschriftZufriedenEndeDesProgrammes = true; // HERE
+                mitUeberschriftZufriedenEndeDesProgrammes = true;
                 // 1 a)
                 Integer randomIndexFirstNomen      = random.nextInt(0, nomen.length);
                 Integer randomIndexSecondNomen     = random.nextInt(0, nomen.length);
@@ -240,16 +240,16 @@ public class ArraysPhrasomat {
                 switch (zufriedenMitInhalt) {
                     case "ja" -> {
                         unzufriedenInhalt = false;
-                        habeBloedsinnEingegeben = false; // HERE
+                        habeBloedsinnEingegeben = false;
                     }
                     case "nein" -> {
                         unzufriedenInhalt = true;
-                        habeBloedsinnEingegeben = false; // HERE
+                        habeBloedsinnEingegeben = false;
                     }
                     default -> {
                         System.out.println("Bitte geben Sie ja oder nein ein");
                         unzufriedenInhalt = true;
-                        habeBloedsinnEingegeben = true; // HERE
+                        habeBloedsinnEingegeben = true;
                     }
                 }
             }
