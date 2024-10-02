@@ -35,20 +35,26 @@ public class TESTArraysPhrasomat {
         Boolean mitArtikelZufriedenEndeDesProgrammes = false;
 
         // Variablen
-        String ueberschrift = null; //nur zum testen, String phrase = ""; damit wir nicht alle 7 fälle des switches und
+        String ueberschrift = null;
+        //String ueberschrift = ""; ist nur zum testen.
+        // damit wir nicht alle 7 fälle des switches und default ausprogrammieren muessen bevor wir das programm ausfuehren koennen.
+        // Warum können wir ueberschrift nicht nur deklarieren und müssen es definieren? D
+        // Denke an die Verwendung der Variable ueberschriftnach dem Switch.
+        // Welchen Wert hat diese Variable, wenn wir Wörter der Länge 7 wollen, aber nur case 3 programmiert haben? (und keinen default case).
+
         String zeitungsInhalt = null;
         String zeitungsArtikel = null;
-        // default ausprogrammieren muessen bevor wir das programm ausfuehren koenne
 
         // 2)
         System.out.print("Wie lange soll die Phrase werden? [3-7]: ");
         Integer anzahlWoerter = Integer.parseInt(scanner.nextLine());
 
         while (!mitArtikelZufriedenEndeDesProgrammes) {
-            // Code einer Ueberschrift eines Zeitungsartikels generieren
+
+            // Ueberschrift eines Zeitungsartikels generieren
             while (unzufriedenUeberschrift || !mitUeberschriftZufriedenEndeDesProgrammes) {
                 mitUeberschriftZufriedenEndeDesProgrammes = true;
-                // 1 a)
+
                 Integer randomIndexFirstNomen      = random.nextInt(0, nomen.length);
                 Integer randomIndexSecondNomen     = random.nextInt(0, nomen.length);
                 Integer randomIndexVerb            = random.nextInt(0, verb.length);
@@ -201,9 +207,11 @@ public class TESTArraysPhrasomat {
                     }
                 }
 
+                ueberschrift += ANSI_RESET;
+
                 System.out.println("Die generierte Phrase ist: " + ueberschrift);
 
-                System.out.print(ANSI_RESET + "Sind Sie zufrieden mit der Phrase? [ja/nein]: ");
+                System.out.print("Sind Sie zufrieden mit der Phrase? [ja/nein]: ");
                 String meinung = scanner.nextLine().toLowerCase();
 
                 switch (meinung) {
@@ -222,13 +230,13 @@ public class TESTArraysPhrasomat {
                     }
                 }
             }
-            ueberschrift += ANSI_RESET;
+
 
             // Code des INHALT eines Zeitungsartikels
             habeBloedsinnEingegeben = false;
 
             while (unzufriedenInhalt || !mitInhaltZufriedenEndeDesProgrammes) {
-                mitInhaltZufriedenEndeDesProgrammes = true; // HERE
+                mitInhaltZufriedenEndeDesProgrammes = true;
                 if (!habeBloedsinnEingegeben) {
                     System.out.println("Geben Sie nun den Text des Zeitungsartikels ein: ");
                     zeitungsInhalt = scanner.nextLine();
@@ -258,6 +266,8 @@ public class TESTArraysPhrasomat {
 
             String schoeneUeberschrift = "~~~~~~~~~~~~~~ " + ueberschrift + " ~~~~~~~~~~~~~~";
             String abschluss = "~".repeat(schoeneUeberschrift.length());
+            // ADVANCED! wieso sind hier die Linien nicht gleich lang?
+            // Wir haben gesagt zähle die Symbole mit ".length();". Wir haben es "händisch" gezählt z.B. 72. Warum zählt JAVA dann z.B. 104?
             zeitungsArtikel = schoeneUeberschrift + "\n" + zeitungsInhalt + "\n" + abschluss;
 
             System.out.println(zeitungsArtikel);
