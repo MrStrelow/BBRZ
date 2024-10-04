@@ -1,0 +1,15 @@
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\bin\Debug\net8.0\L01MyFirstDotNetProject.exe
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\bin\Debug\net8.0\L01MyFirstDotNetProject.deps.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\bin\Debug\net8.0\L01MyFirstDotNetProject.runtimeconfig.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\bin\Debug\net8.0\L01MyFirstDotNetProject.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\bin\Debug\net8.0\L01MyFirstDotNetProject.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.AssemblyInfoInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.AssemblyInfo.cs
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.csproj.CoreCompileInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.sourcelink.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\refint\L01MyFirstDotNetProject.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\L01MyFirstDotNetProject.genruntimeconfig.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L01MyFirstDotNetProject\L01MyFirstDotNetProject\obj\Debug\net8.0\ref\L01MyFirstDotNetProject.dll

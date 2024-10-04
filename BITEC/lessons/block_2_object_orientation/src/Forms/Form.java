@@ -1,32 +1,38 @@
-package test;
+package Forms;
 
-public class Dreieck {
+public abstract class Form {
     // ############ FIELDS ############
-    private String[][] feld;
-    private int hoehe;
-    private int laenge;
+    protected String[][] feld;
+    protected int hoehe;
+    protected int breite;
+
+    protected String background;
+
+    protected String filler;
 
     // ############ METHODS ############
     // ### Data-Hiding - public ###
     // Constructor - initialize
 
-    public Dreieck(int dimension) {
+    public Form(int dimension) {
         this.feld = new String[dimension][dimension];
         this.hoehe = feld.length;
-        this.laenge = feld[0].length;
+        this.breite = feld[0].length;
 
+        this.assignBackground();
+        this.assignFiller();
         this.befuellen();
-        this.dreieckErzeugen();
+        this.erzeugeForm();
     }
 
     // Constructor - Copy
-    public Dreieck(Dreieck toCopy) {
+    public Form(Form toCopy) {
         this.feld = toCopy.feld;
-        this.laenge = toCopy.laenge;
+        this.breite = toCopy.breite;
         this.hoehe = toCopy.hoehe;
     }
 
-    public Dreieck drehen() {
+    public Form drehen() {
         return spiegeln().tranponieren();
     }
 
@@ -42,23 +48,45 @@ public class Dreieck {
         }
 
         return toReturn.toString();
-    }
+}
 
     // ### Data-Hiding - private ###
     // create triangle with right angle at the lower left side.
-    private void dreieckErzeugen() {
-        // feld mit muster befüllen
-        for (int zeile = 0; zeile < feld.length; zeile++) {
-            for (int spalte = 0; spalte < feld.length; spalte++) {
-                if (spalte <= zeile) {
-                    feld[zeile][spalte] = "#";
+    protected abstract void erzeugeForm();
+
+    protected String assignBackground() {
+        return background = " ";
+    }
+
+    protected String assignFiller() {
+        return filler = "#";
+    }
+
+    protected Form append(Form toAppend, Direction direction) {
+        String[][] feld;
+
+        feld = switch (direction) {
+            case EAST, WEST -> {
+                if (toAppend.hoehe == hoehe) {
+                    yield( new String[hoehe][breite + toAppend.breite] );
+                } else {
+                    yield( this.feld) ;
                 }
             }
-        }
+            case NORTH, SOUTH -> {
+                if (toAppend.breite == breite) {
+                    yield( new String[hoehe + toAppend.hoehe][breite] );
+                } else {
+                    yield( this.feld) ;
+                }
+            }
+        };
+
+        return this;
     }
 
     // transponieren wir basisfeld (vertauschen zeilen mit spalten)
-    private Dreieck tranponieren() {
+    protected Dreieck tranponieren() {
         Dreieck toReturn = new Dreieck(this);
 
         for (int zeile = 0; zeile < hoehe; zeile++) {
@@ -71,7 +99,7 @@ public class Dreieck {
     }
 
     // spiegeln über die x achse - wir ziehen Usereingabe von den zeilen ab und lassen spalten gleich
-    private Dreieck spiegeln() {
+    protected Form spiegeln() {
         // Denke dran was machen wir hier?
         Dreieck toReturn = new Dreieck(this);
 //        Dreieck tmp = new Dreieck(this);
@@ -88,11 +116,11 @@ public class Dreieck {
 //        return this;
     }
 
-    private void befuellen() {
+    protected void befuellen() {
         // feld mit leerzeichen befüllen
         for (int zeile = 0; zeile < this.feld.length; zeile++) {
             for (int spalte = 0; spalte < this.feld.length; spalte++) {
-                this.feld[zeile][spalte] = " ";
+                this.feld[zeile][spalte] = filler;
             }
         }
     }
