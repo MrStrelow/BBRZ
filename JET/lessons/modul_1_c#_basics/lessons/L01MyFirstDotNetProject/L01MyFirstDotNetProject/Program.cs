@@ -24,7 +24,7 @@
 // Diese ist folgendermaßen aufgebaut:
 // (siehe gif hier: https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif)
 
-uint[] zahlen = { 28, 26, 6, 4, 2 };
+uint[] zahlen = [28, 26, 6, 4, 2];
 
 uint platzhalter;
 
@@ -33,9 +33,9 @@ uint platzhalter;
 // FRAGE: Wie oft müssen wir die innere und außere Schleife wiederholen um alle Zahlen sortiert zu haben, wenn wir 5 Zahlen zu sortiern haben?
 for (int j = 0; j < zahlen.Length - 1; j++)
 {
-    //Console.WriteLine((j + 1) + " Durchlauf");
-    //Console.WriteLine($"{j + 1} Durchlauf");
-    Console.WriteLine($"{1} Durchlauf", j + 1);
+    //Console.WriteLine((j + 1) + " Durchlauf"); // string concatenation
+    Console.WriteLine($"{j + 1} Durchlauf");   // string interpolation
+    //Console.WriteLine("{0} Durchlauf", j + 1);   // formated output
 
     // Schritt 2: Wiederhole 1. für alle Paare mit Index 0 und 1, 1 und 2, 2 und 3, 3 und 4.
     for (int i = 0; i < zahlen.Length - 1 - j; i++)
@@ -49,9 +49,9 @@ for (int j = 0; j < zahlen.Length - 1; j++)
             zahlen[i + 1] = platzhalter;
         }
 
-        Console.WriteLine($"{i + 1} Paar {zahlen}");
+        Console.WriteLine($"{i + 1} Paar [{string.Join(",", zahlen)}]");
     }
+
+    Console.WriteLine();
 }
-
-
 

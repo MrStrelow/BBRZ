@@ -8,7 +8,6 @@ namespace L01KapselungZusammenhaltKoppelung;
 
 internal class CompeteService<T> where T : ICompetitor<T>
 {
-
     private ICollection<T> Competitors = new List<T>();
 
     public CompeteService(T firstCompetitor, params T[] competitors)
