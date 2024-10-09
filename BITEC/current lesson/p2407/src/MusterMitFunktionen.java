@@ -12,22 +12,10 @@ public class MusterMitFunktionen {
         // 2d array anlegen
         String[][] feld = new String[5][5];
 
-        // anstatt der ausgabe ins array das dreieck schreiben.
-        for (int i = 0; i < feld.length; i++) {
-            for (int j = 0; j < feld.length; j++) {
-                if(j <= i) {
-                    feld[i][j] = "#";
-                }
-            }
-        }
 
-        feld = fill(feld, "~");
 
-        // array ausgeben - sollte gleich ausschauen wie der code mit "sout".
-        print(feld);
-
-        feld = fill(feld, " ");
-
+        feld = fillCanvas(feld, "");
+        feld = drawTriangle(feld, "#");
         print(feld);
     }
 
@@ -41,7 +29,7 @@ public class MusterMitFunktionen {
         }
     }
 
-    static String[][] fill(String[][] feld, String symbol) {
+    static String[][] fillCanvas(String[][] feld, String symbol) {
         String[][] ret = new String[feld.length][feld.length];
 
         for (int i = 0; i < ret.length; i++) {
@@ -51,6 +39,17 @@ public class MusterMitFunktionen {
         }
 
         return ret;
+    }
+
+    static String[][] drawTriangle(String[][] feld, String symbol) {
+        // anstatt der ausgabe ins array das dreieck schreiben.
+        for (int i = 0; i < feld.length; i++) {
+            for (int j = 0; j < feld.length; j++) {
+                if(j <= i) {
+                    feld[i][j] = "#";
+                }
+            }
+        }
     }
 
 }
