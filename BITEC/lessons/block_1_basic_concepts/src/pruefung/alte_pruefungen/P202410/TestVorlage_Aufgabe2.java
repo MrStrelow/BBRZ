@@ -49,22 +49,5 @@ public class TestVorlage_Aufgabe2 {
         };
 
         // TODO: Aufgaben
-        StringBuilder sb = new StringBuilder("HelloWorldExample");
-
-        // The string you want to insert
-        String insertString = "INSERT";
-
-        // Specify the start and end positions
-        int startIndex = 5;  // 5th character (index starts from 0)
-        int endIndex = 10;   // 10th character
-
-        // Remove the substring between the 5th and 10th characters
-        sb.delete(startIndex, endIndex);
-
-        // Insert the new string at the 5th position
-        sb.insert(startIndex, insertString);
-
-        // Print the updated StringBuilder
-        System.out.println(sb.toString());
     }
 }
