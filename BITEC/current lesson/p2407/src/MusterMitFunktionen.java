@@ -40,8 +40,7 @@ public class MusterMitFunktionen {
     }
 
     static String[][] drawTriangle(String[][] feld, String symbol) {
-        String[][] ret = new String[feld.length][feld.length];
-        ret = fillCanvas(ret, "");
+        String[][] ret = copy(feld);
 
         for (int i = 0; i < ret.length; i++) {
             for (int j = 0; j < ret.length; j++) {
@@ -52,6 +51,32 @@ public class MusterMitFunktionen {
         }
 
         return ret;
+    }
+
+    static String[][] copy(String[][] feld) {
+        String[][] ret = new String[feld.length][feld.length];
+
+        for (int i = 0; i < ret.length; i++) {
+            for (int j = 0; j < ret.length; j++) {
+                if(j <= i) {
+                    ret[i][j] = feld[i][j];
+                }
+            }
+        }
+    }
+
+    static String[][] drehen() {
+        return null;
+    }
+
+    // vertausche x mit y
+    static String[][] transpose() {
+        return null;
+    }
+
+    // spiegle entlang der y achse
+    static String[][] mirror() {
+        return null;
     }
 
 }
