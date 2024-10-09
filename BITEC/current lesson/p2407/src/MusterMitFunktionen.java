@@ -75,8 +75,16 @@ public class MusterMitFunktionen {
     }
 
     // spiegle entlang der y achse
-    static String[][] mirror() {
-        return null;
+    static String[][] mirror(String[][] feld) {
+        String[][] ret = copy(feld);
+
+        for (int i = 0; i < ; i++) {
+            for (int j = 0; j < ; j++) {
+                ret[0][0] = feld[0][2];
+            }
+        }
+
+        return ret;
     }
 
 }
