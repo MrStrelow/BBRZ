@@ -15,6 +15,7 @@ public class MusterMitFunktionen {
         feld = fillCanvas(feld, "");
         feld = drawTriangle(feld, "#");
         print(feld);
+        print(mirror(feld));
     }
 
     // merke static davor schreiben sonst gehts nicht. was das ist, siehe objektorientierung.
@@ -78,9 +79,9 @@ public class MusterMitFunktionen {
     static String[][] mirror(String[][] feld) {
         String[][] ret = copy(feld);
 
-        for (int i = 0; i < ; i++) {
-            for (int j = 0; j < ; j++) {
-                ret[0][0] = feld[0][2];
+        for (int i = 0; i < ret.length; i++) {
+            for (int j = 0; j < ret.length; j++) {
+                ret[i][j] = feld[i][ret.length - 1 - j];
             }
         }
 
