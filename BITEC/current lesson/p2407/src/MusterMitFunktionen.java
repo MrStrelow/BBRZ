@@ -13,9 +13,9 @@ public class MusterMitFunktionen {
         String[][] feld = new String[5][5];
 
         feld = fillCanvas(feld, "");
-        feld = drawTriangle(feld, "#");
-        print(feld);
-        print(mirror(feld));
+        String[][] triangle = drawTriangle(feld, "#");
+        String[][] diamond = drawDiamond(triangle);
+        print(diamond);
     }
 
     // merke static davor schreiben sonst gehts nicht. was das ist, siehe objektorientierung.
@@ -64,24 +64,69 @@ public class MusterMitFunktionen {
                 }
             }
         }
+
+        return ret;
     }
 
-    static String[][] drehen() {
-        return null;
+    static String[][] drehen(String[][] feld) {
+        return transpose(mirror(feld));
     }
 
     // vertausche x mit y
-    static String[][] transpose() {
-        return null;
+    static String[][] transpose(String[][] feld) {
+        String[][] ret = copy(feld);
+
+        for (int i = 0; i < ret.length; i++) {
+            for (int j = 0; j < ret.length; j++) {
+                ret[i][j] = feld[j][i];
+            }
+        }
+
+        return ret;
     }
 
-    // spiegle entlang der y achse
+    // spiegle entlang der x achse
     static String[][] mirror(String[][] feld) {
         String[][] ret = copy(feld);
 
         for (int i = 0; i < ret.length; i++) {
             for (int j = 0; j < ret.length; j++) {
-                ret[i][j] = feld[i][ret.length - 1 - j];
+                ret[i][j] = feld[ret.length - 1 - i][j];
+            }
+        }
+
+        return ret;
+    }
+
+    static String[][] drawDiamond(String[][] feld) {
+        String[][] rechtsOben  = feld;
+        String[][] rechtsUnten = drehen(feld);
+        String[][] linksUnten  = drehen(drehen(feld));
+        String[][] linksOben   = drehen(drehen(drehen(feld)));
+
+        String[][] ret = new String[2 * feld.length][2 * feld.length];
+
+        for (int i = 0; i < feld.length; i++) {
+            for (int j = feld.length; j < 2 * feld.length; j++) {
+                ret[i][j] = rechtsOben[i][j];
+            }
+        }
+
+        for (int i = feld.length; i < 2 * feld.length; i++) {
+            for (int j = feld.length; j < 2 * feld.length; j++) {
+                ret[i][j] = rechtsUnten[i][j];
+            }
+        }
+
+        for (int i = feld.length; i < 2 * feld.length; i++) {
+            for (int j = 0; j < feld.length; j++) {
+                ret[i][j] = linksUnten[i][j];
+            }
+        }
+
+        for (int i = 0; i < feld.length; i++) {
+            for (int j = 0; j < feld.length; j++) {
+                ret[i][j] = linksOben[i][j];
             }
         }
 
