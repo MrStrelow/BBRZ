@@ -96,37 +96,66 @@ public class MusterMitFunktionen {
         return ret;
     }
 
+    static String[][] assignLeftUpper(String[][] feld, String[][] leftUpper) {
+        String[][] ret = copy(feld);
+
+        for (int i = 0; i < leftUpper.length; i++) {
+            for (int j = 0; j < leftUpper.length; j++) {
+                ret[i][j] = leftUpper[i][j];
+            }
+        }
+
+        return ret;
+    }
+
+    static String[][] assignLeftLower(String[][] feld, String[][] leftLower) {
+        String[][] ret = copy(feld);
+
+        for (int i = leftLower.length; i < feld.length; i++) {
+            for (int j = 0; j < leftLower.length; j++) {
+                ret[i][j] = leftLower[i - leftLower.length][j];
+            }
+        }
+
+        return ret;
+    }
+
+    static String[][] assignRightLower(String[][] feld, String[][] rightLower) {
+        String[][] ret = copy(feld);
+
+        for (int i = rightLower.length; i < feld.length; i++) {
+            for (int j = rightLower.length; j < feld.length; j++) {
+                ret[i][j] = rightLower[i - rightLower.length][j - rightLower.length];
+            }
+        }
+
+        return ret;
+    }
+
+    static String[][] assignRightUpper(String[][] feld, String[][] rightUpper) {
+        String[][] ret = copy(feld);
+
+        for (int i = 0; i < rightUpper.length; i++) {
+            for (int j = rightUpper.length; j < feld.length; j++) {
+                ret[i][j] = rightUpper[i][j - rightUpper.length];
+            }
+        }
+
+        return ret;
+    }
+
     static String[][] drawDiamond(String[][] feld) {
-        String[][] rechtsOben  = feld;
-        String[][] rechtsUnten = drehen(feld);
-        String[][] linksUnten  = drehen(drehen(feld));
-        String[][] linksOben   = drehen(drehen(drehen(feld)));
+        String[][] rightUpper = copy(feld);
+        String[][] rightLower = drehen(feld);
+        String[][] leftLower  = drehen(drehen(feld));
+        String[][] leftUpper  = drehen(drehen(drehen(feld)));
 
         String[][] ret = new String[2 * feld.length][2 * feld.length];
 
-        for (int i = 0; i < feld.length; i++) {
-            for (int j = feld.length; j < 2 * feld.length; j++) {
-                ret[i][j] = rechtsOben[i][j - feld.length];
-            }
-        }
-
-        for (int i = feld.length; i < 2 * feld.length; i++) {
-            for (int j = feld.length; j < 2 * feld.length; j++) {
-                ret[i][j] = rechtsUnten[i - feld.length][j - feld.length];
-            }
-        }
-
-        for (int i = feld.length; i < 2 * feld.length; i++) {
-            for (int j = 0; j < feld.length; j++) {
-                ret[i][j] = linksUnten[i - feld.length][j];
-            }
-        }
-
-        for (int i = 0; i < feld.length; i++) {
-            for (int j = 0; j < feld.length; j++) {
-                ret[i][j] = linksOben[i][j];
-            }
-        }
+        ret = assignRightUpper(ret, rightUpper);
+        ret = assignRightLower(ret, rightLower);
+        ret = assignLeftUpper(ret, leftUpper);
+        ret = assignLeftLower(ret, leftLower);
 
         return ret;
     }
