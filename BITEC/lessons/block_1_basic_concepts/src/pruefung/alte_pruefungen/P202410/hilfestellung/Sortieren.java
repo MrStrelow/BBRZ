@@ -1,6 +1,8 @@
+package pruefung.alte_pruefungen.P202410.hilfestellung;
+
 import java.util.Arrays;
 
-public class TESTSortieren {
+public class Sortieren {
     public static void main(String[] args) {
 //        erzeugt null pointer exception: Fehler, belege zuerst die Positionen mit Zahlen dass nicht mehr null drinnen steht.
 //        Integer[] zahlenzwei = new Integer[5];

@@ -1,7 +1,9 @@
+package pruefung.alte_pruefungen.P202410.hilfestellung;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class TESTArraysPhrasomat {
+public class ArraysPhrasomat {
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
