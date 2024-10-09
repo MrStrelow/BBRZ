@@ -12,7 +12,7 @@ public class MusterMitFunktionen {
         // 2d array anlegen
         String[][] feld = new String[5][5];
 
-        feld = fillCanvas(feld, "");
+        feld = fillCanvas(feld, "~");
         String[][] triangle = drawTriangle(feld, "#");
         String[][] diamond = drawDiamond(triangle);
         print(diamond);
@@ -59,9 +59,7 @@ public class MusterMitFunktionen {
 
         for (int i = 0; i < ret.length; i++) {
             for (int j = 0; j < ret.length; j++) {
-                if(j <= i) {
-                    ret[i][j] = feld[i][j];
-                }
+                ret[i][j] = feld[i][j];
             }
         }
 
@@ -108,19 +106,19 @@ public class MusterMitFunktionen {
 
         for (int i = 0; i < feld.length; i++) {
             for (int j = feld.length; j < 2 * feld.length; j++) {
-                ret[i][j] = rechtsOben[i][j];
+                ret[i][j] = rechtsOben[i][j - feld.length];
             }
         }
 
         for (int i = feld.length; i < 2 * feld.length; i++) {
             for (int j = feld.length; j < 2 * feld.length; j++) {
-                ret[i][j] = rechtsUnten[i][j];
+                ret[i][j] = rechtsUnten[i - feld.length][j - feld.length];
             }
         }
 
         for (int i = feld.length; i < 2 * feld.length; i++) {
             for (int j = 0; j < feld.length; j++) {
-                ret[i][j] = linksUnten[i][j];
+                ret[i][j] = linksUnten[i - feld.length][j];
             }
         }
 
