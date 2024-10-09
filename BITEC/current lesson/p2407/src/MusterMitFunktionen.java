@@ -12,12 +12,6 @@ public class MusterMitFunktionen {
         // 2d array anlegen
         String[][] feld = new String[5][5];
 
-        for (int i = 0; i < feld.length; i++) {
-            for (int j = 0; j < feld.length; j++) {
-                feld[i][j] = "";
-            }
-        }
-
         // anstatt der ausgabe ins array das dreieck schreiben.
         for (int i = 0; i < feld.length; i++) {
             for (int j = 0; j < feld.length; j++) {
@@ -27,9 +21,14 @@ public class MusterMitFunktionen {
             }
         }
 
+        feld = fill(feld, "~");
+
         // array ausgeben - sollte gleich ausschauen wie der code mit "sout".
         print(feld);
 
+        feld = fill(feld, " ");
+
+        print(feld);
     }
 
     // merke static davor schreiben sonst gehts nicht. was das ist, siehe objektorientierung.
@@ -40,6 +39,18 @@ public class MusterMitFunktionen {
             }
             System.out.println();
         }
+    }
+
+    static String[][] fill(String[][] feld, String symbol) {
+        String[][] ret = new String[feld.length][feld.length];
+
+        for (int i = 0; i < ret.length; i++) {
+            for (int j = 0; j < ret.length; j++) {
+                ret[i][j] = symbol;
+            }
+        }
+
+        return ret;
     }
 
 }
