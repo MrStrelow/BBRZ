@@ -1,0 +1,141 @@
+
+# Übung: Methodenargumente in C#
+
+In dieser Übung werden verschiedene Arten von Argumenten in Methoden behandelt, einschließlich der Übergabe von Werten, Referenzen und anderen Techniken. Die Konzepte umfassen:
+
+1. Call by Value
+2. Call by Reference (`out` und `ref`)
+3. Verwendung von `params`
+4. Fallstudien mit Objekten
+
+## 1. Call by Value
+
+Bei dem Call by Value wird eine Kopie des Wertes an die Methode übergeben. Änderungen am Parameter innerhalb der Methode haben keine Auswirkungen auf die ursprüngliche Variable.
+
+### Beispiel:
+\```csharp
+public void ModifyValue(int value)
+{
+    value += 10; // Ändert nur die Kopie
+}
+
+int number = 5;
+ModifyValue(number);
+Console.WriteLine(number); // Ausgabe: 5
+\```
+
+## 2. Call by Reference
+
+Bei dem Call by Reference wird eine Referenz auf die ursprüngliche Variable übergeben. Änderungen am Parameter innerhalb der Methode wirken sich auf die ursprüngliche Variable aus.
+
+### Beispiel:
+```csharp
+public void ModifyReference(ref int value)
+{
+    value += 10; // Ändert den ursprünglichen Wert
+}
+
+int number = 5;
+ModifyReference(ref number);
+Console.WriteLine(number); // Ausgabe: 15
+```
+
+### Nutzung von `out` und `ref`
+
+`out` wird verwendet, um Werte aus einer Methode zurückzugeben, während `ref` eine Referenz auf die ursprüngliche Variable übergibt.
+
+### Beispiel für `out`:
+```csharp
+public void GetValues(out int value1, out int value2)
+{
+    value1 = 10;
+    value2 = 20;
+}
+
+GetValues(out int a, out int b);
+Console.WriteLine($"a: {a}, b: {b}"); // Ausgabe: a: 10, b: 20
+```
+
+### Beispiel für `ref`:
+```csharp
+public void UpdateValue(ref int value)
+{
+    value += 10; // Ändert den ursprünglichen Wert
+}
+
+int number = 5;
+UpdateValue(ref number);
+Console.WriteLine(number); // Ausgabe: 15
+```
+
+## 3. Verwendung von `params`
+
+`params` ermöglicht es, eine variable Anzahl von Argumenten an eine Methode zu übergeben. Diese Argumente werden als Array behandelt.
+
+### Beispiel:
+```csharp
+public void PrintNumbers(params int[] numbers)
+{
+    foreach (var number in numbers)
+    {
+        Console.WriteLine(number);
+    }
+}
+
+PrintNumbers(1, 2, 3, 4, 5); // Ausgabe: 1 2 3 4 5
+```
+
+## 4. Primitive Datentypen vs. Objekte
+
+### Übergabe eines Objekts bei call by value
+Wenn ein Objekt als Argument übergeben wird, nicht das gesame objekt a la call by value übergeben, sondern dessen Referenz. Aber es wird eine Kopie der Referenz übergeben. Es wird also call by value verwendet, aber nicht des Objektes sondern der Referenz. 
+
+### Beispiel:
+```csharp
+public class MyClass
+{
+    public int Value { get; set; }
+}
+
+public void ModifyObject(MyClass obj)
+{
+    obj.Value = 10; // Ändert das ursprüngliche Objekt
+}
+
+MyClass myObj = new MyClass { Value = 5 };
+ModifyObject(myObj);
+Console.WriteLine(myObj.Value); // Ausgabe: 10
+```
+
+Der Aufruf von myObj.Value ändert das ursprüngliche Objekt, egal ob wir mit einer Kopie der Referenz arbeiten, oder mit der echten Referenz. Wir zeigen immer noch auf den Speicher und können dadurch Value innerhalb der Methode verändern (Seiteneffekt!)
+
+Wo sehen wir aber einen Unterschied, wenn wir die Kopie der Referenz verwenden?
+Im folgenden Beispiel sehen wir, eine Änderung hat keinen Effekt, wenn wir die Referenz selbst ersetzen wollen! Bedeutet nicht das bestehende Objekt verändern, sondern neu anlegen!
+Das geschieht mit new MyClass.
+```csharp
+public void ReplaceObject(MyClass obj)
+{
+    obj = new MyClass { Value = 20 }; // Ersetzt das ursprüngliche Objekt
+}
+
+MyClass myObj = new MyClass { Value = 5 };
+ReplaceObject(myObj);
+Console.WriteLine(myObj.Value); // Ausgabe: 5
+```
+
+### Übergabe eines Objekts mit call by reference
+Um das ursprüngliche Objekt zu ändern, kann es als `ref` übergeben werden. Wir arbeiten somit mit der echten Referezn und können Seiteneffekte nicht nur innerhalb eines bestehendes Objektes erzeugen, sondern auch beim Objekt selbst.
+
+### Beispiel:
+```csharp
+public void ReplaceObject(ref MyClass obj)
+{
+    obj = new MyClass { Value = 20 }; // Ersetzt das ursprüngliche Objekt
+}
+
+MyClass myObj = new MyClass { Value = 5 };
+ReplaceObject(ref myObj);
+Console.WriteLine(myObj.Value); // Ausgabe: 20
+```
+
+Diese Übung behandelt verschiedene Arten von Methodenargumenten und zeigt, wie sie in C# implementiert werden können.

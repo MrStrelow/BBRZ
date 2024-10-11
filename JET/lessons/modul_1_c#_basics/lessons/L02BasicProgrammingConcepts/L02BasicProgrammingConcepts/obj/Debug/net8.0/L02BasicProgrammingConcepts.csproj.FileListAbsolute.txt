@@ -1,0 +1,15 @@
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\bin\Debug\net8.0\L02BasicProgrammingConcepts.exe
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\bin\Debug\net8.0\L02BasicProgrammingConcepts.deps.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\bin\Debug\net8.0\L02BasicProgrammingConcepts.runtimeconfig.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\bin\Debug\net8.0\L02BasicProgrammingConcepts.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\bin\Debug\net8.0\L02BasicProgrammingConcepts.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.AssemblyInfoInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.AssemblyInfo.cs
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.csproj.CoreCompileInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.sourcelink.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\refint\L02BasicProgrammingConcepts.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\L02BasicProgrammingConcepts.genruntimeconfig.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\L02BasicProgrammingConcepts\obj\Debug\net8.0\ref\L02BasicProgrammingConcepts.dll
