@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise4\\Exercise4.csproj",
+      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise4\\Exercise4.csproj",
       "projectName": "Exercise4",
-      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise4\\Exercise4.csproj",
+      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise4\\Exercise4.csproj",
       "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise4\\obj\\",
+      "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

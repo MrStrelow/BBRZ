@@ -1,0 +1,15 @@
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\bin\Debug\net8.0\Exercise1.exe
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\bin\Debug\net8.0\Exercise1.deps.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\bin\Debug\net8.0\Exercise1.runtimeconfig.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\bin\Debug\net8.0\Exercise1.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\bin\Debug\net8.0\Exercise1.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.AssemblyInfoInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.AssemblyInfo.cs
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.csproj.CoreCompileInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.sourcelink.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\refint\Exercise1.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\Exercise1.genruntimeconfig.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\lessons\modul_1_c#_basics\lessons\L02BasicProgrammingConcepts\Exercise1\obj\Debug\net8.0\ref\Exercise1.dll

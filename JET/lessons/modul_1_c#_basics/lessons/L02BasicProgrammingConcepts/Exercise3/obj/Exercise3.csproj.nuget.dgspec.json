@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise3\\Exercise3.csproj": {}
+    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise3\\Exercise3.csproj": {
+    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise3\\Exercise3.csproj",
+        "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3.csproj",
         "projectName": "Exercise3",
-        "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise3\\Exercise3.csproj",
+        "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3.csproj",
         "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\Exercise3\\obj\\",
+        "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L02BasicProgrammingConcepts\\Exercise3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
