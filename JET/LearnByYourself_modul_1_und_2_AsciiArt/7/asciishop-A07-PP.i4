@@ -1,0 +1,3 @@
+create 44 18 #W+,.
+replace . t
+print

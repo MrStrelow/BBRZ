@@ -1,0 +1,4 @@
+create 10 4 #W*+.
+replace . #
+filter average
+print

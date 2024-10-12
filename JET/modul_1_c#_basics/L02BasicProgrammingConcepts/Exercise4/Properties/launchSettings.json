@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Exercise4": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

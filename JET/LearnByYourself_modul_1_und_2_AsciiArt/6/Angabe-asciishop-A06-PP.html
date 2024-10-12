@@ -1,0 +1,980 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EPROG-LU - Aufgabe asciishop-A06-PP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<style type="text/css"><!--
+body {
+background-color: #FFFFFF;
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+color:#000000;
+}
+
+table {
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+border-style:none;
+}
+
+td {
+border-color:#000000;
+border-style:none;
+border-width:1px;
+vertical-align:middle;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:0px;
+padding-top:0px;
+}
+// --></style>
+</head>
+<body link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+
+<h1>Beispiel Angabe</h1>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+<tr>
+<td style="width:100px;"><b>K&uuml;rzel:</b></td><td>asciishop-A06-PP</td>
+<!--<td><b>Runde:</b></td><td>6</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Name:</b></td><td>AsciiShop, Runde#6</td>
+<!--<td><b>Evaluieren als:</b></td><td>Java</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kette:</b></td><td>Asciishop PP</td>
+<!--<td><b>Eingabe:</b></td><td>String</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kategorie:</b></td><td>Bildverarbeitung</td>
+<!--<td><b>Ausgabe:</b></td><td>String</td>-->
+</tr>
+</table>
+<p>
+
+
+<b>Mitgelieferte Datei(en):</b> asciishop-A06-bonus1.i1, asciishop-A06-bonus1.o1<br>
+<b>Abzugebende Datei(en):</b> AsciiImage.java, AsciiShop.java, AsciiPoint.java, AsciiStack.java<br>
+<b>Optional abzugebende Datei(en):</b> <br>
+<b>Ausf&uuml;hrbar:</b> AsciiShop<br>
+
+<p>
+
+
+Die Klasse <em>AsciiShop</em> ist zu erstellen und soll eine
+ausf&uuml;hrbare Klasse sein und muss daher die <tt>public static void main(String[] args)</tt>
+Methode beinhalten.
+
+Ihr Programm wird automatisch auf Korrektheit &uuml;berpr&uuml;ft.
+Die &Uuml;berpr&uuml;fung erfolgt durch die Ausf&uuml;hrung der als
+ausf&uuml;hrbar bezeichneten Klasse (<em>AsciiShop</em>).
+
+
+<H2>Kurzbeschreibung:</H2>
+<style type="text/css">
+<!--
+  .new{
+    background-color: rgb(211, 217, 227);
+  }
+  dl {
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: -4px;
+  }
+  dd{
+    margin-left: 20px;
+    margin-top: 5px;  
+  }
+  span.grey{
+    color: #666;
+  }
+  ul.relaxed li{
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+
+  table#stack{
+
+  }
+  table#stack tbody tr td{
+    background-color: #eee;
+    padding: 4px;
+    text-align:center;
+  }
+  table#stack tbody tr th{
+    background-color: #eee;
+    padding: 4px;
+    text-align:center;
+    font-weight: bold;
+  }
+-->
+</style>
+
+<p>
+Das Programm erstellt im ersten Schritt ein leeres Bild, auf dem dann unterschiedliche Operationen ausgef&uuml;hrt werden k&ouml;nnen. Neben den in der Vorrunde implementierten Operationen, gibt es noch zwei weitere Befehle, mit denen man Fl&auml;chen eines bestimmten Zeichens wachsen lassen und deren Schwerpunkt bestimmen kann. Zus&auml;tzlich ist es nun m&ouml;glich, eine beliebige Anzahl von Befehlen r&uuml;ckg&auml;ngig zu machen.
+</p>
+
+<h2>Lernziele:</h2>
+<ul>
+<li>Umgang mit Arrays</li>
+<li>Umgang mit Collections</li>
+<li>Implementieren einer eigenen Collection</li>
+<li>Kapselung von Funktionalit&auml;t</li>
+</ul>
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#aufgabenstellung">Aufgabenstellung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#klassenundmethoden">Klassen und Methoden</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#einausgabedaten">Ein- und Ausgabedaten</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#hinweise">Bewertung und Kriterien</a></td>
+
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#hinweise">Hinweise</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do">FAQ</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#fehlerbehandlung">Fehlerbehandlung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#testen">Testen</a></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<a id="aufgabenstellung" name="aufgabenstellung"></a>
+<!--
+
+
+<H2>Allgemeine Hinweise:</H2>
+<ul>
+<li>
+<b>Die Gro&szlig;- und Kleinschreibung ist relevant!</b> Beachten Sie ganz genau die Angaben zu den
+Funktions- und Dateinamen.
+</li>
+<li>
+Die abzugebende Datei(en) m&uuml;ssen f&uuml;r die Abgabe ausnahmslos <b>archiviert</b> werden.
+Das Format der Archiv muss <b>Zip</b> sein, Programme wie WinZip, WinRar, jar (kommt mit der Java JDK Distribution)
+k&ouml;nnen Sie f&uuml;r die Archivierung verwenden. Dateiendung des Archivs muss .zip oder .jar sein.
+<br/> jar syntax:
+<ul>
+<li>
+Archivierung: <b><tt>jar Mcvf archiv_name.jar *</tt></b> (oder einzelne Dateien statt <tt>*</tt>)
+</li>
+<li>
+Inhalte anzeigen: <b><tt>jar tf archiv_name.jar</tt></b>
+</li>
+<li>
+Extrahieren: <b><tt>jar xvf archiv_name.jar</tt></b>
+</li>
+</ul>
+</li>
+<li>
+Ihr Programm darf nur genau jene Ausgabedaten liefern, die in der Spezifikation 
+verlangt werden. Die Ausgaben Ihres Programms werden automatisch mit
+Referenzdaten verglichen; etwaige Abweichungen f&uuml;hren zu Punkteabz&uuml;gen!
+</li>
+
+<li>
+Testen Sie Ihr Programm vor der Abgabe mit den mitgelieferten Eingabedateien.
+Geben Sie Ihre L&ouml;sung erst ab, wenn die Ausgaben Ihres Programms mit der
+ebenfalls mitgelieferten Ausgabedatei &uuml;bereinstimmen! Testen Sie Ihr
+Programm auch mit anderen Eingabedaten.<br/>
+</li>
+
+<li>
+Ihr Programm muss <b>immer</b> den Prozess Return Code 0 liefern. Verwenden Sie daher
+keine <code>System.exit(1)</code>-artige Unterbrechungen in Ihrem Programm.
+Am besten verzichten Sie v&ouml;llig auf System.exit() Aufrufe da dadurch der
+laufende JVM gewaltsam terminiert wird.<br/>
+</li>
+
+
+<li>
+Verwenden Sie die Klasse <code>Scanner</code> zum Einlesen von Daten.<br/>
+F&uuml;r die Ausgabe k&ouml;nnen Sie die Methoden <code>System.out.print</code> und
+<code>System.out.println</code> benutzen. Zum Erzeugen formatierter Ausgaben k&ouml;nnen
+Sie auch <code>System.out.printf</code> benutzen (wird im Allgemeinen aber nicht ben&ouml;tigt).
+Beachten Sie, dass wir bei der Beurteilung einen US-amerikanischen Region- und
+Spracheinstellungssatz (<i>locale</i>) f&uml;r die Beurteilung benutzen.
+Das bedeutet, dass wir f&uuml;r die Darstellung von <code>double</code>-Werten auch bei
+der Ein-/Ausgabe immer den Dezimalpunkt (und nicht Beistrich) benutzen
+(z.B. 3.14159 und nicht 3,14159). Falls Sie auf Ihrem Rechner eine andere Einstellung haben,
+k&ouml;nnen Sie zum Testen zuhause auch die Darstellung mit Beistrich benutzen (ist aber nicht
+konsistent mit den mitgelieferten Ein-/Ausgabe-Paaren) oder beim Aufruf von Java auch folgenden Befehl
+benutzen:
+<ul>
+<li><b><code>java -Duser.language=en -Duser.country=US AsciiShop</code></b></li>
+</ul>
+Sie werden sehen, dass dann w&auml;hrend des Ablaufs des Programmes bei der Eingabe
+von <code>double</code>-Werten eine Darstellung mit Dezimalpunkt erwartet wird.
+Wenden Sie sich bei Problemen mit den Ein-/Ausgabefunktionen bitte an die Tutoren im Labor.
+</li>
+<li>
+Programme, die Packages oder Klassen au&szlig;erhalb der verwendeten &Uuml;bungsumgebung 
+(<a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">J2SE Development Kit (JDK) 5.0</a>)
+verwenden, k&ouml;nnen von uns nicht getestet und beurteilt werden!<br/>
+</li>
+
+<li>
+Schreiben Sie Ihr Programm m&ouml;glichst allgemein und kommentieren Sie es
+gut. Die Kommentare im Programm gelten als Dokumentation.
+Die Dokumentation Ihrer Programme wird ebenfalls beurteilt. Es ist
+erlaubt/erw&uuml;nscht die Kommentare javadoc-konform zu erstellen.<br/>
+</li>
+</ul>
+
+
+<H2>Spezifikationsspezifische Hinweise:</H2>
+-->
+
+
+<H2>Aufgabenstellung:</H2>
+<p>
+Mit zunehmender Funktionalit&auml;t wird es erforderlich, diese sinnvoll zu kapseln. So sollen zwei neue Klassen eingef&uuml;hrt werden: Eine stellt die Funktionalit&auml;t eines Stacks zur Verf&uuml;gung, auf den ASCII-Bilder gelegt werden können, um so Operationen am Bild r&uuml;ckg&auml;ngig machen zu k&ouml;nnen, die andere kapselt die Koordinaten eines Punktes in einem Ascii-Bild. Au&szlig;erdem soll eine Hilfsmethode implementiert werden, die zur &Uuml;bersichtlichkeit im Code beitr&auml;gt und die Code-Wiederverwendung unterst&uuml;tzt.
+</p>
+
+<h3>Erzeugen des Bildes</h3>
+<p>
+Das Erzeugen eines neuen Bildes erfolgt, wie in Runde 5 spezifiziert, mit Hilfe des Befehls <b><code>create</code></b>, dessen Parameter die Breite und H&ouml;he eines neu zu erzeugenden Bildes spezifizieren. Dieser muss der erste eingegebene Befehl sein. Sind Breite oder H&ouml;he kleiner oder gleich null, so soll "<code>INPUT MISMATCH</code>" ausgegeben werden.
+</p>
+<p>
+Das leere Bild kann mit Daten gef&uuml;llt werden. Dazu stehen verschiedene Befehle zur Verf&uuml;gung, darunter der Befehl load. Dieser Befehl (und damit das Einlesen von Bildern von der Standardeingabe) ist f&uuml;r ein g&uuml;ltiges Bild nicht obligatorisch.
+</p>
+
+<h3>Befehle und Operationen am Bild</h3>
+<p>
+Die folgenden Befehle sind zul&auml;ssig, neue Befehle sind farblich hervorgehoben:
+</p>
+<ul class="relaxed">
+
+<li class="new"><b><code>centroid</code></b> <code>c</code> bestimmt den Schwerpunkt aller Pixel, die dem als Parameter definierten Zeichen (c) entsprechen und gibt das Ergebnis in der Form &lsquo;<code>(x,y)</code>&rsquo; in einer eigenen Zeile aus. Sollte es kein Vorkommen des angegeben Zeichens geben, so ist <code>&lsquo;null&rsquo;</code> auszugeben.</li>
+
+<li><b><code>clear</code></b> l&ouml;scht den gesamten Bildinhalt, alle Pixel des Bildes werden auf &lsquo;.&rsquo; gesetzt.</li>
+
+<li class="new"><b><code>grow</code></b> <code>c</code> vergr&ouml;&szlig;ert den Bereich der Pixel mit dem Zeichen <code>c</code>. Dies bewirkt, dass alle Pixel, die nicht gesetzt sind (also das Zeichen &lsquo;<code>.</code>&rsquo; sind), und als Nachbarn einen Pixel mit dem Zeichen <code>c</code> haben, auf das Zeichen <code>c</code> gesetzt werden.</li>
+
+<li><b><code>line</code></b> <code>x<sub>0</sub> y<sub>0</sub> x<sub>1</sub> y<sub>1</sub> c</code> zeichnet eine Linie, wobei die ersten beiden Parameter (<code>x<sub>0</sub>,y<sub>0</sub></code>) die Koordinaten/Indizes des Startpunktes angeben, der dritte und vierte Parameter (<code>x<sub>1</sub>,y<sub>1</sub></code>) die Koordinaten/Indizes der Endposition. Der letzte Parameter spezifiziert das zu verwendende Zeichen. Das zugrunde liegende Koordinatensystem hat den Ursprung links oben im Bild, nach rechts verl&auml;uft die x-Achse, nach unten die y-Achse.</li>
+
+<li><b><code>load</code></b> <code>eof</code> liest ein Bild zeilenweise ein und speichert es in das anfangs mit <b><code>create</code></b> erzeugte Bild. Um das Ende der Eingabe zu erkennen, wird als Parameter  eine Zeichenkette (<code>eof</code>) angegeben, die das Ende der Bildeingabe kennzeichnet. Entspricht die H&ouml;he und Breite des eingelesenen Bildes nicht exakt jener des mit <b><code>create</code></b> erzeugten Bildes, so soll "<code>INPUT MISMATCH</code>" ausgegeben werden.
+
+<li><b><code>print</code></b> gibt das ASCII-Bild gefolgt von einer Leerzeile aus. Im Gegensatz zu fr&uuml;heren Runden, erfolgt die Ausgabe nicht mehr automatisch am Ende des Programms, sondern nur bei Eingabe dieses Befehls.</li>
+
+<li><b><code>replace</code></b> <code>oldChar newChar</code> ersetzt alle Vorkommen eines bestimmten Zeichens (oldChar) im Bild durch ein anderes Zeichen (newChar).</li>
+
+<li><b><code>transpose</code></b> transponiert das Bild.</li>
+
+<li><b><code>fill</code></b> <code>x y c</code> f&uuml;hrt ausgehend von der Position <code>(x,y)</code> ein Floodfill (siehe Spezifikation zu Runde 3) mit dem Zeichen <code>c</code> durch.</li>
+
+<li class="new"><b><code>undo</code></b> macht einen Befehl r&uuml;ckg&auml;ngig. Gibt es keinen weiteren Befehl, der r&uuml;ckg&auml;ngig gemacht werden kann, soll "<code>STACK EMPTY</code>" ausgegeben werde. Ansonsten soll die Belegung des Stacks nach dem Entfernen des obersten Elements in der Form &lsquo;<code>STACK USAGE genutzterPlatz/verf&uuml;gbarerPlatz</code>&rsquo; angezeigt werden.</li>
+
+</ul>
+
+<p>
+Die genannten Befehle <b><code>centroid</code></b>, <b><code>clear</code></b>, <b><code>grow</code></b>, <b><code>line</code></b>, <b><code>replace</code></b>, <b><code>transpose</code></b> und <b><code>fill</code></b> haben entsprechende Methoden in der Klasse <b><code>AsciiImage</code></b>. Alle hier aufgef&uuml;hrten Befehle k&ouml;nnen in beliebiger Reihenfolge auftreten. So kann zum Beispiel nach <b><code>create</code></b> erst <b><code>print</code></b> und danach <b><code>load</code></b> folgen.
+</p>
+
+<h3>Code-Wiederverwendung</h3>
+<p>
+Ein wichtiges Ziel beim Programmieren ist es, doppelten Code zu vermeiden und durch geschickte Nutzung bestehenden Codes neuen Code einfacher zu schreiben, bzw. bestehenden Code zu &uuml;berarbeiten. &Uuml;berladen Sie die Methoden <code>getPixel</code> und <code>setPixel</code>, sodass sie Koordinatenangaben sowohl als zwei einzelne Werte als auch als <code>AsciiPoint</code> akzeptieren. Implementieren Sie diese Methoden m&ouml;glichst effizient, sprich stellen Sie sicher, dass kein Code dupliziert wird. Die neu zu implementierende Methode <code>getPointList</code> bietet die Funktionalit&auml;t alle Punkte einer Farbe zu erhalten. Identifizieren Sie neue aber auch bestehende Methoden, die diese Funktionalit&auml;t ebenfalls ben&ouml;tigen und schreiben bzw. ver&auml;ndern Sie den Code so, dass dort die getPointList Methode verwendet wird.
+</p>
+
+<h3>&Uuml;bungsm&ouml;glichkeiten</h3>
+<p>
+Sie k&ouml;nnen zu &Uuml;bungszwecken in <code>AsciiImage</code> auch die Methoden <code>getUniqueChars</code> und <code>flipV</code> aus Runde 3 entsprechend der Spezifikation implementieren und diesen Methoden die entsprechenden Befehle <b><code>uniqueChars</code></b> und <b><code>flip-v</code></b> zuordnen. Dies wird jedoch nicht getestet. Falls Sie <b><code>uniqueChars</code></b> implementieren, geben Sie bei Eingabe dieses Befehls das entsprechende Ergebnis in einer eigenen Zeile aus
+</p>
+
+<h2>Bonusaufgaben</h2>
+<p>
+Bonusaufgaben werden nicht im Online-System getestet, die Beurteilung erfolgt erst w&auml;hrend des Abgabegespr&auml;chs.
+</p>
+
+<h3>Fl&auml;chen gl&auml;tten <i>(+1,0 Punkte)</i></h3>
+<p>
+In AsciiImage soll die Methode <code>public void straightenRegion(char c)</code> implementiert werden. Diese soll das Bild durch Entfernen d&uuml;nner Linien bzw. einzelner St&ouml;rpixel gl&auml;tten. Daf&uuml;r werden alle Pixel des Zeichens <code>c</code> entfernt (sprich auf &lsquo;<code>.</code>&rsquo; gesetzt), die einen oder keinen Nachbarpixel mit dem Zeichen <code>c</code> besitzen. Hierbei werden, wie beim Befehl <b><code>grow</code></b>, wieder vier Nachbarpixel betrachtet. Das Verfahren soll solange iteriert werden, bis keine Pixel mehr entfernt werden k&ouml;nnen. Dies f&uuml;hrt dazu, dass allein im Bild liegende oder an Fl&auml;chen angrenzende einzelne Punkte und Linien mit einer Breite von einem Pixel entfernt werden. Ordnen Sie dieser Methode den Befehl <b><code>straighten c</code></b> zu. Nutzen Sie zum Testen Ihrer Implementierung den in der Downloadversion mitgelieferten Testdatensatz <code>asciishop-A-05-bonus1.i1</code>.
+</p>
+
+<p>&nbsp;</p>
+
+<!-- Klassen und Methoden -->
+
+<a id="klassenundmethoden" name="klassenundmethoden"></a>
+<h2>Klassen und Methoden:</h2>
+
+<p>Die folgende Aufz&auml;hlung umfasst geforderte Methoden, neue Methoden sind farblich hervorgehoben. Sie k&ouml;nnen nach Bedarf Hilfsmethoden und Methoden f&uuml;r freiwillige Aufgaben (Bonusaufgaben, &Uuml;bungsaufgaben) hinzuf&uuml;gen. Achten Sie auf die korrekte Datenkapselung. Insbesondere sollen Sie sinnvolle Zugriffsmodifikatoren f&uuml;r Variablen (und Methoden) verwenden.</p>
+
+<dl>
+<dt><b>AsciiShop</b></dt>
+<dd>Diese Klasse ist ausf&uuml;hrbar und beinhaltet daher die <code>main</code>-Methode. Sie verarbeitet die Eingaben, erzeugt das <code>AsciiImage</code> und gibt das Ergebnis aus. Methoden dieser Klasse lesen direkt von <code>System.in</code> ein und geben direkt auf <code>System.out</code> aus.
+
+	<dl>
+    <dt><code><span class="grey">public static void</span> main<span class="grey">(String[] args)</span></code></dt> 
+    <dd>liest die Daten und Befehle ein und gibt das Ergebnis aus.</dd>
+	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>AsciiImage</b></dt>
+<dd>Diese Klasse repr&auml;sentiert ein ASCII-Bild, es speichert die Zeichen des Bildes und bietet entsprechende Methoden zur Modifikation und zur Abfrage von Eigenschaften, wie beispielsweise H&ouml;he und Breite. Methoden dieser Klasse lesen weder direkt von <code>System.in</code> ein, noch geben sie direkt auf <code>System.out</code> aus.
+
+	<dl>
+    <dt><code><span class="grey">public</span> AsciiImage<span class="grey">(int width, int height)</span></code></dt> 
+    <dd>erzeugt ein ASCII-Bild der spezifizierten Gr&ouml;&szlig;e. Anfangs sind alle Pixel auf den Wert &lsquo;.&rsquo; gesetzt. Sie d&uuml;rfen an dieser Stelle davon ausgehen, dass Breite und H&ouml;he beide gr&ouml;&szlig;er 0 sind. &Uuml;berpr&uuml;fen Sie diese Bedienung an geeigneter Stelle in der Klasse <code>AsciiShop</code>.</dd>
+	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public</span> AsciiImage<span class="grey">(AsciiImage img)</span></code></dt> 
+ 	<dd>ist ein Kopierkonstruktor. Er erzeugt ein neues AsciiImage mit dem gleichen Inhalt, wie das &uuml;bergebene Bild.</dd>
+ 	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public void</span> clear<span class="grey">()</span></code></dt> 
+    <dd>setzt alle Pixel des Bildes auf das Zeichen &lsquo;.&rsquo;.</dd>
+	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public void</span> drawLine<span class="grey">(int x0, int y0, int x1, int y1, char c)</span></code></dt> 
+    <dd>zeichnet eine Linie zwischen den Koordinaten <code>(x<sub>0</sub>,y<sub>0</sub>)</code> und <code>(x<sub>1</sub>,y<sub>1</sub>)</code>. Anfangs- und Endpunkt sind dabei inkludiert. <code>c</code> spezifiziert das zu verwendende Zeichen. Sie k&ouml;nnen davon ausgehen, dass nur g&uuml;ltige Koordinaten &uuml;bergeben werden.</dd>
+	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public AsciiPoint</span> getCentroid<span class="grey">(char c)</span></code></dt> 
+ 	<dd>bestimmt den Schwerpunkt aller Pixel mit dem Zeichen <code>c</code> und gibt diesen als <code>AsciiPoint</code> zur&uuml;ck. Kommt das Zeichen nicht vor, so wird <code>null</code> zur&uuml;ckgegeben.</dd>
+ 	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public int</span> getHeight<span class="grey">()</span></code></dt> 
+    <dd>gibt die H&ouml;he des Bildes (die Anzahl der Zeilen) zur&uuml;ck.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public char</span> getPixel<span class="grey">(int x, int y)</span></code></dt> 
+    <dd>gibt das an den &uuml;bergebenen Koordinaten/Indizes gespeicherte Zeichen zur&uuml;ck. Sie d&uuml;rfen an dieser Stelle davon ausgehen, dass die x und y g&uuml;ltige Koordinaten sind.</dd>
+	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public char</span> getPixel<span class="grey">(AsciiPoint p)</span></code></dt> 
+ 	<dd>gibt, analog zur Methode <code>public char getPixel(int x, int y)</code>, das Zeichen, an der durch <code>p</code> spezifizierten Stelle, zur&uuml;ck.</dd>
+ 	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public ArrayList&lt;AsciiPoint&gt;</span> getPointList<span class="grey">(char c)</span></code></dt> 
+ 	<dd>gibt eine ArrayList aller Pixel eines bestimmten Zeichens zur&uuml;ck. In dieser ArrayList sind Objekte vom Typ AsciiPoint, sollte es keine Punkte mit dem angegebenen Zeichen geben, so soll eine leere Liste zur&uuml;ckgegeben werden. Verwenden Sie diese Methode &uuml;berall dort, wo sie alle Pixel mit einem bestimmten Zeichen ben&ouml;tigen.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public int</span> getWidth<span class="grey">()</span></code></dt> 
+    <dd>gibt die Breite des Bildes (die L&auml;nge der Zeilen) zur&uuml;ck.</dd>
+	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public void</span> growRegion<span class="grey">(char c)</span></code></dt> 
+ 	<dd>vergr&ouml;&szlig;ert die die Fl&auml;chen aller Pixel des Zeichens <code>c</code>, in dem es an diese Pixel angrenzende Hintergrundpixel (also Pixel mit dem Zeichen &lsquo;.&rsquo;) auf das Zeichen <code>c</code> setzt.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public void</span> replace<span class="grey">(char oldChar, char newChar)</span></code></dt> 
+    <dd>ersetzt alle Vorkommen eines bestimmten Zeichens <code>oldChar</code> im Bild durch ein anderes Zeichen <code>newChar</code>.</dd>
+	</dl>
+		
+	<dl>
+    <dt><code><span class="grey">public void</span> setPixel<span class="grey">(int x, int y, char c)</span></code></dt> 
+    <dd>speichert an den &uuml;bergebenen Koordinaten/Indizes das &uuml;bergebene Zeichen. Sie d&uuml;rfen an dieser Stelle davon ausgehen, dass x und y g&uuml;ltige Koordinaten sind.</dd>
+	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public void</span> setPixel<span class="grey">(AsciiPoint p, char c)</span></code></dt> 
+ 	<dd>speichert, analog zur Methode <code>public char setPixel(int x, int y, char c)</code>, das &uuml;bergebene Zeichen an der durch den <code>p</code> spezifizierten Stelle.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public String</span> toString<span class="grey">()</span></code></dt> 
+    <dd>gibt eine lesbare Darstellung des ASCII-Bildes zur&uuml;ck. Die einzelnen Zeilen sollen dabei durch Zeilenumbr&uuml;che &lsquo;\n&rsquo; getrennt werden.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public void</span> transpose<span class="grey">()</span></code></dt> 
+    <dd>vertauscht Zeilen und Spalten des Bildes, sprich aus der ersten Zeile im Bild wird die erste Spalte usw. Dabei &auml;ndern sich H&ouml;he und Breite des Bildes (vgl. <a href="http://de.wikipedia.org/wiki/Matrix_(Mathematik)#Die_transponierte_Matrix">Matrix_(Mathematik)</a>). Je nach Implementierung muss diese Methode sicherstellen, dass abh&auml;ngige Eigenschaften des Bildes (H&ouml;he, Breite) aktualisiert werden. Nutzen Sie f&uuml;r diese Methode wenn m&ouml;glich ihren Code fr&uuml;heren Runden.
+	</dd>
+	</dl>
+
+<dl>
+    <dt><code><span class="grey">public void</span> fill<span class="grey">(int x, int y, char c)</span></code></dt> 
+    <dd>Ersetzt das Zeichen an der Position <i>(x,y)</i> mit dem Zeichen <i>c</i> und ruft sich ggfs. selbst rekursiv auf (mit neuen Werten von <i>(x,y)</i> die den Nachbarpositionen entsprechen). Die Methode implementiert den rekursiven Floodfill Algorithmus (siehe Runde 3). Nutzen Sie f&uuml;r diese Methode ihren Code fr&uuml;heren Runden.</dd>
+    
+	</dl>
+			
+</dd>
+</dl>
+
+<dl>
+<dt><b>AsciiPoint</b></dt>
+<dd>Diese Klasse repr&auml;sentiert einen Punkt, spezifiziert durch zwei ganzzahlige Koordinaten. Diese Klasse ist unver&auml;nderlich (immutable), sprich die Koordinaten sollen nachtr&auml;glich nicht mehr ver&auml;nderbar sein. Stellen Sie dies durch den Einsatz geeigneter Modifier sicher.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> AsciiPoint<span class="grey">(int x, int y)</span></code></dt> 
+ 	<dd>erzeugt einen Punkt mit den angegebenen Koordinaten.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public int</span> getX<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die x-Koordinate des Punktes zur&uuml;ck.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public int</span> getY<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die y-Koordinate des Punktes zur&uuml;ck.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public String</span> toString<span class="grey">()</span></code></dt> 
+ 	<dd>gibt eine lesbare Darstellung des Punktes in der Form <code>(x,y)</code> zur&uuml;ck.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>AsciiStack</b></dt>
+<dd>Diese Klasse implementiert einen Stack (vgl. <a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>), der seine Gr&ouml;&szlig;e dynamisch anpasst. Er kann eine beliebige Anzahl an AsciiImage-Objekten speichern, wobei der Zugriff immer nur auf das oberste Element m&ouml;glich ist. Diese Implementierung nutzt intern ein Array zum Speichern der Elemente.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> AsciiStack<span class="grey">(int increment)</span></code></dt> 
+ 	<dd>erzeugt einen Stack, der initial <code>increment</code> Elemente speichern kann. Sie d&uuml;rfen davon ausgehen, dass <code>increment</code> gr&ouml;&szlig;er 0 ist. Das Parameter <code>increment</code> gibt auch an, um wieviel der Stack bei Bedarf vergr&ouml;&szlig;ert bzw. verkleinert werden soll.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public int</span> capacity<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die Anzahl der Stack bereit stehenden Pl&auml;tze zur&uuml;ck (sprich wie gro&szlig; das zu Grunde liegende Array ist). Aufgrund der Vorgehensweise bei Verg&ouml;&szlig;erung und Verkleinerung, ist das Ergebnis dieser Methode immer ein Vielfaches von <code>increment</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public boolean</span> empty<span class="grey">()</span></code></dt> 
+ 	<dd>&uuml;berpr&uuml;ft, ob der Stack leer ist. In diesem Fall liefert die Methode <code>true</code>. Wenn mindestens ein Element am Stack liegt liefert die Methode <code>false</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public AsciiImage</span> pop<span class="grey">()</span></code></dt> 
+ 	<dd>gibt das oberste Element am Stack zur&uuml;ck und entfernt dieses. Liegt kein Element am Stack, so soll <code>null</code> zur&uuml;ckgegeben werden. Sind nach dem Entfernen mehr als <code>increment</code> Pl&auml;tze leer, so soll der Stack um <code>increment</code> verkleinert werden. Jedoch soll der Stack nie kleiner als <code>increment</code> sein, sprich wenn alle Elemente entfernt wurden, soll die Kapazit&auml;t des Stacks gleich <code>increment</code> sein.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public AsciiImage</span> peek<span class="grey">()</span></code></dt> 
+ 	<dd>gibt das oberste Element am Stack zur&uuml;ck ohne es zu entfernen. Liegt nichts am Stack, so soll <code>null</code> zur&uuml;ckgegeben werden.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public void</span> push<span class="grey">(AsciiImage img)</span></code></dt> 
+ 	<dd>legt ein AsciiImage oben auf den Stack. Ist der Stack zu diesem Zeitpunkt voll, so soll der Stack um <code>increment</code> vergr&ouml;&szlig;ert werden um so das Bild speichern zu k&ouml;nnen.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public int</span> size<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die Anzahl der im Stack belegten Pl&auml;tze zur&uuml;ck.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+
+<p>&nbsp;</p>
+
+<!-- Spezifikationsspezifische Hinweise -->
+
+<a id="hinweise" name="hinweise"></a>
+<h2>Hinweise:</h2>
+
+<p>Beachten Sie die allgemeinen Hinweise zur Installation und zur Ein-/Ausgabe, sowie zur Abgabe und zur Beurteilung in den <a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do ">FAQ</a>.</p>
+
+
+<h3>Schwerpunkt berechnen</h3>
+<p>
+Die Methode <code>getCentroid</code> soll den Schwerpunkt aller Pixel eines bestimmten Zeichens bestimmen. Dieser ist durch das arithmetische Mittel der Koordinaten all dieser Punkte definiert. Um dieses zu berechnen, werden von allen Pixel mit dem entsprechenden Zeichen die x und y Koordinaten aufsummiert und dann durch die Anzahl dividiert. Beachten Sie, dass das Ergebnis mathematisch exakt auf ganze Zahlen gerundet werden soll. Zum Runden verwenden Sie <code>Math.round</code>, f&uuml;r notwendige Typumwandlungen im Rahmen der Berechnungen, nutzen Sie doppelte Genauigkeit (<code>double</code>). Der Schwerpunkt soll als AsciiPoint zur&uuml;ckgegeben werden.
+</p>
+
+<h3>Fl&auml;chen vergr&ouml;&szlig;ern</h3>
+<p>
+Um die Fl&auml;che eines bestimmten Zeichens zu vergr&ouml;&szlig;ern, durchlaufen Sie alle Punkte mit dem entsprechenden Zeichen. &Uuml;berpr&uuml;fen Sie f&uuml;r jeden Nachbarn, ob er die Hintergrundfarbe (&lsquo;<code>.</code>&rsquo;) besitzt. Ist dies der Fall, so setzen Sie den entsprechenden Nachbarpunkt auf das Zeichen der Region. Als Nachbarschaft wird eine sogenannte Vierer-Nachbarschaft (vgl. <a href="http://de.wikipedia.org/wiki/Nachbarschaft_(Bildverarbeitung)#Vierer-Nachbarschaft">Vierer-Nachbarschaft</a>) vorausgesetzt, sprich jeder Pixel hat vier Nachbarn: die &uuml;ber und unter dem Pixel, sowie die links und rechts vom Pixel.
+</p>
+
+<h3>Undo-Funktionalit&auml;t</h3>
+<p>
+Implementieren Sie die Klasse AsciiStack mittels eines Arrays, verwenden Sie keine Collection (wie beispielsweise java.util.ArrayList oder java.util.Stack). Nutzen Sie diese Klasse dann im AsciiShop mit einem <code>increment</code> von 3. Um das R&uuml;ckg&auml;ngigmachen von Operationen zu erm&ouml;glichen, gehen Sie wie folgt vor: Speichern Sie in einer Variable <code>img</code> (in <code>AsciiShop</code>) immer das aktuelle Bild. Legen Sie, bevor Sie eine Operation, die das Bild ver&auml;ndert, durchf&uuml;hren (das sind insbesondere <b><code>grow</code></b>, <b><code>clear</code></b>, <b><code>replace</code></b>, <b><code>line</code></b>, <b><code>transpose</code></b> und <b><code>load</code></b>), eine Kopie des Bildes auf den Stack. Nutzen Sie dazu den Kopierkonstruktor der Klasse AsciiImage. Die Bildoperationen k&ouml;nnen Sie dann auf <code>img</code> ausf&uuml;hren.<br />
+Entfernen Sie nach Einlesen des Befehl <b><code>undo</code></b> jeweils das oberste Element vom Stack, speichern Sie es in die lokale Variable <code>img</code> (in <code>AsciiShop</code>) und geben Sie Gr&ouml;&szlig;e und Kapazit&auml;t des Stacks aus. Geben Sie "<code>STACK EMPTY</code>" aus, falls keine weiteren Schritte r&uuml;ckg&auml;ngig gemacht werden k&ouml;nnen. Beachten Sie, dass der <b><code>create</code></b> Befehl nicht r&uuml;ckg&auml;ngig gemacht werden kann.
+</p>
+
+<table cellspacing="2" id="stack">
+<tbody>
+<tr>
+	<th style="width: 80px;">&nbsp;</th>
+	<th style="width: 50px;">size</th>
+	<th style="width: 60px;">capacity</th>
+</tr>
+
+<tr>
+	<td><code>AsciiStack(3)</code></td>
+	<td>0</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><code>.push(...)</code></td>
+	<td>1</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><code>.push(...)</code></td>
+	<td>2</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><code>.push(...)</code></td>
+	<td>3</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><code>.pop()</code></td>
+	<td>2</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><code>.push(...)</code></td>
+	<td>3</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td><code>.push(...)</code></td>
+	<td>4</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td><code>.pop()</code></td>
+	<td>3</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td><code>.pop()</code></td>
+	<td>2</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td colspan="3" style="font-style:italic;">Undo-Stack Zustand nach <br />den entsprechenden Aufrufen</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Kopier-Konstruktor</h3>
+<p>
+Stellen Sie sicher, dass der Kopierkonstruktor der Klasse AsciiImage die Daten tief kopiert, sprich es muss der Arrayinhalt und nicht nur die Referenz darauf kopiert werden.
+</p>
+
+<!-- Forum, Saalbetreuung -->
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="padding: 10px;" colspan="3">
+
+Wenn Sie Fragen zur Implementierung oder auch zu Java haben, k&ouml;nnen Sie das Informatik-Forum nutzen. Im Rahmen der w&ouml;chentlichen Laborien stehen Tutoren für Fragen zur Verf&uuml;gung.
+
+</td>
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:50%;" ><a style="font-size: larger;" href="http://www.informatik-forum.at/forumdisplay.php?1452-Programmierpraxis-UE">Informatik-Forum</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px;  width:50%;"><a style="font-size: larger;" href="https://pp.caa.tuwien.ac.at/laborien/">Laborien</a></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<a id="eingabedaten" name="eingabedaten"></a>
+
+
+<H2>Eingabedaten:</H2>
+<p>
+Der erste Befehl muss <b><code>create</code></b>, gefolgt von Breite und H&ouml;he des Bildes sein. Danach k&ouml;nnen in beliebiger Reihenfolge beliebige viele der oben definierten Befehle folgen. Beachten Sie jedoch, dass der <b><code>create</code></b> Befehl nur einmal (n&auml;mlich als erster Befehl) auftreten darf. Sie d&uuml;rfen davon ausgehen, dass die mittels <b><code>load</code></b> eingelesenen Bilddaten keine Leerzeichen enthalten. Sie k&ouml;nnen weiters davon ausgehen, dass die gesamte Eingabe nicht leer ist.
+</p>
+
+<a id="ausgabedaten" name="ausgabedaten"></a>
+
+
+<H2>Ausgabedaten:</H2>
+<p>
+Bei jedem Aufruf von <b><code>print</code></b> soll das Bild korrekt formatiert und von einer Leerzeile gefolgt ausgegeben werden. Wird <b><code>centroid</code></b> eingegeben, so wird der Schwerpunkt in der Form <code>(x,y)</code> in einer eigenen Zeile ausgegeben. Wird <b><code>undo</code></b> angegeben, so wird das Ergebnis dieses Befehls, also entweder "<code>STACK EMPTY</code>" oder "<code>STACK USAGE genutzterPlatz/verf&uuml;gbarerPlatz</code>" ausgegeben.
+</p>
+
+<a id="fehlerbehandlung" name="fehlerbehandlung"></a>
+
+
+<H2>Fehlerbehandlung:</H2>
+<p>Geben Sie "<code>INPUT MISMATCH</code>" aus und brechen Sie die weitere Verarbeitung ab, falls einer der folgenden Fehler auftritt:</p>
+<ul>
+<li>Der erste Befehl ist nicht <b><code>create</code></b> gefolgt von zwei Zahlen gr&ouml;&szlig;er 0</li>
+<li>Zwischen dem Befehl <b><code>load</code></b> und der End-Zeichenkette sind mehr oder weniger Zeilen, als das Bild hat.</li>
+<li>Die L&auml;nge einer eingelesenen Bildzeile ist ungleich der Breite des Bildes.</li>
+<li>Einer der Parameter eines Befehls ist ung&uuml;ltig, im Speziellen: fehlende Parameter, Parameter vom falschen Typ</li> 
+</ul>
+
+<p>Geben Sie "<code>UNKNOWN COMMAND</code>" aus und brechen Sie die weitere Verarbeitung ab, falls einer der folgenden Fehler auftritt:</p>
+<ul>
+<li>Nach dem Befehl <b><code>create</code></b> folgt (sp&auml;ter) ein unbekannter Befehl.</li>
+<li>Nach dem Befehl <b><code>create</code></b> folgt (sp&auml;ter) erneut der Befehl <b><code>create</code></b>.</li>
+</ul>
+
+<p>
+Geben Sie "<code>OPERATION FAILED</code>" aus und brechen Sie die weitere Verarbeitung ab, falls der folgende Fehler auftritt:
+<ul>
+<li>Die bei  <b><code>fill</code></b>  angegebene Position liegt ausserhalb des Bildbereichs</li>
+</ul>
+
+<a id="testen" name="testen"></a>
+
+
+<H2>Testen:</H2>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 40 24
+load !
+........................................
+...................................MM...
+..............................MMMMMM,...
+.........................,MMMMMMMMMM....
+....................,MMMMMMMMMMMMMM.....
+...XXX..........MMMMMMMMMMMMMMMMMMM.....
+...XXX............MMMMMMMMMMMMMMMM......
+...XXX.............MMMMMMMMMMMMMMM......
+...XXX............MMMMMMMMMMMMMMM,......
+...XXX..........+MMMMMMMMMMMMMMMM.......
+...XXX.........MMMMMMMMMMMMMMMMM........
+.............MMMMMMMMMMMMMMMMMMM........
+............MMMMMMMMMMMMMM.MMMM,........
+..........MMMMMMMMMMMMMM+....MM.........
+........+MMMMMMMMMMMMMM.................
+.......MMMMMMMMMMMMMM...................
+.....MMMMMMMMMMMMMMM....................
+....MMMMMMMMMMMMMM......................
+..MMMMMMMMMMMMMM+.......................
+..MMMMMMMMMMMMM.........................
+....MMMMMMMMM...........................
+.....MMMMMMM............................
+.......MMM..............................
+........................................
+!
+centroid M
+centroid X
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">(19,11)
+(4,8)
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Berechnung des Schwerpunkts der Fläche des Zeichens &#39;M&#39; und des Zeichens &#39;X&#39;.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 41 10
+clear
+line 0 0 40 8 B
+clear
+print
+undo
+print
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">.........................................
+.........................................
+.........................................
+.........................................
+.........................................
+.........................................
+.........................................
+.........................................
+.........................................
+.........................................
+
+STACK USAGE 2/3
+BBB......................................
+...BBBBB.................................
+........BBBBB............................
+.............BBBBB.......................
+..................BBBBB..................
+.......................BBBBB.............
+............................BBBBB........
+.................................BBBBB...
+......................................BBB
+.........................................
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Einfacher Test des Undo-Stacks. Eine Linie wird gelöscht, dies wird mittels &amp;quot;undo&amp;quot; rückgängig gemacht.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 13 8
+line 5 0 0 2 #
+line 7 0 12 2 #
+line 3 4 3 7 #
+line 9 7 9 4 #
+line 0 4 3 4 #
+line 12 4 9 4 #
+line 6 4 6 4 *
+print
+grow *
+print
+grow *
+grow *
+grow *
+grow *
+grow *
+grow *
+replace # .
+print
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">....##.##....
+..##.....##..
+##.........##
+.............
+####..*..####
+...#.....#...
+...#.....#...
+...#.....#...
+
+....##.##....
+..##.....##..
+##.........##
+......*......
+####.***.####
+...#..*..#...
+...#.....#...
+...#.....#...
+
+......*......
+....*****....
+..*********..
+*************
+....*****....
+....*****....
+....*****....
+....*****....
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Mit Hilfe einiger Linien und mehrfacher Anwendung des grow Befehls entsteht ein Pfeil.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 44 18
+load /load
+.....X....X......................X....X.....
+....XXX..XXX....................XXX..XXX....
+....XXX..XXX....................XXX..XXX....
+....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....
+....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+.XXXXXXXXXXXXXX..............XXXXXXXXXXXXXX.
+.XXXXXXXXXXXXXX..............XXXXXXXXXXXXXX.
+.XXXXXXXXXXXXXX..............XXXXXXXXXXXXXX.
+/load
+grow X
+grow X
+print
+grow X
+grow X
+undo
+undo
+print
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">...XXXXXXXXXX..................XXXXXXXXXX...
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXX
+
+STACK USAGE 4/6
+STACK USAGE 3/6
+...XXXXXXXXXX..................XXXXXXXXXX...
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+..XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX..
+.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXX..........XXXXXXXXXXXXXXXXX
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Durch mehrfaches Ausführen von grow, muss der Undo-Stack vergrößert werden.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 30 27
+load END
+============,.V+.;============
+===========;.X##..;===========
+===========..####..===========
+==========,.##M###.:==========
+=========;.R##WW##=.;=========
+=========..##MWMW##,.=========
+========:.I##WWMWW#W.,========
+=======;.:##WWWWWW##I.;=======
+=======:.W########M##..=======
+=======.:############V.;======
+=======.####...,.,M###,.======
+======,.###:..+++;,B..#.;=====
+=====;.#;.#i+YXVVY:#V.#..:====
+====:..#..##.RYYIt##...#=.,===
+==;..+#;...#######W....##W..:=
+:..t###......iVV=....,.+#iM#..
+.B#i,#..,,..........,,..#,..#I
+V#...#..,,,,,.,,,,:,,,..R#..V#
+;#+.i#..,,,,,,,,,.,,,,,.iX.X#,
+.i#=MV..,,,,.,,,,,,.,,,..###..
+,.t##..,,,,,,,,,,,,,,:,..V##.;
+..M#M..,,,,.,.,,,,,,,:,,.=##..
+i###M..,...........,,:,,..###.
+.####........=II;.....,,.;##R.
+,...#....X####MW###B.....Wi..:
+==;,##,###;........##i...#;,==
+===,.IVi..,;======:..B#B#t.;==
+END
+clear
+undo
+centroid W
+clear
+clear
+clear
+clear
+undo
+undo
+undo
+centroid W
+undo
+centroid W
+undo
+undo
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">STACK USAGE 1/3
+(16,9)
+STACK USAGE 4/6
+STACK USAGE 3/6
+STACK USAGE 2/3
+null
+STACK USAGE 1/3
+(16,9)
+STACK USAGE 0/3
+STACK EMPTY
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Durch wiederholtes Ausführen von Befehlen und dem wiederholten Rückgängigmachen, muss zuerst der Undo-Stack vergrößert werden und anschließend wieder verkleinert werden.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+</table>
+
+<br/>
+<b>Bemerkung:</b> Diese Beispiele dienen nur zur Verdeutlichung der Spezifikation und
+m&uuml;ssen nicht korrekt formatiert sein. Die korrekte Formatierung entnehmen Sie
+bitte dem mitgelieferten Outputfile. Zum Testen Ihrer L&ouml;sung
+k&ouml;nnen Sie aus den mitgelieferten Eingabedaten wie folgt eine Ausgabedatei
+erzeugen:
+
+<br/>
+<b><tt>java  AsciiShop &lt; asciishop-A06-PP.i1 &gt; asciishop-A06-PP.out1</tt></b>
+<p/>
+Das erzeugte File asciishop-A06-PP.out1 k&ouml;nnen Sie dann mit
+dem mitgelieferten Outputfile asciishop-A06-PP.o1 vergleichen.
+
+
+</body>
+</html>

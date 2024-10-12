@@ -1,0 +1,537 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EPROG-LU - Aufgabe asciishop-A02-PP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<style type="text/css"><!--
+body {
+background-color: #FFFFFF;
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+color:#000000;
+}
+
+table {
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+border-style:none;
+}
+
+td {
+border-color:#000000;
+border-style:none;
+border-width:1px;
+vertical-align:middle;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:0px;
+padding-top:0px;
+}
+// --></style>
+</head>
+<body link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+
+<h1>Beispiel Angabe</h1>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+<tr>
+<td style="width:100px;"><b>K&uuml;rzel:</b></td><td>asciishop-A02-PP</td>
+<!--<td><b>Runde:</b></td><td>2</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Name:</b></td><td>AsciiShop, Runde#2</td>
+<!--<td><b>Evaluieren als:</b></td><td>Java</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kette:</b></td><td>Asciishop PP</td>
+<!--<td><b>Eingabe:</b></td><td>String</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kategorie:</b></td><td>Drawing</td>
+<!--<td><b>Ausgabe:</b></td><td>String</td>-->
+</tr>
+</table>
+<p>
+
+
+<b>Mitgelieferte Datei(en):</b> <br>
+<b>Abzugebende Datei(en):</b> BarPlot.java<br>
+<b>Optional abzugebende Datei(en):</b> <br>
+<b>Ausf&uuml;hrbar:</b> BarPlot<br>
+
+<p>
+
+
+Die Klasse <em>BarPlot</em> ist zu erstellen und soll eine
+ausf&uuml;hrbare Klasse sein und muss daher die <tt>public static void main(String[] args)</tt>
+Methode beinhalten.
+
+Ihr Programm wird automatisch auf Korrektheit &uuml;berpr&uuml;ft.
+Die &Uuml;berpr&uuml;fung erfolgt durch die Ausf&uuml;hrung der als
+ausf&uuml;hrbar bezeichneten Klasse (<em>BarPlot</em>).
+
+
+<H2>Kurzbeschreibung:</H2>
+<style type="text/css">
+<!--
+  .new{
+    background-color: rgb(211, 217, 227);
+  }
+  dl {
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: -4px;
+  }
+  dd{
+    margin-left: 20px;
+    margin-top: 5px;  
+  }
+  span.grey{
+    color: #666;
+  }
+  ul.relaxed li{
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+
+-->
+</style>
+
+Das Programm BarPlot soll Balkenbeschriftungen und Werte paarweise einlesen und ein horizontales Balkendiagramm ausgeben.
+
+<h3>Lernziele</h3>
+<ul>
+<li>Einlesen mittels Scanner</li>
+<li>Pr&uuml;fen von Eingaben</li>
+<li>Ausgeben &uuml;ber die Standardausgabe</li>
+<li>Kontrollstrukturen</li>
+<li>Typumwandlungen</li>
+</ul>
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#aufgabenstellung">Aufgabenstellung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#klassenundmethoden">Klassen und Methoden</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#einausgabedaten">Ein- und Ausgabedaten</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#bewertungkriterien">Bewertung und Kriterien</a></td>
+
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#hinweise">Hinweise</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do">FAQ</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#fehlerbehandlung">Fehlerbehandlung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#testen">Testen</a></td>
+</tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<a id="aufgabenstellung" name="aufgabenstellung"></a>
+<!--
+
+
+<H2>Allgemeine Hinweise:</H2>
+<ul>
+<li>
+<b>Die Gro&szlig;- und Kleinschreibung ist relevant!</b> Beachten Sie ganz genau die Angaben zu den
+Funktions- und Dateinamen.
+</li>
+<li>
+Die abzugebende Datei(en) m&uuml;ssen f&uuml;r die Abgabe ausnahmslos <b>archiviert</b> werden.
+Das Format der Archiv muss <b>Zip</b> sein, Programme wie WinZip, WinRar, jar (kommt mit der Java JDK Distribution)
+k&ouml;nnen Sie f&uuml;r die Archivierung verwenden. Dateiendung des Archivs muss .zip oder .jar sein.
+<br/> jar syntax:
+<ul>
+<li>
+Archivierung: <b><tt>jar Mcvf archiv_name.jar *</tt></b> (oder einzelne Dateien statt <tt>*</tt>)
+</li>
+<li>
+Inhalte anzeigen: <b><tt>jar tf archiv_name.jar</tt></b>
+</li>
+<li>
+Extrahieren: <b><tt>jar xvf archiv_name.jar</tt></b>
+</li>
+</ul>
+</li>
+<li>
+Ihr Programm darf nur genau jene Ausgabedaten liefern, die in der Spezifikation 
+verlangt werden. Die Ausgaben Ihres Programms werden automatisch mit
+Referenzdaten verglichen; etwaige Abweichungen f&uuml;hren zu Punkteabz&uuml;gen!
+</li>
+
+<li>
+Testen Sie Ihr Programm vor der Abgabe mit den mitgelieferten Eingabedateien.
+Geben Sie Ihre L&ouml;sung erst ab, wenn die Ausgaben Ihres Programms mit der
+ebenfalls mitgelieferten Ausgabedatei &uuml;bereinstimmen! Testen Sie Ihr
+Programm auch mit anderen Eingabedaten.<br/>
+</li>
+
+<li>
+Ihr Programm muss <b>immer</b> den Prozess Return Code 0 liefern. Verwenden Sie daher
+keine <code>System.exit(1)</code>-artige Unterbrechungen in Ihrem Programm.
+Am besten verzichten Sie v&ouml;llig auf System.exit() Aufrufe da dadurch der
+laufende JVM gewaltsam terminiert wird.<br/>
+</li>
+
+
+<li>
+Verwenden Sie die Klasse <code>Scanner</code> zum Einlesen von Daten.<br/>
+F&uuml;r die Ausgabe k&ouml;nnen Sie die Methoden <code>System.out.print</code> und
+<code>System.out.println</code> benutzen. Zum Erzeugen formatierter Ausgaben k&ouml;nnen
+Sie auch <code>System.out.printf</code> benutzen (wird im Allgemeinen aber nicht ben&ouml;tigt).
+Beachten Sie, dass wir bei der Beurteilung einen US-amerikanischen Region- und
+Spracheinstellungssatz (<i>locale</i>) f&uml;r die Beurteilung benutzen.
+Das bedeutet, dass wir f&uuml;r die Darstellung von <code>double</code>-Werten auch bei
+der Ein-/Ausgabe immer den Dezimalpunkt (und nicht Beistrich) benutzen
+(z.B. 3.14159 und nicht 3,14159). Falls Sie auf Ihrem Rechner eine andere Einstellung haben,
+k&ouml;nnen Sie zum Testen zuhause auch die Darstellung mit Beistrich benutzen (ist aber nicht
+konsistent mit den mitgelieferten Ein-/Ausgabe-Paaren) oder beim Aufruf von Java auch folgenden Befehl
+benutzen:
+<ul>
+<li><b><code>java -Duser.language=en -Duser.country=US BarPlot</code></b></li>
+</ul>
+Sie werden sehen, dass dann w&auml;hrend des Ablaufs des Programmes bei der Eingabe
+von <code>double</code>-Werten eine Darstellung mit Dezimalpunkt erwartet wird.
+Wenden Sie sich bei Problemen mit den Ein-/Ausgabefunktionen bitte an die Tutoren im Labor.
+</li>
+<li>
+Programme, die Packages oder Klassen au&szlig;erhalb der verwendeten &Uuml;bungsumgebung 
+(<a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">J2SE Development Kit (JDK) 5.0</a>)
+verwenden, k&ouml;nnen von uns nicht getestet und beurteilt werden!<br/>
+</li>
+
+<li>
+Schreiben Sie Ihr Programm m&ouml;glichst allgemein und kommentieren Sie es
+gut. Die Kommentare im Programm gelten als Dokumentation.
+Die Dokumentation Ihrer Programme wird ebenfalls beurteilt. Es ist
+erlaubt/erw&uuml;nscht die Kommentare javadoc-konform zu erstellen.<br/>
+</li>
+</ul>
+
+
+<H2>Spezifikationsspezifische Hinweise:</H2>
+-->
+
+
+<H2>Aufgabenstellung:</H2>
+<p>
+Das Programm <code>BarPlot</code> generiert anhand der Eingabe horizontale Balkendiagramme, die aus einer Beschriftung und einem Balken bestehen.
+Die Formatierung sieht f&uuml;r die Beschriftung 8 Zeichen vor, gefolgt von einem '|' und dem maximal 30 Zeichen langen Balken bestehend aus dem Zeichen '#'. Falls der Balken nicht die vollen 30 Zeichen aussch&ouml;pft, wird mit Leerzeichen aufgef&uuml;llt. An letzter Stelle wird wieder ein '|' angehängt, das Diagramm ist also immer 40 Zeichen breit.
+</p>
+<p>
+Beim Einlesen der Werte muss zwischen Flie&szlig;kommazahlen und Ganzzahlen unterschieden werden. N&uuml;tzen Sie dazu die Methoden <em>hasNextDouble()</em> und <em>hasNextInt()</em>  des Scanners. Ganzzahlen m&uuml;ssen zwischen inklusive 0 und 30 liegen und entsprechen 1:1 der Anzahl der angezeigten Balken. Flie&szlig;kommazahlen liegen zwischen 0.0 und 1.0 und beschreiben die prozentuale L&auml;nge des Balkens.
+</p>
+
+<!-- Ben&ouml;tigte Klassen und Methoden -->
+
+<a id="klassenundmethoden" name="klassenundmethoden"></a>
+<h2>Klassen und Methoden</h2>
+<p>Die folgende Aufz&auml;hlung umfasst geforderte Klassen und Methoden. Sie k&ouml;nnen nach Bedarf Hilfsmethoden hinzuf&uuml;gen. <!-- Achten Sie auf die korrekte Datenkapselung. Insbesondere sollen Sie sinnvolle Zugriffsmodifikatoren f&uuml;r Variablen (und Methoden) verwenden.--></p>
+
+<dl>
+<dt><b>BarPlot</b></dt>
+<dd>Diese Klasse ist ausf&uuml;hrbar und beinhaltet daher die <code>main</code>-Methode. Sie verarbeitet die Eingaben, ruft alle Methoden auf und gibt das Ergebnis aus.
+
+	<dl>
+    <dt><code>public static void main(String[] args)</code></dt> 
+    <dd>liest die Daten und Befehle ein und gibt das Ergebnis aus. Allein diese Methode liest direkt von <code>System.in</code> ein und gibt direkt auf <code>System.out</code> aus.</dd>
+	</dl>
+
+        <dl>
+        <dt><code>static String repeat(char c, int n)</code></dt>
+        <dd>Liefert einen String der L&auml;nge <em>n</em> zur&uuml;ck der nur aus dem Zeichen <em>c</em> besteht (beispielsweise liefert <code>repeat('+',4)</code> den String <code>"++++"</code> zurück).</dd>
+        </dl>
+
+        <dl>        
+<dt><code>static String drawLabel(String label, int n)</code></dt>
+        <dd>Liefert einen String zur&uuml;ck der <em>label</em> beinhaltet aber genau <em>n</em> Zeichen lang ist. Wenn label zu lange ist wird es abgeschnitten, wenn label zu kurz ist, wird der R&uuml;ckgabewert mit Leerzeichen aufgef&uuml;llt. Beispielsweise liefert <code>drawLabel("abc",5)</code> den String <code>"abc  "</code> zur&uuml;ck.</dd>
+        </dl>
+
+        <dl>   
+<dt><code>static String drawBar(String label, int value)</code></dt>
+<dd>Generiert eine Zeile des Balkendiagramms. <em>value</em> bezeichnet dabei die absolute Länge des Balkens.</dd>
+        </dl>
+        <dl> 
+<dt><code>static String drawBar(String label, double value)</code></dt>
+<dd>Generiert eine Zeile des Balkendiagramms. <em>value</em> bezeichnet die prozentuelle L&auml;nge des Balkens. Wird ein Prozentwert als Balken dargestellt muss eine ganzzahlige Balkenl&auml;nge berechnet werden. Diese soll durch Runden zur n&auml;chstgelegenen Ganzzahl entstehen.</dd>
+        </dl>
+
+</dd>
+</dl>
+
+<p>&nbsp;</p>
+
+<!-- FAQ -->
+
+<a id="faq" name="faq"></a>
+<h2>Allgemeine Hinweise:</h2>
+<ul>
+<li>
+<b>Die Gro&szlig;- und Kleinschreibung ist relevant!</b> Beachten Sie ganz genau die Angaben zu den
+Funktions- und Dateinamen.
+</li>
+<li>
+Die abzugebende Datei(en) m&uuml;ssen f&uuml;r die Abgabe ausnahmslos <b>archiviert</b> werden.
+Das Format der Archiv muss <b>Zip</b> sein, Programme wie WinZip, WinRar, jar (kommt mit der Java JDK Distribution)
+k&ouml;nnen Sie f&uuml;r die Archivierung verwenden. Dateiendung des Archivs muss .zip oder .jar sein.
+<br/> jar syntax:
+<ul>
+<li>
+Archivierung: <b><tt>jar Mcvf archiv_name.jar *</tt></b> (oder einzelne Dateien statt <tt>*</tt>)
+</li>
+<li>
+Inhalte anzeigen: <b><tt>jar tf archiv_name.jar</tt></b>
+</li>
+<li>
+Extrahieren: <b><tt>jar xvf archiv_name.jar</tt></b>
+</li>
+</ul>
+</li>
+<li>
+Ihr Programm darf nur genau jene Ausgabedaten liefern, die in der Spezifikation 
+verlangt werden. Die Ausgaben Ihres Programms werden automatisch mit
+Referenzdaten verglichen; etwaige Abweichungen f&uuml;hren zu Punkteabz&uuml;gen!
+</li>
+
+<li>
+Testen Sie Ihr Programm vor der Abgabe mit den mitgelieferten Eingabedateien.
+Geben Sie Ihre L&ouml;sung erst ab, wenn die Ausgaben Ihres Programms mit der
+ebenfalls mitgelieferten Ausgabedatei &uuml;bereinstimmen! Testen Sie Ihr
+Programm auch mit anderen Eingabedaten.<br/>
+</li>
+
+<li>
+Ihr Programm muss <b>immer</b> den Prozess Return Code 0 liefern. Verwenden Sie daher
+keine <code>System.exit(1)</code>-artige Unterbrechungen in Ihrem Programm.
+Am besten verzichten Sie v&ouml;llig auf System.exit() Aufrufe da dadurch der
+laufende JVM gewaltsam terminiert wird.<br/>
+</li>
+
+
+<li>
+Verwenden Sie die Klasse <code>Scanner</code> zum Einlesen von Daten.<br/>
+F&uuml;r die Ausgabe k&ouml;nnen Sie die Methoden <code>System.out.print</code> und
+<code>System.out.println</code> benutzen. Zum Erzeugen formatierter Ausgaben k&ouml;nnen
+Sie auch <code>System.out.printf</code> benutzen (wird im Allgemeinen aber nicht ben&ouml;tigt).
+Beachten Sie, dass wir bei der Beurteilung einen US-amerikanischen Region- und
+Spracheinstellungssatz (<i>locale</i>) f&uuml;r die Beurteilung benutzen.
+Das bedeutet, dass wir f&uuml;r die Darstellung von <code>double</code>-Werten auch bei
+der Ein-/Ausgabe immer den Dezimalpunkt (und nicht Beistrich) benutzen
+(z.B. 3.14159 und nicht 3,14159). Falls Sie auf Ihrem Rechner eine andere Einstellung haben,
+k&ouml;nnen Sie zum Testen zuhause auch die Darstellung mit Beistrich benutzen (ist aber nicht
+konsistent mit den mitgelieferten Ein-/Ausgabe-Paaren) oder beim Aufruf von Java auch folgenden Befehl
+benutzen:
+<ul>
+<li><b><code>java -Duser.language=en -Duser.country=US AsciiShop</code></b></li>
+</ul>
+Sie werden sehen, dass dann w&auml;hrend des Ablaufs des Programmes bei der Eingabe
+von <code>double</code>-Werten eine Darstellung mit Dezimalpunkt erwartet wird.
+Wenden Sie sich bei Problemen mit den Ein-/Ausgabefunktionen bitte an die Tutoren im Labor.
+</li>
+<li>
+Programme, die Packages oder Klassen au&szlig;erhalb der verwendeten &Uuml;bungsumgebung 
+(<a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">J2SE Development Kit (JDK) 5.0</a>)
+verwenden, k&ouml;nnen von uns nicht getestet und beurteilt werden!<br/>
+</li>
+
+<li>
+Schreiben Sie Ihr Programm m&ouml;glichst allgemein und kommentieren Sie es
+gut. Die Kommentare im Programm gelten als Dokumentation.
+Die Dokumentation Ihrer Programme wird ebenfalls beurteilt. Es ist
+erlaubt/erw&uuml;nscht die Kommentare javadoc-konform zu erstellen.<br/>
+</li>
+</ul>
+
+<p>&nbsp;</p>
+
+
+<!-- Spezifikationsspezifische Hinweise -->
+
+<a id="hinweise" name="hinweise"></a>
+<H2>Hinweise:</H2>
+Beachten Sie die allgemeinen Hinweise zur Installation und zur Ein-/Ausgabe, sowie zur Abgabe und zur Beurteilung in den <a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do ">FAQ</a>. Beispiele zum Umgang mit Ein-/Ausgabe sowie den Methoden der Klasse <a href="http://download.oracle.com/javase/6/docs/api/?java/lang/String.html"><code>String</code></a> finden Sie im <a href="http://www.complang.tuwien.ac.at/franz/pk#skriptum">Skriptum</a> oder in den <a href="http://www.complang.tuwien.ac.at/franz/pk#folien">Folien</a> der Vorlesung.</p>
+
+
+<h3>Faktorisierung</h3>
+<p>Achten Sie bei der Implementierung der geforderten Methoden darauf, dass dieselbe Folge von Anweisungen nicht mehrfach (z.B. in verschiedenen Methoden) auftritt (kein duplizierter Code). Beispielsweise kann die Methode <code>repeat</code> sowohl zum Erstellen der Balken als auch zum F&uuml;llen einer Zeichenkette mit Leerzeichen benutzt werden. Die daf&uuml;r notwendige Schleife sollte nur in <code>repeat</code> geschrieben werden und nicht an weiteren Stellen im Programm vorkommen.</p>
+
+<h3>Eingabe</h3>
+<p>F&uuml;r das Einlesen von Daten von der Standardeingabe verwenden Sie die Klasse <a href="http://download.oracle.com/javase/6/docs/api/?java/util/Scanner.html"><code>Scanner</code></a>. Beispiele für die Verwendung der Klasse Scanner finden Sie im <a href="http://www.complang.tuwien.ac.at/franz/pk#skriptum">Skriptum</a> oder in den <a href="http://www.complang.tuwien.ac.at/franz/pk#folien">Folien</a> der Vorlesung.</p>
+
+<h3>Ausgabe</h3>
+<p>F&uuml;r die Ausgabe &uuml;ber die Standardausgabe verwenden Sie die Methoden <code>System.out.print</code> und <code>System.out.println</code>. </p>
+
+<a id="bewertungkriterien" name="bewertungkriterien"></a>
+<h3>Nicht-Funktionale Anforderungen</h3>
+<p>Im Rahmen des <b>Abschlussgesprächs</b> wird die Abgabe nach Kriterien wie Dokumentation (sprich Kommentare), Übersichtlichkeit des Codes, Verständnis, etc. beurteilt.</p>
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="padding: 10px;" colspan="3">
+
+Wenn Sie Fragen zur Implementierung oder auch zu Java haben, k&ouml;nnen Sie das Informatik-Forum nutzen. Im Rahmen der w&ouml;chentlichen Laborien stehen Tutoren für Fragen zur Verf&uuml;gung.
+
+</td>
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:50%;" ><a style="font-size: larger;" href="http://www.informatik-forum.at/forumdisplay.php?1452-Programmierpraxis-UE">Informatik-Forum</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px;  width:50%;"><a style="font-size: larger;" href="https://pp.caa.tuwien.ac.at/laborien/">Laborien</a></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<a id="einausgabedaten" name="einausgabedaten"></a>
+
+
+<H2>Eingabedaten:</H2>
+<p>
+Es werden Balkenbeschriftungen als Wort gefolgt von einer Zahl, die die Balkenlänge angibt, paarweise eingelesen. Die Zahl kann Ganzzahl oder Flie&szlig;kommazahl sein. Wird eine Ganzzahl eingelesen, gibt diese die absolute Balkenlänge (0-30) an. Wird eine Flie&szlig;kommazahl eingelesen, so gibt diese einen Prozentwert an. Die Flie&szlig;kommazahl muss dabei zwischen 0.0 (0%) und 1.0 (100% = Balkenl&auml;nge 30) liegen.
+</p>
+
+<a id="ausgabedaten" name="ausgabedaten"></a>
+
+
+<H2>Ausgabedaten:</H2>
+<p>
+Für jedes eingelesenes Datenpaar wird die Balkenbeschriftung und ein horizontaler Balken ausgegeben.
+</p>
+
+<a id="fehlerbehandlung" name="fehlerbehandlung"></a>
+
+
+<H2>Fehlerbehandlung:</H2>
+<p>
+Wenn ein ung&uuml;ltiger Wert eingelesen wird, oder ein Teil der Eingabe fehlt (wenn beispielsweise eine Beschriftung ohne nachfolgende Zahl in der Eingabe vorliegt), soll "INPUT ERROR" ausgegeben und das Programm beendet werden.
+</p>
+
+<a id="testen" name="testen"></a>
+
+
+<H2>Testen:</H2>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">WS2009 15
+SS2010 3
+WS2010 21
+SS2011 14
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">WS2009  |###############               |
+SS2010  |###                           |
+WS2010  |#####################         |
+SS2011  |##############                |
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Korrekt</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">ColdMonths 0.8
+WarmMonths 0.15
+HotMonths 0.05
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">ColdMont|########################      |
+WarmMont|#####                         |
+HotMonth|##                            |
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Gleitkommazahlen und abgeschnittene Achsenbeschriftung</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">WS2009 15 SS2010 3 WS2010 0.7 SS2011 0.47
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">WS2009  |###############               |
+SS2010  |###                           |
+WS2010  |#####################         |
+SS2011  |##############                |
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Eingabe mit Ganzzahlen und Fließkommazahlen.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">5 5
+55 55
+23 23
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">5       |#####                         |
+INPUT ERROR
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Ungültiger Wert in Zeile 2</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+</table>
+
+<br/>
+<b>Bemerkung:</b> Diese Beispiele dienen nur zur Verdeutlichung der Spezifikation und
+m&uuml;ssen nicht korrekt formatiert sein. Die korrekte Formatierung entnehmen Sie
+bitte dem mitgelieferten Outputfile. Zum Testen Ihrer L&ouml;sung
+k&ouml;nnen Sie aus den mitgelieferten Eingabedaten wie folgt eine Ausgabedatei
+erzeugen:
+
+<br/>
+<b><tt>java  BarPlot &lt; asciishop-A02-PP.i1 &gt; asciishop-A02-PP.out1</tt></b>
+<p/>
+Das erzeugte File asciishop-A02-PP.out1 k&ouml;nnen Sie dann mit
+dem mitgelieferten Outputfile asciishop-A02-PP.o1 vergleichen.
+
+
+</body>
+</html>

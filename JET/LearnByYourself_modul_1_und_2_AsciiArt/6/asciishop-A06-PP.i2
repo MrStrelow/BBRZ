@@ -1,0 +1,7 @@
+create 41 10
+clear
+line 0 0 40 8 B
+clear
+print
+undo
+print
