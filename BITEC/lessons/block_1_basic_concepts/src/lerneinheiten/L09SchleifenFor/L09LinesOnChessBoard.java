@@ -51,9 +51,10 @@ public class L09LinesOnChessBoard {
         Integer deltaY = yZiel - yStart;
         Double steigung;
         Integer longerDelta;
+        Integer shorterDelta;
+        Integer startLonger;
+        Integer startShorter;
         Boolean longerIsX;
-        Integer chosenY;
-        Integer chosenX;
 
         // Variante 1: Wir haben zwar nicht alle Fälle hier abgedeckt, es entstehen also Bugs und Fehler,
         // aber die Logik ist prinzipiell implementiert!
@@ -64,13 +65,15 @@ public class L09LinesOnChessBoard {
         // - 0 5 und 7 7
         // aber nicht:
         // - 5 0 und 7 7
-        // - 7 7 und 5 0
+        // - 5 7 und 7 0
+        // - 0 7 und 7 5
         // - 7 7 und 0 5
-        // - 5 7 und 7 0
-        // - 7 0 und 5 7
-        // - 5 7 und 7 0
-        // - 0 7 und 5 7
+        // - 7 7 und 5 0
         // - 5 7 und 0 7
+        // - 0 7 und 5 7
+        // - 0 5 und 7 7
+        // - 0 0 und 0 7
+        // - 0 7 und 0 0
 
 //        System.out.println("++++++++++++++ Version 1 ++++++++++++++");
 //        steigung = Math.abs( (deltaY+0.) / deltaX);
@@ -94,13 +97,15 @@ public class L09LinesOnChessBoard {
 //        // - 0 5 und 7 7
 //        // - 5 0 und 7 7
 //        // aber nicht:
-//        // - 7 7 und 5 0
+//        // - 5 7 und 7 0
+//        // - 0 7 und 7 5
 //        // - 7 7 und 0 5
-//        // - 5 7 und 7 0
-//        // - 7 0 und 5 7
-//        // - 5 7 und 7 0
-//        // - 0 7 und 5 7
+//        // - 7 7 und 5 0
 //        // - 5 7 und 0 7
+//        // - 0 7 und 5 7
+//        // - 0 5 und 7 7
+//        // - 0 0 und 0 7
+//        // - 0 7 und 0 0
 //
 //        if (Math.abs(deltaX) > Math.abs(deltaY)) {
 //            steigung = (0.d + deltaY) / deltaX;
@@ -141,61 +146,86 @@ public class L09LinesOnChessBoard {
 
         System.out.println("++++++++++++++ Version 3 ++++++++++++++");
 
-        // In der Variante 3 funktioniert:
+        // Tests:
         // - 0 5 und 7 7
         // - 5 0 und 7 7
-        // - 7 7 und 5 0
+        // - 5 7 und 7 0
+        // - 0 7 und 7 5
         // - 7 7 und 0 5
-        // - 5 7 und 7 0 [fail]
-        // - 7 0 und 5 7 [fail]
-        // - 0 7 und 7 5 [fail]
-        // - 5 7 und 0 7 [fail]
+        // - 7 7 und 5 0
+        // - 5 7 und 0 7
+        // - 0 7 und 5 7
+        // - 0 5 und 7 7
+        // - 0 0 und 0 7
+        // - 0 7 und 0 0
 
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            steigung = (0.d + deltaY) / deltaX;
             longerDelta = deltaX;
+            shorterDelta = deltaY;
+            startLonger = xStart;
+            startShorter = yStart;
             longerIsX = true;
 
         } else {
-            steigung = (0.d + deltaX) / deltaY;
             longerDelta = deltaY;
+            shorterDelta = deltaX;
+            startLonger = yStart;
+            startShorter = xStart;
             longerIsX = false;
         }
 
-        chosenX = xStart;
-        chosenY = yStart;
-
         for (int i = 1; i < Math.abs(longerDelta); i++) {
-            Integer neuePositionX;
-            Integer neuePositionY;
+            Integer indexForShorter;
+            Integer indexForLonger;
 
-            if (longerIsX) {
+            if (shorterDelta < 0 && longerDelta < 0) {
+                indexForLonger = startLonger - i;
+                steigung = -(0.d + shorterDelta) / longerDelta;
 
-                if (deltaY < 0) { // TODO: here
-                    neuePositionX = chosenX - i;
-                    neuePositionY = Long.valueOf(Math.round(chosenY - i * steigung)).intValue();
+            } else if (shorterDelta < 0 && longerDelta > 0) {
+                indexForLonger = startLonger + i;
+                steigung = (0.d + shorterDelta) / longerDelta;
 
-                } else {
-                    neuePositionX = chosenX + i;
-                    neuePositionY = Long.valueOf(Math.round(chosenY + i * steigung)).intValue();
-                }
+            } else if (shorterDelta > 0 && longerDelta < 0) {
+                indexForLonger = startLonger - i;
+                steigung = -(0.d + shorterDelta) / longerDelta;
+
+            } else if (shorterDelta > 0 && longerDelta > 0) {
+                indexForLonger = startLonger + i;
+                steigung = (0.d + shorterDelta) / longerDelta;
+
+            } else if (shorterDelta == 0 && longerDelta > 0){
+                indexForLonger = startLonger + i;
+                steigung = (0.d + shorterDelta) / longerDelta;
+
+            } else if (shorterDelta == 0 && longerDelta < 0){
+                indexForLonger = startLonger - i;
+                steigung = (0.d + shorterDelta) / longerDelta;
 
             } else {
-
-                if (deltaX < 0) { // TODO: here
-                    neuePositionY = chosenY - i;
-                    neuePositionX = Long.valueOf(Math.round(chosenX - i * steigung)).intValue();
-
-                } else {
-                    neuePositionY = chosenY + i;
-                    neuePositionX = Long.valueOf(Math.round(chosenX + i * steigung)).intValue();
-                }
-
-
+                indexForLonger = null;
+                steigung = null;
             }
 
-            brett[neuePositionY][neuePositionX] = ".";
+            indexForShorter = Long.valueOf(Math.round(startShorter + i * steigung)).intValue();
+
+            for (int ii = 0; ii < dimension; ii++) {
+                for (int j = 0; j < dimension; j++) {
+                    System.out.print(brett[ii][j]);
+                }
+                System.out.println();
+            }
+            System.out.println();
+
+
+            if(longerIsX) {
+                brett[indexForShorter][indexForLonger] = ".";
+            } else {
+                brett[indexForLonger][indexForShorter] = ".";
+            }
         }
+
+
 
         // Ausgabe
         for (int i = 0; i < dimension; i++) {
