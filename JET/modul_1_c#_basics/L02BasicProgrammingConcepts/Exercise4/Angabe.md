@@ -159,7 +159,7 @@ Hier soll durch die Eingabe der „Steigung“ gesteuert werden wie „spitz“ 
 ```
 
 Hier ein Beispiel zur Steigung $\frac{\Delta y}{\Delta x}=k=0.67=\frac{2}{3}$ und ein möglicher Lösungsversuch:
-* Stellen Sie sich auf die linke Ecke, und gehen Sie einen Schritt nach rechts. Die Koordinate $x=1$. Wir gehen hier nach rechts weiter. Wenn wir wissen wollen welches Feld in $y$ von der Linie berührt wird, wenn wir einen Schritt nach rechts gehen (\Delta x=1), sagt uns $y=k*x$ eben dieses Feld. $\frac{\Delta y}{\Delta x}=k$ wissen wir durch die Eingabe des Users. Dieser sagt uns z.B. ``k=0.67``. 
+* Stellen Sie sich auf die linke Ecke, und gehen Sie einen Schritt nach rechts. Die Koordinate $x=1$. Wir gehen hier nach rechts weiter. Wenn wir wissen wollen welches Feld in $y$ von der Linie berührt wird, wenn wir einen Schritt nach rechts gehen (\Delta x=1), sagt uns $y=k \cdot x$ eben dieses Feld. $\frac{\Delta y}{\Delta x}=k$ wissen wir durch die Eingabe des Users. Dieser sagt uns z.B. ``k=0.67``. 
 
 * ``x`` und ``y`` ist die Position eines Arrays. Also $0.67*1=0.67$. Bedeutet gerundet $x=1$ und $y=1$. 
 Für $x=2$  $y=0.67*2=1.33$ und gerundet $y=1$. Wenn wir das weiter machen, haben wir
