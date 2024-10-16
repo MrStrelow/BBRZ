@@ -3,10 +3,10 @@ import jdk.jshell.spi.ExecutionControl;
 public class FunktionenBeispielMuster {
     public static void main(String[] args) {
         String[][] feld = fillCanvas(new String[6][6], "~");
-        print(feld);
         String[][] dreieck = drawTriangle(feld, "#");
-        String[][] diamant = drawDiamond(dreieck);
-        print(diamant);
+        print(dreieck);
+//        String[][] diamant = drawDiamond(dreieck);
+//        print(diamant);
     }
 
     // Achtung! static immer vor die Funktion schreiben. Brauchen wir hier wegen der Objektorientierung. Das lernen wir später kennen.
@@ -38,7 +38,15 @@ public class FunktionenBeispielMuster {
 
     // funktion welche in ein 2d Array ein Dreieck zeichnet
     static String[][] drawTriangle(String[][] field, String symbol) {
-        return null;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                if (j <= i) {
+                    field[i][j] = symbol;
+                }
+            }
+        }
+
+        return field;
     }
 
     // funktion welche ein 2d Array mit einem Symbol befüllt

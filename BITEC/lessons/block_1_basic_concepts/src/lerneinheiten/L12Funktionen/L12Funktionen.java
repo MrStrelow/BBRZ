@@ -83,6 +83,12 @@ public class L12Funktionen {
         // Auch können wir eine Funktion ohne Parameter/Argumenten schreiben
         nameMeinerFunktionOhneRueckgabewertUndArgumente();
 
+        // Weiterführend ist noch auf folgendes einzugehen. Was passiert beim Übergang von Argument zu Parameter?
+        // Wird das Argument in den Parameter kopiert und sind zwei gleiche, aber nicht dieselben Variablen?
+        // Das bedeutet, wenn ich die Variable "a" als Argument übergebe und ich in der Funktion den Parameter "par",
+        // welcher eine Kopie des Wertes der Variable "a=5" ist, manipuliere "par = 10;2 was passiert mit a?
+        // - Bei Call by Value wird a = 5;
+
 
         // wir wollen einen Diamanten aus dreiecken bauen.
         // #
