@@ -1,6 +1,9 @@
 package lerneinheiten.L12Funktionen;
 
 public class L12Funktionen {
+
+    // TODO: return; bei void
+
     // Bis jetzt haben wir unsere 4 Konzepte (Variablen, Operatoren, Verzweigungen und Schleifen) verwendet,
     // um Probleme beim Programmieren zu lösen.
     // Diese Vorgehensweise hat einen Namen. Iteratives Programmieren.
