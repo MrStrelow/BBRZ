@@ -141,6 +141,7 @@ public class L12Funktionen {
 
         for (int i = 0; i < ret.length; i++) {
             for (int j = 0; j < ret.length; j++) {
+//            for (int j = 0; j <= i; j++) { //INFO: Es kann auch hier j <= i abgefragt werden! Wir gehen quasi "smarter". Wir gehen nur jene Felder ab, die wir auf symbol setzen wollen. Wir sparen uns dadurch das folgende IF.
                 if(j <= i) {
                     ret[i][j] = symbol;
                 }
@@ -192,52 +193,19 @@ public class L12Funktionen {
         return ret;
     }
 
-    static String[][] assignLeftUpper(String[][] feld, String[][] leftUpper) {
-        String[][] ret = copy(feld);
-
-        for (int i = 0; i < leftUpper.length; i++) {
-            for (int j = 0; j < leftUpper.length; j++) {
-                ret[i][j] = leftUpper[i][j];
+    static String[][] combineForm(String[][] diamond, String[][] triangle, Position position) {
+        for (int i = 0; i < triangle.length; i++) {
+            for (int j = 0; j < triangle.length; j++) {
+                switch (position) {
+                    case TOPLEFT  -> diamond[i][j] = triangle[i][j];
+                    case BOTRIGHT -> diamond[i??][j??] = triangle[i][j];
+                    case BOTLEFT  -> diamond[i??][j??] = triangle[i][j];
+                    case TOPRIGHT -> diamond[i][triangle.length+j] = triangle[i][j];
+                }
             }
         }
 
-        return ret;
-    }
-
-    static String[][] assignLeftLower(String[][] feld, String[][] leftLower) {
-        String[][] ret = copy(feld);
-
-        for (int i = leftLower.length; i < feld.length; i++) {
-            for (int j = 0; j < leftLower.length; j++) {
-                ret[i][j] = leftLower[i - leftLower.length][j];
-            }
-        }
-
-        return ret;
-    }
-
-    static String[][] assignRightLower(String[][] feld, String[][] rightLower) {
-        String[][] ret = copy(feld);
-
-        for (int i = rightLower.length; i < feld.length; i++) {
-            for (int j = rightLower.length; j < feld.length; j++) {
-                ret[i][j] = rightLower[i - rightLower.length][j - rightLower.length];
-            }
-        }
-
-        return ret;
-    }
-
-    static String[][] assignRightUpper(String[][] feld, String[][] rightUpper) {
-        String[][] ret = copy(feld);
-
-        for (int i = 0; i < rightUpper.length; i++) {
-            for (int j = rightUpper.length; j < feld.length; j++) {
-                ret[i][j] = rightUpper[i][j - rightUpper.length];
-            }
-        }
-
-        return ret;
+        return diamond;
     }
 
     static String[][] drawDiamond(String[][] feld) {

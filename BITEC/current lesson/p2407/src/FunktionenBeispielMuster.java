@@ -3,10 +3,9 @@ import jdk.jshell.spi.ExecutionControl;
 public class FunktionenBeispielMuster {
     public static void main(String[] args) {
         String[][] feld = fillCanvas(new String[6][6], "~");
-        String[][] dreieck = drawTriangle(feld, "#");
-        print(dreieck);
-//        String[][] diamant = drawDiamond(dreieck);
-//        print(diamant);
+        String[][] triangle = drawTriangle(feld, "#");
+        String[][] diamond = drawDiamond(triangle);
+        print(diamond);
     }
 
     // Achtung! static immer vor die Funktion schreiben. Brauchen wir hier wegen der Objektorientierung. Das lernen wir später kennen.
@@ -22,12 +21,13 @@ public class FunktionenBeispielMuster {
 
     // funktion welche in ein 2d Array eine Raute(Diamant) zeichnet
     static String[][] drawDiamond(String[][] triangle) {
-        String[][] topRight = triangle;
+        String[][] topRight = copy(triangle);
         String[][] botRight = mirrorX(triangle);
         String[][] botLeft = mirrorY(botRight);
         String[][] topLeft = mirrorX(botLeft);
 
-        String[][] diamond = new String[2*triangle.length][2*triangle[0].length];
+        String[][] diamond = fillCanvas(new String[2*triangle.length][2*triangle[0].length], "~");
+
         diamond = combineForm(diamond, topRight, Position.TOPRIGHT);
         diamond = combineForm(diamond, botRight, Position.BOTRIGHT);
         diamond = combineForm(diamond, botLeft, Position.BOTLEFT);
@@ -62,17 +62,57 @@ public class FunktionenBeispielMuster {
 
     // funktion um alles zusammenzufügen - diese funktion wird in der drawDiamant aufgerufen
     static String[][] combineForm(String[][] diamond, String[][] triangle, Position position) {
-        return null;
+        for (int i = 0; i < triangle.length; i++) {
+            for (int j = 0; j < triangle.length; j++) {
+                switch (position) {
+                    case TOPLEFT  -> diamond[i][j] = triangle[i][j];
+                    case BOTRIGHT -> diamond[i??][j??] = triangle[i][j];
+                    case BOTLEFT  -> diamond[i??][j??] = triangle[i][j];
+                    case TOPRIGHT -> diamond[i][triangle.length+j] = triangle[i][j];
+                }
+            }
+        }
+
+        return diamond;
     }
 
     // funktion welche muster um x achse spiegelt - diese funktion wird in der drawDiamant aufgerufen
     static String[][] mirrorX(String[][] field) {
-        return null;
+        String[][] ret = copy(field);
+
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                ret[i][j] = field[field.length-1-i][j];
+            }
+        }
+
+        return ret;
     }
 
     // funktion welche muster um y achse spiegelt - diese funktion wird in der drawDiamant aufgerufen
     static String[][] mirrorY(String[][] field) {
-        return null;
+        String[][] ret = copy(field);
+
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                ret[i][j] = field[i][field.length-1-j];
+            }
+        }
+
+        return ret;
+    }
+
+    // funktion welche eine 2d Array kopiert, und dieses in eine neue Variable (2d Array) speichern.
+    static String[][] copy(String[][] field) {
+        String[][] copiedField = new String[field.length][field.length];
+
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                copiedField[i][j] = field[i][j];
+            }
+        }
+
+        return copiedField;
     }
 
 }
