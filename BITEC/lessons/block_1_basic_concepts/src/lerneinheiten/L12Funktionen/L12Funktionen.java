@@ -194,13 +194,16 @@ public class L12Funktionen {
     }
 
     static String[][] combineForm(String[][] diamond, String[][] triangle, Position position) {
+        diamond = copy(diamond);
+        int offset = triangle.length;
+
         for (int i = 0; i < triangle.length; i++) {
             for (int j = 0; j < triangle.length; j++) {
                 switch (position) {
-                    case TOPLEFT  -> diamond[i][j] = triangle[i][j];
-                    case BOTRIGHT -> diamond[i??][j??] = triangle[i][j];
-                    case BOTLEFT  -> diamond[i??][j??] = triangle[i][j];
-                    case TOPRIGHT -> diamond[i][triangle.length+j] = triangle[i][j];
+                    case TOP_LEFT  -> diamond[i][j] = triangle[i][j];
+                    case BOT_RIGHT -> diamond[offset + i][j] = triangle[i][j];
+                    case BOT_LEFT  -> diamond[offset + i][offset + j] = triangle[i][j];
+                    case TOP_RIGHT -> diamond[i][offset + j] = triangle[i][j];
                 }
             }
         }
@@ -209,19 +212,23 @@ public class L12Funktionen {
     }
 
     static String[][] drawDiamond(String[][] feld) {
-        String[][] rightUpper = copy(feld);
-        String[][] rightLower = drehen(feld);
-        String[][] leftLower  = drehen(drehen(feld));
-        String[][] leftUpper  = drehen(drehen(drehen(feld)));
+        String[][] topRight = copy(feld);
+        String[][] botRight = drehen(feld);
+        String[][] botLeft  = drehen(drehen(feld));
+        String[][] topLeft  = drehen(drehen(drehen(feld)));
 
         String[][] ret = new String[2 * feld.length][2 * feld.length];
 
-        ret = assignRightUpper(ret, rightUpper);
-        ret = assignRightLower(ret, rightLower);
-        ret = assignLeftUpper(ret, leftUpper);
-        ret = assignLeftLower(ret, leftLower);
+        ret = combineForm(ret, topRight, Position.TOP_RIGHT);
+        ret = combineForm(ret, botRight, Position.BOT_RIGHT);
+        ret = combineForm(ret, botLeft, Position.BOT_LEFT);
+        ret = combineForm(ret, topLeft, Position.TOP_LEFT);
 
         return ret;
     }
-        // TODO: direkter Übergang zur Objektorientiern
 }
+
+enum Position {
+    TOP_RIGHT, TOP_LEFT, BOT_RIGHT, BOT_LEFT
+}
+

@@ -2,7 +2,7 @@ import jdk.jshell.spi.ExecutionControl;
 
 public class FunktionenBeispielMuster {
     public static void main(String[] args) {
-        String[][] feld = fillCanvas(new String[6][6], "~");
+        String[][] feld = fillCanvas(new String[6][6], " ");
         String[][] triangle = drawTriangle(feld, "#");
         String[][] diamond = drawDiamond(triangle);
         print(diamond);
@@ -62,13 +62,14 @@ public class FunktionenBeispielMuster {
 
     // funktion um alles zusammenzufügen - diese funktion wird in der drawDiamant aufgerufen
     static String[][] combineForm(String[][] diamond, String[][] triangle, Position position) {
+        int offset = triangle.length;
         for (int i = 0; i < triangle.length; i++) {
             for (int j = 0; j < triangle.length; j++) {
                 switch (position) {
                     case TOPLEFT  -> diamond[i][j] = triangle[i][j];
-                    case BOTRIGHT -> diamond[i??][j??] = triangle[i][j];
-                    case BOTLEFT  -> diamond[i??][j??] = triangle[i][j];
-                    case TOPRIGHT -> diamond[i][triangle.length+j] = triangle[i][j];
+                    case BOTRIGHT -> diamond[i + offset][j + offset] = triangle[i][j];
+                    case BOTLEFT  -> diamond[i + offset][j] = triangle[i][j];
+                    case TOPRIGHT -> diamond[i][j + offset] = triangle[i][j];
                 }
             }
         }
