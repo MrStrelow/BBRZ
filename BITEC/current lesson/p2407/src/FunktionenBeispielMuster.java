@@ -3,6 +3,7 @@ import jdk.jshell.spi.ExecutionControl;
 public class FunktionenBeispielMuster {
     public static void main(String[] args) {
         String[][] feld = fillCanvas(new String[6][6], "~");
+        print(feld);
         String[][] dreieck = drawTriangle(feld, "#");
         String[][] diamant = drawDiamond(dreieck);
         print(diamant);
@@ -11,7 +12,12 @@ public class FunktionenBeispielMuster {
     // Achtung! static immer vor die Funktion schreiben. Brauchen wir hier wegen der Objektorientierung. Das lernen wir später kennen.
     // funktion welche ein 2d Array auf die Console ausgibt
     static void print(String[][] field) {
-
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                System.out.print(field[i][j]);
+            }
+            System.out.println();
+        }
     }
 
     // funktion welche in ein 2d Array eine Raute(Diamant) zeichnet
@@ -37,7 +43,13 @@ public class FunktionenBeispielMuster {
 
     // funktion welche ein 2d Array mit einem Symbol befüllt
     static String[][] fillCanvas(String[][] field, String symbol) {
-        return null;
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field.length; j++) {
+                field[i][j] = symbol;
+            }
+        }
+
+        return field;
     }
 
     // funktion um alles zusammenzufügen - diese funktion wird in der drawDiamant aufgerufen
