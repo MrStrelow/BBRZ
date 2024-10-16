@@ -1,9 +1,6 @@
 package lerneinheiten.L12Funktionen;
 
 public class L12Funktionen {
-
-    // TODO: return; bei void
-
     // Bis jetzt haben wir unsere 4 Konzepte (Variablen, Operatoren, Verzweigungen und Schleifen) verwendet,
     // um Probleme beim Programmieren zu lösen.
     // Diese Vorgehensweise hat einen Namen. Iteratives Programmieren.
@@ -83,27 +80,24 @@ public class L12Funktionen {
         // Auch können wir eine Funktion ohne Parameter/Argumenten schreiben
         nameMeinerFunktionOhneRueckgabewertUndArgumente();
 
+        // Nur erwähnt aber nicht ausprogrammiert! Werden wir in JET machen.
         // Weiterführend ist noch auf folgendes einzugehen. Was passiert beim Übergang von Argument zu Parameter?
         // Wird das Argument in den Parameter kopiert und sind zwei gleiche, aber nicht dieselben Variablen?
         // Das bedeutet, wenn ich die Variable "a" als Argument übergebe und ich in der Funktion den Parameter "par",
-        // welcher eine Kopie des Wertes der Variable "a=5" ist, manipuliere "par = 10;2 was passiert mit a?
-        // - Bei Call by Value wird a = 5;
+        // welcher eine Kopie des Wertes der Variable "a=5" ist, manipuliere, z.B. "par = 10;", was passiert mit a?
+        // - Bei Call by Value wird a = 5
+        // - Bei Call by Reference wird a = 10
 
-
-        // wir wollen einen Diamanten aus dreiecken bauen.
-        // #
-        // ##
-        // ###
-        // ####
-
-        // 2d array anlegen
-        String[][] feld = new String[5][5];
-
-        // verwende
-        feld = fillCanvas(feld, "~");
-        String[][] triangle = drawTriangle(feld, "#");
-        String[][] diamond = drawDiamond(triangle);
-        print(diamond);
+        // In JAVA haben wir Call by value, bedeutet wir kopieren immer die Argumente in die Parameter rein.
+        // ABER! Wenn es kompliziertere Variablen sind, wie z.B. ein Array, dann wird eine Kopie der Referenz übergeben.
+        // Eine Referenz ist die "Adresse" (wie die eines Menschen/Wohnung), mit der wir die Werte einer Variable
+        // im "Speicher" finden. Das bedeutet, wenn wir eine Kopie der Adresse bekommen, haben wir ein (fast) gleiches
+        // Verhalten wie bei Call by Reference. Es passiert, dass Änderungen eines Parameters der Methode,
+        // Auswirkung auf die übergebenen Argumente haben.
+        // Heißt, es wird die übergebene Variable auch außerhalb der Funktion manipuliert.
+        // Das kann (und wird) zu Bugs führen und ist deshalb wichtig zu wissen.
+        // Wir werden aber nicht näher darauf eingehen, da wir endlich zur Objektorientierung wollen.
+        // Dieses Verhalten wird in JET behandelt.
     }
 
     static void nameMeinerFunktionOhneRueckgabewert(String parameter) {
@@ -113,122 +107,4 @@ public class L12Funktionen {
     static void nameMeinerFunktionOhneRueckgabewertUndArgumente() {
         System.out.println("keine Argumente/Parameter und keine Rückgabe");
     }
-
-    // merke static davor schreiben sonst gehts nicht. was das ist, siehe objektorientierung.
-    static void print(String[][] feld) {
-        for (int i = 0; i < feld.length; i++) {
-            for (int j = 0; j < feld.length; j++) {
-                System.out.print(feld[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
-    static String[][] fillCanvas(String[][] feld, String symbol) {
-        String[][] ret = new String[feld.length][feld.length];
-
-        for (int i = 0; i < ret.length; i++) {
-            for (int j = 0; j < ret.length; j++) {
-                ret[i][j] = symbol;
-            }
-        }
-
-        return ret;
-    }
-
-    static String[][] drawTriangle(String[][] feld, String symbol) {
-        String[][] ret = copy(feld);
-
-        for (int i = 0; i < ret.length; i++) {
-            for (int j = 0; j < ret.length; j++) {
-//            for (int j = 0; j <= i; j++) { //INFO: Es kann auch hier j <= i abgefragt werden! Wir gehen quasi "smarter". Wir gehen nur jene Felder ab, die wir auf symbol setzen wollen. Wir sparen uns dadurch das folgende IF.
-                if(j <= i) {
-                    ret[i][j] = symbol;
-                }
-            }
-        }
-
-        return ret;
-    }
-
-    static String[][] copy(String[][] feld) {
-        String[][] ret = new String[feld.length][feld.length];
-
-        for (int i = 0; i < ret.length; i++) {
-            for (int j = 0; j < ret.length; j++) {
-                ret[i][j] = feld[i][j];
-            }
-        }
-
-        return ret;
-    }
-
-    static String[][] drehen(String[][] feld) {
-        return transpose(mirror(feld));
-    }
-
-    // vertausche x mit y
-    static String[][] transpose(String[][] feld) {
-        String[][] ret = copy(feld);
-
-        for (int i = 0; i < ret.length; i++) {
-            for (int j = 0; j < ret.length; j++) {
-                ret[i][j] = feld[j][i];
-            }
-        }
-
-        return ret;
-    }
-
-    // spiegle entlang der x achse
-    static String[][] mirror(String[][] feld) {
-        String[][] ret = copy(feld);
-
-        for (int i = 0; i < ret.length; i++) {
-            for (int j = 0; j < ret.length; j++) {
-                ret[i][j] = feld[ret.length - 1 - i][j];
-            }
-        }
-
-        return ret;
-    }
-
-    static String[][] combineForm(String[][] diamond, String[][] triangle, Position position) {
-        diamond = copy(diamond);
-        int offset = triangle.length;
-
-        for (int i = 0; i < triangle.length; i++) {
-            for (int j = 0; j < triangle.length; j++) {
-                switch (position) {
-                    case TOP_LEFT  -> diamond[i][j] = triangle[i][j];
-                    case BOT_RIGHT -> diamond[offset + i][j] = triangle[i][j];
-                    case BOT_LEFT  -> diamond[offset + i][offset + j] = triangle[i][j];
-                    case TOP_RIGHT -> diamond[i][offset + j] = triangle[i][j];
-                }
-            }
-        }
-
-        return diamond;
-    }
-
-    static String[][] drawDiamond(String[][] feld) {
-        String[][] topRight = copy(feld);
-        String[][] botRight = drehen(feld);
-        String[][] botLeft  = drehen(drehen(feld));
-        String[][] topLeft  = drehen(drehen(drehen(feld)));
-
-        String[][] ret = new String[2 * feld.length][2 * feld.length];
-
-        ret = combineForm(ret, topRight, Position.TOP_RIGHT);
-        ret = combineForm(ret, botRight, Position.BOT_RIGHT);
-        ret = combineForm(ret, botLeft, Position.BOT_LEFT);
-        ret = combineForm(ret, topLeft, Position.TOP_LEFT);
-
-        return ret;
-    }
 }
-
-enum Position {
-    TOP_RIGHT, TOP_LEFT, BOT_RIGHT, BOT_LEFT
-}
-
