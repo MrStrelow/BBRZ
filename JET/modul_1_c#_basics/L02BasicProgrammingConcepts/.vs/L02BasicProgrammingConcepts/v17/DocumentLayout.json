@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}|Exercise3\\Exercise3.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}|Exercise3\\Exercise3.csproj|solutionrelative:exercise3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A06D7CE7-2C24-492B-8CFF-DB286227315C}|Exercise4\\Exercise4.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A06D7CE7-2C24-492B-8CFF-DB286227315C}|Exercise4\\Exercise4.csproj|solutionrelative:exercise4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,22 +24,10 @@
               "RelativeDocumentMoniker": "Exercise3\\Program.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Program.cs",
               "RelativeToolTip": "Exercise3\\Program.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAAAUwKgAAAB2AAAAAAAAAA==",
+              "ViewState": "AgIAABkBAAAAAAAAAAAAAAkAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T09:05:51.448Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Program.cs",
-              "RelativeDocumentMoniker": "Exercise4\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Program.cs",
-              "RelativeToolTip": "Exercise4\\Program.cs",
-              "ViewState": "AgIAAP4AAAAAAAAAAADgvwsBAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-12T19:49:08.782Z"
             }
           ]
         }

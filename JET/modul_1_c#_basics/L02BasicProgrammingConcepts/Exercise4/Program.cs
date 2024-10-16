@@ -28,7 +28,7 @@ public class FormenMitFunktionen
         Print(slopedTriangle);
         Console.WriteLine();
 
-        var slopedDiamant = DrawDiamondSlope(slopedTriangle);
+        var slopedDiamant = DrawDiamond(slopedTriangle);
         Print(slopedDiamant);
     }
 
@@ -145,98 +145,42 @@ public class FormenMitFunktionen
         return ret;
     }
 
-    // Siehe Code unten: hier kann AssignLeftUpper, usw. zu einer Methode zusammengefasst werden,
-    // welche die verschiedenen offsets der schleifen als Argumente bekommen
-    static string[,] AssignLeftUpper(string[,] field, string[,] leftUpper)
+    static string[,] CombineForm(String[,] container, String[,] part, Position position)
     {
-        string[,] ret = Copy(field);
+        container = Copy(container);
+        int iOffset = part.GetLength(0);
+        int jOffset = part.GetLength(1);
 
-        for (int i = 0; i < leftUpper.GetLength(0); i++)
+        for (int i = 0; i < part.GetLength(0); i++)
         {
-            for (int j = 0; j < leftUpper.GetLength(1); j++)
+            for (int j = 0; j < part.GetLength(1); j++)
             {
-                ret[i, j] = leftUpper[i, j];
+                // wir fragen hier leider immer etwas ab (positon), das sich nicht ändern pro Schleife. Es scheint aber so lesbar zu sein. Wir lasses es deshalb so.
+                switch (position)
+                {
+                    case Position.TOP_LEFT:  container[i,j] = part[i,j]; break;
+                    case Position.BOT_RIGHT: container[i + iOffset, j + jOffset] = part[i,j]; break;
+                    case Position.BOT_LEFT:  container[i + iOffset ,j] = part[i,j]; break;
+                    case Position.TOP_RIGHT: container[i, j + jOffset] = part[i,j]; break;
+                }
             }
         }
 
-        return ret;
-    }
-
-    static string[,] AssignLeftLower(string[,] field, string[,] leftLower)
-    {
-        string[,] ret = Copy(field);
-
-        for (int i = leftLower.GetLength(0); i < field.GetLength(0); i++)
-        {
-            for (int j = 0; j < leftLower.GetLength(1); j++)
-            {
-                ret[i, j] = leftLower[i - leftLower.GetLength(0), j];
-            }
-        }
-
-        return ret;
-    }
-
-    static string[,] AssignRightLower(string[,] field, string[,] rightLower)
-    {
-        string[,] ret = Copy(field);
-
-        for (int i = rightLower.GetLength(0); i < field.GetLength(0); i++)
-        {
-            for (int j = rightLower.GetLength(1); j < field.GetLength(1); j++)
-            {
-                ret[i, j] = rightLower[i - rightLower.GetLength(0), j - rightLower.GetLength(1)];
-            }
-        }
-
-        return ret;
-    }
-
-    static string[,] AssignRightUpper(string[,] field, string[,] rightUpper)
-    {
-        string[,] ret = Copy(field);
-
-        for (int i = 0; i < rightUpper.GetLength(0); i++)
-        {
-            for (int j = rightUpper.GetLength(1); j < field.GetLength(1); j++)
-            {
-                ret[i, j] = rightUpper[i, j - rightUpper.GetLength(1)];
-            }
-        }
-
-        return ret;
+        return container;
     }
 
     static string[,] DrawDiamond(string[,] field)
     {
-        string[,] rightUpper = Copy(field);
-        string[,] rightLower = Rotate(field);
-        string[,] leftLower = Rotate(Rotate(field));
-        string[,] leftUpper = Rotate(Rotate(Rotate(field)));
+        string[,] topRight = Copy(field);
+        string[,] botRight = MirrorX(field);
+        string[,] botLeft  = MirrorY(botRight);
+        string[,] topLeft  = MirrorX(botLeft);
 
         string[,] ret = new string[field.GetLength(0) * 2, field.GetLength(1) * 2];
-
-        ret = AssignRightUpper(ret, rightUpper);
-        ret = AssignRightLower(ret, rightLower);
-        ret = AssignLeftUpper(ret, leftUpper);
-        ret = AssignLeftLower(ret, leftLower);
-
-        return ret;
-    }
-
-    static string[,] DrawDiamondSlope(string[,] field)
-    {
-        string[,] rightUpper = Copy(field);
-        string[,] rightLower = MirrorX(field);
-        string[,] leftLower = MirrorX(MirrorY(field));
-        string[,] leftUpper = MirrorY(field);
-
-        string[,] ret = new string[field.GetLength(0) * 2, field.GetLength(1) * 2];
-
-        ret = AssignRightUpper(ret, rightUpper);
-        ret = AssignRightLower(ret, rightLower);
-        ret = AssignLeftUpper(ret, leftUpper);
-        ret = AssignLeftLower(ret, leftLower);
+        ret = CombineForm(ret, topRight, Position.TOP_RIGHT);
+        ret = CombineForm(ret, botRight, Position.BOT_RIGHT);
+        ret = CombineForm(ret, botLeft, Position.BOT_LEFT);
+        ret = CombineForm(ret, topLeft, Position.TOP_LEFT);
 
         return ret;
     }
@@ -292,28 +236,9 @@ public class FormenMitFunktionen
 
         return ret;
     }
+}
 
-
-    // mit einer methode der Zuordnung:
-    // static String[][] CombineTriangles(String[][] baseArray, String[][] triangle, int rowOffset, int colOffset) {
-    //     for (int i = 0; i < triangle.Length; i++) {
-    //         for (int j = 0; j < triangle[i].Length; j++) {
-    //             if (i + rowOffset < baseArray.Length && j + colOffset < baseArray[i + rowOffset].Length) {
-    //                 baseArray[i + rowOffset][j + colOffset] = triangle[i][j];
-    //             }
-    //         }
-    //     }
-    // }
-
-    // static String[][] DrawStar(String[][] baseArray) {
-    //     String[][] triangle = DrawTriangle(baseArray, "#");
-
-    //     String[][] star = new String[2 * baseArray.Length][2 * baseArray.Length];
-    //     star = CombineTriangles(star, triangle, 0, baseArray.Length); // Rechte obere Ecke
-    //     star = CombineTriangles(star, Drehen(triangle), baseArray.Length, baseArray.Length); // Rechte untere Ecke
-    //     star = CombineTriangles(star, Drehen(Drehen(triangle)), baseArray.Length, 0); // Linke untere Ecke
-    //     star = CombineTriangles(star, Drehen(Drehen(Drehen(triangle))), 0, 0); // Linke obere Ecke
-
-    //     return star;
-    // }
+enum Position
+{
+    TOP_RIGHT, TOP_LEFT, BOT_RIGHT, BOT_LEFT
 }
