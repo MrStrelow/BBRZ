@@ -1,3 +1,5 @@
+import jdk.jshell.spi.ExecutionControl;
+
 public class FunktionenBeispielMuster {
     public static void main(String[] args) {
         String[][] feld = fillCanvas(new String[6][6], "~");
@@ -19,9 +21,13 @@ public class FunktionenBeispielMuster {
         String[][] botLeft = mirrorY(botRight);
         String[][] topLeft = mirrorX(botLeft);
 
-        String[][] diamond = new String[][];
-        combineForm(diamond, topRight, )
-        return null;
+        String[][] diamond = new String[2*triangle.length][2*triangle[0].length];
+        diamond = combineForm(diamond, topRight, Position.TOPRIGHT);
+        diamond = combineForm(diamond, botRight, Position.BOTRIGHT);
+        diamond = combineForm(diamond, botLeft, Position.BOTLEFT);
+        diamond = combineForm(diamond, topLeft, Position.TOPLEFT);
+
+        return diamond;
     }
 
     // funktion welche in ein 2d Array ein Dreieck zeichnet
