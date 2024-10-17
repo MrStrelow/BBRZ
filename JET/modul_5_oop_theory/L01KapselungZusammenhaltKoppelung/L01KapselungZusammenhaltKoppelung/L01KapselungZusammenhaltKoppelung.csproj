@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\" />
+    <Folder Include="Domain\AthleteManagement\Repositories\" />
+    <Folder Include="Domain\Equipment\Aggregates\" />
+    <Folder Include="Domain\Equipment\Repositories\" />
+    <Folder Include="Domain\Equipment\Services\" />
+    <Folder Include="Domain\FanManagement\Aggregates\" />
+    <Folder Include="Domain\FanManagement\Repositories\" />
+    <Folder Include="Domain\FanManagement\Services\" />
+    <Folder Include="Domain\FanManagement\Value\" />
+    <Folder Include="Domain\HumanManagement\Aggregates\" />
+    <Folder Include="Domain\HumanManagement\Repositories\" />
+    <Folder Include="Domain\HumanManagement\Services\" />
+    <Folder Include="Domain\Place\Aggregates\" />
+    <Folder Include="Domain\Place\Interfaces\" />
+    <Folder Include="Domain\Place\Repositories\" />
+    <Folder Include="Domain\Place\Services\" />
+    <Folder Include="Domain\Staff\Aggregates\" />
+    <Folder Include="Domain\Staff\Interfaces\" />
+    <Folder Include="Domain\Staff\Repositories\" />
+    <Folder Include="Domain\Staff\Services\" />
+    <Folder Include="Domain\Staff\Value\" />
+    <Folder Include="Domain\TournamentManagement\Aggregates\" />
+    <Folder Include="Domain\TournamentManagement\Repositories\" />
+    <Folder Include="Domain\TournamentManagement\Value\" />
+    <Folder Include="Domain\TrainerManagement\Aggregates\" />
+    <Folder Include="Domain\TrainerManagement\Interfaces\" />
+    <Folder Include="Domain\TrainerManagement\Repositories\" />
+    <Folder Include="Domain\TrainerManagement\Services\" />
+    <Folder Include="Domain\TrainerManagement\Value\" />
+    <Folder Include="Domain\Vehicle\Aggregates\" />
+    <Folder Include="Domain\Vehicle\Repositories\" />
+    <Folder Include="Domain\Vehicle\Services\" />
+    <Folder Include="Domain\Vehicle\Value\" />
+    <Folder Include="Presentation\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.AssemblyInfoInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.AssemblyInfo.cs
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.csproj.CoreCompileInputs.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.sourcelink.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\bin\Debug\net8.0\L02Generics.exe
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\bin\Debug\net8.0\L02Generics.deps.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\bin\Debug\net8.0\L02Generics.runtimeconfig.json
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\bin\Debug\net8.0\L02Generics.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\bin\Debug\net8.0\L02Generics.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\refint\L02Generics.dll
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.pdb
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\L02Generics.genruntimeconfig.cache
+C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_5_oop_theory\L02Generics\L02Generics\obj\Debug\net8.0\ref\L02Generics.dll

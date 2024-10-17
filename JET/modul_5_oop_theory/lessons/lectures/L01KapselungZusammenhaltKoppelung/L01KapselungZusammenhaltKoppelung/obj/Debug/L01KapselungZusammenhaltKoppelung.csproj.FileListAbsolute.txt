@@ -1,7 +1,0 @@
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\obj\Debug\L01KapselungZusammenhaltKoppelung.csproj.AssemblyReference.cache
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\obj\Debug\L01KapselungZusammenhaltKoppelung.csproj.CoreCompileInputs.cache
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\bin\Debug\L01KapselungZusammenhaltKoppelung.exe.config
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\bin\Debug\L01KapselungZusammenhaltKoppelung.exe
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\bin\Debug\L01KapselungZusammenhaltKoppelung.pdb
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\obj\Debug\L01KapselungZusammenhaltKoppelung.exe
-C:\Users\c4321116\Documents\GitHub\BBRZ\JET\OOP\lectures\L01KapselungZusammenhaltKoppelung\L01KapselungZusammenhaltKoppelung\obj\Debug\L01KapselungZusammenhaltKoppelung.pdb
