@@ -46,7 +46,8 @@
         {
             for (int x = 0; x < brett.GetLength(1); x++)
             {
-                if (???)
+                //if ( (x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1) )
+                if ((x + y) % 2 == 0)
                 {
                     brett[y, x] = blackSquareCode;
                 }
