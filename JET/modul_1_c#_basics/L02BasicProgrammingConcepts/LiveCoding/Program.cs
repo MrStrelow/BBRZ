@@ -59,11 +59,14 @@
         }
 
         Console.WriteLine("Bitte Start Koordinaten angeben [y x]: ");
-        string[] userinput = Console.ReadLine().Split();
+        string[] userinput = Console.ReadLine().Split(" ");
         int yStart = int.Parse(userinput[0]);
-        int xStart;
-        int yEnd;
-        int xEnd;
+        int xStart = int.Parse(userinput[1]);
+
+        Console.WriteLine("Bitte Ziel Koordinaten angeben [y x]: ");
+        userinput = Console.ReadLine().Split(" ");
+        int yEnd = int.Parse(userinput[0]);
+        int xEnd = int.Parse(userinput[1]);
 
         board[0, 0] = "o";
         board[5, 3] = "x";
