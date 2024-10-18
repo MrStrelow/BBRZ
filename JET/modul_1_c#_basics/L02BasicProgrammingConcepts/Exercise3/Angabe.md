@@ -15,7 +15,8 @@ Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. Die Uni-Co
 Beginne mit folgenden Fall:
     * Start 0 0 zu 3 5: hier ist die längere Seite die horizontale Seite (x). Bedeutet wir wollen diese mit einer Schleife abtasten. Die Koordinaten der längeren (y) Richtung wird dann verwendet um die Koordinaten der kürzeren (x) Richtung auszurechnen ($y=k\cdot x+d$)
     * Start 0 0 zu 5 3: hier ist die längere Seite die vertikale Seite (y). Achtung! Was dreht sich nun alles um? ($y=k\cdot x+d$ oder $x=k\cdot y+d$? bzw. $\frac{\Delta y}{\Delta x}=k$ oder $\frac{\Delta x}{\Delta y}=k$?)
-    * Start 3 5 zu 0 0 bzw. 5 3 zu 0 0: Hier ist nun das Problem, dass wir in der For-Schleife von rechts nach links gehen. Bis jetzt war es links nach rechts. Passe den Code dementsprechend an.
+    * Start 3 5 zu 0 0 bzw. 5 3 zu 0 0: Hier ist nun das Problem, dass wir in der For-Schleife von rechts nach links gehen. Bis jetzt war es links nach rechts. Passe den Code dementsprechend an. `Tipp:` Schreibe nicht gleich eine 2. For Schleife welche mit `i--` arbeitet. Bleibe bei jener mit `i++` und tarte an einer Position und zähle oder ziehe dazu den Index der schleife ab. Dieser Index zählt immer von $1$ bis $|\Delta|$. Hier ist $||$ der Betrag (macht alles positiv) und $\Delta$ ist das jenes der längeren Seite.
+    * Start xx zu yy: Um die richtigen Vorzeichen der Steigung zu erhalten, müssen wir anschauen, welches $\Delta$ größer ist. Wir haben hier 4 Fälle.  
     * horizontale und vertikale Linien: Stelle sicher, dass horizontale und vertikale Linien funktionieren.
 * ``Optional``: Versuche wenn die Linie nach rechts oben bzw. links unten geht das Symbol `/`, links oben bzw. rechts unten, `\`, wenn diese "sehr steil" ist `|` und "sehr flach" `-` (oder such in der erweiterten ASCII Tabelle nach Symbolen). 
 
