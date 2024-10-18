@@ -21,7 +21,7 @@ public class ArraysSchachbrett {
 
                 // das ist besser wenn viele verschiedene bedingen für symoble enstehen
                 // GERADE zeilen (wir beginnen bei 0 und das ist gerade) haben an den UNGERADEN Spalten ein Schwarzes Symbol.
-//                if ( (i % 2 == 0 && j % 2 == 1) || (i % 2 == 1 && j % 2 == 0)) {
+//                if ( (i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
                 if ( (i + j) % 2 == 0 ) {
                     brett[i][j] = blackSquareSymbol;
                 } else {

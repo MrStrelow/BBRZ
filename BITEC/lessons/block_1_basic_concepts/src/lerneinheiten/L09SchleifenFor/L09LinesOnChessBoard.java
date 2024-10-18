@@ -21,12 +21,33 @@ public class L09LinesOnChessBoard {
 //        Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
+                // if ( (i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
                 if ((j + i) % 2 == 0)
-                    brett[i][j] = whiteSquare;
-                else
                     brett[i][j] = blackSquare;
+                else
+                    brett[i][j] = whiteSquare;
             }
         }
+
+// intuitiver.
+//                if (i % 2 == 0) {
+//
+//                    if (j % 2 == 0) {
+//                        brett[i][j] = whiteSquare;
+//
+//                    } else {
+//                        brett[i][j] = blackSquare;
+//                    }
+//
+//                } else {
+//
+//                    if (j % 2 == 0) {
+//                        brett[i][j] = blackSquare;
+//
+//                    } else {
+//                        brett[i][j] = whiteSquare;
+//                    }
+//                }
 
 //        Verbinde 2 gewählte Felder mit einer Linie
 //        Berechne dazu die Steigung der Linie (Siehe Tafelbild 21.12.2023)
