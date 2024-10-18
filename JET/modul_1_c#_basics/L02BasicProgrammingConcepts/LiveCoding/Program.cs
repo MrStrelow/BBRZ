@@ -68,14 +68,17 @@
         int yEnd = int.Parse(userinput[0]);
         int xEnd = int.Parse(userinput[1]);
 
-        board[0, 0] = "o";
-        board[5, 3] = "x";
-        double k = ;
+        board[yStart, xStart] = "o";
+        board[yEnd, xEnd] = "x";
+
+        int deltaX = xStart - xEnd;
+        int deltaY = yStart - yEnd;
+        double k = (double) deltaX / deltaY;
 
         // TODO: here linie coden
-        for (int i = 1; i < 5; i++)
+        for (int i = yStart+1; i < yEnd; i++)
         {
-            int j = (int) (k * i);
+            int j = (int) Math.Round(k * i);
             board[i, j] = "~";
         }
 
