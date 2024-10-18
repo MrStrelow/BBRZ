@@ -59,6 +59,9 @@
         }
 
 
+        // TODO: here linie coden
+
+
         for (int y = 0; y < brett.GetLength(1); y++)
         {
             for (int x = 0; x < brett.GetLength(0); x++)
