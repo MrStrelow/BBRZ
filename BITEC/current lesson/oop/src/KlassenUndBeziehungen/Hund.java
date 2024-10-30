@@ -2,10 +2,17 @@ package KlassenUndBeziehungen;
 
 public class Hund {
     // Felder
-    int alter;
-    String geschlecht;
-    boolean chipped;
-    double health;
+    public int alter;
+    public String geschlecht;
+    public boolean chipped;
+    public double health;
 
     // Methoden
+    private String bellen() {
+        return "";
+    }
+
+    public void spielen() {
+        bellen();
+    }
 }
