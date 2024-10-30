@@ -2,22 +2,44 @@ package lerneinheiten.L02KlassenUndMethoden.klassen;
 
 public class Mensch {
     // Attribute sind nomen
+    private String name;
+    private double happiness;
+    private int age;
 
-    private Double health;
-    private Integer age;
-
-    //Methoden sind verben
-    public void beingDepressed() {
-        System.out.println(":(");
-        health /= 2; // ist das gleiche health = health/2
+    // Konstruktor
+    public Mensch(String name, double happiness, int age) {
+        this.name = name;
+        this.happiness = happiness;
+        this.age = age;
     }
 
-}
+    //Methoden sind verben
+    public Hundebesitzer hundKaufen() {
+        return null;
+    }
 
-//    public void addNumbers(Integer a, Integer b) {
-//        System.out.println(a+b);
-//    }
-//
-//    public Integer addReturnNumbers(Integer a, Integer b) {
-//        return a+b;
-//    }
+    // get und set methoden
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getHappiness() {
+        return happiness;
+    }
+
+    public void setHappiness(double happiness) {
+        this.happiness = happiness;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}

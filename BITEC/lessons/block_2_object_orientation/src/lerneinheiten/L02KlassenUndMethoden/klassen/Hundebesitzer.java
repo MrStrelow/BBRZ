@@ -19,15 +19,22 @@ package lerneinheiten.L02KlassenUndMethoden.klassen;
  */
 
 public class Hundebesitzer extends Mensch {
-    private Double happiness;
-    private Hund[] hunde = new Hund[2];
+    private boolean hatHundeFuehrerschein;
+    private Hund[] hunde;
 
-    public Hundebesitzer(Double happiness) {
-        this.happiness = happiness;
+    public Hundebesitzer(String name, double happiness, int age, boolean hatHundeFuehrerschein, int capacity) {
+        super(name, happiness, age);
+        hunde = new Hund[capacity];
+        this.hatHundeFuehrerschein = hatHundeFuehrerschein;
     }
 
     public void gassiGehen() {
-        System.out.println("ich geh gassi");
+        System.out.println("Ich:" + this.getName() + " geh mi...");
+
+        for (Hund hund : hunde) {
+            System.out.println(hund.getName());
+        }
+        System.out.println(" gassi.");
     }
 
     public void fuettern() {

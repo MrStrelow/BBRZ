@@ -11,9 +11,11 @@ public class Hund {
         Attribute sind deshalb IMMER private! Das bedeutet, dass eben kein Zugriff von außen möglich ist. (protected behandeln wir hier nicht)
     */
 
-    private Double happiness;
-    private Double health;
-    private Integer age;
+    private String name;
+    private int alter;
+    private String geschlecht;
+    private boolean chipped;
+    private double health;
 
     // hat - beziehungen:
     /*
@@ -40,6 +42,7 @@ public class Hund {
     durch Attribute, wenn diese vordefiniert sind (z.B. Double, InputStream, usw.).
      */
     private Hundebesitzer besitzer;
+    private Hund spielFreund;
 
 
     /*
@@ -56,12 +59,14 @@ public class Hund {
         Dies ist nur notwendig, wenn ein Argument der Methode und ein Attribut der Klasse, den selben Namen haben (z.B. health).
         Ansonsten ist ein Zugriff ohne this auch möglich.
     */
-    public Hund(Double happiness, Double health, Integer age, Hundebesitzer besitzer) {
-        this.happiness = happiness;
+    public Hund(String name, Double happiness, Double health, boolean chipped, Integer alter, Hundebesitzer besitzer) {
+        this.name = name;
         this.health = health;
-        this.age = age;
-        this.besitzer = besitzer;
+        this.alter = alter;
+        this.chipped = chipped;
         this.besitzer.addHund(this,0);
+
+        this.besitzer = besitzer;
     }
 
     // methoden:
@@ -88,41 +93,62 @@ public class Hund {
        Wir können hier innerhalb der Klasse direkt innerhalb der Methode auf diese zugreifen. Ein Beispiel dafür ist
        public Integer getAge() welche auf das Attribut age zugreift.
        */
-    public void fressen() {
-        System.out.println("ich fresse.");
+    public void fressen(Essen essen) {
+        System.out.println("ich fresse " + essen.name());
     }
 
-    public Double bellen() {
-        System.out.println("ich belle");
-        return 5.8;
+    public void spielen() {
+        System.out.println("Mein Spielfreund: " + spielFreund.name + " spielt mit mir!: " + this.name);
+    }
+
+    public String bellen() {
+        System.out.println(this.name + " bellt!");
+        return "";
     }
 
     public void weglaufen() {
         System.out.println(":(((((((((");
     }
 
-    public Double getHappiness() {
-        return happiness;
+    // get und set Methoden.
+    public String getName() {
+        return name;
     }
 
-    public void setHappiness(Double happiness) {
-        this.happiness = happiness;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Double getHealth() {
+    public int getAlter() {
+        return alter;
+    }
+
+    public void setAlter(int alter) {
+        this.alter = alter;
+    }
+
+    public String getGeschlecht() {
+        return geschlecht;
+    }
+
+    public void setGeschlecht(String geschlecht) {
+        this.geschlecht = geschlecht;
+    }
+
+    public boolean isChipped() {
+        return chipped;
+    }
+
+    public void setChipped(boolean chipped) {
+        this.chipped = chipped;
+    }
+
+    public double getHealth() {
         return health;
     }
 
-    public void setHealth(Double health) {
+    public void setHealth(double health) {
         this.health = health;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     public Hundebesitzer getBesitzer() {
@@ -131,5 +157,13 @@ public class Hund {
 
     public void setBesitzer(Hundebesitzer besitzer) {
         this.besitzer = besitzer;
+    }
+
+    public Hund getSpielFreund() {
+        return spielFreund;
+    }
+
+    public void setSpielFreund(Hund spielFreund) {
+        this.spielFreund = spielFreund;
     }
 }
