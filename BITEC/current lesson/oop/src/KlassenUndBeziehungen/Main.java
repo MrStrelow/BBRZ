@@ -1,11 +1,11 @@
 package KlassenUndBeziehungen;
 public class Main {
     public static void main(String[] args) {
-        Hund hundo = new Hund();
-        SchaeferHund frodo = new SchaeferHund();
+        Hund gilbert = new Hund("Gilbert", 5, "m", true, 10, {});
+//        SchaeferHund frodo = new SchaeferHund();
 
-        frodo.hueten();
-        frodo.bellen();
-        hundo.spielen();
+//        frodo.hueten();
+//        frodo.bellen();
+        gilbert.spielen();
     }
 }
