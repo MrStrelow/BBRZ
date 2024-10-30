@@ -13,7 +13,10 @@ public class Hund {
 
     // Methoden
     public String bellen() {
-        return "";
+        String sound = "wüf";
+        System.out.println(sound);
+
+        return sound;
     }
 
     // Konstruktor
@@ -30,7 +33,9 @@ public class Hund {
     }
 
     public void fressen(Essen essen) {
-
+        health++;
+        System.out.println("Ich: " + this.name + " frisst " + essen);
+        bellen();
     }
 
     public void weglaufen() {

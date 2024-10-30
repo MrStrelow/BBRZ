@@ -6,11 +6,12 @@ public class Main {
         gilbert.spielFreund = frido;
         frido.spielFreund = gilbert;
 
-//        SchaeferHund frodo = new SchaeferHund();
-
-//        frodo.hueten();
-//        frodo.bellen();
         gilbert.spielen();
         frido.spielen();
+
+        Hund[] hunde = {frido, gilbert};
+        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, hunde);
+
+        karo.fuettern();
     }
 }

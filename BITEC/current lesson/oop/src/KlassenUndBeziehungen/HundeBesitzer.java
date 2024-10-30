@@ -1,5 +1,7 @@
 package KlassenUndBeziehungen;
 
+import static KlassenUndBeziehungen.Essen.*;
+
 public class HundeBesitzer extends Mensch {
 
     // Felder
@@ -9,10 +11,10 @@ public class HundeBesitzer extends Mensch {
     private Hund[] hunde;
 
     // Konstruktor
-    public HundeBesitzer(String name, double happiness, int alter, boolean hatHundeFuehrerschein, int capacity) {
+    public HundeBesitzer(String name, double happiness, int alter, boolean hatHundeFuehrerschein, Hund[] hunde) {
         super(name, happiness, alter);
         this.hatHundeFuehrerschein = hatHundeFuehrerschein;
-        this.hunde = new Hund[capacity];
+        this.hunde = hunde;
     }
 
     // Methoden
@@ -25,7 +27,9 @@ public class HundeBesitzer extends Mensch {
     }
 
     public void fuettern() {
-
+        for (Hund hund : hunde) {
+            hund.fressen(FLEISCH);
+        }
     }
 
     // get und set methoden
