@@ -14,7 +14,7 @@ package lerneinheiten.L02KlassenUndMethoden.klassen;
     Es ist also möglich, wenn bert ein Hundebesitzer ist, Hundebesitzer bert = new Hundebesitzer();, dass wir das in Mensch definierte
     Attribut alter verwenden können, bert.getAlter();.
 
-    ACHTUNG! Wir können nicht mit mehreren lerneinheiten.L02KlassenUndMethoden.Klassen eine <ist> Beziehung in JAVA haben (in C++ schon). In JAVA verwenden wir dafür INTERFACES,
+    ACHTUNG! Wir können nicht mit mehreren Klassen eine <ist> Beziehung in JAVA haben (in C++ schon). In JAVA verwenden wir dafür INTERFACES,
     welche wir ein anderes Mal besprechen.
  */
 

@@ -3,7 +3,7 @@ package lerneinheiten.L02KlassenUndMethoden.klassen;
 public class Main {
 
     /*
-    Die Überlegungen aus den UML-Klassendiagramm werden wir nun in JAVA lerneinheiten.L02KlassenUndMethoden.Klassen übersetzen.
+    Die Überlegungen aus den UML-Klassendiagramm werden wir nun in JAVA Klassen übersetzen.
     Wir haben uns dort folgendes überlegt:
         - Wir wollen Menschen welche Hunde halten modellieren.
             Wir verwenden dazu 3 Konzepte:
@@ -13,44 +13,56 @@ public class Main {
                 4) In welcher Art interagieren diese "Dinge" mit anderen "Dingen"?  (<hat> und <ist>)
             1) bezeichnen wir als KLASSE, 2) als die ATTRIBUTE einer KLASSE, 3) als METHODEN einer KLASSE und
             4) die BEZIEHUNGEN zwischen KLASSEN.
-        Wir versuchen nun unsere Überlegungen in ein Diagramm zu fassen (Siehe UML Tafelbild).
-        Daraus sind folgende lerneinheiten.L02KlassenUndMethoden.Klassen, Attribute, Methoden und Beziehungen entstanden:
-            - lerneinheiten.L02KlassenUndMethoden.Klassen:
+        Wir versuchen nun unsere Überlegungen in ein Diagramm zu fassen (Siehe Hunde.drawio - aus L01UML).
+        Daraus sind folgende Klassen, Attribute, Methoden und Beziehungen entstanden:
+            - Klassen:
                 Hund:
-                    - Attribute: happiness, health, age
+                    - Attribute: chipped, health, age, geschlecht
                     - Beziehungen:
                         - <hat>: einen Hundebesitzer
                         - <ist>:
-                    - Methoden: fressen, bellen, weglaufen
+                    - Methoden: fressen, bellen, spielen, weglaufen
+                Pudel:
+                    - Attribute: fluff
+                    - Beziehungen:
+                        - <hat>: einen Hundebesitzer
+                        - <ist>: ein Hund
+                    - Methoden: winseln
+                 Schäferhund:
+                    - Attribute: capacity
+                    - Beziehungen:
+                        - <hat>: einen Hundebesitzer, welcher einen Hundefuehrerschein hat
+                        - <ist>: ein Hund
+                    - Methoden: hueten
                 Hundebesitzer:
-                    - Attribute: happiness,
+                    - Attribute: hatHundeFuehrerschein
                     - Beziehungen:
                         - <hat>: einen oder mehrere Hunde
                         - <ist>: ein Mensch
                     - Methoden: gassi gehen, Hunde fuettern, Hunde vernachlaessigen
                 Mensch:
-                - Attribute: age, health
+                - Attribute: age, health, happiness
                     - Beziehungen:
                         - <hat>:
                         - <ist>:
-                    - Methoden:
+                    - Methoden: hundKaufen
 
         Wir haben nun unsere "Welt" modelliert, jedoch müssen wir bevor wir uns mit JAVA beschäftigen noch klären, was
         OBJEKTE sind. Ein Objekt (oder INSTANZ) einer Klasse, ist die Instanziierung dieser. Die Klasse ist als Bauplan, was ein Hund ist
         oder als "DNA" zu sehen. Wir definieren dort was ein z.B. Hund überhaupt ausmacht und wie er mit seiner Umwelt interagiert.
         Das Objekt ist nun der "echte" Hund. Dieser hat nun nicht nur ein Alter, sonder wir wissen,  dass das Alter vom Objekt
-        Gilbert 5 Jahre ist. Wir können beliebig viele Objekte von lerneinheiten.L02KlassenUndMethoden.Klassen erzeugen. Wir können also Hunde erzeugen welche nun
+        Gilbert 5 Jahre ist. Wir können beliebig viele Objekte von Klassen erzeugen. Wir können also Hunde erzeugen welche nun
         der Gilbert, Franz und Susi ist. Alles sind Hunde, jedoch sind sie verschieden alt, haben verschiedene Besitzer usw.
         All das folgt den Spielregeln der definierten Klasse. Also ein Objekt Gilbert von Typ Hund kann nicht aufs Klo gehen,
         wenn das nicht in der Klasse vorgesehen ist.
 
         Wenn wir nun diese Ideen in JAVA schreiben wollen, brauchen wir noch zusätzliche, für die Sprache selbst wichtige Konzepte.
         Diese Konzepte können von Sprache zu Sprache variieren. In JAVA ist es ein KONSTRUKTOR und GETTER bzw. SETTER METHODEN.
-        Diese erlauben uns Verhalten von lerneinheiten.L02KlassenUndMethoden.Klassen zu spezifizieren.
+        Diese erlauben uns Verhalten von Klassen zu spezifizieren.
         - Konstruktor: dieser ist wie eine Methode, jedoch wird diese quasi beim Erstellen des Objektes ausgeführt.
         - getter bzw. setter: sind methoden welche für die Datenkapselung zuständig sind (dazu später).
 
-        Aber wie lesen und schreiben wir lerneinheiten.L02KlassenUndMethoden.Klassen, Attribute und Methoden und dessen Relationen?
+        Aber wie lesen und schreiben wir Klassen, Attribute und Methoden und dessen Relationen?
         Siehe dazu die Erklärungen in der Klasse Hundebesitzer (ist relation) und Hund (alles andere).
 
         Hier schauen wir uns an wie wir Objekte aus der entsprechenden Klasse erstellen können.
