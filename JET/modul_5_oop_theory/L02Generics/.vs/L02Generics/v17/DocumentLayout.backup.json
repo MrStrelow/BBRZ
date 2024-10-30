@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{229D0DD4-EB23-4FDB-A323-BFE8C631DBE8}|L02Generics\\L02Generics.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l02generics\\l02generics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{229D0DD4-EB23-4FDB-A323-BFE8C631DBE8}|L02Generics\\L02Generics.csproj|solutionrelative:l02generics\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57C8349F-5D25-4210-BEFA-AE32F577CB96}|Exercise1\\Exercise1.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l02generics\\exercise1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57C8349F-5D25-4210-BEFA-AE32F577CB96}|Exercise1\\Exercise1.csproj|solutionrelative:exercise1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57C8349F-5D25-4210-BEFA-AE32F577CB96}|Exercise1\\Exercise1.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l02generics\\exercise1\\src\\application\\impl\\sortedlinkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57C8349F-5D25-4210-BEFA-AE32F577CB96}|Exercise1\\Exercise1.csproj|solutionrelative:exercise1\\src\\application\\impl\\sortedlinkedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57C8349F-5D25-4210-BEFA-AE32F577CB96}|Exercise1\\Exercise1.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l02generics\\exercise1\\tests\\application.tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57C8349F-5D25-4210-BEFA-AE32F577CB96}|Exercise1\\Exercise1.csproj|solutionrelative:exercise1\\tests\\application.tests\\listtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ListTest.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\Exercise1\\tests\\Application.Tests\\ListTest.cs",
+              "RelativeDocumentMoniker": "Exercise1\\tests\\Application.Tests\\ListTest.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\Exercise1\\tests\\Application.Tests\\ListTest.cs",
+              "RelativeToolTip": "Exercise1\\tests\\Application.Tests\\ListTest.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwC0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T17:22:57.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SortedLinkedList.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\Exercise1\\src\\Application\\impl\\SortedLinkedList.cs",
+              "RelativeDocumentMoniker": "Exercise1\\src\\Application\\impl\\SortedLinkedList.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\Exercise1\\src\\Application\\impl\\SortedLinkedList.cs",
+              "RelativeToolTip": "Exercise1\\src\\Application\\impl\\SortedLinkedList.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwEMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:36:26.766Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\L02Generics\\Program.cs",
-              "RelativeDocumentMoniker": "L02Generics\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\L02Generics\\Program.cs",
-              "RelativeToolTip": "L02Generics\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\Exercise1\\Program.cs",
+              "RelativeDocumentMoniker": "Exercise1\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L02Generics\\Exercise1\\Program.cs",
+              "RelativeToolTip": "Exercise1\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T10:38:07.317Z",
+              "WhenOpened": "2024-10-28T10:05:48.313Z",
               "EditorCaption": ""
             }
           ]

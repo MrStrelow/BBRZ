@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0BF04873-412C-4923-B725-67DFF3F6583A}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BF04873-412C-4923-B725-67DFF3F6583A}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBA1EC9C-85F8-47F8-B3E8-7F1030083B7D}|LiveCoding\\LiveCoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\livecoding\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBA1EC9C-85F8-47F8-B3E8-7F1030083B7D}|LiveCoding\\LiveCoding.csproj|solutionrelative:livecoding\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 203,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAQwGcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:52:02.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\LiveCoding\\Program.cs",
+              "RelativeDocumentMoniker": "LiveCoding\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\LiveCoding\\Program.cs",
+              "RelativeToolTip": "LiveCoding\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:45:54.487Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

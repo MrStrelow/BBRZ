@@ -1,41 +1,63 @@
 ﻿using System;
 using System.Data.Common;
 using System.Security;
-using solution;
+using Exercise1;
+using Exercise1.src.Domain.People.Entities;
 
-var arrayList = new ArrayList<string>(10);
-arrayList.AddBeginning("I'm");
-arrayList.AddBeginning("Hello");
-arrayList.AddEnd("List");
 
-foreach (var item in arrayList)
-{
-    Console.WriteLine(item);
-}
+// Erstelle Humans, welche Worker oder Manager sind.
+// var human = new Human { Name = "Alice", Age = 30 }; // geht nicht weil
+var worker = new Worker { Name = "Alice", Age = 30, Factory = "Tesla" };
+var manager = new Manager { Name = "Bob", Age = 40, Department= "Finance" };
+var anotherWorker = new Worker { Name = "Charlie", Age = 25, Factory = "VW" };
 
-Console.WriteLine(arrayList);
-Console.WriteLine("###########");
+// Erstelle alle Listen mit Typeparameter Human.
+var arrayList = new ArrayList<Human>();
+//var linkedList = new LinkedList<Human>(); // Geht nicht da LinkedList abstract ist.
+//var myList = new IMyList<Human>(); // Geht nicht da IMyList ein Interface ist.
+var linkedListIterative = new LinkedIterativeList<Human>();
+var linkedListRecursive = new LinkedRecursiveList<Human>();
+var linkedSortedList = new SortedLinkedList<Human>(ascending: true);
 
-var manager = new Manager();
-var human = new Human();
+ListTest.RunTests(arrayList, worker, manager, anotherWorker);
+ListTest.RunTests(linkedListIterative, worker, manager, anotherWorker);
+ListTest.RunTests(linkedListRecursive, worker, manager, anotherWorker);
+ListTest.RunTests(linkedSortedList, worker, manager, anotherWorker);
 
-var humanList = new LinkedRecursiveList<Human>();
-humanList.AddBeginning(new Human());
-humanList.AddBeginning(new Human());
-// geht weil Manager untertyp von Human.
-humanList.AddEnd(new Manager());
+// ############## old ##############
+//var arrayList = new ArrayList<string>(10);
+//arrayList.AddBeginning("I'm");
+//arrayList.AddBeginning("Hello");
+//arrayList.AddEnd("List");
 
-Console.WriteLine(humanList);
-Console.WriteLine("###########");
+//foreach (var item in arrayList)
+//{
+//    Console.WriteLine(item);
+//}
 
-var managerList = new LinkedRecursiveList<Manager>();
-managerList.AddBeginning(new Manager());
-managerList.AddBeginning(new Manager());
-// geht nicht weil Human kein untertyp von Human.
-//managerList.AddBeginning(new Human());
+//Console.WriteLine(arrayList);
+//Console.WriteLine("###########");
 
-Console.WriteLine(managerList);
-Console.WriteLine("###########");
+//var manager = new Manager();
+//var human = new Human();
+
+//var humanList = new LinkedRecursiveList<Human>();
+//humanList.AddBeginning(new Human());
+//humanList.AddBeginning(new Human());
+//// geht weil Manager untertyp von Human.
+//humanList.AddEnd(new Manager());
+
+//Console.WriteLine(humanList);
+//Console.WriteLine("###########");
+
+//var managerList = new LinkedRecursiveList<Manager>();
+//managerList.AddBeginning(new Manager());
+//managerList.AddBeginning(new Manager());
+//// geht nicht weil Human kein untertyp von Human.
+////managerList.AddBeginning(new Human());
+
+//Console.WriteLine(managerList);
+//Console.WriteLine("###########");
 
 // können wir eine Manager List anstatt einer Human list verwenden?
 // manager sind ja humans, somit sollten wir die verwalten können.

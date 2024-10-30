@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4D43854-2907-4628-B8DA-D34A14736E46}|Exercise2\\Exercise2.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\exercise2\\source\\zahlen\\dezimalezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D43854-2907-4628-B8DA-D34A14736E46}|Exercise2\\Exercise2.csproj|solutionrelative:exercise2\\source\\zahlen\\dezimalezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0BF04873-412C-4923-B725-67DFF3F6583A}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0BF04873-412C-4923-B725-67DFF3F6583A}|L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung.csproj|solutionrelative:l01kapselungzusammenhaltkoppelung\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4D43854-2907-4628-B8DA-D34A14736E46}|Exercise2\\Exercise2.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\exercise2\\source\\zahlen\\binaerezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D43854-2907-4628-B8DA-D34A14736E46}|Exercise2\\Exercise2.csproj|solutionrelative:exercise2\\source\\zahlen\\binaerezahl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D43854-2907-4628-B8DA-D34A14736E46}|Exercise2\\Exercise2.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\exercise2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D43854-2907-4628-B8DA-D34A14736E46}|Exercise2\\Exercise2.csproj|solutionrelative:exercise2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CBA1EC9C-85F8-47F8-B3E8-7F1030083B7D}|LiveCoding\\LiveCoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_5_oop_theory\\l01kapselungzusammenhaltkoppelung\\livecoding\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBA1EC9C-85F8-47F8-B3E8-7F1030083B7D}|LiveCoding\\LiveCoding.csproj|solutionrelative:livecoding\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\Exercise2\\Program.cs",
-              "RelativeDocumentMoniker": "Exercise2\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\Exercise2\\Program.cs",
-              "RelativeToolTip": "Exercise2\\Program.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAiwCYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T09:16:56.594Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DezimaleZahl.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\Exercise2\\source\\zahlen\\DezimaleZahl.cs",
-              "RelativeDocumentMoniker": "Exercise2\\source\\zahlen\\DezimaleZahl.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\Exercise2\\source\\zahlen\\DezimaleZahl.cs",
-              "RelativeToolTip": "Exercise2\\source\\zahlen\\DezimaleZahl.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA2wBsAAAAcAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "RelativeDocumentMoniker": "L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "RelativeToolTip": "L01KapselungZusammenhaltKoppelung\\Program.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAQwFIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T09:16:45.306Z",
+              "WhenOpened": "2024-10-29T20:52:02.386Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BinaereZahl.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\Exercise2\\source\\zahlen\\BinaereZahl.cs",
-              "RelativeDocumentMoniker": "Exercise2\\source\\zahlen\\BinaereZahl.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\Exercise2\\source\\zahlen\\BinaereZahl.cs",
-              "RelativeToolTip": "Exercise2\\source\\zahlen\\BinaereZahl.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAmwDoAAAAPAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\LiveCoding\\Program.cs",
+              "RelativeDocumentMoniker": "LiveCoding\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_5_oop_theory\\L01KapselungZusammenhaltKoppelung\\LiveCoding\\Program.cs",
+              "RelativeToolTip": "LiveCoding\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T09:16:30.244Z",
+              "WhenOpened": "2024-10-21T12:45:54.487Z",
               "EditorCaption": ""
             }
           ]

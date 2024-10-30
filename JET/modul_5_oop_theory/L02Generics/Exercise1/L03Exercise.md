@@ -1,8 +1,10 @@
 # Aufgabenstellung
 
+# TODO: objekt coupling und class cohesion einbauen mit add auf verschiedene interfaces aufteilen.
+
 ## 1.1) Listen
 
-- Implementiere eine **Linked List** und einen **Knoten**. Implementiere dies entweder rekursiv, void a(){ a() }, oder iterativ mit schleifen.
+- Implementiere eine **Linked List** und einen **Knoten**. Implementiere dies entweder rekursiv, ``void a(){ a() }``, oder iterativ mit schleifen.
   - **Linked List**: Eine Linked List ist eine Datenstruktur, die aus einer Reihe von Knoten besteht, wobei jeder Knoten auf den nächsten Knoten in der Liste verweist. Sie ermöglicht das dynamische Hinzufügen und Entfernen von Elementen und ist effizient beim Umgang mit großen Mengen von Daten, da sie keinen festen Speicherplatz benötigt.
 
   - **Konten**: Ein Konten speicher die übergebenen Daten und kennt seinen Nachbarknoten mit namen Next. Durch aufruf von Knoten current = current.Next, kann somit durch die gesamte Liste angeschaut werden.
@@ -35,11 +37,10 @@
   ```
 
 ## 1.2) Sortierte Listen
-- Es sollen nur Typen akzeptiert werden, die das Interface `IComparable` implementieren. 
+- Eine sich selbst sortierende Liste soll nun erstellt werden. Diese soll nur Typen akzeptieren welche das Interface `IComparable` implementieren. 
   - Ein **Comparator** ist ein Objekt, das eine Methode definiert, um zwei Objekte zu vergleichen und eine Reihenfolge zwischen ihnen zu bestimmen. Er wird häufig verwendet, um benutzerdefinierte Sortierlogik bereitzustellen. In C# wird das `IComparable`-Interface verwendet, um das Vergleichen von Objekten zu ermöglichen. Ein Typ, der `IComparable` implementiert, muss die `CompareTo`-Methode definieren, die zwei Objekte vergleicht und einen Wert zurückgibt, der angibt, ob das aktuelle Objekt kleiner, gleich oder größer als das andere ist.
 
 ## 2.1)
-
 - Vresuche den foldneden Code von Co- und Kontravarianz anhand von **Tierschutzheimen** bzw. **Tierlieferanten** zu verstehen, und begründe warum dieser Funktioniert (ist es Kontra oder Kovarianz?). Es fehlt im Code unten die zuweisung der Varianzen. Füge diese hinzu.
 
 ### Informationen dazu:
