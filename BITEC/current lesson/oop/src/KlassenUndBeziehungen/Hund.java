@@ -2,7 +2,7 @@ package KlassenUndBeziehungen;
 
 public class Hund {
     // Felder
-    public int alter;
+    private int alter;
     public String geschlecht;
     public boolean chipped;
     public double health;
