@@ -9,7 +9,7 @@ public class Hund {
     public double health;
 
     // hat-Beziehungen
-    public Hund[] spielFreund;
+    public Hund spielFreund;
 
     // Methoden
     public String bellen() {
@@ -17,17 +17,16 @@ public class Hund {
     }
 
     // Konstruktor
-    public Hund(String name, int alter, String geschlecht, boolean chipped, double health, Hund[] spielFreunde){
+    public Hund(String name, int alter, String geschlecht, boolean chipped, double health){
         this.name = name;
         this.alter = alter;
         this.geschlecht = geschlecht;
         this.chipped = chipped;
         this.health = health;
-        this.spielFreund = spielFreund;
     }
 
     public void spielen() {
-        System.out.println("Mein Spielfreund: " + spielFreund[0].name + " spielt mit ... mir: " + this.name);
+        System.out.println("Mein Spielfreund: " + spielFreund.name + " spielt mit ... mir: " + this.name);
     }
 
     public void fressen(Essen essen) {
