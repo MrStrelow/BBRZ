@@ -41,7 +41,7 @@ public class Hund {
     Hier in JAVA ist der Unterschied, dass eigens erstellte lerneinheiten.L02KlassenUndMethoden.Klassen eben als <hat> Relation dargestellt sind, ansonsten
     durch Attribute, wenn diese vordefiniert sind (z.B. Double, InputStream, usw.).
      */
-    private Hundebesitzer besitzer;
+    private HundeBesitzer besitzer;
     private Hund spielFreund;
 
 
@@ -56,16 +56,20 @@ public class Hund {
         dann ist dieser mit gilbert ansprechbar. Bedeutet, wenn wir gilbert schreiben dann, können wir mit "." auf dessen
         methoden zugreifen und ausführen. Also gilbert.essen(); lässt "gilbert essen". Wenn wir nun in der Klasse Hund selbst sind,
         können wir auf das entsprechende Objekt mit this zugreifen. Also ein "Zugriff auf sich selbst".
-        Dies ist nur notwendig, wenn ein Argument der Methode und ein Attribut der Klasse, den selben Namen haben (z.B. health).
+        Dies ist nur notwendig, wenn ein Argument der Methode und ein Attribut der Klasse, denselben Namen haben (z.B. health).
         Ansonsten ist ein Zugriff ohne this auch möglich.
     */
-    public Hund(String name, Double happiness, Double health, boolean chipped, Integer alter, Hundebesitzer besitzer) {
+    // TODO warum zwei konstruktoren
+    public Hund(String name, Double happiness, Double health, boolean chipped, Integer alter) {
         this.name = name;
         this.health = health;
         this.alter = alter;
         this.chipped = chipped;
-        this.besitzer.addHund(this,0);
+        this.besitzer.addHund(this,0);//TODO: fix me add besitzer again as argument or move the add hund to Besitzer.
+    }
 
+    public Hund(String name, Double happiness, Double health, boolean chipped, Integer alter, HundeBesitzer besitzer) {
+        this(name, happiness, health, chipped, alter);
         this.besitzer = besitzer;
     }
 
@@ -98,7 +102,7 @@ public class Hund {
     }
 
     public void spielen() {
-        System.out.println("Mein Spielfreund: " + spielFreund.name + " spielt mit mir!: " + this.name);
+        System.out.println("Mein Spielfreund: " + spielFreund.name + " spielt mit mir!: " + this.name + "unter der strengen aufsicht von: " + besitzer.getName());
     }
 
     public String bellen() {
@@ -107,7 +111,9 @@ public class Hund {
     }
 
     public void weglaufen() {
-        System.out.println(":(((((((((");
+        System.out.println(this.name + " ist von " + this.besitzer + " weggelaufen...");
+        besitzer.setHunde(null);
+        besitzer = null;
     }
 
     // get und set Methoden.
@@ -151,11 +157,11 @@ public class Hund {
         this.health = health;
     }
 
-    public Hundebesitzer getBesitzer() {
+    public HundeBesitzer getBesitzer() {
         return besitzer;
     }
 
-    public void setBesitzer(Hundebesitzer besitzer) {
+    public void setBesitzer(HundeBesitzer besitzer) {
         this.besitzer = besitzer;
     }
 

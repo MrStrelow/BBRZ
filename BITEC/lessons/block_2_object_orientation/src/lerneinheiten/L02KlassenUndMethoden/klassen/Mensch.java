@@ -4,18 +4,22 @@ public class Mensch {
     // Attribute sind nomen
     private String name;
     private double happiness;
-    private int age;
+    private int alter;
 
     // Konstruktor
-    public Mensch(String name, double happiness, int age) {
+    public Mensch(String name, double happiness, int alter) {
         this.name = name;
         this.happiness = happiness;
-        this.age = age;
+        this.alter = alter;
     }
 
     //Methoden sind verben
-    public Hundebesitzer hundKaufen() {
-        return null;
+    public HundeBesitzer hundKaufen(Hund hund, boolean hatHundeFuehrerschein, int capacity) {
+       return new HundeBesitzer(this, hatHundeFuehrerschein, hund, capacity);
+    }
+
+    public HundeBesitzer mehrereHundeKaufen(Hund[] hunde, boolean hatHundeFuehrerschein, int capacity) {
+        return new HundeBesitzer(this, hatHundeFuehrerschein, hunde, capacity);
     }
 
     // get und set methoden
@@ -35,11 +39,11 @@ public class Mensch {
         this.happiness = happiness;
     }
 
-    public int getAge() {
-        return age;
+    public int getAlter() {
+        return alter;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAlter(int alter) {
+        this.alter = alter;
     }
 }

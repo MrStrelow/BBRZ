@@ -75,28 +75,27 @@ public class Main {
     */
 
     public static void main(String[] args) {
-        Hundebesitzer franz = new Hundebesitzer(.5);
-        Hund frido = new Hund(5.,10., 1, franz);
-//        Hund frado = new Hund(5.,10.,2, franz);
-//        Hund[] hundeVonFranz = {frido,frado};
-//        franz.setHunde(hundeVonFranz);
+        Hund gilbert = new Hund("Gilbert", 5.0, 10.0, true, 10);
+        Hund frido = new Hund("Frido", 10.0, 8.5, true, 10);
+        Hund[] hunde = {frido, gilbert};
 
-        System.out.println(frido.getBesitzer());
-        System.out.println(franz);
-        System.out.println(franz.getHunde()[0]);
-//        System.out.println(franz.getHunde()[1]);
-        System.out.println(frido);
-//        System.out.println(frado);
-        Double luatstaerke = frido.bellen();
-//        System.out.println(franz.hund);
-//        frido.weglaufen();
-//        System.out.println(franz.hund);
+        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, hunde, hunde.length*2);
+
+        //TODO: waum geht das nicht in einem?
+        gilbert.setSpielFreund(frido);
+        frido.setSpielFreund(gilbert);
+
+        gilbert.spielen();
+        frido.spielen();
 
 
+        Mensch hatBaldHunde = new Mensch("Walo", 0.1, 51);
+        //TODO: streng genommen sollte das nicht gehen! Wie lösen wir das...?
+        hatBaldHunde = hatBaldHunde.hundKaufen(gilbert, true, hunde.length*2);
+
+        //Ist hatBaldHunde nun ein Mensch oder ein Hundebesitzer?
+        System.out.println(hatBaldHunde.getClass());
+
+        karo.fuettern();
     }
 }
-
-//    Integer summe = franz.addReturnNumbers(6,6);
-//
-//
-//        franz.addNumbers(summe, 8);
