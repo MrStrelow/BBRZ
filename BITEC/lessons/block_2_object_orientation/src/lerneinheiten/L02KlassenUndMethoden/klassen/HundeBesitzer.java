@@ -21,20 +21,15 @@ import static lerneinheiten.L02KlassenUndMethoden.klassen.Essen.*;
 
 public class HundeBesitzer extends Mensch {
     private boolean hatHundeFuehrerschein;
-    private Hund[] hunde;
     private int capacity;
+    private Hund[] hunde;
 
-    public HundeBesitzer(String name, double happiness, int age, boolean hatHundeFuehrerschein, Hund[] hunde, int capacity) {
+    public HundeBesitzer(String name, double happiness, int age, boolean hatHundeFuehrerschein, int capacity) {
         // Super ist der Konstruktor der superklasse/obertyp. hier ist das der Mensch.
         super(name, happiness, age);
 
-        // TODO:
-        if(capacity < hunde.length) {
-            return;
-        }
-
+        this.hunde = new Hund[capacity];
         this.hatHundeFuehrerschein = hatHundeFuehrerschein;
-        this.hunde = hunde;
         this.capacity = capacity;
     }
 
@@ -47,13 +42,12 @@ public class HundeBesitzer extends Mensch {
             istBaldHundebesitzer.getHappiness(),
             istBaldHundebesitzer.getAlter(),
             hatHundeFuehrerschein,
-            hunde,
             capacity
         );
     }
 
     // dieser erlaubt uns nur einen Hund zu übergeben.
-    public HundeBesitzer(Mensch istBaldHundebesitzer, boolean hatHundeFuehrerschein, Hund hund, int capacity) {
+    public HundeBesitzer(Mensch istBaldHundebesitzer, boolean hatHundeFuehrerschein, int capacity) {
         // Das ist der Konstruktor dieser Klasse! Wir können diesen mit this(...) aufrufen.
         // Wir sparen uns damit die Übergabe der Felder eines Menschen als Aufrufer dieses Konstruktors.
         // Achtung! this() und super() muss immer der erste Aufruf sein.
@@ -63,7 +57,6 @@ public class HundeBesitzer extends Mensch {
             istBaldHundebesitzer.getHappiness(),
             istBaldHundebesitzer.getAlter(),
             hatHundeFuehrerschein,
-            new Hund[]{hund},
             capacity
         );
     }
@@ -71,23 +64,44 @@ public class HundeBesitzer extends Mensch {
     public void gassiGehen() {
         System.out.println("Ich: " + this.getName() + " geh mit...");
 
-        //TODO: for each loop.
+        // Wir sehen hier eine neue Art der Schleife. Diese ist die ForEach-Schleife. Diese läuft alle elemente einer
+        // Collection ab. Eine Collection ist ein Array, Liste, Map, Heap, Set, etc. Wir kennen bis jetzt das Array.
+        // Hier sehen wir, dass rechts vom ":" viele Elemente stehen und links vom ":" eines steht.
+        // Wir interpretieren das als:
+        // "es wird in jedem Schleifendurchlauf ein element aus hunde genommen. Dieses ist mit hund ansprechbar."
+        // Wir sparen uns dadurch die Zählvariablen und haben dadurch einen übersichtlicheren Code.
+        // Als Daumenregel merken wir uns, eine ForEach verwenden wir, wenn wir die Elemente alle "auslesen" wollen.
+        // Die bereits bekannte for-Loop ist für kompliziertere Operationen und "schreibzugriffe".
         for (Hund hund : hunde) {
             System.out.println(hund.getName());
         }
+
         System.out.println(" gassi.");
     }
 
     public void fuettern() {
         for (Hund hund : hunde) {
-            // TODO: enum
-            hund.fressen(FLEISCH);
+            // Wenn wir hier nicht die null objekte in hunde ignorieren, werden wir fehler bekommen!
+            // Das liegt leider am Aufbau des Arrays. Ein Grund warum wir in Zukunft andere Datenstrukturen verwenden.
+            if (hund != null) {
+                // Wir können das enum mit wert FLEISCH direkt verwenden, wenn wir oben einen static import machen.
+                // ansonsten ist...
+//                hund.fressen(Essen.FLEISCH);
+                // zu schreiben.
+                hund.fressen(FLEISCH);
+            }
         }
     }
 
     public void buersten() {
         for (Hund hund : hunde) {
-            // TODO: instance of
+            // Wir greifen hier ein wenig vor.
+            // Jedoch haben wir ein Problem, wenn wir ein Array an Hunden besitzen, aber nicht wissen, ob es
+            // ein Pudel, Schaefer oder einfach ein Hund ist. Denn dadurch, dass ein Schaefer ein Hund ist, kann ich
+            // diesen überall verwenden, wo ein Hund erwartet wird. Deshalb sind für uns in dem Array von Hunden alles
+            // Hunde. Es könnte aber sein, dass im Hintergrund ein Hund zusätzlich ein Pudel ist.
+            // Wenn wir nun ein anderes Verhalten für Pudel wollen, müssen wir das irgendwie abfragen können.
+            // Dies geschieht hier mit dem "instanceof" operator. Dieser liefert als Rückgabe eine Boolesche Variable
             if (hund instanceof Pudel) {
                 hund.setHealth(hund.getHealth() + 10);
 
@@ -97,19 +111,70 @@ public class HundeBesitzer extends Mensch {
         }
     }
 
+    public void entferneHund(Hund hund) {
+        for (int i = 0; i < hunde.length; i++) {
+            if (hunde[i].equals(hund)) {
+               hunde[i] = null;
+            }
+        }
+    }
+
+    // Wir sehen hier, dass findeHund und kaufeHund das gleiche Verhalten haben.
+    // Es kann jedoch in zukunft beim Kauf eine Transaktion mit einem Geschäft dazukommen,
+    // welche beim Finden nicht der Fall ist.
+    public void findeHund(Hund neuerHund) {
+        neuerHund.setBesitzer(this);
+    }
+
+    public void kaufeHund(Hund neuerHund) {
+        neuerHund.setBesitzer(this);
+    }
+
+    public void verkaufeHund(Hund hund) {
+        entferneHund(hund);
+        hund.setBesitzer(null);
+    }
+
+    public boolean besitztHund(Hund hund) {
+        boolean besitztHund = false;
+
+        for (int i = 0; i < hunde.length; i++) {
+            if (hund.equals(hunde[i])) {
+                besitztHund = true;
+                break;
+            }
+        }
+
+        return besitztHund;
+    }
+
     public Hund[] getHunde() {
         return hunde;
     }
 
-    public void setHunde(Hund[] hunde) {
-        if(hunde != null) {
-            this.hunde = hunde;
-        }
-    }
-    public void addHund(Hund hund, Integer pos) {
-        if(hund != null) {
-            this.hunde[pos] = hund;
+    public void addHund(Hund hund) {
+        // stelle sicher, dass hund nicht bereits besessen wird
+        if(hund != null && !besitztHund(hund)) {
+            int key = habePlatz();
+
+            if (key >= 0) {
+                this.hunde[key] = hund;
+
+            } else {
+                System.out.println("Bin voll :(");
+            }
         }
     }
 
+    private int habePlatz() {
+        int key = -1;
+
+        for (int i = 0; i < hunde.length; i++) {
+            if (this.hunde[i] == null) {
+                key = i;
+            }
+        }
+
+        return key;
+    }
 }

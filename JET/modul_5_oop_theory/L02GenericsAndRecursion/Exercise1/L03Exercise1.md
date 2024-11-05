@@ -14,7 +14,7 @@
   ```csharp
     public interface IMyList<T> : IEnumerable<T>
     {
-        // gib mir ein element an der Position zurück. Fehlerbehandlung bedenken.
+        // gib mir ein element an der position zurück - fehlerbehandlung bedenken.
         T Get(int position); 
 
         // füge ein element am anfang der liste hinzu
@@ -23,21 +23,28 @@
         // füge ien element am ende der liste hinzu
         void AddBeginning(T element);
 
-        // ersetze ein bestehendes elment an einer position, mit einem anderen.
-        void Update(int position, T element);
+        // füge ein element an einer spezifizierten stelle hinzu
+        void Add(T element, int position);
 
-        // suche ein element und gib das erste passende (equals) element zurück. (Optional: alle - schwer T so zu gestalten dass liste<T> und T als rückgabe akzeptiert wird) 
+        // ersetze ein bestehendes elment an einer position, mit einem anderen.
+        void Update(T element, int position);
+
+        // suche ein element und gib das erste passende (equals) element zurück. (optional: alle elemente: eigene Methode? oder kann T so flexibel sein, dass es z.B. int und list<int> zurückgeben kann? Ist so etwas sinnvoll? Soll es immer list<int> zurückgeben auch wenn nur ein element gefunden wird?) 
         (T foundElement, int index) Find(T element);
 
-        // suche ein element und entferne es. (Optional: suche alle elemente, welche equal sind und entferne alle diese)
+        // suche ein element und entferne es. (optional: suche alle elemente, welche equal sind und entferne alle diese)
         void Remove(T element);
+        
+        int Length();
     }
   ```
 
 ## 1.2) Sortierte Listen
-- Eine sich selbst sortierende Liste soll nun erstellt werden. Diese soll `LinkedIterativeList<T>` erweitern. Weiters sollen nur Typen akzeptieren welche das Interface `IComparable` implementieren. Das wird mit `where T : IComparable<T>` festgelegt. Wir können dadurch die Methoden von der base Klasse `LinkedIterativeList` verwenden und Nachher die Elemente Sortieren.
+- Eine sich selbst sortierende Liste soll nun erstellt werden. Diese soll `LinkedIterativeList<T>` erweitern. Weiters sollen nur Typen akzeptieren welche das Interface `IComparable` implementieren. Das wird mit `where T : IComparable<T>` festgelegt. 
 Dieses sortieren soll mit `private void BubbleSort()` umgesetzt werden.
   - Ein **Comparator** ist ein Objekt, das eine Methode definiert, um zwei Objekte zu vergleichen und eine Reihenfolge zwischen ihnen zu bestimmen. Er wird häufig verwendet, um benutzerdefinierte Sortierlogik bereitzustellen. In C# wird das `IComparable`-Interface verwendet, um das Vergleichen von Objekten zu ermöglichen. Ein Typ, der `IComparable` implementiert, muss die `CompareTo`-Methode definieren, die zwei Objekte vergleicht und einen Wert zurückgibt, der angibt, ob das aktuelle Objekt kleiner, gleich oder größer als das andere ist.
+
+Wir können dadurch die Methoden von der base Klasse `LinkedIterativeList` verwenden und Nachher die Elemente Sortieren.
 
 Wir werden in weiteren Übungen auf verschiedene Implementierungsmöglichkeiten im Bezug auf `Ersetzbarkeit vs. Vererbung`, `Kapselung` und `Zusammenhalt` eingehen.
 
@@ -53,6 +60,8 @@ In der realen Welt kannst du immer ein Tierschutzheim für Tiere anstelle eines 
 In der realen Welt kannst du immer einen Lieferanten für Kaninchen anstelle eines Lieferanten für Tiere verwenden, weil du jedes Mal, wenn ein Kaninchenlieferant dir ein Kaninchen gibt, ein Tier bekommst. Wenn du jedoch einen Tierlieferanten anstelle eines Kaninchenlieferanten verwendest, kannst du von einem Tiger gefressen werden.
 
 Insgesamt ist dies nur eine zur Kompilierzeit überprüfbare Zusicherung von dir, dass du einen generischen Typ auf eine bestimmte Weise behandelst, um die Typensicherheit zu gewährleisten und niemanden gefressen zu bekommen.
+
+Kopiere nun diesen Code in Visual Studio und versuche die Fehler zur Kompilezeit auszubessern. Verwende dazu die Keywords `in` oder `out`
 
 Code: 
 ```csharp

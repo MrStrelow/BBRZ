@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Exercise1.src.Domain.People.Entities;
 
 namespace Exercise1;
 
 internal class ListTest
 {
-    public static void RunTests<T>(IMyList<T> list, params T[] elements) where T : Human 
+    public static void RunTests<T>(IMyList<T> list, params T[] elements)
     {
         Console.WriteLine($"###################### Starting tests for {list.GetType()} ###################### ");
 

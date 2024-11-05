@@ -1,7 +1,6 @@
 package lerneinheiten.L02KlassenUndMethoden.klassen;
 
 public class Main {
-
     /*
     Die Überlegungen aus den UML-Klassendiagramm werden wir nun in JAVA Klassen übersetzen.
     Wir haben uns dort folgendes überlegt:
@@ -11,37 +10,37 @@ public class Main {
                 2) Was macht ein "Ding" aus und was ist dessen "Zustand"?           (was hat es? was macht es aus? HAUPTWORT/NOMEN)
                 3) Was ein "Ding" mit seiner "Umwelt" tun?                          (was kann es tun? ZEITWORT/VERB)
                 4) In welcher Art interagieren diese "Dinge" mit anderen "Dingen"?  (<hat> und <ist>)
-            1) bezeichnen wir als KLASSE, 2) als die ATTRIBUTE einer KLASSE, 3) als METHODEN einer KLASSE und
+            1) bezeichnen wir als KLASSE, 2) als die FELDER einer KLASSE, 3) als METHODEN einer KLASSE und
             4) die BEZIEHUNGEN zwischen KLASSEN.
         Wir versuchen nun unsere Überlegungen in ein Diagramm zu fassen (Siehe Hunde.drawio - aus L01UML).
-        Daraus sind folgende Klassen, Attribute, Methoden und Beziehungen entstanden:
+        Daraus sind folgende Klassen, FELDER, Methoden und Beziehungen entstanden:
             - Klassen:
                 Hund:
-                    - Attribute: chipped, health, age, geschlecht
+                    - FELDER: chipped, health, age, geschlecht
                     - Beziehungen:
                         - <hat>: einen Hundebesitzer
                         - <ist>:
                     - Methoden: fressen, bellen, spielen, weglaufen
                 Pudel:
-                    - Attribute: fluff
+                    - FELDER: fluff
                     - Beziehungen:
                         - <hat>: einen Hundebesitzer
                         - <ist>: ein Hund
                     - Methoden: winseln
                  Schäferhund:
-                    - Attribute: capacity
+                    - FELDER: capacity
                     - Beziehungen:
                         - <hat>: einen Hundebesitzer, welcher einen Hundefuehrerschein hat
                         - <ist>: ein Hund
                     - Methoden: hueten
                 Hundebesitzer:
-                    - Attribute: hatHundeFuehrerschein
+                    - FELDER: hatHundeFuehrerschein
                     - Beziehungen:
                         - <hat>: einen oder mehrere Hunde
                         - <ist>: ein Mensch
                     - Methoden: gassi gehen, Hunde fuettern, Hunde vernachlaessigen
                 Mensch:
-                - Attribute: age, health, happiness
+                - FELDER: age, health, happiness
                     - Beziehungen:
                         - <hat>:
                         - <ist>:
@@ -62,12 +61,12 @@ public class Main {
         - Konstruktor: dieser ist wie eine Methode, jedoch wird diese quasi beim Erstellen des Objektes ausgeführt.
         - getter bzw. setter: sind methoden welche für die Datenkapselung zuständig sind (dazu später).
 
-        Aber wie lesen und schreiben wir Klassen, Attribute und Methoden und dessen Relationen?
+        Aber wie lesen und schreiben wir Klassen, FELDER und Methoden und dessen Relationen?
         Siehe dazu die Erklärungen in der Klasse Hundebesitzer (ist relation) und Hund (alles andere).
 
         Hier schauen wir uns an wie wir Objekte aus der entsprechenden Klasse erstellen können.
         Wir verwenden dazu die gleiche Struktur wie beim Definieren von Variablen.
-        diese war <Typ> <Name> = <ausdruck>;. Konkret wäre es int age = 5;.
+        diese war "<Typ> <Name> = <ausdruck>;". Konkret wäre es "int age = 5;".
         Wir fügen dieser Struktur das Wort new hinzu, wenn wir ein Objekt von einer Klasse erstellen wollen.
         Das wird mit Hundebesitzer franz = new Hundebesitzer(.5); gemacht. Der Typ ist nun Hundebesitzer und nicht mehr int
         und wir schreiben nach dem = new und danach wieder die Klasse Hundebesitzer() mit Klammern. Die Klammern bedeuten den
@@ -75,26 +74,47 @@ public class Main {
     */
 
     public static void main(String[] args) {
-        Hund gilbert = new Hund("Gilbert", 5.0, 10.0, true, 10);
-        Hund frido = new Hund("Frido", 10.0, 8.5, true, 10);
+        Hund gilbert = new Hund("Gilbert", 1, "m", 10, false);
+        Hund frido = new Hund("Frido", 2, "w", 15, true);
         Hund[] hunde = {frido, gilbert};
 
-        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, hunde, hunde.length*2);
+        System.out.println(frido.getSpielFreund()); // ist null!
 
-        //TODO: waum geht das nicht in einem?
         gilbert.setSpielFreund(frido);
-        frido.setSpielFreund(gilbert);
+        System.out.println(gilbert.getSpielFreund());
+        System.out.println(frido.getSpielFreund()); // ist nicht mehr null!
+
+//        Wir brauchen die nächste Zeile nicht, da wir diese im Hintergrund bei setSpielFreund() bereits ausführen.
+//        Wir können also nicht diese zweite Zeile vergessen und dadurch ist ein möglicher Bug weniger vorhanden.
+//        frido.setSpielFreund(gilbert);
+
+        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, hunde.length*2);
+        karo.kaufeHund(frido);
+        karo.kaufeHund(gilbert);
+
+        // wir können auch Methoden in einer Schleife z.B. ForEach aufrufen.
+        // der Code und die zwei einzelnen Aufrufe der Methoden machen das gleiche.
+//        for (Hund hund : hunde) {
+//            karo.kaufeHund(hund);
+//        }
 
         gilbert.spielen();
         frido.spielen();
 
-
         Mensch hatBaldHunde = new Mensch("Walo", 0.1, 51);
-        //TODO: streng genommen sollte das nicht gehen! Wie lösen wir das...?
+        System.out.println(hatBaldHunde.getClass());
+        System.out.println(hatBaldHunde.hashCode());
+
         hatBaldHunde = hatBaldHunde.hundKaufen(gilbert, true, hunde.length*2);
 
         //Ist hatBaldHunde nun ein Mensch oder ein Hundebesitzer?
         System.out.println(hatBaldHunde.getClass());
+
+        //ist es aber noch das selbe Objekt?
+        System.out.println(hatBaldHunde.hashCode());
+        //nein. Wir haben also das alte Objekt zerstört und ein neues geschaffen!
+        // Wir können nicht einfach den Typ eines Objektes ändern und dabei noch dasselbe Objekt haben.
+        // Es hat nur die gleichen Werte wie der Mensch zuvor, und nun mehr, da er/sie ein Hundebesitzer/in ist.
 
         karo.fuettern();
     }

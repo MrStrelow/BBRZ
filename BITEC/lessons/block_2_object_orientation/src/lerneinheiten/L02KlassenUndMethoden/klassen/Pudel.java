@@ -3,9 +3,26 @@ package lerneinheiten.L02KlassenUndMethoden.klassen;
 public class Pudel extends Hund {
     double fluff;
 
-    public Pudel(String name, Double happiness, Double health, boolean chipped, Integer alter, HundeBesitzer besitzer, double fluff) {
-        super(name, happiness, health, chipped, alter, besitzer);
+    // TODO: super
+    public Pudel(String name, Integer alter, String geschlecht, Double health, boolean chipped, double fluff) {
+        super(name, alter, geschlecht, health, chipped);
         this.fluff = fluff;
+    }
+
+    public Pudel(String name, Integer alter, String geschlecht, Double health, boolean chipped, double fluff, HundeBesitzer besitzer, Hund spielFreund) {
+        this(name, alter, geschlecht, health, chipped, fluff);
+        this.setBesitzer(besitzer);
+        this.setSpielFreund(spielFreund);
+    }
+
+    public Pudel(String name, Integer alter, String geschlecht, Double health, boolean chipped, double fluff, HundeBesitzer besitzer) {
+        this(name, alter, geschlecht, health, chipped, fluff);
+        this.setBesitzer(besitzer);
+    }
+
+    public Pudel(String name, Integer alter, String geschlecht, Double health, boolean chipped, double fluff, Hund spielFreund) {
+        this(name, alter, geschlecht, health, chipped, fluff);
+        this.setSpielFreund(spielFreund);
     }
 
     public void winseln() {

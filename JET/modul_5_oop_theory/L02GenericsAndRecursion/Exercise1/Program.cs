@@ -2,7 +2,6 @@
 using System.Data.Common;
 using System.Security;
 using Exercise1;
-using Exercise1.src.Domain.People.Entities;
 
 
 // Erstelle Humans, welche Worker oder Manager sind.
