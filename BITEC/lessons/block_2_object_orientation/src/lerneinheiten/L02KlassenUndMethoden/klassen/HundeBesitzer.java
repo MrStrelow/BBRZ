@@ -20,10 +20,14 @@ import static lerneinheiten.L02KlassenUndMethoden.klassen.Essen.*;
  */
 
 public class HundeBesitzer extends Mensch {
+    // Felder
     private boolean hatHundeFuehrerschein;
     private int capacity;
+
+    // hat-beziehungen
     private Hund[] hunde;
 
+    // Konstruktoren
     public HundeBesitzer(String name, double happiness, int age, boolean hatHundeFuehrerschein, int capacity) {
         // Super ist der Konstruktor der superklasse/obertyp. hier ist das der Mensch.
         super(name, happiness, age);
@@ -61,6 +65,7 @@ public class HundeBesitzer extends Mensch {
         );
     }
 
+    // Methoden
     public void gassiGehen() {
         System.out.println("Ich: " + this.getName() + " geh mit...");
 
@@ -102,8 +107,13 @@ public class HundeBesitzer extends Mensch {
             // Hunde. Es könnte aber sein, dass im Hintergrund ein Hund zusätzlich ein Pudel ist.
             // Wenn wir nun ein anderes Verhalten für Pudel wollen, müssen wir das irgendwie abfragen können.
             // Dies geschieht hier mit dem "instanceof" operator. Dieser liefert als Rückgabe eine Boolesche Variable
-            if (hund instanceof Pudel) {
-                hund.setHealth(hund.getHealth() + 10);
+
+            // Achtung! das hier ist ein Trick damit JAVA weiß, dass es nun einpudel ist.
+            // Wir fragen also ab, ist das Objekt hund vom Typ Pudel, wenn ja, dann nennen wir das Objekt pudel.
+            // Wir ersparen uns somit Typumwandlungen!
+            if (hund instanceof Pudel pudel) {
+                pudel.setHealth(hund.getHealth() + 10);
+                pudel.setFluff(pudel.getFluff() * 2);
 
             } else {
                 hund.setHealth(hund.getHealth() + 1);
@@ -111,7 +121,7 @@ public class HundeBesitzer extends Mensch {
         }
     }
 
-    public void entferneHund(Hund hund) {
+    public void aussetzen(Hund hund) {
         for (int i = 0; i < hunde.length; i++) {
             if (hunde[i].equals(hund)) {
                hunde[i] = null;
@@ -122,32 +132,28 @@ public class HundeBesitzer extends Mensch {
     // Wir sehen hier, dass findeHund und kaufeHund das gleiche Verhalten haben.
     // Es kann jedoch in zukunft beim Kauf eine Transaktion mit einem Geschäft dazukommen,
     // welche beim Finden nicht der Fall ist.
-    public void findeHund(Hund neuerHund) {
+    public void finden(Hund neuerHund) {
         neuerHund.setBesitzer(this);
     }
 
-    public void kaufeHund(Hund neuerHund) {
+    public void kaufen(Hund neuerHund) {
+        // guard clause
+        if (neuerHund instanceof SchaeferHund && !hatHundeFuehrerschein) {
+            System.out.println("Fehler! es wird für einen " + neuerHund.getClass() + " ein Hundeführerschein benötigt.");
+        }
+
         neuerHund.setBesitzer(this);
     }
 
-    public void verkaufeHund(Hund hund) {
-        entferneHund(hund);
+    public void verkaufen(Hund hund) {
+        //Frage: ist das hier korrekt? der Code macht, was wir wollen, aber denken wir, ob aussetzen bei einem verkauf konzeptionell zusammenpasst?
+        //zukünftig kann es sein, dass durch eine solche Verwendung Fehler zur Laufzeit entstehen.
+        aussetzen(hund);
+
         hund.setBesitzer(null);
     }
 
-    public boolean besitztHund(Hund hund) {
-        boolean besitztHund = false;
-
-        for (int i = 0; i < hunde.length; i++) {
-            if (hund.equals(hunde[i])) {
-                besitztHund = true;
-                break;
-            }
-        }
-
-        return besitztHund;
-    }
-
+    // get-und-set Methoden
     public Hund[] getHunde() {
         return hunde;
     }
@@ -164,6 +170,21 @@ public class HundeBesitzer extends Mensch {
                 System.out.println("Bin voll :(");
             }
         }
+    }
+
+    // Hilfsmethoden: Methoden, von "Domänen-Klassen" welche nicht in der Domäne notwendig sind, jedoch uns technisch das Leben einfacher machen.
+    // Ein solches Verhalten kann in eigenen Klassen abgespalten werden. Diese heiße dann "Application Klassen".
+    public boolean besitztHund(Hund hund) {
+        boolean besitztHund = false;
+
+        for (int i = 0; i < hunde.length; i++) {
+            if (hund.equals(hunde[i])) {
+                besitztHund = true;
+                break;
+            }
+        }
+
+        return besitztHund;
     }
 
     private int habePlatz() {

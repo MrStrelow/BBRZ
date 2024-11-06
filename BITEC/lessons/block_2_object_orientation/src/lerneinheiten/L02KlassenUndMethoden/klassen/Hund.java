@@ -49,6 +49,7 @@ public class Hund {
     private HundeBesitzer besitzer;
     private Hund spielFreund;
 
+    // Die wird behuetet Beziehung wird hier nicht angegeben, da wir nur in eine Richtung diese uns merken. Siehe UML-Diagramm.
 
     /*
     Konstruktor:
@@ -197,7 +198,7 @@ public class Hund {
 
     public void weglaufen() {
         System.out.println(this.name + " ist von " + this.besitzer + " weggelaufen...");
-        besitzer.entferneHund(this);
+        besitzer.aussetzen(this);
         besitzer = null;
     }
 

@@ -3,8 +3,8 @@ package lerneinheiten.L02KlassenUndMethoden.klassen;
 public class Mensch {
     // Attribute sind nomen
     private String name;
-    private double happiness;
     private int alter;
+    private double happiness;
 
     // hat-Beziehungen:
     // Die Beziehung "loveInterest" (geliebte/r) muss nicht gegenseitig sein (mutual).
@@ -24,12 +24,26 @@ public class Mensch {
     }
 
     //Methoden sind verben
-    public HundeBesitzer hundKaufen(Hund hund, boolean hatHundeFuehrerschein, int capacity) {
-       return new HundeBesitzer(this, hatHundeFuehrerschein, capacity);
+    public HundeBesitzer wirdEinHundeBesitzer(Hund hund, boolean hatHundeFuehrerschein, int capacity) {
+        HundeBesitzer einGanzNeuerMensch = new HundeBesitzer(this, hatHundeFuehrerschein, capacity);
+        einGanzNeuerMensch.kaufen(hund);
+
+        return einGanzNeuerMensch;
     }
 
     public HundeBesitzer mehrereHundeKaufen(Hund[] hunde, boolean hatHundeFuehrerschein, int capacity) {
-        return new HundeBesitzer(this, hatHundeFuehrerschein, hunde, capacity);
+        HundeBesitzer einGanzNeuerMensch = new HundeBesitzer(this, hatHundeFuehrerschein, capacity);
+
+        if (capacity <= hunde.length) {
+            System.out.println("Fehler! Wir haben zu viele Hunde als wir betreuen können.");
+            return null; // Achtung! Wir werden ein return null in Zukunft mit Exceptions ersetzen.
+        }
+
+        for (Hund hund : hunde) {
+            einGanzNeuerMensch.kaufen(hund);
+        }
+
+        return einGanzNeuerMensch;
     }
 
     // get und set methoden

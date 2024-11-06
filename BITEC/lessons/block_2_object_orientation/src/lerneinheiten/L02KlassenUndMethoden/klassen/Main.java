@@ -89,8 +89,8 @@ public class Main {
 //        frido.setSpielFreund(gilbert);
 
         HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, hunde.length*2);
-        karo.kaufeHund(frido);
-        karo.kaufeHund(gilbert);
+        karo.kaufen(frido);
+        karo.kaufen(gilbert);
 
         // wir können auch Methoden in einer Schleife z.B. ForEach aufrufen.
         // der Code und die zwei einzelnen Aufrufe der Methoden machen das gleiche.
@@ -105,7 +105,7 @@ public class Main {
         System.out.println(hatBaldHunde.getClass());
         System.out.println(hatBaldHunde.hashCode());
 
-        hatBaldHunde = hatBaldHunde.hundKaufen(gilbert, true, hunde.length*2);
+        hatBaldHunde = hatBaldHunde.wirdEinHundeBesitzer(gilbert, true, hunde.length*2);
 
         //Ist hatBaldHunde nun ein Mensch oder ein Hundebesitzer?
         System.out.println(hatBaldHunde.getClass());
