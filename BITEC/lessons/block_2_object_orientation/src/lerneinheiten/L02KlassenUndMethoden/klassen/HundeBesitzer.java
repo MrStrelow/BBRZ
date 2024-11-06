@@ -178,7 +178,10 @@ public class HundeBesitzer extends Mensch {
         boolean besitztHund = false;
 
         for (int i = 0; i < hunde.length; i++) {
-            if (hund.equals(hunde[i])) {
+            // Achtung! Wir fragen hier auf Gleichheit ab. Wir können also nicht 2 Hunde besitzen, die gleich sind (.equals).
+            // Wir wollen aber aussschließen, dass diese nicht dieselben sind. Das machen wir mit "==".
+//            if (hund.equals(hunde[i])) {
+            if (hund == hunde[i]) {
                 besitztHund = true;
                 break;
             }
@@ -193,6 +196,7 @@ public class HundeBesitzer extends Mensch {
         for (int i = 0; i < hunde.length; i++) {
             if (this.hunde[i] == null) {
                 key = i;
+                break;
             }
         }
 

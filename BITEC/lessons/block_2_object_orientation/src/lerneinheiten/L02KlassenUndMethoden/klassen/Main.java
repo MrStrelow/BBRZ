@@ -74,7 +74,9 @@ public class Main {
     */
 
     public static void main(String[] args) {
+        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, 20);
         Hund gilbert = new Hund("Gilbert", 1, "m", 10, false);
+        Hund golbert = new Hund("Gilbert", 1, "m", 10, false);
         Hund frido = new Hund("Frido", 2, "w", 15, true);
         Hund[] hunde = {frido, gilbert};
 
@@ -88,7 +90,6 @@ public class Main {
 //        Wir können also nicht diese zweite Zeile vergessen und dadurch ist ein möglicher Bug weniger vorhanden.
 //        frido.setSpielFreund(gilbert);
 
-        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, hunde.length*2);
         karo.kaufen(frido);
         karo.kaufen(gilbert);
 

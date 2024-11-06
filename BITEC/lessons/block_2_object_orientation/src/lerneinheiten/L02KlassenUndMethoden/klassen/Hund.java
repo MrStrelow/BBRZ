@@ -107,7 +107,6 @@ public class Hund {
         // wir rufen hier mit this den oben definierten Konstruktor auf! Wir verhindern dadurch unnötigen doppelten Code.
         this(name, alter, geschlecht, health, chipped);
         this.besitzer = besitzer;
-
         this.besitzer.addHund(this);
     }
 
