@@ -6,7 +6,7 @@ Welche allgemeine Konzepte üben wir hier?
 
 Lies davor: 
 * [gaurd clauses und de morgan's law](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.3GuardClauses.md)
-* 
+* [exceptions](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.7Exceptions.md)
 
 ## 3. Übung - Guard Clauses
 
