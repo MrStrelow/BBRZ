@@ -14,7 +14,7 @@ public class L04UserInput {
         // Wir legen dazu eine Variable myScanner an.
         // Hier sehen wir unser bekanntes "Dreierlei" bzw. wenn wir den Zuweisungsoperator zählen "Viererlei":
         // <Typ> <nameDerVariable> <Zuweisungsoperator> <Wert>
-        // Hier sieht die Art wir wir den <Wert> Zuweisen aber unbekannt aus. Wir haben es schon mal gesehen, aber je öfter desto besser.
+        // Hier sieht die Art wie wir den <Wert> Zuweisen aber unbekannt aus. Wir haben es schon mal gesehen, aber je öfter desto besser.
         // Die rechte Seite des Zuweisungsoperators "=" ist schon ein Konzept aus der Objektorientierung.
         // Wir verwenden das Keyword "new" um eine neue Variable anzulegen, gefolgt vom Typ der Variable.
         // In den Klammern können wir noch nähere Spezifikationen vollziehen (Für jene welche schon Objektorientiert programmiert haben,

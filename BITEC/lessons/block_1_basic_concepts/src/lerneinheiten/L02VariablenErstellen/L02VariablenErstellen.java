@@ -41,10 +41,10 @@ public class L02VariablenErstellen {
 
         // #################################### Typen von Variablen ####################################
         // Wenn wir den <Typ>...
-        //  - klein schrieben → primitive Datentypen (keine block2.Klassen),
-        //  - groß schrieben → (sind block2.Klassen).
-        // block2.Klassen sind die "Grundbausteine" in JAVA und jeder objektorientierten Sprache und erlauben uns
-        // aus block2.Klassen, Objekte zu erzeugen. Das erlaubt uns dann "elegantere" Programme zu schreiben.
+        //  - klein schrieben → primitive Datentypen (keine Klassen),
+        //  - groß schrieben → (sind Klassen).
+        // Klassen sind die "Grundbausteine" in JAVA und jeder objektorientierten Sprache und erlauben uns
+        // aus Klassen, Objekte zu erzeugen. Das erlaubt uns dann "elegantere" Programme zu schreiben.
 
         // Was sind nun die Typen von Variablen?
         // - Zeichen(ketten):
@@ -74,7 +74,7 @@ public class L02VariablenErstellen {
         myPrimitiveInteger = myInteger;
         myInteger = myPrimitiveInteger;
 
-        // Wir werden zuerst einfachheitshalber nur die "block2.Klassen" als Typen verwenden. Also keine primitiven Datentypen.
+        // Wir werden zuerst einfachheitshalber nur die "Klassen" als Typen verwenden. Also keine primitiven Datentypen.
         // Der Vorteil von Variablen, welche einen primitiven Typen haben ist, sie sind schlänker und verbrauchen "weniger" Speicher.
         // Auch ist der Ort an dem sie sich befinden (Stack) schneller für den Computer verwendbar, als der Ort wo Objekte liegen (Heap).
         // Der Nachteil, primitive Datentypen erlauben einen weniger "Funktionalität".

@@ -1,3 +1,13 @@
+Welche ``Konzepte`` der Programmiersprache üben wir hier?
+* Umgang mit vordefinierten methoden zur Umwandlung von Variablen
+* type-casting
+
+Welche ``Denkwweisen`` üben wir hier?
+* keine
+
+Lies davor:
+* [wie wandle ich variablen um?](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.1VariablenUmwandeln.md)
+
 ## 2. Übung - Variablenumwandlung in C#
 
 In dieser Übung arbeitest du mit verschiedenen Umwandlungsmethoden in C#. Die Aufgabe besteht darin, die Umwandlung von Variablen in unterschiedlichen Szenarien zu üben, einschließlich der Umwandlung von Zahlen zu Zahlen, Zeichenfolgen zu Zahlen und Zahlen zu Zeichenfolgen.

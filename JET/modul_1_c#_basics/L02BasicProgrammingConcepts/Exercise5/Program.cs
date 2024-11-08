@@ -1,111 +1,55 @@
-﻿Boolean userExistiert = false;
-Boolean userIstAltGenug = false;
-Boolean userIstPremiumAccount = true;
-Boolean userIstUnauffaellig = true;
-
-Boolean ressourceExistiert = false;
-Boolean ressourceIstAmNeuestenStand = true;
-Boolean ressourceUnauffaellig = true;
-
-Console.WriteLine("----------Verschachteltes IF----------");
-
-if (userExistiert)
+﻿public class User
 {
-    if (userIstAltGenug)
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public bool IsRegistered { get; set; }
+
+    public User(string name, int age, bool isRegistered)
     {
-        if (userIstPremiumAccount)
+        Name = name;
+        Age = age;
+        IsRegistered = isRegistered;
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        User user = new User("Alice", 25, true);
+        ProcessUser(user);
+
+    }
+
+    public static void ProcessUserNestedIf(User user)
+    {
+        if (user != null)
         {
-            if (userIstUnauffaellig)
+            if (user.IsRegistered)
             {
-                if (ressourceExistiert)
+                if (user.Age >= 18)
                 {
-                    if (ressourceIstAmNeuestenStand)
-                    {
-                        if (ressourceUnauffaellig)
-                        {
-                            Console.WriteLine("Passt! User bekommt was er will.");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Fehler 7!");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Fehler 6!");
-                    }
+                    Console.WriteLine("User is processed.");
                 }
                 else
                 {
-                    Console.WriteLine("Fehler 5!");
+                    Console.WriteLine("User is too young.");
                 }
             }
             else
             {
-                Console.WriteLine("Fehler 4!");
+                Console.WriteLine("User is not registered.");
             }
         }
         else
         {
-            Console.WriteLine("Fehler 3!");
+            Console.WriteLine("User is null.");
         }
     }
-    else
+
+    public static void ProcessUserGuardClause(User user)
     {
-        Console.WriteLine("Fehler 2!");
+        //TODO:
+        throw new NotImplementedException("TODO: Guard Clause Implementierung der Methode: ProcessUserNestedIf");
     }
 }
-else
-{
-    Console.WriteLine("Fehler 1!");
-}
-
-
-// ... dieses Programm hier.
-Console.WriteLine("----------Guard Clauses----------");
-
-if (!userExistiert)
-{
-    Console.WriteLine("Fehler 1!");
-    Environment.Exit(0);
-    // oder
-    //return;
-}
-
-if (!userIstAltGenug)
-{
-    Console.WriteLine("Fehler 2!");
-    Environment.Exit(0);
-}
-
-if (!userIstPremiumAccount)
-{
-    Console.WriteLine("Fehler 3!");
-    Environment.Exit(0);
-}
-
-if (!ressourceExistiert)
-{
-    Console.WriteLine("Fehler 4!");
-    Environment.Exit(0);
-}
-
-if (!userIstUnauffaellig)
-{
-    Console.WriteLine("Fehler 5!");
-    Environment.Exit(0);
-}
-
-if (!ressourceIstAmNeuestenStand)
-{
-    Console.WriteLine("Fehler 6!");
-    Environment.Exit(0);
-}
-
-if (!ressourceUnauffaellig)
-{
-    Console.WriteLine("Fehler 7!");
-    Environment.Exit(0);
-}
-
-Console.WriteLine("Passt! User bekommt was er will.");

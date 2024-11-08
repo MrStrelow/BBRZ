@@ -349,7 +349,7 @@ public class L03Operatoren {
 
         // // #################################### OPERATOREN VS. METHODEN ####################################
         // in der Praxis werden Operatoren meist bei Zahlen verwendet und methoden für alles andere.
-        // In C++ oder C# können auch Operatoren "überladen" werden. Also das z.B. "+" Symbol kann für das Kombinieren von eigenen block2.Klassen verwendet werden.
+        // In C++ oder C# können auch Operatoren "überladen" werden. Also das z.B. "+" Symbol kann für das Kombinieren von eigenen Klassen verwendet werden.
         // ASCII - Table -> gibt Nummer rein, hier 195 und gibt das Symbol an dieser Stelle aus.
         // a -> 97, b -> 98, usw.
 

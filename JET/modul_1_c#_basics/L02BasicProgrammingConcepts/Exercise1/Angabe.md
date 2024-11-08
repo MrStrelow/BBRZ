@@ -1,3 +1,14 @@
+Welche ``Konzepte`` der Programmiersprache üben wir hier?
+* Argumente vs. Parameter
+* Referenzdatentyp vs. Wertdatentyp  
+* Stack vs. Heap
+
+Welche ``Denkwweisen`` üben wir hier?
+* keine
+
+Lies davor: 
+* [call by reference vs. call by value](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.2CallByValueOrReference.md)
+
 ## 1. Übung - Argumente von Methoden: Call by Value oder Reference?
 
 Erstelle eine Klasse namens `Calculator` mit den folgenden Methoden:

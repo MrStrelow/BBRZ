@@ -1,12 +1,15 @@
-Wir üben folgende Konzepte der Programmiersprache:
+Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Schleifen
 * Verzweigungen
 * 2D-Arrays
 * User-Input
 * Operatoren (besonders logische)
 
-Welches Konzept üben wir hier?
+Welche ``Denkwweisen`` üben wir hier?
 * Wie gehe ich mit einer Mathematischen Funktion um (lineare Funktion, Steigung)?
+
+Lies davor:
+* [java vs. c#](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.0C%23_vs_Java_Syntax.md)
 
 ## 3. Schachbrett und Linien.
 * Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `Console.ReadLine` und wandle diesen String in eine Zahl um.
