@@ -82,7 +82,7 @@ public class Program
 
 ### 2. Schreibe folgendes verschachtelte If in eine Guard Clause um.
 Hier eine kompliziertere Abfrage.
-
+Verwende hier die gleichen Exceptions wie unten im Code.
 
 ```csharp
 public class User
