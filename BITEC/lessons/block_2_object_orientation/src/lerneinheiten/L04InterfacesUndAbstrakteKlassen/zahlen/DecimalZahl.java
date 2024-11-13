@@ -1,4 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.zahlen;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.zahlen;
 
 public class DecimalZahl extends Zahl{
 

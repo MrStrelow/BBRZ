@@ -1,4 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.sorting;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.sorting;
 
 import java.util.Arrays;
 

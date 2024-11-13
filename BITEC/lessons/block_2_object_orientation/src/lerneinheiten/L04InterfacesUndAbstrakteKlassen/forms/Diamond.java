@@ -1,6 +1,6 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.forms;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.forms;
 
-import static lerneinheiten.L03InterfacesUndAbstrakteKlassen.forms.Direction.*;
+import static lerneinheiten.L04InterfacesUndAbstrakteKlassen.forms.Direction.*;
 
 public class Diamond extends Form {
     public Diamond(int dimension) {

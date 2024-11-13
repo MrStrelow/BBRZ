@@ -1,4 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.zahlen;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.zahlen;
 
 /*
     Hier sehen wir ein INTERFACE. Wir schreiben dies zumeist als Eigenschaftswort/Adjektiv.

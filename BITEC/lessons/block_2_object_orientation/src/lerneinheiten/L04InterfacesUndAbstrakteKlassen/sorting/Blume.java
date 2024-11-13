@@ -1,4 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.sorting;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.sorting;
 
 public class Blume implements Comparable {
     public int hoehe;

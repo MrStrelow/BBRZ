@@ -37,6 +37,35 @@ public class User
             Console.WriteLine("User is active, a senior, has a valid email, and an active subscription.");
         }
     }
+
+    // Rein logisch gesehen ist die folgende Methode nicht komplett gleich dem Programm mit dem verschachtelten if.
+    // Wir haben jedoch hier in diesem Programm uns die Freiheit genommen, und Fehlermeldungen von Senior und User zusammenzufassen,
+    // wenn z.B. die mail Adresse fehlt.
+    public void ProcessUserKuerzerAberNichtGanzGleich()
+    {
+        // Guard Clauses für allgemeine Prüfungen
+        if (!IsActive)
+            throw new InvalidOperationException("User is not active.");
+
+        if (Age <= 18)
+            throw new InvalidOperationException("User must be older than 18.");
+
+        if (string.IsNullOrEmpty(Email))
+            throw new InvalidOperationException("User email is missing.");
+
+        if (SubscriptionEnd <= DateTime.Now)
+            throw new InvalidOperationException("User's subscription has expired.");
+
+        // Weitere Bedingungen je nach Altersgruppe
+        if (Age < 65)
+        {
+            Console.WriteLine("User is active, adult, has a valid email, and an active subscription.");
+        }
+        else
+        {
+            Console.WriteLine("User is active, a senior, has a valid email, and an active subscription.");
+        }
+    }
 }
 
 

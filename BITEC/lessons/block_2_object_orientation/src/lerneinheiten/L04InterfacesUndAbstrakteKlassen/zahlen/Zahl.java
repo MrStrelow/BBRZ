@@ -1,4 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.zahlen;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.zahlen;
 
 /*
     Wir verwenden hier abstract um zu verhindern, dass ein Objekt vom Typ Zahl erstellt werden kann.

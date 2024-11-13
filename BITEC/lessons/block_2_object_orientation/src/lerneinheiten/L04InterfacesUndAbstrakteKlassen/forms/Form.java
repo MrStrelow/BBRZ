@@ -1,4 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.forms;
+package lerneinheiten.L04InterfacesUndAbstrakteKlassen.forms;
 
 public abstract class Form {
     // ############ FIELDS ############
