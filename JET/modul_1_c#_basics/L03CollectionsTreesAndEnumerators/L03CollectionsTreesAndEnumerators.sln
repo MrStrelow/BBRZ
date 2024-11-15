@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03CollectionsTreesAndEnumerators", "L03CollectionsTreesAndEnumerators\L03CollectionsTreesAndEnumerators.csproj", "{064F4784-D7E7-4B78-BE2E-A11263238C89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1", "Exercise1\Exercise1.csproj", "{0A605583-0C49-47B7-B4AA-89F7D3530A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2", "Exercise2\Exercise2.csproj", "{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A605583-0C49-47B7-B4AA-89F7D3530A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A605583-0C49-47B7-B4AA-89F7D3530A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A605583-0C49-47B7-B4AA-89F7D3530A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A605583-0C49-47B7-B4AA-89F7D3530A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
