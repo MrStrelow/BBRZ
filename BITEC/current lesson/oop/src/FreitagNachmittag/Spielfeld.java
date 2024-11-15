@@ -12,5 +12,11 @@ public class Spielfeld {
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
     }
 
+    public void hamsterIsstSamen(Hamster hamster) {
+    }
+
+    public void hamsterHamstertSamen(Hamster hamster) {
+    }
+
     // get-set Methoden
 }

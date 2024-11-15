@@ -45,7 +45,18 @@ public class Hamster {
         // ansonsten rufe methode hamstern auf
     }
 
+    public void essen() {
+        // hamster wird nicht mehr hungrig.
+        hatHunger = false;
+        // hamster sagt dem spielfeld, der samen ist weg
+        spielfeld.hamsterIsstSamen(this);
+    }
 
+    public void hamstern() {
+        // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
+        // hamster sagt dem spielfeld, der samen ist weg
+        spielfeld.hamsterHamstertSamen(this);
+    }
 
     // get-set Methoden
     public int getX() {
