@@ -18,5 +18,8 @@ public class Spielfeld {
     public void hamsterHamstertSamen(Hamster hamster) {
     }
 
+    public void weiseSamenZu(Samen samen) {
+    }
+
     // get-set Methoden
 }
