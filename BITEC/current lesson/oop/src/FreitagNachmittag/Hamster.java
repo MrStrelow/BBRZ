@@ -1,9 +1,8 @@
 package FreitagNachmittag;
 
-import FileReadWriteUndExceptions.SaveInCloud;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Hamster {
     // Felder
@@ -17,16 +16,35 @@ public class Hamster {
     private List<Samen> backenSpeicher;
 
     // Konstruktor
-    public Hamster(Spielfeld spielfeld) {
+    public Hamster(Spielfeld spielfeld, int x, int y) {
         backenSpeicher = new ArrayList<>();
+
         this.spielfeld = spielfeld;
+        spielfeld.weiseHamsterZu(this);
+
         hatHunger = false;
         darstellung = "🐹";
-        darstellung = "\uD83D\uDC39";
-        darstellung = Character.toString( 58660 );;
+        this.x = x;
+        this.y = y;
     }
 
     // Methoden
+    public void bewegen() {
+        Random random = new Random();
+        int index = random.nextInt(0, Richtung.values().length);
+        Richtung richtung = Richtung.values()[index];
+
+        spielfeld.bewegeHamster(this, richtung);
+    }
+
+    public void metabolismn() {
+        // werde zufällig hungrig
+
+        // stehe ich auf einem Feld mit essen?
+        // wenn ja, dann rufe methode essen auf
+        // ansonsten rufe methode hamstern auf
+    }
+
 
 
     // get-set Methoden
