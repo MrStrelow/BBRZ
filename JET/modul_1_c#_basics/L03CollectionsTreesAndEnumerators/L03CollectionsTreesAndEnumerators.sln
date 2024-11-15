@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03CollectionsTreesAndEnumerators", "L03CollectionsTreesAndEnumerators\L03CollectionsTreesAndEnumerators.csproj", "{064F4784-D7E7-4B78-BE2E-A11263238C89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{064F4784-D7E7-4B78-BE2E-A11263238C89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79622316-F172-4D11-914A-ED76CEB56B36}
+	EndGlobalSection
+EndGlobal

@@ -109,7 +109,7 @@ Die FELDER stellen den Zustand eines OBJEKTES dar.
     - Verwende Hauptwörter (Nomen) dafür.
     Zudem können Beziehungen abgebildet werden. Diese sind Teil des Zustandes,
     werden aber speziell hervorgehoben im Bezug auf die OBJEKT-KOPPELUNG. Dazu später.
-    (Ein Haus hat Zimmer -> Klasse Haus hat Feld von Typ Liste<Zimmer>).
+    (Ein Haus hat Zimmer -> Klasse Haus hat Feld vom Typ Liste<Zimmer>).
 
 - Methoden: verändern den Zustand eines OBJEKTES.
     Eine METHODE ist eine Blackbox in der Variablen hineingegeben, verarbeitet und zurückgegeben werden.

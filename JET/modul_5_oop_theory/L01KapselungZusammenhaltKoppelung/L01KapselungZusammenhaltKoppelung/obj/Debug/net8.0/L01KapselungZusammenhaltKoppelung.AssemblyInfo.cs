@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("L01KapselungZusammenhaltKoppelung")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96e31a728f388bc578f78c66fe8fef872bf65047")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46d8bc828f0a1e65e39f9534ba0f97f7eed983b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("L01KapselungZusammenhaltKoppelung")]
 [assembly: System.Reflection.AssemblyTitleAttribute("L01KapselungZusammenhaltKoppelung")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
