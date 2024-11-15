@@ -30,8 +30,8 @@ Diese sind:
 * Für ``alle`` Formen:
     * Symbol des Hintergrunds: Angabe durch User (z.B. ``" "``)
     * Symbol der Form: Angabe durch User (z.B. ``"#"``)
-    * Muster der Formen: Siehe [Muster der Formen](###Muster-der-Formen).
-    * Steigung der Formen: Siehe [Steigung der Formen](###Steigung-der-Formen).
+    * Muster der Formen: Siehe [Muster der Formen](#muster-der-formen).
+    * Steigung der Formen: Siehe [Steigung der Formen](#steigung-der-formen).
 
 ### Basisform
 ``Dreieck - links-unten``

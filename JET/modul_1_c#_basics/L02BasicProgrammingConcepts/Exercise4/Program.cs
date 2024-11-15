@@ -155,7 +155,9 @@ public class FormenMitFunktionen
         {
             for (int j = 0; j < part.GetLength(1); j++)
             {
-                // wir fragen hier leider immer etwas ab (positon), das sich nicht ändern pro Schleife. Es scheint aber so lesbar zu sein. Wir lasses es deshalb so.
+                // wir fragen hier leider immer etwas ab (positon), das sich nicht ändern pro Schleife.
+                // Es scheint aber so lesbar zu sein.
+                // Wir lasses es deshalb so.
                 switch (position)
                 {
                     case Position.TOP_LEFT:  container[i,j] = part[i,j]; break;
