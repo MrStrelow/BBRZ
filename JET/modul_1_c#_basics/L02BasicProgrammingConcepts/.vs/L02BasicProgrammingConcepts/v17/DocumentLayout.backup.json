@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\livecoding\\formen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|solutionrelative:livecoding\\formen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A06D7CE7-2C24-492B-8CFF-DB286227315C}|Exercise4\\Exercise4.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A06D7CE7-2C24-492B-8CFF-DB286227315C}|Exercise4\\Exercise4.csproj|solutionrelative:exercise4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +23,46 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Formen.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\Formen.cs",
+              "RelativeDocumentMoniker": "LiveCoding\\Formen.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\Formen.cs",
+              "RelativeToolTip": "LiveCoding\\Formen.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwBQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T10:05:12.827Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "9d19dc87-350f-4822-99cd-b0515c5de79c",
+        "Display": 1,
+        "X": 5,
+        "Y": 482,
+        "Width": 1060,
+        "Height": 555,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Program.cs",
               "RelativeDocumentMoniker": "Exercise4\\Program.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Program.cs",
               "RelativeToolTip": "Exercise4\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAQwF0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T07:34:01.427Z",
               "EditorCaption": ""
