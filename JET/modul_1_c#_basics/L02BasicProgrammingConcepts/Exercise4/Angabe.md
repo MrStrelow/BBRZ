@@ -16,6 +16,29 @@ Lies davor:
 
 ## 4. Aus Dreiecken 📐 werden Diamanten 💠
 Generiere ``Formen``, welche vom ``User gewählt`` werden, sowie die benötigten Parameter der Formen. 
+
+Verwende dazu folgende Methoden welche alle in einer `ausführbaren Klasse` sich befinden (Klasse mit einer `Main` Methode):
+* static string[,] DrawTriangle(string[,] field, string symbol): zeichnet die [Basisform](#basisform) in ein 2d-Array.
+* static string[,] MirrorX(string[,] field): spiegle ein 2d-Array um die x-Achse.
+* static string[,] MirrorY(string[,] field): spiegle ein 2d-Array um die y-Achse.
+
+Versuche mit `MirrorY`, `MirrorX` und `DrawTriangle` alle 4 Fälle Teile des [Diamanten](#zusammengesetzte-formen) darzustellen.
+Verwende nun:
+* static string[,] CombineForm(String[,] container, String[,] part, Position position): um die 4 Teile des Diamanten zusammenzufügen.
+
+Für spätere Aufgaben, wie [Steigung der Formen](#steigung-der-formen) und [Muster der Formen](#muster-der-formen) sind folgende Methoden hilfreich:
+* static string[,] Transpose(string[,] field): hier vertausche zeilen und spalten eines 2d-Arrays.
+* static string[,] Rotate(string[,] field): verwende `Transpose(MirrorX(field));` um das umzusetzten.
+* static string[,] DrawPattern(string[,] field, int n, string fillForm, string newFillForm): Diese Methode zeichnet jede `nte` Zeile ein neues Symbol in die gesamte Zeile. Für spaltenweises zeichnen verwende vorher die Methode `drehen` und führe danach `DrawPattern` aus. Danach drehe es wieder zurück (also so oft, bis es wieder gleich wie am Anfang ist).
+* static string[,] DrawTriangle(string[,] field, string symbol, double slope): hier erzeuge ein neues 2d-Array. Die größe ist durch die Steigung `slope` auszurechnen. Danach zeichne die linie ein welche durch $y=k*x$ gegeben ist. Fülle alles was links von dem symbol der line ist mit diesem aus.
+
+Hilfsmethoden:
+* static void Print(string[,] field): Gibt ein 2d-Array aus. Es soll die 1. Dimension in der `y Achse` und die 2. Dimension in der `x Achse` der Konsole sichbar sein (also nicht alles in eine Zeile schreiben).
+
+* static string[,] FillCanvas(string[,] field, string symbol): Befüllt ein 2d-Array komplett mit einem Symbol.
+* static string[,] Copy(string[,] field): Kopiert den Parameter field in ein neues 2d-Array und gibt es zurück. Das ist nicht zwingend notwendig, jedoch denke an [call by value vs reference](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.2CallByValueOrReference.md)
+
+
 Zuerst gibt der User an welche Form generiert wird. Die Eingabe des Users soll der Name der Form sein. Diese sind 
 * Dreieck (rechtwinklig, gleichschenklig), 
 * Raute (Diamant). 
