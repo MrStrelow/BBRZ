@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class IOPackageFileWriterReader {
     public static void main(String[] args) {
         // Wir versuchen hier einen Text in eine Datei z.B. am Betriebssystem zu schreiben und danach diese wieder auszulesen.
-        String filePath = "example.txt";
+        String filePath = "src/lerneinheiten/L03FilesUndExceptions/example.txt";
         String content = "yes. no. maybe. I don't know.";
         // Davor schauen wir uns aber Exceptions an, welche wir nun zwingend behandeln müssen.
         // Bis jetzt waren Exceptions wie "NullPointer" und "ArrayOutOfBounds" Exceptions nicht zwingen abzufangen,
@@ -86,9 +86,13 @@ public class IOPackageFileWriterReader {
             fileWriter.write(content);
             fileWriter.flush();
 
-            // Es gibt eine spezielle "append" Methode, welche die Flag "append" im Konstruktor ignoriert und immer "append" macht.
-            // Das Verhalten der "write" Methode bezieht sich auf den Zustand der Flag.
+            // Es gibt eine spezielle "append" Methode, welche jedoch das gleiche Verhalten hat wie write.
+            // Append() kann jedoch eine CharSequence als Argument, während write() eine String annimmt.
+            // Da String eine Implementierung von CharSequence ist, können Sie auch einen String an append() übergeben.
+            // Sie können aber auch einen StringBuilder oder StringBuffer an append übergeben, was mit write() nicht möglich ist.
             fileWriter.append(content);
+            fileWriter.append(new StringBuilder(content));
+//            fileWriter.write(new StringBuilder(content));
             fileWriter.flush();
 
             // Eine allgemeine Anmerkung zum BufferedReader:
@@ -239,7 +243,7 @@ public class IOPackageFileWriterReader {
         // TODO: passe den Code in unserem "großen" try-catch so an, dass die Ressourcen immer geschlossen werden!
         try (
                 FileReader autoClosedReader = new FileReader(filePath);
-                FileWriter autoClosedWriter = new FileWriter(filePath)
+                FileWriter autoClosedWriter = new FileWriter(filePath, true)
         ) {
             System.out.println(autoClosedReader.ready());
             System.out.println(autoClosedWriter.getEncoding());

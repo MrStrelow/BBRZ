@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class Exceptions {
-    static String filePath = "lerneinheiten/L03FilesUndExceptions/example.txt";
+    static String filePath = "src/lerneinheiten/L03FilesUndExceptions/example.txt";
     // Wir haben bei Exceptions 2 Möglichkeiten.
     // - Wir behandlen (fangen) diese mit einem try-catch-block
     // - Wir geben den Fehler weiter (werfen) zu jener Methode, welche diese aufruft.
