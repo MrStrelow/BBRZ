@@ -239,7 +239,7 @@ public class IOPackageFileWriterReader {
         // TODO: passe den Code in unserem "großen" try-catch so an, dass die Ressourcen immer geschlossen werden!
         try (
                 FileReader autoClosedReader = new FileReader(filePath);
-                FileWriter autoClosedWriter = new FileWriter(filePath);
+                FileWriter autoClosedWriter = new FileWriter(filePath)
         ) {
             System.out.println(autoClosedReader.ready());
             System.out.println(autoClosedWriter.getEncoding());
