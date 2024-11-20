@@ -32,13 +32,11 @@ public class Exceptions {
             meineMethode();
 
         } catch (SQLException sqle) { // müssen wir fangen, es steht in der Methodensignatur von meineMethode()
+            // Hier sehen wir eine eigene Methode welche nur SQL Exceptions aufrufen können. Diese gibt einen Code aus
+            // welcher mehrere Informationen über den Fehler gibt (Tabelle gibt es nicht, Authentifizierung fehlgeschlagen usw.).
             System.err.println(sqle.getSQLState());
 
-        } catch (IOException ioe) { // müssen wir fangen, es steht in der Methodensignatur von meineMethode()
-            ioe.printStackTrace();
-
-        }
-        catch (NullPointerException ne) {
+        } catch (NullPointerException ne) {
             // Können wir fangen, es steht nicht in der Methodensignatur von meineMethode().
             // Es ist deshalb keine "checked-Exception", sondern eine "Runtime-Exception".
             // Achtung! Auch wenn diese in der Methodensignatur stehen würde,
@@ -46,8 +44,7 @@ public class Exceptions {
             System.out.println("wir geben hier den fehler aus");
             ne.printStackTrace();
 
-        }
-        catch (IOException ioe) { // müssen wir fangen, es steht in der Methodensignatur von meineMethode()
+        } catch (IOException ioe) { // müssen wir fangen, es steht in der Methodensignatur von meineMethode()
             // Wir können hier zusätzlich einen PrintStream angeben. Dieser erlaubt uns Nachrichten in verschiedene
             // Orte zu schreiben. z.B. Terminal/Konsole, Files, WebSockets, etc.
             ioe.printStackTrace(System.out);
