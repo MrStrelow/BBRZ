@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class IOPackageFileWriterReader {
     public static void main(String[] args) {
         // Wir versuchen hier einen Text in eine Datei z.B. am Betriebssystem zu schreiben und danach diese wieder auszulesen.
-        String filePath = "lerneinheiten/L03FilesUndExceptions/example.txt";
+        String filePath = "example.txt";
         String content = "yes. no. maybe. I don't know.";
         // Davor schauen wir uns aber Exceptions an, welche wir nun zwingend behandeln müssen.
         // Bis jetzt waren Exceptions wie "NullPointer" und "ArrayOutOfBounds" Exceptions nicht zwingen abzufangen,
@@ -145,7 +145,7 @@ public class IOPackageFileWriterReader {
                 int line = fileReader.read();
                 System.out.println(line);
 
-                if(line != -1) {
+                if(line == -1) {
                     break;
                 }
             }

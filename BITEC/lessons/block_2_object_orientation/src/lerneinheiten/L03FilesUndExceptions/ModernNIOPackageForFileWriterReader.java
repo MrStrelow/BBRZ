@@ -10,7 +10,7 @@ import java.util.List;
 public class ModernNIOPackageForFileWriterReader {
 
     // Wir schauen uns das nicht an! Falls wer schon das io. Packet kennt, hier einfach reinschauen um
-    // non-blocking I/O Operations (asynchronous - gu   t für threads) zu sehen.
+    // non-blocking I/O Operations (asynchronous - gut für threads) zu sehen.
 
     // TODO: das erklären :') noch nicht gemacht.
     public static void main(String[] args) {
