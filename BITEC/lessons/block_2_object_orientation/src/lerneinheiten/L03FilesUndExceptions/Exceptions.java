@@ -20,6 +20,7 @@ public class Exceptions {
     //      Da dies aber nicht sinnvoll ist, wird auf ein solches Verhalten verzichtet.
     //- Compiletime Exceptions (checked):
     //      Diese werden vom Compiler als Fehler angezeigt, wenn diese nicht in einem try-catch Block behandelt werden.
+    //      Es ist auch möglich durch "throws" die Behandlung des Fehlers hinauszuzögern und diese an einer anderen Stelle zu behandeln (mit try-catch).
     public static void main(String[] args) { // throws IOException {
 
         // Geht nur, wenn wir throws IOException bei der Methode schreiben, welche meineMethode aufruft.
