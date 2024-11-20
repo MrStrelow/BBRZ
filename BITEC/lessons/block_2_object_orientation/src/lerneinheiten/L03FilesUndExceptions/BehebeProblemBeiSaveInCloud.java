@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
-public class SaveInCloud {
+public class BehebeProblemBeiSaveInCloud {
 
     private static final Path LOCAL_BACKUP_PATH = Paths.get("local_backup.txt");
     private static final int RETRY_INTERVAL_SECONDS = 10;
