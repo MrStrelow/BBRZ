@@ -1,7 +1,7 @@
 Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Schleifen
 * Verzweigungen
-* 2D-Arrays
+* 2D-Arrays (Multidimensional Arrays)
 * User-Input
 * Operatoren
 * Methoden (Arrays als Argument in Methoden - Call By Reference/Value)
