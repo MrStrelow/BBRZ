@@ -5,13 +5,17 @@ import java.util.List;
 public class Spielfeld {
     // Felder
     private String[][] spielfeld;
-    private int groeße;
+    private int groesse = 5;
 
     // (hat) Beziehungen
     private List<Samen> samen;
     private List<Hamster> hamster;
 
     // Konstruktor
+    public Spielfeld(int groesse) {
+        this.groesse = groesse;
+        spielfeld = new String[groesse][groesse];
+    }
 
     // Methoden
     public void weiseHamsterZu(Hamster hamster) {
@@ -39,11 +43,11 @@ public class Spielfeld {
     }
 
     public int getGroeße() {
-        return groeße;
+        return groesse;
     }
 
     public void setGroeße(int groeße) {
-        this.groeße = groeße;
+        this.groesse = groesse;
     }
 
     public List<Samen> getSamen() {
