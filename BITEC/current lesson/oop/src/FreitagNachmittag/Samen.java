@@ -30,7 +30,6 @@ public class Samen {
     // Methode auf.
     // z.B. bei System.out.println(samen); würden wir "🟫" als output bekommen.
     // Wenn wir nicht toString so überschreiben wird "FreitagNachmittag.Samen@5b480cf9" ausgeben.
-
     @Override
     public String toString() {
         return darstellung;

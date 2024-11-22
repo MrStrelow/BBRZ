@@ -2,6 +2,7 @@ package FreitagNachmittag;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Spielfeld {
     // Felder
@@ -31,17 +32,23 @@ public class Spielfeld {
         samen = new ArrayList<>();
 
         // TODO: zufälligen Anzahl der Samen erstellen und füge es der liste hinzu.
-        for (int i = 0; i < 5; i++) {
-            samen.add(new Samen(0,0, this));
-        }
+        Random random = new Random();
+        int anzahlSamen = random.nextInt(1, groesse*groesse);
 
-        for (var elem : samen) {
-            System.out.println(elem);
+        for (int i = 0; i < anzahlSamen; i++) {
+            samen.add(new Samen(0,0, this));
         }
 
         // wir brauchen hamster
         // TODO: die liste von Hamster anlegen
+        hamster = new ArrayList<>();
+
         // TODO: zufälligen Anzahl der Hamster erstellen und füge es der liste hinzu.
+        int anzahlHamster = random.nextInt(1, groesse*groesse - anzahlSamen + 1);
+
+        for (int i = 0; i < anzahlHamster; i++) {
+            hamster.add(new Hamster(this, 0,0));
+        }
     }
 
     // Methoden
@@ -55,9 +62,7 @@ public class Spielfeld {
     }
 
     public void weiseHamsterZu(Hamster hamster) {
-        for (int i = 0; ; i++) {
 
-        }
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
