@@ -19,6 +19,7 @@ public class Spielfeld {
 
         // wir belegen das spielfeld mit bodensymoble
         // TODO: jedes element von spielfeld soll mit dem bodensymbol belegt werden
+        // TODO: gib spielfeld aus in eigener Methode!! (Achtung! diese haben wir noch nicht erstellt!)
 
         // wir brauchen samen
         // TODO: die liste von Samen anlegen
