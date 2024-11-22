@@ -58,6 +58,11 @@ public class Hamster {
         spielfeld.hamsterHamstertSamen(this);
     }
 
+    @Override
+    public String toString() {
+        return darstellung;
+    }
+
     // get-set Methoden
     public int getX() {
         return x;

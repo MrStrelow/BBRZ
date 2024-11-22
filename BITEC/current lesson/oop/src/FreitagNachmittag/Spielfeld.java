@@ -49,6 +49,13 @@ public class Spielfeld {
         for (int i = 0; i < anzahlHamster; i++) {
             hamster.add(new Hamster(this, 0,0));
         }
+
+        for (var elem : hamster) {
+            System.out.println(elem);
+        }
+        for (var elem : samen) {
+            System.out.println(elem);
+        }
     }
 
     // Methoden
