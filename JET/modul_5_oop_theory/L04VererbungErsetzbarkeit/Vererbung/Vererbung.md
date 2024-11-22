@@ -1,0 +1,1 @@
+## Vererbung der Implementierung

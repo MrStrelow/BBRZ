@@ -57,7 +57,7 @@ public class L10StringManipulation {
         String meinErsetzterText = input.replace("i", "XXXX");
         System.out.println("Der orginale Text: " + input + " wurde mit " + meinErsetzterText + " ersetzt.");
 
-        // Wir haben hier aufgrund von einer Eigenschaft des String ein Problem. Diesen könnne wir nicht verändern.
+        // Wir haben hier aufgrund von einer Eigenschaft des String ein Problem. Diesen können wir nicht verändern.
         // StringBuilder erlaubt es uns aber. Deshalb versuchen wir Folgendes.
         StringBuilder meinEingefügterText = new StringBuilder(input);
         meinEingefügterText.insert(10, "NEU");
@@ -70,8 +70,9 @@ public class L10StringManipulation {
         // Hintergrund: Wenn Variablen "immutable" sind, bedeutet es, dass diese nicht geändert werden können.
         // Wenn eine Änderung vollzogen wird, wird ein neuer String angelegt.
         // Dies kann unter umständen zu Problemen mit der Performance führen.
-        // Ein StringBuilder ist ein "Builder Pattern", welches den Text manipuliert und am Schluss (mit .toString()); zu
-        // einem String zusammenbaut. Achtung! Es ist aber nicht nützlich immer StringBuilder zu verwenden.
+        // Ein StringBuilder ist ein "Builder Pattern" welches ein char Array verwaltet und dessen Größe anpasst, wenn nötig.
+        // Es erlaubt uns den Text zu manipuliert und am Schluss diesen (mit .toString()); zu einem String umzuwandeln.
+        // Achtung! Es ist aber nicht nützlich immer StringBuilder zu verwenden.
         // Die Lesbarkeit des Codes ist auch wichtig, denn das Verwenden des StringBuilders macht den Code ein wenig schwerer lesbar.
         // Das ist natürlich ein wenig übertrieben, aber das Prinzip ist nützlich! Vorläufiges optimieren, ist zu vermeiden!
         // Zuerst "sauberen" Code schreiben, danach optimieren.

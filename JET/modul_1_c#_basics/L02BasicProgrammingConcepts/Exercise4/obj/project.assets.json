@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Exercise4.csproj",
-      "projectName": "Exercise4",
-      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Exercise4.csproj",
+      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Exercise4-Formen.csproj",
+      "projectName": "Exercise4-Formen",
+      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\Exercise4-Formen.csproj",
       "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise4\\obj\\",
       "projectStyle": "PackageReference",

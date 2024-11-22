@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BAA97183-A6CD-4AD5-AEDC-9188C4836831}|Exercise5\\Exercise5.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise5\\program2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAA97183-A6CD-4AD5-AEDC-9188C4836831}|Exercise5\\Exercise5.csproj|solutionrelative:exercise5\\program2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\l02basicprogrammingconcepts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|solutionrelative:l02basicprogrammingconcepts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}|Exercise3\\Exercise3.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}|Exercise3\\Exercise3.csproj|solutionrelative:exercise3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\l02basicprogrammingconcepts\\l02.8stringbuilder.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|solutionrelative:l02basicprogrammingconcepts\\l02.8stringbuilder.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program2.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise5\\Program2.cs",
-              "RelativeDocumentMoniker": "Exercise5\\Program2.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise5\\Program2.cs",
-              "RelativeToolTip": "Exercise5\\Program2.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwBgAAABKAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\Program.cs",
+              "RelativeDocumentMoniker": "L02BasicProgrammingConcepts\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\Program.cs",
+              "RelativeToolTip": "L02BasicProgrammingConcepts\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T10:21:01.094Z",
+              "WhenOpened": "2024-11-21T15:26:43.139Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Program.cs",
-              "RelativeDocumentMoniker": "Exercise3\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Program.cs",
-              "RelativeToolTip": "Exercise3\\Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwA8AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T08:39:10.816Z",
+              "Title": "L02.8StringBuilder.md",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.8StringBuilder.md",
+              "RelativeDocumentMoniker": "L02BasicProgrammingConcepts\\L02.8StringBuilder.md",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.8StringBuilder.md",
+              "RelativeToolTip": "L02BasicProgrammingConcepts\\L02.8StringBuilder.md",
+              "ViewState": "AgIAAEwAAAAAAAAAAADwv1UAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-11-21T13:18:26.704Z",
               "EditorCaption": ""
             }
           ]

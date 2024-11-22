@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1\\Exercise1.csproj",
-      "projectName": "Exercise1",
-      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1\\Exercise1.csproj",
+      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1\\Exercise1-ValueUndReference.csproj",
+      "projectName": "Exercise1-ValueUndReference",
+      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1\\Exercise1-ValueUndReference.csproj",
       "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1\\obj\\",
       "projectStyle": "PackageReference",

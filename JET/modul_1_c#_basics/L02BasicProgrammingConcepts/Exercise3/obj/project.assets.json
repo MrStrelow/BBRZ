@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3.csproj",
-      "projectName": "Exercise3",
-      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3.csproj",
+      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3-Schachbrett.csproj",
+      "projectName": "Exercise3-Schachbrett",
+      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\Exercise3-Schachbrett.csproj",
       "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3\\obj\\",
       "projectStyle": "PackageReference",

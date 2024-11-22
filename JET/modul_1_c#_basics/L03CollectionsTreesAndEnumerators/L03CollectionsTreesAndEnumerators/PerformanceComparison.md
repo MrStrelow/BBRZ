@@ -64,8 +64,7 @@ class Program
                 }
             }
             timer.Stop();
-            Console.Write(Format,
-                (double)timer.ElapsedTicks/TimeSpan.TicksPerMillisecond);
+            Console.Write((double)timer.ElapsedTicks/TimeSpan.TicksPerMillisecond);
         }
         Console.WriteLine();
     }
