@@ -5,7 +5,8 @@ import java.util.List;
 public class Spielfeld {
     // Felder
     private String[][] spielfeld;
-    private int groesse = 5;
+    private int groesse;
+    private String bodenSymbol = "🟫";
 
     // (hat) Beziehungen
     private List<Samen> samen;
@@ -15,6 +16,17 @@ public class Spielfeld {
     public Spielfeld(int groesse) {
         this.groesse = groesse;
         spielfeld = new String[groesse][groesse];
+
+        // wir belegen das spielfeld mit bodensymoble
+        // TODO: jedes element von spielfeld soll mit dem bodensymbol belegt werden
+
+        // wir brauchen samen
+        // TODO: die liste von Samen anlegen
+        // TODO: zufälligen Anzahl der Samen erstellen und füge es der liste hinzu.
+
+        // wir brauchen hamster
+        // TODO: die liste von Hamster anlegen
+        // TODO: zufälligen Anzahl der Hamster erstellen und füge es der liste hinzu.
     }
 
     // Methoden
@@ -64,5 +76,21 @@ public class Spielfeld {
 
     public void setHamster(List<Hamster> hamster) {
         this.hamster = hamster;
+    }
+
+    public int getGroesse() {
+        return groesse;
+    }
+
+    public void setGroesse(int groesse) {
+        this.groesse = groesse;
+    }
+
+    public String getBodenSymbol() {
+        return bodenSymbol;
+    }
+
+    public void setBodenSymbol(String bodenSymbol) {
+        this.bodenSymbol = bodenSymbol;
     }
 }
