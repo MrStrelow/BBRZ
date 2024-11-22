@@ -13,7 +13,6 @@ public class Samen {
     private Spielfeld spielfeld;
 
     // Konstruktor
-
     public Samen(int x, int y, Spielfeld spielfeld) {
         this.x = x;
         this.y = y;
@@ -25,4 +24,43 @@ public class Samen {
 
     // Methoden
     // get-set Methoden
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public double getNährstoffe() {
+        return nährstoffe;
+    }
+
+    public void setNährstoffe(double nährstoffe) {
+        this.nährstoffe = nährstoffe;
+    }
+
+    public String getDarstellung() {
+        return darstellung;
+    }
+
+    public void setDarstellung(String darstellung) {
+        this.darstellung = darstellung;
+    }
+
+    public Spielfeld getSpielfeld() {
+        return spielfeld;
+    }
+
+    public void setSpielfeld(Spielfeld spielfeld) {
+        this.spielfeld = spielfeld;
+    }
 }
