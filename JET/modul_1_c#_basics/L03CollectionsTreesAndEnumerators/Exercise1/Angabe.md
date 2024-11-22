@@ -41,6 +41,6 @@ List<string> großeBox;
 Dictionary<string, List<List<string>>> lager_aut;
 Dictionary<string, List<List<string>>> lager_ger;
 
-void FindeBoxenImLagerUndGibInhaltAus( TODO: Parameter überlegen ) { ... }
+void FindBoxesInWarehouse( TODO: Parameter überlegen ) { ... }
 void SucheProduktkategorieImLagerInAllenBoxen( TODO: Parameter überlegen ) { ... }
 ```

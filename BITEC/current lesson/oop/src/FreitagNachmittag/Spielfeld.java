@@ -1,5 +1,6 @@
 package FreitagNachmittag;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Spielfeld {
@@ -19,11 +20,24 @@ public class Spielfeld {
 
         // wir belegen das spielfeld mit bodensymoble
         // TODO: jedes element von spielfeld soll mit dem bodensymbol belegt werden
-        // TODO: gib spielfeld aus in eigener Methode!! (Achtung! diese haben wir noch nicht erstellt!)
+        for (int i = 0; i < groesse; i++) {
+            for (int j = 0; j < groesse; j++) {
+                spielfeld[i][j] = bodenSymbol;
+            }
+        }
 
         // wir brauchen samen
         // TODO: die liste von Samen anlegen
+        samen = new ArrayList<>();
+
         // TODO: zufälligen Anzahl der Samen erstellen und füge es der liste hinzu.
+        for (int i = 0; i < 5; i++) {
+            samen.add(new Samen(0,0, this));
+        }
+
+        for (var elem : samen) {
+            System.out.println(elem);
+        }
 
         // wir brauchen hamster
         // TODO: die liste von Hamster anlegen
@@ -31,7 +45,19 @@ public class Spielfeld {
     }
 
     // Methoden
+    public void printSpielfeld() {
+        for (int i = 0; i < groesse; i++) {
+            for (int j = 0; j < groesse; j++) {
+                System.out.print(spielfeld[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
     public void weiseHamsterZu(Hamster hamster) {
+        for (int i = 0; ; i++) {
+
+        }
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {

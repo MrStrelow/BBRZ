@@ -77,11 +77,12 @@ class Program
         }
     }
 
-    static void FindeBoxenImLagerUndGibInhaltAus(Dictionary<string, List<List<string>>> warehouse, string BoxType) 
+    static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string BoxType) 
     {
-
+        warehouse[]
     }
-    static void SucheProduktkategorieImLagerInAllenBoxen(Dictionary<string, List<List<string>>> warehouse, string productType)
+
+    static void FindProductCategoriesOfWarehousen(Dictionary<string, List<List<string>>> warehouse, string productType)
     {
 
     }

@@ -23,6 +23,19 @@ public class Samen {
     }
 
     // Methoden
+    // wir überschreiben die toString methode von der Klasse Object.
+    // Wir erben von der Klasse Object, deshalb haben wir diese Methode.
+    // Überschreiben bedeutet, wenn wir eine Variable vom Typ Samen haben,
+    // (ein Objekt von der Klasse samen), dann rufen wir unsere eigene toString()
+    // Methode auf.
+    // z.B. bei System.out.println(samen); würden wir "🟫" als output bekommen.
+    // Wenn wir nicht toString so überschreiben wird "FreitagNachmittag.Samen@5b480cf9" ausgeben.
+
+    @Override
+    public String toString() {
+        return darstellung;
+    }
+
     // get-set Methoden
     public int getX() {
         return x;
@@ -50,10 +63,6 @@ public class Samen {
 
     public String getDarstellung() {
         return darstellung;
-    }
-
-    public void setDarstellung(String darstellung) {
-        this.darstellung = darstellung;
     }
 
     public Spielfeld getSpielfeld() {
