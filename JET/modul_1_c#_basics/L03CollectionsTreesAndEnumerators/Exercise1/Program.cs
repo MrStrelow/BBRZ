@@ -5,15 +5,15 @@ class Program
 {
     static void Main()
     {
-        // Produkte
+        // ProduktTypen
         string fahrrad = "Fahrrad";
         string tisch = "Tisch";
         string kulli = "Kulli";
 
         // Boxen erstellen (jede Box ist eine Liste von Produkten)
-        List<string> großeBox = new List<string> { fahrrad, tisch };
-        List<string> mittlereBox = new List<string> { tisch, kulli };
-        List<string> kleineBox = new List<string> { kulli };
+        List<string> großeBox = new List<string>(); 
+        List<string> mittlereBox = new List<string>(); 
+        List<string> kleineBox = new List<string>(); 
 
         // Lager als Dictionary, das die Boxen nach Größe kategorisiert
         Dictionary<string, List<string>> lager = new Dictionary<string, List<string>>

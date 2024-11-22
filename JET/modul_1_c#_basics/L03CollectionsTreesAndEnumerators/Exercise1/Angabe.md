@@ -38,8 +38,8 @@ Verwende dazu:
 ```csharp
 List<string> großeBox;
 ...
-Dictionary<string, List<string>> lager_aut;
-Dictionary<string, List<string>> lager_ger;
+Dictionary<string, List<List<string>>> lager_aut;
+Dictionary<string, List<List<string>>> lager_ger;
 
 void FindeBoxenImLagerUndGibInhaltAus( TODO: Parameter überlegen ) { ... }
 void SucheProduktkategorieImLagerInAllenBoxen( TODO: Parameter überlegen ) { ... }
