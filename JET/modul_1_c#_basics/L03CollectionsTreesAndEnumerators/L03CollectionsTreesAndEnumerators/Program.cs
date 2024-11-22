@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+
+namespace adfs;
+
 static class ArrayPref
 {
     const string Format = "{0,7:0.000} ";
