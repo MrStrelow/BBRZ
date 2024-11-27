@@ -103,5 +103,19 @@ public class LinkedList {
             current = current.getNachbar();
         }
         System.out.println("null");
+
+        // TODO: Warum geben wir hier nicht alles aus?
+//        while (current.getNachbar() != null) {
+//            System.out.print("(" + current.getValue() + ") --> ");
+//            current = current.getNachbar();
+//        }
+//        System.out.println("null");
+
+        // TODO: Warum funktioniert das hier wieder?
+//        while (current.getNachbar() != null) {
+//            System.out.print("(" + current.getValue() + ") --> ");
+//            current = current.getNachbar();
+//        }
+//        System.out.println("(" + current.getValue() + ") --> null");
     }
 }
