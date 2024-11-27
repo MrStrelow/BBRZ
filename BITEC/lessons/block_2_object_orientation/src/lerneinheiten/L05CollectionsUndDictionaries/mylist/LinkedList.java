@@ -100,7 +100,7 @@ public class LinkedList {
 
         while (current != null) {
             System.out.print("(" + current.getValue() + ") --> ");
-            current = current.getNachbar();
+            current = current.getNachbar(); // das hier ist eine Art "i++;"
         }
         System.out.println("null");
 
