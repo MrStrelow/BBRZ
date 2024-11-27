@@ -58,12 +58,15 @@ public class LinkedList {
 
         } else {
             Node current = head;
+            int index = 0;
 
-            while (current.getNachbar() != null) {
+            while (index < position) { // current.getNachbar() != null
+                System.out.println(current.getValue());
                 current = current.getNachbar();
+                index++;
             }
 
-            current.setNachbar(node);
+            return 0;
         }
     }
 
