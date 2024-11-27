@@ -97,11 +97,12 @@ public class LinkedList {
 
     public void display() {
         Node current = head;
+
         while (current.getNachbar() != null) {
             System.out.print("(" + current.getValue() + ") --> ");
             current = current.getNachbar();
         }
-        System.out.print("(" + current.getValue() + ") --> null");
+        System.out.println("(" + current.getValue() + ") --> null");
 //        System.out.println("null");
     }
 }

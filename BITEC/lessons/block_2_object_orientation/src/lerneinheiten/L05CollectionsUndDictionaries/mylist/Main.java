@@ -27,7 +27,7 @@ public class Main {
         myList.add(8);
         myList.display();
 
-        myList.remove(0);
+        myList.removeAt(3);
         myList.display();
     }
 }
