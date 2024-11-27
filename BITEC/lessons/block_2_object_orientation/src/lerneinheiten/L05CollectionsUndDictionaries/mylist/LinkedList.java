@@ -61,12 +61,19 @@ public class LinkedList {
             int index = 0;
 
             while (index < position) { // current.getNachbar() != null
-                System.out.println(current.getValue());
                 current = current.getNachbar();
                 index++;
             }
 
-            return 0;
+            if (current.getNachbar() == null) {
+                System.out.println("Fehler! Out of Bounds Exception!");
+                return -3;
+            }
+
+            int ret = current.getNachbar().getValue();
+            current.setNachbar(current.getNachbar().getNachbar());
+
+            return ret;
         }
     }
 
@@ -91,8 +98,8 @@ public class LinkedList {
     public void display() {
         Node current = head;
         while (current.getNachbar() != null) {
-            current = current.getNachbar();
             System.out.print("(" + current.getValue() + ") --> ");
+            current = current.getNachbar();
         }
         System.out.println("null");
     }
