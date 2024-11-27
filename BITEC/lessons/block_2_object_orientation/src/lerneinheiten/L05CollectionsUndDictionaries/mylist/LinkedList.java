@@ -38,8 +38,23 @@ public class LinkedList {
     }
 
     public int removeAt(int position) {
+        // guard 1
         if (head == null) {
-            head = node;
+            System.out.println("Fehler! Die Liste ist leer.");
+            return -1;
+        }
+
+        // guard 2
+        if (position < 0) {
+            System.out.println("Fehler! Die angegebene Position ist negativ (" + position + "). Muss positiv sein.");
+            return -2;
+        }
+
+        // logik
+        if (position == 0) {
+            int ret = head.getValue();
+            head = head.getNachbar();
+            return ret;
 
         } else {
             Node current = head;
