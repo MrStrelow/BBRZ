@@ -15,5 +15,14 @@ public class Main {
         // lösche second node aus der Liste
         firstNode.setNachbar(thirdNode);
         secondNode = null;
+
+
+        // vs.
+        LinkedList myList = new LinkedList();
+        myList.add(3);
+        myList.add(4);
+        myList.add(5);
+        myList.display();
+        myList.remove();
     }
 }
