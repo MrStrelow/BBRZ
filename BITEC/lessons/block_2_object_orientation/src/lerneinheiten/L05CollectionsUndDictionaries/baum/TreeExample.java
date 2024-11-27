@@ -1,6 +1,4 @@
-package lerneinheiten.L05CollectionsUndDictionaries.typbeziehungen;
-
-import com.sun.source.tree.WhileLoopTree;
+package lerneinheiten.L05CollectionsUndDictionaries.baum;
 
 public class TreeExample {
     public static void main(String[] args) {

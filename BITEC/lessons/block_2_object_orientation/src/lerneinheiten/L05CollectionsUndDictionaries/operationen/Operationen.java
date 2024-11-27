@@ -1,8 +1,8 @@
-package lerneinheiten.L05CollectionsUndDictionaries.typbeziehungen;
+package lerneinheiten.L05CollectionsUndDictionaries.operationen;
 
 import java.util.*;
 
-public class temp {
+public class Operationen {
     public static void main(String[] args) {
         String[] myArray = new String[2];
         myArray[0] = "s";

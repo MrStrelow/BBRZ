@@ -1,4 +1,4 @@
-package lerneinheiten.L05CollectionsUndDictionaries.typbeziehungen;
+package lerneinheiten.L05CollectionsUndDictionaries.horde;
 
 public class ZuAltException extends Exception {
     public ZuAltException() {

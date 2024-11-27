@@ -1,4 +1,8 @@
-package lerneinheiten.L05CollectionsUndDictionaries.typbeziehungen;
+package lerneinheiten.L05CollectionsUndDictionaries.horde;
+
+import lerneinheiten.L05CollectionsUndDictionaries.horde.Horde;
+import lerneinheiten.L05CollectionsUndDictionaries.horde.Hund;
+import lerneinheiten.L05CollectionsUndDictionaries.horde.Schaf;
 
 import java.util.Random;
 

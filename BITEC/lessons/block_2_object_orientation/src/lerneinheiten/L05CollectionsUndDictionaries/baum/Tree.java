@@ -1,4 +1,4 @@
-package lerneinheiten.L05CollectionsUndDictionaries.typbeziehungen;
+package lerneinheiten.L05CollectionsUndDictionaries.baum;
 
 import java.util.*;
 
