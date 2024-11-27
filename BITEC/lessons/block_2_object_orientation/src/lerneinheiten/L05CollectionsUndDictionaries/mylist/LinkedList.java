@@ -37,12 +37,29 @@ public class LinkedList {
         }
     }
 
-    public int remove(int position) {
-        return position;
+    public int removeAt(int position) {
+        if (head == null) {
+            head = node;
+
+        } else {
+            Node current = head;
+
+            while (current.getNachbar() != null) {
+                current = current.getNachbar();
+            }
+
+            current.setNachbar(node);
+        }
     }
 
+    public int remove(int element) { // fehler? :( aber warum?
+        return element;
+        // TODO: implemente me b)
+    }
+
+
     public void contains() {
-        // TODO: implemente me
+        // TODO: implemente me c)
     }
 
     public void find() {
