@@ -77,7 +77,7 @@ public class LinkedList {
         }
     }
 
-    public int remove(int element) { // fehler? :( aber warum?
+    public int removeElement(int element) { // fehler? :( aber warum?
         return element;
         // TODO: implemente me b)
     }
@@ -98,11 +98,10 @@ public class LinkedList {
     public void display() {
         Node current = head;
 
-        while (current.getNachbar() != null) {
+        while (current != null) {
             System.out.print("(" + current.getValue() + ") --> ");
             current = current.getNachbar();
         }
-        System.out.println("(" + current.getValue() + ") --> null");
-//        System.out.println("null");
+        System.out.println("null");
     }
 }
