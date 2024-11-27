@@ -101,6 +101,7 @@ public class LinkedList {
             System.out.print("(" + current.getValue() + ") --> ");
             current = current.getNachbar();
         }
-        System.out.println("null");
+        System.out.print("(" + current.getValue() + ") --> null");
+//        System.out.println("null");
     }
 }
