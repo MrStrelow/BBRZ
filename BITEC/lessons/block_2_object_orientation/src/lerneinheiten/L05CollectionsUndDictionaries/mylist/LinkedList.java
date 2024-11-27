@@ -37,12 +37,12 @@ public class LinkedList {
         }
     }
 
-    public void remove() {
-
+    public int remove(int position) {
+        return position;
     }
 
     public void contains() {
-
+        // TODO: implemente me
     }
 
     public void find() {
