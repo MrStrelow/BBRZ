@@ -19,13 +19,21 @@ public class LinkedList {
 
         } else {
             // Sieht wer einen Fehler hier?
-            Node nachbar = head.getNachbar();
+//            Node nachbar = head.getNachbar();
+//
+//            while (nachbar != null) {
+//                nachbar = nachbar.getNachbar();
+//            }
+//
+//            nachbar=node;
 
-            while (nachbar != null) {
-                nachbar = nachbar.getNachbar();
+            Node current = head;
+
+            while (current.getNachbar() != null) {
+                current = current.getNachbar();
             }
 
-            nachbar = node;
+            current.setNachbar(node);
         }
     }
 
@@ -47,9 +55,9 @@ public class LinkedList {
 
     public void display() {
         Node current = head;
-        while (current != null) {
-            System.out.print(current.getValue() + " -> ");
+        while (current.getNachbar() != null) {
             current = current.getNachbar();
+            System.out.print("(" + current.getValue() + ") --> ");
         }
         System.out.println("null");
     }
