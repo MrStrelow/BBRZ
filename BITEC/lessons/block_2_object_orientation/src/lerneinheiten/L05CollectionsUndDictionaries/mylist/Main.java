@@ -28,6 +28,10 @@ public class Main {
         myList.display();
 
         myList.removeAt(3);
+//        myList.removeAt(0);
+//        myList.removeAt(-1);
+//        myList.removeAt(10);
+//        myList.removeAt(3);
         myList.display();
     }
 }
