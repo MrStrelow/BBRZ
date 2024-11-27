@@ -23,6 +23,5 @@ public class Main {
         myList.add(4);
         myList.add(5);
         myList.display();
-        myList.remove();
     }
 }
