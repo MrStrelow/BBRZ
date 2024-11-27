@@ -58,7 +58,7 @@ public class LinkedList {
 
         } else {
             Node current = head;
-            int index = 0;
+            int index = 1;
 
             while (index < position) { // current.getNachbar() != null
                 current = current.getNachbar();
