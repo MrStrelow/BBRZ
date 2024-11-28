@@ -8,11 +8,11 @@ In diesem Projekt schauen wir uns folgedes an:
 ## Was ist .NET, .NET Core, .NET Framework, C#, und Visual Studio (VS)?
 Wir unterscheiden hier zwischen:
 * Programmiersprachen: diese sind in der .NET Welt unter anderem C#, F#, C++, ...
-* Frameworks: .NET -> eine Ansammlung an allgemeinen Komponenten, Bibliotheken und Tools, welche es einfacher machen verschiedene Teile des Software Engineerings zu verbinden. .NET Framework und .NET Core sind Framworks welche unter .NET nun zusammen gefügt wurden. .NET Framework war Windows spezeifisches Framework immerwiederkehrende Aufgaben des Software Engineerings vorzuprogrammieren. Das wäre Entwicklung von Web Applikationen, Datenbankenanbindungnen, usw.
-.NET Core war ein versuch .NET Framework plattformunabhängig zu machen und neue Schwerpunkte wie z.B. Microservices zu setzen.
-Es wurde ab Version 8 einfach als .NET bezeichnet und bietet nun alles unter einem Schirm an.
+* Frameworks: .NET -> eine Ansammlung an allgemeinen Komponenten, Bibliotheken und Tools, welche es einfacher machen verschiedene Aufgaben des Software Engineerings zu erleichtern. Das wäre eine Entwicklung von Web Applikationen, Datenbankenanbindungnen, usw. `.NET Framework` und `.NET Core` sind Framworks welche unter `.NET` nun zusammen gefügt wurden. `.NET Framework` war Windows spezeifisch.
+`.NET Core` war ein versuch `.NET Framework` plattformunabhängig zu machen und neue Schwerpunkte wie z.B. Microservices zu setzen.
+Es wurde ab Version 8 einfach als `.NET` bezeichnet und bietet nun alles unter einem Schirm an.
 (Erzeuge Projekte ohne dem Beinamen .net Framework, z.B. "Console App" vs. "Console App (.NET Framework)).
-* Die Entwicklungsumgebung ist hier VS. Es gibt auch von JET Brains (Macher von Intellij) eine C# Programmier umgebung. Es wird jedoch empfohnen VS zu verwenden.
+* Die Entwicklungsumgebung ist hier `VS.` Es gibt auch von JET Brains (Macher von Intellij) eine C# Programmierumgebung, welche `Rider` genannt wird. Es wird jedoch empfohnen VS zu verwenden.
 
 ## Was finden wir in der Ordnerstruktur welche von VS?
 Wenn wir ein Projekt anlegen (Console App), dann wird uns eine Datei mit einem oder mehreren Ordner angelegt. 
@@ -45,31 +45,31 @@ Alles was Projektübergreifend funktionieren soll.
 
 ### Beispiel:
  * **L01MyFirstDotNetProject.deps.json:**
-Diese Datei enthält Abhängigkeiten und Metadaten über das Projekt, wie Informationen zu den verwendeten Bibliotheken und Frameworks. Sie wird von der .NET-Laufzeit verwendet, um sicherzustellen, dass alle notwendigen Pakete und Abhängigkeiten vorhanden sind, bevor die Anwendung ausgeführt wird.
+[Diese](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L01MyFirstDotNetProject/L01MyFirstDotNetProject/bin/Debug/net8.0/L01MyFirstDotNetProject.deps.json) Datei enthält Abhängigkeiten und Metadaten über das Projekt, wie Informationen zu den verwendeten Bibliotheken und Frameworks. Sie wird von der .NET-Laufzeit verwendet, um sicherzustellen, dass alle notwendigen Pakete und Abhängigkeiten vorhanden sind, bevor die Anwendung ausgeführt wird.
 
 * **L01MyFirstDotNetProject.dll**:
-Die Dynamic Link Library (DLL) enthält den kompilierten Code der Anwendung in Form von CIL (Common Intermediate Language). Diese Datei wird von der .NET Runtime (CLR) verwendet, um den Code zur Laufzeit auszuführen. In einer typischen .NET-Anwendung kann der .exe-Loader auf diese DLL zugreifen.
+Die Dynamic Link Library ([DLL](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L01MyFirstDotNetProject/L01MyFirstDotNetProject/bin/Debug/net8.0/L01MyFirstDotNetProject.dll)) enthält den kompilierten Code der Anwendung in Form von CIL (Common Intermediate Language). Diese Datei wird von der .NET Runtime (CLR) verwendet, um den Code zur Laufzeit auszuführen. In einer typischen .NET-Anwendung kann der .exe-Loader auf diese DLL zugreifen.
 
 * **L01MyFirstDotNetProject.exe:**
-Dies ist die ausführbare Datei der Anwendung. Sie enthält einen "Entry Point", mit dem das Programm unter Windows ausgeführt werden kann. Die eigentliche Logik befindet sich in der .dll, und diese .exe dient als Startpunkt für die Anwendung.
+[Dies](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L01MyFirstDotNetProject/L01MyFirstDotNetProject/bin/Debug/net8.0/L01MyFirstDotNetProject.exe) ist die ausführbare Datei der Anwendung. Sie enthält einen "Entry Point", mit dem das Programm unter Windows ausgeführt werden kann. Die eigentliche Logik befindet sich in der .dll, und diese .exe dient als Startpunkt für die Anwendung.
 
 * **L01MyFirstDotNetProject.pdb**:
-Die Program Database (PDB)-Datei enthält Debug-Informationen. Sie wird verwendet, um Debugging-Sitzungen zu ermöglichen, indem sie Informationen über den Quellcode und die Zuordnung von CIL-Code zu den Originalquellen bereitstellt. Diese Datei hilft Entwicklern, Fehler im Code zu finden, indem sie z.B. Zeilennummern oder Variablenwerte beim Debuggen sichtbar macht.
+Die Program Database [(PDB)-Datei](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L01MyFirstDotNetProject/L01MyFirstDotNetProject/bin/Debug/net8.0/L01MyFirstDotNetProject.pdb) enthält Debug-Informationen. Sie wird verwendet, um Debugging-Sitzungen zu ermöglichen, indem sie Informationen über den Quellcode und die Zuordnung von CIL-Code zu den Originalquellen bereitstellt. Diese Datei hilft Entwicklern, Fehler im Code zu finden, indem sie z.B. Zeilennummern oder Variablenwerte beim Debuggen sichtbar macht.
 
 * **L01MyFirstDotNetProject.runtimeconfig.json:**
-Diese Datei definiert Konfigurationsparameter für die .NET-Laufzeit, wie die spezifische .NET-Version, die für das Projekt verwendet wird. Sie gibt an, welche Runtime von der Anwendung erwartet wird und hilft der .NET-Laufzeit, die passende Umgebung für die Ausführung der Anwendung bereitzustellen.
+[Diese](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L01MyFirstDotNetProject/L01MyFirstDotNetProject/bin/Debug/net8.0/L01MyFirstDotNetProject.runtimeconfig.json) Datei definiert Konfigurationsparameter für die .NET-Laufzeit, wie die spezifische .NET-Version, die für das Projekt verwendet wird. Sie gibt an, welche Runtime von der Anwendung erwartet wird und hilft der .NET-Laufzeit, die passende Umgebung für die Ausführung der Anwendung bereitzustellen.
 
 ## Was werden für Artefakte erzeugt, wenn wir ein .NET projekt builden?
 
 ### Was brauchen wir zuerst? - Compiler, Virtual Machine und intermediate Language
 Compiler schreiben aus den von uns geschriebenen Code, Code welche für den Computer lesbar ist. Hier kommen viele technische Details hinzu um welche wir uns nicht den Kopf zerbrechen müssen. 
 Der Compilier ist also ein Programm was C# code nimmt und diesen in die Intermediary Language (IL) unwandelt.
-Danach wird diese IL genommen und von der Virtual Machine ausgeführt. Das kann auch das Betriebssystem sein (bei C und C++). Java und C# haben jedoch explizit diesen Zwischenschritt der Virtual Machine, damit Plattformunabhängigkeit gewährleistet wird.
+Danach wird diese IL genommen und von der Virtual Machine ausgeführt. Es gibt auch Sprachen ohne Virtual Machine und IL, welche direkt vom Betriebssystem ausführbar sind (bei C und C++). Java und C# haben jedoch explizit diesen Zwischenschritt der Virtual Machine, damit Plattformunabhängigkeit gewährleistet wird.
 
 Hier ein kleiner Vergleich der Begrifflichkeiten von JAVA und C#.
 | Merkmal                       | Java (JVM)                                   | C# (.NET CLR)                                 |
 |-------------------------------|----------------------------------------------|------------------------------------------------|
-| **Intermediary Language**              | Bytecode in `.class`-Dateien                | Intermediate Language (IL) in `.dll`/`.exe`   |
+| **Intermediary Language**              | Bytecode in `.class`-Dateien                | Intermediate Language (IL) abgebildet in einer `.dll`/`.exe`   |
 | **Virtaul Machine**              | **JAVA Virtual Machine (JVM)** - mehrere Sprachen wie Kotlin, Scala und JAVA kompilieren in Bytecode welcher von der JVM ausgeführt wird | **Common Language Runtime (CLR)** - mehrere Sprachen wie F#, VisualBasic, C# kompilieren in IL welche in der CLR ausgeführt wird |
 
 Beides sind hier Just-in-time Compiler, welcher es erlauben wenn das Programm aufgerufen wird ensprechend verwendete Teile des Codes zu kompilieren, anstatt alles unter einmal. 
@@ -77,7 +77,7 @@ Beides sind hier Just-in-time Compiler, welcher es erlauben wenn das Programm au
 ### Was wird nun bei Build generiert? 
 Schauen wir uns die IL von C# genauer an welche nicht wie in JAVA in einem class file, sondern verteilt in mehreren Files ist.
 
-Dazu verwenden wir den Befehlt *ildasm L01MyFirstDotNetProject.dll*. Wir gehen dazu in den Terminal innerhalb von VS und ändern den Pfad zu **cd bin\Debug\net8.0**. Wir sehen folgendes:
+Dazu verwenden wir den Befehlt *ildasm L01MyFirstDotNetProject.dll*. Wir gehen dazu in den Terminal innerhalb von VS und ändern den Pfad zu **cd .\L01MyFirstDotNetProject\bin\Debug\net8.0**. Wir sehen folgendes für z.B. den `Konstruktor (ctor)` - welcher in unsrem Fall leer ist.:
 
 ```csharp
 .method public hidebysig specialname rtspecialname 

@@ -3,22 +3,22 @@ package lerneinheiten.L05CollectionsUndDictionaries.mylist;
 public class Main {
     public static void main(String[] args) {
         // Erstelle Nodes (Objekte) welche auch dessen Wert setzten.
-        Node firstNode = new Node(3);
-        Node secondNode = new Node(4);
-        Node thirdNode = new Node(5);
+        MyNode<Integer> firstMyNode = new MyNode<>(3);
+        MyNode<Integer> secondMyNode = new MyNode<>(4);
+        MyNode<Integer> thirdMyNode = new MyNode<>(5);
 
         // Setze die Nachbarn!
-        firstNode.setNachbar(secondNode);
-        secondNode.setNachbar(thirdNode);
+        firstMyNode.setNachbar(secondMyNode);
+        secondMyNode.setNachbar(thirdMyNode);
 //        thirdNode.setNachbar(firstNode);
 
         // lösche second node aus der Liste
-        firstNode.setNachbar(thirdNode);
-        secondNode = null;
+        firstMyNode.setNachbar(thirdMyNode);
+        secondMyNode = null;
 
 
         // vs.
-        LinkedList myList = new LinkedList();
+        MyLinkedList<Integer> myList = new MyLinkedList<>();
         myList.add(3);
         myList.add(4);
         myList.add(5);
@@ -26,6 +26,22 @@ public class Main {
         myList.add(7);
         myList.add(8);
         myList.display();
+
+        myList.removeAt(3);
+        myList.removeAt(0);
+        myList.removeAt(-1);
+        myList.removeAt(4); // TODO: null pointer
+//        myList.removeAt(3);
+        myList.display();
+
+        MyLinkedList<String> myStringList = new MyLinkedList<>();
+        myStringList.add("3");
+        myStringList.add("4");
+        myStringList.add("5");
+        myStringList.add("6");
+        myStringList.add("7");
+        myStringList.add("8");
+        myStringList.display();
 
         myList.removeAt(3);
         myList.removeAt(0);

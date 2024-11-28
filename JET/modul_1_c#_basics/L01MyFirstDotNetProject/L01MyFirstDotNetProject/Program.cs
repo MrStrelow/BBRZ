@@ -1,7 +1,7 @@
 ﻿// Wir versuchen hier in diesem Programm uns mit der Entwicklungsumgebung auseinanderzusetzen.
 // In diesem Projekt schauen wir uns folgedes an:
 // * Was ist.NET, .NET Core, .NET Framework, C#, und Visual Studio (VS)?
-// * Was finden wir in der Ordnerstruktur welche von VS?
+// * Was finden wir in der Ordnerstruktur von VS?
 // * Was werden für Artefakte erzeugt, wenn wir ein .NET projekt builden?
 // * Wie builden wir Projekte mit dem Terminal, wie mit VS?
 

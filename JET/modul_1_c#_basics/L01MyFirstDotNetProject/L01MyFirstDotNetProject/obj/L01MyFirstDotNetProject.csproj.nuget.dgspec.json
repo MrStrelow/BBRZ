@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj": {}
+    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj": {
+    "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj",
+        "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj",
         "projectName": "L01MyFirstDotNetProject",
-        "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj",
+        "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj",
         "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\obj\\",
+        "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,21 +1,21 @@
 package lerneinheiten.L05CollectionsUndDictionaries.mylist;
 
-public class LinkedList {
+public class MyLinkedList<Typ> {
     // Felder
     // ??
 
     // Hat-Beziehungen
-    private Node head;
+    private MyNode<Typ> head;
 
     // Konstruktor
     // ??
 
     // Methoden
-    public void add(int value) {
-        Node node = new Node(value);
+    public void add(Typ value) {
+        MyNode<Typ> myNode = new MyNode<>(value);
 
         if (head == null) {
-            head = node;
+            head = myNode;
 
         } else {
             // Sieht wer einen Fehler hier?
@@ -27,37 +27,37 @@ public class LinkedList {
 //
 //            nachbar=node;
 
-            Node current = head;
+            MyNode<Typ> current = head;
 
             while (current.getNachbar() != null) {
                 current = current.getNachbar();
             }
 
-            current.setNachbar(node);
+            current.setNachbar(myNode);
         }
     }
 
-    public int removeAt(int position) {
+    public Typ removeAt(int position) {
         // guard 1
         if (head == null) {
             System.out.println("Fehler! Die Liste ist leer.");
-            return -1;
+            return null;
         }
 
         // guard 2
         if (position < 0) {
             System.out.println("Fehler! Die angegebene Position ist negativ (" + position + "). Muss positiv sein.");
-            return -2;
+            return null;
         }
 
         // logik
         if (position == 0) {
-            int ret = head.getValue();
+            Typ ret = head.getValue();
             head = head.getNachbar();
             return ret;
 
         } else {
-            Node current = head;
+            MyNode<Typ> current = head;
             int index = 1;
 
             while (index < position) { // current.getNachbar() != null
@@ -67,10 +67,10 @@ public class LinkedList {
 
             if (current.getNachbar() == null) {
                 System.out.println("Fehler! Out of Bounds Exception!");
-                return -3;
+                return null;
             }
 
-            int ret = current.getNachbar().getValue();
+            Typ ret = current.getNachbar().getValue();
             current.setNachbar(current.getNachbar().getNachbar());
 
             return ret;
@@ -96,7 +96,7 @@ public class LinkedList {
     }
 
     public void display() {
-        Node current = head;
+        MyNode current = head;
 
         while (current != null) {
             System.out.print("(" + current.getValue() + ") --> ");

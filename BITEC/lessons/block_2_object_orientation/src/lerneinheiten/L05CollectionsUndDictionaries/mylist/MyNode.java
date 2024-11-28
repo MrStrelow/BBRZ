@@ -1,28 +1,28 @@
 package lerneinheiten.L05CollectionsUndDictionaries.mylist;
 
-public class Node {
+public class MyNode<Typ> {
     // Feld
-    private int value;
+    private Typ value;
 
     // Hat-Beziehungen
-    private Node nachbar;
+    private MyNode<Typ> nachbar;
 
     // Konstruktor
-    public Node(int value) {
+    public MyNode(Typ value) {
         this.value = value;
     }
 
     // Methoden
     // get-set Methoden
-    public int getValue() {
+    public Typ getValue() {
         return value;
     }
 
-    public Node getNachbar() {
+    public MyNode<Typ> getNachbar() {
         return nachbar;
     }
 
-    public void setNachbar(Node nachbar) {
+    public void setNachbar(MyNode<Typ> nachbar) {
         this.nachbar = nachbar;
     }
 }
