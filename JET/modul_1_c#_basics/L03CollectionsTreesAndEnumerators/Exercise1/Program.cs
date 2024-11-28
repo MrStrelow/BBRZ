@@ -4,6 +4,10 @@ using System.Reflection.Metadata;
 
 class Program
 {
+    static string blue = "\u001B[34m";
+    static string red = "\u001B[31m";
+    static string reset = "\u001B[0m";
+
     static void Main()
     {
         // ProduktTypen
@@ -19,6 +23,7 @@ class Program
 
 
         // Lager als Dictionary, das die Boxen nach Größe kategorisiert
+        // c#, hier wird ein Object Initializer verwendet
         Dictionary<string, List<List<string>>> warehouse = new Dictionary<string, List<List<string>>>
         {
             { "big", new List<List<string>> { bigBox, anotherBigBox } },   
@@ -26,7 +31,7 @@ class Program
             { "small", new List<List<string>> { smallBox } }               
         };
 
-        // JAVA notation
+        // JAVA notation (welche hier auf funktioniert)
         //Dictionary<string, List<List<string>>> warehouse = new Dictionary<string, List<List<string>>>();
 
         //List<List<string>> lagerBigList = new List<List<string>>();
@@ -65,44 +70,138 @@ class Program
         addProductToBoxInWarehouse(warehouse, 0, kulli, "small");
 
 
-        // Lager-Inhalte ausgeben
-        Console.WriteLine("Inhalt des Lagers:");
-        foreach (var box in warehouse)
+        // Box-Inhalte ausgeben
+        Console.WriteLine("\nBox-Inhalte ausgeben:");
+        FindBoxesInWarehouse(warehouse, "big");
+        FindBoxesInWarehouse(warehouse, "med");
+        FindBoxesInWarehouse(warehouse, "small");
+        FindBoxesInWarehouse(warehouse, "drüLb");
+
+        // Produktinhalte ausgeben
+        Console.WriteLine("\nProduktinhalte mit dessen Boxen ausgeben:");
+        FindProductCategoriesOfWarehouse(warehouse, "Fahrrad");
+    }
+
+    static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string boxType) 
+    {
+        if (boxType == "big" || boxType == "med" || boxType == "small")
         {
-            Console.WriteLine($"Box-Größe: {box.Key}");
-            foreach (var produkt in box.Value)
+            //foreach (List<string> box in warehouse[boxType]) 
+            foreach (var box in warehouse[boxType]) 
             {
-                Console.WriteLine($" - {produkt}");
+                Console.WriteLine($"box ({boxType}): ");
+                
+                foreach (var productType in box)
+                { 
+                    Console.WriteLine($"\t{productType}");
+                }
+
+                Console.WriteLine();
             }
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+
+            Console.Write($"BoxType is Wrong!");
+
+            Console.ResetColor();
+            Console.WriteLine();
         }
     }
 
-    static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string BoxType) 
+    static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string productType)
     {
-        warehouse[]
-    }
+        int boxId = 0;
 
-    static void FindProductCategoriesOfWarehousen(Dictionary<string, List<List<string>>> warehouse, string productType)
-    {
+        if (productType == "Fahrrad" || productType == "Tisch" || productType == "Kulli")
+        {
+            foreach (var boxes in warehouse)
+            {
+                foreach (var box in boxes.Value)
+                {
+                    boxId++;
 
+                    foreach (var productTypeOfBox in box)
+                    {
+                        if (productTypeOfBox == productType)
+                        {
+                            Console.WriteLine($"{blue}{productType}{reset}\t - was found in a {red}{boxes.Key}{reset} Box, with id {red}{boxId}{reset}");
+                        }
+                    }
+                }
+
+                boxId = 0;
+            }
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+
+            Console.Write("ProductType is Wrong!");
+
+            Console.ResetColor();
+            Console.WriteLine();
+        }
     }
 
     static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination)
     {
         // Wir behandeln hier keine Exceptions.
-        if (destination == "big" && (productType == "Fahrrad" || productType == "Tisch" || productType == "Kulli"))
-        {
-            warehouse["big"][boxId].Add(productType);
-        }
-        else if (destination == "med" && (productType == "Fahrrad" || productType == "Kulli"))
-        {
-            warehouse["med"][boxId].Add(productType);
-        }
-        else if (destination == "small" && productType == "Kulli")
-        {
-            warehouse["small"][boxId].Add(productType);
-        } 
-        else
+
+        // ################  Als Mehrfachverzweigung ################ 
+
+        //if (destination == "big" && (productType == "Fahrrad" || productType == "Tisch" || productType == "Kulli"))
+        //{
+        //    warehouse["big"][boxId].Add(productType);
+        //}
+        //else if (destination == "med" && (productType == "Fahrrad" || productType == "Kulli"))
+        //{
+        //    warehouse["med"][boxId].Add(productType);
+        //}
+        //else if (destination == "small" && productType == "Kulli")
+        //{
+        //    warehouse["small"][boxId].Add(productType);
+        //} 
+        //else
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Cyan;
+        //    Console.BackgroundColor = ConsoleColor.DarkRed;
+
+        //    Console.WriteLine("Box zu klein! (oder falscher ProduktTyp übergeben, diese sind: [Fahrrad, Tisch, Kulli])");
+
+        //    Console.ResetColor();
+        //    return;
+        //}
+
+        // ################ Als eine logische Formel: ################ 
+
+        //if (
+        //    (destination == "big" && (productType == "Fahrrad" || productType == "Tisch" || productType == "Kulli")) ||
+        //    (destination == "med" && (productType == "Fahrrad" || productType == "Kulli")) ||
+        //    (destination == "small" && productType == "Kulli")
+        //)
+        //{
+        //    warehouse[destination][boxId].Add(productType);
+        //}
+        //else
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Cyan;
+        //    Console.BackgroundColor = ConsoleColor.DarkRed;
+
+        //    Console.WriteLine("Box zu klein! (oder falscher ProduktTyp übergeben, diese sind: [Fahrrad, Tisch, Kulli])");
+
+        //    Console.ResetColor();
+        //    return;
+        //}
+
+        // ################ Als guard clause: ################ 
+        if (
+            (destination == "small" && productType != "Kulli") ||
+            (destination == "med" && productType == "Tisch")
+        )
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -113,9 +212,7 @@ class Program
             return;
         }
 
-        string blue = "\u001B[34m";
-        string red = "\u001B[31m";
-        string reset = "\u001B[0m";
+        warehouse[destination][boxId].Add(productType);
 
         Console.WriteLine($"ProductType: {blue}{productType}{reset}\t wurde in {red}{destination}{reset}\t hinzugefügt.");
 

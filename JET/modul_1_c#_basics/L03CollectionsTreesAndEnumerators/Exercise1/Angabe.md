@@ -27,20 +27,107 @@ Ein kleines Unternehmen hat ein Lager, in dem verschiedene Produkte in Boxen unt
 Es kann mehrere große, mittlere und kleine Boxen in einem Lager geben.
 
 - Entwickeln Sie ein einfaches System zur Verwaltung der Produktkategorien im Lager, das auf den Einsatz von `Dictionary` und `List` beschränkt ist, um die Lagerstruktur ohne den Einsatz komplexer OOP-Konzepte darzustellen. 
-- Das System sollte in der Lage sein, auf das Lager zugreifen zu können und:
-  -  alle Boxen mit deren Inhalten auszugeben: Damit ist gemeint, dass ich zu z.B. alle großen Boxen und dessen darin befindlichen Produkte ausgeben kann. Die Frage ist also "welche Produkte befinden sich in großen Boxen"?
-  -  ein Produktkategorie mit deren Boxen auszugeben: Damit ist gemeint, dass ich zu `einer` Produktkategorie, die Boxen finden kann in denen sie sich befinden. Die Frage ist also "welche Boxen beinhalten z.B. die Kategorie Fahhrad"?
+- Das System sollte in der Lage sein, auf das Lager zugreifen zu können,
+  -  um eine spezifische Box mit dessen Inhalt auszugeben: Damit ist gemeint, dass ich zu z.B. alle großen Boxen und dessen darin befindlichen Produkte ausgeben kann. Die Frage ist also "welche Produkte befinden sich in großen Boxen"?
+  -  um eine Produktkategorie mit dessen Boxen auszugeben: Damit ist gemeint, dass ich zu `einer` Produktkategorie, die Boxen gefunden werden, in denen sich die Produkte befinden. Die Frage ist also "welche Boxen beinhalten z.B. die Kategorie Fahhrad"?
 
 
-Erweitere bestehendes für mehrere Lager `aut` und `ger`.
+Optional: Erweitere die bestehende Funktionalität für mehrere Lager `aut` und `ger`.
 
 Verwende dazu:
 ```csharp
 List<string> großeBox;
 ...
-Dictionary<string, List<List<string>>> lager_aut;
-Dictionary<string, List<List<string>>> lager_ger;
+Dictionary<string, List<List<string>>> lager;
+// Dictionary<string, List<List<string>>> lager_aut;
+// Dictionary<string, List<List<string>>> lager_ger;
 
-void FindBoxesInWarehouse( TODO: Parameter überlegen ) { ... }
-void SucheProduktkategorieImLagerInAllenBoxen( TODO: Parameter überlegen ) { ... }
+void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string boxType) { ... }
+void FindProductCategoriesOfWarehousen(Dictionary<string, List<List<string>>> warehouse, string productType) { ... }
+
+// Hilfsmethode um Boxen ins Warenhaus zu geben.
+void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination) { ... }
+```
+
+Beispiel-Aufruf in der Main-Methode:
+```csharp
+// Überprüfe beim hinufügen ob die ProduktTypen den Größen der Boxen entsprechen
+// Das geht einfacher mit einer Methode. Das haben wir nicht speziell spezifiziert in der Angabe (mit Absicht!).
+addProductToBoxInWarehouse(warehouse, 0, fahrrad, "big");
+addProductToBoxInWarehouse(warehouse, 0, kulli, "big");
+
+addProductToBoxInWarehouse(warehouse, 1, fahrrad, "big");
+addProductToBoxInWarehouse(warehouse, 1, fahrrad, "big");
+addProductToBoxInWarehouse(warehouse, 1, fahrrad, "big");
+addProductToBoxInWarehouse(warehouse, 1, tisch, "big");
+addProductToBoxInWarehouse(warehouse, 1, tisch, "big");
+
+addProductToBoxInWarehouse(warehouse, 0, fahrrad, "med");
+addProductToBoxInWarehouse(warehouse, 0, fahrrad, "med");
+addProductToBoxInWarehouse(warehouse, 0, kulli, "med");
+addProductToBoxInWarehouse(warehouse, 0, kulli, "med");
+
+addProductToBoxInWarehouse(warehouse, 0, fahrrad, "small"); // Fügt es nicht hinzu, da eine Box welche small zu für ein Fahrrad nicht passend ist.
+addProductToBoxInWarehouse(warehouse, 0, kulli, "small");
+addProductToBoxInWarehouse(warehouse, 0, kulli, "small");
+
+
+// Box-Inhalte ausgeben
+FindBoxesInWarehouse(warehouse, "big");
+FindBoxesInWarehouse(warehouse, "med");
+FindBoxesInWarehouse(warehouse, "small");
+FindBoxesInWarehouse(warehouse, "drüLb");
+
+// Produktinhalte ausgeben
+FindProductCategoriesOfWarehouse(warehouse, "Fahrrad");
+```
+
+Beispiel-Ausgabe des Beispiel-Aufrufs:
+```
+ProductType: Fahrrad     wurde in big    hinzugefügt.
+ProductType: Kulli       wurde in big    hinzugefügt.
+ProductType: Fahrrad     wurde in big    hinzugefügt.
+ProductType: Fahrrad     wurde in big    hinzugefügt.
+ProductType: Fahrrad     wurde in big    hinzugefügt.
+ProductType: Tisch       wurde in big    hinzugefügt.
+ProductType: Tisch       wurde in big    hinzugefügt.
+ProductType: Fahrrad     wurde in med    hinzugefügt.
+ProductType: Fahrrad     wurde in med    hinzugefügt.
+ProductType: Kulli       wurde in med    hinzugefügt.
+ProductType: Kulli       wurde in med    hinzugefügt.
+Box zu klein! (oder falscher ProduktTyp übergeben, diese sind: [Fahrrad, Tisch, Kulli])
+ProductType: Kulli       wurde in small  hinzugefügt.
+ProductType: Kulli       wurde in small  hinzugefügt.
+
+Box-Inhalte ausgeben:
+box (big):
+        Fahrrad
+        Kulli
+
+box (big):
+        Fahrrad
+        Fahrrad
+        Fahrrad
+        Tisch
+        Tisch
+
+box (med):
+        Fahrrad
+        Fahrrad
+        Kulli
+        Kulli
+
+box (small):
+        Kulli
+        Kulli
+
+BoxType is Wrong!
+
+Produktinhalte mit dessen Boxen ausgeben:
+Fahrrad  - was found in a big Box, with id 1
+Fahrrad  - was found in a big Box, with id 2
+Fahrrad  - was found in a big Box, with id 2
+Fahrrad  - was found in a big Box, with id 2
+Fahrrad  - was found in a med Box, with id 1
+Fahrrad  - was found in a med Box, with id 1
 ```
