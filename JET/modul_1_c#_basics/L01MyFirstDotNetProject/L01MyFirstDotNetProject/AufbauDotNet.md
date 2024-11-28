@@ -69,7 +69,7 @@ Danach wird diese IL genommen und von der Virtual Machine ausgeführt. Es gibt a
 Hier ein kleiner Vergleich der Begrifflichkeiten von JAVA und C#.
 | Merkmal                       | Java (JVM)                                   | C# (.NET CLR)                                 |
 |-------------------------------|----------------------------------------------|------------------------------------------------|
-| **Intermediary Language**              | Bytecode in `.class`-Dateien                | Intermediate Language (IL) abgebildet in einer `.dll`/`.exe`   |
+| **Intermediary Language**              | Bytecode in `.class`-Dateien                | Intermediate Language (IL) abgebildet in einer `.dll`/`.exe` - platformunabhängig! Wird von der Virtual Machine in ausführbaren code für spezifisches Betriebssystem umgewandelt.   |
 | **Virtaul Machine**              | **JAVA Virtual Machine (JVM)** - mehrere Sprachen wie Kotlin, Scala und JAVA kompilieren in Bytecode welcher von der JVM ausgeführt wird | **Common Language Runtime (CLR)** - mehrere Sprachen wie F#, VisualBasic, C# kompilieren in IL welche in der CLR ausgeführt wird |
 
 Beides sind hier Just-in-time Compiler, welcher es erlauben wenn das Programm aufgerufen wird ensprechend verwendete Teile des Codes zu kompilieren, anstatt alles unter einmal. 

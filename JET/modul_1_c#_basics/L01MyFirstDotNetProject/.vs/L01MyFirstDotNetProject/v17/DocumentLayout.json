@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\",
+  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\lessons\\modul_1_c#_basics\\lessons\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|solutionrelative:l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
               "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
               "RelativeToolTip": "L01MyFirstDotNetProject\\Program.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T21:20:27.24Z",
               "EditorCaption": ""
