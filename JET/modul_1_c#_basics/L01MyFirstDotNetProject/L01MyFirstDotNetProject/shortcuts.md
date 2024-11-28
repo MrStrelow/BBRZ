@@ -1,5 +1,5 @@
 # Shortcuts
-## movement 
+## Movement 
 * comment: CTRL + k + c
 * uncomment: CTRL + k + u
 * delete line: CTRL + l
@@ -10,7 +10,7 @@
 * tabulator rechts einer ganzen zeile: markiere text + TAB
 * tabulator links einer ganzen zeile: markiere text + SHIFT + TAB
 
-## files
+## Files
 * new file: CTRL + n 
 * solutions explorerCTRL + ALT + L
 * close tab/file: CTRL + w
@@ -21,3 +21,5 @@
 * Console.Write(); ~ cw
 * for Loop  ~ for
 * whle loop ~ while
+* Constructor ~ ctor
+* for(var a in A) ~ f
