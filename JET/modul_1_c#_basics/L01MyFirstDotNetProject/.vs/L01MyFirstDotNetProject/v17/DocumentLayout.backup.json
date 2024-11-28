@@ -1,9 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\",
+  "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\lessons\\modul_1_c#_basics\\lessons\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F4C2023-20AC-4337-A933-E9CC101ED3B3}|livecoding\\livecoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\livecoding\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F4C2023-20AC-4337-A933-E9CC101ED3B3}|livecoding\\livecoding.csproj|solutionrelative:livecoding\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|solutionrelative:l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
+              "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
+              "RelativeToolTip": "L01MyFirstDotNetProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-28T10:54:39.955Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
-              "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\lessons\\modul_1_c#_basics\\lessons\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
-              "RelativeToolTip": "L01MyFirstDotNetProject\\Program.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\livecoding\\Program.cs",
+              "RelativeDocumentMoniker": "livecoding\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\livecoding\\Program.cs",
+              "RelativeToolTip": "livecoding\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T21:20:27.24Z",
+              "WhenOpened": "2024-11-28T09:56:22.009Z",
               "EditorCaption": ""
             }
           ]
