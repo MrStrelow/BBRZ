@@ -51,6 +51,13 @@ void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse
 
 Beispiel-Aufruf in der Main-Methode:
 ```csharp
+
+// ProduktTypen
+string fahrrad = "Fahrrad";
+string tisch = "Tisch";
+string kulli = "Kulli";
+...
+...
 // Überprüfe beim hinufügen ob die ProduktTypen den Größen der Boxen entsprechen
 // Das geht einfacher mit einer Methode. Das haben wir nicht speziell spezifiziert in der Angabe (mit Absicht!).
 addProductToBoxInWarehouse(warehouse, 0, fahrrad, "big");

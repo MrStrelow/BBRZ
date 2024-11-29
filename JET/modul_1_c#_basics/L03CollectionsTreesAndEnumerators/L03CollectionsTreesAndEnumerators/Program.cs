@@ -8,20 +8,9 @@ static class ArrayPref
     const string Format = "{0,7:0.000} ";
     static void Main()
     {
-        //Jagged();
-        //Multi();
-        //Single();
-
-        List<int> zahlen = new List<int> { 1, 2, 3, 4 };
-        var zahlenCopy = new List<int>(zahlen);
-
-        foreach (int zahl in zahlen)
-        {
-            zahlenCopy.Add(zahl);
-        }
-
-
-        Console.WriteLine($"[{string.Join(", ", zahlenCopy)}]");
+        Jagged();
+        Multi();
+        Single();
     }
 
     static void Jagged()

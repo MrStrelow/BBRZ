@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\aufbaudotnet.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|solutionrelative:l01myfirstdotnetproject\\aufbaudotnet.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|solutionrelative:l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AufbauDotNet.md",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\AufbauDotNet.md",
+              "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\AufbauDotNet.md",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\AufbauDotNet.md",
+              "RelativeToolTip": "L01MyFirstDotNetProject\\AufbauDotNet.md",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-11-29T04:31:53.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
               "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\Program.cs",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\livecoding\\Program.cs",
               "RelativeDocumentMoniker": "livecoding\\Program.cs",
@@ -43,8 +60,7 @@
               "RelativeToolTip": "livecoding\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-28T09:56:22.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T09:56:22.009Z"
             }
           ]
         }

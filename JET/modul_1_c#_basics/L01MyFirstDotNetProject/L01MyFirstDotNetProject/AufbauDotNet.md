@@ -69,8 +69,10 @@ Danach wird diese IL genommen und von der Virtual Machine ausgeführt. Es gibt a
 Hier ein kleiner Vergleich der Begrifflichkeiten von JAVA und C#.
 | Merkmal                       | Java (JVM)                                   | C# (.NET CLR)                                 |
 |-------------------------------|----------------------------------------------|------------------------------------------------|
-| **Intermediary Language**              | Bytecode in `.class`-Dateien                | Intermediate Language (IL) abgebildet in einer `.dll`/`.exe` - platformunabhängig! Wird von der Virtual Machine in ausführbaren code für spezifisches Betriebssystem umgewandelt.   |
-| **Virtaul Machine**              | **JAVA Virtual Machine (JVM)** - mehrere Sprachen wie Kotlin, Scala und JAVA kompilieren in Bytecode welcher von der JVM ausgeführt wird | **Common Language Runtime (CLR)** - mehrere Sprachen wie F#, VisualBasic, C# kompilieren in IL welche in der CLR ausgeführt wird |
+| **Compiler**              | `javac`, erzeugt Intermediary Language (.class)    |  `csc` ist der Befehlt für den c# compiler und `dotnet` für allgemeinere Projekte |
+| **Intermediary Language** | Bytecode in `.class`-Dateien        | Intermediate Language (IL) abgebildet in einer `.dll`/`.exe` - platformunabhängig! Wird von der Virtual Machine in ausführbaren code für spezifisches Betriebssystem umgewandelt.   |
+| **Virtaul Machine**       | **JAVA Virtual Machine (JVM)** - mehrere Sprachen wie Kotlin, Scala und JAVA kompilieren in Bytecode welcher von der JVM ausgeführt wird | **Common Language Runtime (CLR)** - mehrere Sprachen wie F#, VisualBasic, C# kompilieren in IL welche in der CLR ausgeführt wird |
+
 
 Beides sind hier Just-in-time Compiler, welcher es erlauben wenn das Programm aufgerufen wird ensprechend verwendete Teile des Codes zu kompilieren, anstatt alles unter einmal. 
 
@@ -124,24 +126,39 @@ Die IL-Offsets neben den IL-Anweisungen sind nicht notwendigerweise fortlaufend 
 * **IL_0007**: ret benötigt 1 Byte.
 
 
-## Wie builden wir Projekte mit dem Terminal, wie mit VS?
+## Wie builden wir Projekte mit dem Terminal?
 Ein neues C#-Projekt erstellen:
 Öffnen Sie das Terminal und navigieren Sie zu dem Ordner, in dem Sie Ihr Projekt erstellen möchten.
 
-Führen Sie den folgenden Befehl aus, um eine neue Konsolenanwendung zu erstellen:
-```dotnet new console -n MyApp```
+#### Führen Sie den folgenden Befehl aus, um eine neue Konsolenanwendung zu erstellen:
+```bash 
+dotnet new console -n MyApp
+```
 Dies erstellt einen neuen Ordner MyApp mit einem grundlegenden C#-Programm.
 
-Den Code kompilieren und ausführen:
-Navigieren Sie in den Projektordner:
+#### Den Code kompilieren und ausführen:
+Navigieren Sie in den Projektordner (mit dem `ls` Befehl nachschauen ob ein File mit Endung `csproj` gefunden wird):
 
-``` cd MyApp ```
-Kompilieren und führen Sie die Anwendung aus:
+```bash 
+cd MyApp 
+```
+#### Kompilieren und führen Sie die Anwendung aus:
 
-``` dotnet run ```
+```bash 
+dotnet run 
+```
 Dieser Befehl kompiliert den Code und führt ihn sofort aus.
 
-Eine ausführbare (.exe) Datei erstellen:
+Mit dem nächsten Befehlt wird nur kompiliert, ohne ausführung.
+```bash
+dotnet build
+``` 
+Falls wir nur ausführen ohne neu zu kompilieren, verwenden wir 
+```bash
+dotnet bin/Debug/net8.0/MyProject.dll
+```
+
+#### Eine ausführbare (.exe) Datei erstellen:
 Um eine ausführbare Datei zu generieren, veröffentlichen Sie das Projekt:
 
 ``` dotnet publish -c Release -r win-x64```

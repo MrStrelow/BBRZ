@@ -1,52 +1,97 @@
 
-# Performance Comparison of Multidimensional vs Jagged Arrays (Varying Sizes)
-
-This code compares the performance of multidimensional arrays and jagged arrays in C#. The jagged array has rows of varying lengths, while the multidimensional array is rectangular.
-
+# Performance - Multidimensional vs Jagged Arrays vs. One Dimensional
 ```csharp
 
 using System;
 using System.Diagnostics;
 
-class Program
+namespace adfs;
+
+static class ArrayPref
 {
-    static void Main(string[] args)
+    const string Format = "{0,7:0.000} ";
+    static void Main()
     {
-        const int rows = 500;
-        const int maxCols = 300;
+        Jagged();
+        Multi();
+        Single();
+    }
 
-        // Initialize multidimensional array (fixed size)
-        int[,] multiDimArray = new int[rows, maxCols];
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < maxCols; j++)
-                multiDimArray[i, j] = i + j;
-
-        // Initialize jagged array (varying sizes)
-        int[][] jaggedArray = new int[rows][];
-        for (int i = 0; i < rows; i++)
+    static void Jagged()
+    {
+        const int dim = 1000;
+        for (var passes = 0; passes < 10; passes++)
         {
-            jaggedArray[i] = new int[i + 1]; // Each row has a unique length
-            for (int j = 0; j < jaggedArray[i].Length; j++)
-                jaggedArray[i][j] = i + j;
+            var timer = new Stopwatch();
+            timer.Start();
+            var jagged = new int[dim][][];
+            for (var i = 0; i < dim; i++)
+            {
+                jagged[i] = new int[dim][];
+                for (var j = 0; j < dim; j++)
+                {
+                    jagged[i][j] = new int[dim];
+                    for (var k = 0; k < dim; k++)
+                    {
+                        jagged[i][j][k] = i * j * k;
+                    }
+                }
+            }
+            timer.Stop();
+            Console.Write(Format,
+                (double)timer.ElapsedTicks / TimeSpan.TicksPerMillisecond);
         }
+        Console.WriteLine();
+    }
 
-        // Measure time for multidimensional array
-        Stopwatch stopwatch = Stopwatch.StartNew();
-        long multiSum = 0;
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < maxCols; j++)
-                multiSum += multiDimArray[i, j];
-        stopwatch.Stop();
-        Console.WriteLine($"Multidimensional Array Time: {stopwatch.ElapsedMilliseconds} ms");
+    static void Multi()
+    {
+        const int dim = 1000;
+        for (var passes = 0; passes < 10; passes++)
+        {
+            var timer = new Stopwatch();
+            timer.Start();
+            var multi = new int[dim, dim, dim];
+            for (var i = 0; i < dim; i++)
+            {
+                for (var j = 0; j < dim; j++)
+                {
+                    for (var k = 0; k < dim; k++)
+                    {
+                        multi[i, j, k] = i * j * k;
+                    }
+                }
+            }
+            timer.Stop();
+            Console.Write(Format,
+                (double)timer.ElapsedTicks / TimeSpan.TicksPerMillisecond);
+        }
+        Console.WriteLine();
+    }
 
-        // Measure time for jagged array (explicit handling of lengths)
-        stopwatch.Restart();
-        long jaggedSum = 0;
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < jaggedArray[i].Length; j++) // Using the row's length explicitly
-                jaggedSum += jaggedArray[i][j];
-        stopwatch.Stop();
-        Console.WriteLine($"Jagged Array Time: {stopwatch.ElapsedMilliseconds} ms");
+    static void Single()
+    {
+        const int dim = 1000;
+        for (var passes = 0; passes < 10; passes++)
+        {
+            var timer = new Stopwatch();
+            timer.Start();
+            var single = new int[dim * dim * dim];
+            for (var i = 0; i < dim; i++)
+            {
+                for (var j = 0; j < dim; j++)
+                {
+                    for (var k = 0; k < dim; k++)
+                    {
+                        single[i * dim * dim + j * dim + k] = i * j * k;
+                    }
+                }
+            }
+            timer.Stop();
+            Console.Write(Format,
+                (double)timer.ElapsedTicks / TimeSpan.TicksPerMillisecond);
+        }
+        Console.WriteLine();
     }
 }
 
