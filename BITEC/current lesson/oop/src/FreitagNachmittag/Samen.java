@@ -25,7 +25,16 @@ public class Samen {
     private void platziereMichAufFeld() {
         // TODO: Verwende die Logik aus der Klasse Hamster, Methode platziereMichAufFeld
         //  um einen samen am spielfeld zu plazieren.
+        Random random = new Random();
+        var bodensymbol = spielfeld.getBodenSymbol();
+        var feld = spielfeld.getSpielfeld();
 
+        do {
+            x = random.nextInt(spielfeld.getGroesse());
+            y = random.nextInt(spielfeld.getGroesse());
+        } while (!feld[y][x].equals(bodensymbol));
+
+        spielfeld.getSpielfeld()[y][x] = darstellung;
     }
 
     // Methoden

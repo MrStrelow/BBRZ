@@ -74,6 +74,11 @@ public class Spielfeld {
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
+        // TODO: bewege hamster ein feld nach rechts.
+
+        // TODO: bewege hamster in ein feld der "Richtung richtung" welche als parameter übergeben wird.
+
+        // TODO: bewege den Hamster so, dass er nicht von der Karte fällt.
     }
 
     public void hamsterIsstSamen(Hamster hamster) {
