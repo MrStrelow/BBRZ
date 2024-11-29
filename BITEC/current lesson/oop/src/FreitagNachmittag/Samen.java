@@ -13,13 +13,19 @@ public class Samen {
     private Spielfeld spielfeld;
 
     // Konstruktor
-    public Samen(int x, int y, Spielfeld spielfeld) {
-        this.x = x;
-        this.y = y;
+    public Samen(Spielfeld spielfeld) {
         this.nährstoffe = new Random().nextDouble();
         this.darstellung = "🌱";
         this.spielfeld = spielfeld;
+
         spielfeld.weiseSamenZu(this);
+        platziereMichAufFeld();
+    }
+
+    private void platziereMichAufFeld() {
+        // TODO: Verwende die Logik aus der Klasse Hamster, Methode platziereMichAufFeld
+        //  um einen samen am spielfeld zu plazieren.
+
     }
 
     // Methoden

@@ -17,14 +17,13 @@ public class Hamster {
 
     // Konstruktor
     public Hamster(Spielfeld spielfeld) {
-        backenSpeicher = new ArrayList<>();
-
-        this.spielfeld = spielfeld;
-        spielfeld.weiseHamsterZu(this);
-
         hatHunger = false;
         darstellung = "🐹";
 
+        backenSpeicher = new ArrayList<>();
+        this.spielfeld = spielfeld;
+
+        spielfeld.weiseHamsterZu(this);
         platziereMichAufFeld();
     }
 

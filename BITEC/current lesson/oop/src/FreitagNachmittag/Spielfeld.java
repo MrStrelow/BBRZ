@@ -36,7 +36,7 @@ public class Spielfeld {
         int anzahlSamen = random.nextInt(1, groesse*groesse);
 
         for (int i = 0; i < anzahlSamen; i++) {
-            samen.add(new Samen(0,0, this));
+            samen.add(new Samen(this));
         }
 
         // wir brauchen hamster
