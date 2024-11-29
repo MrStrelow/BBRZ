@@ -16,7 +16,7 @@ public class Hamster {
     private List<Samen> backenSpeicher;
 
     // Konstruktor
-    public Hamster(Spielfeld spielfeld, int x, int y) {
+    public Hamster(Spielfeld spielfeld) {
         backenSpeicher = new ArrayList<>();
 
         this.spielfeld = spielfeld;
@@ -24,8 +24,31 @@ public class Hamster {
 
         hatHunger = false;
         darstellung = "🐹";
-        this.x = x;
-        this.y = y;
+
+        platziereMichAufFeld();
+    }
+
+    private void platziereMichAufFeld() {
+        Random random = new Random();
+        x = random.nextInt(spielfeld.getGroesse());
+        y = random.nextInt(spielfeld.getGroesse());
+        boolean platziert = false;
+
+        // TODO: Frage ab, ob im Spielfeld ein Bodensymbol auf den Koordinaten x und y ist.
+        //  Wenn ja, setze den Hamster dort hin.
+        //  Wenn nein, probier es nochmal.
+
+        while (!platziert) {
+            if (spielfeld.getSpielfeld()[y][x].equals(spielfeld.getBodenSymbol())) {
+                // passt?
+            } else {
+                // wiederhole?
+
+            }
+        }
+
+
+        // Konzepte: while und if (oder denke an ein do-while für kürzeren Code.)
     }
 
     // Methoden

@@ -69,23 +69,42 @@ public class Spielfeld {
         }
     }
 
+//    public void weiseHamsterZu(Hamster hamster) {
+//        Random random = new Random();
+//        int x = random.nextInt(groesse);
+//        int y = random.nextInt(groesse);
+//
+//        if(spielfeld[y][x].equals(bodenSymbol)){
+//            hamster.setX(x);
+//            hamster.setY(y);
+//
+//            spielfeld[y][x] = hamster.getDarstellung();
+//        } else {
+//
+//            // rekursion!!! wenns spielfeld bereits voll ist, probiers nocheinmal.
+//            weiseHamsterZu(hamster);
+//
+//        }
+//    }
+
     public void weiseHamsterZu(Hamster hamster) {
         Random random = new Random();
-        int x = random.nextInt(groesse);
-        int y = random.nextInt(groesse);
+        boolean platziert = false;
 
-        if(spielfeld[y][x].equals(bodenSymbol)){
-            hamster.setX(x);
-            hamster.setY(y);
+        while (!platziert) {
+            int x = random.nextInt(groesse);
+            int y = random.nextInt(groesse);
 
-            spielfeld[y][x] = hamster.getDarstellung();
-        } else {
+            if (spielfeld[y][x].equals(bodenSymbol)) {
+                hamster.setX(x);
+                hamster.setY(y);
 
-            // rekursion!!! wenns spielfeld bereits voll ist, probiers nocheinmal.
-            weiseHamsterZu(hamster);
-
+                spielfeld[y][x] = hamster.getDarstellung();
+                platziert = true;  // Beendet die Schleife, wenn der Hamster platziert wurde
+            }
         }
     }
+
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
         // setze vorheriges Feld auf das Feld welches ich bald verlassen werde
