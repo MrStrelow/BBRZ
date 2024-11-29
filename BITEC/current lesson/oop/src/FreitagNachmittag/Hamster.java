@@ -30,25 +30,30 @@ public class Hamster {
 
     private void platziereMichAufFeld() {
         Random random = new Random();
-        x = random.nextInt(spielfeld.getGroesse());
-        y = random.nextInt(spielfeld.getGroesse());
-        boolean platziert = false;
-
         // TODO: Frage ab, ob im Spielfeld ein Bodensymbol auf den Koordinaten x und y ist.
         //  Wenn ja, setze den Hamster dort hin.
         //  Wenn nein, probier es nochmal.
+        //  Konzepte: while und if (oder denke an ein do-while für kürzeren Code.)
+//        boolean platziert = false;
+//        while (!platziert) {
+//            x = random.nextInt(spielfeld.getGroesse());
+//            y = random.nextInt(spielfeld.getGroesse());
+//
+//            if (spielfeld.getSpielfeld()[y][x].equals(spielfeld.getBodenSymbol())) {
+//               platziert = true;
+//            }
+//        }
 
-        while (!platziert) {
-            if (spielfeld.getSpielfeld()[y][x].equals(spielfeld.getBodenSymbol())) {
-                // passt?
-            } else {
-                // wiederhole?
+        // aber vl. besser das hier:
+        var bodensymbol = spielfeld.getBodenSymbol();
+        var feld = spielfeld.getSpielfeld();
 
-            }
-        }
+        do {
+            x = random.nextInt(spielfeld.getGroesse());
+            y = random.nextInt(spielfeld.getGroesse());
+        } while (!feld[y][x].equals(bodensymbol));
 
-
-        // Konzepte: while und if (oder denke an ein do-while für kürzeren Code.)
+        spielfeld.getSpielfeld()[y][x] = darstellung;
     }
 
     // Methoden
