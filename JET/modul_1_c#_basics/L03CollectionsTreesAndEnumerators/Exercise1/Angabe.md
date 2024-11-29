@@ -6,7 +6,7 @@ Welche ``Denkwweisen`` üben wir hier?
 * keine
 
 Lies davor:
-* [java vs. c#](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L03CollectionsTreesAndEnumerators/L03CollectionsTreesAndEnumerators/L03.0ListenUndDictionaries.md)
+* [Collections](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L03CollectionsTreesAndEnumerators/L03CollectionsTreesAndEnumerators/L03.0ListenUndDictionaries.md)
 
 ## 1. Einfaches Lagerverwaltungssystem
 

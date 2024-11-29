@@ -77,6 +77,23 @@ class Program
 
     private static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination)
     {
+        if (
+            destination == "med" && productType == "Tisch" ||
+            destination == "small" && productType != "Kulli")
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+
+            Console.WriteLine("Box zu klein! (oder falscher ProduktTyp übergeben, diese sind: [Fahrrad, Tisch, Kulli])");
+
+            Console.ResetColor();
+            return;
+        }
+
         warehouse[destination][boxId].Add(productType);
+
+        Console.WriteLine($"ProductType: {blue}{productType}{reset}\t wurde in {red}{destination}{reset}\t hinzugefügt.");
+
+        Console.ResetColor();
     }
 }
