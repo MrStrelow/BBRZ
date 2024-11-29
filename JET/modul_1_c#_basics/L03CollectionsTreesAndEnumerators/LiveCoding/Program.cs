@@ -65,21 +65,73 @@ class Program
         FindProductCategoriesOfWarehouse(warehouse, "Fahrrad");
     }
 
-    private static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string v)
+    private static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string productType)
     {
-        throw new NotImplementedException();
+        int boxId = 0;
+
+        if (productType == "Fahrrad" || productType == "Kulli" || productType == "Tisch")
+        {
+            foreach (var boxes in warehouse)
+            {
+                foreach (var box in boxes.Value)
+                {
+                    boxId++;
+
+                    foreach (var productTypeInBox in box)
+                    {
+                        if (productTypeInBox == productType)
+                        {
+                            Console.WriteLine($"{blue}{productType}{reset}\t - was found in a {red}{boxes.Key}{reset} Box, with id {red}{boxId}{reset}");
+                        }
+                    }
+                }
+                
+                boxId = 0;
+            }
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+
+            Console.Write("ProductType is Wrong!");
+
+            Console.ResetColor();
+            Console.WriteLine();
+        }
     }
 
-    private static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string v)
+    private static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string boxType)
     {
-        throw new NotImplementedException();
+        if (boxType == "big" || boxType == "med" || boxType == "small")
+        {
+            foreach ( var box in warehouse[boxType])
+            {
+                Console.WriteLine($"box ({boxType}): ");
+
+                foreach (var productType in box)
+                {
+                    Console.WriteLine($"\t{productType}");
+                }
+            }
+        } 
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+
+            Console.Write($"BoxType: {boxType} is Wrong!");
+
+            Console.ResetColor();
+            Console.WriteLine();
+        }
     }
 
-    private static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination)
+    private static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string boxType)
     {
         if (
-            destination == "med" && productType == "Tisch" ||
-            destination == "small" && productType != "Kulli")
+            boxType == "med" && productType == "Tisch" ||
+            boxType == "small" && productType != "Kulli")
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -90,9 +142,9 @@ class Program
             return;
         }
 
-        warehouse[destination][boxId].Add(productType);
+        warehouse[boxType][boxId].Add(productType);
 
-        Console.WriteLine($"ProductType: {blue}{productType}{reset}\t wurde in {red}{destination}{reset}\t hinzugefügt.");
+        Console.WriteLine($"ProductType: {blue}{productType}{reset}\t wurde in {red}{boxType}{reset}\t hinzugefügt.");
 
         Console.ResetColor();
     }
