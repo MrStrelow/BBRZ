@@ -61,6 +61,8 @@ public class Spielfeld {
 
     // Methoden
     public void printSpielfeld() {
+        aktualisiereHamster();
+
         for (int i = 0; i < groesse; i++) {
             for (int j = 0; j < groesse; j++) {
                 System.out.print(spielfeld[i][j]);
@@ -71,6 +73,12 @@ public class Spielfeld {
 
     public void weiseHamsterZu(Hamster hamster) {
 
+    }
+
+    private void aktualisiereHamster() {
+        for (Hamster hamster : hamster) {
+            spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
+        }
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
