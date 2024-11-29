@@ -38,7 +38,7 @@ public class Hamster
     // wo wird der hamster im spielfeld hingesetzt?
 
     // Methods
-    public void move()
+    public void Move()
     {
         Random random = new Random();
         Direction[] values = (Direction[]) Enum.GetValues(typeof(Direction));
@@ -51,7 +51,7 @@ public class Hamster
     {
         GettingHungry();
 
-        bool isHamsterOnSpotWithFood = spotToRemember == plane.getSeedSymbol();
+        bool isHamsterOnSpotWithFood = spotToRemember == Seed.seedSymbol;
         if (isHungry && isHamsterOnSpotWithFood)
         {
             Eating();
@@ -89,27 +89,27 @@ public class Hamster
     //TODO 4: verschiedene typen von hamstern bzw. essen
 
     // getter-setter
-    public int getX()
+    public int GetX()
     {
         return x;
     }
 
-    public void setX(int x)
+    public void SetX(int x)
     {
         this.x = x;
     }
 
-    public int getY()
+    public int GetY()
     {
         return y;
     }
 
-    public void setY(int y)
+    public void SetY(int y)
     {
         this.y = y;
     }
 
-    public void setSpotToRemember(String spotToRemember)
+    public void SetSpotToRemember(String spotToRemember)
     {
         if (spotToRemember != null)
         {
@@ -117,42 +117,42 @@ public class Hamster
         }
     }
 
-    public String getSpotToRemember()
+    public String GetSpotToRemember()
     {
         return this.spotToRemember;
     }
 
-    public Boolean getIstHungrig()
+    public Boolean GetIstHungrig()
     {
         return isHungry;
     }
 
-    public void setIsHungry(Boolean isHungry)
+    public void SetIsHungry(Boolean isHungry)
     {
         this.isHungry = isHungry;
     }
 
-    public List<Seed> getBackenSpeicher()
+    public List<Seed> GetMouth()
     {
         return mouth;
     }
 
-    public String getDarstellung()
+    public String GetSymbol()
     {
         return symbol;
     }
 
-    public void setDarstellung(String darstellung)
+    public void SetSymbol(String darstellung)
     {
         this.symbol = darstellung;
     }
 
-    public String getHungrigeDarstellung()
+    public String GetHungrySymbol()
     {
         return hungrySymbol;
     }
 
-    public String getNormaleDarstellung()
+    public String GetFedSymbol()
     {
         return fedSymbol;
     }
