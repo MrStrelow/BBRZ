@@ -75,25 +75,32 @@ public class Spielfeld {
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
         // (TODO: Vorbereitung: bewege hamster ein feld nach rechts.)
+        // TODO: bewege hamster in ein feld der "Richtung richtung" welche als parameter übergeben wird.
+        // TODO: bewege den Hamster so, dass er nicht von der Karte fällt.
 
         switch (richtung) {
             case OBEN -> {
-
+                if (hamster.getY() > 0) {
+                    hamster.setY(hamster.getY() - 1);
+                }
             }
             case UNTEN -> {
-
+                if (hamster.getY() < groesse - 1) {
+                    hamster.setY(hamster.getY() + 1);
+                }
             }
             case LINKS -> {
-
+                if (hamster.getX() > 0) {
+                    hamster.setX(hamster.getX() - 1);
+                }
             }
             case RECHTS -> {
-
+                if (hamster.getX() < groesse - 1) {
+                    hamster.setX(hamster.getX() + 1);
+                }
             }
         }
 
-        // TODO: bewege hamster in ein feld der "Richtung richtung" welche als parameter übergeben wird.
-
-        // TODO: bewege den Hamster so, dass er nicht von der Karte fällt.
     }
 
     public void hamsterIsstSamen(Hamster hamster) {
