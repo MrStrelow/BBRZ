@@ -1,0 +1,5 @@
+﻿namespace LiveCoding;
+
+class Seed
+{
+}

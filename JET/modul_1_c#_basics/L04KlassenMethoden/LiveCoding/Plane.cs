@@ -1,0 +1,6 @@
+﻿namespace LiveCoding;
+
+class Plane
+{
+
+}
