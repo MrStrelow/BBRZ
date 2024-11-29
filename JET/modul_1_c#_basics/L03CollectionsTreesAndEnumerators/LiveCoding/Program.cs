@@ -1,4 +1,5 @@
-﻿class Program
+﻿
+class Program
 {
     static string blue = "\u001B[34m";
     static string red = "\u001B[31m";
@@ -62,5 +63,20 @@
         // Produktinhalte ausgeben
         Console.WriteLine("\nProduktinhalte mit dessen Boxen ausgeben:");
         FindProductCategoriesOfWarehouse(warehouse, "Fahrrad");
+    }
+
+    private static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string v)
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string v)
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination)
+    {
+        warehouse[destination][boxId].Add(productType);
     }
 }
