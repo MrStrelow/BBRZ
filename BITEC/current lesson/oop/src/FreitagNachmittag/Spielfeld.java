@@ -74,7 +74,22 @@ public class Spielfeld {
     }
 
     public void bewegeHamster(Hamster hamster, Richtung richtung) {
-        // TODO: bewege hamster ein feld nach rechts.
+        // (TODO: Vorbereitung: bewege hamster ein feld nach rechts.)
+
+        switch (richtung) {
+            case OBEN -> {
+
+            }
+            case UNTEN -> {
+
+            }
+            case LINKS -> {
+
+            }
+            case RECHTS -> {
+
+            }
+        }
 
         // TODO: bewege hamster in ein feld der "Richtung richtung" welche als parameter übergeben wird.
 
