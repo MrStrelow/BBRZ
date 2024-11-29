@@ -9,6 +9,15 @@ Lies davor:
 * [Collections](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L03CollectionsTreesAndEnumerators/L03CollectionsTreesAndEnumerators/L03.0ListenUndDictionaries.md)
 
 ## 1. Einfaches Lagerverwaltungssystem
+Achtung! Wir verwenden hier keine Klassen für die ProduktTypen. Wir verzichten auf Identität eines Objektes und sagen, z.B. ein `string` mit dem Wert `Fahrrad` ist ein Fahrrad.
+Auch wenn wir abfragen ob ein `Fahrrad` in eine `kleine Box` passt, greifen wir nicht auf eigenschaften eines Objektes zu, sondern merken uns dass ein `Fahrrad` nicht in eine `kleine Box` passt.
+Hier nochmal in Code:
+```csharp
+void MyMethod(... , string productType, string boxType)) {
+        if (boxType == "small" && productType == "Fahrrad" ...) {...}
+        ...
+}
+```
 
 Ein kleines Unternehmen hat ein Lager, in dem verschiedene Produkte in Boxen unterschiedlicher Größe gelagert werden. Das Lager soll `effizient organisiert sein, um die Produkte schnell nach Boxgröße und -inhalt `finden` zu können.
 

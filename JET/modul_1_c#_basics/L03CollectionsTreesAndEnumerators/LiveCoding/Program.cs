@@ -1,7 +1,9 @@
 ﻿
+using System.Buffers;
+
 class Program
 {
-    static string blue = "\u001B[34m";
+    public static string blue = "\u001B[34m";
     static string red = "\u001B[31m";
     static string reset = "\u001B[0m";
 
@@ -65,7 +67,7 @@ class Program
         FindProductCategoriesOfWarehouse(warehouse, "Fahrrad");
     }
 
-    private static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string productType)
+    public static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string productType)
     {
         int boxId = 0;
 
