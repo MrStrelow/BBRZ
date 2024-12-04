@@ -8,6 +8,6 @@ import static AbstractClassesUndInterfaces.schnittstellen.impl.Dreieck.Orientier
 public class Main {
     public static void main(String[] args) {
         System.out.println(new Dreieck(5,5,"~", "#", BOT_RIGHT));
-        System.out.println(new Diamant(5,5,"~", "#"));
+        System.out.println(new Diamant(10,10,"~", "#"));
     }
 }

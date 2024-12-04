@@ -79,16 +79,15 @@ public class Form implements Kombinierbar {
     }
 
     public Form transponieren() {
-//        Form flipped = new Form(breite, hoehe, background, filler);
-//
-//        for (int i = 0; i < hoehe; i++) {
-//            for (int j = 0; j < breite; j++) {
-//                flipped.feld[j][i] = feld[i][j];
-//            }
-//        }
-//
-//        return flipped;
-        return null;
+        Form flipped = new Form(breite, hoehe, background, filler);
+
+        for (int i = 0; i < hoehe; i++) {
+            for (int j = 0; j < breite; j++) {
+                flipped.feld[j][i] = feld[i][j];
+            }
+        }
+
+        return flipped;
     }
 
     @Override
