@@ -63,9 +63,11 @@ public class Dreieck {
 
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
-                feld[i][j] = copy[hoehe - 1 - i][j];
+                copy[i][j] = feld[hoehe - 1 - i][j];
             }
         }
+
+        this.feld = copy;
 
         return this;
     }
