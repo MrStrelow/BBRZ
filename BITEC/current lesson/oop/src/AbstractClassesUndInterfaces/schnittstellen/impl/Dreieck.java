@@ -1,6 +1,8 @@
 package AbstractClassesUndInterfaces.schnittstellen.impl;
 
-public class Dreieck extends Form {
+import AbstractClassesUndInterfaces.schnittstellen.interfaces.Strukturierbar;
+
+public class Dreieck extends Form implements Strukturierbar {
     // Felder
     Orientierung orientierung;
 
@@ -22,7 +24,7 @@ public class Dreieck extends Form {
     }
 
     @Override
-    protected Form generiereForm() {
+    public Form generiereForm() {
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j <= i; j++) {
                 feld[i][j] = filler;

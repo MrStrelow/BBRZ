@@ -1,6 +1,7 @@
 package AbstractClassesUndInterfaces.schnittstellen;
 
 import AbstractClassesUndInterfaces.abstractClass.impl.Dreieck;
+import AbstractClassesUndInterfaces.schnittstellen.interfaces.Kombinierbar;
 
 import static AbstractClassesUndInterfaces.abstractClass.impl.Dreieck.Orientierung.BOT_RIGHT;
 

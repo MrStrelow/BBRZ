@@ -64,11 +64,6 @@ public class Form {
         return null;
     }
 
-    protected Form generiereForm(){
-        //?
-        return null;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
