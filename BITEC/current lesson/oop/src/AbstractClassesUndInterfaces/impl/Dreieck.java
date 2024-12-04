@@ -32,6 +32,10 @@ public class Dreieck {
             }
         }
 
+        // Warum hier keine Ist-Beziehung? dann ersparen wir uns dieses switch mit der orientierung?
+        // Antwort: es kann beides sinnvoll sein. Wir gehen aber davon aus, dass ein Dreieck nicht nur in 90° Orten einen rechten winkel hat.
+        // Wie implementieren wir aber einen beliebigen rechten winkel? Das haben wir auch hier nicht gemacht, mit dem enum Orientierung.
+        // Jedoch soll das hier als Denkanstoß dafür dienen.
         switch (orientierung) {
             case TOP_LEFT  -> this.spiegelnX();
             case TOP_RIGHT -> this.spiegelnX().spiegelnY();
