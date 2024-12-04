@@ -11,16 +11,9 @@ public class Dreieck extends Form implements Strukturierbar {
     // Konstruktor
 
     public Dreieck(int hoehe, int breite, String background, String filler, Orientierung orientierung) {
-        this.hoehe = hoehe;
-        this.breite = breite;
-        this.background = background;
-        this.filler = filler;
+        super(hoehe, breite, background, filler);
+
         this.orientierung = orientierung;
-
-        this.feld = new String[hoehe][breite];
-
-        fillCanvas();
-        generiereForm();
     }
 
     @Override
