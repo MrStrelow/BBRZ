@@ -23,5 +23,9 @@ public class Main {
 
         Form arrow = new Arrow(triangle.getHoehe() * 2, triangle.getBreite() * 2, triangle.getBackground(), triangle.getFiller(), Arrow.Orientation.DOWN);
         System.out.println(arrow);
+
+        System.out.println(new Arrow(triangle.getHoehe() * 2, triangle.getBreite() * 2, triangle.getBackground(), triangle.getFiller(), Arrow.Orientation.UP));
+        System.out.println(new Arrow(triangle.getHoehe() * 2, triangle.getBreite() * 2, triangle.getBackground(), triangle.getFiller(), Arrow.Orientation.LEFT));
+        System.out.println(new Arrow(triangle.getHoehe() * 2, triangle.getBreite() * 2, triangle.getBackground(), triangle.getFiller(), Arrow.Orientation.RIGHT));
     }
 }

@@ -30,9 +30,14 @@ public class Arrow extends Form implements Strukturierbar {
         try {
             Form leftSide = botRight.attach(topLeft, SOUTH);
             Form rightSide = topRight.attach(botLeft, NORTH);
-            Form form = leftSide.attach(rightSide, EAST);
+            Form downArrow = leftSide.attach(rightSide, EAST);
 
-            this.feld = form.feld;
+            this.feld = switch (orientation) {
+                case UP -> downArrow.drehen().drehen().feld;
+                case DOWN -> downArrow.feld;
+                case LEFT -> downArrow.drehen().drehen().drehen().feld;
+                case RIGHT -> downArrow.drehen().feld;
+            };
 
         } catch (FormDoesNotFitException e) {
             e.printStackTrace();
