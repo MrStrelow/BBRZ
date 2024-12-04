@@ -1,12 +1,19 @@
-package AbstractClassesUndInterfaces.impl;
+package AbstractClassesUndInterfaces.abstractClass.impl;
 
 public abstract class Form {
+    // Felder
     protected String[][] feld;
     protected int hoehe;
     protected int breite;
     protected String background;
     protected String filler;
-    
+
+    // hat-Beziehungen
+
+    // Konstruktor
+    // ??
+
+    // Methoden
     protected Form fillCanvas() {
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
@@ -17,7 +24,6 @@ public abstract class Form {
         return this;
     }
 
-    // Methoden für Drehen und Spiegeln
     public Form drehen() {
         return spiegelnX().transponieren();
     }
@@ -63,8 +69,10 @@ public abstract class Form {
         return null;
     }
 
+    // abstrakte Methode (keine Implementierung in der Klasse Form, aber zwingt Unterklassen diese zu implementieren. Wie ein Interface.)
     protected abstract Form generiereForm();
 
+    // Überschriebene Methode
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

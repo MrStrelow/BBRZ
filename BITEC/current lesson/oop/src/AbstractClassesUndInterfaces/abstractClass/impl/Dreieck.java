@@ -1,4 +1,4 @@
-package AbstractClassesUndInterfaces.impl;
+package AbstractClassesUndInterfaces.abstractClass.impl;
 
 public class Dreieck extends Form {
     // Felder
@@ -7,7 +7,6 @@ public class Dreieck extends Form {
     // hat-Beziehungen
 
     // Konstruktor
-
     public Dreieck(int hoehe, int breite, String background, String filler, Orientierung orientierung) {
         this.hoehe = hoehe;
         this.breite = breite;
@@ -22,7 +21,7 @@ public class Dreieck extends Form {
     }
 
     @Override
-    protected Form generiereForm() {
+    protected AbstractClassesUndInterfaces.abstractClass.impl.Form generiereForm() {
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j <= i; j++) {
                 feld[i][j] = filler;
