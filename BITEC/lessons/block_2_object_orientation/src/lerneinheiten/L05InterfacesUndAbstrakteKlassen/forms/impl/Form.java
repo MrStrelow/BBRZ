@@ -81,19 +81,6 @@ public class Form implements Kombinierbar {
         return this;
     }
 
-//    public void duplicateFormInSquare(Form form, Quadrants quadrants) {
-//        for (int i = 0; i < form.hoehe; i++) {
-//            for (int j = 0; j < form.breite; j++) {
-//                switch (quadrants) {
-//                    case TOP_LEFT  -> feld[i][j] = form.feld[i][j];
-//                    case BOT_RIGHT -> feld[i + hoehe][j + breite] = form.feld[i][j];
-//                    case BOT_LEFT  -> feld[i + hoehe][j] = form.feld[i][j];
-//                    case TOP_RIGHT -> feld[i][j + breite] = form.feld[i][j];
-//                }
-//            }
-//        }
-//    }
-
     @Override
     public Form attach(Form toBeAttached, Orientation orientation) throws FormDoesNotFitException {
         return switch (orientation) {
