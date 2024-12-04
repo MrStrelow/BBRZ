@@ -42,7 +42,7 @@ public class Dreieck extends Form implements Strukturierbar {
         switch (orientation) {
             case TOP_LEFT  -> this.spiegelnX();
             case TOP_RIGHT -> this.spiegelnX().spiegelnY();
-//            case TOP_RIGHT -> this.spiegelnX().transponieren();
+//            case TOP_RIGHT -> this.spiegelnX().transponieren(); // Warum geht das nicht? Hinweis: werde ich selber verändert oder wird ein neues Objekt verändert?
             case BOT_RIGHT -> this.spiegelnY();
         }
 
