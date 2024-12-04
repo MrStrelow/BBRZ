@@ -21,6 +21,17 @@ public class Form implements Kombinierbar {
         fillCanvas();
     }
 
+    // Copy Constructor
+    public Form(Form toCopy) {
+        this(toCopy.hoehe, toCopy.breite, toCopy.background, toCopy.filler);
+
+        for (int i = 0; i < hoehe; i++) {
+            for (int j = 0; j < breite; j++) {
+                feld[i][j] = toCopy.feld[i][j];
+            }
+        }
+    }
+
     // Methoden
 
     protected Form fillCanvas() {

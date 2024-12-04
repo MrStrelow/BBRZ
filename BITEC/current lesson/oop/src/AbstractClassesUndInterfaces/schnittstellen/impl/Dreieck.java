@@ -16,6 +16,13 @@ public class Dreieck extends Form implements Strukturierbar {
         this.orientierung = orientierung;
     }
 
+    public Dreieck(Dreieck basis, Orientierung orientierung) {
+        super(basis);
+        this.orientierung = orientierung;
+
+        this.generiereForm();
+    }
+
     @Override
     public Form generiereForm() {
         for (int i = 0; i < hoehe; i++) {
