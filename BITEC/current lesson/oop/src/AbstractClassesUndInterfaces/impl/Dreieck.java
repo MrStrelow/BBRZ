@@ -1,12 +1,7 @@
 package AbstractClassesUndInterfaces.impl;
 
-public class Dreieck {
+public class Dreieck extends Form {
     // Felder
-    private String[][] feld;
-    private int hoehe;
-    private int breite;
-    private String background;
-    private String filler;
     Orientierung orientierung;
 
     // hat-Beziehungen
@@ -22,10 +17,12 @@ public class Dreieck {
 
         this.feld = new String[hoehe][breite];
 
-        fillCanvas().generiereDreieck();
+        fillCanvas();
+        generiereForm();
     }
 
-    private Dreieck generiereDreieck() {
+    @Override
+    protected Form generiereForm() {
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j <= i; j++) {
                 feld[i][j] = filler;
@@ -44,76 +41,6 @@ public class Dreieck {
         }
 
         return this;
-    }
-
-    private Dreieck fillCanvas() {
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                feld[i][j] = background;
-            }
-        }
-
-        return this;
-    }
-
-    // Methoden für Drehen und Spiegeln
-    public Dreieck drehen() {
-        return spiegelnX().transponieren();
-    }
-
-    public Dreieck spiegelnX() {
-        String[][] copy = new String[hoehe][breite];
-//        Dreieck copy = new Dreieck(this);
-
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                copy[i][j] = feld[hoehe - 1 - i][j];
-            }
-        }
-
-        this.feld = copy;
-
-        return this;
-    }
-
-    public Dreieck spiegelnY() {
-//        Dreieck copy = new Dreieck(this);
-        String[][] copy = new String[hoehe][breite];
-
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                copy[i][breite - 1 - j] = feld[i][j];
-            }
-        }
-
-        this.feld = copy;
-        return this;
-    }
-
-    public Dreieck transponieren() {
-        Dreieck flipped = new Dreieck(breite, hoehe, background, filler, orientierung);
-
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                flipped.feld[j][i] = feld[i][j];
-            }
-        }
-
-        return flipped;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                sb.append(feld[i][j]);
-            }
-            sb.append("\n");
-        }
-
-        return sb.toString();
     }
 
     // Methoden
