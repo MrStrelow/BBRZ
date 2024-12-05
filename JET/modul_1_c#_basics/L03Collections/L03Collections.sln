@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L03Collections", "L03CollectionsTreesAndEnumerators\L03Collections.csproj", "{064F4784-D7E7-4B78-BE2E-A11263238C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L03Collections", "L03Collections\L03Collections.csproj", "{064F4784-D7E7-4B78-BE2E-A11263238C89}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise1", "Exercise1\Exercise1.csproj", "{0A605583-0C49-47B7-B4AA-89F7D3530A68}"
 EndProject

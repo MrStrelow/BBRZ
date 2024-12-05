@@ -9,12 +9,13 @@ Lies davor:
 * [Collections](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L03CollectionsTreesAndEnumerators/L03CollectionsTreesAndEnumerators/L03.0ListenUndDictionaries.md)
 
 ## 1. Einfaches Lagerverwaltungssystem
-Achtung! Wir verwenden hier keine Klassen für die ProduktTypen. Wir verzichten auf Identität eines Objektes und sagen, z.B. ein `string` mit dem Wert `Fahrrad` ist ein Fahrrad.
-Auch wenn wir abfragen ob ein `Fahrrad` in eine `kleine Box` passt, greifen wir nicht auf eigenschaften eines Objektes zu, sondern merken uns dass ein `Fahrrad` nicht in eine `kleine Box` passt.
+**`Achtung! Wir verwenden hier keine Klassen für die ProduktTypen.`** Wir verzichten auf Identität eines Objektes und sagen, z.B. ein `string` mit dem Wert `Fahrrad` ist ein Fahrrad.
+Auch wenn wir abfragen ob ein `Fahrrad` in eine `kleine Box` passt, greifen wir **`nicht`** auf eigenschaften eines Objektes zu (z.B. schreiben wir nicht, `if(fahrrad.laenge > box.capacity`), sondern merken uns dass ein `Fahrrad` nicht in eine `kleine Box` passt.
+
 Hier nochmal in Code:
 ```csharp
 void MyMethod(... , string productType, string boxType)) {
-        if (boxType == "small" && productType == "Fahrrad" ...) {...}
+        if (boxType == "small" && productType == "Fahrrad" ...) {...erlaube keinen Zugriff auf die Box...}
         ...
 }
 ```
