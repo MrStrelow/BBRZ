@@ -1,79 +1,212 @@
-﻿using System;
+﻿public class Node
+{
+    public string Data;
+    public Node Next;
 
-public class SimpleArrayList
+    public Node(string data)
+    {
+        Data = data;
+        Next = null;
+    }
+}
+
+public class LinkedList
+{
+    private Node head;
+
+    public LinkedList()
+    {
+        head = null;
+    }
+
+    public void Add(string data)
+    {
+        Node newNode = new Node(data);
+        if (head == null)
+        {
+            head = newNode;
+        }
+        else
+        {
+            Node current = head;
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+            current.Next = newNode;
+        }
+    }
+
+    public void PrintList()
+    {
+        Node current = head;
+        while (current != null)
+        {
+            Console.WriteLine(current.Data);
+            current = current.Next;
+        }
+    }
+}
+
+public class ArrayList
 {
     private string[] array;
     private int count;
 
-    public SimpleArrayList()
+    public ArrayList(int capacity)
     {
-        array = new string[4]; // Anfangsgröße
+        array = new string[capacity];
         count = 0;
     }
 
-    public void Add(string item)
+    public void Add(string data)
     {
         if (count == array.Length)
         {
             Resize();
         }
-        array[count++] = item;
-    }
-
-    public bool Contains(string item)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            if (array[i].Equals(item))
-                return true;
-        }
-        return false;
-    }
-
-    public void Remove(string item)
-    {
-        int index = Array.IndexOf(array, item, 0, count);
-        if (index >= 0)
-        {
-            for (int i = index; i < count - 1; i++)
-            {
-                array[i] = array[i + 1];
-            }
-            array[--count] = default(string); // Entfernen des letzten Elements
-        }
-    }
-
-    public void Print()
-    {
-        for (int i = 0; i < count; i++)
-        {
-            Console.Write(array[i] + " ");
-        }
-        Console.WriteLine();
+        array[count++] = data;
     }
 
     private void Resize()
     {
         string[] newArray = new string[array.Length * 2];
-        Array.Copy(array, newArray, array.Length);
+        for (int i = 0; i < array.Length; i++)
+        {
+            newArray[i] = array[i];
+        }
         array = newArray;
+    }
+
+    public void PrintList()
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Console.WriteLine(array[i]);
+        }
     }
 }
 
-class Program
+public class Node<T>
+{
+    public T Data;
+    public Node<T> Next;
+
+    public Node(T data)
+    {
+        Data = data;
+        Next = null;
+    }
+}
+
+public class LinkedList<T>
+{
+    private Node<T> head;
+
+    public LinkedList()
+    {
+        head = null;
+    }
+
+    public void Add(T data)
+    {
+        Node<T> newNode = new Node<T>(data);
+        if (head == null)
+        {
+            head = newNode;
+        }
+        else
+        {
+            Node<T> current = head;
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+            current.Next = newNode;
+        }
+    }
+
+    public void PrintList()
+    {
+        Node<T> current = head;
+        while (current != null)
+        {
+            Console.WriteLine(current.Data);
+            current = current.Next;
+        }
+    }
+}
+
+public class ArrayList<T>
+{
+    private T[] array;
+    private int count;
+
+    public ArrayList(int capacity)
+    {
+        array = new T[capacity];
+        count = 0;
+    }
+
+    public void Add(T data)
+    {
+        if (count == array.Length)
+        {
+            Resize();
+        }
+        array[count++] = data;
+    }
+
+    private void Resize()
+    {
+        T[] newArray = new T[array.Length * 2];
+        for (int i = 0; i < array.Length; i++)
+        {
+            newArray[i] = array[i];
+        }
+        array = newArray;
+    }
+
+    public void PrintList()
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Console.WriteLine(array[i]);
+        }
+    }
+}
+
+public class Programm
 {
     static void Main(string[] args)
     {
-        var list = new SimpleArrayList();
-        list.Add("1");
-        list.Add("2");
-        list.Add("3");
-        list.Print();
+        LinkedList list = new LinkedList();
+        list.Add("Apfel");
+        list.Add("Banane");
+        list.Add("Kirsche");
 
-        list.Remove("2");
-        list.Print();
+        list.PrintList();
 
-        Console.WriteLine(list.Contains("2")); // True
-        Console.WriteLine(list.Contains("2")); // False
+        ArrayList arrayList = new ArrayList(2);
+        arrayList.Add("Hund");
+        arrayList.Add("Katze");
+        arrayList.Add("Vogel");
+
+        arrayList.PrintList();
+
+        LinkedList<string> stringList = new LinkedList<string>();
+        stringList.Add("Eins");
+        stringList.Add("Zwei");
+        stringList.Add("Drei");
+
+        stringList.PrintList();
+
+        ArrayList<int> arrayIntList = new ArrayList<int>(3);
+        arrayIntList.Add(10);
+        arrayIntList.Add(20);
+        arrayIntList.Add(30);
+
+        arrayList.PrintList();
     }
 }
+
