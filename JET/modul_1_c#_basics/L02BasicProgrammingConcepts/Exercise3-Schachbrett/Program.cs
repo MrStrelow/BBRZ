@@ -7,7 +7,10 @@ public class Exercise
         bool zufrieden;
 
         Console.Write("Größe des Spielbretts eingeben: ");
+        // oder versuche hier TryParse! bzw. Exceptions falls was falsches eingegeben wird. 
+        // Hier stüruzt das Programm ab, falls wir "komischen" input eingeben.
         int dimension = int.Parse(Console.ReadLine());
+
 
         string[,] field = new string[dimension, dimension];
 
