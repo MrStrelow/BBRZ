@@ -1,12 +1,11 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation;
 
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.exceptions.FormDoesNotFitException;
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.interfaces.Strukturierbar;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.exceptions.FormDoesNotFitException;
 
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl.Dreieck.Orientation.*;
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.interfaces.Kombinierbar.Orientation.*;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Dreieck.Orientation.*;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Form.Orientation.*;
 
-public class Diamant extends Form implements Strukturierbar {
+public class Diamant extends Form {
     // TODO: hier 4 dreieck objekte haben. erlaubt uns swap aufzurufen! naaaha denk nomal nach
     // TODO: nur ganze gerade zahlen sind als hoehe und breite erlaubt!
     public Diamant(int hoehe, int breite, String background, String filler)  {
@@ -41,7 +40,7 @@ public class Diamant extends Form implements Strukturierbar {
             this.feld = form.feld;
 
         } catch (FormDoesNotFitException e) {
-            e.printStackTrace(); //TODO: nicht so :)
+            e.printStackTrace(); //TODO: zumindest erwähnen warum das nicht eine gute Idee ist.
         }
 
         return this;

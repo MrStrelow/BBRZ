@@ -1,9 +1,8 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation;
 
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.exceptions.FormDoesNotFitException;
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.interfaces.Kombinierbar;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.exceptions.FormDoesNotFitException;
 
-public class Form implements Kombinierbar {
+public abstract class Form {
     protected String[][] feld;
     protected int hoehe;
     protected int breite;
@@ -31,11 +30,11 @@ public class Form implements Kombinierbar {
     }
 
     // Methoden für Drehen und Spiegeln
-    public Form drehen() {
+    protected Form drehen() {
         return spiegelnX().transponieren();
     }
 
-    public Form spiegelnX() {
+    protected Form spiegelnX() {
 //        String[][] copy = new String[hoehe][breite];
         Form copy = new Form(this);
 
@@ -48,7 +47,7 @@ public class Form implements Kombinierbar {
         return this;
     }
 
-    public Form spiegelnY() {
+    protected Form spiegelnY() {
         Form copy = new Form(this);
 
         for (int i = 0; i < hoehe; i++) {
@@ -60,16 +59,23 @@ public class Form implements Kombinierbar {
         return this;
     }
 
-    public Form transponieren() {
-        Form flipped = new Form(breite, hoehe, background, filler);
+    protected Form transponieren() {
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        String[][] flipped = new String[breite][hoehe];
+        int tmp = hoehe;
+        this.hoehe = breite;
+        this.breite = tmp;
 
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
-                flipped.feld[j][i] = feld[i][j];
+                flipped[j][i] = feld[i][j];
             }
         }
 
-        return flipped;
+        this.feld = flipped;
+
+        return this;
     }
 
     protected Form fillCanvas(String symbol) {
@@ -81,8 +87,7 @@ public class Form implements Kombinierbar {
         return this;
     }
 
-    @Override
-    public Form attach(Form toBeAttached, Orientation orientation) throws FormDoesNotFitException {
+    protected Form attach(Form toBeAttached, Orientation orientation) throws FormDoesNotFitException {
         return switch (orientation) {
             case NORTH -> attachNorth(toBeAttached);
             case EAST  -> attachEast(toBeAttached);
@@ -91,7 +96,7 @@ public class Form implements Kombinierbar {
         };
     }
 
-    public Form attachNorth(Form north) throws FormDoesNotFitException {
+    private Form attachNorth(Form north) throws FormDoesNotFitException {
         if (breite != north.breite) {
             throw new FormDoesNotFitException("Höhe muss gleich sein!");
         }
@@ -111,15 +116,15 @@ public class Form implements Kombinierbar {
         return combined;
     }
 
-    public Form attachEast(Form east) throws FormDoesNotFitException {
+    private Form attachEast(Form east) throws FormDoesNotFitException {
         return east.attachWest(this);
     }
 
-    public Form attachSouth(Form south) throws FormDoesNotFitException {
+    private Form attachSouth(Form south) throws FormDoesNotFitException {
         return south.attachNorth(this);
     }
 
-    public Form attachWest(Form west) throws FormDoesNotFitException {
+    private Form attachWest(Form west) throws FormDoesNotFitException {
         Form me = this.drehen();
         west = west.drehen();
 
@@ -137,6 +142,9 @@ public class Form implements Kombinierbar {
         }
         return sb.toString();
     }
+
+    // abstrakte Methoden
+    public abstract Form generiereForm();
 
     // Getter und Setter
     public String getBackground() {
@@ -161,5 +169,9 @@ public class Form implements Kombinierbar {
 
     public int getBreite() {
         return breite;
+    }
+
+    enum Orientation {
+        NORTH, EAST, SOUTH, WEST
     }
 }

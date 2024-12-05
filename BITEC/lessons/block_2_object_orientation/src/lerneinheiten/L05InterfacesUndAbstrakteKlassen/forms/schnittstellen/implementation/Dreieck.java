@@ -1,6 +1,6 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.implementation;
 
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.interfaces.Strukturierbar;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.interfaces.Strukturierbar;
 
 public class Dreieck extends Form implements Strukturierbar {
     private final Orientation orientation;

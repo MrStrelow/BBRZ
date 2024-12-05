@@ -1,11 +1,11 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt;
 
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl.Arrow;
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl.Diamant;
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl.Dreieck;
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl.Form;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Arrow;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Diamant;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Dreieck;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Form;
 
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.impl.Dreieck.Orientation.*;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Dreieck.Orientation.*;
 
 public class Main {
     public static void main(String[] args) {

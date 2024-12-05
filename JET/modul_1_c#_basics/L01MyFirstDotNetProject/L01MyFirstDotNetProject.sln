@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L01MyFirstDotNetProject", "L01MyFirstDotNetProject\L01MyFirstDotNetProject.csproj", "{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "livecoding", "livecoding\livecoding.csproj", "{8F4C2023-20AC-4337-A933-E9CC101ED3B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "livecoding", "livecoding\livecoding.csproj", "{8F4C2023-20AC-4337-A933-E9CC101ED3B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchrittFürSchrittBubbleSort", "SchrittFürSchrittBubbleSort\SchrittFürSchrittBubbleSort.csproj", "{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8F4C2023-20AC-4337-A933-E9CC101ED3B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F4C2023-20AC-4337-A933-E9CC101ED3B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F4C2023-20AC-4337-A933-E9CC101ED3B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
