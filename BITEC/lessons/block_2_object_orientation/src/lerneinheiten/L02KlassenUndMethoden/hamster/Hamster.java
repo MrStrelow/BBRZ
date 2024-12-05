@@ -8,8 +8,8 @@ public class Hamster {
     // Attribute
     private String namen;
     private String darstellung;
-    private String normaleDarstellung;
-    private String hungrigeDarstellung;
+    private static String normaleDarstellung = "🐹"; //Character.toString( 58660 );
+    private static String hungrigeDarstellung = "😡";
     private Integer x;
     private Integer y;
     private String feldZumMerken;
@@ -23,9 +23,6 @@ public class Hamster {
     public Hamster(Spielfeld spielfeld) {
         backenSpeicher = new ArrayList<>();
         this.istHungrig = false;
-
-        normaleDarstellung = "🐹"; //Character.toString( 58660 );
-        hungrigeDarstellung = "🐰";
 
         this.spielfeld = spielfeld;
         this.feldZumMerken = spielfeld.getBodenSymbol();
@@ -49,7 +46,7 @@ public class Hamster {
     public void verstoffwechselen() {
         wirdZufaelligHungrig();
 
-        boolean stehtAufEssen = feldZumMerken.equals(spielfeld.getSamenSymbol());
+        boolean stehtAufEssen = feldZumMerken.equals(Samen.getSamenSymbol());
         if (istHungrig && stehtAufEssen) {
             essen();
         }

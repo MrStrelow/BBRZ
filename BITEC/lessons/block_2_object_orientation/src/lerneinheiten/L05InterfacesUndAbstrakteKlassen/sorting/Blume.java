@@ -1,6 +1,6 @@
 package lerneinheiten.L05InterfacesUndAbstrakteKlassen.sorting;
 
-public class Blume implements Comparable {
+public class Blume implements Comparable<Blume> {
     public int hoehe;
     public int breite;
 
@@ -10,10 +10,10 @@ public class Blume implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        if(hoehe > ((Blume) o).hoehe) {
+    public int compareTo(Blume blume) {
+        if(hoehe > blume.hoehe) {
             return 1;
-        } else if (hoehe < ((Blume) o).hoehe) {
+        } else if (hoehe < blume.hoehe) {
             return -1;
         } else {
             return 0;

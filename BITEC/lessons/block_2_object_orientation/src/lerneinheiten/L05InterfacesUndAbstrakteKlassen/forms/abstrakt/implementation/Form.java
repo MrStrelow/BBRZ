@@ -35,26 +35,37 @@ public abstract class Form {
     }
 
     protected Form spiegelnX() {
-//        String[][] copy = new String[hoehe][breite];
-        Form copy = new Form(this);
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        String[][] copy = new String[hoehe][breite];
 
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
-                feld[i][j] = copy.feld[hoehe - 1 - i][j];
+                copy[i][j] = feld[hoehe - 1 - i][j];
             }
         }
+
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        this.feld = copy;
 
         return this;
     }
 
     protected Form spiegelnY() {
-        Form copy = new Form(this);
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        String[][] copy = new String[hoehe][breite];
 
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
-                feld[i][breite - 1 - j] = copy.feld[i][j];
+                copy[i][j] = feld[i][breite - 1 - j];
             }
         }
+
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        this.feld = copy;
 
         return this;
     }
@@ -69,10 +80,12 @@ public abstract class Form {
 
         for (int i = 0; i < hoehe; i++) {
             for (int j = 0; j < breite; j++) {
-                flipped[j][i] = feld[i][j];
+                flipped[i][j] = feld[j][i];
             }
         }
 
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
         this.feld = flipped;
 
         return this;
@@ -101,19 +114,27 @@ public abstract class Form {
             throw new FormDoesNotFitException("Höhe muss gleich sein!");
         }
 
-        Form combined = new Form(this.hoehe + north.hoehe, breite, background, filler);
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        String[][] combined = new String[hoehe + north.hoehe][breite];
 
         for (int b = 0; b < breite; b++) {
             for (int h = 0; h < this.hoehe; h++) {
-                combined.feld[h][b] = north.feld[h][b];
+                combined[h][b] = north.feld[h][b];
             }
 
-            for (int h = hoehe; h < combined.hoehe; h++) {
-                combined.feld[h][b] = feld[h-hoehe][b];
+            for (int h = hoehe; h < combined.length; h++) {
+                combined[h][b] = feld[h-hoehe][b];
             }
         }
 
-        return combined;
+        // das schaut nicht aus als wäre es im Sinne der Objektorientierung.
+        // Wir greifen hier ungekapselt in Objekte ein.
+        this.hoehe = combined.length;
+        this.breite = combined[0].length;
+        this.feld = combined;
+
+        return this;
     }
 
     private Form attachEast(Form east) throws FormDoesNotFitException {

@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\l02basicprogrammingconcepts\\l02.2callbyvalueorreference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|solutionrelative:l02basicprogrammingconcepts\\l02.2callbyvalueorreference.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 203,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "L02.2CallByValueOrReference.md",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.2CallByValueOrReference.md",
-              "RelativeDocumentMoniker": "L02BasicProgrammingConcepts\\L02.2CallByValueOrReference.md",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.2CallByValueOrReference.md",
-              "RelativeToolTip": "L02BasicProgrammingConcepts\\L02.2CallByValueOrReference.md",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAUwFgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-12-05T08:55:16.151Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

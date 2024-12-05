@@ -3,8 +3,8 @@ package lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.impl
 import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.exceptions.FormDoesNotFitException;
 import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.interfaces.Strukturierbar;
 
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Dreieck.Orientation.*;
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.interfaces.Kombinierbar.Orientation.*;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.implementation.Dreieck.Orientation.*;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.interfaces.Kombinierbar.Orientation.*;
 
 public class Diamant extends Form implements Strukturierbar {
     // TODO: hier 4 dreieck objekte haben. erlaubt uns swap aufzurufen! naaaha denk nomal nach

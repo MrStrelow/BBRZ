@@ -5,7 +5,7 @@ import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.imple
 import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.implementation.Dreieck;
 import lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.implementation.Form;
 
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.implementation.Dreieck.Orientation.*;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.schnittstellen.implementation.Dreieck.Orientation.*;
 
 public class Main {
     public static void main(String[] args) {

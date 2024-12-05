@@ -8,7 +8,6 @@ public class Spielfeld {
     // Attribute
     private String[][] spielfeld;
     private String bodenSymbol = "🟫";
-    private String samenSymbol = "🌱";
     private int groesse = 5;
 
     // hat-Relationen
@@ -60,7 +59,7 @@ public class Spielfeld {
             samen.setX(x);
             samen.setY(y);
 
-            spielfeld[y][x] = samenSymbol;
+            spielfeld[y][x] = Samen.getSamenSymbol();
         } else {
 
             // rekursion!!! wenns spielfeld bereits voll ist, probiers nocheinmal.
@@ -68,24 +67,6 @@ public class Spielfeld {
 
         }
     }
-
-//    public void weiseHamsterZu(Hamster hamster) {
-//        Random random = new Random();
-//        int x = random.nextInt(groesse);
-//        int y = random.nextInt(groesse);
-//
-//        if(spielfeld[y][x].equals(bodenSymbol)){
-//            hamster.setX(x);
-//            hamster.setY(y);
-//
-//            spielfeld[y][x] = hamster.getDarstellung();
-//        } else {
-//
-//            // rekursion!!! wenns spielfeld bereits voll ist, probiers nocheinmal.
-//            weiseHamsterZu(hamster);
-//
-//        }
-//    }
 
     public void weiseHamsterZu(Hamster hamster) {
         Random random = new Random();
@@ -207,10 +188,6 @@ public class Spielfeld {
 
     public String getBodenSymbol() {
         return bodenSymbol;
-    }
-
-    public String getSamenSymbol() {
-        return samenSymbol;
     }
 
     public List<Samen> getSamen() {
