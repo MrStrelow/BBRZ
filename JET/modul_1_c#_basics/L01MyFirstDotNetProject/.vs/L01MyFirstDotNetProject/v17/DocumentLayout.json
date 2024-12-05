@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}|SchrittF\u00FCrSchrittBubbleSort\\SchrittF\u00FCrSchrittBubbleSort.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\schrittf\u00FCrschrittbubblesort\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2CA0C69-7DCA-4471-B965-42DDE95DF6A5}|SchrittF\u00FCrSchrittBubbleSort\\SchrittF\u00FCrSchrittBubbleSort.csproj|solutionrelative:schrittf\u00FCrschrittbubblesort\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l01myfirstdotnetproject\\l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9241B5F5-030E-4146-BCC3-7E8688DDF5BB}|L01MyFirstDotNetProject\\L01MyFirstDotNetProject.csproj|solutionrelative:l01myfirstdotnetproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -28,39 +24,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\SchrittF\u00FCrSchrittBubbleSort\\Program.cs",
-              "RelativeDocumentMoniker": "SchrittF\u00FCrSchrittBubbleSort\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\SchrittF\u00FCrSchrittBubbleSort\\Program.cs",
-              "RelativeToolTip": "SchrittF\u00FCrSchrittBubbleSort\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAzAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
+              "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
+              "RelativeToolTip": "L01MyFirstDotNetProject\\Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T08:01:56.52Z",
+              "WhenOpened": "2024-12-05T07:45:46.007Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
-              "RelativeDocumentMoniker": "L01MyFirstDotNetProject\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\L01MyFirstDotNetProject\\Program.cs",
-              "RelativeToolTip": "L01MyFirstDotNetProject\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T08:01:20.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\livecoding\\Program.cs",
               "RelativeDocumentMoniker": "livecoding\\Program.cs",
               "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L01MyFirstDotNetProject\\livecoding\\Program.cs",
               "RelativeToolTip": "livecoding\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T07:20:49.893Z",
+              "WhenOpened": "2024-11-28T09:56:22.009Z",
               "EditorCaption": ""
             }
           ]

@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise2\\Exercise2-PrimitiveTypenUmwandeln.csproj",
-      "projectName": "Exercise2-PrimitiveTypenUmwandeln",
-      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise2\\Exercise2-PrimitiveTypenUmwandeln.csproj",
+      "projectUniqueName": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise2\\Exercise1-PrimitiveTypenUmwandeln.csproj",
+      "projectName": "Exercise1-PrimitiveTypenUmwandeln",
+      "projectPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise2\\Exercise1-PrimitiveTypenUmwandeln.csproj",
       "packagesPath": "C:\\Users\\c4321116\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise2\\obj\\",
       "projectStyle": "PackageReference",
