@@ -2,7 +2,7 @@
 public class Seed
 {
     // Fields
-    private int x;
+    private int x; // use tuple instead: private (int x, int y) position;
     private int y;
     public static String seedSymbol = "🌱";
 
