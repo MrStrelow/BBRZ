@@ -66,6 +66,8 @@ public class Spielfeld {
         // TODO: bewege hamster in ein feld der "Richtung richtung" welche als parameter übergeben wird.
         // TODO: bewege den Hamster so, dass er nicht von der Karte fällt.
 
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
+
         switch (richtung) {
             case OBEN -> {
                 if (hamster.getY() > 0) {
@@ -88,6 +90,8 @@ public class Spielfeld {
                 }
             }
         }
+
+        hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
 
         spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
     }
