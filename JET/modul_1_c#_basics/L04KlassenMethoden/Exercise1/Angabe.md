@@ -25,7 +25,9 @@ Verwende dazu folgende `Klassen`:
 * Hamster: Dient als Verwaltung eines `Hamsters`. Damit ist seine `Darstellung` auf der `Plane`, dessen `Position` und `Verhalten` gemeint. Mit `Verhalten` ist `bewegen`, `Seed essen wenn er/sie hungrig ist` und `Seed speichern wenn diese/r nicht hungrig ist`. Verwende zum `speichern` der Seeds im Mund des Hamsters eine `Collection` freier Wahl. Die Anzahl der zu speichernden `Samen` ist im `Hamster` begrenzt. 
 
 ### Zuständigkeiten:
-* Definiere welche Klasse, was entscheiden soll. Damit ist z.B. gemeint: "Der `Hamster` selbst entscheidet wo er sich hin bewegt (z.B zufällig oder fixe Reihenfolge - rauf, runter, links, rechts; ...), aber die `Plane` ist für die Darstellung auf dem `2D-String-Array` zuständig. Bedeutet, wir haben eine Methode `void move()` im `Hamster` welche die `neue Position` der Bewegung ausrechnet, aber die `Plane` wird in dieser `void move()` Methode aufgefordert die Entscheidung des `Hamsters` `grafisch` umzusetzen. Diese Aufforderung ist als eigene Methode `void position(Hamster hamster)` welche in der `Plane` liegt zu implementieren."
+* Definiere welche Klasse, was entscheiden soll. Damit ist z.B. gemeint: "Der `Hamster` selbst entscheidet wo er sich hin bewegt (z.B zufällig oder fixe Reihenfolge - rauf, runter, links, rechts; ...), aber die `Plane` ist für die Darstellung auf dem `2D-String-Array` zuständig. Bedeutet, wir haben eine Methode `void move()` im `Hamster` welche die `neue Position` der Bewegung ausrechnet, aber die `Plane` wird in dieser `void move()` Methode aufgefordert die Entscheidung des `Hamsters` `grafisch` umzusetzen. Diese Aufforderung ist als eigene Methode `void position(Hamster hamster, Direction direction)` welche in der `Plane` liegt zu implementieren."
+
+Hier als Code:
 
 ```csharp
 class Hamster {
