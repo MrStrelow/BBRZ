@@ -9,7 +9,7 @@ public class Spielfeld {
     private String bodenSymbol = "🟫";
 
     // (hat) Beziehungen
-    private Map<Tuple<int, int>, Samen> samen;
+    private Map<Tuple<Integer, Integer>, Samen> samen;
     private List<Hamster> hamster;
 
     // Konstruktor
@@ -35,7 +35,7 @@ public class Spielfeld {
 
         for (int i = 0; i < anzahlSamen; i++) {
             Samen s = new Samen(this);
-            Tuple<int, int> position = new Tuple<int, int>(s.getX(), s.getY());
+            Tuple<Integer, Integer> position = new Tuple<>(s.getX(), s.getY());
             samen.put(position, s);
         }
 
@@ -132,11 +132,11 @@ public class Spielfeld {
         this.groesse = groesse;
     }
 
-    public Map<Tuple<int, int>, Samen> getSamen() {
+    public Map<Tuple<Integer, Integer>, Samen> getSamen() {
         return samen;
     }
 
-    public void setSamen(Map<Tuple<int, int>, Samen> samen) {
+    public void setSamen(Map<Tuple<Integer, Integer>, Samen> samen) {
         this.samen = samen;
     }
 
