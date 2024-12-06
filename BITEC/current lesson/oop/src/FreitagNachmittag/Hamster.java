@@ -9,6 +9,8 @@ public class Hamster {
     private int x;
     private int y;
     private String darstellung;
+    private String hungrigeDarstellung = "😡";
+    private String normaleDarstellung = "🐹";
     private boolean hatHunger;
 
     // (hat) Beziehungen
@@ -23,7 +25,7 @@ public class Hamster {
         backenSpeicher = new ArrayList<>();
         this.spielfeld = spielfeld;
 
-        spielfeld.weiseHamsterZu(this);
+//        spielfeld.weiseHamsterZu(this);
         platziereMichAufFeld();
     }
 
