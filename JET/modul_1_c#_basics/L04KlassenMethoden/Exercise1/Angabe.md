@@ -29,7 +29,9 @@ möglicher Ablauf:
 * Beginne mit der `Simulationsklasse` und erstelle die `Objekte` und rufe dessen `Methoden` auf.
 * Beginne nun die verwendeten `Methoden` auszuprogrammieren.
 
-Tipp: Verwende die "extended" Unicodes (24 Bit statt 16 Bit) für die Darstellung der Symbole (Emojis). Drücke dazu "windows" + "." Taste und füge die Symoble direkt in Visual Studio `string darstellung = "🐹";` ein. Ein `string` ist hier zu empfehlen, denn `char` besitzt nur eine größe von 16 Bit.
+Tipp: 
+* Verwende die "extended" Unicodes (24 Bit statt 16 Bit) für die Darstellung der Symbole (Emojis). Drücke dazu "windows" + "." Taste und füge die Symoble direkt in Visual Studio `string darstellung = "🐹";` ein. Ein `string` ist hier zu empfehlen, denn `char` besitzt nur eine größe von 16 Bit.
+* Verwende `Console.Clear();` um die alte Darstellung der `Plane` zu entfernen. Damit kannst du die `Bewegung` der Hamster auf einen Ort "over printen".
 
 Starthilfe:
 Gehe von dieser Simulations Klasse aus:
@@ -62,3 +64,10 @@ public class Simulation
 }
 
 ```
+
+Möglicher Output:
+🟫🐹🟫🌱🌱
+🌱🌱🟫🌱🌱
+🟫🐹🌱🌱🌱
+🟫🟫🟫🌱🌱
+🟫🐹🟫🟫🌱
