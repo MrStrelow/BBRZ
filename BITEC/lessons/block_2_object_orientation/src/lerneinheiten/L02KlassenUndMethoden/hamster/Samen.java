@@ -1,41 +1,89 @@
 package lerneinheiten.L02KlassenUndMethoden.hamster;
 
-public class Samen{
-    // Attribute
-    private Integer x;
-    private Integer y;
-    private static String samenSymbol = "🌱";
+import java.util.Random;
 
-    // hat-Relation
+public class Samen {
+    // Felder
+    private Tuple<Integer, Integer> position;
+    private static String darstellung = "🌱";
+
+    // (hat) Beziehungen
     private Spielfeld spielfeld;
 
-    // Konstruktor {
-
+    // Konstruktor
     public Samen(Spielfeld spielfeld) {
         this.spielfeld = spielfeld;
-        this.spielfeld.weiseSamenZu(this);
+
+        plazierenUndVerwalteSamen();
     }
 
-    // methoden
-    // getter-setter Methoden
+    private void plazierenUndVerwalteSamen() {
+        Random random = new Random();
+        boolean done;
+        int x, y;
 
-    public Integer getX() {
-        return x;
+        do {
+            x = random.nextInt(spielfeld.getGroesse());
+            y = random.nextInt(spielfeld.getGroesse());
+
+            done = spielfeld.weiseSamenZu(this, new Tuple<>(x,y));
+        } while (!done);
+
+        position = new Tuple<>(x,y);
     }
 
-    public void setX(Integer x) {
-        this.x = x;
+    // Methoden
+    // wir überschreiben die toString methode von der Klasse Object.
+    // Wir erben von der Klasse Object, deshalb haben wir diese Methode.
+    // Überschreiben bedeutet, wenn wir eine Variable vom Typ Samen haben,
+    // (ein Objekt von der Klasse samen), dann rufen wir unsere eigene toString()
+    // Methode auf.
+    // z.B. bei System.out.println(samen); würden wir "🟫" als output bekommen.
+    // Wenn wir nicht toString so überschreiben wird "FreitagNachmittag.Samen@5b480cf9" ausgeben.
+    @Override
+    public String toString() {
+        return darstellung;
     }
 
-    public Integer getY() {
-        return y;
+    // get-set Methoden
+    public Tuple<Integer, Integer> getPosition() {
+        return position;
     }
 
-    public void setY(Integer y) {
-        this.y = y;
+    public void setPosition(int x, int y) {
+        position.setX(x);
+        position.setY(y);
     }
 
-    public static String getSamenSymbol() {
-        return samenSymbol;
+    public void setPosition(Tuple<Integer, Integer> position) {
+        this.position = position;
+    }
+
+    public int getX() {
+        return position.getX();
+    }
+
+    public void setX(int x) {
+        position.setX(x);
+    }
+
+    public int getY() {
+        return position.getY();
+    }
+
+    public void setY(int y) {
+        position.setY(y);
+    }
+
+    public static String getDarstellung() {
+        return darstellung;
+    }
+
+    public Spielfeld getSpielfeld() {
+        return spielfeld;
+    }
+
+    public void setSpielfeld(Spielfeld spielfeld) {
+        this.spielfeld = spielfeld;
     }
 }

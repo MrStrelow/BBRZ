@@ -1,25 +1,18 @@
 package lerneinheiten.L02KlassenUndMethoden.hamster;
 
 public class Main {
-    public static void main(String[] args) {
-        Spielfeld meinFeld = new Spielfeld();
+    public static void main(String[] args) throws InterruptedException {
+        Spielfeld spielfeld = new Spielfeld(5);
 
         while (true) {
-            for (Hamster hamster : meinFeld.getHamsters()) {
-                hamster.verstoffwechselen();
-                hamster.bewegen();
-            }
+            spielfeld.simulateHamster();
+            spielfeld.simulateSamen();
 
-            meinFeld.printSpielfeld();
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            spielfeld.printSpielfeld();
 
-            try {
-                Thread.sleep(1000);
-
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-
+            System.out.println("+++++++++++++++++++++++++++++++");
+            Thread.sleep(300);
         }
     }
 }
+

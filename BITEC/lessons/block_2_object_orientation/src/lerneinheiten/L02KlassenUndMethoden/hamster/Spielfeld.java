@@ -1,161 +1,53 @@
 package lerneinheiten.L02KlassenUndMethoden.hamster;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Spielfeld {
-    // Attribute
+    // Felder
     private String[][] spielfeld;
-    private String bodenSymbol = "🟫";
-    private int groesse = 5;
+    private int groesse;
+    private static String bodenSymbol = "🟫";
 
-    // hat-Relationen
-    private List<Samen> samen;
-    private List<Hamster> hamsters;
+    // (hat) Beziehungen
+    private Map<Tuple<Integer, Integer>, Samen> samen = new HashMap<>();
+    private List<Hamster> hamster = new ArrayList<>();
 
     // Konstruktor
-
-    public Spielfeld() {
-        // hier ist die Logik der Darstellung drinnen
+    public Spielfeld(int groesse) {
+        Random random = new Random();
+        this.groesse = groesse;
         spielfeld = new String[groesse][groesse];
 
-        // spielfeld mit leerzeichen befüllen
+        // wir belegen das spielfeld mit Bodensymbole
         for (int i = 0; i < groesse; i++) {
             for (int j = 0; j < groesse; j++) {
                 spielfeld[i][j] = bodenSymbol;
             }
         }
 
-        // hier ist Logik ohne spezielle Darstellung vorhanden.
-        // fuer Samen
-        samen = new ArrayList<>();
-
-        Random random = new Random();
-        Integer anzahlSamen = random.nextInt(1, groesse * groesse - 1);
-
+        // wir brauchen Samen
+        int anzahlSamen = random.nextInt(1, groesse * groesse);
         for (int i = 0; i < anzahlSamen; i++) {
-            samen.add(new Samen(this));
+            new Samen(this);
         }
 
-        // fuer Hamster
-        hamsters = new ArrayList<>();
-
-        Integer anzahlHamster = random.nextInt(1, groesse * groesse - anzahlSamen + 1);
-
+        // wir brauchen Hamster
+        int anzahlHamster = random.nextInt(1, groesse * groesse - anzahlSamen + 1);
         for (int i = 0; i < anzahlHamster; i++) {
-            hamsters.add(new Hamster(this));
+            new Hamster(this);
         }
     }
 
-
-    // methoden
-    public void weiseSamenZu(Samen samen) {
-        Random random = new Random();
-        int x = random.nextInt(groesse);
-        int y = random.nextInt(groesse);
-
-        if(spielfeld[y][x].equals(bodenSymbol)){
-            samen.setX(x);
-            samen.setY(y);
-
-            spielfeld[y][x] = Samen.getSamenSymbol();
-        } else {
-
-            // rekursion!!! wenns spielfeld bereits voll ist, probiers nocheinmal.
-            weiseSamenZu(samen);
-
-        }
+    // Methoden
+    public void simulateSamen() {
+        nachwachsen();
     }
 
-    public void weiseHamsterZu(Hamster hamster) {
-        int x = hamster.getX();
-        int y = hamster.getY();
-        Random random = new Random();
-
-        do {
-            x = random.nextInt(groesse);
-            y = random.nextInt(groesse);
-        } while (!spielfeld[y][x].equals(bodenSymbol));
-
-        spielfeld[y][x] = Samen.getSamenSymbol();
-    }
-
-
-    public void bewegeHamster(Hamster hamster, Richtung richtung) {
-        // setze vorheriges Feld auf das Feld welches ich bald verlassen werde
-        if (hamster.getFeldZumMerken() != null) {
-            spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
+    public void simulateHamster() {
+        for (var hamster : hamster) {
+            hamster.bewegen();
+            hamster.nahrungsVerhalten();
         }
-
-        // ich bewege mich
-        switch (richtung) {
-            case rechts -> {
-                if(groesse-1 != hamster.getX()) {
-                    hamster.setX(hamster.getX() + 1);
-                }
-            }
-            case links -> {
-                if(0 != hamster.getX()) {
-                    hamster.setX(hamster.getX() - 1);
-                }
-            }
-            case oben -> {
-                if(0 != hamster.getY()) {
-                    hamster.setY(hamster.getY() - 1);
-                }
-            }
-            case unten -> {
-                if(groesse-1 != hamster.getY()) {
-                    hamster.setY(hamster.getY() + 1);
-                }
-            }
-        }
-
-        // ist das neue Feld, auf das ich gehe ein Hamster?
-        String hamsterSymbol = spielfeld[hamster.getY()][hamster.getX()];
-
-        // wenn es kein Hamster ist, merke es dir
-        // wenn es ein Hamster ist, vergiss dein gemerktes feld
-        boolean keinHamsterAufDemFeld = hamsterSymbol.equals(hamster.getDarstellung());
-
-        if (!keinHamsterAufDemFeld) {
-            hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
-        }
-
-        spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
-    }
-
-
-    public void hamsterIsstSamen(Hamster hamster) {
-        for (Samen s : samen) {
-
-            boolean hamsterStehtDrauf = hamster.getX().equals(s.getX()) && hamster.getY().equals(s.getY());
-
-            if (hamsterStehtDrauf) {
-                samen.remove(s);
-                break;
-            }
-        }
-
-        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
-        hamster.setFeldZumMerken(bodenSymbol);
-    }
-
-    public void hamsterHamstertSamen(Hamster hamster) {
-        // wir wollen hier den backenspeicher mit einem essen befüllen
-        for (Samen s : samen) {
-
-            boolean hamsterStehtDrauf = hamster.getX().equals(s.getX()) && hamster.getY().equals(s.getY());
-
-            if (hamsterStehtDrauf) {
-                hamster.getBackenSpeicher().add(s);
-                samen.remove(s);
-                break;
-            }
-        }
-
-        hamster.setFeldZumMerken(bodenSymbol);
     }
 
     public void printSpielfeld() {
@@ -167,16 +59,131 @@ public class Spielfeld {
         }
     }
 
-    // getter-setter
-    public List<Hamster> getHamsters() {
-        return hamsters;
+    public void bewegeHamster(Hamster hamster, Richtung richtung) {
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getFeldZumMerken();
+
+        switch (richtung) {
+            case OBEN -> {
+                if (hamster.getY() > 0) {
+                    hamster.setY(hamster.getY() - 1);
+                }
+            }
+            case UNTEN -> {
+                if (hamster.getY() < groesse - 1) {
+                    hamster.setY(hamster.getY() + 1);
+                }
+            }
+            case LINKS -> {
+                if (hamster.getX() > 0) {
+                    hamster.setX(hamster.getX() - 1);
+                }
+            }
+            case RECHTS -> {
+                if (hamster.getX() < groesse - 1) {
+                    hamster.setX(hamster.getX() + 1);
+                }
+            }
+        }
+
+        String hamsterSymbol = spielfeld[hamster.getY()][hamster.getX()];
+        boolean keinHamsterAufDemFeld =
+                hamsterSymbol.equals(Hamster.getNormaleDarstellung()) ||
+                hamsterSymbol.equals(Hamster.getHungrigeDarstellung());
+
+        if (!keinHamsterAufDemFeld) {
+            hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
+        }
+
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
     }
 
-    public String getBodenSymbol() {
+    public void hamsterIsstSamen(Hamster hamster) {
+        samen.remove(new Tuple<>(hamster.getX(), hamster.getY()));
+
+        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
+        hamster.setFeldZumMerken(bodenSymbol);
+    }
+
+    public void hamsterHamstertSamen(Hamster hamster) {
+        samen.remove(new Tuple<>(hamster.getX(), hamster.getY()));
+
+        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
+        hamster.setFeldZumMerken(bodenSymbol);
+    }
+
+    public void nachwachsen() {
+        Random random = new Random();
+        int x, y;
+        boolean istFeldFrei;
+        Tuple<Integer, Integer> key;
+
+        int potentialGrowth = hamster.size() / samen.size();
+        int freeTiles = groesse * groesse - hamster.size() - samen.size(); //not considering stacked hamsters
+
+        int bound = Math.min(potentialGrowth, freeTiles);
+
+        for (int i = 0; i < bound; i++) {
+            do {
+                x = random.nextInt(groesse);
+                y = random.nextInt(groesse);
+                key = new Tuple<>(x,y);
+
+                istFeldFrei = samen.get(key) == null && !istHamsterAmFeld(key);
+
+            } while (istFeldFrei);
+
+            samen.put(key, new Samen(this));
+            spielfeld[y][x] = Samen.getDarstellung();
+        }
+
+    }
+
+    public boolean weiseHamsterZu(Hamster zuPlatzieren, Tuple<Integer, Integer> key) {
+        boolean istFeldFrei = samen.get(key) == null && !istHamsterAmFeld(key);
+
+        if (istFeldFrei) {
+            spielfeld[key.getY()][key.getX()] = zuPlatzieren.getDarstellung();
+            hamster.add(zuPlatzieren);
+        }
+
+        return istFeldFrei;
+    }
+
+    private boolean istHamsterAmFeld(Tuple<Integer, Integer> key) {
+        boolean istAmFeld = false;
+
+        for (var hamster : hamster) {
+            if(hamster.getPosition().equals(key)) {
+                istAmFeld = true;
+                break;
+            }
+        }
+
+        return istAmFeld;
+    }
+
+    public boolean weiseSamenZu(Samen zuPlatzieren, Tuple<Integer, Integer> key) {
+        boolean istFeldFrei = samen.get(key) == null && !istHamsterAmFeld(key);
+
+        if (istFeldFrei) {
+            spielfeld[key.getY()][key.getX()] = Samen.getDarstellung();
+            samen.put(key, zuPlatzieren);
+        }
+
+        return istFeldFrei;
+    }
+
+
+    // get-set Methoden
+    public Samen getSamen(Tuple<Integer, Integer> key) {
+        return samen.get(key);
+    }
+
+    public int getGroesse() {
+        return groesse;
+    }
+
+    public static String getBodenSymbol() {
         return bodenSymbol;
-    }
-
-    public List<Samen> getSamen() {
-        return samen;
     }
 }

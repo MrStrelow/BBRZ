@@ -15,7 +15,7 @@ public class Simulation
             spielfeld.SimulateSeed();
 
             spielfeld.Print();
-            Thread.Sleep(50);
+            Thread.Sleep(500);
         }
     }
 }
