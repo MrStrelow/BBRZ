@@ -34,7 +34,9 @@ public class Spielfeld {
         int anzahlSamen = random.nextInt(1, groesse*groesse);
 
         for (int i = 0; i < anzahlSamen; i++) {
-            samen.add(new Samen(this));
+            Samen s = new Samen(this);
+            Tuple<int, int> position = new Tuple<int, int>(s.getX(), s.getY());
+            samen.put(position, s);
         }
 
         // wir brauchen hamster
@@ -100,21 +102,17 @@ public class Spielfeld {
     }
 
     public void hamsterIsstSamen(Hamster hamster) {
-        for (Samen s : samen) {
-
-            if (hamster.getX() == s.getX() && hamster.getY() == s.getY()) {
-                samen.remove(s);
-                break;
-            }
-
-        }
+        samen.remove(new Tuple<int, int>(hamster.getX(), hamster.getY()));
 
         // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
         hamster.setFeldZumMerken(bodenSymbol);
     }
 
     public void hamsterHamstertSamen(Hamster hamster) {
+        samen.remove(new Tuple<int, int>(hamster.getX(), hamster.getY()));
 
+        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
+        hamster.setFeldZumMerken(bodenSymbol);
     }
 
     // get-set Methoden
@@ -134,11 +132,11 @@ public class Spielfeld {
         this.groesse = groesse;
     }
 
-    public List<Samen> getSamen() {
+    public Map<Tuple<int, int>, Samen> getSamen() {
         return samen;
     }
 
-    public void setSamen(List<Samen> samen) {
+    public void setSamen(Map<Tuple<int, int>, Samen> samen) {
         this.samen = samen;
     }
 

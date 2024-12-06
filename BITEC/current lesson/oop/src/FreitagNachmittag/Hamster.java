@@ -69,7 +69,7 @@ public class Hamster {
         spielfeld.bewegeHamster(this, richtung);
     }
 
-    public void metabolismn() {
+    public void nahrungsVerhalten() {
         // TODO: das ist grafische darstellung sollte aber mit der logischen gehn.
         // werde zufällig hungrig
         Random random = new Random();
@@ -89,7 +89,16 @@ public class Hamster {
                 // ansonsten rufe methode hamstern auf
                 hamstern();
             }
+
+        } else {
+            if (hatHunger && !backenSpeicher.isEmpty()) {
+                essenVomBackenspeicher();
+            }
         }
+    }
+
+    private void essenVomBackenspeicher() {
+        backenSpeicher.remove(0);
     }
 
     public void essen() {
@@ -102,7 +111,8 @@ public class Hamster {
 
     public void hamstern() {
         // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
-        backenSpeicher.add();
+        Samen samen = spielfeld.getSamen().get(new Tuple<int, int>(x, y));
+        backenSpeicher.add(samen);
 
         // hamster sagt dem spielfeld, der samen ist weg
         spielfeld.hamsterHamstertSamen(this);

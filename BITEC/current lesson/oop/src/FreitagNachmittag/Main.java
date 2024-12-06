@@ -8,7 +8,7 @@ public class Main {
             spielfeld.printSpielfeld();
             for(var hamster : spielfeld.getHamster()) {
                 hamster.bewegen();
-                hamster.metabolismn();
+                hamster.nahrungsVerhalten();
             }
             System.out.println("+++++++++++++++++++++++++++++++");
             Thread.sleep(750);
