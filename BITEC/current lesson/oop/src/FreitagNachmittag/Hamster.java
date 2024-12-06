@@ -98,6 +98,8 @@ public class Hamster {
     }
 
     private void essenVomBackenspeicher() {
+        hatHunger = false;
+        darstellung = normaleDarstellung;
         backenSpeicher.remove(0);
     }
 
@@ -111,7 +113,7 @@ public class Hamster {
 
     public void hamstern() {
         // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
-        Samen samen = spielfeld.getSamen().get(new Tuple<int, int>(x, y));
+        Samen samen = spielfeld.getSamen().get(new Tuple<>(x, y));
         backenSpeicher.add(samen);
 
         // hamster sagt dem spielfeld, der samen ist weg

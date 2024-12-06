@@ -102,14 +102,14 @@ public class Spielfeld {
     }
 
     public void hamsterIsstSamen(Hamster hamster) {
-        samen.remove(new Tuple<int, int>(hamster.getX(), hamster.getY()));
+        samen.remove(new Tuple<Integer, Integer>(hamster.getX(), hamster.getY()));
 
         // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
         hamster.setFeldZumMerken(bodenSymbol);
     }
 
     public void hamsterHamstertSamen(Hamster hamster) {
-        samen.remove(new Tuple<int, int>(hamster.getX(), hamster.getY()));
+        samen.remove(new Tuple<Integer, Integer>(hamster.getX(), hamster.getY()));
 
         // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
         hamster.setFeldZumMerken(bodenSymbol);
