@@ -9,8 +9,8 @@ public class Hamster {
     private int x;
     private int y;
     private String darstellung;
-    private String hungrigeDarstellung = "😡";
-    private String normaleDarstellung = "🐹";
+    private static String hungrigeDarstellung = "😡";
+    private static String normaleDarstellung = "🐹";
     private boolean hatHunger;
 
     // (hat) Beziehungen
@@ -20,7 +20,7 @@ public class Hamster {
     // Konstruktor
     public Hamster(Spielfeld spielfeld) {
         hatHunger = false;
-        darstellung = "🐹";
+        darstellung = normaleDarstellung;
 
         backenSpeicher = new ArrayList<>();
         this.spielfeld = spielfeld;
@@ -139,5 +139,13 @@ public class Hamster {
 
     public void setBackenSpeicher(List<Samen> backenSpeicher) {
         this.backenSpeicher = backenSpeicher;
+    }
+
+    public static String getHungrigeDarstellung() {
+        return hungrigeDarstellung;
+    }
+
+    public static String getNormaleDarstellung() {
+        return normaleDarstellung;
     }
 }

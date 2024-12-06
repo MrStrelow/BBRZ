@@ -5,7 +5,6 @@ public class Main {
         Spielfeld spielfeld = new Spielfeld(5);
 
         while (true) {
-
             for(var hamster : spielfeld.getHamster()) {
                 hamster.bewegen();
             }
