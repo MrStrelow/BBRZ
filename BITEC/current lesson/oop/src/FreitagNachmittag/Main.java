@@ -5,10 +5,10 @@ public class Main {
         Spielfeld spielfeld = new Spielfeld(5);
 
         while (true) {
+            spielfeld.printSpielfeld();
             for(var hamster : spielfeld.getHamster()) {
                 hamster.bewegen();
             }
-            spielfeld.printSpielfeld();
             System.out.println("+++++++++++++++++++++++++++++++");
             Thread.sleep(750);
         }

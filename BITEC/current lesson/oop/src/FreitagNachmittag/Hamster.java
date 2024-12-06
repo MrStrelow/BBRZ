@@ -13,6 +13,8 @@ public class Hamster {
     private static String normaleDarstellung = "🐹";
     private boolean hatHunger;
 
+    private String feldZumMerken;
+
     // (hat) Beziehungen
     private Spielfeld spielfeld;
     private List<Samen> backenSpeicher;
@@ -21,6 +23,7 @@ public class Hamster {
     public Hamster(Spielfeld spielfeld) {
         hatHunger = false;
         darstellung = normaleDarstellung;
+        this.feldZumMerken = spielfeld.getBodenSymbol();
 
         backenSpeicher = new ArrayList<>();
         this.spielfeld = spielfeld;
@@ -147,5 +150,15 @@ public class Hamster {
 
     public static String getNormaleDarstellung() {
         return normaleDarstellung;
+    }
+
+    public String getFeldZumMerken() {
+        return feldZumMerken;
+    }
+
+    public void setFeldZumMerken(String feldZumMerken) {
+        if (feldZumMerken != null) {
+            this.feldZumMerken = feldZumMerken;
+        }
     }
 }
