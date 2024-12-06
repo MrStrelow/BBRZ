@@ -1,46 +1,94 @@
 ﻿namespace Hamster;
+
 public class Seed
 {
-    // Fields
-    private int x; // use tuple instead: private (int x, int y) position;
-    private int y;
-    public static String seedSymbol = "🌱";
+    // Felder
+    private (int x, int y) position;
+    private static String representation = "🌱";
 
-    // Association
+    // (hat) Beziehungen
     private Plane plane;
 
-    // Constructor
+    // Konstruktor
     public Seed(Plane plane)
     {
         this.plane = plane;
-        this.plane.assign(this);
+
+        PositionAndManageSamen();
     }
 
-    // Methods
-    // getter-setter Methods (Wird nicht in c# verwendet!)
+    private void PositionAndManageSamen()
+    {
+        var random = new Random();
+        bool done;
+        int x, y;
+
+        do
+        {
+            x = random.Next(plane.GetSize());
+            y = random.Next(plane.GetSize());
+
+            done = plane.Position(this, (x, y));
+        } while (!done);
+
+        position = (x, y);
+    }
+
+ 
+    public override String ToString()
+    {
+        return representation;
+    }
+
+    // get-set Methoden
+    public (int x, int y) GetPosition()
+    {
+        return position;
+    }
+
+    public void SetPosition(int x, int y)
+    {
+        position.x = x;
+        position.y = y;
+    }
+
+    public void SetPosition((int x, int y) position)
+    {
+        this.position = position;
+    }
 
     public int GetX()
     {
-        return x;
+        return position.x;
     }
 
     public void SetX(int x)
     {
-        this.x = x;
+        position.x = x;
     }
 
     public int GetY()
     {
-        return y;
+        return position.y;
     }
 
     public void SetY(int y)
     {
-        this.y = y;
+        position.y = y;
     }
 
-    public String getSeedSymbol()
+    public static String GetRepresentation()
     {
-        return seedSymbol;
+        return representation;
+    }
+
+    public Plane GetPlane()
+    {
+        return plane;
+    }
+
+    public void SetPlane(Plane spielfeld)
+    {
+        this.plane = spielfeld;
     }
 }

@@ -5,13 +5,13 @@ public class Main {
         Spielfeld spielfeld = new Spielfeld(5);
 
         while (true) {
+            spielfeld.simulateHamster();
+            spielfeld.simulateSamen();
+
             spielfeld.printSpielfeld();
-            for(var hamster : spielfeld.getHamster()) {
-                hamster.bewegen();
-                hamster.nahrungsVerhalten();
-            }
+
             System.out.println("+++++++++++++++++++++++++++++++");
-            Thread.sleep(750);
+            Thread.sleep(300);
         }
     }
 }

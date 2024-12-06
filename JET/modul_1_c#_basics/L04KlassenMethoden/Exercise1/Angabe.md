@@ -36,7 +36,7 @@ class Hamster {
     private Plane plane;
     ...
     // Methoden
-    void move() 
+    void Move() 
     {
         // TODO: z.B zufällige Entscheidung in welche Richtung sich der Hamster bewegt.
         Random random ...
@@ -44,13 +44,13 @@ class Hamster {
         Direction direction = //z.B. hier nach OBEN - hier ist Direction ein Enum und es steht OBEN in der Variable direction.
         
         // TODO: Übermittlung der Entscheidung an die Plane
-        plane.position(this, direction);
+        plane.Position(this, direction);
     }
 }
 
 class Plane {
     ...
-    void position(Hamster hamster, Direction direction) 
+    void Position(Hamster hamster, Direction direction) 
     {
         // logik um abzufragen, ob der Hamster auf dieses Feld darf.
         switch (richtung)...
@@ -80,33 +80,44 @@ Tipp:
 ### Starthilfe:
 Gehe von dieser Simulations Klasse aus:
 ```csharp
-using Hamster;
-using System.Text;
-
-namespace Hamster;
-
-public class Simulation
+public class Simulation 
 {
-    static void Main(String[] args)
+    public static void Main(String[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        Plane meinFeld = new Plane();
+        Plane spielfeld = new Plane(5);
 
-        while (true)
-        {
-            foreach (Hamster hamster in meinFeld.getHamsters())
-            {
-                hamster.Metabolize();
-                hamster.Move();
-            }
+        while (true) {
+            spielfeld.SimulateHamster();
+            spielfeld.SimulateSeed();
 
-            meinFeld.PrintPlane();
-
+            spielfeld.Print();
             Thread.Sleep(500);
         }
     }
 }
 
+...
+public class Plane 
+{
+    ...
+
+    public void SimulateSeed()
+    {
+        Regrowth();
+    }
+
+    public void SimulateHamster()
+    {
+        foreach (var hamster in hamsters)
+        {
+            hamster.Move();
+            hamster.NutritionBehaviour();
+        }
+    }
+
+    ...
+}
 ```
 
 Möglicher Output:

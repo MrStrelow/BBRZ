@@ -5,22 +5,18 @@ namespace Hamster;
 
 public class Simulation
 {
-    static void Main(String[] args)
+    public static void Main(String[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
-        Plane meinFeld = new Plane();
+        Plane spielfeld = new Plane(5);
 
-        while (true)
-        {
-            foreach (Hamster hamster in meinFeld.getHamsters())
-            {
-                hamster.Metabolize();
-                hamster.Move();
-            }
+        while (true) {
+            spielfeld.SimulateHamster();
+            spielfeld.SimulateSeed();
 
-            meinFeld.PrintPlane();
-
-            Thread.Sleep(500);
+            spielfeld.Print();
+            Thread.Sleep(50);
         }
     }
 }
+

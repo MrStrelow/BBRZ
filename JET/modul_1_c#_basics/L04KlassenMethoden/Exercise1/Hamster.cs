@@ -1,156 +1,203 @@
-﻿using System.Text;
-
-namespace Hamster;
+﻿namespace Hamster;
 
 public class Hamster
 {
-    // Fields
-    private String namen;
-    private String symbol;
-    private static String fedSymbol = "🐹";
-    private static String hungrySymbol = "🐰";
-    private int x;
-    private int y;
-    private String spotToRemember;
-    private Boolean isHungry;
+    // Felder
+    private (int x, int y) position;
+    private String representation;
+    private static String hungryRepresentation = "😡";
+    private static String fedRepresentation = "🐹";
+    private bool isHungry;
 
-    // Association
+    private String tileToRemember;
+
+    // (hat) Beziehungen
     private Plane plane;
-    private List<Seed> mouth;
+    private List<Seed> mouth = new List<Seed>();
 
-    // Constructor
+    // Konstruktor
     public Hamster(Plane plane)
     {
-        mouth = new List<Seed>();
-        this.isHungry = false;
-
+        isHungry = false;
+        representation = fedRepresentation;
+        this.tileToRemember = Plane.GetEarthRepresentation();
         this.plane = plane;
-        this.spotToRemember = plane.getEarthSymbol();
-        symbol = fedSymbol;
 
-        this.plane.assign(this);
+        PositionAndManageHamster();
     }
 
-    // hier wird der hamster dem spielfeld zugewiesen. Siehe Samen.
-    // wo wird der hamster im spielfeld hingesetzt?
+    private void PositionAndManageHamster()
+    {
+        var random = new Random();
+        bool done;
+        int x, y;
 
-    // Methods
+        do
+        {
+            x = random.Next(plane.GetSize());
+            y = random.Next(plane.GetSize());
+
+            done = plane.Position(this, (x, y));
+        } while (!done);
+
+        position = (x, y);
+    }
+
+    // Methoden
     public void Move()
     {
-        Random random = new Random();
-        Direction[] values = (Direction[]) Enum.GetValues(typeof(Direction));
-        Direction direction = values[random.Next(values.Length)];
+        var random = new Random();
+        int index = random.Next(Enum.GetValues<Direction>().Length);
+        var direction = Enum.GetValues<Direction>()[index];
 
-        plane.move(this, direction);
+        plane.Position(this, direction);
     }
 
-    public void Metabolize() // TODO: wort
+    public void NutritionBehaviour()
     {
-        GettingHungry();
+        // werde zufällig hungrig
+        var random = new Random();
 
-        bool isHamsterOnSpotWithFood = spotToRemember == Seed.seedSymbol;
-        if (isHungry && isHamsterOnSpotWithFood)
-        {
-            Eating();
-        }
-
-        if (!isHungry && isHamsterOnSpotWithFood)
-        {
-            Storing();
-        }
-    }
-
-    private void GettingHungry()
-    {
-        Random random = new Random();
         if (random.NextDouble() < 0.1)
         {
             isHungry = true;
-            symbol = hungrySymbol;
+            representation = hungryRepresentation;
+        }
+
+        // stehe ich auf einem Feld mit essen?
+        // TODO: Gehe in der Stunde auf folgendes ein:
+        //  Die Abfragen beziehen sich auf die grafische Darstellung.
+        //  Diese muss nicht konsistent mit der der logischen sein!
+        //  Vermeide deshalb diese.
+        //        if (feldZumMerken.equals(Samen.getDarstellung())) { ... }
+
+        // nutze anstatt dessen das Dictionary und seine Eigenschaften!
+        // kein seed auf position wenn nicht in dict
+        if (plane.ContainsSeed(position))
+        {
+            // habe ich hunger?
+            if (isHungry)
+            {
+                // wenn ja, dann rufe methode essen auf
+                EatSeedFromTile();
+            }
+            else
+            {
+                // ansonsten rufe methode hamstern auf
+                PutInMouth();
+            }
+
+        }
+        else
+        {
+            if (isHungry && mouth.Any())
+            {
+                EatSeedFromMouth();
+            }
         }
     }
 
-    private void Eating()
+    private void EatSeedFromMouth()
+    {
+        Eat();
+        representation = fedRepresentation;
+        mouth.RemoveAt(0);
+    }
+
+    public void EatSeedFromTile()
+    {
+        // hamster wird nicht mehr hungrig.
+        Eat();
+
+        // hamster sagt dem spielfeld, der samen ist weg
+        plane.HamsterIsEatingSeeds(this);
+    }
+
+    private void Eat()
     {
         isHungry = false;
-        symbol = fedSymbol;
-        plane.EatingSeeds(this);
+        representation = fedRepresentation;
     }
 
-    private void Storing()
+    public void PutInMouth()
     {
-        plane.StoringSeeds(this);
+        // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
+        var samen = plane.GetSamen(position);
+        mouth.Add(samen);
+
+        // hamster sagt dem spielfeld, der samen ist weg
+        plane.HamsterIsStoringSeeds(this);
     }
 
-    //TODO 3: nicht passierbare felder einbauen (wie steine oder, ab jetzt dann hamster! -  mit exception)
-    //TODO 4: verschiedene typen von hamstern bzw. essen
+    public override String ToString()
+    {
+        return representation;
+    }
 
-    // getter-setter
+    // get-set Methoden
+    public (int x, int y) GetPosition()
+    {
+        return position;
+    }
+
+    public void SetPosition(int x, int y)
+    {
+        position.x = x;
+        position.y = y;
+    }
+
+    public void SetPosition((int x, int y) position)
+    {
+        this.position = position;
+    }
+
     public int GetX()
     {
-        return x;
+        return position.x;
     }
 
     public void SetX(int x)
     {
-        this.x = x;
+        position.x = x;
     }
 
     public int GetY()
     {
-        return y;
+        return position.y;
     }
 
     public void SetY(int y)
     {
-        this.y = y;
+        position.y = y;
     }
 
-    public void SetSpotToRemember(String spotToRemember)
+    public void SetY((int x, int y) position)
     {
-        if (spotToRemember != null)
-        {
-            this.spotToRemember = spotToRemember;
-        }
+        this.position = position;
     }
 
-    public String GetSpotToRemember()
+    public String GetRepresentation()
     {
-        return this.spotToRemember;
+        return representation;
     }
 
-    public Boolean GetIstHungrig()
+    public static String GetHungryRepresentation()
     {
-        return isHungry;
+        return hungryRepresentation;
     }
 
-    public void SetIsHungry(Boolean isHungry)
+    public static String GetFedRepresentation()
     {
-        this.isHungry = isHungry;
+        return fedRepresentation;
     }
 
-    public List<Seed> GetMouth()
+    public String GetTileToRemember()
     {
-        return mouth;
+        return tileToRemember;
     }
 
-    public String GetSymbol()
+    public void SetTileToRemember(String feldZumMerken)
     {
-        return symbol;
-    }
-
-    public void SetSymbol(String darstellung)
-    {
-        this.symbol = darstellung;
-    }
-
-    public static String GetHungrySymbol()
-    {
-        return hungrySymbol;
-    }
-
-    public static String GetFedSymbol()
-    {
-        return fedSymbol;
+        this.tileToRemember = feldZumMerken;
     }
 }

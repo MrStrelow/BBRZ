@@ -4,9 +4,7 @@ import java.util.Random;
 
 public class Samen {
     // Felder
-    private int x;
-    private int y;
-    private double nährstoffe;
+    private Tuple<Integer, Integer> position;
     private static String darstellung = "🌱";
 
     // (hat) Beziehungen
@@ -14,25 +12,24 @@ public class Samen {
 
     // Konstruktor
     public Samen(Spielfeld spielfeld) {
-        this.nährstoffe = new Random().nextDouble();
         this.spielfeld = spielfeld;
 
-        platziereMichAufFeld();
+        plazierenUndVerwalteSamen();
     }
 
-    private void platziereMichAufFeld() {
-        // TODO: Verwende die Logik aus der Klasse Hamster, Methode platziereMichAufFeld
-        //  um einen samen am spielfeld zu plazieren.
+    private void plazierenUndVerwalteSamen() {
         Random random = new Random();
-        var bodensymbol = spielfeld.getBodenSymbol();
-        var feld = spielfeld.getSpielfeld();
+        boolean done;
+        int x, y;
 
         do {
             x = random.nextInt(spielfeld.getGroesse());
             y = random.nextInt(spielfeld.getGroesse());
-        } while (!feld[y][x].equals(bodensymbol));
 
-        spielfeld.getSpielfeld()[y][x] = darstellung;
+            done = spielfeld.weiseSamenZu(this, new Tuple<>(x,y));
+        } while (!done);
+
+        position = new Tuple<>(x,y);
     }
 
     // Methoden
@@ -49,28 +46,33 @@ public class Samen {
     }
 
     // get-set Methoden
+    public Tuple<Integer, Integer> getPosition() {
+        return position;
+    }
+
+    public void setPosition(int x, int y) {
+        position.setX(x);
+        position.setY(y);
+    }
+
+    public void setPosition(Tuple<Integer, Integer> position) {
+        this.position = position;
+    }
+
     public int getX() {
-        return x;
+        return position.getX();
     }
 
     public void setX(int x) {
-        this.x = x;
+        position.setX(x);
     }
 
     public int getY() {
-        return y;
+        return position.getY();
     }
 
     public void setY(int y) {
-        this.y = y;
-    }
-
-    public double getNährstoffe() {
-        return nährstoffe;
-    }
-
-    public void setNährstoffe(double nährstoffe) {
-        this.nährstoffe = nährstoffe;
+        position.setY(y);
     }
 
     public static String getDarstellung() {

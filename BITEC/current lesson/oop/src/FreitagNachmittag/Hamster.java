@@ -6,8 +6,7 @@ import java.util.Random;
 
 public class Hamster {
     // Felder
-    private int x;
-    private int y;
+    private Tuple<Integer, Integer> position;
     private String darstellung;
     private static String hungrigeDarstellung = "😡";
     private static String normaleDarstellung = "🐹";
@@ -23,41 +22,27 @@ public class Hamster {
     public Hamster(Spielfeld spielfeld) {
         hatHunger = false;
         darstellung = normaleDarstellung;
-        this.feldZumMerken = spielfeld.getBodenSymbol();
+        this.feldZumMerken = Spielfeld.getBodenSymbol();
 
         backenSpeicher = new ArrayList<>();
         this.spielfeld = spielfeld;
 
-//        spielfeld.weiseHamsterZu(this);
-        platziereMichAufFeld();
+        plazierenUndVerwalteHamster();
     }
 
-    private void platziereMichAufFeld() {
+    private void plazierenUndVerwalteHamster() {
         Random random = new Random();
-        // TODO: Frage ab, ob im Spielfeld ein Bodensymbol auf den Koordinaten x und y ist.
-        //  Wenn ja, setze den Hamster dort hin.
-        //  Wenn nein, probier es nochmal.
-        //  Konzepte: while und if (oder denke an ein do-while für kürzeren Code.)
-//        boolean platziert = false;
-//        while (!platziert) {
-//            x = random.nextInt(spielfeld.getGroesse());
-//            y = random.nextInt(spielfeld.getGroesse());
-//
-//            if (spielfeld.getSpielfeld()[y][x].equals(spielfeld.getBodenSymbol())) {
-//               platziert = true;
-//            }
-//        }
-
-        // aber vl. besser das hier:
-        var bodensymbol = spielfeld.getBodenSymbol();
-        var feld = spielfeld.getSpielfeld();
+        boolean done;
+        int x, y;
 
         do {
             x = random.nextInt(spielfeld.getGroesse());
             y = random.nextInt(spielfeld.getGroesse());
-        } while (!feld[y][x].equals(bodensymbol));
 
-        spielfeld.getSpielfeld()[y][x] = darstellung;
+            done = spielfeld.weiseHamsterZu(this, new Tuple<>(x,y));
+        } while (!done);
+
+        position = new Tuple<>(x,y);
     }
 
     // Methoden
@@ -70,7 +55,6 @@ public class Hamster {
     }
 
     public void nahrungsVerhalten() {
-        // TODO: das ist grafische darstellung sollte aber mit der logischen gehn.
         // werde zufällig hungrig
         Random random = new Random();
 
@@ -80,11 +64,21 @@ public class Hamster {
         }
 
         // stehe ich auf einem Feld mit essen?
-        if (feldZumMerken.equals(Samen.getDarstellung())) {
+        // TODO: Gehe in der Stunde auf folgendes ein:
+        //  Die Abfragen beziehen sich auf die grafische Darstellung.
+        //  Diese muss nicht konsistent mit der der logischen sein!
+        //  Vermeide deshalb diese.
+//        if (feldZumMerken.equals(Samen.getDarstellung())) { ... }
+
+        // nutze anstatt dessen die HashMap und seine Eigenschaften!
+        Samen einzelnerSamen = spielfeld.getSamen(position);
+
+        // wenn null dann kein Samen auf meinem Feld
+        if (einzelnerSamen != null) {
             // habe ich hunger?
             if (hatHunger) {
                 // wenn ja, dann rufe methode essen auf
-                essen();
+                essenVomBoden();
             } else {
                 // ansonsten rufe methode hamstern auf
                 hamstern();
@@ -98,22 +92,27 @@ public class Hamster {
     }
 
     private void essenVomBackenspeicher() {
-        hatHunger = false;
+        essen();
         darstellung = normaleDarstellung;
         backenSpeicher.remove(0);
     }
 
-    public void essen() {
+    public void essenVomBoden() {
         // hamster wird nicht mehr hungrig.
-        hatHunger = false;
-        darstellung = normaleDarstellung;
+        essen();
+
         // hamster sagt dem spielfeld, der samen ist weg
         spielfeld.hamsterIsstSamen(this);
     }
 
+    private void essen() {
+        hatHunger = false;
+        darstellung = normaleDarstellung;
+    }
+
     public void hamstern() {
         // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
-        Samen samen = spielfeld.getSamen().get(new Tuple<>(x, y));
+        Samen samen = spielfeld.getSamen(position);
         backenSpeicher.add(samen);
 
         // hamster sagt dem spielfeld, der samen ist weg
@@ -126,52 +125,41 @@ public class Hamster {
     }
 
     // get-set Methoden
+    public Tuple<Integer, Integer> getPosition() {
+        return position;
+    }
+
+    public void setPosition(int x, int y) {
+        position.setX(x);
+        position.setY(y);
+    }
+
+    public void setPosition(Tuple<Integer, Integer> position) {
+        this.position = position;
+    }
+
     public int getX() {
-        return x;
+        return position.getX();
     }
 
     public void setX(int x) {
-        this.x = x;
+        position.setX(x);
     }
 
     public int getY() {
-        return y;
+        return position.getY();
     }
 
     public void setY(int y) {
-        this.y = y;
+        position.setY(y);
+    }
+
+    public void setY(Tuple<Integer, Integer> position) {
+        this.position = position;
     }
 
     public String getDarstellung() {
         return darstellung;
-    }
-
-    public void setDarstellung(String darstellung) {
-        this.darstellung = darstellung;
-    }
-
-    public boolean isHatHunger() {
-        return hatHunger;
-    }
-
-    public void setHatHunger(boolean hatHunger) {
-        this.hatHunger = hatHunger;
-    }
-
-    public Spielfeld getSpielfeld() {
-        return spielfeld;
-    }
-
-    public void setSpielfeld(Spielfeld spielfeld) {
-        this.spielfeld = spielfeld;
-    }
-
-    public List<Samen> getBackenSpeicher() {
-        return backenSpeicher;
-    }
-
-    public void setBackenSpeicher(List<Samen> backenSpeicher) {
-        this.backenSpeicher = backenSpeicher;
     }
 
     public static String getHungrigeDarstellung() {
