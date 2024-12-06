@@ -49,35 +49,15 @@ public class Spielfeld {
         for (int i = 0; i < anzahlHamster; i++) {
             hamster.add(new Hamster(this));
         }
-
-//        for (var elem : hamster) {
-//            System.out.println(elem);
-//        }
-//
-//        for (var elem : samen) {
-//            System.out.println(elem);
-//        }
     }
 
     // Methoden
     public void printSpielfeld() {
-        aktualisiereHamster();
-
         for (int i = 0; i < groesse; i++) {
             for (int j = 0; j < groesse; j++) {
                 System.out.print(spielfeld[i][j]);
             }
             System.out.println();
-        }
-    }
-
-    public void weiseHamsterZu(Hamster hamster) {
-
-    }
-
-    private void aktualisiereHamster() {
-        for (Hamster hamster : hamster) {
-            spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
         }
     }
 
@@ -109,6 +89,7 @@ public class Spielfeld {
             }
         }
 
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
     }
 
     public void hamsterIsstSamen(Hamster hamster) {
