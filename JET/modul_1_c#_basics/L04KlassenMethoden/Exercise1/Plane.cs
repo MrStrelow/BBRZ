@@ -150,6 +150,8 @@ public class Plane
         {
             hamster.SetSpotToRemember(null);
         }
+
+        plane[hamster.GetY(), hamster.GetX()] = hamster.GetSymbol();
     }
 
 
@@ -193,7 +195,6 @@ public class Plane
     public void PrintPlane()
     {
         Console.Clear();
-        PlaceHamster();
 
         for (int i = 0; i < size; i++)
         {
@@ -202,14 +203,6 @@ public class Plane
                 Console.Write(plane[i,j]);
             }
             Console.WriteLine();
-        }
-    }
-
-    private void PlaceHamster()
-    {
-        foreach (Hamster hamster in hamsters)
-        {
-            plane[hamster.GetY(), hamster.GetX()] = hamster.GetSymbol();
         }
     }
 
