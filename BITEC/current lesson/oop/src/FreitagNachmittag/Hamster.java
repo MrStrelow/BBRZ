@@ -80,11 +80,16 @@ public class Hamster {
         }
 
         // stehe ich auf einem Feld mit essen?
-        if (hatHunger && feldZumMerken.equals(Samen.getDarstellung())) {
-            essen();
+        if (feldZumMerken.equals(Samen.getDarstellung())) {
+            // habe ich hunger?
+            if (hatHunger) {
+                // wenn ja, dann rufe methode essen auf
+                essen();
+            } else {
+                // ansonsten rufe methode hamstern auf
+                hamstern();
+            }
         }
-        // wenn ja, dann rufe methode essen auf
-        // ansonsten rufe methode hamstern auf
     }
 
     public void essen() {
@@ -97,6 +102,8 @@ public class Hamster {
 
     public void hamstern() {
         // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
+        backenSpeicher.add();
+
         // hamster sagt dem spielfeld, der samen ist weg
         spielfeld.hamsterHamstertSamen(this);
     }

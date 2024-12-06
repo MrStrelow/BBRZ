@@ -17,7 +17,6 @@ public class Samen {
         this.nährstoffe = new Random().nextDouble();
         this.spielfeld = spielfeld;
 
-        spielfeld.weiseSamenZu(this);
         platziereMichAufFeld();
     }
 

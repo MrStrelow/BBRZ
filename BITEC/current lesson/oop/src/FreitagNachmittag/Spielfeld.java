@@ -1,8 +1,6 @@
 package FreitagNachmittag;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Spielfeld {
     // Felder
@@ -11,7 +9,7 @@ public class Spielfeld {
     private String bodenSymbol = "🟫";
 
     // (hat) Beziehungen
-    private List<Samen> samen;
+    private Map<Tuple<int, int>, Samen> samen;
     private List<Hamster> hamster;
 
     // Konstruktor
@@ -29,7 +27,7 @@ public class Spielfeld {
 
         // wir brauchen samen
         // TODO: die liste von Samen anlegen
-        samen = new ArrayList<>();
+        samen = new HashMap<>();
 
         // TODO: zufälligen Anzahl der Samen erstellen und füge es der liste hinzu.
         Random random = new Random();
@@ -116,9 +114,7 @@ public class Spielfeld {
     }
 
     public void hamsterHamstertSamen(Hamster hamster) {
-    }
 
-    public void weiseSamenZu(Samen samen) {
     }
 
     // get-set Methoden
