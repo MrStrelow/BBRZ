@@ -1,187 +1,64 @@
-# Custom Collections Exercise with Age-based Comparisons
+Welche ``Konzepte`` der Programmiersprache üben wir hier?
+* Schleifen
+* Verzweigungen
+* 2D-Arrays (Multidimensional Arrays)
+* Operatoren
+* Methoden und Konsturktoren
+* erstellen von Klassen
+* hat und ist Beziehungen
+* erstellen von Felder
 
-This exercise builds on our previous example, adding functionality to:
-1. **Track the age** of individual `Schaf` and `Schaefer` objects.
-2. **Compare collections** (`Herde<Schaf>` and `Horde<Schaefer>`) based on the **total age** of their elements.
-3. Implement an **interface `Ageable`** to facilitate comparisons between different types of collections.
+Welche ``Denkwweisen`` üben wir hier?
+* Wer hat welche Zuständigkeiten in einer Software? 
 
----
+Lies davor:
+* [Klassen, Methoden und Eigenschaften]()
 
-## Step 1: Define `Ageable` Interface
+## 1. Hamstern 🌲🟫🐹🌱
+Generiere ein ``Feld (Plane)`` mit `Boden(Earth)` in der Konsole welches von ``Hamstern`` und `Saatgut (Seeds)` besiedelt wird.
 
-All classes that have an age must implement this interface.
+Verwende dazu folgende `Klassen`:
+* Simulation: Dient als Startpunkt der `Main` Methode und erstellt die `Plane`. Weiters kann hier jeder `Hamster` welcher von der `Plane` verwaltet wird, hier gesteuer werden. Damit ist gemeint, dass z.B. die Methode welche `Hunger` zufällig erzeugt oder die `Bewegung` durchführt, hier aufgerufen werden. Weiters kann die `Plane` hier dargestellt werden. Verwende `System.Sleep(500)` um jede Bewegung der `Hamster` zeitlich zu verzögern.
+* Plane: Dient als Verwaltung der `Earth`, sowie den `Hamstern` und `Seeds`. `Earth` Felder sind nicht entfernbar, diese dienen als Basis der `Plane`. `Hamster` und `Seeds` können auf diesen sich befinden. Die Klasse `Plane` verwaltet `Seeds` und `Hamster` in einer `Collection` freier Wahl. Bedeutet, wie viele `Hamster` und `Seed` in einer `Plane` existieren. Auch wenn ein `Hamster` ein `Seed` `frisst` oder `"speichert"` (im Mund) wird, behinhaltet diese Verwaltung.
+* Seed: Dient als Verwaltung eines `Seeds`. Damit ist seine `Darstellung` auf der `Plane` und dessen `Position` gemeint. Weiteres Verhalten ist nicht vorgesehen.
+* Hamster: Dient als Verwaltung eines `Hamsters`. Damit ist seine `Darstellung` auf der `Plane`, dessen `Position` und `Verhalten` gemeint. Mit `Verhalten` ist `bewegen`, `Seed essen wenn er/sie hungrig ist` und `Seed speichern wenn diese/r nicht hungrig ist`. Die Anzahl der zu speichernden `Samen` ist im `Hamster` begrenzt. 
 
-```java
-interface Ageable {
-    int getAge();
-}
-```
+möglicher Ablauf:
+* Erstelle ein `UML-Klassendiagramm` welches die `Beziehungen (hat und ist)`, `Klassen`, dessen `Felder`, und `Methoden` darstellt.
+* Erstelle alle `Klassen` und dessen `Felder und Methoden/Kosntruktoren`. Programmierde diese jedoch `nicht aus` sondern definiere nur die `Methodensignaturen`.
+* Beginne mit der `Simulationsklasse` und erstelle die `Objekte` und rufe dessen `Methoden` auf.
+* Beginne nun die verwendeten `Methoden` auszuprogrammieren.
 
----
+Tipp: Verwende die "extended" Unicodes (24 Bit statt 16 Bit) für die Darstellung der Symbole (Emojis). Drücke dazu "windows" + "." Taste und füge die Symoble direkt in Visual Studio `string darstellung = "🐹";` ein. Ein `string` ist hier zu empfehlen, denn `char` besitzt nur eine größe von 16 Bit.
 
-## Step 2: Modify `Schaf` and `Schaefer` Classes
+Starthilfe:
+Gehe von dieser Simulations Klasse aus:
+```csharp
+using Hamster;
+using System.Text;
 
-Both classes will now include an age field and implement the `Ageable` interface.
+namespace Hamster;
 
-```java
-class Schaf implements Ageable {
-    private String id;
-    private int age;
+public class Simulation
+{
+    static void Main(String[] args)
+    {
+        Console.OutputEncoding = Encoding.UTF8;
+        Plane meinFeld = new Plane();
 
-    public Schaf(String id, int age) {
-        this.id = id;
-        this.age = age;
-    }
+        while (true)
+        {
+            foreach (Hamster hamster in meinFeld.getHamsters())
+            {
+                hamster.Metabolize();
+                hamster.Move();
+            }
 
-    public String getId() {
-        return id;
-    }
+            meinFeld.PrintPlane();
 
-    @Override
-    public int getAge() {
-        return age;
-    }
-}
-```
-
-```java
-class Schaefer extends Hund implements Ageable {
-    private int age;
-
-    public Schaefer(String name, int age) {
-        super(name);
-        this.age = age;
-    }
-
-    @Override
-    public int getAge() {
-        return age;
-    }
-
-    public void hueten(Schaf schaf) {
-        System.out.println(getName() + " is herding the sheep with ID: " + schaf.getId());
-    }
-}
-```
-
----
-
-## Step 3: Update `Herde<Schaf>` Collection
-
-Extend `ArrayList<Schaf>` and implement `Comparable<Herde<Schaf>>`. The comparison is based on the total age of sheep.
-
-```java
-import java.util.ArrayList;
-
-class Herde<Schaf extends Ageable> extends ArrayList<Schaf> implements Comparable<Herde<Schaf>> {
-    
-    // Calculate the total age of all sheep
-    private int getTotalAge() {
-        return this.stream().mapToInt(Schaf::getAge).sum();
-    }
-
-    @Override
-    public int compareTo(Herde<Schaf> other) {
-        return Integer.compare(this.getTotalAge(), other.getTotalAge());
-    }
-}
-```
-
----
-
-## Step 4: Implement `Horde<Schaefer>` as a Custom Collection
-
-`Horde` implements `Collection<Schaefer>` and uses the total age for comparisons.
-
-```java
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
-class Horde implements Collection<Schaefer>, Comparable<Horde> {
-    private Schaefer[] schaferArray;
-    private int size;
-
-    public Horde(int initialCapacity) {
-        schaferArray = new Schaefer[initialCapacity];
-        size = 0;
-    }
-
-    @Override
-    public boolean add(Schaefer schafer) {
-        if (size == schaferArray.length) {
-            expandCapacity();
+            Thread.Sleep(500);
         }
-        schaferArray[size++] = schafer;
-        return true;
-    }
-
-    private void expandCapacity() {
-        Schaefer[] newArray = new Schaefer[schaferArray.length * 2];
-        System.arraycopy(schaferArray, 0, newArray, 0, schaferArray.length);
-        schaferArray = newArray;
-    }
-
-    private int getTotalAge() {
-        int totalAge = 0;
-        for (int i = 0; i < size; i++) {
-            totalAge += schaferArray[i].getAge();
-        }
-        return totalAge;
-    }
-
-    @Override
-    public int compareTo(Horde other) {
-        return Integer.compare(this.getTotalAge(), other.getTotalAge());
-    }
-
-    // Other methods omitted for brevity...
-}
-```
-
----
-
-## Step 5: Enable Cross-Type Comparison Between `Herde` and `Horde`
-
-Add a generic method that compares any collection of `Ageable` objects.
-
-```java
-class CollectionUtils {
-    public static int compareAgeableCollections(Collection<? extends Ageable> col1, Collection<? extends Ageable> col2) {
-        int age1 = col1.stream().mapToInt(Ageable::getAge).sum();
-        int age2 = col2.stream().mapToInt(Ageable::getAge).sum();
-        return Integer.compare(age1, age2);
     }
 }
+
 ```
-
----
-
-## Usage Example
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        Herde<Schaf> herde = new Herde<>();
-        herde.add(new Schaf("S1", 3));
-        herde.add(new Schaf("S2", 5));
-
-        Horde horde = new Horde(2);
-        horde.add(new Schaefer("Schaefer1", 4));
-        horde.add(new Schaefer("Schaefer2", 6));
-
-        System.out.println("Comparison result (Herde vs. Horde): " + 
-            CollectionUtils.compareAgeableCollections(herde, horde));
-    }
-}
-```
-
----
-
-## Summary
-
-This exercise demonstrates:
-- Implementing an `Ageable` interface for cross-type compatibility.
-- Using **total age** to compare collections.
-- Creating custom collections (`Herde` and `Horde`) with extended functionality.
-
