@@ -137,8 +137,8 @@ public class Plane
 
 
         // ist das neue Feld, auf das ich gehe ein Hamster?
-        bool isFedHamsterOnThePlan = plane[hamster.GetY(), hamster.GetX()] == hamster.GetFedSymbol();
-        bool isHungryHamsterOnThePlane = plane[hamster.GetY(), hamster.GetX()] == hamster.GetHungrySymbol();
+        bool isFedHamsterOnThePlan = plane[hamster.GetY(), hamster.GetX()] == Hamster.GetFedSymbol();
+        bool isHungryHamsterOnThePlane = plane[hamster.GetY(), hamster.GetX()] == Hamster.GetHungrySymbol();
 
         // wenn es kein Hamster ist, merke es dir
         // wenn es ein Hamster ist, vergiss dein gemerktes feld

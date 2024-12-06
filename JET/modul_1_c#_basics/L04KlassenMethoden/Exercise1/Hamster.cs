@@ -7,8 +7,8 @@ public class Hamster
     // Fields
     private String namen;
     private String symbol;
-    private String fedSymbol;
-    private String hungrySymbol;
+    private static String fedSymbol = "🐹";
+    private static String hungrySymbol = "🐰";
     private int x;
     private int y;
     private String spotToRemember;
@@ -23,9 +23,6 @@ public class Hamster
     {
         mouth = new List<Seed>();
         this.isHungry = false;
-
-        fedSymbol = "🐹";
-        hungrySymbol = "🐰";
 
         this.plane = plane;
         this.spotToRemember = plane.getEarthSymbol();
@@ -147,12 +144,12 @@ public class Hamster
         this.symbol = darstellung;
     }
 
-    public String GetHungrySymbol()
+    public static String GetHungrySymbol()
     {
         return hungrySymbol;
     }
 
-    public String GetFedSymbol()
+    public static String GetFedSymbol()
     {
         return fedSymbol;
     }
