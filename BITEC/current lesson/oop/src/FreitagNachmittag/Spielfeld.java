@@ -44,7 +44,7 @@ public class Spielfeld {
         hamster = new ArrayList<>();
 
         // TODO: zufälligen Anzahl der Hamster erstellen und füge es der liste hinzu.
-        int anzahlHamster = random.nextInt(1, groesse*groesse - anzahlSamen + 1);
+        int anzahlHamster = 1; //random.nextInt(1, groesse*groesse - anzahlSamen + 1);
 
         for (int i = 0; i < anzahlHamster; i++) {
             hamster.add(new Hamster(this));

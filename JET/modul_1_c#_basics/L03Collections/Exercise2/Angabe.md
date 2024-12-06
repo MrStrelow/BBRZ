@@ -1,27 +1,71 @@
+Welche ``Konzepte`` der Programmiersprache Ã¼ben wir hier?
+* Schleifen
+* Verzweigungen
+* Arrays und eigene Klasse fÃ¼r Nodes
+* Collections
+* Operatoren
+* Methoden und Konsturktoren
+* Erstellung von Klassen
+* hat und ist Beziehungen
+* Erstellung von Felder
+
+Welche ``Denkweisen`` Ã¼ben wir hier?
+* Algorithmisches denken und Umsetzung von diesem in Programmcode
+
+Lies davor:
+* [Collections](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L03CollectionsTreesAndEnumerators/L03CollectionsTreesAndEnumerators/L03.0ListenUndDictionaries.md)
+* [Klassen, Methoden und Felder](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L04KlassenMethoden/L04KlassenMethoden/L04.1KlassenMethoden.md)
+
 # Eigene ArrayList und LinkedList
 
-- Schreibe selbst eine ArrayList bzw. LinkedList welche strings beinhalten kann.
-- Optional: Verwende einen Typparameter T um dies für alle Typen zu erstellen.
+- Schreibe selbst eine `ArrayList` bzw. LinkedList welche `strings` beinhaltet.
+- `Optional`: Verwende einen `Typparameter T` um dies fÃ¼r alle Typen zu erstellen.
 
 ---
 
 ## Hinweise zur LinkedList:
 
 1. **Node-Klasse**: 
-   - Erstellen Sie eine `Node`-Klasse, die ein Feld für die gespeicherten Daten und einen Zeiger (Referenz) auf das nächste Element enthält.
+   - Erstellen Sie eine `Node`-Klasse, die ein Feld fÃ¼r die gespeicherten Daten und einen Zeiger (Referenz) auf das nÃ¤chste Element enthÃ¤lt.
 2. **LinkedList-Klasse**: 
-   - Implementieren Sie eine `LinkedList`-Klasse mit Methoden zum Hinzufügen (`Add`) und Ausgeben (`PrintList`) von Elementen.
+   - Implementieren Sie eine `LinkedList`-Klasse mit Methoden zum HinzufÃ¼gen (`Add`), Entfernen (`Remove`), Suchen (`Find`) und Ausgeben (`PrintList`) von Elementen.
 
-### Beispielcode für die `Main`-Methode (LinkedList):
+### Beispielcode fÃ¼r die `Main`-Methode (LinkedList):
 
 ```csharp
-public static void Main(string[] args) {
-    LinkedList list = new LinkedList();
-    list.Add("Apfel");
-    list.Add("Banane");
-    list.Add("Kirsche");
-    
-    list.PrintList();
+public static void Main(string[] args)
+{
+    // LinkedList Beispiel
+    LinkedList<string> linkedList = new LinkedList<string>();
+    linkedList.Add("Apfel");
+    linkedList.Add("Banane");
+    linkedList.Add("Kirsche");
+
+    Console.WriteLine("LinkedList vor Entfernen:");
+    linkedList.PrintList();
+
+    linkedList.Remove("Banane");
+
+    Console.WriteLine("LinkedList nach Entfernen:");
+    linkedList.PrintList();
+
+    Console.WriteLine("Gefundenes Element: " + linkedList.Find("Kirsche"));
+
+    // ArrayList Beispiel
+    ArrayList<int> arrayList = new ArrayList<int>(2);
+    arrayList.Add(10);
+    arrayList.Add(20);
+    arrayList.Add(30);
+
+    Console.WriteLine("ArrayList vor Entfernen:");
+    arrayList.PrintList();
+
+    arrayList.Remove(20);
+
+    Console.WriteLine("ArrayList nach Entfernen:");
+    arrayList.PrintList();
+
+    Console.WriteLine("Gefundenes Element: " + arrayList.Find(30));
 }
 ```
 
@@ -34,11 +78,11 @@ public static void Main(string[] args) {
 
 1. **Array-Verwaltung**: 
    - Erstellen Sie eine `ArrayList`-Klasse, die ein internes Array zur Speicherung der Elemente verwendet.
-   - Implementieren Sie eine Resize-Methode, um das Array dynamisch zu vergrößern, wenn es voll ist.
+   - Implementieren Sie eine Resize-Methode, um das Array dynamisch zu vergrÃ¶ÃŸern, wenn es voll ist.
 2. **Methoden**: 
-   - Implementieren Sie Methoden zum Hinzufügen (`Add`) und Ausgeben (`PrintList`) von Elementen.
+   - Implementieren Sie Methoden zum HinzufÃ¼gen (`Add`) und Ausgeben (`PrintList`) von Elementen.
 
-### Beispielcode für die `Main`-Methode (ArrayList):
+### Beispielcode fÃ¼r die `Main`-Methode (ArrayList):
 
 ```csharp
 public static void Main(string[] args) {
@@ -56,16 +100,16 @@ Hund Katze Vogel
 
 ---
 
-# Erweiterung: Verwendung von Generizität
+# Erweiterung: Verwendung von GenerizitÃ¤t
 
 ## Ziel:
-Passen Sie die oben implementierten Klassen so an, dass sie generisch sind und einen beliebigen Datentyp `T` speichern können.
+Passen Sie die oben implementierten Klassen so an, dass sie generisch sind und einen beliebigen Datentyp `T` speichern kï¿½nnen.
 
 ### Hinweise:
-- Ändern Sie die `Node`- und `LinkedList`-Klassen sowie die `ArrayList`, um einen generischen Typparameter `T` zu verwenden.
-- Die Methoden sollten weiterhin korrekt funktionieren, unabhängig davon, welchen Datentyp der Benutzer speichert.
+- Ã„ndern Sie die `Node`- und `LinkedList`-Klassen sowie die `ArrayList`, um einen generischen Typparameter `T` zu verwenden.
+- Die Methoden sollten weiterhin korrekt funktionieren, unabhÃ¤ngig davon, welchen Datentyp der Benutzer speichert.
 
-### Beispielcode für die `Main`-Methode (Generische LinkedList):
+### Beispielcode fÃ¼r die `Main`-Methode (Generische LinkedList):
 
 ```csharp
 public static void Main(string[] args) {
@@ -85,7 +129,7 @@ Eins Zwei Drei
 
 ---
 
-### Beispielcode für die `Main`-Methode (Generische ArrayList):
+### Beispielcode fÃ¼r die `Main`-Methode (Generische ArrayList):
 
 ```csharp
 public static void Main(string[] args) {

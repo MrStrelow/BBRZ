@@ -9,11 +9,11 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * hat und ist Beziehungen
 * erstellen von Felder
 
-Welche ``Denkwweisen`` üben wir hier?
+Welche ``Denkweisen`` üben wir hier?
 * Wer hat welche Zuständigkeiten in einer Software?
 
 Lies davor:
-* [Klassen, Methoden und Eigenschaften]()
+* [Klassen, Methoden und Eigenschaften](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L04KlassenMethoden/L04KlassenMethoden/L04.1KlassenMethoden.md)
 
 ## 1. Hamstern 🌲🟫🐹🌱🟦
 Generiere ein ``Feld (Plane)`` mit `Boden(Earth)` in der Konsole welches von ``Hamstern`` und `Saatgut (Seeds)` besiedelt wird.
@@ -48,7 +48,7 @@ class Hamster {
     }
 }
 
-class Plane{
+class Plane {
     ...
     void position(Hamster hamster, Direction direction) 
     {

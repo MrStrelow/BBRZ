@@ -10,7 +10,7 @@ public class Main {
             }
             spielfeld.printSpielfeld();
             System.out.println("+++++++++++++++++++++++++++++++");
-            Thread.sleep(1000);
+            Thread.sleep(750);
         }
     }
 }

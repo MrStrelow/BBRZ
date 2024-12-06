@@ -2,7 +2,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * For-Each-Schleife
 * Anwendung von Listen und Dictionaries.
 
-Welche ``Denkwweisen`` üben wir hier?
+Welche ``Denkweisen`` üben wir hier?
 * keine
 
 Lies davor:
