@@ -69,21 +69,16 @@ public class Spielfeld {
     }
 
     public void weiseHamsterZu(Hamster hamster) {
+        int x = hamster.getX();
+        int y = hamster.getY();
         Random random = new Random();
-        boolean platziert = false;
 
-        while (!platziert) {
-            int x = random.nextInt(groesse);
-            int y = random.nextInt(groesse);
+        do {
+            x = random.nextInt(groesse);
+            y = random.nextInt(groesse);
+        } while (!spielfeld[y][x].equals(bodenSymbol));
 
-            if (spielfeld[y][x].equals(bodenSymbol)) {
-                hamster.setX(x);
-                hamster.setY(y);
-
-                spielfeld[y][x] = hamster.getDarstellung();
-                platziert = true;  // Beendet die Schleife, wenn der Hamster platziert wurde
-            }
-        }
+        spielfeld[y][x] = Samen.getSamenSymbol();
     }
 
 
@@ -118,16 +113,17 @@ public class Spielfeld {
         }
 
         // ist das neue Feld, auf das ich gehe ein Hamster?
-        boolean normalerHamsterAufDemFeld = spielfeld[hamster.getY()][hamster.getX()].equals(hamster.getNormaleDarstellung());
-        boolean hungrigerHamsterAufDemFeld = spielfeld[hamster.getY()][hamster.getX()].equals(hamster.getHungrigeDarstellung());
+        String hamsterSymbol = spielfeld[hamster.getY()][hamster.getX()];
 
         // wenn es kein Hamster ist, merke es dir
         // wenn es ein Hamster ist, vergiss dein gemerktes feld
-        if(!(normalerHamsterAufDemFeld || hungrigerHamsterAufDemFeld)) {
+        boolean keinHamsterAufDemFeld = hamsterSymbol.equals(hamster.getDarstellung());
+
+        if (!keinHamsterAufDemFeld) {
             hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
-        } else {
-            hamster.setFeldZumMerken(null);
         }
+
+        spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
     }
 
 
@@ -163,8 +159,6 @@ public class Spielfeld {
     }
 
     public void printSpielfeld() {
-        aktualisiereHamster();
-
         for (int i = 0; i < groesse; i++) {
             for (int j = 0; j < groesse; j++) {
                 System.out.print(spielfeld[i][j]);
@@ -173,15 +167,7 @@ public class Spielfeld {
         }
     }
 
-    private void aktualisiereHamster() {
-        for (Hamster hamster : hamsters) {
-            spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
-        }
-    }
-
     // getter-setter
-
-
     public List<Hamster> getHamsters() {
         return hamsters;
     }

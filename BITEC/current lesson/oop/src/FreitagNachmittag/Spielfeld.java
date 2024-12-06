@@ -44,7 +44,7 @@ public class Spielfeld {
         hamster = new ArrayList<>();
 
         // TODO: zufälligen Anzahl der Hamster erstellen und füge es der liste hinzu.
-        int anzahlHamster = 1; //random.nextInt(1, groesse*groesse - anzahlSamen + 1);
+        int anzahlHamster = 2; //random.nextInt(1, groesse*groesse - anzahlSamen + 1);
 
         for (int i = 0; i < anzahlHamster; i++) {
             hamster.add(new Hamster(this));
@@ -91,12 +91,28 @@ public class Spielfeld {
             }
         }
 
-        hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
+        String hamsterSymbol = spielfeld[hamster.getY()][hamster.getX()];
+        boolean keinHamsterAufDemFeld = hamsterSymbol.equals(hamster.getDarstellung());
+
+        if (!keinHamsterAufDemFeld) {
+            hamster.setFeldZumMerken(spielfeld[hamster.getY()][hamster.getX()]);
+        }
 
         spielfeld[hamster.getY()][hamster.getX()] = hamster.getDarstellung();
     }
 
     public void hamsterIsstSamen(Hamster hamster) {
+        for (Samen s : samen) {
+
+            if (hamster.getX() == s.getX() && hamster.getY() == s.getY()) {
+                samen.remove(s);
+                break;
+            }
+
+        }
+
+        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
+        hamster.setFeldZumMerken(bodenSymbol);
     }
 
     public void hamsterHamstertSamen(Hamster hamster) {

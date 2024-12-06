@@ -7,7 +7,7 @@ public class Samen {
     private int x;
     private int y;
     private double nährstoffe;
-    private String darstellung;
+    private static String darstellung = "🌱";
 
     // (hat) Beziehungen
     private Spielfeld spielfeld;
@@ -15,7 +15,6 @@ public class Samen {
     // Konstruktor
     public Samen(Spielfeld spielfeld) {
         this.nährstoffe = new Random().nextDouble();
-        this.darstellung = "🌱";
         this.spielfeld = spielfeld;
 
         spielfeld.weiseSamenZu(this);
@@ -75,7 +74,7 @@ public class Samen {
         this.nährstoffe = nährstoffe;
     }
 
-    public String getDarstellung() {
+    public static String getDarstellung() {
         return darstellung;
     }
 

@@ -70,9 +70,19 @@ public class Hamster {
     }
 
     public void metabolismn() {
+        // TODO: das ist grafische darstellung sollte aber mit der logischen gehn.
         // werde zufällig hungrig
+        Random random = new Random();
+
+        if (random.nextDouble() < 0.1) {
+            hatHunger = true;
+            darstellung = hungrigeDarstellung;
+        }
 
         // stehe ich auf einem Feld mit essen?
+        if (hatHunger && feldZumMerken.equals(Samen.getDarstellung())) {
+            essen();
+        }
         // wenn ja, dann rufe methode essen auf
         // ansonsten rufe methode hamstern auf
     }
@@ -80,6 +90,7 @@ public class Hamster {
     public void essen() {
         // hamster wird nicht mehr hungrig.
         hatHunger = false;
+        darstellung = normaleDarstellung;
         // hamster sagt dem spielfeld, der samen ist weg
         spielfeld.hamsterIsstSamen(this);
     }
@@ -157,8 +168,6 @@ public class Hamster {
     }
 
     public void setFeldZumMerken(String feldZumMerken) {
-        if (feldZumMerken != null) {
-            this.feldZumMerken = feldZumMerken;
-        }
+        this.feldZumMerken = feldZumMerken;
     }
 }

@@ -58,7 +58,7 @@ public class Hamster {
 
     private void wirdZufaelligHungrig() {
         Random random = new Random();
-        if( random.nextDouble() < 0.1) {
+        if (random.nextDouble() < 0.1) {
             istHungrig = true;
             darstellung = hungrigeDarstellung;
         }
@@ -95,9 +95,7 @@ public class Hamster {
     }
 
     public void setFeldZumMerken(String feldZumMerken) {
-        if(feldZumMerken != null) {
-            this.feldZumMerken = feldZumMerken;
-        }
+        this.feldZumMerken = feldZumMerken;
     }
 
     public String getFeldZumMerken() {
