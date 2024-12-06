@@ -54,7 +54,7 @@ class Plane{
         switch (richtung)...
         ...
 
-        plane[hamster.GetY(), hamster.GetX()] = hamster.GetSymbol();
+        plane[hamster.GetY(), hamster.GetX()] = hamster.GetSymbol(); // Wir verzichten hier auf den Einsatz von EIGENSCHAFTEN. Wer diese verwenden will, gerne. Deshalb hier die `GetMethode` wie in JAVA.
     }
 }
 ```
