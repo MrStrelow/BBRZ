@@ -37,11 +37,12 @@ In dieser Übung arbeitest du mit verschiedenen Umwandlungsmethoden in C#. Die A
 ### Beispiel-Testcode:
 
 ```csharp
+namespace Exercise2;
 public class Program
 {
     public static void Main(string[] args)
     {
-        Converter converter = new Converter();
+        MyConverter converter = new MyConverter();
 
         // Zahl zu Zahl Umwandlung
         Console.WriteLine(converter.ConvertIntToDouble(10));  // Ausgabe: 10.0
@@ -58,6 +59,53 @@ public class Program
         // Zusätzliche Umwandlungen
         Console.WriteLine(converter.ConvertBoolToString(true));  // Ausgabe: "True"
         Console.WriteLine(converter.ConvertDecimalToDouble(99.99m));  // Ausgabe: 99.99
+    }
+}
+
+class MyConverter
+{
+    // Zahl zu Zahl: Int zu Double
+    public double ConvertIntToDouble(int number)
+    {
+        // TODO: implementiere mich :)
+    }
+
+    // Zahl zu Zahl: Double zu Int
+    public int ConvertDoubleToInt(double number)
+    {
+        // TODO:
+    }
+
+    // String zu Zahl: String zu Int - versuche hier TryPasre zu verwenden.
+    public int ParseStringToInt(string str)
+    {
+        // TODO:
+    }
+
+    // String zu Zahl: String zu Double - versuche hier TryPasre zu verwenden.
+    public double ParseStringToDouble(string str)
+    {
+        // TODO:
+    }
+
+    public string ConvertIntToString(int number)
+    {
+        // TODO:
+    }
+
+    public string ConvertDoubleToString(double number)
+    {
+        // TODO:
+    }
+
+    public string ConvertBoolToString(bool value)
+    {
+        // TODO:
+    }
+
+    public double ConvertDecimalToDouble(decimal number)
+    {
+        // TODO:
     }
 }
 ```

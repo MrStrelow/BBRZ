@@ -9,8 +9,6 @@ public class Hamster
     private static String fedRepresentation = "🐹";
     private bool isHungry;
 
-    private String tileToRemember;
-
     // (hat) Beziehungen
     private Plane plane;
     private List<Seed> mouth = new List<Seed>();
@@ -20,12 +18,12 @@ public class Hamster
     {
         isHungry = false;
         representation = fedRepresentation;
-        this.tileToRemember = Plane.GetEarthRepresentation();
         this.plane = plane;
 
         PositionAndManageHamster();
     }
 
+    // Methoden
     private void PositionAndManageHamster()
     {
         var random = new Random();
@@ -37,13 +35,12 @@ public class Hamster
             x = random.Next(plane.GetSize());
             y = random.Next(plane.GetSize());
 
-            done = plane.Position(this, (x, y));
+            done = plane.AssignInitialPosition(this, (x, y));
         } while (!done);
 
         position = (x, y);
     }
 
-    // Methoden
     public void Move()
     {
         var random = new Random();
@@ -64,15 +61,7 @@ public class Hamster
             representation = hungryRepresentation;
         }
 
-        // stehe ich auf einem Feld mit essen?
-        // TODO: Gehe in der Stunde auf folgendes ein:
-        //  Die Abfragen beziehen sich auf die grafische Darstellung.
-        //  Diese muss nicht konsistent mit der der logischen sein!
-        //  Vermeide deshalb diese.
-        //        if (feldZumMerken.equals(Samen.getDarstellung())) { ... }
-
-        // nutze anstatt dessen das Dictionary und seine Eigenschaften!
-        // kein seed auf position wenn nicht in dict
+        // ist ein Samen unter mir (hamster) ?
         if (plane.ContainsSeed(position))
         {
             // habe ich hunger?
@@ -99,8 +88,10 @@ public class Hamster
 
     private void EatSeedFromMouth()
     {
+        // hamster wird nicht mehr hungrig.
         Eat();
-        representation = fedRepresentation;
+
+        // hamster entfernt den Samen aus dem Mund - könnte Queue sein, statt List. Hier haben wir verhalten eines Stacks.
         mouth.RemoveAt(0);
     }
 
@@ -189,15 +180,5 @@ public class Hamster
     public static String GetFedRepresentation()
     {
         return fedRepresentation;
-    }
-
-    public String GetTileToRemember()
-    {
-        return tileToRemember;
-    }
-
-    public void SetTileToRemember(String feldZumMerken)
-    {
-        this.tileToRemember = feldZumMerken;
     }
 }

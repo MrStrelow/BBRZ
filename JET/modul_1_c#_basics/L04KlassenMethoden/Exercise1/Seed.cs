@@ -28,7 +28,7 @@ public class Seed
             x = random.Next(plane.GetSize());
             y = random.Next(plane.GetSize());
 
-            done = plane.Position(this, (x, y));
+            done = plane.AssignInitialPosition(this, (x, y));
         } while (!done);
 
         position = (x, y);

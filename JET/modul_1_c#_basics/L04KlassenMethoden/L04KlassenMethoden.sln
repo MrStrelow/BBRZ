@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1", "Exercise1\Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding", "LiveCoding\LiveCoding.csproj", "{8C42F107-89B2-4BCC-949C-C2D5F794129D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decompile_Stack_Heap_Register", "Decompile_Stack_Heap_Register\Decompile_Stack_Heap_Register.csproj", "{3C232210-5D96-4F39-9B5C-5D16B9E27470}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8C42F107-89B2-4BCC-949C-C2D5F794129D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C42F107-89B2-4BCC-949C-C2D5F794129D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C42F107-89B2-4BCC-949C-C2D5F794129D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

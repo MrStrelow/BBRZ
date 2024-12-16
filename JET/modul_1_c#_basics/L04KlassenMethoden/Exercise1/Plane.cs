@@ -45,7 +45,7 @@ public class Plane
     // Methoden
     public void SimulateSeed()
     {
-        Regrowth();
+        RegrowSeeds();
     }
 
     public void SimulateHamster()
@@ -57,24 +57,26 @@ public class Plane
         }
     }
 
-    public void Print()
+    public void Print(int timeToSleep = 500)
     {
-        Console.Clear();
+        AssignElementsToPlane();
+        // Console.Clear(); // Hier blinkt der Bildschrim, besser Console.SetCursorPosition(0, 0); verwenden.
+        Console.SetCursorPosition(0, 0);
 
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
             {
-                Console.Write(plane[i,j]);
+                Console.Write(plane[i, j]);
             }
             Console.WriteLine();
         }
+
+        Thread.Sleep(timeToSleep);
     }
 
     public void Position(Hamster hamster, Direction direction)
     {
-        plane[hamster.GetY(), hamster.GetX()] = hamster.GetTileToRemember();
-
         switch (direction)
         {
             case Direction.UP:
@@ -84,65 +86,67 @@ public class Plane
                 }
                 break;
 
-            case Direction.DOWN: 
+            case Direction.DOWN:
                 if (hamster.GetY() < size - 1)
                 {
                     hamster.SetY(hamster.GetY() + 1);
                 }
                 break;
 
-            case Direction.LEFT: 
+            case Direction.LEFT:
                 if (hamster.GetX() > 0)
                 {
                     hamster.SetX(hamster.GetX() - 1);
                 }
                 break;
 
-            case Direction.RIGHT:           
+            case Direction.RIGHT:
                 if (hamster.GetX() < size - 1)
                 {
                     hamster.SetX(hamster.GetX() + 1);
                 }
                 break;
-            }
+        }
+    }
 
-        var hamsterSymbol = plane[hamster.GetY(), hamster.GetX()];
-        bool isHamsterFreeTile =
-                hamsterSymbol == Hamster.GetFedRepresentation() ||
-                hamsterSymbol == Hamster.GetHungryRepresentation();
-
-        if (!isHamsterFreeTile)
+    public void AssignElementsToPlane()
+    {
+        for (int i = 0; i < plane.GetLength(0); i++)
         {
-            hamster.SetTileToRemember(plane[hamster.GetY(), hamster.GetX()]);
+            for (int j = 0; j < plane.GetLength(1); j++)
+            {
+                plane[i,j] = earthRepresentation;
+            }
         }
 
-        plane[hamster.GetY(), hamster.GetX()] = hamster.GetRepresentation();
+        foreach (var hamster in hamsters)
+        {
+            plane[hamster.GetY(), hamster.GetX()] = hamster.GetRepresentation();    
+        }
+
+        foreach (var seed in seeds.Values)
+        {
+            plane[seed.GetY(), seed.GetX()] = Seed.GetRepresentation();
+        }
     }
 
     public void HamsterIsEatingSeeds(Hamster hamster)
     {
         seeds.Remove((hamster.GetX(), hamster.GetY()));
-
-        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
-        hamster.SetTileToRemember(earthRepresentation);
     }
 
     public void HamsterIsStoringSeeds(Hamster hamster)
     {
         seeds.Remove((hamster.GetX(), hamster.GetY()));
-
-        // symbol im spielfeld wird überschrieben mit dem standard symbol (boden)
-        hamster.SetTileToRemember(earthRepresentation);
     }
 
-    public void Regrowth()
+    public void RegrowSeeds()
     {
         var random = new Random();
-        int x, y;
-        bool fieldIsEmpty;
-        (int, int) key;
+        bool fieldIsTaken;
+        (int x, int y) key;
 
-        int potentialGrowth = hamsters.Count / seeds.Count;
+        int potentialGrowth = (int) Math.Pow(hamsters.Count, 2) / seeds.Count;
         int freeTiles = size * size - hamsters.Count - seeds.Count; //not considering stacked hamsters
 
         int bound = Math.Min(potentialGrowth, freeTiles);
@@ -151,19 +155,18 @@ public class Plane
         {
             do
             {
-                key = (x = random.Next(size), y = random.Next(size));
+                key = (x: random.Next(size), y: random.Next(size));
 
-                fieldIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
+                fieldIsTaken = seeds.ContainsKey(key) || TileTakenByHamster(key);
 
-            } while (fieldIsEmpty);
+            } while (fieldIsTaken);
 
             seeds[key] = new Seed(this);
-            plane[y,x] = Seed.GetRepresentation();
         }
 
     }
 
-    public bool Position(Hamster hamster, (int x, int y) key)
+    public bool AssignInitialPosition(Hamster hamster, (int x, int y) key)
     {
         bool tileIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
 
@@ -192,7 +195,7 @@ public class Plane
         return isTaken;
     }
 
-    public bool Position(Seed seed, (int x, int y) key)
+    public bool AssignInitialPosition(Seed seed, (int x, int y) key)
     {
         bool tileIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
 

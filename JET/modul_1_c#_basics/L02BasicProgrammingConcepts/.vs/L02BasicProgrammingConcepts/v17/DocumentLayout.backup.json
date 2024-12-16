@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38FB546F-168D-4671-BE71-6E5979EC195C}|Exercise1-PrimitiveTypenUmwandeln\\Exercise1-PrimitiveTypenUmwandeln.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise1-primitivetypenumwandeln\\angabe.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{38FB546F-168D-4671-BE71-6E5979EC195C}|Exercise1-PrimitiveTypenUmwandeln\\Exercise1-PrimitiveTypenUmwandeln.csproj|solutionrelative:exercise1-primitivetypenumwandeln\\angabe.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38FB546F-168D-4671-BE71-6E5979EC195C}|Exercise1-PrimitiveTypenUmwandeln\\Exercise1-PrimitiveTypenUmwandeln.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise1-primitivetypenumwandeln\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38FB546F-168D-4671-BE71-6E5979EC195C}|Exercise1-PrimitiveTypenUmwandeln\\Exercise1-PrimitiveTypenUmwandeln.csproj|solutionrelative:exercise1-primitivetypenumwandeln\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 208,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Angabe.md",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1-PrimitiveTypenUmwandeln\\Angabe.md",
+              "RelativeDocumentMoniker": "Exercise1-PrimitiveTypenUmwandeln\\Angabe.md",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1-PrimitiveTypenUmwandeln\\Angabe.md",
+              "RelativeToolTip": "Exercise1-PrimitiveTypenUmwandeln\\Angabe.md",
+              "ViewState": "AgIAADYAAAAAAAAAAAAqwEUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2024-12-12T11:24:29.289Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1-PrimitiveTypenUmwandeln\\Program.cs",
+              "RelativeDocumentMoniker": "Exercise1-PrimitiveTypenUmwandeln\\Program.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise1-PrimitiveTypenUmwandeln\\Program.cs",
+              "RelativeToolTip": "Exercise1-PrimitiveTypenUmwandeln\\Program.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAywFcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T11:23:29.216Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
