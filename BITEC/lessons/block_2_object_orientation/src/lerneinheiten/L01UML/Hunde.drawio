@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.8.6">
   <diagram name="Page-1" id="Max2WZ-MBaIIRmOilrPB">
-    <mxGraphModel dx="2524" dy="1838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2140" dy="1622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -40,7 +40,7 @@
         <mxCell id="FNegfmYzlg8Jt2f-ISSN-32" value="&lt;div&gt;+ hueten(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-29" vertex="1">
           <mxGeometry y="60" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FNegfmYzlg8Jt2f-ISSN-33" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.538;entryY=1.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" target="FNegfmYzlg8Jt2f-ISSN-12" edge="1" source="FNegfmYzlg8Jt2f-ISSN-29">
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-33" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.538;entryY=1.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-29" target="FNegfmYzlg8Jt2f-ISSN-12" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="120" y="440" as="sourcePoint" />
             <mxPoint x="248.79999999999995" y="369.99600000000004" as="targetPoint" />
@@ -85,7 +85,7 @@
         <mxCell id="FNegfmYzlg8Jt2f-ISSN-58" value="+ winseln(): string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-55" vertex="1">
           <mxGeometry y="60" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FNegfmYzlg8Jt2f-ISSN-59" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.533;entryY=1.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" target="FNegfmYzlg8Jt2f-ISSN-12" edge="1" source="FNegfmYzlg8Jt2f-ISSN-55">
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-59" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.533;entryY=1.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-55" target="FNegfmYzlg8Jt2f-ISSN-12" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="350" y="439" as="sourcePoint" />
             <mxPoint x="476" y="334" as="targetPoint" />
@@ -131,10 +131,10 @@
         <mxCell id="FNegfmYzlg8Jt2f-ISSN-76" value="Essen ist ein Enum!&amp;nbsp;&lt;div&gt;eine einfache Klasse&amp;nbsp;&lt;div&gt;bzw. ein eingeschränkter String&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="310" y="280" width="190" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-3" value="wir wollen hier nicht auflisten wer wenliebt,&amp;nbsp;&lt;div&gt;jedoch soll es,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;wenn wir objekte und&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dessen Beziehungen zeichnen, möglich sein,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dass ein Mensch von mehreren geliebt wird&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-3" value="wir wollen hier nicht auflisten wer wenliebt,&amp;nbsp;&lt;div&gt;jedoch soll es,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;wenn wir objekte und&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dessen Beziehungen zeichnen, möglich sein,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dass ein Mensch von mehreren geliebt wird&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="200" width="260" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-2" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-2" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="550" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="FNegfmYzlg8Jt2f-ISSN-74" value="0-n" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -156,15 +156,15 @@
             <mxPoint y="17" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-1" value="wird geliebt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="FNegfmYzlg8Jt2f-ISSN-72">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-1" value="wird geliebt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="FNegfmYzlg8Jt2f-ISSN-72" vertex="1" connectable="0">
           <mxGeometry x="-0.2942" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-4" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-4" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="130" y="173" width="40" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-6" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.156;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-6" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.156;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="240" y="170" as="sourcePoint" />
             <mxPoint x="159.19999999999982" y="205.98400000000004" as="targetPoint" />
@@ -175,12 +175,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-8" value="spielt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="5g4FxoJ52sY9ZF0bcnco-6">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-8" value="spielt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="5g4FxoJ52sY9ZF0bcnco-6" vertex="1" connectable="0">
           <mxGeometry x="-0.2942" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-10" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;entryX=-0.012;entryY=0.31;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="FNegfmYzlg8Jt2f-ISSN-29">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-10" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;entryX=-0.012;entryY=0.31;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-29" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="81.92" y="440" as="sourcePoint" />
             <mxPoint x="159.99999999999994" y="222.03999999999996" as="targetPoint" />
@@ -189,7 +189,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5g4FxoJ52sY9ZF0bcnco-11" value="behuetet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="5g4FxoJ52sY9ZF0bcnco-10">
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-11" value="behuetet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="5g4FxoJ52sY9ZF0bcnco-10" vertex="1" connectable="0">
           <mxGeometry x="-0.1219" y="3" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>

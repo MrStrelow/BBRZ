@@ -16,6 +16,7 @@ public class SchaeferHund extends Hund {
     // genannt und stellt die Klasse dar, welche mit unserer erweitert wird. Z.B. Schaefer extends Hund.
     // Wir werden uns in späteren Lektionen mit Ersetzbarkeit und Vererbung beschäftigen. Hier belassen wir es bei
     // "Wir erweitern den Supertyp".
+    // Wenn bei SUPER eine runde Klammer daneben steht, ist damit der Aufruf des KONSTRUKTORS der SUPER Klasse gemeint.
     public SchaeferHund(
             String name, Integer alter, String geschlecht, Double health, boolean chipped,
             int capacity, Hund[] behuetendeHunde

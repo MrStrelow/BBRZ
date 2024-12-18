@@ -3,7 +3,6 @@ package lerneinheiten.L02KlassenUndMethoden.grundlagen;
 public class Pudel extends Hund {
     double fluff;
 
-    // TODO: super
     public Pudel(String name, Integer alter, String geschlecht, Double health, boolean chipped, double fluff) {
         super(name, alter, geschlecht, health, chipped);
         this.fluff = fluff;

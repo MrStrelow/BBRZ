@@ -7,11 +7,15 @@ public class Hund {
      Beispielsweise wollen wir die happiness eines Hundes in einer Kommazahl abbilden.
      Wir verwenden hier zusätzlich eine Einschränkung welche die SICHTBARKEIT der FELDER definiert.
         Es gibt PUBLIC, PROTECTED und PRIVATE.
-        Public erlaubt einen uneingeschränkten Zugriff von "außen". Wenn wir also ein Objekt gilbert der Klasse Hund anlegen,
+
+        PUBLIC erlaubt einen uneingeschränkten Zugriff von "außen". Wenn wir also ein Objekt gilbert der Klasse Hund anlegen,
         dann können wir auf ein FELD welches als public definiert ist zugreifen, und dieses ohne Einschränkung manipulieren.
         Der Hund könnt also auf ein Alter von -245 gesetzt werden.
-        FELDER sind deshalb IMMER private! Das bedeutet, dass eben kein Zugriff von außen möglich ist.
-        Protected behandeln wir erst in einer späteren Lektion.
+        FELDER sind deshalb IMMER PRIVATE! Kein Zugriff ist damit von außen möglich.
+
+        PROTECTED erlaubt Zugriffe, welche innerhalb der IST-Beziehung stattfinden.
+        Der Schaefer hat somit einen Zugriff auf protected Felder/Methoden welche im Hund angelegt werden.
+
         Es ist aber nicht zielführend zwischen zwei Extremen (gar keine, oder nur Zugriffe ohne Einschränkung)
         entscheiden zu müssen. Wir werden weiter unten sehen wie wir es umsetzen werden (get und set methoden).
     */

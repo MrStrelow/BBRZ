@@ -1,14 +1,12 @@
 package lerneinheiten.L02KlassenUndMethoden.grundlagen;
 
 public class Mensch {
-    // Attribute sind nomen
+    // Felder
     private String name;
     private int alter;
     private double happiness;
 
     // hat-Beziehungen:
-    // Die Beziehung "loveInterest" (geliebte/r) muss nicht gegenseitig sein (mutual).
-    // Deshalb können viele eine Person als love interest haben und auch viele keinen haben welche love interested ist.
     private Mensch loveInterest;
 
     // Konstruktor
