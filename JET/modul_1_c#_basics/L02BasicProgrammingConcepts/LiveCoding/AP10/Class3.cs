@@ -7,11 +7,13 @@ class LinienAufSchachbrett
     static void Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
+        string promptForUser = "Größe des Spielbretts eingeben: ";
         
-        string promtForUser = "Größe des Spielbretts eingeben: ";
         // user input -> System.Read
-
-        while (!int.TryParse(Console.ReadLine(), out int dimension))
+        Console.WriteLine(promptForUser);
+        
+        int dimension;
+        while (!int.TryParse(Console.ReadLine(), out dimension))
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
@@ -20,6 +22,8 @@ class LinienAufSchachbrett
 
             Console.WriteLine(promptForUser);
         }
+
+        Console.Clear();
 
         // multidimensionales array anlegen.
         string[,] field = new string[dimension, dimension];
@@ -44,6 +48,26 @@ class LinienAufSchachbrett
                 }
             }
         }
+
+        int yStart = 0;
+        int xStart = 0;
+        field[yStart, xStart] = "💢";
+
+        int yZiel = 2;
+        int xZiel = 4;
+        field[yZiel, xZiel] = "💥";
+
+
+        int deltaX = xZiel - xStart;
+        int deltaY = yZiel - yStart;
+
+        double steigung = (double) deltaY / deltaX;
+
+        for (int x = 1; x < deltaX; x++)
+        {
+            int y = Convert.ToInt32(Math.Round(steigung * x));
+        }
+
 
         // output
         for (int i = 0; i < field.GetLength(0); i++)
