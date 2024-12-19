@@ -1,0 +1,200 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.8.6">
+  <diagram name="Page-1" id="Max2WZ-MBaIIRmOilrPB">
+    <mxGraphModel dx="2140" dy="1622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-9" value="Hund" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="170" width="160" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-10" value="- name: string&lt;div&gt;- alter: int&lt;/div&gt;&lt;div&gt;-&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;geschlecht: string&lt;/span&gt;&lt;div&gt;- chipped: boolean&lt;/div&gt;&lt;div&gt;- health: double&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-9" vertex="1">
+          <mxGeometry y="26" width="160" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FNegfmYzlg8Jt2f-ISSN-9" vertex="1">
+          <mxGeometry y="110" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-12" value="+ bellen(): string&lt;div&gt;+ spielen(): void&lt;/div&gt;&lt;div&gt;+ fressen(Essen e): void&lt;/div&gt;&lt;div&gt;+ weglaufen(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-9" vertex="1">
+          <mxGeometry y="118" width="160" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-21" value="Mensch" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="30" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-22" value="&lt;div&gt;- namen: string&lt;/div&gt;&lt;div&gt;- alter: string&lt;/div&gt;&lt;div&gt;- happiness: double&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-21" vertex="1">
+          <mxGeometry y="26" width="240" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FNegfmYzlg8Jt2f-ISSN-21" vertex="1">
+          <mxGeometry y="90" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-24" value="+ hundKaufen(Hund hund): HundeBesitzer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-21" vertex="1">
+          <mxGeometry y="98" width="240" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-29" value="SchäferHund" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="481" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-30" value="- capacity: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-29" vertex="1">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FNegfmYzlg8Jt2f-ISSN-29" vertex="1">
+          <mxGeometry y="52" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-32" value="&lt;div&gt;+ hueten(): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-29" vertex="1">
+          <mxGeometry y="60" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-33" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.538;entryY=1.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-29" target="FNegfmYzlg8Jt2f-ISSN-12" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="120" y="440" as="sourcePoint" />
+            <mxPoint x="248.79999999999995" y="369.99600000000004" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="120" y="410" />
+              <mxPoint x="180" y="410" />
+              <mxPoint x="246" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-42" value="hatHundeFuehrerschein muss wahr sein wenn ein Schäferhund gehalten wird" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="610" y="-10" width="440" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-49" value="HundeBesitzer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="203" width="210" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-50" value="- hatHundeFuehrerschein: boolean&lt;div&gt;- capacity: int&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-49" vertex="1">
+          <mxGeometry y="26" width="210" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-51" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FNegfmYzlg8Jt2f-ISSN-49" vertex="1">
+          <mxGeometry y="60" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-52" value="+ buersten(): void&lt;div&gt;+ gassiGehen(): void&lt;br&gt;&lt;/div&gt;&lt;div&gt;+ fuettern(): void&lt;/div&gt;&lt;div&gt;+ aussetzen(Hund hund): void&lt;/div&gt;&lt;div&gt;+ finden(Hund hund): void&lt;/div&gt;&lt;div&gt;+ kaufen(Hund hund): void&lt;/div&gt;&lt;div&gt;+ verkaufen(Hund hund):&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;void&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-49" vertex="1">
+          <mxGeometry y="68" width="210" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-53" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.52;entryY=0.969;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="FNegfmYzlg8Jt2f-ISSN-24" edge="1">
+          <mxGeometry x="-0.1457" width="160" relative="1" as="geometry">
+            <mxPoint x="625" y="200" as="sourcePoint" />
+            <mxPoint x="259" y="325" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-55" value="Pudel" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="270" y="480" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-56" value="- fluff: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-55" vertex="1">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-57" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="FNegfmYzlg8Jt2f-ISSN-55" vertex="1">
+          <mxGeometry y="52" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-58" value="+ winseln(): string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="FNegfmYzlg8Jt2f-ISSN-55" vertex="1">
+          <mxGeometry y="60" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-59" value="ist" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.533;entryY=1.031;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-55" target="FNegfmYzlg8Jt2f-ISSN-12" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="350" y="439" as="sourcePoint" />
+            <mxPoint x="476" y="334" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="350" y="410" />
+              <mxPoint x="245" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-60" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-10" target="FNegfmYzlg8Jt2f-ISSN-50" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="419" y="357" as="sourcePoint" />
+            <mxPoint x="499" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="320" y="246" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-61" value="hat" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="FNegfmYzlg8Jt2f-ISSN-60" vertex="1" connectable="0">
+          <mxGeometry x="0.2993" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-63" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="480" y="218" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-64" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.998;exitY=0.844;exitDx=0;exitDy=0;entryX=0.002;entryY=0.924;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-10" target="FNegfmYzlg8Jt2f-ISSN-62" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="242" as="sourcePoint" />
+            <mxPoint x="520" y="260" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-62" value="1-n" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="220" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-66" value="1-n" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="230" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-71" value="&amp;lt;hat&amp;gt; kann auch durch einen eigenen Namen&amp;nbsp;&lt;div&gt;der Beziehung ausgetauscht werden&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-210" y="320" width="270" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-76" value="Essen ist ein Enum!&amp;nbsp;&lt;div&gt;eine einfache Klasse&amp;nbsp;&lt;div&gt;bzw. ein eingeschränkter String&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="310" y="280" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-3" value="wir wollen hier nicht auflisten wer wenliebt,&amp;nbsp;&lt;div&gt;jedoch soll es,&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;wenn wir objekte und&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dessen Beziehungen zeichnen, möglich sein,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;dass ein Mensch von mehreren geliebt wird&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="200" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-2" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="550" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-74" value="0-n" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="460" y="40" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-72" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.156;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="30" as="sourcePoint" />
+            <mxPoint x="499.1999999999998" y="65.98400000000004" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="580" />
+              <mxPoint x="470" />
+              <mxPoint x="470" y="64" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FNegfmYzlg8Jt2f-ISSN-73" value="liebt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="FNegfmYzlg8Jt2f-ISSN-72" vertex="1" connectable="0">
+          <mxGeometry x="0.2993" y="2" relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-1" value="wird geliebt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="FNegfmYzlg8Jt2f-ISSN-72" vertex="1" connectable="0">
+          <mxGeometry x="-0.2942" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-4" value="0-1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="130" y="173" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-6" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=-0.005;entryY=0.156;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="170" as="sourcePoint" />
+            <mxPoint x="159.19999999999982" y="205.98400000000004" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="240" y="140" />
+              <mxPoint x="130" y="140" />
+              <mxPoint x="130" y="204" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-8" value="spielt" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="5g4FxoJ52sY9ZF0bcnco-6" vertex="1" connectable="0">
+          <mxGeometry x="-0.2942" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-10" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;entryX=-0.012;entryY=0.31;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="FNegfmYzlg8Jt2f-ISSN-29" edge="1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="81.92" y="440" as="sourcePoint" />
+            <mxPoint x="159.99999999999994" y="222.03999999999996" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="81.92" y="222" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5g4FxoJ52sY9ZF0bcnco-11" value="behuetet" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="5g4FxoJ52sY9ZF0bcnco-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.1219" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
