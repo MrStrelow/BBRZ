@@ -50,11 +50,11 @@ class LinienAufSchachbrett
         }
 
         int yStart = 0;
-        int xStart = 0;
+        int xStart = 2;
         field[yStart, xStart] = "💢";
 
-        int yZiel = 2;
-        int xZiel = 4;
+        int yZiel = 3;
+        int xZiel = 12;
         field[yZiel, xZiel] = "💥";
 
 
@@ -63,9 +63,10 @@ class LinienAufSchachbrett
 
         double steigung = (double) deltaY / deltaX;
 
-        for (int x = 1; x < deltaX; x++)
+        for (int x = xStart + 1; x < xStart + deltaX; x++)
         {
             int y = Convert.ToInt32(Math.Round(steigung * x));
+            field[y, x] = "🟡";
         }
 
 
