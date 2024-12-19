@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\l02basicprogrammingconcepts\\l02.3guardclauses.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|solutionrelative:l02basicprogrammingconcepts\\l02.3guardclauses.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}|Exercise3-Schachbrett\\Exercise3-Schachbrett.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise3-schachbrett\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}|Exercise3-Schachbrett\\Exercise3-Schachbrett.csproj|solutionrelative:exercise3-schachbrett\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\livecoding\\ap10\\class3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|solutionrelative:livecoding\\ap10\\class3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "L02.3GuardClauses.md",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "RelativeDocumentMoniker": "L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "RelativeToolTip": "L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2024-12-12T08:01:24.794Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3-Schachbrett\\Program.cs",
-              "RelativeDocumentMoniker": "Exercise3-Schachbrett\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise3-Schachbrett\\Program.cs",
-              "RelativeToolTip": "Exercise3-Schachbrett\\Program.cs",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAQwAkAAABOAAAAAAAAAA==",
+              "Title": "Class3.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\AP10\\Class3.cs",
+              "RelativeDocumentMoniker": "LiveCoding\\AP10\\Class3.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\AP10\\Class3.cs",
+              "RelativeToolTip": "LiveCoding\\AP10\\Class3.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T07:38:53.15Z",
+              "WhenOpened": "2024-12-19T08:33:53.871Z",
               "EditorCaption": ""
             }
           ]
