@@ -3,20 +3,18 @@
 class Seed
 {
     // Fields
-    int x;
-    int y;
-    string darstellung;
-    bool regrow;
-    static string seedSymbol = "🌱";
+    private (int x, int y) position;
+    private string representation;
 
     // has-A-Relation
-    Plane plane;
-
+    
     // Constructor
-    public Seed(Plane plane)
-    {
-        
-    }
-
+    
     // Methods
+
+    // get-set methoden
+    public (int x, int y) GetPosition()
+    {
+        return position;
+    }
 }
