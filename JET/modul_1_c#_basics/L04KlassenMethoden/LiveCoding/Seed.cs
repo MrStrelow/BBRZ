@@ -4,15 +4,15 @@ class Seed
 {
     // Fields
     private (int x, int y) position;
-    private string representation;
+    private static string representation = "🌱";
 
     // has-A-Relation
     private Plane plane;
 
     // Constructor
-    public Seed()
+    public Seed(Plane plane)
     {
-         
+        this.plane = plane;
     }
 
     // Methods

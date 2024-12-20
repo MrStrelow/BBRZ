@@ -5,18 +5,22 @@ namespace LiveCoding;
 class Hamster
 {
     // Fields
-    int x;
-    int y;
-    string darstellung;
+    private (int x, int y) position;
+    private string representation;
+    private bool isHungry;
 
-    static string symbol = "🐹";
-    static string hungrySymbol = "🐰";
+    private static string fedRepresentation = "🐹";
+    private static string hungryRepresentation = "😡";
 
     // has-A-Relation
-  
+    private Plane plane;
+    private List<Seed> mouth = new List<Seed>(); 
 
     // Constructor
-  
+    public Hamster(Plane plane)
+    {
+        this.plane = plane;
+    }
 
     // Methods
     void Move()
