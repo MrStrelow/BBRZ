@@ -25,7 +25,7 @@ class Hamster
     // Methods
     public void Move()
     {
-
+        
     }
 
     public void NutritionBehaviour()
