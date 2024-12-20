@@ -14,7 +14,7 @@ class Hamster
 
     // has-A-Relation
     private Plane plane;
-    private List<Seed> mouth = new List<Seed>(); 
+    private List<Seed> mouth = new List<Seed>();
 
     // Constructor
     public Hamster(Plane plane)
@@ -23,24 +23,18 @@ class Hamster
     }
 
     // Methods
-    void Move()
+    public void Move()
     {
+
     }
 
-    void Metabolize()
+    public void NutritionBehaviour()
     {
-    }
 
-    void GettingHungry()
+    }
+    public void CollectSeed()
     {
-    }
 
-    void Eating()
-    { 
-    }
-
-    void Storing()
-    {
     }
 }
 
