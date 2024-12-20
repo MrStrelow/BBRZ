@@ -4,6 +4,7 @@ class Simulation
 {
     static void Main(string[] args)
     {
-        Console.WriteLine(new Seed().GetPosition());
+        Seed seed = new Seed();
+        Console.WriteLine(seed.GetPosition());
     }
 }

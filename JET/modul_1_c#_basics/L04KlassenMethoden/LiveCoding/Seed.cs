@@ -7,9 +7,14 @@ class Seed
     private string representation;
 
     // has-A-Relation
-    
+    private Plane plane;
+
     // Constructor
-    
+    public Seed()
+    {
+         
+    }
+
     // Methods
 
     // get-set methoden

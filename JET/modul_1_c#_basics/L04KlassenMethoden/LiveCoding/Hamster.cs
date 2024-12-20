@@ -7,17 +7,16 @@ class Hamster
     // Fields
     int x;
     int y;
+    string darstellung;
+
     static string symbol = "🐹";
     static string hungrySymbol = "🐰";
 
     // has-A-Relation
-    Plane plane;
+  
 
     // Constructor
-    public Hamster(Plane plane)
-    {
-
-    }
+  
 
     // Methods
     void Move()
