@@ -1,0 +1,13 @@
+https://www.python.org/downloads/release/python-3120/
+
+c:\Users\c4321116\Documents\GitHub\BBRZ\Python\.venv\Scripts\python.exe
+
+https://code.visualstudio.com/docs/python/python-quick-start
+https://code.visualstudio.com/docs/python/debugging
+
+py --version
+ctrl + shift + P (commands for vs code)
+Python: Create Environment  (py -m venv env) (.\.venv\Scripts\Activate) (deactivate)
+Python: Select Interpreter  
+
+c:\Users\c4321116\Documents\GitHub\BBRZ\Python\.venv\Scripts\python.exe -m pip install debugpy 

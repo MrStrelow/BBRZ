@@ -29,10 +29,20 @@ class Plane
         }
 
         // wir brauchen Samen
+        int numberOfSeeds = random.Next(1, plane.Length);
 
+        for (int i = 0; i < numberOfSeeds; i++)
+        {
+            new Seed(this);
+        }
 
         // wir brauchen Hamster
+        int numberOfHamster = random.Next(1, plane.Length - numberOfSeeds + 1);
 
+        for (int i = 0; i < numberOfHamster; i++)
+        {
+            hamsters.Add(new Hamster(this));
+        }
 
     }
 
@@ -62,5 +72,34 @@ class Plane
         }
 
         Thread.Sleep(timeToSleep);
+    }
+
+    private bool AssignInitialPosition(Seed seed, (int x, int y) key)
+    {
+        bool tileIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
+
+        if (tileIsEmpty)
+        {
+            plane[key.y, key.x] = Seed.GetRepresentation();
+            seeds[key] = seed;
+        }
+
+        return tileIsEmpty;
+    }
+
+    private bool TileTakenByHamster((int x, int y) key)
+    {
+        bool isTaken = false;
+
+        foreach (var hamster in hamsters)
+        {
+            if (hamster.GetPosition() == key)
+            {
+                isTaken = true;
+                break;
+            }
+        }
+
+        return isTaken;
     }
 }

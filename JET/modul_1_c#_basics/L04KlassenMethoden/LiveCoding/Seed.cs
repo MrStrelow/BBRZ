@@ -13,9 +13,30 @@ class Seed
     public Seed(Plane plane)
     {
         this.plane = plane;
+
+        PositionAndManageSamen();
     }
 
     // Methods
+
+    // private Methode
+    private void PositionAndManageSamen()
+    {
+        var random = new Random();
+        bool done;
+        int x, y;
+
+        do
+        {
+            x = random.Next(plane.GetSize());
+            y = random.Next(plane.GetSize());
+
+            done = plane.AssignInitialPosition(this, (x, y));
+        } while (!done);
+
+
+        position = (x, y);
+    }
 
     // get-set methoden
     public (int x, int y) GetPosition()
