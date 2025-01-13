@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LiveCoding")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f743e17157630377200008ba2d2a88a3af42969")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+adfc7695322d88e3edc8e220aa496f2f331799a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("LiveCoding")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LiveCoding")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

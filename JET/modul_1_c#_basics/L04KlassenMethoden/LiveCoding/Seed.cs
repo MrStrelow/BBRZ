@@ -43,4 +43,9 @@ class Seed
     {
         return position;
     }
+
+    public static string GetRepresentation()
+    {
+        return representation;
+    }
 }

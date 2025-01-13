@@ -36,5 +36,10 @@ class Hamster
     {
 
     }
+
+    public (int x, int y) GetPosition()
+    {
+        return position;
+    }
 }
 

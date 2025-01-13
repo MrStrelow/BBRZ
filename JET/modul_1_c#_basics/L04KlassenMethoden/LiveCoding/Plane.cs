@@ -74,7 +74,7 @@ class Plane
         Thread.Sleep(timeToSleep);
     }
 
-    private bool AssignInitialPosition(Seed seed, (int x, int y) key)
+    public bool AssignInitialPosition(Seed seed, (int x, int y) key)
     {
         bool tileIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
 
@@ -101,5 +101,10 @@ class Plane
         }
 
         return isTaken;
+    }
+
+    public int GetSize()
+    {
+        return size;
     }
 }
