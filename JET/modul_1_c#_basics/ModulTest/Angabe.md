@@ -1,7 +1,7 @@
 # Modultest 1 - JET AP09
 
 Sie haben 120 Minuten Zeit die Aufgaben zu lösen
-* Sie können maximal 20 Punkte erreichen
+* Sie können maximal 100 Punkte erreichen
 * Es sind zur Prüfung zugelassen:
     * Taschenrechner (wenn erwünscht)
     * Transparente Wasserflasche
