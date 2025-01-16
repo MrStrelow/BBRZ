@@ -102,7 +102,7 @@ class AP10Formen
             for (int x = 0; x < field.GetLength(1); x++)
             {
                 // 2.) schiebe jedes Feld auf einen neuen Ort (field[y,length-1-x] = field[y,x]). 
-                ret[field.GetLength(0) - 1 - y, x] = field[y, x];
+                ret[y, field.GetLength(1) - 1 - x] = field[y, x];
             }
         }
 
