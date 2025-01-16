@@ -13,11 +13,13 @@ class AP10Formen
     static void Main(string[] args)
     {
         string[,] triangle = DrawTriangle(FillCanvas(new string[3,3]));
-    
-        Print(triangle);
-        Print(MirrorX(triangle));
-        Print(MirrorY(triangle));
-        Print(MirrorY(MirrorX(triangle)));
+        string[,] container = FillCanvas(new string[2 * triangle.GetLength(0), 2 * triangle.GetLength(1)]);
+
+        //CombineForm(container, triangle, Position.TOP_RIGHT);
+        //CombineForm(container, MirrorX(triangle), Position.BOT_RIGHT);
+        //CombineForm(container, MirrorY(MirrorX(triangle)), Position.BOT_LEFT);
+
+        Print(CombineForm(container, MirrorY(triangle), Position.TOP_LEFT));
     }
 
     static string[,] FillCanvas(string[,] field)
@@ -105,4 +107,22 @@ class AP10Formen
 
         return ret;
     }
+
+    static string[,] CombineForm(string[,] container, string[,] part, Position position)
+    {
+        for (int y = 0; y < part.GetLength(0); y++)
+        {
+            for (int x = 0; x < part.GetLength(1); x++)
+            {
+                container[y,x] = part[y,x];
+            }
+        }
+
+        return container;
+    }
+}
+
+enum Position
+{
+    TOP_RIGHT, TOP_LEFT, BOT_RIGHT, BOT_LEFT
 }
