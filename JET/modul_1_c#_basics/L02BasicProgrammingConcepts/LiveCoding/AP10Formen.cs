@@ -45,6 +45,8 @@ class AP10Formen
 
     static string[,] mirrorX(string[,] field)
     {
+        // 1.) besuche jedes Feld im Array (wie wird das in der Methode print gemacht?)
+        // 2.) schiebe jedes Feld auf einen neuen Ort (field[y,x] = field[y,length-1-y]). 
         return field;
     }
 

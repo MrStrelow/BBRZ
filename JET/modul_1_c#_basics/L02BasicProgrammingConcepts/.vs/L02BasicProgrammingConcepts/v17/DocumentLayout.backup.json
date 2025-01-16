@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C6FD5F6-31F8-4FBD-99D6-3EC9F779B2B0}|test\\test.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C6FD5F6-31F8-4FBD-99D6-3EC9F779B2B0}|test\\test.csproj|solutionrelative:test\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAA97183-A6CD-4AD5-AEDC-9188C4836831}|Exercise5-GuardClauses\\Exercise5-GuardClauses.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\exercise5-guardclauses\\angabe.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{BAA97183-A6CD-4AD5-AEDC-9188C4836831}|Exercise5-GuardClauses\\Exercise5-GuardClauses.csproj|solutionrelative:exercise5-guardclauses\\angabe.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\livecoding\\guardclause.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|solutionrelative:livecoding\\guardclause.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\l02basicprogrammingconcepts\\l02.3guardclauses.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{3907FEDD-D2E8-4443-9347-4F10EEECF49F}|L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts.csproj|solutionrelative:l02basicprogrammingconcepts\\l02.3guardclauses.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+      "AbsoluteMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|c:\\users\\c4321116\\documents\\github\\bbrz\\jet\\modul_1_c#_basics\\l02basicprogrammingconcepts\\livecoding\\ap10formen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77B46039-8A4F-42EB-AAAA-ADA195311205}|LiveCoding\\LiveCoding.csproj|solutionrelative:livecoding\\ap10formen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +14,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\test\\Program.cs",
-              "RelativeDocumentMoniker": "test\\Program.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\test\\Program.cs",
-              "RelativeToolTip": "test\\Program.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAAALkAAABDAAAAAAAAAA==",
+              "Title": "AP10Formen.cs",
+              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\AP10Formen.cs",
+              "RelativeDocumentMoniker": "LiveCoding\\AP10Formen.cs",
+              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\AP10Formen.cs",
+              "RelativeToolTip": "LiveCoding\\AP10Formen.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAA3wC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T22:20:26.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GuardClause.cs",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\GuardClause.cs",
-              "RelativeDocumentMoniker": "LiveCoding\\GuardClause.cs",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\LiveCoding\\GuardClause.cs",
-              "RelativeToolTip": "LiveCoding\\GuardClause.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T21:46:12.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "L02.3GuardClauses.md",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "RelativeDocumentMoniker": "L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "RelativeToolTip": "L02BasicProgrammingConcepts\\L02.3GuardClauses.md",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADYAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-01-12T21:36:36.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Angabe.md",
-              "DocumentMoniker": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise5-GuardClauses\\Angabe.md",
-              "RelativeDocumentMoniker": "Exercise5-GuardClauses\\Angabe.md",
-              "ToolTip": "C:\\Users\\c4321116\\Documents\\GitHub\\BBRZ\\JET\\modul_1_c#_basics\\L02BasicProgrammingConcepts\\Exercise5-GuardClauses\\Angabe.md",
-              "RelativeToolTip": "Exercise5-GuardClauses\\Angabe.md",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-01-12T21:08:33.38Z",
+              "WhenOpened": "2025-01-16T07:12:43.271Z",
               "EditorCaption": ""
             }
           ]
