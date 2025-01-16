@@ -61,7 +61,7 @@ class AP10Formen
 
     static string[,] mirrorY(string[,] field)
     {
-        (field[y, x] = field[y, length - 1 - y]).
+       // (field[y, x] = field[y, length - 1 - y]).
         return null;
     }
 }
