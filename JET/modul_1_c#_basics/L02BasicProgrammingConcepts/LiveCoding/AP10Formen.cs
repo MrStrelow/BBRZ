@@ -12,10 +12,10 @@ class AP10Formen
 {
     static void Main(string[] args)
     {
-        string[,] field = FillCanvas(new string[3, 3]);
-        Print(field);
+        string[,] triangle = DrawTriangle(FillCanvas(new string[3, 3]));
+        Print(triangle);
 
-        MirrorX(field);
+        Print(MirrorX(triangle));
     }
 
     static string[,] FillCanvas(string[,] field)
