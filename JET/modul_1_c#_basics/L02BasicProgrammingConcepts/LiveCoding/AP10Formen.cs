@@ -15,10 +15,11 @@ class AP10Formen
         string[,] triangle = DrawTriangle(FillCanvas(new string[3,3]));
         string[,] container = FillCanvas(new string[2 * triangle.GetLength(0), 2 * triangle.GetLength(1)]);
 
-        //CombineForm(container, triangle, Position.TOP_RIGHT);
+        Print(CombineForm(container, triangle, Position.TOP_RIGHT));
         //CombineForm(container, MirrorX(triangle), Position.BOT_RIGHT);
         //CombineForm(container, MirrorY(MirrorX(triangle)), Position.BOT_LEFT);
 
+        // Warum geht das?... denke an call by value und call by reference.
         Print(CombineForm(container, MirrorY(triangle), Position.TOP_LEFT));
     }
 
@@ -114,7 +115,11 @@ class AP10Formen
         {
             for (int x = 0; x < part.GetLength(1); x++)
             {
-                container[y,x] = part[y,x];
+                switch(position)
+                {
+                    case Position.TOP_RIGHT: container[y, x + part.GetLength(1)] = part[y, x]; break;
+                    case Position.TOP_LEFT:  container[y, x] = part[y, x]; break;
+                }
             }
         }
 
