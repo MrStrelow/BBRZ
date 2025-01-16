@@ -12,13 +12,13 @@ class AP10Formen
 {
     static void Main(string[] args)
     {
-        string[,] field = fillCanvas(new string[3, 3]);
-        print(field);
+        string[,] field = FillCanvas(new string[3, 3]);
+        Print(field);
 
-        mirrorX(field);
+        MirrorX(field);
     }
 
-    static string[,] fillCanvas(string[,] field)
+    static string[,] FillCanvas(string[,] field)
     {
         for (int y = 0; y < field.GetLength(0); y++)
         {
@@ -31,7 +31,7 @@ class AP10Formen
         return field;
     }
 
-    static void print(string[,] field)
+    static void Print(string[,] field)
     {
         for (int y = 0; y < field.GetLength(0); y++)
         {
@@ -44,7 +44,35 @@ class AP10Formen
         }
     }
 
-    static string[,] mirrorX(string[,] field)
+
+    static string[,] DrawTriangle(string[,] field)
+    {
+        // 1.) zeichne 
+        // ___
+        // ___
+        // ___
+        //
+        // #__
+        // ##_
+        // ###
+        // in field rein.
+
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++)
+            {
+                if (x <= y)
+                {
+                    field[y, x] = "#";
+                }
+            }
+        }
+
+        return field;
+
+    }
+
+    static string[,] MirrorX(string[,] field)
     {
         // 1.) besuche jedes Feld im Array (wie wird das in der Methode print gemacht?)
         for (int y = 0; y < field.GetLength(0); y++)
@@ -59,7 +87,7 @@ class AP10Formen
         return field;
     }
 
-    static string[,] mirrorY(string[,] field)
+    static string[,] MirrorY(string[,] field)
     {
        // (field[y, x] = field[y, length - 1 - y]).
         return null;
