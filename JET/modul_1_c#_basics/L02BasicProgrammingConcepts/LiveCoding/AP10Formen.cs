@@ -13,10 +13,7 @@ class AP10Formen
     static void Main(string[] args)
     {
         string[,] triangle = DrawTriangle(FillCanvas(new string[3,3]));
-        Print(triangle);
-
-        Console.WriteLine("ende");
-
+    
         Print(triangle);
         Print(MirrorX(triangle));
         Print(MirrorY(triangle));
