@@ -17,7 +17,10 @@ class AP10Formen
 
         Console.WriteLine("ende");
 
+        Print(triangle);
         Print(MirrorX(triangle));
+        Print(MirrorY(triangle));
+        Print(MirrorY(MirrorX(triangle)));
     }
 
     static string[,] FillCanvas(string[,] field)
