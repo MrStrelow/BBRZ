@@ -9,16 +9,12 @@ namespace LiveCoding;
 
 class AP10Formen
 {
-
-    string hallo = "Hallo";
-
     static void Main(string[] args)
     {
         string[,] field = fillCanvas(new string[3, 3]);
         print(field);
 
         mirrorX(mirrorY(field));
-        ;
     }
 
     static string[,] fillCanvas(string[,] field)
@@ -49,7 +45,7 @@ class AP10Formen
 
     static string[,] mirrorX(string[,] field)
     {
-        return null;
+        return field;
     }
 
     static string[,] mirrorY(string[,] field)

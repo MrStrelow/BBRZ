@@ -91,3 +91,57 @@ num = "Hello";  // Fehler, da Typinkompatibilität (int und String)
 | **Schwach statisch**         | Zur Kompilierzeit   | Erlaubt            | C, C++           | Potenziell unsicher, da implizite Typkonvertierungen möglich sind (z. B. Speicherprobleme).    |
 | **Stark dynamisch**          | Zur Laufzeit        | Nicht erlaubt      | Python, Ruby     | Flexibel, aber sicherer durch die Vermeidung impliziter Typkonvertierungen.                   |
 | **Stark statisch**           | Zur Kompilierzeit   | Nicht erlaubt      | Java, Rust       | Höchste Fehlersicherheit, da alle Typen explizit und zur Kompilierzeit überprüft werden.       |
+
+
+
+# Starkes vs. Schwaches Typsystem
+
+Ein starkes und ein schwaches Typsystem unterscheiden sich vor allem durch den Grad der Strenge, mit der Typen in einer Programmiersprache behandelt werden:
+
+## Starkes Typsystem:
+- Typen werden strikt eingehalten.
+- Typkonvertierungen (implizit oder explizit) müssen genau definiert sein und sind in der Regel restriktiv.
+- Operationen zwischen inkompatiblen Typen sind ohne explizite Konvertierung nicht erlaubt.
+- **Beispiele:** Java, C#, Python.
+
+## Schwaches Typsystem:
+- Typen werden weniger strikt gehandhabt.
+- Implizite Typkonvertierungen werden oft durchgeführt, selbst wenn sie nicht sinnvoll oder eindeutig sind.
+- Operationen zwischen inkompatiblen Typen können problemlos ausgeführt werden, was potenziell zu Laufzeitfehlern führt.
+- **Beispiele:** JavaScript, PHP, Perl.
+
+---
+
+## Warum ist `5 + "5"` in Java erlaubt, obwohl es ein stark typisiertes System ist?
+Das Verhalten hängt von der **Spezifikation der Sprache** ab, nicht davon, ob das Typsystem stark oder schwach ist. Java erlaubt die Konkatenation von Strings mit anderen Datentypen, da der Operator `+` in diesem Kontext **überladen** ist:
+- Wenn einer der Operanden ein String ist, wird der andere Operand implizit in einen String umgewandelt.
+- **Ergebnis:** `"5"` wird nicht zu `int` konvertiert, sondern `5` wird zu `"5"` umgewandelt und die beiden Strings werden konkateniert.
+
+Hier wird also eine **implizite Typumwandlung** durchgeführt, aber unter klar definierten Regeln. Das bedeutet, dass Java in diesem Fall **keine Typverletzung** begeht. Im Gegensatz dazu könnte eine schwach typisierte Sprache wie JavaScript automatisch und unvorhersehbar zwischen Zahlen und Strings hin- und herkonvertieren, z. B.:
+
+```javascript
+5 + "5"  // "55" (String)
+5 - "5"  // 0 (Zahl)
+```
+
+---
+
+## Ist der Unterschied mehr als implizite und explizite Typumwandlungen?
+Ja, der Unterschied zwischen starkem und schwachem Typsystem geht über Typkonvertierungen hinaus. Entscheidend ist:
+
+### 1. Konsistenz der Typregeln:
+- Ein starkes Typsystem verhindert, dass Operationen zwischen inkompatiblen Typen ohne klare Regeln erlaubt werden.
+- Ein schwaches Typsystem erlaubt oft Operationen, die zur Laufzeit Probleme verursachen können.
+
+### 2. Fehlervermeidung:
+- Ein starkes Typsystem erkennt Typfehler früh (meist zur Compile-Zeit).
+- Ein schwaches Typsystem kann Typfehler erst zur Laufzeit erkennen.
+
+### 3. Sicherheit:
+- Ein starkes Typsystem erhöht die Typensicherheit, da Konvertierungen explizit oder nach festgelegten Regeln erfolgen müssen.
+- Ein schwaches Typsystem bietet mehr Flexibilität, aber weniger Sicherheit.
+
+---
+
+## Fazit:
+Der Unterschied zwischen starkem und schwachem Typsystem liegt weniger in der Frage von **impliziten/ expliziten Typumwandlungen**, sondern vielmehr in der Strenge und Konsistenz der Typregeln. Java erlaubt `5 + "5"` aufgrund der **klar definierten Regeln** zur String-Konkatenation, bleibt dabei aber stark typisiert, da keine unsicheren oder unvorhersehbaren Typkonvertierungen stattfinden.

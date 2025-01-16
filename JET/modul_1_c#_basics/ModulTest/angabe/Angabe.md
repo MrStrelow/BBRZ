@@ -1,6 +1,6 @@
 # Modultest 1 - JET AP09
 
-Sie haben 120 Minuten Zeit die Aufgaben zu lösen
+Sie haben `180 Minuten` Zeit die Aufgaben zu lösen
 * Sie können maximal 100 Punkte erreichen
 * Es sind zur Prüfung zugelassen:
     * Taschenrechner (wenn erwünscht)
@@ -9,9 +9,9 @@ Sie haben 120 Minuten Zeit die Aufgaben zu lösen
     * Am Computer sind alle Unterlagen sowie die Nutzung des Internets erlaubt.
 
 Die Nutzung des Internets umfasst nicht
-    * Chatbots
-    * Veröffentlichung der Lösungen
-    * sonstige Kommunikation mit anderen Usern
+* Chatbots
+* Veröffentlichung der Lösungen
+* sonstige Kommunikation mit anderen Usern
 
 Die Nutzung von allen anderen Dingen, muss vorher mit mir abgesprochen werden
 (z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet. 
@@ -190,146 +190,188 @@ Implementiere folgende `Hat-Beziehungen`:
 * Eine `Schule` hat mehrere `Klassenzimmer`
 * Ein `Klassenzimmer` hat mehrere `Tische`
 * Ein `Tisch` hat maximal 2 `Schüler`
+* Ein `Schüler` hat genau einen `Tisch`
 * Ein `Lehrer` hat genau ein `Klassenzimmer`
+* Ein `Klassenzimmer` hat genau einen `Lehrer` (das selbe Objekt, wie in der vorherigen Beziehung)
 
-Zusätzlich soll es Lehrer:innen möglich sein, so schnell wie möglich den `Tisch` eines `Schülers` zu finden.
+Implementiere folgendes `Verhalten` mit `Methoden`:
+* `Schüler` können sich einen `Tisch` aussuchen an dem diese sitzen.
+* `Lehrer` können einen `Schüler` im zuständigen `Klassenraum` suchen. Versuche dazu eine `Collection (Datenstruktur)` zu verwenden, welche immer gleich schnell ist, egal wie viele `Schüler/Tische` sich in dem Klassenraum befinden.
 
-Näheres zur Implementierung ist im unteren Programmcode in Kommentaren zu finden.
-Versuche dich auf das wesentliche zu kontentrieren! Es muss nicht jede Klasse ein Feld name oder alter haben.
+`Näheres` zur Implementierung ist im unteren Programmcode beim Aufruf der `NotImplementedExceptions` und in Kommentaren welche `//TODO` beinhalten, zu finden.
 
 ```csharp
 using System;
 using System.Collections.Generic;
 
+namespace ModulTest;
+
 public class Student
 {
-    // Hat keine Felder/Eigenschaften und Beziehungen.
+    // Hat-Beziehungen
+    // TODO: Bilde hier die gegebene Hat-Beziehung ab.
+
+    // Konstruktor
+    public Student(Classroom classroom)
+    {
+        throw new NotImplementedException("TODO: Wenn ein Lehrer:innen Objekt erstellt wird, bekommt diese einen Klassenraum.");
+    }
+
+    // Methoden
+    public void AddStudentToDesk(Desk desk)
+    {
+        throw new NotImplementedException("Bonus: Prüfe ob ein Schüler:in bereits auf einen anderen Tisch sitzt.");
+
+        throw new NotImplementedException("TODO: Wenn der als Argument übergebene Tisch noch nicht dem Klassenraum hinzugefügt wurde, wird dieser hier hinzugefügt.");
+        throw new NotImplementedException("TODO: Füge den Studenten der Collection im Tisch hinzu.");
+        throw new NotImplementedException("TODO: Hier muss die Collection des Lehrers, befüllt werden, damit beide Collections den selben Inhalt haben.");
+    }
 }
 
 public class Desk
 {
     // Hat-Beziehungen
-    // Verwende eine Datenstruktur (Array, Liste, Dictionary) deiner Wahl.
-    
-    // TODO: throw new NotImplementedException("Not yet implemented.");
+    // TODO: 
+    //  Bilde hier die gegebene Hat-Beziehung ab. 
+    //  Verwende dazu eine Collection (Array, Liste, Dictionary) deiner Wahl.
 
     // Methoden 
-    // Hier soll ein Student der Datenstruktur hinzugefügt werden. Falls kein Platz mehr am Tisch ist, soll diese Zuweisung nicht erfolgreich sein. 
     public void AddStudent(Student student)
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Hier soll ein Student der Collection hinzugefügt werden.");
+        throw new NotImplementedException("TODO: Falls kein Platz mehr am Tisch ist, soll diese Zuweisung nicht erfolgreich sein.");
     }
 
-    // Füge anstatt "?" den Typ der gewählten Collection ein 
+    // TODO: ersetze ? mit den gewählten Typ der Collection
     public ? GetStudents()
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Git die gewählte Collection zurück.");
     }
 }
 
 public class Classroom
 {
     // Hat-Beziehungen
-    // Verwende eine Datenstruktur (Array, Liste, Dictionary) deiner Wahl.
+    // TODO: 
+    //  Bilde hier die gegebene Hat-Beziehungen ab. 
+    //  Verwende dazu eine Collection (Array, Liste, Dictionary) deiner Wahl.
     
-    // TODO: throw new NotImplementedException("Not yet implemented.");
-
-    // Methoden 
-    // Füge den als Parameter übergebenen Studenten den Parameter Tisch hinzu. 
-    // Wenn ein Tisch noch nicht der Klasse hinzugefügt wurde, wird dieser hier hinzugefügt. 
-    // Bonus: Prüfe ob ein Schüler schon bereits auf einen anderen Tisch sitzt. 
-    public void AddStudentToDesk(Student student, Desk desk)
+    // Konstruktor
+    public Classroom(Teacher teacher)
     {
-       throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Konstruktor mit Lehrer als Parameter");
     }
 
-    // Füge anstatt "?" den Typ der gewählten Collection ein 
+    // Default Konstruktor ohne Parameter - hier muss nichts getan werden.
+    public Classroom(){}
+
+    // Methoden 
     public ? GetDesks()
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode \\
+        mit den gewählten Typ der Collection und gib das Objekt der Collection zurück.");
+    }
+
+    public Teacher GetTeacher()
+    {
+        throw new NotImplementedException("TODO: Gib den Lehrer zurück.");
+    }
+
+    public void SetTeacher(Teacher teacher)
+    {
+        throw new NotImplementedException("TODO: Setze den Lehrer auf jenen welcher als parameter übergebn wird.");
     }
 }
 
 public class Teacher
 {
-    // Felder
-    // Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl um einen schnellstmöglichen Zugriff auf die Tische eines Schüler zu gewährleisten.
-    // (Anders formuliert: Wo muss der Lehrer hinschauen wenn er Schüler x sucht?)
-    
-    // TODO: throw new NotImplementedException("Not yet implemented.");
+    // TODO: 
+    // Felder/Eigenschaften
+    //  Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl,
+    //  um einen schnellstmöglichen Zugriff auf die Tische eines Schüler zu gewährleisten.
+    //  (Anders formuliert: Gegeben einen Schüler, wie bekommen wir seinen Tisch?)
 
     // Hat-Beziehungen
-    // TODO: throw new NotImplementedException("Not yet implemented.");
+    // TODO: 
+    //  Bilde hier die gegebene Hat-Beziehungen ab. 
 
     // Konstruktor
-    // Wenn ein Lehrer:innen Objekt erstellt wird, bekommt diese einen Klassenraum.
-    // Hier muss auch die Collection welche oben definiert wurde, befüllt werden.
     public Teacher(Classroom classroom)
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Wenn ein Lehrer:innen Objekt erstellt wird, bekommt diese einen Klassenraum.");
+        throw new NotImplementedException("TODO: Hier muss auch die Collection des Lehrers, mit dem Inhalt befüllt werden, \\
+                                                damit die Datenstruktur des Lehrers und jene der Classroom \\
+                                                 den selben Inhalt haben.");
     }
 
     // Methoden
-    // Hier bekommt ein Lehrer eine Schüler:in welche schnellstmöglich gefunden werden muss. Gefunden bedeutet, dass der Tisch der Schüler:in gefunden wird.
     public Desk FindStudentInRoom(Student student)
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("\\
+        TODO: Hier sucht ein Lehrer eine Schüler:in welche schnellstmöglich gefunden werden muss. \\
+        Gefunden bedeutet, dass der Tisch der Schüler:in gefunden wird.");
+    }
+
+    public void PutStudentInLookup(Desk desk, Student student)
+    {
+        throw new NotImplementedException("TODO: Verbinde den Tisch mit der Schüler:in und füge es der Collection hinzu.");
+    }
+
+    public ? GetSutdentLookup()
+    {
+        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode und gib die Collection zurück.");
     }
 }
 
 public class School
 {
-    // Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl welches Klassen verwaltet.
-    throw new NotImplementedException("Not yet implemented.");
+    // Hat-Beziehungen
+    // TODO:
+    //  Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl welche Klassenzimmer verwaltet.
 
-    // Methode welches ein Hinzufügen von Klassenräumen erlaubt.
+    // Methoden
     public void AddClassroom(Classroom classroom)
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Füge ein Klassenzimmer der Collection hinzu.");
     }
 
-    // Methode welches die Klassenräume zurückgibt.
-    public List<Classroom> GetClassrooms()
+    public ? GetClassrooms()
     {
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode und gib die Collection zurück.");
     }
 }
 
-public class Program
+public class Programm
 {
     public static void Main()
     {
-        // Erstelle ein School Objekt
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Erstelle eine Schule.");
+        throw new NotImplementedException("TODO: Erstelle zwei Klassenzimmer mit dem Default Konstruktor.");
+        throw new NotImplementedException("TODO: Erstelle zwei Lehrer:innen mit dem Konstruktor welcher Klassenräume übernimmt.");
+        throw new NotImplementedException("TODO: Setzte gib nun die Klassenräume den Lehrer:innen über eine Set Methode.");
+        throw new NotImplementedException("TODO: Füge die Klassenräume der Schule hinzu.");
+        throw new NotImplementedException("TODO: Füge 2 Tische dem ersten Klassenraum und 2 Tische dem zewiten Klassenraum hinzu.");
+        throw new NotImplementedException("TODO: Erstelle drei Schüler:innen für jede der Klassenräume.");
+        
+        throw new NotImplementedException("TODO: Setze 3 Schüler:innen auf die Tische in einen Klassenraum \\
+        und 2 Schüler:innen auf Tische in den anderen Klasseraum.");
+        
+        throw new NotImplementedException("TODO: Setze den fehlenden Schüler:innen \\
+        auf einen noch nicht im Klassenzimmer existierenden Tisch.");
+        
+        throw new NotImplementedException("TODO: Einer der Lehrer:innen sucht (auf welchen Tisch soll er/sie schauen?) \\
+        schnell einen Schüler:innen deiner Wahl. Gib dazu diesen mit dessen Tisch aus. \\
+        Es reicht das Objekt auf die konsole auszugeben. Es muss kein Menschen lesbarer Text verwendet werden.");
+        
+        throw new NotImplementedException("TODO: Gibt alle Schüler:innen inklusive Tisch in der Schule auf die Console aus.");
 
-        // Erstelle zwei Classroom Objekte
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Füge eine:n Schüler:in einem freien Tisch in einem Klassenzimmer hinzu. \\
+        Findet der Lehrer diese:n?");
 
-        // Füge die Klassen der Schule hinzu
-        throw new NotImplementedException("Not yet implemented.");
-
-        // Füge 2 Tische dem 1. Klasseraum und 3 Tische dem 2. Klasseraum hinzu
-        throw new NotImplementedException("Not yet implemented.");
-
-        // Erstelle drei Schüler:innen für jede der Klassen
-        throw new NotImplementedException("Not yet implemented.");
-
-        // Setze 3 Schüler:innen auf die Tische in einer Klasse und 2 Schüler:innen auf Tische in die andere Klasse
-        throw new NotImplementedException("Not yet implemented.");
-
-        // Setze den fehlenden Schüler auf eine noch nicht der Klasse hinzugefügten Tisch
-        throw new NotImplementedException("Not yet implemented.");
-
-        // Erstelle zwei Lehrer:innen
-        throw new NotImplementedException("Not yet implemented.");
-
-        // Einer der Lehrer:innen sucht (auf welchen Desk soll er/sie schauen?) schnell einen Schüler deiner Wahl.
-        // Gib dazu diesen mit dessen Tisch aus. Es reicht das Objekt auf die konsole auszugeben. Es muss kein Menschen lesbarer Text verwendet werden.
-       throw new NotImplementedException("Not yet implemented.");
-
-        // Gibt alle Schüler inklusive Tisch in der Schule auf die Console aus.
-        Console.WriteLine("\nStudents in the classroom:");
-        throw new NotImplementedException("Not yet implemented.");
+        throw new NotImplementedException("TODO: Eine neue Lehrerin bekommt einen bestehenden Klassenraum. \\
+        Überschreibe dazu den Lehrer in einem bestehenden Klassenraum mit dem Objekt der neuen Lehrerin. Findet sie die Schüler?");
+        
+        throw new NotImplementedException("TODO: Suche nun mit dem Lehrer des anderen Klassenraums. Was passiert nun?");
     }
 }
 ```

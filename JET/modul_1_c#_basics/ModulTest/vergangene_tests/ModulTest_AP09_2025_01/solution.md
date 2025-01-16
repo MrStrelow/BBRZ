@@ -1,4 +1,46 @@
-﻿using System;
+```csharp
+// Guard Clauses
+public void ValidatePilotGuardClause()
+{
+    // Guards
+    if (!IsActive)
+        throw new InvalidOperationException("❗Pilot ist nicht aktiv.");
+
+    if (Age <= 18)
+        throw new InvalidOperationException("❗Pilot muss älter als 18 Jahre sein.");
+
+    if (string.IsNullOrEmpty(MedicalClearanceCertificate))
+        throw new InvalidOperationException("❗Pilot besitzt kein medizinisches Freigabezertifikat.");
+
+    if (LicenseExpiry <= DateTime.Now)
+        throw new InvalidOperationException("❗Die Lizenz des Piloten ist abgelaufen.");
+
+    if (Flieger.IstGross && FlightCount < 200)
+    {
+        throw new InvalidOperationException("❗Pilot hat zu wenig Flüge für ein Großes Flugzeug.");
+    }
+
+    // Gute Zustände
+    if (Flieger.IstGross) 
+    {  
+        if (FlightCount >= 200 && FlightCount <= 500)
+        {
+            Console.WriteLine("✅ Pilot hat zwischen 200 und 500 Flügen. Ein Co-Pilot mit mehr als 500 Flügen ist erforderlich um ein großes Flugzeug fliegen zu können.");
+        }
+        else if (FlightCount > 500)
+        {
+            Console.WriteLine("✅ Pilot hat mehr als 500 Flüge. Dieser Pilot darf ein großes Flugzeug fliegen.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("✅ Pilot darf das Flugzeug fliegen.");
+    }
+}
+```
+
+```csharp
+using System;
 using System.Collections.Generic;
 
 public class Student
@@ -49,10 +91,8 @@ public class Classroom
         {
             desks.Add(desk);
         }
-        else
-        {
-            desk.AddStudent(student);
-        }
+        
+        desk.AddStudent(student);
     }
 
     public List<Desk> GetDesks()
@@ -94,14 +134,13 @@ public class Teacher
     // Hier bekommt ein Lehrer eine Schüler:in welche schnellstmöglich gefunden werden muss. Gefunden bedeutet, dass der Tisch der Schüler:in gefunden wird.
     public Desk FindStudentInRoom(Student student)
     {
-        if (studentDeskLookup.ContainsKey(student))
+        if (studentDeskMap.TryGetValue(student, out Desk desk))
         {
-            return studentDeskLookup[student];
+            return desk;
         }
         else
         {
-            Console.WriteLine("Student not found.");
-            return null;
+            throw new InvalidOperationException("Student not found.");
         }
     }
 }
@@ -173,12 +212,8 @@ public class Program
         // Einer der Lehrer:innen sucht (auf welchen Desk soll er/sie schauen?) schnell einen Schüler deiner Wahl.
         // Gib dazu diesen mit dessen Tisch aus. Es reicht das Objekt auf die konsole auszugeben. Es muss kein Menschen lesbarer Text verwendet werden.
         Desk deskOfStudent2 = teacher1.FindStudentInRoom(student2);
-
-        if (deskOfStudent2 != null)
-        {
-            Console.WriteLine($"Student1: {student1.GetHashCode()} is sitting at a desk: {deskOfStudent2.GetHashCode()}");
-        }
-
+        Console.WriteLine($"Student1: {student1.GetHashCode()} is sitting at a desk: {deskOfStudent2.GetHashCode()}");
+        
         // Gibt alle Schüler inklusive Tisch in der Schule auf die Console aus.
         Console.WriteLine("\nStudents in the classroom:");
         foreach (Classroom classroom in school.GetClassrooms())
@@ -188,13 +223,11 @@ public class Program
             {
                 foreach (Student student in desk.GetStudents())
                 {
-                    if (student != null)
-                    {
-                        Console.WriteLine($"A student:{student.GetHashCode()} is sitting at a desk: {desk.GetHashCode()}");
-                    }
+                    Console.WriteLine($"A student:{student.GetHashCode()} is sitting at a desk: {desk.GetHashCode()}");
                 }
             }
 
         }
     }
 }
+```
