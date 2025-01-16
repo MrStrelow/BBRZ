@@ -12,8 +12,10 @@ class AP10Formen
 {
     static void Main(string[] args)
     {
-        string[,] triangle = DrawTriangle(FillCanvas(new string[3, 3]));
+        string[,] triangle = DrawTriangle(FillCanvas(new string[3,3]));
         Print(triangle);
+
+        Console.WriteLine("ende");
 
         Print(MirrorX(triangle));
     }
@@ -74,22 +76,33 @@ class AP10Formen
 
     static string[,] MirrorX(string[,] field)
     {
+        string[,] ret = new string[field.GetLength(0), field.GetLength(1)];
         // 1.) besuche jedes Feld im Array (wie wird das in der Methode print gemacht?)
         for (int y = 0; y < field.GetLength(0); y++)
         {
             for (int x = 0; x < field.GetLength(1); x++) 
             {
                 // 2.) schiebe jedes Feld auf einen neuen Ort (field[length-1-y,x] = field[y,x]). 
-                field[field.GetLength(0) - 1 - y, x] = field[y, x];
+                ret[field.GetLength(0) - 1 - y, x] = field[y, x];
             }
         }
 
-        return field;
+        return ret;
     }
 
     static string[,] MirrorY(string[,] field)
     {
-       // (field[y, x] = field[y, length - 1 - y]).
-        return null;
+        string[,] ret = new string[field.GetLength(0), field.GetLength(1)];
+        // 1.) besuche jedes Feld im Array (wie wird das in der Methode print gemacht?)
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++)
+            {
+                // 2.) schiebe jedes Feld auf einen neuen Ort (field[y,length-1-x] = field[y,x]). 
+                ret[field.GetLength(0) - 1 - y, x] = field[y, x];
+            }
+        }
+
+        return ret;
     }
 }
