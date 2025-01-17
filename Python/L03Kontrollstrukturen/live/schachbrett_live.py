@@ -6,7 +6,10 @@
 dimension = int(input("Größe des Spielbretts eingeben: "))
 # print(type(dimension))
 x_start, y_start = input("Startpunkt wählen [x y]: ").split(" ")
+x_start, y_start = int(x_start), int(y_start)
+
 x_end, y_end = input("Endpunkt wählen [x y]: ").split(" ")
+x_end, y_end = int(x_end), int(y_end)
 
 # 2.) schachbrett generieren
 black_square = "⬛" # windows + . (oder "\u2B1B")
@@ -26,7 +29,8 @@ for y in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
     board.append(row)  
 
 # 3.) linien auf den schachbrett von start zu ende zeichnen (achtung ein wenig mathe)
-
+board[y_start][x_start] = "🟡"
+board[y_end][x_end] = "❌"
 
 # 4.) ausgabe des schachbretts
 for y in range(dimension):
