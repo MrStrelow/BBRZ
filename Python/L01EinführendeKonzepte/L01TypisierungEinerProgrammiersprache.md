@@ -54,23 +54,31 @@ Die Wahl zwischen statischer und dynamischer Typisierung hängt oft von den Anfo
 
 ## Ausnahmen in JAVA (stark strikt typisiert)
 
-**Ist `nicht` im Sinne der statischen Typisierung**
+**Ist aber `nicht` im Sinne der statischen Typisierung**
 Ist jedoch erlaubt, da es oft zu dieser Umwandlung kommt, jedoch wir nichts falsch machen können. Ein Int ist immer als Double darstellbar.
 ```java
 double x = 5.0;
 int y = 1;
 x = y;
-System.out.println(x);
+System.out.println(x); // kein Fehler, sollte aber sein.
 ```
 
-**Ist `nicht` im Sinne der starken Typisierung**
+**Ist aber `nicht` im Sinne der starken Typisierung**
 ```java
 String a = "Test";
 int b = 4;
-System.out.Println(a + b);  // Fehler: String kann nicht in int konvertiert werden
+System.out.Println(a + b);  // kein Fehler, sollte aber sein.
 ```
 
-**Ist im Sinne der starken Typisierung**
+Achtung! Es ist jedoch anzumerken, dass in JAVA konkrete und `konsistente` Regeln herrschen, wie Ausnahmen funktionieren. Deshalb ist JAVA stark typisiert. Zudem betrachten wir hier eine vereinfachte Version. Für genaueres betrachte folgende Beispiele auf Wikipedia TODO: und hier am Ende in Kapitel X TODO:.
+
+Ein Vergleich einer schwach typisierten Sprache ist JavaScript. Hier herrschen `inkonsistente` Regeln zwischen (verschiedene) Operatoren.
+```javascript
+5 + "5"  // "55" (String)
+5 - "5"  // 0 (Zahl)
+```
+
+**Ist im Sinne der starken Typisierung** TODO: falsches beispiel?
 ```java
 String a = "Test";
 int b = a;  // Fehler: String kann nicht in int konvertiert werden

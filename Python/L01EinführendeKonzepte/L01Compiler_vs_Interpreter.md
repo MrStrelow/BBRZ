@@ -20,7 +20,7 @@ java: cannot find symbol
 ```
 
 ## Was ist ein Interpreter?
-Ein Interpreter übersetzt und führt den Quellcode Zeile für Zeile aus, ohne eine vollständige Übersetzung des Programms vor der Ausführung. Beispiele: **Python**, **Ruby**. Es ist nicht wie beim Compiler notwendig ein korrektes Programm zu schreiben um "Output" erzeugen zu können.
+Ein Interpreter übersetzt und führt den Quellcode Zeile für Zeile aus, ohne eine vollständige Übersetzung des Programms vor der Ausführung. Beispiele: **Python**, **Ruby**. Es ist nicht wie beim Compiler notwendig ein korrektes Programm zu schreiben um "Output" erzeugen zu können. TODO: gehe auf laufzeit und compilezeit fehler ein.
 ```python
 a = "ich besitze ein x"
 print(a)
