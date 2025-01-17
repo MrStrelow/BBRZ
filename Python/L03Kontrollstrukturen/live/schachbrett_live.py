@@ -11,9 +11,14 @@ black_square = "⬛" # windows + . (oder "\u2B1B")
 white_square = "⬜"
 
 board = []
-for i in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
-    print(i)
-    board.append(black_square)
+for y in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
+    row = []
+    
+    for x in range(dimension): 
+        row.append(black_square)
+        #board.append(white_square)
+
+    board.append(row)  
 
 print(board)
 
