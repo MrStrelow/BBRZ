@@ -7,9 +7,10 @@ dimension = int(input("Größe des Spielbretts eingeben: "))
 # print(type(dimension))
 
 # 2.) schachbrett generieren
-black_square = "⬛" # windows + .
-white_square = "⬜" # oder "\u2B1B"
+black_square = "⬛" # windows + . (oder "\u2B1B")
+white_square = "⬜"
 
+print(white_square)
 print(dimension)
 
 
