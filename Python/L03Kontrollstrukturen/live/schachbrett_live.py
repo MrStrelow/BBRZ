@@ -10,8 +10,11 @@ dimension = int(input("Größe des Spielbretts eingeben: "))
 black_square = "⬛" # windows + . (oder "\u2B1B")
 white_square = "⬜"
 
-print(white_square)
-print(dimension)
+board = []
+for i in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
+    print(i)
+    board.append(black_square)
 
+print(board)
 
 # 3.) linien auf den schachbrett von start zu ende zeichnen (achtung ein wenig mathe)
