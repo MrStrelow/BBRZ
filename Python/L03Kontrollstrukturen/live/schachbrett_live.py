@@ -3,7 +3,7 @@
 #   - welche position soll als start gewählt werden, welche als ziel.
 
 # i.) user informieren was er/sie eingeben soll
-dimension = input("Größe des Spielbretts eingeben: ")
+dimension = int(input("Größe des Spielbretts eingeben: "))
 # print(type(dimension))
 print(dimension)
 
