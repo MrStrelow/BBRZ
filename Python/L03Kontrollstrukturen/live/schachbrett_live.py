@@ -20,6 +20,12 @@ for y in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
 
     board.append(row)  
 
-print(board)
 
 # 3.) linien auf den schachbrett von start zu ende zeichnen (achtung ein wenig mathe)
+
+# 4.) ausgabe des schachbretts
+for y in range(dimension):
+    for x in range(dimension):
+        print(board[y][x], end="")
+    
+    print() #print(end="\n")
