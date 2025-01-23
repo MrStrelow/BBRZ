@@ -12,45 +12,62 @@ public class L09LinesOnChessBoard {
 
         String[][] brett = new String[dimension][dimension];
 
-        char whiteSquareCode = 0x2588;
-        char blackSquareCode = 0x2591;
+//        char whiteSquareCode = 0x2588; // ░
+//        String whiteSquare = new String(Character.toChars(whiteSquareCode)); // ░
+//
+//        char blackSquareCode = 0x2591; // █
+//        String blackSquare = new String(Character.toChars(whiteSquareCode)); // █
 
-        String whiteSquare = new String(Character.toChars(whiteSquareCode));
-        String blackSquare = new String(Character.toChars(blackSquareCode));
+//        String whiteSquare = "0x2591"; // █
+//        String blackSquare= "\u2588"; // ░
+
+//         String whiteSquare = "\u2B1C"; // ⬜
+//         String blackSquare= "\u2B1B"; // ⬛
+
+         String whiteSquare = "⬜";
+         String blackSquare= "⬛";
 
 //        Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
-        for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++) {
-                // if ( (i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)) {
-                if ((j + i) % 2 == 0)
-                    brett[i][j] = blackSquare;
+        for (int y = 0; y < dimension; y++) {
+            for (int x = 0; x < dimension; x++) {
+                // intuitiver: Was ist die Bedingung als logische Formel für das WhiteSquare?
+                // if ( (y % 2 == 0 && x % 2 == 0) || (y % 2 == 1 && x % 2 == 1) ) {
+                if ((x + y) % 2 == 0)
+                    // (x + y) % 2 == 0) ist kurz, aber schwerer zu nachzuvollziehen.
+                    brett[y][x] = whiteSquare;
                 else
-                    brett[i][j] = whiteSquare;
+                    brett[y][x] = blackSquare;
             }
         }
 
-// intuitiver.
-//                if (i % 2 == 0) {
+// anders intuitiver:
+//  - gleiche Denkweise wie oben im Kommentar, jedoch in anderer Darstellung.
+//  - if untereinander ist ein logisches ODER
+//  - if geschachtelt ist ein logisches UND
+//                if (y % 2 == 0) {
 //
-//                    if (j % 2 == 0) {
-//                        brett[i][j] = whiteSquare;
+//                    if (x % 2 == 0) {
+//                        brett[y][x] = whiteSquare;
 //
 //                    } else {
-//                        brett[i][j] = blackSquare;
+//                        brett[y][x] = blackSquare;
 //                    }
 //
 //                } else {
-//
-//                    if (j % 2 == 0) {
-//                        brett[i][j] = blackSquare;
+//                // Das "else" hat eine versteckte Bedingung! diese ist das Gegenteil von der Bedingung im oberen "if".
+//                // Diese ist !(y % 2 == 0) was hier gleichbedeutend mit y % 2 == 1 ist.
+//                // Der Grund dafür ist, dass wir nur 2 Zustände haben (weiß und schwarz).
+//                // Das Gegenteil von gerade ist ungerade.
+//                    if (x % 2 == 1) {
+//                        brett[y][x] = whiteSquare;
 //
 //                    } else {
-//                        brett[i][j] = whiteSquare;
+//                        brett[y][x] = blackSquare;
 //                    }
 //                }
 
 //        Verbinde 2 gewählte Felder mit einer Linie
-//        Berechne dazu die Steigung der Linie (Siehe Tafelbild 21.12.2023)
+//        Berechne dazu die Steigung der Linie
 
 //        Userinput
         System.out.print("Wähle die Figur... [x y]: ");
@@ -65,8 +82,8 @@ public class L09LinesOnChessBoard {
         Integer xZiel = Integer.parseInt( userinput[0] );
         Integer yZiel = Integer.parseInt( userinput[1] );
 
-        brett[yStart][xStart] = "o";
-        brett[yZiel][xZiel] = "x";
+        brett[yStart][xStart] = "🟡";
+        brett[yZiel][xZiel] = "❌";
 
         Integer deltaX = xZiel - xStart;
         Integer deltaY = yZiel - yStart;
@@ -101,7 +118,7 @@ public class L09LinesOnChessBoard {
 //
 //        for (int x = 1; x < deltaX; x++) {
 //            Integer y = Math.toIntExact( Math.round(steigung * x) );
-//            brett[yStart + y][xStart + x] = ".";
+//            brett[yStart + y][xStart + x] = "🔸";
 //        }
 //
 //        // Ausgabe
@@ -154,7 +171,7 @@ public class L09LinesOnChessBoard {
 //                neuePositionX = Long.valueOf(Math.round(chosenX + i * steigung)).intValue();
 //            }
 //
-//            brett[neuePositionY][neuePositionX] = ".";
+//            brett[neuePositionY][neuePositionX] = "🔸";
 //        }
 //
 //        // Ausgabe
@@ -232,9 +249,9 @@ public class L09LinesOnChessBoard {
 //            indexForShorter = Long.valueOf(Math.round(startShorter + i * steigung)).intValue();
 //
 //            if(longerIsX) {
-//                brett[indexForShorter][indexForLonger] = ".";
+//                brett[indexForShorter][indexForLonger] = "🔸";
 //            } else {
-//                brett[indexForLonger][indexForShorter] = ".";
+//                brett[indexForLonger][indexForShorter] = "🔸";
 //            }
 //        }
 
@@ -260,7 +277,7 @@ public class L09LinesOnChessBoard {
         for (int i = 1; i < longerDelta; i++) {
             int x = xStart + (int) Math.round(i * stepX);
             int y = yStart + (int) Math.round(i * stepY);
-            brett[y][x] = ".";
+            brett[y][x] = "🔸";
         }
 
         // Ausgabe

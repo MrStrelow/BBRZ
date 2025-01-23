@@ -12,15 +12,22 @@ class AP10Formen
 {
     static void Main(string[] args)
     {
-        string[,] triangle = DrawTriangle(FillCanvas(new string[3,3]));
+        string[,] triangle = DrawTriangle(FillCanvas(new string[9,9]));
         string[,] container = FillCanvas(new string[2 * triangle.GetLength(0), 2 * triangle.GetLength(1)]);
 
         Print(CombineForm(container, triangle, Position.TOP_RIGHT));
-        //CombineForm(container, MirrorX(triangle), Position.BOT_RIGHT);
-        //CombineForm(container, MirrorY(MirrorX(triangle)), Position.BOT_LEFT);
+        Console.WriteLine();
 
-        // Warum geht das?... denke an call by value und call by reference.
         Print(CombineForm(container, MirrorY(triangle), Position.TOP_LEFT));
+        Console.WriteLine();
+
+        Print(CombineForm(container, MirrorX(MirrorY(triangle)), Position.BOT_LEFT));
+        Console.WriteLine();
+
+        Print(CombineForm(container, MirrorX(triangle), Position.BOT_RIGHT));
+        
+        // Warum geht das?... denke an call by value und call by reference.
+        //Print(CombineForm(container, MirrorY(triangle), Position.TOP_LEFT));
     }
 
     static string[,] FillCanvas(string[,] field)
@@ -119,6 +126,8 @@ class AP10Formen
                 {
                     case Position.TOP_RIGHT: container[y, x + part.GetLength(1)] = part[y, x]; break;
                     case Position.TOP_LEFT:  container[y, x] = part[y, x]; break;
+                    case Position.BOT_RIGHT: container[y + part.GetLength(0), x + part.GetLength(1)] = part[y, x]; break;
+                    case Position.BOT_LEFT:  container[y + part.GetLength(0), x] = part[y, x]; break;
                 }
             }
         }

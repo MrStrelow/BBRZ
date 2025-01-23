@@ -1,9 +1,11 @@
 ﻿using System.Runtime.InteropServices;
+using System.Text;
 
 public class Exercise
 {
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         bool zufrieden;
 
         Console.Write("Größe des Spielbretts eingeben: ");
@@ -14,9 +16,11 @@ public class Exercise
 
         string[,] field = new string[dimension, dimension];
 
-        string whiteSquare = "\u2588";
-        // Oder
-        string blackSquare = '\u2591'.ToString();
+        //string whiteSquare = "⬜";
+        string whiteSquare = "\u2B1C";
+        // Oder. Achtung! Nicht alle Emojis (16-32 Bit) haben in einem char platz (16 Bit) -
+        // manche sind zwei uni codes welche ein string versteht, aber ein char nicht.
+        string blackSquare = '\u2B1B'.ToString(); 
 
         // Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
         for (int i = 0; i < dimension; i++)
@@ -44,8 +48,8 @@ public class Exercise
             int xZiel = int.Parse(userinput[0]);
             int yZiel = int.Parse(userinput[1]);
 
-            field[yStart, xStart] = "o";
-            field[yZiel, xZiel] = "x";
+            field[yStart, xStart] = "🟡";
+            field[yZiel, xZiel] = "❌";
 
             int deltaX = xZiel - xStart;
             int deltaY = yZiel - yStart;
@@ -165,7 +169,7 @@ public class Exercise
             //}
 
 
-            Console.WriteLine("++++++++++++++ Version 3 ++++++++++++++");
+            //Console.WriteLine("++++++++++++++ Version 3 ++++++++++++++");
             // In dieser Variante sind alle Fälle abgedeckt.
             // Wir sehen hier einige "technische" anpassungen.
             // - wir drehen manchmal das Vorzeichen der Steigung um
@@ -190,82 +194,108 @@ public class Exercise
             // - 0 0 und 0 7
             // - 0 7 und 0 0
 
-            if (Math.Abs(deltaX) > Math.Abs(deltaY))
+            //if (Math.Abs(deltaX) > Math.Abs(deltaY))
+            //{
+            //    longerDelta = deltaX;
+            //    shorterDelta = deltaY;
+            //    startLonger = xStart;
+            //    startShorter = yStart;
+            //    longerIsX = true;
+
+            //}
+            //else
+            //{
+            //    longerDelta = deltaY;
+            //    shorterDelta = deltaX;
+            //    startLonger = yStart;
+            //    startShorter = xStart;
+            //    longerIsX = false;
+            //}
+
+            //for (int i = 1; i < Math.Abs(longerDelta); i++)
+            //{
+            //    int indexForShorter;
+            //    int indexForLonger;
+
+            //    if (shorterDelta < 0 && longerDelta < 0)
+            //    {
+            //        indexForLonger = startLonger - i;
+            //        steigung = -((double)shorterDelta) / longerDelta;
+
+            //    }
+            //    else if (shorterDelta < 0 && longerDelta > 0)
+            //    {
+            //        indexForLonger = startLonger + i;
+            //        steigung = ((double)shorterDelta) / longerDelta;
+
+            //    }
+            //    else if (shorterDelta > 0 && longerDelta < 0)
+            //    {
+            //        indexForLonger = startLonger - i;
+            //        steigung = -((double)shorterDelta) / longerDelta;
+
+            //    }
+            //    else if (shorterDelta > 0 && longerDelta > 0)
+            //    {
+            //        indexForLonger = startLonger + i;
+            //        steigung = ((double)shorterDelta) / longerDelta;
+
+            //    }
+            //    else if (shorterDelta == 0 && longerDelta > 0)
+            //    {
+            //        indexForLonger = startLonger + i;
+            //        steigung = ((double)shorterDelta) / longerDelta;
+
+            //    }
+            //    else if (shorterDelta == 0 && longerDelta < 0)
+            //    {
+            //        indexForLonger = startLonger - i;
+            //        steigung = ((double)shorterDelta) / longerDelta;
+
+            //    }
+            //    else
+            //    {
+            //        indexForLonger = -1;
+            //        steigung = Double.MaxValue;
+            //    }
+
+            //    indexForShorter = (int)Math.Round(startShorter + i * steigung);
+
+            //    if (longerIsX)
+            //    {
+            //        field[indexForShorter, indexForLonger] = "🔸";
+            //    }
+            //    else
+            //    {
+            //        field[indexForLonger, indexForShorter] = "🔸";
+            //    }
+            //}
+
+            Console.WriteLine("++++++++++++++ Version 4 ++++++++++++++");
+            // Tests:
+            // - 0 5 und 7 7
+            // - 5 0 und 7 7
+            // - 5 7 und 7 0
+            // - 0 7 und 7 5
+            // - 7 7 und 0 5
+            // - 7 7 und 5 0
+            // - 5 7 und 0 7
+            // - 0 7 und 5 7
+            // - 0 5 und 7 7
+            // - 0 0 und 0 7
+            // - 0 7 und 0 0
+
+            longerDelta = Math.Max(Math.Abs(deltaX), Math.Abs(deltaY));
+            double stepX = (double)deltaX / longerDelta;
+            double stepY = (double)deltaY / longerDelta;
+
+            for (int i = 1; i < longerDelta; i++)
             {
-                longerDelta = deltaX;
-                shorterDelta = deltaY;
-                startLonger = xStart;
-                startShorter = yStart;
-                longerIsX = true;
-
+                int x = xStart + (int)Math.Round(i * stepX);
+                int y = yStart + (int)Math.Round(i * stepY);
+                field[y,x] = "🔸";
             }
-            else
-            {
-                longerDelta = deltaY;
-                shorterDelta = deltaX;
-                startLonger = yStart;
-                startShorter = xStart;
-                longerIsX = false;
-            }
-
-            for (int i = 1; i < Math.Abs(longerDelta); i++)
-            {
-                int indexForShorter;
-                int indexForLonger;
-
-                if (shorterDelta < 0 && longerDelta < 0)
-                {
-                    indexForLonger = startLonger - i;
-                    steigung = -((double)shorterDelta) / longerDelta;
-
-                }
-                else if (shorterDelta < 0 && longerDelta > 0)
-                {
-                    indexForLonger = startLonger + i;
-                    steigung = ((double)shorterDelta) / longerDelta;
-
-                }
-                else if (shorterDelta > 0 && longerDelta < 0)
-                {
-                    indexForLonger = startLonger - i;
-                    steigung = -((double)shorterDelta) / longerDelta;
-
-                }
-                else if (shorterDelta > 0 && longerDelta > 0)
-                {
-                    indexForLonger = startLonger + i;
-                    steigung = ((double)shorterDelta) / longerDelta;
-
-                }
-                else if (shorterDelta == 0 && longerDelta > 0)
-                {
-                    indexForLonger = startLonger + i;
-                    steigung = ((double)shorterDelta) / longerDelta;
-
-                }
-                else if (shorterDelta == 0 && longerDelta < 0)
-                {
-                    indexForLonger = startLonger - i;
-                    steigung = ((double)shorterDelta) / longerDelta;
-
-                }
-                else
-                {
-                    indexForLonger = -1;
-                    steigung = Double.MaxValue;
-                }
-
-                indexForShorter = (int)Math.Round(startShorter + i * steigung);
-
-                if (longerIsX)
-                {
-                    field[indexForShorter, indexForLonger] = ".";
-                }
-                else
-                {
-                    field[indexForLonger, indexForShorter] = ".";
-                }
-            }
+            
 
             // ausgabe
             for (int i = 0; i < dimension; i++)

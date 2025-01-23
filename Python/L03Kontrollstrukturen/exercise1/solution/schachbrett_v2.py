@@ -7,7 +7,7 @@ dimension = int(input("Größe des Spielbretts eingeben: "))
 
 # oder
 # black_square_code = "\u2B1B" # ⬛
-# white_square_code = "\u2591" # ⬜
+# white_square_code = "\u2B1C" # ⬜
 
 # oder
 black_square_code = "⬛"
