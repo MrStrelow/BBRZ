@@ -33,11 +33,11 @@ for y in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
     board.append(row)  
 
 # 3.) linien auf den schachbrett von start zu ende zeichnen (achtung ein wenig mathe)
-board[y_start][x_start] = "🟡"
+board[y_start][x_start] = "♟️"
 board[y_end][x_end] = "❌"
 
 
-# 4.) zeichne linie zwicshen 🟡 und ❌ ein.
+# 4.) zeichne linie zwicshen ♟️ und ❌ ein.
 delta_y = y_end - y_start
 delta_x = x_end - x_start
 
