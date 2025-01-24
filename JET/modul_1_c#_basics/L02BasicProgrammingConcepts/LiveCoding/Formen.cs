@@ -1,154 +1,142 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace LiveCoding;
+namespace LiveCoding;
 
-//public class Formen
-//{
-//    static void Main(string[] args)
-//    {
-//        string triangleSymbol = "#";
+class AP10Formen
+{
+    static void Main(string[] args)
+    {
+        string[,] triangle = DrawTriangle(FillCanvas(new string[9,9]));
+        string[,] container = FillCanvas(new string[2 * triangle.GetLength(0), 2 * triangle.GetLength(1)]);
 
-//        string[,] baseForm = FillCanvas(new string[5, 5], ".");
-//        string[,] triangle = DrawTriangle(baseForm, triangleSymbol);
-//        string[,] diamond = DrawDiamond(triangle);
-//        Print(diamond);
-//    }
+        Print(CombineForm(container, triangle, Position.TOP_RIGHT));
+        Console.WriteLine();
 
-//    static string[,] DrawDiamond(string[,] field)
-//    {
-//        string[,] topRight = Copy(field);
-//        string[,] botRight = MirrorX(field);
-//        string[,] botLeft = MirrorY(botRight);
-//        string[,] topLeft = MirrorX(botLeft);
+        Print(CombineForm(container, MirrorY(triangle), Position.TOP_LEFT));
+        Console.WriteLine();
 
-//        string[,] diamond = new string[field.GetLength(0) * 2, field.GetLength(1) * 2];
-//        diamond = CombineForm(diamond, topRight, Position.TOP_RIGHT);
-//        diamond = CombineForm(diamond, botRight, Position.BOT_RIGHT);
-//        diamond = CombineForm(diamond, botLeft, Position.BOT_LEFT);
-//        diamond = CombineForm(diamond, topLeft, Position.TOP_LEFT);
+        Print(CombineForm(container, MirrorX(MirrorY(triangle)), Position.BOT_LEFT));
+        Console.WriteLine();
 
-//        return diamond;
-//    }
+        Print(CombineForm(container, MirrorX(triangle), Position.BOT_RIGHT));
+        
+        // Warum geht das?... denke an call by value und call by reference.
+        //Print(CombineForm(container, MirrorY(triangle), Position.TOP_LEFT));
+    }
 
-//    static string[,] CombineForm(String[,] container, String[,] part, Position position)
-//    {
-//        container = Copy(container);
-//        int iOffset = part.GetLength(0);
-//        int jOffset = part.GetLength(1);
+    static string[,] FillCanvas(string[,] field)
+    {
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++)
+            {
+                field[y, x] = "_";
+            }
+        }
 
-//        for (int i = 0; i < part.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < part.GetLength(1); j++)
-//            {
-//                // wir fragen hier leider immer etwas ab (positon), das sich nicht ändern pro Schleife.
-//                // Es scheint aber so lesbar zu sein.
-//                // Wir lasses es deshalb so.
-//                switch (position)
-//                {
-//                    case Position.TOP_LEFT: container[i, j] = part[i, j]; break;
-//                    case Position.BOT_RIGHT: container[i + iOffset, j + jOffset] = part[i, j]; break;
-//                    case Position.BOT_LEFT: container[i + iOffset, j] = part[i, j]; break;
-//                    case Position.TOP_RIGHT: container[i, j + jOffset] = part[i, j]; break;
-//                }
-//            }
-//        }
+        return field;
+    }
 
-//        return container;
-//    }
+    static void Print(string[,] field)
+    {
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++)
+            {
+                Console.Write(field[y, x]);
+            }
 
-//    enum Position
-//    {
-//        TOP_RIGHT, TOP_LEFT, BOT_RIGHT, BOT_LEFT
-//    }
+            Console.WriteLine();
+        }
+    }
 
-//    static string[,] DrawTriangle(string[,] field, string symbol)
-//    {
-//        for (int i = 0; i < field.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < field.GetLength(1); j++)
-//            {
-//                if (j <= i)
-//                {
-//                    field[i, j] = symbol;
-//                }
-//            }
-//        }
 
-//        return field;
-//    }
+    static string[,] DrawTriangle(string[,] field)
+    {
+        // 1.) zeichne 
+        // ___
+        // ___
+        // ___
+        //
+        // #__
+        // ##_
+        // ###
+        // in field rein.
 
-//    static string[,] MirrorX(string[,] field)
-//    {
-//        string[,] ret = Copy(field);
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++)
+            {
+                if (x <= y)
+                {
+                    field[y, x] = "#";
+                }
+            }
+        }
 
-//        for (int i = 0; i < field.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < field.GetLength(1); j++)
-//            {
-//                ret[i, j] = field[field.GetLength(0) - 1 - i, j];
-//            }
-//        }
+        return field;
 
-//        return ret;
-//    }
+    }
 
-//    static string[,] MirrorY(string[,] field)
-//    {
-//        string[,] ret = Copy(field);
+    static string[,] MirrorX(string[,] field)
+    {
+        string[,] ret = new string[field.GetLength(0), field.GetLength(1)];
+        // 1.) besuche jedes Feld im Array (wie wird das in der Methode print gemacht?)
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++) 
+            {
+                // 2.) schiebe jedes Feld auf einen neuen Ort (field[length-1-y,x] = field[y,x]). 
+                ret[field.GetLength(0) - 1 - y, x] = field[y, x];
+            }
+        }
 
-//        for (int i = 0; i < field.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < field.GetLength(1); j++)
-//            {
-//                ret[i, j] = field[i, field.GetLength(1) - 1 - j];
-//            }
-//        }
+        return ret;
+    }
 
-//        return ret;
-//    }
+    static string[,] MirrorY(string[,] field)
+    {
+        string[,] ret = new string[field.GetLength(0), field.GetLength(1)];
+        // 1.) besuche jedes Feld im Array (wie wird das in der Methode print gemacht?)
+        for (int y = 0; y < field.GetLength(0); y++)
+        {
+            for (int x = 0; x < field.GetLength(1); x++)
+            {
+                // 2.) schiebe jedes Feld auf einen neuen Ort (field[y,length-1-x] = field[y,x]). 
+                ret[y, field.GetLength(1) - 1 - x] = field[y, x];
+            }
+        }
 
-//    static void Print(string[,] field)
-//    {
-//        for (int i = 0; i < field.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < field.GetLength(1); j++)
-//            {
-//                Console.Write(field[i, j]);
-//            }
+        return ret;
+    }
 
-//            Console.WriteLine();
-//        }
-//    }
+    static string[,] CombineForm(string[,] container, string[,] part, Position position)
+    {
+        for (int y = 0; y < part.GetLength(0); y++)
+        {
+            for (int x = 0; x < part.GetLength(1); x++)
+            {
+                switch(position)
+                {
+                    case Position.TOP_RIGHT: container[y, x + part.GetLength(1)] = part[y, x]; break;
+                    case Position.TOP_LEFT:  container[y, x] = part[y, x]; break;
+                    case Position.BOT_RIGHT: container[y + part.GetLength(0), x + part.GetLength(1)] = part[y, x]; break;
+                    case Position.BOT_LEFT:  container[y + part.GetLength(0), x] = part[y, x]; break;
+                }
+            }
+        }
 
-//    static string[,] FillCanvas(string[,] field, string symbol)
-//    {
-//        for (int i = 0; i < field.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < field.GetLength(1); j++)
-//            {
-//                field[i, j] = symbol;
-//            }
-//        }
+        return container;
+    }
+}
 
-//        return field;
-//    }
-
-//    static string[,] Copy(string[,] field)
-//    {
-//        string[,] ret = new string[field.GetLength(0), field.GetLength(1)];
-
-//        for (int i = 0; i < ret.GetLength(0); i++)
-//        {
-//            for (int j = 0; j < ret.GetLength(1); j++)
-//            {
-//                ret[i, j] = field[i, j];
-//            }
-//        }
-
-//        return ret;
-//    }
-//}
+enum Position
+{
+    TOP_RIGHT, TOP_LEFT, BOT_RIGHT, BOT_LEFT
+}

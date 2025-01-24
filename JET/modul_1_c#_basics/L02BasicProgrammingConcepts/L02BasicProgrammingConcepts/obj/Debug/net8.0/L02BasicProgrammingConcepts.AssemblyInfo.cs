@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("L02BasicProgrammingConcepts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4912f2654b253e43204ddd4d671190fbe3e697b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb4bab2abefca374234841ecd3bc4546ea530a92")]
 [assembly: System.Reflection.AssemblyProductAttribute("L02BasicProgrammingConcepts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("L02BasicProgrammingConcepts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
