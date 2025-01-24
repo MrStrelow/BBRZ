@@ -37,7 +37,7 @@ board[y_start][x_start] = "♟️"
 board[y_end][x_end] = "❌"
 
 
-# 4.) zeichne linie zwicshen ♟️ und ❌ ein.
+# 4.) zeichne linie zwischen ♟️ und ❌ ein.
 delta_y = y_end - y_start
 delta_x = x_end - x_start
 
