@@ -34,26 +34,48 @@ public class Beispiel {
 - **Dokstrings**: Mehrzeilige Kommentare zur Beschreibung der Funktion.
 - **Anonyme Funktionen**: Mit dem Schlüsselwort `lambda` können kleine, einmalige Funktionen definiert werden.
 
+## Rückgabetypen in Python
+- In Python gibt es keine strikte Definition des Rückgabetyps.
+- Funktionen können Werte beliebigen Typs zurückgeben oder auch nichts (`None`).
+
 ```python
-# Lambda-Funktion
-addiere = lambda x, y: x + y
-print(addiere(5, 3))  # Ausgabe: 8
+def kein_rueckgabewert():
+    print("Nur eine Ausgabe")
+
+print(kein_rueckgabewert())  # Ausgabe: None
+
+# Rückgabe mehrerer Werte
+def mehrere_rueckgabewerte():
+    return 1, 2, 3
+
+x, y, z = mehrere_rueckgabewerte()
+print(x, y, z)  # Ausgabe: 1 2 3
 ```
 
 #### Java-Äquivalent
-```java
-// Lambda-Funktion in Java (ab Java 8)
-import java.util.function.BiFunction;
+In Java müssen Methoden einen spezifischen Rückgabewert haben. Um mehrere Werte zurückzugeben, kann man eine Klasse verwenden:
 
-public class LambdaBeispiel {
+```java
+public class Rueckgabewerte {
+    public void keinRueckgabewert() {
+        System.out.println("Nur eine Ausgabe");
+    }
+
+    public int[] mehrereRueckgabewerte() {
+        return new int[]{1, 2, 3};
+    }
+
     public static void main(String[] args) {
-        BiFunction<Integer, Integer, Integer> addiere = (x, y) -> x + y;
-        System.out.println(addiere.apply(5, 3));  // Ausgabe: 8
+        Rueckgabewerte rueck = new Rueckgabewerte();
+        rueck.keinRueckgabewert();
+        int[] werte = rueck.mehrereRueckgabewerte();
+        System.out.println(werte[0] + " " + werte[1] + " " + werte[2]);
     }
 }
 ```
 
 ---
+
 
 ## Argumenttypen in Python: Positional vs. Keyword
 
@@ -162,48 +184,6 @@ public class FlexibleFunktion {
         // Wert1
         // Wert2
         // Wert3
-    }
-}
-```
-
----
-
-## Rückgabetypen in Python
-- In Python gibt es keine strikte Definition des Rückgabetyps.
-- Funktionen können Werte beliebigen Typs zurückgeben oder auch nichts (`None`).
-
-```python
-def kein_rueckgabewert():
-    print("Nur eine Ausgabe")
-
-print(kein_rueckgabewert())  # Ausgabe: None
-
-# Rückgabe mehrerer Werte
-def mehrere_rueckgabewerte():
-    return 1, 2, 3
-
-x, y, z = mehrere_rueckgabewerte()
-print(x, y, z)  # Ausgabe: 1 2 3
-```
-
-#### Java-Äquivalent
-In Java müssen Methoden einen spezifischen Rückgabewert haben. Um mehrere Werte zurückzugeben, kann man eine Klasse verwenden:
-
-```java
-public class Rueckgabewerte {
-    public void keinRueckgabewert() {
-        System.out.println("Nur eine Ausgabe");
-    }
-
-    public int[] mehrereRueckgabewerte() {
-        return new int[]{1, 2, 3};
-    }
-
-    public static void main(String[] args) {
-        Rueckgabewerte rueck = new Rueckgabewerte();
-        rueck.keinRueckgabewert();
-        int[] werte = rueck.mehrereRueckgabewerte();
-        System.out.println(werte[0] + " " + werte[1] + " " + werte[2]);
     }
 }
 ```
