@@ -43,10 +43,9 @@ delta_x = x_end - x_start
 
 steigung = delta_y / delta_x 
 
-for x in range(1, x_end-1):
-    print(x)
-
-# y = steigung * x
+for x in range(1, x_end):
+    y = round(steigung * x)
+    board[y][x] = "🔸"
 
 
 # 5.) ausgabe des schachbretts
