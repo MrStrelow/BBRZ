@@ -36,7 +36,20 @@ for y in range(dimension): # erzeugt mir [0,1,2,3,4] wenn user 5 eingibt
 board[y_start][x_start] = "🟡"
 board[y_end][x_end] = "❌"
 
-# 4.) ausgabe des schachbretts
+
+# 4.) zeichne linie zwicshen 🟡 und ❌ ein.
+delta_y = y_end - y_start
+delta_x = x_end - x_start
+
+steigung = delta_y / delta_x 
+
+for x in range(1, x_end-1):
+    print(x)
+
+# y = steigung * x
+
+
+# 5.) ausgabe des schachbretts
 for y in range(dimension):
     for x in range(dimension):
         print(board[y][x], end="")

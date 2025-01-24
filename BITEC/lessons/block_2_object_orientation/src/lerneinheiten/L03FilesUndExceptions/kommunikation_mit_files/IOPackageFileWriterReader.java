@@ -209,8 +209,8 @@ public class IOPackageFileWriterReader {
 //            socket.close();
 
         // Leider vergessen wir hier auf etwas. Exceptions beschäftigen sich mit Ausnahmesituationen,
-        // welche auch "early exits - System.exit(0)" und "angefangene Exceptions" beinhalten.
-        // In diesen Fällen zerstören wir zwar unser Programm, jedoch kann nicht klar sein, was mit den verwendeten
+        // welche auch "early exits - System.exit(0)" und "nicht aufgefangene Exceptions" beinhalten.
+        // Im letzteren Fall zerstören wir zwar unser Programm, jedoch kann nicht klar sein, was mit den verwendeten
         // Ressourcen (z.B. Verbindung zu einem File mit dem FileReader) passiert.
         // Schließt das Betriebssystem es? Ist es eine Sicherheitslücke? Was, wenn das Programm abstürzt
         // noch etwas als "letzte Nachricht" in ein Logfile schreiben will?
@@ -225,6 +225,8 @@ public class IOPackageFileWriterReader {
 //            fileWriter.close();
 //            bufferedFileReader.close();
 //            socket.close();
+            // Zudem können hier Standardwerte wieder hergestellt werden. Ein Beispiel dafür ist ein Testen einer Externen Software.
+            // Egal ob ein Fehler beim Aufruf zurückkommt, oder nicht, wir setzten alle lokalen Variablen auf den Wert z.B. 0.
             System.out.println("es");
         }
 
