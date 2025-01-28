@@ -14,10 +14,10 @@ Die Nutzung des Internets umfasst nicht
 * sonstige Kommunikation mit anderen Usern
 
 Die Nutzung von allen anderen Dingen, muss vorher mit mir abgesprochen werden
-(z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet. 
+(z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet.
 Die Folge des Schummeln ist eine Bewertung mit 0 Punkten.
 
-* Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 10:15 schicken)
+* Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 16:00 schicken)
 * Viel Erfolg! :)
 
 Notenschlüssel:
@@ -28,35 +28,35 @@ Notenschlüssel:
 ## Guard Clauses [50 / 100 Punkte]
 
 ### Programmverständnis [10 / 50 Teilpunkte]
-Gegeben ist folgender Code welcher eine Guard Clause darstellt. Die Felder (Eigenschaften) der Objekte der Klasse Pilot haben den Typ `bool`.
+Gegeben ist folgender Code welcher eine Guard Clause darstellt. Die Felder (Eigenschaften) der Objekte der Klasse Bergführer haben den Typ `bool`.
 
 ```csharp
-if (pilot == null){
-    throw new ArgumentNullException("Pilot darf nicht null sein.");
+if (guide == null){
+    throw new ArgumentNullException("Bergführer darf nicht null sein.");
 }
 
-if (pilot.HasLicense)
+if (!guide.HasCertification)
 {
-    Console.WriteLine("Der Pilot besitzt keine gültige Lizenz. Start abgebrochen.");
+    Console.WriteLine("Der Bergführer besitzt keine gültige Zertifizierung. Tour abgebrochen.");
     return;
 }
 
-if (!pilot.IsMedicallyCleared)
+if (!guide.IsMedicallyCleared)
 {
-    Console.WriteLine("Der Pilot hat keine aktuelle medizinische Freigabe.");
+    Console.WriteLine("Der Bergführer hat keine aktuelle medizinische Freigabe.");
 }
 
-if (!aircraft.IsOperational)
+if (!equipment.IsOperational)
 {
     return;
-    throw new PilotCheckException("Das Flugzeug ist nicht betriebsbereit.");
+    throw new GuideCheckException("Die Ausrüstung ist nicht einsatzbereit.");
 }
 
-Console.WriteLine("Alle Checks bestanden. Der Flug kann starten!");
+Console.WriteLine("Alle Checks bestanden. Die Tour kann starten!");
 ```
 
  - a) Finde die Fehler in diesem Code und markiere diese.
- - b) Erkläre wieso diese Fehler zu einer nicht gültigen `Guard Clause` führen. 
+ - b) Erkläre wieso diese Fehler zu einer nicht gültigen `Guard Clause` führen.
 
 ---
 
@@ -69,79 +69,87 @@ Erstelle dazu ein Projekt in `Visual Studio` (oder einem Editor deiner Wahl) und
 ```csharp
 using System.Text;
 
-public class Flugzeug
+public class Berg
 {
-    public bool IstGross { get; set; }
+    public bool IstGefährlich { get; set; }
+    public int höhe { get; set; }
 }
 
 
-public class Pilot
+public class Bergführer
 {
     // Eigenschaften / Felder
     public bool IsActive { get; set; }
     public int Age { get; set; }
     public string MedicalClearanceCertificate { get; set; }
-    public DateTime LicenseExpiry { get; set; }
-    public int FlightCount { get; set; }
+    public DateTime CertificationExpiry { get; set; }
+    public int TourCount { get; set; }
 
     // Hat-Beziehungen
-    public Flugzeug Flieger { get; set; }
+    public Berg BergRoute { get; set; }
 
-    public void ValidatePilot()
+    public void ValidateGuide()
     {
         if (IsActive)
         {
-            if (Age >= 18)
+            if (Age >= 21)
             {
                 if (!string.IsNullOrEmpty(MedicalClearanceCertificate))
                 {
-                    if (LicenseExpiry > DateTime.Now)
+                    if (CertificationExpiry > DateTime.Now)
                     {
-                        if (Flieger.IstGross)
+                        if (BergRoute.IstGefährlich)
                         {
-                            if (FlightCount >= 200 && FlightCount <= 500)
+                            if (TourCount >= 50 && TourCount <= 200)
                             {
-                                Console.WriteLine("✅ Pilot hat zwischen 200 und 500 Flügen. Ein Co-Pilot mit mehr als 500 Flügen ist erforderlich um ein großes Flugzeug fliegen zu können.");
+                                Console.WriteLine(“✅ Bergführer hat zwischen 50 und 200 Touren. Ein weiterer erfahrener Guide ist erforderlich, um diese Route zu bewältigen.”);
                             }
-                            else if (FlightCount > 500)
+                            else if (TourCount > 200)
                             {
-                                Console.WriteLine("✅ Pilot hat mehr als 500 Flüge. Dieser Pilot darf ein großes Flugzeug fliegen.");
+                                Console.WriteLine(“✅ Bergführer hat mehr als 200 Touren. Dieser Guide darf die Route alleine führen.”);
                             }
                             else
                             {
-                                throw new InvalidOperationException("❗Pilot hat zu wenig Flüge für ein Großes Flugzeug.");
+                                throw new InvalidOperationException(“❗ Bergführer hat zu wenig Erfahrung für diese Route.”);
                             }
                         }
                         else
                         {
-                            Console.WriteLine("✅ Pilot darf das Flugzeug fliegen.");
+                            if (BergRoute.höhe > 5000) 
+                            {
+                                Console.WriteLine(“✅ Berg ist zu hoch. Ein weiterer erfahrener Guide ist erforderlich, um diese Route zu bewältigen.”);
+                            } 
+                            else 
+                            {
+                                Console.WriteLine(“✅ Bergführer darf die Tour durchführen.”);
+                            }
                         }
                     }
                     else
                     {
-                        throw new InvalidOperationException("❗Die Lizenz des Piloten ist abgelaufen.");
+                        throw new InvalidOperationException(“❗ Die Zertifizierung des Bergführers ist abgelaufen.”);
                     }
                 }
                 else
                 {
-                    throw new InvalidOperationException("❗Pilot besitzt kein medizinisches Freigabezertifikat.");
+                    throw new InvalidOperationException(“❗ Bergführer besitzt kein medizinisches Freigabezertifikat.”);
                 }
             }
             else
             {
-                throw new InvalidOperationException("❗Pilot muss älter als 18 Jahre sein.");
+                throw new InvalidOperationException(“❗ Bergführer muss älter als 21 Jahre sein.”);
             }
         }
         else
         {
-            throw new InvalidOperationException("❗Pilot ist nicht aktiv.");
+            throw new InvalidOperationException(“❗ Bergführer ist nicht aktiv.”);
         }
     }
 
-    public void ValidatePilotGuardClause() 
+    public void ValidateGuideGuardClause()
     {
-        // TODO: Schreibe hier das in ValidatePilot verschachtelte IF in eine Guard Clause um.
-        throw new NotImplementedException("This method is not yet implemented: Schreibe hier das in ValidatePilot verschachtelte IF in eine Guard Clause um.");
+        // TODO: Schreibe hier das in ValidateGuide verschachtelte IF in eine Guard Clause um.
+        throw new NotImplementedException("This method is not yet implemented: Schreibe hier das in ValidateGuide verschachtelte IF in eine Guard Clause um.");
     }
 }
 
@@ -152,20 +160,20 @@ public class Program
     {
         Console.OutputEncoding = Encoding.UTF8;
 
-        Pilot pilot = new Pilot
+        Bergführer guide = new Bergführer
         {
             IsActive = true,
-            Age = 30,
-            MedicalClearanceCertificate = "VeryValidCertificate",
-            LicenseExpiry = DateTime.Now.AddMonths(6),
-            FlightCount = 300,
-            Flieger = new Flugzeug { IstGross = true }
+            Age = 35,
+            MedicalClearanceCertificate = "ValidCertificate",
+            CertificationExpiry = DateTime.Now.AddMonths(12),
+            TourCount = 150,
+            BergRoute = new Berg { IstGefährlich = true, höhe = 4000 }
         };
 
         try
         {
-            pilot.ValidatePilot();
-            pilot.ValidatePilotGuardClause();
+            guide.ValidateGuide();
+            guide.ValidateGuideGuardClause();
         }
         catch (InvalidOperationException ex)
         {
@@ -179,7 +187,8 @@ public class Program
 
 ### Theorie [5 / 50 Teilpunkte]
 * a) Welches Gesetz hilft uns `nested (verschachteltes) IF` als `Guard Clause` umzuschreiben? Versuche intuitiv zu erklären wieso.
-* b) Wenn ein verschachteltes IF mehrere `✅ gültige zustände` besitzt, ist dann ein Anwenden einer Guard Clause möglich? Begründe dein Antwort.
+* b) In C#, kann in einem `Switch-Statement` die Bedingung `x > 50` abgefragt werden und damit in Guard Clauses immer verwendet werden? `Hinweis für C# Kenner`: Es ist **keine** `switch-expression` bzw. **kein** `Pattern Matching` gemeint und auch keine Verwendung von `case guards` vorgesehen. Diese Konzepte lernen wir erst später kennen.)
+* c) Beschreibe den Unterschied zwischen `Vergleichsoperatoren` und `logischen Operatoren`. Gibt es einen? Beide geben einen `Booleschen` Wert zurück. 
 
 ---
 
@@ -187,16 +196,16 @@ public class Program
 ### Programmieren [40 / 50 Teilpunkte]
 
 Implementiere folgende `Hat-Beziehungen`:
-* Eine `Schule` hat mehrere `Klassenzimmer`
-* Ein `Klassenzimmer` hat mehrere `Tische`
-* Ein `Tisch` hat maximal 2 `Schüler`
-* Ein `Schüler` hat genau einen `Tisch`
-* Ein `Lehrer` hat genau ein `Klassenzimmer`
-* Ein `Klassenzimmer` hat genau einen `Lehrer` (das selbe Objekt, wie in der vorherigen Beziehung)
+* Ein `Berg` hat mehrere `Routen`
+* Eine `Route` hat mehrere `Stationen`
+* Eine `Station` hat maximal 5 `Bergsteiger`
+* Ein `Bergsteiger` hat genau eine `Station`
+* Ein `Bergführer` hat genau eine `Route`
+* Eine `Route` hat genau einen `Bergführer` (das selbe Objekt, wie in der vorherigen Beziehung)
 
 Implementiere folgendes `Verhalten` mit `Methoden`:
-* `Schüler` können sich einen `Tisch` aussuchen an dem diese sitzen.
-* `Lehrer` können einen `Schüler` im zuständigen `Klassenraum` suchen. Versuche dazu eine `Collection (Datenstruktur)` zu verwenden, welche immer gleich schnell ist, egal wie viele `Schüler/Tische` sich in dem Klassenraum befinden.
+* `Bergsteiger` können sich eine `Station` aussuchen an der diese bleiben.
+* `Bergführer` können einen `Bergsteiger` auf der zuständigen `Route` suchen. Versuche dazu eine `Collection (Datenstruktur)` zu verwenden, welche immer gleich schnell ist, egal wie viele `Bergsteiger/Stationen` sich auf der Route befinden.
 
 `Näheres` zur Implementierung ist im unteren Programmcode beim Aufruf der `NotImplementedExceptions` und in Kommentaren welche `//TODO` beinhalten, zu finden.
 
@@ -206,172 +215,161 @@ using System.Collections.Generic;
 
 namespace ModulTest;
 
-public class Student
+public class Mountaineer
 {
     // Hat-Beziehungen
     // TODO: Bilde hier die gegebene Hat-Beziehung ab.
 
     // Konstruktor
-    public Student(Classroom classroom)
+    public Mountaineer(Route route)
     {
-        throw new NotImplementedException("TODO: Wenn ein Lehrer:innen Objekt erstellt wird, bekommt diese einen Klassenraum.");
+        throw new NotImplementedException("TODO: Wenn ein Bergsteiger-Objekt erstellt wird, bekommt dieser eine Route.");
     }
 
     // Methoden
-    public void AddStudentToDesk(Desk desk)
+    public void AddMountaineerToStation(Station station)
     {
-        throw new NotImplementedException("Bonus: Prüfe ob ein Schüler:in bereits auf einen anderen Tisch sitzt.");
+        throw new NotImplementedException("Bonus: Prüfe ob ein Bergsteiger bereits an einer anderen Station ist.");
 
-        throw new NotImplementedException("TODO: Wenn der als Argument übergebene Tisch noch nicht dem Klassenraum hinzugefügt wurde, wird dieser hier hinzugefügt.");
-        throw new NotImplementedException("TODO: Füge den Studenten der Collection im Tisch hinzu.");
-        throw new NotImplementedException("TODO: Hier muss die Collection des Lehrers, befüllt werden, damit beide Collections den selben Inhalt haben.");
+        throw new NotImplementedException("TODO: Wenn die als Argument übergebene Station noch nicht der Route hinzugefügt wurde, wird diese hier hinzugefügt.");
+        throw new NotImplementedException("TODO: Füge den Bergsteiger der Collection in der Station hinzu.");
+        throw new NotImplementedException("TODO: Hier muss die Collection des Bergführers, befüllt werden, damit beide Collections den selben Inhalt haben.");
     }
 }
 
-public class Desk
-{
-    // Hat-Beziehungen
-    // TODO: 
-    //  Bilde hier die gegebene Hat-Beziehung ab. 
-    //  Verwende dazu eine Collection (Array, Liste, Dictionary) deiner Wahl.
-
-    // Methoden 
-    public void AddStudent(Student student)
-    {
-        throw new NotImplementedException("TODO: Hier soll ein Student der Collection hinzugefügt werden.");
-        throw new NotImplementedException("TODO: Falls kein Platz mehr am Tisch ist, soll diese Zuweisung nicht erfolgreich sein.");
-    }
-
-    // TODO: ersetze ? mit den gewählten Typ der Collection
-    public ? GetStudents()
-    {
-        throw new NotImplementedException("TODO: Git die gewählte Collection zurück.");
-    }
-}
-
-public class Classroom
-{
-    // Hat-Beziehungen
-    // TODO: 
-    //  Bilde hier die gegebene Hat-Beziehungen ab. 
-    //  Verwende dazu eine Collection (Array, Liste, Dictionary) deiner Wahl.
-    
-    // Konstruktor
-    public Classroom(Teacher teacher)
-    {
-        throw new NotImplementedException("TODO: Konstruktor mit Lehrer als Parameter");
-    }
-
-    // Default Konstruktor ohne Parameter - hier muss nichts getan werden.
-    public Classroom(){}
-
-    // Methoden 
-    public ? GetDesks()
-    {
-        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode \\
-        mit den gewählten Typ der Collection und gib das Objekt der Collection zurück.");
-    }
-
-    public Teacher GetTeacher()
-    {
-        throw new NotImplementedException("TODO: Gib den Lehrer zurück.");
-    }
-
-    public void SetTeacher(Teacher teacher)
-    {
-        throw new NotImplementedException("TODO: Setze den Lehrer auf jenen welcher als parameter übergebn wird.");
-    }
-}
-
-public class Teacher
-{
-    // TODO: 
-    // Felder/Eigenschaften
-    //  Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl,
-    //  um einen schnellstmöglichen Zugriff auf die Tische eines Schüler zu gewährleisten.
-    //  (Anders formuliert: Gegeben einen Schüler, wie bekommen wir seinen Tisch?)
-
-    // Hat-Beziehungen
-    // TODO: 
-    //  Bilde hier die gegebene Hat-Beziehungen ab. 
-
-    // Konstruktor
-    public Teacher(Classroom classroom)
-    {
-        throw new NotImplementedException("TODO: Wenn ein Lehrer:innen Objekt erstellt wird, bekommt diese einen Klassenraum.");
-        throw new NotImplementedException("TODO: Hier muss auch die Collection des Lehrers, mit dem Inhalt befüllt werden, \\
-                                                damit die Datenstruktur des Lehrers und jene der Classroom \\
-                                                 den selben Inhalt haben.");
-    }
-
-    // Methoden
-    public Desk FindStudentInRoom(Student student)
-    {
-        throw new NotImplementedException("\\
-        TODO: Hier sucht ein Lehrer eine Schüler:in welche schnellstmöglich gefunden werden muss. \\
-        Gefunden bedeutet, dass der Tisch der Schüler:in gefunden wird.");
-    }
-
-    public void PutStudentInLookup(Desk desk, Student student)
-    {
-        throw new NotImplementedException("TODO: Verbinde den Tisch mit der Schüler:in und füge es der Collection hinzu.");
-    }
-
-    public ? GetSutdentLookup()
-    {
-        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode und gib die Collection zurück.");
-    }
-}
-
-public class School
+public class Station
 {
     // Hat-Beziehungen
     // TODO:
-    //  Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl welche Klassenzimmer verwaltet.
+    //  Bilde hier die gegebene Hat-Beziehung ab.
+    //  Verwende dazu eine Collection (Array, Liste, Dictionary) deiner Wahl.
 
     // Methoden
-    public void AddClassroom(Classroom classroom)
+    public void AddMountaineer(Mountaineer mountaineer)
     {
-        throw new NotImplementedException("TODO: Füge ein Klassenzimmer der Collection hinzu.");
+        throw new NotImplementedException("TODO: Hier soll ein Bergsteiger der Collection hinzugefügt werden.");
+        throw new NotImplementedException("TODO: Falls kein Platz mehr an der Station ist, soll diese Zuweisung nicht erfolgreich sein.");
     }
 
-    public ? GetClassrooms()
+    // TODO: ersetze ? mit den gewählten Typ der Collection
+    public ? GetMountaineers()
+    {
+        throw new NotImplementedException("TODO: Gib die gewählte Collection zurück.");
+    }
+}
+
+public class Route
+{
+    // Hat-Beziehungen
+    // TODO:
+    //  Bilde hier die gegebene Hat-Beziehungen ab.
+    //  Verwende dazu eine Collection (Array, Liste, Dictionary) deiner Wahl.
+    
+    // Konstruktor
+    public Route(Guide guide)
+    {
+        throw new NotImplementedException("TODO: Konstruktor mit Bergführer als Parameter");
+    }
+
+    // Default Konstruktor ohne Parameter - hier muss nichts getan werden.
+    public Route(){}
+
+    // Methoden
+    public ? GetStations()
+    {
+        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode mit den gewählten Typ der Collection und gib das Objekt der Collection zurück.");
+    }
+
+    public Guide GetGuide()
+    {
+        throw new NotImplementedException("TODO: Gib den Bergführer zurück.");
+    }
+
+    public void SetGuide(Guide guide)
+    {
+        throw new NotImplementedException("TODO: Setze den Bergführer auf jenen welcher als Parameter übergeben wird.");
+    }
+}
+
+public class Guide
+{
+    // TODO:
+    // Felder/Eigenschaften
+    //  Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl,
+    //  um einen schnellstmöglichen Zugriff auf die Station eines Bergsteigers zu gewährleisten.
+    //  (Anders formuliert: Gegeben ein Bergsteiger, wie bekommen wir dessen Station?)
+
+    // Hat-Beziehungen
+    // TODO:
+    //  Bilde hier die gegebene Hat-Beziehungen ab.
+
+    // Konstruktor
+    public Guide(Route route)
+    {
+        throw new NotImplementedException("TODO: Wenn ein Bergführer-Objekt erstellt wird, bekommt dieser eine Route.");
+        throw new NotImplementedException("TODO: Hier muss auch die Collection des Bergführers, mit dem Inhalt befüllt werden, damit die Datenstruktur des Bergführers und jene der Route den selben Inhalt haben.");
+    }
+
+    // Methoden
+    public Station FindMountaineerOnRoute(Mountaineer mountaineer)
+    {
+        throw new NotImplementedException("TODO: Hier sucht ein Bergführer einen Bergsteiger welcher schnellstmöglich gefunden werden muss. Gefunden bedeutet, dass die Station des Bergsteigers gefunden wird.");
+    }
+
+    public void PutMountaineerInLookup(Station station, Mountaineer mountaineer)
+    {
+        throw new NotImplementedException("TODO: Verbinde die Station mit dem Bergsteiger und füge es der Collection hinzu.");
+    }
+
+    public ? GetMountaineerLookup()
     {
         throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode und gib die Collection zurück.");
     }
 }
 
-public class Programm
+public class Mountain
+{
+    // Hat-Beziehungen
+    // TODO:
+    //  Erstelle eine Collection (Array, Liste, Dictionary) deiner Wahl welche Routen verwaltet.
+
+    // Methoden
+    public void AddRoute(Route route)
+    {
+        throw new NotImplementedException("TODO: Füge eine Route der Collection hinzu.");
+    }
+
+    public ? GetRoutes()
+    {
+        throw new NotImplementedException("TODO: Ersetze das `?` beim Rückgabetyp der Methode und gib die Collection zurück.");
+    }
+}
+
+public class Program
 {
     public static void Main()
     {
-        throw new NotImplementedException("TODO: Erstelle eine Schule.");
-        throw new NotImplementedException("TODO: Erstelle zwei Klassenzimmer mit dem Default Konstruktor.");
-        throw new NotImplementedException("TODO: Erstelle zwei Lehrer:innen mit dem Konstruktor welcher Klassenräume übernimmt.");
-        throw new NotImplementedException("TODO: Setzte gib nun die Klassenräume den Lehrer:innen über eine Set Methode.");
-        throw new NotImplementedException("TODO: Füge die Klassenräume der Schule hinzu.");
-        throw new NotImplementedException("TODO: Füge 2 Tische dem ersten Klassenraum und 2 Tische dem zewiten Klassenraum hinzu.");
-        throw new NotImplementedException("TODO: Erstelle drei Schüler:innen für jede der Klassenräume.");
+        throw new NotImplementedException("TODO: Erstelle einen Berg.");
+        throw new NotImplementedException("TODO: Erstelle zwei Routen mit dem Default Konstruktor.");
+        throw new NotImplementedException("TODO: Erstelle zwei Bergführer mit dem Konstruktor welcher Routen übernimmt.");
+        throw new NotImplementedException("TODO: Setze gib nun die Routen den Bergführern über eine Set Methode.");
+        throw new NotImplementedException("TODO: Füge die Routen dem Berg hinzu.");
+        throw new NotImplementedException("TODO: Füge 2 Stationen der ersten Route und 2 Stationen der zweiten Route hinzu.");
+        throw new NotImplementedException("TODO: Erstelle drei Bergsteiger für jede der Routen.");
         
-        throw new NotImplementedException("TODO: Setze 3 Schüler:innen auf die Tische in einen Klassenraum \\
-        und 2 Schüler:innen auf Tische in den anderen Klasseraum.");
+        throw new NotImplementedException("TODO: Setze 3 Bergsteiger auf die Stationen in einer Route und 2 Bergsteiger auf Stationen in der anderen Route.");
         
-        throw new NotImplementedException("TODO: Setze den fehlenden Schüler:innen \\
-        auf einen noch nicht im Klassenzimmer existierenden Tisch.");
+        throw new NotImplementedException("TODO: Setze den fehlenden Bergsteiger auf eine noch nicht in der Route existierende Station.");
         
-        throw new NotImplementedException("TODO: Einer der Lehrer:innen sucht (auf welchen Tisch soll er/sie schauen?) \\
-        schnell einen Schüler:innen deiner Wahl. Gib dazu diesen mit dessen Tisch aus. \\
-        Es reicht das Objekt auf die konsole auszugeben. Es muss kein Menschen lesbarer Text verwendet werden.");
+        throw new NotImplementedException("TODO: Einer der Bergführer sucht (auf welche Station soll er/sie schauen?) schnell einen Bergsteiger deiner Wahl. Gib dazu diesen mit dessen Station aus. Es reicht das Objekt auf die Konsole auszugeben. Es muss kein Menschen lesbarer Text verwendet werden.");
         
-        throw new NotImplementedException("TODO: Gibt alle Schüler:innen inklusive Tisch in der Schule auf die Console aus.");
+        throw new NotImplementedException("TODO: Gib alle Bergsteiger inklusive Station im Berg auf die Konsole aus.");
 
-        throw new NotImplementedException("TODO: Füge eine:n Schüler:in einem freien Tisch in einem Klassenzimmer hinzu. \\
-        Findet der Lehrer diese:n?");
+        throw new NotImplementedException("TODO: Füge einen Bergsteiger einer freien Station in einer Route hinzu. Findet der Bergführer diesen?");
 
-        throw new NotImplementedException("TODO: Eine neue Lehrerin bekommt einen bestehenden Klassenraum. \\
-        Überschreibe dazu den Lehrer in einem bestehenden Klassenraum mit dem Objekt der neuen Lehrerin. Findet sie die Schüler?");
+        throw new NotImplementedException("TODO: Ein neuer Bergführer bekommt eine bestehende Route. Überschreibe dazu den Bergführer in einer bestehenden Route mit dem Objekt des neuen Bergführers. Findet er die Bergsteiger?");
         
-        throw new NotImplementedException("TODO: Suche nun mit dem Lehrer des anderen Klassenraums. Was passiert nun?");
+        throw new NotImplementedException("TODO: Suche nun mit dem Bergführer der anderen Route. Was passiert nun?");
     }
 }
 ```

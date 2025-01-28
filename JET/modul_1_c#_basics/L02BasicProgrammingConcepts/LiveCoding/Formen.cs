@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LiveCoding;
 
-class Formen
+class AP10Formen
 {
     static void Main(string[] args)
     {
