@@ -1,10 +1,8 @@
 import math
 
 def main():
-    print("Gr\u00f6\u00dfe des Spielfields eingeben (gib 20 ein): ")
-
     # Get user input
-    dimension = int(input("Größe des Spielbretts eingeben: "))
+    dimension = int(input("Größe des Spielbretts eingeben (gib 20 ein): "))
 
     # Userinput welcher solange fragt bis eine richtige Eingabe erfolgt.
     # while True:
@@ -23,13 +21,14 @@ def main():
                 row.append("⬜")  # Weißes Feld
             else:
                 row.append("⬛")  # Schwarzes Feld
-    field.append(row)
+        
+        field.append(row)
 
     # field = [["⬜" if (i + j) % 2 == 0 else "⬛" for j in range(dimension)] for i in range(dimension)]
 
     # Set start and end points
-    y_start, x_start = 12, 15
-    y_end, x_end = 0, 3
+    y_start, x_start = 0, 8
+    y_end, x_end = 5, 15
 
     field[y_start][x_start] = "🟡"
     field[y_end][x_end] = "❌"
@@ -39,9 +38,9 @@ def main():
     delta_y = y_end - y_start
     slope = delta_y / delta_x
 
-    for x in range(x_start + 1, x_end):
-        y = round(y_start + slope * (x - x_start))
-        field[y][x] = "🔸"
+    for x in range(1, x_end-x_start):
+        y = round(slope * x)
+        field[y][x + x_start] = "🔸"
 
     # Print the chessboard
     for row in field:

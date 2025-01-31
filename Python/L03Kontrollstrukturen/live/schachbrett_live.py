@@ -41,10 +41,14 @@ board[y_end][x_end] = "❌"
 delta_y = y_end - y_start
 delta_x = x_end - x_start
 
-steigung = delta_y / delta_x 
+steps = max(abs(delta_x), abs(delta_y))
 
-for x in range(1, x_end):
-    y = round(steigung * x)
+steps_y = delta_y / steps
+steps_x = delta_x / steps
+
+for i in range(1, steps):
+    y = y_start + round(steps_y * i)
+    x = x_start + round(i * steps_x)
     board[y][x] = "🔸"
 
 
