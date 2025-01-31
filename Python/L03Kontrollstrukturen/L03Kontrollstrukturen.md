@@ -163,6 +163,77 @@ for element in liste:
 **Unterschiede**:
 - Die Syntax ist sehr ähnlich, aber in Python wird einfach `in` anstelle von `:` verwendet.
 
+
+## List/Dicitonary Comphrehention
+# List- und Dictionary-Comprehensions in Python vs. Java
+
+## Was sind Comprehensions in Python?
+
+Comprehensions in Python sind eine elegante und kompakte Möglichkeit, Listen, Sets und Dictionaries zu erstellen. Sie ermöglichen es, eine Sammlung basierend auf einer vorhandenen Sammlung zu erstellen, indem man eine Ausdrucks- und Filterlogik in einer einzigen Zeile anwendet.
+
+### 1. **List Comprehension**
+
+List-Comprehension ist eine Möglichkeit, eine neue Liste zu erstellen, indem man eine Ausdruckslogik auf jede Iteration einer bestehenden Liste anwendet.
+
+#### Beispiel: Quadrieren der Zahlen von 1 bis 5
+
+```python
+# Python List Comprehension
+numbers = [1, 2, 3, 4, 5]
+squares = [x ** 2 for x in numbers]
+print(squares)  # Output: [1, 4, 9, 16, 25]
+```
+Hier wird die Liste squares mit den Quadrierungen der Zahlen von der Liste numbers erstellt.
+
+### Äquivalent in Java
+In Java gibt es keine direkte Entsprechung zu List-Comprehensions, aber wir können eine ähnliche Funktionalität mit Streams und Lambdas erreichen.
+import java.util.List;
+import java.util.stream.Collectors;
+```java
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        List<Integer> squares = numbers.stream()
+                                       .map(x -> x * x)
+                                       .collect(Collectors.toList());
+        System.out.println(squares);  // Output: [1, 4, 9, 16, 25]
+    }
+}
+```
+In Java verwenden wir Streams und die map-Funktion, um eine Transformation auf die Liste anzuwenden.
+
+## 2. Dictionary Comprehension
+Dictionary Comprehension wird verwendet, um ein Dictionary basierend auf einer bestehenden Sammlung zu erstellen, wobei Schlüssel-Wert-Paare generiert werden.
+
+Beispiel: Erstellen eines Dictionaries mit Quadraten der Zahlen
+
+```python
+# Python Dictionary Comprehension
+numbers = [1, 2, 3, 4, 5]
+squares_dict = {x: x ** 2 for x in numbers}
+print(squares_dict)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+Hier wird ein Dictionary erstellt, bei dem die Schlüssel die Zahlen aus der Liste sind und die Werte die Quadrierungen dieser Zahlen.
+
+### Äquivalent in Java
+In Java gibt es keine eingebaute Syntax für Dictionary Comprehensions. Stattdessen verwenden wir einen Map und Streams.
+```java
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        Map<Integer, Integer> squaresMap = numbers.stream()
+                                                  .collect(Collectors.toMap(x -> x, x -> x * x));
+        System.out.println(squaresMap);  // Output: {1=1, 2=4, 3=9, 4=16, 5=25}
+    }
+}
+```
+In Java verwenden wir die Collectors.toMap-Methode, um eine Map zu erstellen, wobei der erste Parameter den Schlüssel und der zweite den Wert angibt.
+
 ## Nützliche Methoden in Python:
 
 ### 1. **zip**
@@ -186,28 +257,7 @@ for index, value in enumerate(liste):
     print(index, value)
 # Ausgabe: 0 a, 1 b, 2 c
 ```
-
-### 3. **map**
-Die `map`-Funktion wendet eine Funktion auf jedes Element eines Iterierbaren an und gibt einen Iterator zurück.
-
-### Beispiel:
-```python
-liste = [1, 2, 3]
-result = map(lambda x: x * 2, liste)
-print(list(result))  # [2, 4, 6]
-```
-
-### 4. **filter**
-Die `filter`-Funktion filtert Elemente aus einer Liste basierend auf einer Bedingung.
-
-### Beispiel:
-```python
-liste = [1, 2, 3, 4, 5]
-result = filter(lambda x: x % 2 == 0, liste)
-print(list(result))  # [2, 4]
-```
-
-### 5. **sorted**
+### 3. **sorted**
 Die `sorted`-Funktion gibt eine sortierte Kopie einer Liste zurück.
 
 ### Beispiel:
@@ -217,7 +267,7 @@ sorted_liste = sorted(liste)
 print(sorted_liste)  # [1, 1, 3, 4, 5, 9]
 ```
 
-### 6. **all und any**
+### 4. **all und any**
 - `all()` gibt `True` zurück, wenn alle Elemente eines Iterierbaren `True` sind.
 - `any()` gibt `True` zurück, wenn mindestens ein Element eines Iterierbaren `True` ist.
 
@@ -227,7 +277,3 @@ liste = [True, True, False]
 print(all(liste))  # False
 print(any(liste))  # True
 ```
-
-## Fazit
-- In Java sind Kontrollstrukturen wie `switch` und `do-while` nativ verfügbar, während Python alternative Methoden oder Konstrukte verwendet.
-- Python bietet nützliche Funktionen wie `zip`, `enumerate`, `map`, `filter` und `sorted`, die in vielen Fällen den Code vereinfachen und lesbarer machen.

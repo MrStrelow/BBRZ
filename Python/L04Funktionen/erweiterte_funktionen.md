@@ -1,0 +1,133 @@
+# Erweiterte Konzepte von Funktionen in Python
+
+## 1. Lambda-Funktionen
+
+Lambda-Funktionen in Python sind anonyme Funktionen, die in einer einzigen Zeile definiert werden. Sie sind nützlich, wenn eine Funktion nur einmal benötigt wird und nicht wiederverwendet werden soll.
+
+Beispiel:
+
+```python
+# Eine einfache Lambda-Funktion, die die Zahl verdoppelt
+double = lambda x: x * 2
+print(double(5))  # Ausgabe: 10
+```
+
+## 2. Map-Funktion
+
+Die `map()`-Funktion wendet eine Funktion auf jedes Element einer Liste (oder eines anderen iterierbaren Objekts) an und gibt ein Iterator-Objekt zurück.
+
+Beispiel:
+
+```python
+# Map-Funktion, die alle Zahlen in einer Liste verdoppelt
+numbers = [1, 2, 3, 4]
+doubled_numbers = map(lambda x: x * 2, numbers)
+print(list(doubled_numbers))  # Ausgabe: [2, 4, 6, 8]
+```
+
+## 3. Filter-Funktion
+
+Die `filter()`-Funktion filtert die Elemente einer Liste, die eine bestimmte Bedingung erfüllen.
+
+Beispiel:
+
+```python
+# Filter-Funktion, die nur gerade Zahlen behält
+numbers = [1, 2, 3, 4, 5, 6]
+even_numbers = filter(lambda x: x % 2 == 0, numbers)
+print(list(even_numbers))  # Ausgabe: [2, 4, 6]
+```
+
+## 4. Reduce-Funktion
+
+Die `reduce()`-Funktion, die im Modul `functools` enthalten ist, reduziert eine Liste auf einen einzelnen Wert, indem sie eine Funktion rekursiv auf jedes Element anwendet.
+
+Beispiel:
+
+```python
+from functools import reduce
+
+# Reduzieren einer Liste von Zahlen, um ihre Summe zu berechnen
+numbers = [1, 2, 3, 4]
+sum_result = reduce(lambda x, y: x + y, numbers)
+print(sum_result)  # Ausgabe: 10
+```
+
+## 5. Dekoratoren
+
+Dekoratoren in Python sind eine Möglichkeit, eine Funktion zu modifizieren, ohne ihren Quellcode zu ändern. Sie sind häufig in der Webentwicklung und für Funktionserweiterungen nützlich.
+
+Beispiel:
+
+```python
+# Ein einfacher Dekorator, der eine Nachricht ausgibt, bevor die Funktion ausgeführt wird
+def decorator(func):
+    def wrapper():
+        print("Vor der Funktionsausführung")
+        func()
+        print("Nach der Funktionsausführung")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hallo!")
+
+say_hello()
+```
+
+Ausgabe:
+```
+Vor der Funktionsausführung Hallo! Nach der Funktionsausführung
+```
+
+
+## 6. Rekursive Programmierung
+
+Rekursion tritt auf, wenn eine Funktion sich selbst aufruft. Rekursive Algorithmen sind oft nützlich für Probleme wie das Durchsuchen von Bäumen oder die Berechnung von Fakultäten.
+
+Beispiel: Berechnung der Fakultät einer Zahl:
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(5))  # Ausgabe: 120
+```
+
+## 7. Funktionskomposition
+
+Funktionskomposition bedeutet, dass man mehrere Funktionen miteinander kombiniert, so dass das Ergebnis einer Funktion als Eingabe für eine andere verwendet wird.
+
+Beispiel:
+
+```python
+# Zwei einfache Funktionen
+def add_one(x):
+    return x + 1
+
+def multiply_by_two(x):
+    return x * 2
+
+# Funktionskomposition
+composed_function = lambda x: multiply_by_two(add_one(x))
+print(composed_function(5))  # Ausgabe: 12
+```
+
+## 8. partial() aus functools
+Mit `partial()` kann man eine neue Funktion erstellen, bei der einige Argumente einer bestehenden Funktion vorab festgelegt werden. Dies ist nützlich, wenn eine Funktion häufig mit denselben Argumenten aufgerufen wird.
+
+Beispiel:
+```python
+from functools import partial
+
+def multiply(x, y):
+    return x * y
+
+# Neue Funktion, die immer mit x=2 multipliziert
+double = partial(multiply, 2)
+
+print(double(5))  # Ausgabe: 10
+```
