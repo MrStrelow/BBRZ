@@ -35,22 +35,29 @@ while leben > 0:
     guess = int(input("Gib ein [0-100]: "))
     
     leben = leben - 1
-    
-    if guess == geheimzahl:
-        play_again = input("passt. möchtest du nochmals spielen? [+/-]")
-        
-        if play_again == "+":
-            geheimzahl = randint(0, 100)
-            leben = 5
 
-        elif play_again == "-": 
-            leben = 0
+    # Zusändigkeit: rate logik
+    # zustand gewonnen
+    if guess == geheimzahl:
+        print("gewonnen.", end="")
+        leben = 0
 
     elif guess > geheimzahl:
         print("zahl ist kleiner.")
 
     elif guess < geheimzahl:
         print("zahl ist großer.")
-    
 
-# nicht teil der schleife
+    # zustand verloren
+    if leben == 0 and guess != geheimzahl:
+        print("verloren.", end="")
+
+    # Zuständigkeit: logik des neustarts
+    if leben == 0:
+        play_again = input("möchtest du nochmals spielen? [+/-]")
+
+        if play_again == "+":
+            geheimzahl = randint(0, 100)
+            leben = 5
+
+
