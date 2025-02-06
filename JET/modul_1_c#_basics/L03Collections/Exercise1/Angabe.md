@@ -53,10 +53,10 @@ Dictionary<string, List<List<string>>> lager;
 // Dictionary<string, List<List<string>>> lager_ger;
 
 void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string boxType) { ... }
-void FindProductCategoriesOfWarehousen(Dictionary<string, List<List<string>>> warehouse, string productType) { ... }
+void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string productType) { ... }
 
 // Hilfsmethode um Boxen ins Warenhaus zu geben.
-void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination) { ... }
+void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string key) { ... }
 ```
 
 Beispiel-Aufruf in der Main-Methode:

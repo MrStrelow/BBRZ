@@ -29,7 +29,7 @@
         // Überprüfe beim hinufügen ob die ProduktTypen den Größen der Boxen entsprechen
         // Das geht einfacher mit einer Methode. Das haben wir nicht speziell spezifiziert in der Angabe (mit Absicht!).
         addProductToBoxInWarehouse(warehouse, 0, fahrrad, "big");
-        addProductToBoxInWarehouse(warehouse, 0, kulli, "big");
+        addProductToBoxInWarehouse(warehouse, 0, kulli, "big"); // Fehler, sind jetzt umweltbewusst.
 
         addProductToBoxInWarehouse(warehouse, 1, fahrrad, "big");
         addProductToBoxInWarehouse(warehouse, 1, fahrrad, "big");
@@ -52,25 +52,65 @@
         FindBoxesInWarehouse(warehouse, "big");
         FindBoxesInWarehouse(warehouse, "med");
         FindBoxesInWarehouse(warehouse, "small");
-        FindBoxesInWarehouse(warehouse, "drüLb");
+        //FindBoxesInWarehouse(warehouse, "drüLb");
 
         // Produktinhalte ausgeben
         Console.WriteLine("\nProduktinhalte mit dessen Boxen ausgeben:");
-        FindProductCategoriesOfWarehouse(warehouse, "Fahrrad")
+        FindProductCategoriesOfWarehouse(warehouse, "Fahrrad");
     }
 
     static void FindBoxesInWarehouse(Dictionary<string, List<List<string>>> warehouse, string boxType) 
-    { 
-        throw new NotImplementedException();
-    }
-    static void FindProductCategoriesOfWarehousen(Dictionary<string, List<List<string>>> warehouse, string productType) 
     {
-        throw new NotImplementedException();
+        foreach( var box in warehouse[boxType] )
+        {
+            Console.WriteLine($"box ({boxType}): ");
+
+            foreach (var productType in box)
+            {
+                Console.WriteLine($"\t{productType}");
+            }
+        } 
+    }
+    static void FindProductCategoriesOfWarehouse(Dictionary<string, List<List<string>>> warehouse, string productType) 
+    {
+        int boxId = 0;
+        foreach (var boxes in warehouse)
+        {
+            foreach (var box in boxes.Value)
+            {
+                boxId++;
+
+                foreach (var productTypeInBox in box)
+                {
+                    if (productTypeInBox == productType)
+                    {
+                        Console.WriteLine($"{blue}{productType}{reset}\t - was found in a {red}{boxes.Key}{reset} Box, with id {red}{boxId}{reset}");
+                    }
+                }
+            }
+
+            boxId = 0;
+        }
     }
 
     // Hilfsmethode um Boxen ins Warenhaus zu geben.
-    static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string destination) 
+    static void addProductToBoxInWarehouse(Dictionary<string, List<List<string>>> warehouse, int boxId, string productType, string key) 
     { 
-        throw new NotImplementedException();
+        if (
+            (key == "big" && productType == "Kulli") ||
+            (key == "med" && productType == "Tisch") ||
+            (key == "small" && productType != "Kulli")
+        )
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+
+            Console.WriteLine("Box zu klein! (oder falscher ProduktTyp übergeben, diese sind: [Fahrrad, Tisch, Kulli])");
+
+            Console.ResetColor();
+            return;
+        }
+
+        warehouse[key][boxId].Add(productType);
     }
 }
