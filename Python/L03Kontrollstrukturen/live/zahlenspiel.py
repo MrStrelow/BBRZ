@@ -12,6 +12,7 @@
 Notizen:
  - gameloop -> while ganz außen
  - guessloop -> while für zahlen raten
+ - können beide loops zusammenfassen.
 
  - verzweigung:
     -> genug leben?
@@ -30,14 +31,14 @@ from random import randint
 leben = 5
 geheimzahl = randint(0, 100)
 
-#guesloop
+# guesloop
 while leben > 0:
     guess = int(input("Gib ein [0-100]: "))
     
     leben = leben - 1
 
-    # Zusändigkeit: rate logik
-    # zustand gewonnen
+    # Zusändigkeit: Logik des Ratens
+    # Zustand gewonnen
     if guess == geheimzahl:
         print("gewonnen.", end="")
         leben = 0
@@ -48,11 +49,12 @@ while leben > 0:
     elif guess < geheimzahl:
         print("zahl ist großer.")
 
-    # zustand verloren
+    # Zusändigkeit: Logik des Ratens
+    # Zustand verloren
     if leben == 0 and guess != geheimzahl:
         print("verloren.", end="")
 
-    # Zuständigkeit: logik des neustarts
+    # Zuständigkeit: Logik des Neustarts
     if leben == 0:
         play_again = input("möchtest du nochmals spielen? [+/-]")
 

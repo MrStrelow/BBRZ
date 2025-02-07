@@ -1,49 +1,57 @@
-Welche ``Konzepte`` der Programmiersprache üben wir hier?
-* Schleifen
-* Verzweigungen
-* Listen (multidimensional)
-* User-Input
-* Operatoren (besonders logische)
+## Aufgabenstellung
+### Schreiben Sie ein Java-Programm, das ein Zahlen-Ratespiel simuliert.
+Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage.
+Anforderungen
+#### Geheime Zahl:
+Das Programm wählt zu Beginn eine zufällige Zahl zwischen 0 und 100 aus.
+Verwenden Sie dazu Math.random() oder java.util.Random.
+#### Benutzereingabe:
+Der Benutzer wird in jeder Runde aufgefordert, eine Zahl einzugeben.
+Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht.
+#### Feedback:
+Wenn die Eingabe zu hoch ist, gibt das Programm die Nachricht "Die Zahl ist zu hoch!" aus.
+Wenn die Eingabe zu niedrig ist, gibt das Programm die Nachricht "Die Zahl ist zu klein!" aus.
+Bei korrekter Eingabe zeigt das Programm "Herzlichen Glückwunsch, Sie haben die Zahl erraten!" an und beendet das Spiel.
+#### Leben:
+Der Benutzer hat 5 Leben.
+Bei jeder falschen Eingabe verliert er ein Leben.
+Wenn die Leben aufgebraucht sind, endet das Spiel mit der Nachricht: "Game Over! Die geheime Zahl war: [Geheime Zahl]".
+#### Schleifensteuerung:
+Nutzen Sie eine while-Schleife, um die Eingaben des Benutzers zu prüfen, bis die Zahl erraten wurde oder die Leben aufgebraucht sind.
 
-Welche ``Denkweisen`` üben wir hier?
-* Wie gehe ich mit einer Mathematischen Funktion um (lineare Funktion, Steigung)?
+#### Beispielablauf:
+Willkommen beim Zahlen-Ratespiel!
+Ich habe eine geheime Zahl zwischen 0 und 100 ausgewählt.
+Sie haben 5 Leben. Viel Glück!
+ 
+Geben Sie Ihre Schätzung ein: 
+> 50
+Die Zahl ist zu hoch! Sie haben noch 4 Leben.
+ 
+Geben Sie Ihre Schätzung ein: 
+> 25
+Die Zahl ist zu klein! Sie haben noch 3 Leben.
+ 
+Geben Sie Ihre Schätzung ein: 
+> 37
+Die Zahl ist zu hoch! Sie haben noch 2 Leben.
+ 
+Geben Sie Ihre Schätzung ein: 
+> 30
+Die Zahl ist zu klein! Sie haben noch 1 Leben.
+ 
+Geben Sie Ihre Schätzung ein: 
+> 35
+Game Over! Die geheime Zahl war: 33
 
-Lies davor:
-
-## 3. Schachbrett und Linien.
-* Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `Console.ReadLine` und wandle diesen String in eine Zahl um.
-Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. Die 16-bit Uni-Codes für schwarze und weiße Symbole sind `\u2591` und `\u2588`. Alternativ verwende die 24-bit emojis ⬜ und ⬛. (windows + . öffnet dir einen preview der emojis, füge diese dann in den black_square = "⬛" ein)
-* Der User soll nun 2 Paare von `y` und `x` Koordinaten wählen, welche miteinander verbunden werden sollen. Markiere die Start- und Endpunkte mit einem `o` (🟡) und `x` (❌). Verwende für die Verbindung dieser Punkte den Zusammenhang $y=k\cdot x+d$ und $\frac{\Delta y}{\Delta x}=k$. Verwende für jede Zelle, welche als Teil der Linie von den oben genannten Zusammenhängen ausgewählt wird, das Symbol `~` (🔸).
-Beginne mit folgenden Fall:
-    * Start 0 0 zu 3 5: hier ist die längere Seite die horizontale Seite (x). Bedeutet wir wollen diese mit einer Schleife abtasten. Die Koordinaten der längeren (y) Richtung wird dann verwendet um die Koordinaten der kürzeren (x) Richtung auszurechnen ($y=k\cdot x+d$)
-    * Start 0 0 zu 5 3: hier ist die längere Seite die vertikale Seite (y). Achtung! Was dreht sich nun alles um? ($y=k\cdot x+d$ oder $x=k\cdot y+d$? bzw. $\frac{\Delta y}{\Delta x}=k$ oder $\frac{\Delta x}{\Delta y}=k$?)
-    * Start 3 5 zu 0 0 bzw. 5 3 zu 0 0: Hier ist nun das Problem, dass wir in der For-Schleife von rechts nach links gehen. Bis jetzt war es links nach rechts. Passe den Code dementsprechend an. `Tipp:` Schreibe nicht gleich eine 2. For Schleife welche mit `i--` arbeitet. Bleibe bei jener mit `i++` und taste an einer Position und zähle oder ziehe dazu den Index der schleife ab. Dieser Index zählt immer von $1$ bis $|\Delta|$. Hier ist $||$ der Betrag (macht alles positiv) und $\Delta$ ist das jenes der längeren Seite.
-    * Start xx zu yy: Um die richtigen Vorzeichen der Steigung zu erhalten, müssen wir anschauen, welches $\Delta$ größer ist. Wir haben hier 4 Fälle.  
-    * horizontale und vertikale Linien: Stelle sicher, dass horizontale und vertikale Linien funktionieren.
-* ``Optional``: Versuche wenn die Linie nach rechts oben bzw. links unten geht das Symbol `/`, links oben bzw. rechts unten, `\`, wenn diese "sehr steil" ist `|` und "sehr flach" `-` (oder such in der erweiterten ASCII Tabelle nach Symbolen). 
-
-### Testfälle
-- 0 5 und 7 7
-- 5 0 und 7 7
-- 5 7 und 7 0
-- 0 7 und 7 5
-- 7 7 und 0 5
-- 7 7 und 5 0
-- 5 7 und 0 7
-- 0 7 und 5 7
-- 0 5 und 7 7
-- 0 0 und 0 7
-- 0 7 und 0 0
-
-### Erwartete Ausgabe für den Fall 1 2 zu 5 5:
-```Größe des Spielbretts eingeben: 6
-Größe des Spielbretts eingeben: 6
-Wähle die Figur... [x y]: 1 2
-... und wähle das Ziel [x y]: 5 5
-█░█░█░
-░█░█░█
-█o█░█░
-░█.█░█
-█░█..░
-░█░█░x
-```
+ 
+### Hinweise
+#### Zufällige Zahl generieren:
+Verwenden Sie int geheimZahl = (int) (Math.random() * 100); (Die Zahl liegt dann zwischen 0 und 100).
+#### Variable für Leben:
+int leben = 5 (Zählt, wie viele Leben der Benutzer hat).
+#### Benutzereingabe:
+Nutzen Sie Scanner, um Eingaben aus der Konsole zu lesen.
+#### Zusatzaufgabe (optional):
+Geben Sie am Ende die Anzahl der Versuche aus, die der Benutzer benötigt hat, um die Zahl zu erraten.
+Fügen Sie eine Möglichkeit hinzu, das Spiel nach einem Durchgang erneut zu starten.

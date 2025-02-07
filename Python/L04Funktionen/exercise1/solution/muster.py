@@ -41,6 +41,10 @@ def print_canvas(field):
 def fill_canvas(field, symbol):
     return [[symbol for _ in range(len(field[0]))] for _ in range(len(field))]
 
+
+# def draw_triangle(field, symbol):
+#     return [[symbol if j <= i else cell for j, cell in enumerate(row)] for i, row in enumerate(field)]
+
 def draw_triangle(field, symbol):
     ret = copy(field)
     for i in range(len(ret)):
