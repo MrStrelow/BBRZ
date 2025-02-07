@@ -29,34 +29,36 @@ from random import randint
 # from random import randint as r
 
 leben = 5
+maximale_leben = leben
 geheimzahl = randint(0, 100)
 
 # guesloop
 while leben > 0:
     guess = int(input("Gib ein [0-100]: "))
-    
+
     leben = leben - 1
+    versuche = maximale_leben - leben
 
     # Zusändigkeit: Logik des Ratens
     # Zustand gewonnen
     if guess == geheimzahl:
-        print("gewonnen.", end="")
+        print("gewonnen. ", end="")
         leben = 0
 
-    elif guess > geheimzahl:
-        print("zahl ist kleiner.")
+    elif guess > geheimzahl and leben > 0:
+        print(f"zahl ist kleiner. Du hast noch {leben} Leben.")
 
-    elif guess < geheimzahl:
-        print("zahl ist großer.")
+    elif guess < geheimzahl and leben > 0:
+        print(f"zahl ist großer. Du hast noch {leben} Leben.")
 
     # Zusändigkeit: Logik des Ratens
     # Zustand verloren
     if leben == 0 and guess != geheimzahl:
-        print("verloren.", end="")
+        print(f"verloren. Die zahl wäre {geheimzahl}. Du hast Versuche {versuche} benötigt. ", end="")
 
     # Zuständigkeit: Logik des Neustarts
     if leben == 0:
-        play_again = input("möchtest du nochmals spielen? [+/-]")
+        play_again = input("Möchtest du nochmals spielen? [+/-].")
 
         if play_again == "+":
             geheimzahl = randint(0, 100)
