@@ -45,11 +45,12 @@ while leben > 0:
         print("gewonnen. ", end="")
         leben = 0
 
-    elif guess > geheimzahl and leben > 0:
+    elif guess > geheimzahl and leben > 0:  # !(A and B) = !A oder !B
         print(f"zahl ist kleiner. Du hast noch {leben} Leben.")
 
     elif guess < geheimzahl and leben > 0:
         print(f"zahl ist großer. Du hast noch {leben} Leben.")
+            
 
     # Zusändigkeit: Logik des Ratens
     # Zustand verloren

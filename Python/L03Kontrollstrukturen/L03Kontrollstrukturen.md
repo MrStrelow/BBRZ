@@ -245,6 +245,20 @@ liste1 = [1, 2, 3]
 liste2 = ['a', 'b', 'c']
 result = zip(liste1, liste2)
 print(list(result))  # [(1, 'a'), (2, 'b'), (3, 'c')]
+
+# for first, second in result:
+for first, second in zip(liste1, liste2):
+    print(str(first) + "--" + second)
+    print('##########')
+```
+Output:
+```
+1--a
+##########
+2--b
+##########
+3--c
+##########
 ```
 
 ### 2. **enumerate**
@@ -257,6 +271,20 @@ for index, value in enumerate(liste):
     print(index, value)
 # Ausgabe: 0 a, 1 b, 2 c
 ```
+
+```python
+liste1 = [1, 2, 3]
+liste2 = ['a', 'b', 'c']
+result = zip(liste1, liste2)
+print(list(result))  # [(1, 'a'), (2, 'b'), (3, 'c')]
+
+
+# for first, second in result:
+for i, (first, second) in enumerate(zip(liste1, liste2), start=50):
+    print(str(first) + "--" + second + ": in iterator: " + str(i))
+    print('##########')
+```
+
 ### 3. **sorted**
 Die `sorted`-Funktion gibt eine sortierte Kopie einer Liste zurück.
 
