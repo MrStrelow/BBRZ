@@ -14,6 +14,7 @@ public class Test {
         Integer meineZahl = 15;
         Double meinFloat = 5.5;
         String meinString = "hallo";
+        Boolean meineWahrheit = true;
         System.out.println(meineZahl); //Snippet: sout
 
         // Deklaration einer Variable.
@@ -21,7 +22,7 @@ public class Test {
         eineZahl = meineZahl;
         System.out.println(eineZahl);
 
-
-//        Integer eineNullZahl = null;
+        // Operatoren verbinden variablen
+        meineWahrheit &&
     }
 }
