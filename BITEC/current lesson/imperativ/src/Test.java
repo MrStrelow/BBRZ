@@ -4,15 +4,24 @@ import java.util.List;
 import java.util.Objects;
 
 public class Test {
-    int hallod = 5;
-
     public static void main(String[] args) { // Snippet: main
         System.out.println("hallo"); // Wert: String
         System.out.println(6); // Wert: Integer
+        System.out.println(5.5); // Wert: Double
 
-        // <Typ> <Name> <Zuweisungsoperator> <Wert>;
+        // <Typ> <Name> <Zuweisungsoperator> <Wert oder existierende Variable>;
         // Definition einer Variable.
-        int meineZahl = 5;
+        Integer meineZahl = 15;
+        Double meinFloat = 5.5;
+        String meinString = "hallo";
         System.out.println(meineZahl); //Snippet: sout
+
+        // Deklaration einer Variable.
+        Integer eineZahl;
+        eineZahl = meineZahl;
+        System.out.println(eineZahl);
+
+
+//        Integer eineNullZahl = null;
     }
 }
