@@ -1,4 +1,4 @@
-dimension = 3
+dimension = 10
 
 # Enum
 class Position:
@@ -64,8 +64,24 @@ def copy(field):
     # return [row for row in field]
 
 
-def zammstoepsln():
-    return
+def zammstoepsln(container, triangle, position): #combine_form()
+    offset = len(triangle)
+
+    for y in range(len(triangle)):
+        for x in range(len(triangle)):
+            if position == Position.TOP_LEFT:
+                container[y][x] = triangle[y][x]
+
+            elif position == Position.TOP_RIGHT:
+                container[y][x + offset] = triangle[y][x]
+
+            elif position == Position.BOT_LEFT:
+                container[y + offset][x] = triangle[y][x]   
+
+            elif position == Position.BOT_RIGHT:
+                container[y + offset][x + offset] = triangle[y][x]
+
+    return container
 
 
 def draw_diamant(triangle_top_right):
@@ -98,4 +114,4 @@ field = fill_canvas(
 )
 
 triangle = draw_triangle(field, symbol="🔷")
-draw_diamant(triangle)
+print_canvas(draw_diamant(triangle))
