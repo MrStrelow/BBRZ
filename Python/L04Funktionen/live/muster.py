@@ -32,14 +32,14 @@ def mirror_y(field):
     return field
 
 # Verwende Funktionen:
-field = [["_" for _ in range(dimension)] for _ in range(dimension)]
+field = []
+for _ in range(dimension):
+    row = []
+    for _ in range(dimension):
+        row.append("_")
+    field.append(row)
 
-# field = []
-# for _ in range(dimension):
-#     row = []
-#     for _ in range(dimension):
-#         row.append("_")
-#     field.append(row)
+# field = [["_" for _ in range(dimension)] for _ in range(dimension)]
 
 field = fill_canvas(field, symbol="◽")
 
