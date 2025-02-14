@@ -106,7 +106,7 @@ def draw_diamant(triangle_top_right):
 #         row.append("_")
 #     field.append(row)
 
-field = [["" for _ in range(dimension)] for _ in range(dimension)]
+field = [[None for _ in range(dimension)] for _ in range(dimension)]
 
 field = fill_canvas(
     symbol = "◽", 
