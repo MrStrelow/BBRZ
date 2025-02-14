@@ -14,3 +14,5 @@ In diesen ``.NET-Solutions`` findet ihr folgende ``Projekte``:
 * ``LiveCoding`` beinhaltet Code welchen wir gemeinsam innerhalb der Stunde erarbeiten. Dieser orientiert sich an den Projekt ``L<n><name>``.
 
 Bei Fragen meldet euch bei mir in Teams. 
+
+Viel Spaß und freu mich euch kennen zu lernen.

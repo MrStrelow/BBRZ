@@ -34,6 +34,13 @@ def mirror_y(field):
 # Verwende Funktionen:
 field = [["_" for _ in range(dimension)] for _ in range(dimension)]
 
+# field = []
+# for _ in range(dimension):
+#     row = []
+#     for _ in range(dimension):
+#         row.append("_")
+#     field.append(row)
+
 field = fill_canvas(field, symbol="◽")
 
 top_right = draw_triangle(field, symbol="🔷")
