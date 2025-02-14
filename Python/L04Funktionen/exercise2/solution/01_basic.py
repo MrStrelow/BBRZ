@@ -16,7 +16,7 @@ def Logging(level="info", show_env=False):
     """ Dekorator für Logging mit farbiger Konsolenausgabe. """
     def decorator(func):
 
-        @wraps(func)
+        # @wraps(func)
         def wrapper(*args, **kwargs):
             # Vor dem Funktionsaufruf
             start_time = time.time()
