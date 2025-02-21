@@ -9,11 +9,13 @@ class Position:
 
 # Funktionen:
 def fill_canvas(field, symbol="⬜"):
-    for y in range(dimension):
-        for x in range(dimension):
-            field[y][x] = symbol
+    # for y in range(dimension):
+    #     for x in range(dimension):
+    #         field[y][x] = symbol
     
-    return field
+    return [ [ symbol for _ in range(dimension)] for _ in range(dimension) ]
+    
+    # return field
 
 
 def print_canvas(field):
@@ -27,6 +29,7 @@ def draw_triangle(field, symbol):
             if x <= y:
                 field[y][x] = symbol
 
+    # return [[symbol if x <= y else field[y][x] for x in range(len(field))] for y in range(len(field))]
     return field
 
 
@@ -102,10 +105,11 @@ def draw_diamant(triangle_top_right):
 # field = []
 # for _ in range(dimension):
 #     row = []
-#     for _ in range(dimension):
-#         row.append("_")
-#     field.append(row)
 
+#     for _ in range(dimension):
+#         row.append(None)
+    
+#     field.append(row)
 field = [[None for _ in range(dimension)] for _ in range(dimension)]
 
 field = fill_canvas(
@@ -114,4 +118,6 @@ field = fill_canvas(
 )
 
 triangle = draw_triangle(field, symbol="🔷")
-print_canvas(draw_diamant(triangle))
+print_canvas(triangle)
+
+# print_canvas(draw_diamant(triangle))
