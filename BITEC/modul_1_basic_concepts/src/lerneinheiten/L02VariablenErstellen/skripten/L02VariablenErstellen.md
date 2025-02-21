@@ -1,63 +1,67 @@
-## Variablen in Java
+## Variablen und Werte in Java
 
-Variablen sind Platzhalter für Wertes eines bestimmten Typs.
-Mögliche Werte einer Variable vom Typ String (eine Zeichenkette) sind
-z.B. "qwer", "greetings", oder "jeder andere Satz der mir einfällt".
-Wir kennzeichnen Zeichenketten mit "", damit der Computer es von Symbolen der Programmiersprache unterscheiden kann.
-Wir wollen also Zeichenketten verwenden um "Befehle" in der Programmiersprache einzugeben.
-Aber auch Werte für Variablen, welche Zeichenketten sind, eingeben. Wir kennzeichnen eben das mit "".
+### Was wollen wir in einem Programm tun?
+Ein Computerprogramm ist für uns ist die **laufende** manipulation von ``Werten`` um ein Ergebnis zu erzeugen. In den meisten Computersprachen müssen wir diesen ``Werten`` immer einen ``Typ`` geben. Wir tun dies mit einer speziellen Kennzeichnung dieser ``Werte``. Diese Kennzeichnung schaut für die folgende ``Typen`` folgendermaßen aus:
 
-### Variable deklarieren (KEINEN Wert zuweisen)
+| Typ | Kennzeichnung | Beispiel |
+|--------------|-----------|-----------|
+| `String` | ein Text zwischen zwei doppelten Anfürhungsziechen "" | `"🔷 Hellø World, aber es kann auch viel mehr dort stehen wie ﬗ und 🌱"` |
+| `Integer` | eine Zahl ohne Punkt (Ganze Zahl) | `-5` und `568` |
+| `Double` | eine Zahl mit Punkt (Kommazahlen) |`-9.6584` und `7.` was abgekürzt `7.0` ist. |
+| `Boolean` | das wort ``true`` und ``false`` klein geschrieben |  |
 
-Wir sagen dem Computer "erstelle mir eine Variable welche mit Zeichenketten umgehen soll".
-Wir sagen aber nicht, welchen Wert diese haben soll.
-Wir legen also im "Speicher" einen Platz welcher für unsere Variable reserviert wird, "belegen" aber noch nichts.
-(Wir kaufen eine Leinwand, aber haben uns noch nicht entschieden, was wir malen wollen.)
-
-Wir schreiben also zuerst den TYP der Variable und danach einen NAMEN mit den wir die Variable in zukunft "ansprechen" wollen.
+Um dies nun in JAVA zu übersetzten übergeben wir im folgenden Code der Konsole ``Werte`` von verschiedenen ``Typen``. 
 
 ```java
-String firstString;
+System.out.println("ich bin ein Wert vom Typ String.");
+System.out.println(3658);       // ich bin ein Wert vom Typ Integer.
+System.out.println(3658.968);   // ich bin ein Wert vom Typ Double.
+System.out.println(true);       // ich bin ein Wert vom Typ Boolean.
 ```
+**Anmerkung**: Streng genommen sind die ``Typen`` der ``Werte``: ``String``, ``int``, ``double``, und ``boolean``. Was der Unterschied zwischen groß und klein geschriebenen Typen ist, werden wir hier behandeln. #TODO
 
-### Variable definieren/initialisieren (EINEN Wert zuweisen)
+### Kurzsprechweise von Werten
+Da es umständlich ist immer von ``Werten`` eines ``Typs`` zu sprechen, werden wir z.B. anstatt ``"Hallo" ist ein Wert vom Typ String``, ``"Hallo" ist ein String`` sagen. Gleiches gilt für andere ``Typen``.
 
-Wir sagen dem Computer "erstelle mir eine Variable welche mit Zeichenketten umgehen soll UND schreibe den Wert 'Hallo' hinein".
-(Wir kaufen eine Leinwand, und malen schon im Geschäft unser Bild.)
+### Warum müssen wir Werte des Typ Strings zwischen "" schreiben?
+Wir kennzeichnen ``Strings`` (oder auch ``Zeichenketten`` genannt) , mit ``""``, damit der ``Compiler`` es von Symbolen der Programmiersprache, wie `System.out.println` unterscheiden kann. Da unsere Sprache textbasiert ist, haben wir leider eine doppelte Verwendung von Text. Durch eine Kennzeichnung wie eben ``""`` ist diese Unterscheidung möglich.
 
-Aus allen möglichen Werten, der ein String annehmen kann, ist dieser Variable die Zeichenkette "Hallo" zugewiesen worden.
-Wir schreiben also zuerst den TYP der Variable und danach einen NAMEN mit den wir die Variable in zukunft "ansprechen" wollen
-und gleichzeitig verwenden wir das "=" (ZUWEISUNGSOPERATOR) um unserer Variable eine Zeichenkette "Hallo" zuzuweisen.
-Was block1.Operatoren sind besprechen wir später genauer.
-Wir können uns auch einen Pfeil nach links denken "<-", wenn wir das "=" bei einer Zuweisung sehen.
-Die Zeichenkette "hallo" wird von der rechten Seite, nach links in die Variable myString "reingeschoben".
+### Was erlauben uns Variablen zu tun?
+``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da JAVA eine ``statisch typisierte`` Programmiersprache ist müssen wir bei jeder ``Variable`` **immer** den ``Typ`` dazuschreiben (mehr zu diesem Thema siehe hier #TODO). 
+
+Wir haben bereits 2 verschiedene Arten kennen gelernt wie wir eine ``Variable`` anlegen könnnen. Eine ist die ``Variable`` zu ``definieren`` die andere ist eine `Variable` zu `definieren und initialisieren`.
+
+#### Deklaration, Definition und Initialisierung
+Die Unterscheidung der Wörter ``Deklaration`` und ``Definition`` macht nur begrenzt Sinn, da JAVA nicht zwische diesen Konzepten unterscheidet. Deshalb werden wir dieses immer als ``Definition`` benennen. Sie werden jedoch beide Begriffe online oder in Büchern sehen, welche jedoch meist Synonyme (gleich) für JAVA sind. Für Sprachen wie C/C++ ist jedoch eine solche Unterscheidung sinnvoll.
+
+Bei der ``Definition`` verzichten wir auf eine **sofortige** Zuweisung einer ``Variable`` mit einem ``Wert``. Zudem verschieben wir diese Zuweisung auf einen späteren Zeitpunkt im Programm. Diese Zuweisung wird auch ``Initialisierung`` genannt. Variablen welche **nur** ``definiert`` werden und nie ``initialisiert`` werden können nicht verwendet werden. 
 
 ```java
-String myString = "Hallo";
+Integer definiert;                           // definiert
+String definiertUndInitialisiert = "Hallo";  // definiert + initialisiert
+...
+...
+...
+definiert = 5      // die zuerst definierte variable wird nun initialisiert.
 ```
 
-Wir können also mit dem Muster `<Typ> <Name> = <Wert>` eine Variable belegen. Das Muster ist jedoch allgemeiner als hier dargestellt.
-Eigentlich müsste es `<Typ> <Name> = <"alles was einen Wert mit gleichem Typ wie <Typ> erzeugt kann hier stehen">` heißen.
-Das klingt sehr allgemein, und ist es auch.
+Anmerkung: Für die ``Definition`` wird im ``Speicher`` ein Platz reserviert welcher für unsere ``Variable`` gedacht ist, jedoch ohne Wert. Eine physische Analogie wäre: *wir kaufen eine Leinwand, aber haben uns noch nicht entschieden, was wir malen wollen*. Für die ``Definition`` und ``Initialisierung`` wäre es *Wir kaufen eine Leinwand, und malen schon im Geschäft unser Bild*.
+
+### Was kann ich einer Varaible zuweisen?
+Wir können mit dem Muster `<Typ> <Name> <Zuweisungsoperator> <Wert>` eine Variable `definieren` und `initialisieren`. Das Muster ist jedoch allgemeiner als hier dargestellt.
+Eigentlich müsste es `<Typ> <Name> <Zuweisungsoperator> <"alles was einen Wert mit gleichem Typ wie <Typ> erzeugt kann hier stehen">` heißen. 
+
+Der ``Zuweisungsoperator`` ist mit dem Symbol ``=`` abgebildet. Wir können uns auch einen Pfeil nach links denken ``<-``, wenn wir das ``=`` bei einer Zuweisung sehen. Wir nehmen also den Ausdruck welcher rechts vom ``Zuweisungsoperator`` steht und "schreiben" es in die Variable welche links steht.
 
 ```java
-String otherString = myString;
+String myString = "das ist ein String";               // Der Wert rechts vom = hat den Typ String.
+String otherString = myString;                        // Die Variable rechts vom = hat den Typ String.
+String userInput = new Scanner(System.in).nextLine(); // Der Ausdruck rechts vom = erzeugt einen Wert vom Typ String
+String formatiert = String.format("Wert: %d", 42);    // Der Ausdruck rechts vom = erzeugt einen Wert vom Typ String
+String ersteZeileDerWebsite = new BufferedReader(new InputStreamReader(new URL("https://www.example.com").openStream())).readLine(); // Der Ausdruck rechts vom = erzeugt einen Wert vom Typ String
 ```
 
-Der Wert ist abhängig von der Variable myString. Bedeutet, was auch immer in myString steht, steht auch in otherString.
-Das funktioniert, da myString den Typ String hat. Dadurch ist hier "etwas erzeugt worden mit Typ String".
-Mehr zu "alles was einen Wert mit gleichem Typ wie <Typ> erzeugt kann hier stehen", wenn wir uns über block1.Operatoren unterhalten.
-
-### Typen von Variablen
-
-Wenn wir den `<Typ>`...
-- klein schrieben → primitive Datentypen (keine Klassen),
-- groß schrieben → (sind Klassen).
-
-Klassen sind die "Grundbausteine" in JAVA und jeder objektorientierten Sprache und erlauben uns
-aus Klassen, Objekte zu erzeugen. Das erlaubt uns dann "elegantere" Programme zu schreiben.
-
-Was sind nun die Typen von Variablen?
+### Verschiedene Arten von Typen
 - Zeichen(ketten):
   - String (oder für mehr funktionalität, StringBuilder)
   - char oder Character (16 Bits - ein Symbol einer Zeichenkette kann nur gespeichert werden. Diese ist im Hintergrund eine ganze Zahl)
@@ -70,31 +74,38 @@ Was sind nun die Typen von Variablen?
   - float oder Float   (Kommazahl, weniger genau wie Double)
   - Double oder Double (Kommazahl)
 - logische Werte:
-  - boolean oder Boolean (hat 0 oder 1 als Wert)
+  - boolean oder Boolean (hat ``false`` oder ``true`` als Wert)
 
-Hier definieren wir unsere erste Variable vom Typ Integer (myInteger) sowie die Variable vom primitiven Typ (myPrimitiveInteger).
+### Klassen sind Typen, aber primitive Typen sind auch Typen
+Wenn wir den `<Typ>`...
+- klein schrieben → primitive Datentypen (keine ``Klassen``),
+- groß schrieben → (sind ``Klassen``).
 
+``Klassen`` sind die "Grundbausteine" in JAVA und jeder objektorientierten Sprache und erlauben uns
+aus ``Klassen``, was ein `Typ` ist, ``Objekte``, was eine `Variable` ist, zu erzeugen. ``Objekte`` und ``Klassen`` können zusätzlich ``Metoden`` aufrufen. Diese ``Methoden`` stellen wir uns vor als "Befehle" vor die wir ausführen und (meistens) einen ``Wert`` zurückgeben.
+``Primitive Typen`` besitzten keine solche ``Methoden``, sind jedoch schlänker und brauchen weniger Speicher (siehe hier für mehr infos).
+
+Ein Beispiel dazu ist:
 ```java
-Integer myInteger = 8;
-int myPrimitiveInteger = 8;
+Scanner meinScanner = new Scanner(System.in); // Der Ausdruck rechts vom = erzeugt eine Variable vom Typ "Scanner" 
+Integer userInput = meinScanner.nextInt(); // und erzeugt mit der Methode "nextLine()" einen Wert vom Typ int, diese speichern wir in einer Variable vom Typ Integer.
+userInput.toString();
+
+int userInputPrimitiv = meinScanner.nextInt(); // und erzeugt mit der Methode "nextLine()" einen Wert vom Typ int, diese speichern wir in einer Variable vom Typ int.
+userInputPrimitiv.toString(); // geht nicht, da Typ int und primitiv ist.
 ```
 
 JAVA erlaubt und unabhängig, ob eine Variable primitive ist oder nicht, diese mit dem Zuweisungsoperator "=" gleich zusetzten.
-An sich ist JAVA hier streng. wir können nicht eine Variable vom Typ String und eine vom Typ StringBuilder gleich setzten,
-das diese nicht den exakt gleichen Typ haben.
+An sich ist JAVA hier streng. wir können nicht eine Variable vom ``Typ`` ``String`` und eine vom Typ ``StringBuilder`` gleich setzten,
+das diese nicht den exakt gleichen ``Typ`` haben. Wir sehen das am vorherigen Beispiel aber auch einfacher am nächsten.
+Zudem sehen wir hier auch folgendes. Wenn eine Variable einmal definiert bzw. deklariert wird, dann muss diese nur mehr mit dem `<Namen>` angesprochen werden.
 
 ```java
-myPrimitiveInteger = myInteger;
-myInteger = myPrimitiveInteger;
+userInputPrimitiv = userInput;
+userInput = userInputPrimitiv;
 ```
 
-JAVA erlaubt und unabhängig, ob eine Variable primitive ist oder nicht, diese mit dem Zuweisungsoperator "=" gleich zusetzten.
-
-An sich ist JAVA hier streng. Wir können nicht eine Variable vom Typ String und eine vom Typ StringBuilder gleich setzen,
-da diese nicht den exakt gleichen Typ haben.
-
-Zudem sehen wir hier auch folgendes:
-Wenn eine Variable einmal definiert bzw. deklariert wird, dann muss diese nur mehr mit dem `<Namen>` angesprochen werden.
+Falls wir doch den Typ nochmals zu einer bereits ``definierten`` Variable dazuschreiben, bekommen wir einen Fehler vom Compiler.
 
 ```java
 int myPrimitiveInteger = myInteger; // würde hier nicht funktionieren, da myPrimitiveInteger bereits definiert wurde.
@@ -102,8 +113,8 @@ int myPrimitiveInteger = myInteger; // würde hier nicht funktionieren, da myPri
 
 Wir werden zuerst einfachheitshalber nur die "Klassen" als Typen verwenden. Also keine primitiven Datentypen.
 Der Vorteil von Variablen, welche einen primitiven Typ haben ist, sie sind schlanker und verbrauchen "weniger" Speicher.
-Auch ``kann möglicherweise`` der Ort an dem sie sich befinden (Stack) schneller für den Computer verwendbar sein, als der Ort wo mit ``sicherheit`` Objekte liegen (Heap).
-Der Nachteil: primitive Datentypen erlauben weniger "Funktionalität".
+
+Anmerkung: Auch ``kann möglicherweise`` der Ort an dem sie sich befinden (Stack) schneller für den Computer verwendbar sein, als der Ort wo mit ``sicherheit`` Objekte liegen (Heap). Der Nachteil: primitive Datentypen erlauben weniger "Funktionalität".
 
 Das sehen wir hier, wenn wir eine Zahl in einen String umwandeln wollen.
 Variablen, welche eine Klasse als Typ haben, besitzen Methoden, primitive Datentypen nicht.
@@ -112,6 +123,8 @@ Variablen, welche eine Klasse als Typ haben, besitzen Methoden, primitive Datent
 String yetAnotherString = myInteger.toString();
 System.out.println(yetAnotherString);
 ```
+
+#TODO here
 
 Wichtig: Das Ergebnis der Methode ist ein Wert, welcher wie bei Operatoren einen Typ hat.
 Hier kommt also eine Zahl in die Methode rein und ein String raus.

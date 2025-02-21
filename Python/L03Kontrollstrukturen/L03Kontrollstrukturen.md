@@ -172,8 +172,21 @@ for element in liste:
 Comprehensions in Python sind eine elegante und kompakte Möglichkeit, Listen, Sets und Dictionaries zu erstellen. Sie ermöglichen es, eine Sammlung basierend auf einer vorhandenen Sammlung zu erstellen, indem man eine Ausdrucks- und Filterlogik in einer einzigen Zeile anwendet.
 
 ### 1. **List Comprehension**
+Wann verwenden wir dieses scheinbar neues Werkzeug? Wenn wir bereits eine Liste haben, hat diese eine Struktur. Es wäre also "unnötig" dem computer folgendes mitteilen zu wollen.
 
-List-Comprehension ist eine Möglichkeit, eine neue Liste zu erstellen, indem man eine Ausdruckslogik auf jede Iteration einer bestehenden Liste anwendet.
+```python
+numbers = [1, 2, 3, 4, 5] 
+squares = [] # unnötig: um eine neue Liste befüllen zu können, muss diese erstellt werden
+
+for x in numbers:
+    square = x ** 2
+    squares.append(square) # unnötig: es wäre angenehm wenn diese zuweisung nicht notwendig wäre
+
+```
+
+Wir haben die Struktur
+
+Ein Beispiel bevor wir uns näher dieses Konzept anschauen.
 
 #### Beispiel: Quadrieren der Zahlen von 1 bis 5
 
@@ -183,7 +196,12 @@ numbers = [1, 2, 3, 4, 5]
 squares = [x ** 2 for x in numbers]
 print(squares)  # Output: [1, 4, 9, 16, 25]
 ```
-Hier wird die Liste squares mit den Quadrierungen der Zahlen von der Liste numbers erstellt.
+Hier wird die Liste ``squares`` mit den Quadrierungen der Zahlen von der Liste numbers erstellt.
+Wir sehen dass hier verschiedene schreibweisen von bereits Bekanntem zusammenkommt.
+* Die eckigen Klammern [] erstellen eine neue Liste.
+* Jedoch wie soll diese befüllt werden? das gibt der Ausdruck darin an. Wir haben den Ausdruck `x**2`, welcher in die neue Liste
+
+Wann verwenden wir nun ``comprehensions`` 
 
 ### Äquivalent in Java
 In Java gibt es keine direkte Entsprechung zu List-Comprehensions, aber wir können eine ähnliche Funktionalität mit Streams und Lambdas erreichen.

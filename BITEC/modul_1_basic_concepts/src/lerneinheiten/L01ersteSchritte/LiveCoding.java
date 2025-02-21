@@ -13,7 +13,7 @@ public class LiveCoding {
         System.out.println(true); // Wert: Boolean
 
         // <Typ> <Name> <Zuweisungsoperator> <Wert oder existierende Variable>;
-        // Definition einer Variable.
+        // Definition + Initialisierung einer Variable.
         Integer meineZahl = 15;
         Double meinFloat = 5.5;
         String meinString = "hallo";
@@ -22,10 +22,10 @@ public class LiveCoding {
 
         System.out.println(meineZahl);
 
-        // Deklaration einer Variable. Ist ein Versprechen diese später zu definieren.
+        // Definition einer Variable. Ist ein Versprechen diese später zu initialisieren.
         Integer eineZahl;
 
-        // Spätere Initialisierung/Definition der Variable
+        // Spätere Initialisierung der Variable
         eineZahl = meineZahl;
 
         System.out.println(eineZahl);

@@ -76,7 +76,7 @@ Wir machen das so:
 ```java
 public class L01ErsteSchritte {
     public static void main(String[] args) {
-        String meinNeuDeklarierterString; // Deklariert 
+        String meinNeuDefinierterString; // Deklariert bzw. definiert
 
         // Achtung! wird eine Deklarierte Variable verwendet, lässt dies der Compiler nicht zu. 
         // Wir dürfen das Programm nicht "bauen lassen"
@@ -88,14 +88,14 @@ public class L01ErsteSchritte {
 
 Hier haben wir zuerst den `Typ` hingeschrieben und danach den Namen, welchen wir frei festlegen können.
 In Java wird ein "Befehl" mit einem Strichpunkt abgeschlossen.
-Wir nennen die obige Zeile im Programm `eine Variable deklarieren`, also diese anlegen, ohne einen Wert festzulegen.
+Wir nennen die obige Zeile im Programm `eine Variable deklarieren` bzw. `definieren`. Beides bedeutet für uns diese wird angelegt, ohne einen Wert festzulegen. Wir werden es hier aber immer `definieren` nennen.
 
 Wenn wir nun diese Variable `initialisieren` wollen, also einen `Wert` festlegen wollen, machen wir das so:
 
 ```java
 public class L01ErsteSchritte {
     public static void main(String[] args) {
-        String meinNeuDeklarierterString;       // deklarieren
+        String meinNeuDeklarierterString;       // definieren
         meinNeuDeklarierterString = "Hello";    // initialisieren
     }
 }
@@ -110,7 +110,7 @@ Wir nennen das "eine Variable definieren" und es geht folgendermaßen:
 ```java
 public class L01ErsteSchritte {
     public static void main(String[] args) {
-        String meinNeuDefinierterString = "World"; // definieren
+        String meinNeuDefinierterString = "World"; // definieren + initialisieren
     }
 }
 ```
@@ -125,10 +125,10 @@ Hier verbinden wir die `Variablen` miteinander und fügen dazwischen noch ein Le
 ```java
 public class L01ErsteSchritte {
     public static void main(String[] args) {
-        String meinNeuDeklarierterString;       // deklarieren
+        String meinNeuDeklarierterString;       // definieren
         meinNeuDeklarierterString = "Hello";    // initialisieren
 
-        String meinNeuDefinierterString = "World"; // definieren
+        String meinNeuDefinierterString = "World"; // definieren + initialisieren
 
         String meinKombinierterString = meinNeuDefinierterString + " " + meinNeuDeklarierterString; // mit Operator verbinden
 

@@ -4,12 +4,12 @@ public class L01ErsteSchritte {
       public static void main(String[] args) {
         System.out.println("Hello World");
 
-        String meinNeuDeklarierterString;
-        meinNeuDeklarierterString = "Hello";
+        String meinNeuDefinierterString;
+        meinNeuDefinierterString = "Hello";
 
-        String meinNeuDefinierterString = "World";
+        String meinNeuDefinierterUndInitialisierterString = "World";
 
-        String meinKombinierterString = meinNeuDefinierterString + " " + meinNeuDeklarierterString;
+        String meinKombinierterString = meinNeuDefinierterString + " " + meinNeuDefinierterUndInitialisierterString;
 
         System.out.println(meinKombinierterString);
     }
