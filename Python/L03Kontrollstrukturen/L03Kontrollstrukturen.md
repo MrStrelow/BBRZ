@@ -184,7 +184,10 @@ for x in numbers:
 
 ```
 
-Wir haben die Struktur
+Wir haben die Struktur 
+#TODO mehr dimensional 
+#TODO if
+#TODO if und else
 
 Ein Beispiel bevor wir uns näher dieses Konzept anschauen.
 
