@@ -1,6 +1,6 @@
 package uebungen.vorlagen;
 
-public class Ue01Einfuehrung_empty {
+public class Vorlage {
     public static void main(String[] args) {
         String ANSI_RESET = "\u001B[0m";
         String ANSI_BLACK = "\u001B[30m";
