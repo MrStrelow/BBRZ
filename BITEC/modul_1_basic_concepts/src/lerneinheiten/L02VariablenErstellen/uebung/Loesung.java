@@ -18,7 +18,7 @@ public class Loesung {
         String verwendungszweck;
 
         // 1.3 Das Jahresgehalt in ganzen Euro-Beträgen
-        Double gehalt;
+        Integer gehalt;
 
         // 1.4 Das Geschlecht einer Person
         String geschlecht;

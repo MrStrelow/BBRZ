@@ -7,6 +7,7 @@ public class Simulation
 {
     public static void Main(String[] args)
     {
+        Console.WriteLine(5 / 3);
         // User Input:
         Console.OutputEncoding = Encoding.UTF8;
 
