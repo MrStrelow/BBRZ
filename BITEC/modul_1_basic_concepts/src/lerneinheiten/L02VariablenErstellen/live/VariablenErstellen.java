@@ -1,22 +1,22 @@
 package lerneinheiten.L02VariablenErstellen.live;
 
 public class VariablenErstellen {
+    // Startpunkt
     public static void main(String[] args) {
-        // Startpunkt
+        // definierte Variable
         // <Typ> <Name>
-        // definiert
         String definiert;
 
-        // initialisiert
+        // initialisierte Variable
         // <Name> <Zuweisungsoperator> <Wert>
         definiert = "hallo";
 
+        // initialisiert und definiert
+        // <Typ> <Name> <Zuweisungsoperator> <Wert>
         int primitiv = 3;
-
 
         // <Typ> <Namen> <Zuweisungsoperator> <Variable mit passendem Typ>
         Integer wrapper = primitiv;
-
 
         // <Typ> <Namen> <Zuweisungsoperator> <irgendwas was mit den passenden Typ erzeugt>
         String initialisertUndDefiniert = wrapper.toString();
