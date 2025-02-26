@@ -1,6 +1,6 @@
-package lerneinheiten.L01ersteSchritte;
+package lerneinheiten.L01ersteSchritte.live;
 
-public class LiveCoding {
+public class ErsteSchritte {
 
     // Verwende Snippet um public static void main(String[] args) schreiben zu können: main
     public static void main(String[] args) {
