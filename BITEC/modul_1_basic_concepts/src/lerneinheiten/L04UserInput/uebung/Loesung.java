@@ -1,8 +1,8 @@
-package uebungen.loesungen;
+package lerneinheiten.L04UserInput.uebung;
 
 import java.util.Scanner;
 
-public class Ue04Scanner_solution {
+public class Loesung {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

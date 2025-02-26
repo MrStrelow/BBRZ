@@ -1,4 +1,4 @@
-package uebungen.vorlagen;
+package lerneinheiten.L01ersteSchritte.uebung;
 
 public class Vorlage {
     public static void main(String[] args) {

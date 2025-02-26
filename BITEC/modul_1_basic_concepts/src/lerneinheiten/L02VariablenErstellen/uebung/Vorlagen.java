@@ -1,6 +1,6 @@
-package uebungen.vorlagen;
+package lerneinheiten.L02VariablenErstellen.uebung;
 
-public class Ue02Variablen_empty {
+public class Vorlagen {
 
     public static void main(String[] args) {
         // Erkennen von Typen

@@ -1,6 +1,6 @@
-package uebungen.vorlagen;
+package lerneinheiten.L04UserInput.uebung;
 
-public class Ue04Scanner_empty {
+public class Vorlage {
     public static void main(String[] args) {
 //        1. - Abfragen von Strings
 //        Fragen Sie den Benutzer nach 3 Strings ab. Geben Sie anschließend alle drei Strings aus.
