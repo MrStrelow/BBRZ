@@ -13,11 +13,18 @@ public class VariablenErstellen {
 
         int primitiv = 3;
 
-        // <Typ> <Namen> <Zuweisungsoperator> <Wert>
+
+        // <Typ> <Namen> <Zuweisungsoperator> <Variable mit passendem Typ>
         Integer wrapper = primitiv;
 
+
+        // <Typ> <Namen> <Zuweisungsoperator> <irgendwas was mit den passenden Typ erzeugt>
         String initialisertUndDefiniert = wrapper.toString();
 
-        System.out.println(definiert);
+        // Allgemein:
+        // <Typ> <Namen> <Zuweisungsoperator> <Wert oder eine Variable mit dem passendem Typ oder irgendwas was den passenden Typ erzeugt>
+
+        // warum geht das nicht?
+        String initialisertUndDefiniert = String.valueOf(primitiv);
     }
 }
