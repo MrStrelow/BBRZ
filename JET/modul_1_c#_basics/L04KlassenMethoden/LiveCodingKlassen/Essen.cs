@@ -1,5 +1,6 @@
 ﻿namespace LiveCodingKlassen;
 
-public class Essen
+public enum Essen
 {
+    Lamm, Lachs, Kalb, Schwein, Mais, Karotte
 }

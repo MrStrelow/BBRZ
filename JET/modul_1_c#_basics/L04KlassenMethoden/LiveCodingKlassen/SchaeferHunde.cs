@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LiveCodingKlassen;
 
-public class SchaeferHunder
+public class SchaeferHunde : Hund
 {
     // Felder
     public int capacity;
@@ -16,6 +16,17 @@ public class SchaeferHunder
 
     // Methoden:
     // - Konstruktor
+    public SchaeferHunde(string name, bool chipped, int capacity, List<Hund> zuBehueten) : base(name, chipped)
+    {
+        this.capacity = capacity;
+
+        if (capacity >= zuBehueten.Count()) {
+            behueteteHunde = zuBehueten;
+        } else
+        {
+            Console.WriteLine($"Sorry zu viele Hunde zu hueten. Maximal: {capacity}");
+        }
+    }
 
     // - Verhaltensmethoden
     public void Hueten()

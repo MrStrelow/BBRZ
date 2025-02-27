@@ -11,7 +11,7 @@ public class Hund
 
     // Hat - Beziehungen
     private HundeBesitzer besitzer;
-    private Hund spielFreund;
+    private Hund spielfreund;
 
     // Methoden:
     // - Konstruktor
@@ -49,8 +49,9 @@ public class Hund
     public void Spielen()
     {
         health += 10;
-        spielFreund.health += 10;
-        throw new NotImplementedException();
+        spielfreund.health += 10;
+
+        Console.WriteLine($"Nice spielen. Ich, also {this.GetHashCode()}, hat eine Gesundheit von: {health}. Die von meinem Spielfreund: {spielfreund.GetHashCode()} ist {spielfreund.health}.");
     }
 
     public string Bellen()
@@ -64,4 +65,11 @@ public class Hund
     }
 
     // - Get-Set Methoden
+    public void SetSpielfreund(Hund spielfreund)
+    {
+        if (spielfreund is not null)
+        {
+            this.spielfreund = spielfreund;
+        }
+    }
 }
