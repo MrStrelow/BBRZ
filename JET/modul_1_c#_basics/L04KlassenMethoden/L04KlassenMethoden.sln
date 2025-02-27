@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding", "LiveCoding\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decompile_Stack_Heap_Register", "Decompile_Stack_Heap_Register\Decompile_Stack_Heap_Register.csproj", "{3C232210-5D96-4F39-9B5C-5D16B9E27470}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCodingKlassen", "LiveCodingKlassen\LiveCodingKlassen.csproj", "{F2049D54-BFCA-44B8-97F1-4623CE0D8B1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C232210-5D96-4F39-9B5C-5D16B9E27470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2049D54-BFCA-44B8-97F1-4623CE0D8B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2049D54-BFCA-44B8-97F1-4623CE0D8B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2049D54-BFCA-44B8-97F1-4623CE0D8B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2049D54-BFCA-44B8-97F1-4623CE0D8B1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

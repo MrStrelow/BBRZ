@@ -9,13 +9,19 @@ namespace LiveCodingKlassen;
 public class SchaeferHunder
 {
     // Felder
+    public int capacity;
 
     // Hat - Beziehungen
+    private List<Hund> behueteteHunde;
 
     // Methoden:
     // - Konstruktor
 
     // - Verhaltensmethoden
+    public void Hueten()
+    {
+        throw new NotImplementedException();
+    }
 
     // - Get-Set Methoden
 }

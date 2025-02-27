@@ -8,4 +8,5 @@ namespace LiveCodingKlassen;
 
 public class Pudel
 {
+
 }
