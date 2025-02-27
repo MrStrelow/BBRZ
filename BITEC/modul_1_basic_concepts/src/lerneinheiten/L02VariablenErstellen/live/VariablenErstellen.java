@@ -1,5 +1,6 @@
 package lerneinheiten.L02VariablenErstellen.live;
 
+import java.io.Console;
 import java.util.Random;
 
 public class VariablenErstellen {
@@ -48,16 +49,25 @@ public class VariablenErstellen {
         System.out.println(userInputCharacter);
 
         // casting - nur bei primitiven!
-        userInputCharacter = (char) (primitiv + 98); // 101 = e
-        Integer alter = 32;
-        double doubleZahl = 10.8;
-        Float floatZahl = 10.8f;
+        userInputCharacter = (char) (98 + primitiv); //3 + 98 = 101 = e
+        Integer alter = 97; // Aber hier
+        double hoehe = 97.8; // Warum muss hier `hoehe` double sein und darf nicht Double?
+        float breite = 97.8f; // Warum muss hier `breite` double sein und darf nicht Float?
 
-        alter = (int) doubleZahl;
-        doubleZahl = (double) alter; // geht auch ohne weil, keine Information verloren wird.
-        floatZahl = (float) alter;
-        userInputCharacter = (char) doubleZahl;
-        System.out.println("asdfsad");
-        System.out.println(userInputCharacter); // warum leer? nicht darstellbar.
+        alter = (int) hoehe;  // wir verlieren Information 97.8 wird zu
+        alter = (int) breite;  // wir verlieren Information 97.8 wird zu
+
+        hoehe = (double) alter; // geht auch ohne (double) weil, keine Information verloren wird.
+        breite = (float) alter;
+        breite = (float) hoehe;
+
+        userInputCharacter = (char) 10.8;
+
+        System.out.println("Hallo" + userInputCharacter + "Welt");
+        // warum leer? 10.8 ist kein gültiger ASCII-Code, aber 10 ist einer. Jedoch hat 10 keine Darstellung
+        // (interner code für new line also \n) die ersten 32 codes in ASCII usw. sind für Solches reserviert.
+
+        userInputCharacter = (char) 97.8;
+        System.out.println(userInputCharacter); // hier sehen wir dass es 'a' ist
     }
 }

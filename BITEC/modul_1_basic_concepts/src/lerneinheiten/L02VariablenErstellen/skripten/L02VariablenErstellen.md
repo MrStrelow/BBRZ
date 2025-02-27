@@ -18,7 +18,7 @@ System.out.println(3658);       // ich bin ein Wert vom Typ Integer.
 System.out.println(3658.968);   // ich bin ein Wert vom Typ Double.
 System.out.println(true);       // ich bin ein Wert vom Typ Boolean.
 ```
-**Anmerkung**: Streng genommen sind die ``Typen`` der ``Werte``: ``String``, ``int``, ``double``, und ``boolean``. Was der Unterschied zwischen groß und klein geschriebenen Typen ist, werden wir hier behandeln. #TODO
+**Anmerkung**: Streng genommen sind die ``Typen`` der ``Werte``: ``String``, ``int``, ``double``, und ``boolean``. Was der Unterschied zwischen groß und klein geschriebenen Typen ist, ist vorerst nicht relevant.
 
 ## Kurzsprechweise von Werten
 Da es umständlich ist immer von ``Werten`` eines ``Typs`` zu sprechen, werden wir z.B. anstatt ``"Hallo" ist ein Wert vom Typ String``, ``"Hallo" ist ein String`` sagen. Gleiches gilt für andere ``Typen``.
@@ -75,6 +75,8 @@ String ersteZeileDerWebsite = new BufferedReader(new InputStreamReader(new URL("
   - Double oder Double (Kommazahl)
 - logische Werte:
   - boolean oder Boolean (hat ``false`` oder ``true`` als Wert)
+
+``Merke!`` Wenn wir *nicht* die primitiven Typen verwenden sind immer alle Typen **groß** geschrieben. Wir können also gut unterscheiden zwischen klein geschriebenen ``Variablen`` und groß geschriebenen ``Typen``. Auch wenn wir den genauen Kontext nicht kennen, sollte es uns möglich sein ``Scanner`` als Typ zu identifizieren und ``scanner`` als variable.
 
 ## Klassen sind Typen, aber primitive Typen sind auch Typen
 Wenn wir den `<Typ>`...
@@ -231,8 +233,11 @@ System.out.println("ich bin hier: " + abOderEtwasAnders); // Ã
 ```
 
 ### Typumwandlung (Type Casting)
+Wird eine Berechnung mit `Integer`-Werten durchgeführt, funktioniert eine direkte Zuweisung zu `Character` nicht mehr. In diesem Fall muss eine explizite Umwandlung vorgenommen werden. Wir schreiben vor dem ``Zuweisungsoperator`` eine runde Klammer in der der neue Typ stehen soll (z.B. ``(double) a``). 
 
-Wird eine Berechnung mit `Integer`-Werten durchgeführt, funktioniert eine direkte Zuweisung zu `Character` nicht mehr. In diesem Fall muss eine explizite Umwandlung vorgenommen werden:
+``Achtung!`` Es kann nur in ``primitiven Typen`` umgewandelt werden. Das sind die klein geschriebenen (int, boolean, double, float, ...). Es muss also ``(char) (a+b)`` und nicht ``(Character) (a+b)`` stehen. 
+
+Zudem ist auf die Klammerung zu Achten! ``(char) (a + b)`` bedeutet zuerst ``a + b`` und dann umwandeln in einen ``char``.
 
 ```java
 Integer a = 97;
@@ -240,8 +245,31 @@ Integer b = 98;
 Integer AMitToupeeInteger = a + b;
 Character aPlusBAlsInteger = (char) (a + b);
 ```
+Grund dafür ist die ``starke`` Typisierung der Programmiersprache JAVA. Typumwanldungen müssen dadurch immer ``explizit`` angegeben werden. JAVA darf also nicht einfach so ohne Aufforderung des Programmierers den Typ ändern. Jedoch gibt es Ausnahmen, welche für einfachere Schreibweisen genehmigt wurden. Siehe ``Character meinSymbol = 95;`` sollte eigentlich ``Character meinSymbol = (char) 95;`` sein. 
 
-Nebenbemerkung: Grund dafür ist die statische Typisierung der Programmiersprache JAVA.
+Allgemein können wir uns **vorerst** merken, dass wir mit ``Type Casting`` *Zahlen in andere ``primitive`` Zahlen umwandeln* können.
+
+```java
+Character userInputCharacter = (char) (98 + primitiv); //3 + 98 = 101 = e
+Integer alter = 32;
+Double hoehe = 10.8;
+Float breite = 10.8f;
+
+alter = (int) hoehe;  // wir verlieren Information 10.8 wird zu  
+hoehe = (double) alter; // geht auch ohne (double) weil, keine Information verloren wird.
+breite = (float) alter;
+breite = (float) hoehe;
+```
+
+Zudem ist noch ein komischer Fall hier zu sehen. Warum lässt der Compiler zu, dass ich eine Kommazahl zu einem Character caste? Es kommt kein Fehler bevor ich das Programm ausführe (``Compilezeit``), auch wenn ich das Programm ausführe kommt kein Fehler (``Laufzeit``). Das Symbol wird jedoch nicht dargestellt und ist scheinbar leer.
+
+```java
+double doubleZahl = 10.8;
+userInputCharacter = (char) doubleZahl;
+System.out.println(userInputCharacter); // warum leer?
+```
+
+Es ist hier eine ähnliche Logik wie bei ``(int) doubleZahl``. Es wird unntiges abgeschnitten und mit dem Rest weitergearbeitet. Es bleibt also der ``Wert`` 10 übrig. Was ist jedoch die Darstellung eines Symols mit ASCII Code 10? Die ersten 32 Zeichen werden für interne Steuerung verwendet und nicht dargestellt. Z.B. ist ``char newLine = 10`` das gleiche wie `\n`! Dieses wissen ist jedoch schon eher speziell und dient nur zum "erforschen". 
 
 ### Einschränkungen bei der Zeichenkodierung
 
