@@ -17,7 +17,7 @@ def say_hello(eins, zwei):
 
 
 ####################### Main #######################
-# decorator = print_davor_und_danach(True)
-# wrapper = decorator(say_hello)
-# wrapper("Du, ", "Wie gehts?")
-say_hello("Du, ", "Wie gehts?")
+decorator = print_davor_und_danach(True)
+wrapper = decorator(say_hello)
+wrapper("Du, ", "Wie gehts?")
+# say_hello("Du, ", "Wie gehts?")
