@@ -27,7 +27,7 @@ Da es umständlich ist immer von ``Werten`` eines ``Typs`` zu sprechen, werden w
 Wir kennzeichnen ``Strings`` (oder auch ``Zeichenketten`` genannt) , mit ``""``, damit der ``Compiler`` es von Symbolen der Programmiersprache, wie `System.out.println` unterscheiden kann. Da unsere Sprache textbasiert ist, haben wir leider eine doppelte Verwendung von Text. Durch eine Kennzeichnung wie eben ``""`` ist diese Unterscheidung möglich.
 
 ## Was erlauben uns Variablen zu tun?
-``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da JAVA eine ``statisch typisierte`` Programmiersprache ist müssen wir bei jeder ``Variable`` **immer** den ``Typ`` dazuschreiben (mehr zu diesem Thema siehe hier #TODO). 
+``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da JAVA eine ``statisch typisierte`` Programmiersprache ist müssen wir bei **jeder** ``Definition`` einer ``Variable`` den ``Typ`` dazuschreiben.
 
 Wir haben bereits 2 verschiedene Arten kennen gelernt wie wir eine ``Variable`` anlegen könnnen. Eine ist die ``Variable`` zu ``definieren`` die andere ist eine `Variable` zu `definieren und initialisieren`.
 
