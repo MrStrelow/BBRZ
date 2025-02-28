@@ -11,6 +11,7 @@ def print_davor_und_danach(nur_vor_der_Funktion):
     
     return decorator
 
+
 @print_davor_und_danach(False)
 def say_hello(eins, zwei):
     print(f"{eins}, Hallo! {zwei}")
