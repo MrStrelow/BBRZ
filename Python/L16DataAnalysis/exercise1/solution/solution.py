@@ -140,14 +140,58 @@ psql_print(filtered_columns)
 
 # Task 4: Group By and Sorting
 print(f"◽◽◽◽◽◽◽◽◽◽◽◽◽◽ {Fore.CYAN}Aufgabe 4{Style.RESET_ALL} ◽◽◽◽◽◽◽◽◽◽◽◽◽◽")
-
+## verkaufsvolumen pro Kunde
 # python style
-sales_per_customer = data.groupby('CustomerID').sum('Amount').reset_index().sort_values(by='Amount', ascending=False)
+sales_per_customer = \
+    data.groupby('CustomerID').agg({'Amount': 'sum'}).reset_index().\
+    merge(customers, on='CustomerID', how='inner').\
+    sort_values(by='Amount', ascending=False)[['Name', 'Amount']]
+
 pd_print(sales_per_customer)
 
 # sql style
 query = """
-SELECT Name, SUM(Amount) as Amount
+SELECT Name, SUM(Amount) as AmountPerCustomer
+FROM data
+GROUP BY CustomerID
+ORDER BY Amount DESC;
+"""
+sales_per_customer = psql.sqldf(query, locals())
+
+psql_print(sales_per_customer)
+
+## Anzahl der Verkäufe pro Kunde
+# python style
+sales_per_customer = \
+    data.groupby('CustomerID').agg({'Amount': 'count'}).reset_index().\
+    merge(customers, on='CustomerID', how='inner').\
+    sort_values(by='Amount', ascending=False)[['Name', 'Amount']]
+
+pd_print(sales_per_customer)
+
+# sql style
+query = """
+SELECT Name, count(Amount) as AmountPerCustomer
+FROM data
+GROUP BY CustomerID
+ORDER BY Amount DESC;
+"""
+sales_per_customer = psql.sqldf(query, locals())
+
+psql_print(sales_per_customer)
+
+## beides
+# python style
+# sales_per_customer = \
+#     data.groupby('CustomerID').agg({'Amount': ['sum', 'count']}).reset_index().\
+#     merge(customers, on='CustomerID', how='inner').\
+#     sort_values(by='Amount', ascending=False)[['Name', 'Amount']]
+
+# pd_print(sales_per_customer)
+
+# sql style
+query = """
+SELECT Name, SUM(Amount) as AmountPerCustomer, count(Amount) as NumberOfShops
 FROM data
 GROUP BY CustomerID
 ORDER BY Amount DESC;
@@ -157,10 +201,31 @@ sales_per_customer = psql.sqldf(query, locals())
 psql_print(sales_per_customer)
 
 # Task 5: SQL `HAVING` Equivalent
-agg_sales = sales.groupby('CustomerID').agg({'Amount': 'sum'})
-filtered_customers = agg_sales[agg_sales['Amount'] > 1000]
-filtered_customers = agg_sales.query('Amount > 1000')
-filtered_customers = sales.groupby('CustomerID').filter(lambda x: x['Amount'].sum() > 1000)
+print(f"◽◽◽◽◽◽◽◽◽◽◽◽◽◽ {Fore.CYAN}Aufgabe 5{Style.RESET_ALL} ◽◽◽◽◽◽◽◽◽◽◽◽◽◽")
+# pyton style
+agg_sales = data.groupby('CustomerID').agg({'Amount': 'sum'})
+
+top_sales_per_customer = agg_sales[agg_sales['Amount'] > 1000].\
+    merge(customers, on='CustomerID', how='inner').\
+    sort_values(by='Amount', ascending=False)[['Name', 'Amount']]
+
+# top_sales_per_customer = agg_sales.query('Amount > 1000') # oder
+# top_sales_per_customer = data.groupby('CustomerID').filter(lambda x: x['Amount'].sum() > 1000) # oder
+
+pd_print(top_sales_per_customer)
+
+# sql style
+query = """
+SELECT Name, SUM(Amount) as AmountPerCustomer, count(Amount) as NumberOfShops
+FROM data
+GROUP BY CustomerID
+HAVING SUM(Amount) > 1000
+ORDER BY Amount DESC;
+"""
+
+top_sales_per_customer = psql.sqldf(query, locals())
+
+psql_print(top_sales_per_customer)
 
 # Task 6: Creating an Index
 sales.set_index('CustomerID', inplace=True)

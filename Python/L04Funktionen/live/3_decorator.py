@@ -1,22 +1,10 @@
-def say_hello(wort):
-    print(f"Hallo {wort}")
+def decorator(func):
+    print("Vor der Funktionsausführung")
+    func()
+    print("Nach der Funktionsausführung")
 
 
-def pre_und_post_print(mach_nur_post):
-    def decorator(func):
-        def wrapper(arg_for_function):
-            if not mach_nur_post:
-                print("PRE")
-            
-            func(arg_for_function)
+def say_hello():
+    print("Hallo!")
 
-            print("POST")
-
-        return wrapper
-    
-    return decorator
-
-
-decorator = pre_und_post_print(mach_nur_post=True)
-wrapper = decorator(say_hello)
-wrapper("du")
+decorator(say_hello)
