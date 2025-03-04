@@ -63,6 +63,48 @@ else:
 **Unterschiede**:
 - In Java verwenden wir `else if` für die Verzweigung, während in Python das Schlüsselwort `elif` genutzt wird.
 
+## If Expression (Ternärer Operator)
+### Python:
+Allgemein wird bei ``Kontrollstrukturen`` zwischen ``Ausdruck`` (Expression) und ``Anweisung`` (Statement) unterschieden. Schauen wir uns zuerste ein Beispiel für einen ``Ausdruck`` an.
+
+```python
+c = 5 if a > b else 20
+print(c)
+
+# oder direkt, ohne Verwendung von einer Variable
+print(5 if a > b else 20)
+```
+
+Wir sehen in obigen Code, dass die Logik einer ``If-Verzweigung`` in einer anderer Reihenfolge und innerhalb einer Zeile dargestellt wird. Wir nennen dies ``If-Expression``. Jedoch erzeugt dieser ``Ausdruck`` direkt einen ``Wert`` welchen wir weiter verwenden können. Wir lesen somit, "weise der ``Variable`` c den ``Wert`` 5 zu, wenn ``a>b``. Ansonsten 20".
+
+In bekannter schreibweise ist hier die ``If-Verzweigung`` welche eine ``Anweisung`` ist. Wir können dadurch den ``Zuweisungsoperator`` nicht mehr verwenden. Im allgemeinen benötigen ``Anweisungen`` ``Variablen`` innerhalb dieser um Ergebnisse für später verwendbar zu machen. 
+
+```python
+if a > b:
+    c = 5
+else:
+    c = 20
+
+print(c) # variable c um diese später/nach der Anweisung verwenden zu können.
+```
+
+Anmerkung: Es gibt neben dem ``If-Statement`` vs. ``If-Expression`` den Unterschied zwischen einem ``Switch-Statement`` und einer ``Switch-Expression``. Letzteres wird auch meistens ``Pattern-Matcher`` genannt, da komplexere Bedinungen hier modelliert werden können, welche zuerst nur sinnvoll mit ``if-Statements`` umsetzbar waren.
+
+### JAVA:
+Die ``If-Expression`` wird in JAVA oder anderen Programmiersprachen auch ``Ternärer Operator`` oder ``?: Operator`` genannt. Ternär bedeutet ``dreifach`` und ist neben ``unnär`` (einfach) und ``binär`` (zweifach) eine Angabe von den ``Argumenten`` eines ``Operators``. Da es nur einen ``Ternären Operator`` gibt, wird oft die ``If-Expression`` so genannt. 
+
+Es ändert sich nur leicht die ``Syntax`` zum Beispiel oben. Es wird die ``Bedingung`` und der ``Wert`` falls die ``Bedingung`` wahr ist, vertauscht. 
+Zudem wird *if* zu *?* und *else* zu *:*.
+
+```java
+//  c = 5     if a > b else 20 // Pyhton
+int c = a > b ?  5     :    20;
+System.out.println(c);
+
+// oder direkt, ohne Verwendung von einer Variable
+System.out.println(a > b ? 5 : 20);
+```
+
 ## 4. **Switch-Statement**
 ### Java:
 ```java
@@ -165,17 +207,16 @@ for element in liste:
 
 
 ## List/Dicitonary Comphrehention
-# List- und Dictionary-Comprehensions in Python vs. Java
 
-## Was sind Comprehensions in Python?
+``Comprehensions`` in Python sind eine elegante und kompakte Möglichkeit, ``Listen``, ``Sets`` und ``Dictionaries`` zu erstellen. Sie ermöglichen es, eine ```Collection`` basierend auf einer vorhandenen ``Collection`` zu erstellen, indem eine Schleifen- und Verzweigungslogik in einer einzigen Zeile anwendet wird.
 
-Comprehensions in Python sind eine elegante und kompakte Möglichkeit, Listen, Sets und Dictionaries zu erstellen. Sie ermöglichen es, eine Sammlung basierend auf einer vorhandenen Sammlung zu erstellen, indem man eine Ausdrucks- und Filterlogik in einer einzigen Zeile anwendet.
+Anmerkung für die Zukunft: Im Vergleich zu ```map`` und ``filter`` ``Funktionalen`` welche in L04Funktionen_hoeherer_Ordnung besprochen werden, sind ``Comprehentions`` + ``Generator`` fast immer zu bevorzugen.
 
-### 1. **List Comprehension**
-Wann verwenden wir dieses scheinbar neues Werkzeug? Wenn wir bereits eine Liste haben, hat diese eine Struktur. Es wäre also "unnötig" dem computer folgendes mitteilen zu wollen.
+### List Comprehension
+Wann verwenden wir dieses scheinbar neue Werkzeug? Wenn wir bereits eine ``Liste`` haben, hat diese eine ``Dimension``(z.B. eine ``Liste`` mit 5 ``Integer`` Zahlen hat ``Dimension`` 5). Falls wir für unser Problem eine **neue** ``Liste`` brauchen welche die gleiche ``Dimension`` wie die ursprüngliche hat, dann wäre "unnötig" dem Computer folgendes mitzuteilen.
 
 ```python
-numbers = [1, 2, 3, 4, 5] 
+numbers = [1, 2, 3, 4, 5] # ursprüngliche Liste
 squares = [] # unnötig: um eine neue Liste befüllen zu können, muss diese erstellt werden
 
 for x in numbers:
@@ -184,30 +225,122 @@ for x in numbers:
 
 ```
 
-Wir haben die Struktur 
-#TODO mehr dimensional 
-#TODO if
-#TODO if und else
-
-Ein Beispiel bevor wir uns näher dieses Konzept anschauen.
-
-#### Beispiel: Quadrieren der Zahlen von 1 bis 5
+Wir nutzen nun die ``Struktur`` der ``Liste`` **numbers** um die dimensionen der erzeugten ``Liste`` zu definieren. Diese neue hat deshalb ebenfalls 5 Elemente.
+Wir wollen jedoch nicht nur die Daten einzeln aus **numbers** lesen, wir wollen diese manipulieren bevor wir diese in die neue ``Liste`` schreiben.
+Wir schaffen das durch folgende ``Syntax``:
 
 ```python
-# Python List Comprehension
 numbers = [1, 2, 3, 4, 5]
+# List Comprehension
 squares = [x ** 2 for x in numbers]
 print(squares)  # Output: [1, 4, 9, 16, 25]
 ```
-Hier wird die Liste ``squares`` mit den Quadrierungen der Zahlen von der Liste numbers erstellt.
-Wir sehen dass hier verschiedene schreibweisen von bereits Bekanntem zusammenkommt.
-* Die eckigen Klammern [] erstellen eine neue Liste.
-* Jedoch wie soll diese befüllt werden? das gibt der Ausdruck darin an. Wir haben den Ausdruck `x**2`, welcher in die neue Liste
 
-Wann verwenden wir nun ``comprehensions`` 
+Hier sehen wir folgendes: 
+* ``[]`` erzeugt uns eine leere Liste, jedoch wir wollen diese nicht leer haben, deshalb...
+* schreiben wir innerhalb der eckigen Klammern ``[]`` einen Ausdruck z.B. ``x * 2`` welcher beschreibt was mit den ``Elementen`` der ursprünglichen ``Liste`` passiert (``Zuweisungslogik``).
+* Danach ist relevant welche Elemente wir aus der ursprünglichen ``Liste`` verwenden. Wir verwenden dazu die bekannte ``Syntax`` einer ``For-Schleife`` (``Schleifenlogik``). 
+
+Die bekannte normale ``For-Schleife`` ist also genau verkehrt geschrieben. Dort ist zuerste die ``Schleifenlogik`` und nach potentiell mehreren Einrückungen, die ``Zuweisungslogik`` geschrieben. Es kann dadurch potentiell leichter sein, die Idee des Codes zu verstehen, wenn ``Comprehentions`` verwendet werden, da hier am Anfang die ``Zuweisungslogik`` steht. Zusätzlich ist der "unnötige" Code ohne ``Comprehentions`` welcher Initialisierungen und Zuweisungen für die neuen Liste übernimmt, nicht vorhanden. 
+
+#### Verschachtelte Comprehentions
+Was wenn die ``Dimension`` der ``Struktur`` nicht n sondern komplizierter ist? Wir schauen uns nun ein 2-D "Brett" mit Dimension ``(n,n)`` an. Unser Brett soll Elemnte des Typs ``String`` besitzen um später ein Muster in dieses Zeichnen zu können. Ein Beispiel ist folgendes:
+
+Der Code ein solches zu erstellen ist in bekannter ``Syntax`` folgender:
+
+```python
+dimension = 3
+field = []
+for _ in range(dimension): # Achtung! Hier ist Variable Dimension nur gleich 3. Die Dimension der Liste field ist jedoch (3,3) 
+    row = []
+    for _ in range(dimension):
+        row.append("🔷") # oder None
+    
+    field.append(row)
+
+print(field) # [["🔷", "🔷", "🔷"], ["🔷", "🔷", "🔷"], ["🔷", "🔷", "🔷"]]
+```
+
+Diese Logik nun als ``Comprehention``. Da wir keine "ursprüngliche" ``Liste`` besitzen von welcher wir die ``Dimensionen`` übernehmen können, müssen wir mit ``range(dimension)`` die Wiederholungen der ``Schleife`` steuern.
+
+```python
+dimension = 3
+[["🔷" for _ in range(dimension)] for _ in range(dimension)] # [["🔷", "🔷", "🔷"], ["🔷", "🔷", "🔷"], ["🔷", "🔷", "🔷"]]
+```
+
+Wir sehen folgendes:
+* Wir beginnen mit der ``Zuweisungslogik`` welche nur die Weitergabe der Variable ``Symbol`` an die neue Liste ist. 
+* Wir wieder holen dieses Symbol so oft bis wir eine *Zeile* in unsrem Brett haben. Die erste ``Comprehention`` ``[symbol for _ in range(dimension)]`` ist also die 1. *Zeile*.
+* Wir wiederholen nun für jede *Reihe* diese ``Comprehention``. Der Ergebnis des Asudrucks der *Reihe* ``[symbol for _ in range(dimension)]`` wir nun in ein weiteres ``[]`` gegeben und ``for _ in range(dimension)`` mal wiederholt.
+* Da das Ergebnis von ``[symbol for _ in range(dimension)]`` eine ``Liste`` ist, und wir diesen Ausdruck nun in eine weitere ``Comprehention`` geben, erhalten wir eine ``Liste`` in einer ``Liste``.
+
+#### Dimension des Inputs: $n$ und Dimension des Outputs: $n^n$
+Was aber wenn wir nicht eine komplizierte Struktur wie ein ``Liste`` in einer ``Lsite`` wollen, sondern eine "flache" Liste haben wollen mit allen Ergebnissen?
+Stellen wir uns die gleiche Anforderung wie zuvor vor, ein erstellen eines 2D-Brettes, jedoch **ohne** die Logik der *eine Zeile ist in einer Liste und alle Zeilen sind wieder in einer Liste* ``[[🔷,🔷],[🔷,🔷]]``. Wir wollen diese also *zusammendrücken* (flatten) ``[🔷,🔷,🔷,🔷]``. 
+
+Anmerkung: Falls schon eine Liste vorhanden ist, welche wir zusammendrücken wollen, sind solche Operationen in ``Packages`` unter verschiedenen Namen bekannt. 
+* numpy, flatlist: *flatten*, 
+* numpy: *ravel* (**call by reference**), 
+* pandas: *explode*, 
+* itertools: *chain*.
+
+Wir wollen aber mit einer ``Comprehention`` direkt eine solche ``Liste`` erstellen. Wie haben im vorherigen Code ``Comprehentions`` in ``Comprehentions`` geschachtelt. Was wenn wir einfach diese Schachtelung`von den Eckigen Klammern ``[[... for] for]`` weg lassen?
+
+```python
+dimension = 2
+[ ["🔷" for _ in range(dimension)] for _ in range(dimension)] # Input: [0,1] -> [['🔷','🔷'],['🔷','🔷']]
+[  "🔷" for _ in range(dimension)  for _ in range(dimension)] # Input: [0,1] -> ['🔷','🔷','🔷','🔷']
+```
+Das scheint zu funktionieren.  
+
+#### Verzweigung bei Comprehentions - If-Expression
+Was wenn wir jedoch nun ``[[🔷,◽,◽],[🔷,🔷,◽], [🔷,🔷,🔷]]`` erzeugen wollen. Wenn wir die inneren ``Listen`` als *Zeilen* sehen, erkennen wir eine Art Dreieck. 
+```
+🔷◽◽
+🔷🔷◽
+🔷🔷🔷
+```
+
+Hier scheint eine ``Verzweigung`` notwendig zu sein um das Symbol ``◽`` oder ``🔷`` einfügen zu können.
+
+Wir schreiben dazu *links* von ``for`` eine  [``If-Expression``](#if-expression-ternärer-operator) ``"🔷" if x <= 0 else "◽"``. Es wird also sichergestellt, dass hier ein ``Wert`` zurückgegeben wird, entweder ``🔷`` oder ``◽``. Jedoch welcher ist abhängig von der ``Bedingung``.
+
+Wir erzeugen nun die 1. *Zeile* unsere Dreiecks. 
+```python
+dimension = 3
+["🔷" if x <= 0 else "◽" for x in range(dimension)] # ['🔷', '◽', '◽']
+```
+
+Es fehlt uns nun eine weitere verschachtelte ``Comprehention`` welche nun die Generierten *Zeilen* nimmt und diese in eine ``Liste`` gibt.
+
+```python
+dimension = 3
+[["🔷" if x <= y else "◽" for x in range(dimension)] for y in range(dimension)] 
+# [['🔷', '◽', '◽'], ['🔷', '🔷', '◽'], ['🔷', '🔷', '🔷']]
+```
+
+Wir erkennen im obigen Code dass die Reihenfolge ausschlaggeben ist für die Logik welche wir implementieren. 
+Es ist also wichtig in der äußeren ``Comprehention`` die *Zeilen* welche mit ``y`` als Index codiert sind in eine ``Liste`` zusammenzufassen. Die innere ``Comprehention`` kümmert sich mit der befüllung einer Zeile. Hier wird ``x`` als Index der *Spalte* angesehen. In vorherigen Programmen mussten wir die von der ``for`` generieren ``Variable`` nicht weiter verwenden. Wir haben dort einfachheitshalber ``for _ in range(dimension)`` geschrieben, da mit ``_`` keine Verwendung diese ``Variable`` symbolisiert werden sollte.
+Nun brauchen wir aber in der ``Bedingung`` die Spalten- sowie Zeilenindices. Wir sagen in der ``Bedingung``, "Wenn der Spaltenindex kleiner wie der Zeilenindex ist, dann zeichnen wir 🔷, sonst ◽". Das hat zur Fole, dass alles links und inklusive der ``Diagonale``, 🔷 wird und alles rechts davon ◽.
+
+#### Bedingung bei Comprehentions - Filter
+Eine Angabe einer ``If-Bedingung`` erscheint auf den ersten Blick als nicht sinnvoll. Diese kann z.B. etwas zurückgeben wenn die ``Bedingung`` erfüllt ist, jedoch passiert *nichts* wenn die ``Bedingung`` *nicht* erfüllt ist. Was soll nun mit dem ``Wert`` in z.B. der ``Liste`` numbers hier ``x * 2 for x in numbers if x > 10`` passieren?
+
+```python
+[x * 2 for x in numbers if x > 10]
+```
+
+Anmerkung: Wir schreiben das ``if`` wenn es einen ``Filterausdruck`` darstellen soll **rechts** vom ``for``. Aber warum? Ist es nicht einfacher es konsistent immer links davon zu schreiben? 
+
+Dieser ``Ausdruck`` hat *nichts* mit einer ``If-Expression`` zu tun. Diese musste links stehen, da diese ``Expression`` zusammegefasst das in die Liste geschreibene Element . Wir könnten damit z.B. entescheiden ob wir mal 2 oder mal 4 rechnen ``x * 2 if x > 10 else x * 4``. Das Problem ist wenn wir ``filtern`` wollen, würde der ``Interpreter`` nicht entscheiden können ob noch was erwarten dass bei ``[x * 2 if x > 10 for x in numbers]``
+
+
+
+Es ist nicht wie bei einer [Verzweigung in Comprehentions](#verzweigung-bei-comprehentions---if-expression) wo mit Sicherheit ein Wert zurück gegeben wird, jedoch welcher ist offen. Hier bei der ``Bedinung`` wollen wir die zu erzeugende Liste mit der Angegebenen ``Bedingung`` ``filtern``.
+
 
 ### Äquivalent in Java
-In Java gibt es keine direkte Entsprechung zu List-Comprehensions, aber wir können eine ähnliche Funktionalität mit Streams und Lambdas erreichen.
+In Java gibt es keine direkte Entsprechung zu List-Comprehensions, aber wir können eine ähnliche Funktionalität mit Streams und Lambdas erreichen. Die Idee hinter diesen gleich den Ideen von ``L04Funktionen_hoeherer_Funktionen`` in Python. 
 import java.util.List;
 import java.util.stream.Collectors;
 ```java

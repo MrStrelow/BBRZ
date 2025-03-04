@@ -4,9 +4,11 @@ public class FormenMitFunktionen
 {
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
+
         string[,] field = new string[5, 5];
-        string fillForm = "#";
-        string fillBackgorund = "~";
+        string fillForm = "🔷";
+        string fillBackgorund = "🔺";
 
         field = FillCanvas(field, fillBackgorund);
         string[,] triangle = DrawTriangle(field, fillForm);
@@ -15,16 +17,16 @@ public class FormenMitFunktionen
         Print(diamond);
         Console.WriteLine();
 
-        diamond = DrawPattern(diamond, 3, fillForm, "+");
+        diamond = DrawPattern(diamond, 3, fillForm, newFillForm: "🔶");
         Print(diamond);
         Console.WriteLine();
 
-        diamond = Rotate(DrawPattern(Rotate(diamond), 3, fillForm, "+"));
+        diamond = Rotate(DrawPattern(Rotate(diamond), 3, fillForm, "🔶"));
         Print(diamond);
         Console.WriteLine();
 
         var slopedTriangle = FillCanvas(field, fillBackgorund);
-        slopedTriangle = DrawTriangle(slopedTriangle, fillForm, 0.25);
+        slopedTriangle = DrawTriangle(slopedTriangle, fillForm, 0.67);
         Print(slopedTriangle);
         Console.WriteLine();
 
@@ -208,31 +210,36 @@ public class FormenMitFunktionen
         return field;
     }
 
-    static string[,] DrawTriangle(string[,] field, string symbol, double slope)
+    static string[,] DrawTriangle(string[,] field, string symbol, double slope=1)
     {
-        int xMax = Convert.ToInt32(Math.Ceiling((field.GetLength(0)-1) / slope)); 
-        //TODO: cell vs value. cell is inbetween 1 and 2, so dont take 1 for cell 2, take 1.5=x instead
-        string[,] ret = new string[field.GetLength(0), xMax];
+        int yMax = field.GetLength(0);
+        int xMax = Convert.ToInt32(Math.Ceiling(yMax / slope));
+        int longerDirection = yMax > xMax ? yMax : xMax;
+        slope = yMax > xMax ? 1 / slope : slope;
+
+        string[,] ret = new string[yMax, xMax];
         ret = FillCanvas(ret, field[0,0]);
 
-        for (int x = 0; x < ret.GetLength(1); x++)
+        // Zeichne linie ein, welche den Rand des Dreiecks darstellt.
+        for (int x = 0; x < longerDirection; x++)
         {
-            int y = x!=0 ? Convert.ToInt32(Math.Round(x * slope)) : 0;
-            ret[y, x] = symbol;
+            int y = x != 0 ? Convert.ToInt32(Math.Floor(x * slope)) : 0;
+            
+            if (yMax > xMax) 
+                ret[x, y] = symbol;
+            else
+                ret[y, x] = symbol;
         }
 
+        // befuelle zeilenweilse bis `symbol` erscheint
         for (int y = 0; y < ret.GetLength(0); y++)
         {
             for (int x = 0; x < ret.GetLength(1); x++)
             {
                 if (ret[y,x] == symbol)
-                {
                     break;
-                } 
                 else
-                {
                     ret[y, x] = symbol;
-                }
             }
         }
 

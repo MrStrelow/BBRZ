@@ -7,9 +7,10 @@ class Position:
     BOT_LEFT = 4
 
 def main():
-    field = [["~" for _ in range(5)] for _ in range(5)]
-    fill_form = "#"
-    fill_background = "~"
+    dimension = 6
+    field = [["~" for _ in range(dimension)] for _ in range(dimension)]
+    fill_form = "🔷"
+    fill_background = "◽"
 
     field = fill_canvas(field, fill_background)
     triangle = draw_triangle(field, fill_form)
@@ -18,16 +19,16 @@ def main():
     print_canvas(diamond)
     print()
 
-    diamond = draw_pattern(diamond, 3, fill_form, "+")
+    diamond = draw_pattern(diamond, 3, fill_form, "🔸")
     print_canvas(diamond)
     print()
 
-    diamond = rotate(draw_pattern(rotate(diamond), 3, fill_form, "+"))
+    diamond = rotate(draw_pattern(rotate(diamond), 3, fill_form, "🔸"))
     print_canvas(diamond)
     print()
 
     sloped_triangle = fill_canvas(field, fill_background)
-    sloped_triangle = draw_triangle_with_slope(sloped_triangle, fill_form, 0.25)
+    sloped_triangle = draw_triangle_with_slope(sloped_triangle, fill_form, 0.67)
     print_canvas(sloped_triangle)
     print()
 
@@ -95,7 +96,7 @@ def draw_diamond(field):
     bot_left = mirror_y(bot_right)
     top_left = mirror_x(bot_left)
 
-    ret = [["" for _ in range(len(field[0]) * 2)] for _ in range(len(field) * 2)]
+    ret = [[None for _ in range(len(field[0]) * 2)] for _ in range(len(field) * 2)]
     ret = combine_form(ret, top_right, Position.TOP_RIGHT)
     ret = combine_form(ret, bot_right, Position.BOT_RIGHT)
     ret = combine_form(ret, bot_left, Position.BOT_LEFT)
@@ -110,15 +111,24 @@ def draw_pattern(field, n, fill_form, new_fill_form):
             for j in range(len(field[i])):
                 if field[i][j] == fill_form:
                     field[i][j] = new_fill_form
+
     return field
 
 def draw_triangle_with_slope(field, symbol, slope):
-    x_max = math.ceil((len(field) - 1) / slope)
-    ret = [["~" for _ in range(x_max)] for _ in range(len(field))]
+    y_max = len(field)
+    x_max = math.ceil(y_max / slope)
+    longer_direction = max(y_max, x_max)
+    slope = 1 / slope if y_max > x_max else slope
 
-    for x in range(len(ret[0])):
-        y = int(round(x * slope)) if x != 0 else 0
-        ret[y][x] = symbol
+    ret = fill_canvas([["" for _ in range(x_max)] for _ in range(y_max)], field[0][0])
+
+    for x in range(longer_direction):
+        y = math.floor(x * slope) if x != 0 else 0
+
+        if y_max > x_max:
+            ret[x][y] = symbol
+        else:
+            ret[y][x] = symbol
 
     for y in range(len(ret)):
         for x in range(len(ret[0])):
@@ -126,6 +136,7 @@ def draw_triangle_with_slope(field, symbol, slope):
                 break
             else:
                 ret[y][x] = symbol
+
     return ret
 
 if __name__ == "__main__":
