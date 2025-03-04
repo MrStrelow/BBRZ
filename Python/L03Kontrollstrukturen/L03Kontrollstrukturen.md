@@ -324,20 +324,37 @@ Es ist also wichtig in der äußeren ``Comprehention`` die *Zeilen* welche mit `
 Nun brauchen wir aber in der ``Bedingung`` die Spalten- sowie Zeilenindices. Wir sagen in der ``Bedingung``, "Wenn der Spaltenindex kleiner wie der Zeilenindex ist, dann zeichnen wir 🔷, sonst ◽". Das hat zur Fole, dass alles links und inklusive der ``Diagonale``, 🔷 wird und alles rechts davon ◽.
 
 #### Bedingung bei Comprehentions - Filter
-Eine Angabe einer ``If-Bedingung`` erscheint auf den ersten Blick als nicht sinnvoll. Diese kann z.B. etwas zurückgeben wenn die ``Bedingung`` erfüllt ist, jedoch passiert *nichts* wenn die ``Bedingung`` *nicht* erfüllt ist. Was soll nun mit dem ``Wert`` in z.B. der ``Liste`` numbers hier ``x * 2 for x in numbers if x > 10`` passieren?
+Eine Angabe einer ``If-Bedingung`` erscheint auf den ersten Blick als nicht sinnvoll. Diese kann z.B. etwas zurückgeben wenn die ``Bedingung`` erfüllt ist, jedoch passiert *nichts* wenn die ``Bedingung`` *nicht* erfüllt ist. Was soll nun mit dem ``Wert`` in z.B. der ``Liste`` numbers hier ``x * 2 for x in numbers if x < 20`` passieren?
 
 ```python
-[x * 2 for x in numbers if x > 10]
+numbers = [1, 2, 3, 20]
+[x * 2 for x in numbers if x < 20] # [2, 4, 6]
 ```
 
-Anmerkung: Wir schreiben das ``if`` wenn es einen ``Filterausdruck`` darstellen soll **rechts** vom ``for``. Aber warum? Ist es nicht einfacher es konsistent immer links davon zu schreiben? 
+Wir sehen, dass 20 ignoriert wurde. Wir haben hier *rechts* vom ``for`` also einen ``Filter``. Je nachdem wo wir diesen Angeben filtert dieser an verschiedenen Stellen, falls die Comprehention verschachtelt ist.
 
-Dieser ``Ausdruck`` hat *nichts* mit einer ``If-Expression`` zu tun. Diese musste links stehen, da diese ``Expression`` zusammegefasst das in die Liste geschreibene Element . Wir könnten damit z.B. entescheiden ob wir mal 2 oder mal 4 rechnen ``x * 2 if x > 10 else x * 4``. Das Problem ist wenn wir ``filtern`` wollen, würde der ``Interpreter`` nicht entscheiden können ob noch was erwarten dass bei ``[x * 2 if x > 10 for x in numbers]``
+```python
+numbers = [[1, 2], [3, 20]]
+[[x * 2 for x in elem if x < 20] for elem in numbers if sum(elem) > 5] # [[6]]
+```
 
+Anmerkung: Wir schreiben das ``if`` wenn es einen ``Filterausdruck`` darstellen soll **rechts** vom ``for``. Aber warum? st es nicht einfacher es konsistent immer links davon zu schreiben? Das Problem ist wenn wir ``filtern`` und eine ``If-Expression`` verwenden wollen, ist es äußerst unübersichtlich ``[x * 2 if x > 10 else x * 4 if x < 20 for x in numbers]`` zwischen den Zuständigkeiten zu unterscheiden. Damit ist gemeint, Welche Bedingung ist für den ``Filter`` und welche für die ``If-Expression`` zuständig? Der ``Interpreter`` hätte an sich kein Problem einen solchen Ausdruck korrekt einlesen zukönnen, es wäre also *technisch gleichwertung* umsetzbar alles *links* zu schreiben. Python hat sich aber dagegen entschieden um ``syntaktische`` Klarheit für den Programmieren zu schaffen. Rechts Filter, Links If-Expression.
 
+Dieser ``Ausdruck`` hat *nichts* mit einer ``If-Expression`` zu tun. Diese musste links stehen, da diese ``Expression`` zusammegefasst das in die Liste geschreibene Element . Wir könnten damit z.B. entescheiden ob wir mal 2 oder mal 4 rechnen ``x * 2 if x > 10 else x * 4``. 
 
 Es ist nicht wie bei einer [Verzweigung in Comprehentions](#verzweigung-bei-comprehentions---if-expression) wo mit Sicherheit ein Wert zurück gegeben wird, jedoch welcher ist offen. Hier bei der ``Bedinung`` wollen wir die zu erzeugende Liste mit der Angegebenen ``Bedingung`` ``filtern``.
 
+```python
+numbers = [1, 2, 3, 10, 11, 12, 13, 20]
+[x * 2 if x > 10 else x * 4 for x in numbers if x < 20]
+# [4, 8, 12, 40, 22, 24, 26]
+```
+
+Anmerkung: Auch ohne Verschachtelung ist eine Ordnung der filter möglich. Jedoch müssen wir uns hier ein wenig genauer hinschauen um zu verstehen was passiert:
+```python
+numbers = [1, 2, 3, 20]
+[x * y for x in numbers if x < 20 for y in numbers if y > 2] # [3*1=3, 20*1=20, 3*2=6, 20*2=40, 3*3=9, 20*3=60]
+```
 
 ### Äquivalent in Java
 In Java gibt es keine direkte Entsprechung zu List-Comprehensions, aber wir können eine ähnliche Funktionalität mit Streams und Lambdas erreichen. Die Idee hinter diesen gleich den Ideen von ``L04Funktionen_hoeherer_Funktionen`` in Python. 
@@ -356,10 +373,8 @@ public class Main {
 ```
 In Java verwenden wir Streams und die map-Funktion, um eine Transformation auf die Liste anzuwenden.
 
-## 2. Dictionary Comprehension
+### Dictionary Comprehension
 Dictionary Comprehension wird verwendet, um ein Dictionary basierend auf einer bestehenden Sammlung zu erstellen, wobei Schlüssel-Wert-Paare generiert werden.
-
-Beispiel: Erstellen eines Dictionaries mit Quadraten der Zahlen
 
 ```python
 # Python Dictionary Comprehension
@@ -369,6 +384,12 @@ print(squares_dict)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
 ```
 
 Hier wird ein Dictionary erstellt, bei dem die Schlüssel die Zahlen aus der Liste sind und die Werte die Quadrierungen dieser Zahlen.
+
+Es gelten zudem alle in [List-Comprehention](#list-comprehension) angemerkten Themen für die [Dictionary Comprehension](#dictionary-comprehension).
+
+#### Anwendungen
+
+TODO
 
 ### Äquivalent in Java
 In Java gibt es keine eingebaute Syntax für Dictionary Comprehensions. Stattdessen verwenden wir einen Map und Streams.
