@@ -1,4 +1,4 @@
-package lerneinheiten.L04UserInput;
+package lerneinheiten.L04UserInput.skripten;
 
 import java.util.Scanner;
 
