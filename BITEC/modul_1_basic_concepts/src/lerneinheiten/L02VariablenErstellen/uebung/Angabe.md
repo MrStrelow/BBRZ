@@ -1,4 +1,4 @@
-## Typen von Variablen und Umwandlungen
+## Erstellen von Variablen und deren Typen
 
 ### Erkennen von Typen
 
