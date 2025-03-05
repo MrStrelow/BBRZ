@@ -1,4 +1,4 @@
-package lerneinheiten.L02VariablenErstellen;
+package lerneinheiten.L02VariablenErstellen.skripten;
 
 public class L02VariablenErstellen {
     public static void main(String[] args) {

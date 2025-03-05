@@ -1,4 +1,4 @@
-package lerneinheiten.L03Operatoren;
+package lerneinheiten.L03Operatoren.skripten;
 
 public class L03Operatoren {
     public static void main(String[] args) {
