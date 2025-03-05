@@ -257,7 +257,7 @@ Mehr Anwendungen dazu gibt es bei [Verzweigungen]() und [Schleifen]().
     boolean genugPunkte = false;
     boolean genugZeit = true;
     boolean genugGeld = false;
-    boolean spielWeiter = genugPunkte || genugZeit || genugGeld;
+    boolean spielWeiter = (genugPunkte || genugGeld) && genugZeit;
     ```
 ---
 
