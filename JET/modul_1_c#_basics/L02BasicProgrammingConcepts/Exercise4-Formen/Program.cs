@@ -4,6 +4,26 @@ public class FormenMitFunktionen
 {
     public static void Main(string[] args)
     {
+        Console.WriteLine(35 + 17);
+        Console.WriteLine("35" + "17");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Console.OutputEncoding = Encoding.UTF8;
 
         string[,] field = new string[5, 5];
