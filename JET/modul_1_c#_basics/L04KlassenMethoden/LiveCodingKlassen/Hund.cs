@@ -68,7 +68,7 @@ public class Hund
     public void SetSpielfreund(Hund spielfreund)
     {
         if (spielfreund is not null)
-        {
+        { 
             this.spielfreund = spielfreund;
         }
     }

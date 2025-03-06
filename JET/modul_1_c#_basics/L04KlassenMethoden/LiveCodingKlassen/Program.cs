@@ -1,11 +1,10 @@
 ﻿using LiveCodingKlassen;
 
 int zahl = 3;
-bool chipped = true;
 
 Hund doggo = new Hund(
-    name:    "doggo",
-    chipped
+    chipped: true,
+    name:    "dogotin"
 );
 
 Hund copyOfDoggy = new Hund(doggo);

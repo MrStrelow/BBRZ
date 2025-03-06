@@ -27,7 +27,8 @@ public class Exercise
         {
             for (int j = 0; j < dimension; j++)
             {
-                if ((j + i) % 2 == 0)
+                //if ((j + i) % 2 == 0)
+                if (j % 2 == 0 && i % 2 == 0)
                     field[i, j] = whiteSquare;
                 else
                     field[i, j] = blackSquare;

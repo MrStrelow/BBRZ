@@ -1,5 +1,6 @@
 package lerneinheiten.L03Operatoren.live;
 
+import java.util.Iterator;
 import java.util.Random;
 
 public class Operatoren {
@@ -44,6 +45,9 @@ public class Operatoren {
         // oder logik mit und logik
         Boolean spielWeiter = ( genugPunkte || genugGeld ) && genugZeit;
 
+        Boolean habeRessourcen = genugPunkte || genugGeld;
+        spielWeiter = habeRessourcen && genugZeit; //  ist das gleiche wie oben
+
         // Vergleichsoperatoren
         String meineAntwort = "82 wäre es gewesen";
         Boolean vergleich = meineAntwort == "82 wäre es gewesen";
@@ -85,6 +89,7 @@ public class Operatoren {
 
         Boolean result =
                 active &&
+                active &&
                 ausweisHinterlegt &&
                 (userMessage & saltForHash) % 2 == 0 &&
                         // Anwendung des Bitweisen & in Kombination mit Modulo 2 um einen "unerwartetes" Ergebnis zu erzeugen. Das Ergebnis ist schwer rückzurechnen.
@@ -95,5 +100,45 @@ public class Operatoren {
                 password == correctPassword;
 
         System.out.println(result);
+
+        // Gemischte Operatoren:
+        Integer summe = 5;
+        summe = summe + 5;
+
+        summe += 5;
+
+        summe = summe + 1;
+        summe += 1;
+        summe++;
+
+        System.out.println("🔸🔸🔸🔸🔸🔸🔸🔸🔸🔸");
+        System.out.println(summe);
+        System.out.println(summe = summe + 1);
+
+        System.out.println(summe++);
+        System.out.println(summe);
+
+        System.out.println(++summe);
+
+
+        // für die, die sich schon mit dem beschäftigt haben.
+        int i = 0;
+        while (i < 10) {
+            System.out.println(Math.pow(2, ++i));
+            // ist das gleiche wie
+            i++;
+            System.out.println(Math.pow(2, i));
+        }
+
+
+        Integer res = Math.addExact(97, 98);
+        res = 97 + 98;
+
+        // Schachbrett Operatoren
+        Integer x = 0;
+        Integer y = 0;
+
+        Boolean weiß = (x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1);
+
     }
 }
