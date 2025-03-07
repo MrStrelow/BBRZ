@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveCoding", "LiveCoding\Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise1-PrimitiveTypenUmwandeln", "Exercise1-PrimitiveTypenUmwandeln\Exercise1-PrimitiveTypenUmwandeln.csproj", "{38FB546F-168D-4671-BE71-6E5979EC195C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise3-Schachbrett", "Exercise3-Schachbrett\Exercise3-Schachbrett.csproj", "{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise4-Schachbrett", "Exercise4-Schachbrett\Exercise4-Schachbrett.csproj", "{CAEAE09A-196F-4933-9FD9-AB3A83AA50EA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise4-Formen", "Exercise4-Formen\Exercise4-Formen.csproj", "{A06D7CE7-2C24-492B-8CFF-DB286227315C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise5-Formen", "Exercise5-Formen\Exercise5-Formen.csproj", "{A06D7CE7-2C24-492B-8CFF-DB286227315C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise5-GuardClauses", "Exercise5-GuardClauses\Exercise5-GuardClauses.csproj", "{BAA97183-A6CD-4AD5-AEDC-9188C4836831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise3-GuardClauses", "Exercise3-GuardClauses\Exercise3-GuardClauses.csproj", "{BAA97183-A6CD-4AD5-AEDC-9188C4836831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

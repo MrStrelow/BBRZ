@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01BubbleSort", "L01BubbleSort\L01BubbleSort.csproj", "{8721E59E-858B-4DF0-ACE4-DB1CADE6759E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.3GuardClause", "L02.3GuardClause\L02.3GuardClause.csproj", "{82BB5F40-1E18-4144-B7F7-84AC7D1FE904}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.4Brett", "L02.4Brett\L02.4Brett.csproj", "{AA510784-1598-48F8-A073-FD6CF51D64A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.5Formen", "L02.5Formen\L02.5Formen.csproj", "{048D4704-384C-4076-BC48-19357340E693}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.8StringBuilder", "L02.8StringBuilder\L02.8StringBuilder.csproj", "{F86B5D1D-8893-4E62-84E2-800DE1F0501A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.6NameSpaces", "L02.6NameSpaces\L02.6NameSpaces.csproj", "{A9CA1DE7-C190-4D3F-95D8-53F779F4C26A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.7ExceptionsVsTryParse", "L02.7ExceptionsVsTryParse\L02.7ExceptionsVsTryParse.csproj", "{23364D5D-8B9B-413F-81C2-9DCC9BF4768C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8721E59E-858B-4DF0-ACE4-DB1CADE6759E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8721E59E-858B-4DF0-ACE4-DB1CADE6759E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8721E59E-858B-4DF0-ACE4-DB1CADE6759E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8721E59E-858B-4DF0-ACE4-DB1CADE6759E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82BB5F40-1E18-4144-B7F7-84AC7D1FE904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82BB5F40-1E18-4144-B7F7-84AC7D1FE904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82BB5F40-1E18-4144-B7F7-84AC7D1FE904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82BB5F40-1E18-4144-B7F7-84AC7D1FE904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA510784-1598-48F8-A073-FD6CF51D64A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA510784-1598-48F8-A073-FD6CF51D64A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA510784-1598-48F8-A073-FD6CF51D64A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA510784-1598-48F8-A073-FD6CF51D64A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048D4704-384C-4076-BC48-19357340E693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048D4704-384C-4076-BC48-19357340E693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048D4704-384C-4076-BC48-19357340E693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048D4704-384C-4076-BC48-19357340E693}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86B5D1D-8893-4E62-84E2-800DE1F0501A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86B5D1D-8893-4E62-84E2-800DE1F0501A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86B5D1D-8893-4E62-84E2-800DE1F0501A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86B5D1D-8893-4E62-84E2-800DE1F0501A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CA1DE7-C190-4D3F-95D8-53F779F4C26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CA1DE7-C190-4D3F-95D8-53F779F4C26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CA1DE7-C190-4D3F-95D8-53F779F4C26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CA1DE7-C190-4D3F-95D8-53F779F4C26A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23364D5D-8B9B-413F-81C2-9DCC9BF4768C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23364D5D-8B9B-413F-81C2-9DCC9BF4768C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23364D5D-8B9B-413F-81C2-9DCC9BF4768C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23364D5D-8B9B-413F-81C2-9DCC9BF4768C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
