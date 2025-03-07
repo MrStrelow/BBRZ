@@ -1,3 +1,5 @@
+from functools import reduce
+
 verdoppeln = lambda x: x * 2
 var = 3
 
@@ -6,19 +8,16 @@ verdoppeln(10)
 def verdoppeln(x):
     return x * 2
 
+zahlen = [1, 2, 3, 4, 5, 6, 7]
 
-zahlen = [1, 2, 3, 4]
+zahlen_quadriert = list(map(lambda x: x * 2, zahlen))
 
-print(list(map(lambda x: x * 2, zahlen)))
+# [x*2 for x in zahlen]
 
-[x*2 for x in zahlen]
+sum_zahlen_quadriert = reduce(lambda x, y: x + y, zahlen_quadriert)
 
-from functools import reduce
+# print(sum(numbers))
 
-numbers = [1, 2, 3, 4]
+print(sum_zahlen_quadriert)  # Ausgabe: 10
 
-sum_result = reduce(lambda x, y: x + y, numbers)
-
-print(sum(numbers))
-
-print(sum_result)  # Ausgabe: 10
+print(list(filter(lambda x: 3 <= x and x < 6, zahlen))) # zwischen 3 und 6 exclusive 6 soll true zurückgegeben werden
