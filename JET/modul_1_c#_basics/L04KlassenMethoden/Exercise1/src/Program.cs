@@ -4,7 +4,7 @@ public class Prigramm
 {
     public static void Main(string[] args)
     {
-        HundeBesitzer karo = new HundeBesitzer("Karo", 1.0, 25, false, 20);
+        HundeBesitzer karo = new HundeBesitzer(name: "Karo", happiness: 1.0, age: 25, hatHundeFuehrerschein: false, capacity: 20);
         Hund gilbert = new Hund("Gilbert", 1, "m", 10, false);
         Hund golbert = new Hund("Gilbert", 1, "m", 10, false);
         Hund frido = new Hund("Frido", 2, "w", 15, true);

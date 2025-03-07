@@ -8,7 +8,7 @@ public class Mensch
     private double happiness;
 
     // hat-Beziehungen:
-    private Mensch loveInterest;
+    private Mensch myLoveInterest;
 
     // Konstruktor
     public Mensch(string name, double happiness, int alter)
@@ -20,7 +20,7 @@ public class Mensch
 
     public Mensch(string name, double happiness, int alter, Mensch loveInterest) : this(name, happiness, alter)
     {
-        this.loveInterest = loveInterest;
+        this.myLoveInterest = loveInterest;
     }
 
     //Methoden
@@ -47,6 +47,51 @@ public class Mensch
         }
 
         return einGanzNeuerMensch;
+    }
+
+    public bool DetectLoveTriangle()
+    {
+        bool triangle = myLoveInterest.myLoveInterest.myLoveInterest == this;
+        bool selfLove = myLoveInterest != this;
+
+        return triangle && !selfLove;
+    }
+
+    private bool DetectLoveTriangleOfSize(int n)
+    {
+        if (myLoveInterest != this) 
+            return false; 
+
+        Mensch next = this;
+
+        for (int i = 0; i < n; i++)
+        {
+            next = next.myLoveInterest;
+            
+        }
+
+        return next == this;
+    }
+
+    public (bool found, int foundAtSize) DetectLoveTriangleUntilSize(int n)
+    {
+
+
+        for (int i = 0; i < n; i++)
+        {
+            if(DetectLoveTriangleOfSize(i))
+            {
+                return (true, i);
+            }
+            
+        }
+
+        return (false, -1);
+    }
+
+    public bool DetectMutualLove()
+    {
+        return this == myLoveInterest.myLoveInterest;
     }
 
     // Get-und-Set-Methoden
@@ -82,11 +127,11 @@ public class Mensch
 
     public Mensch GetLoveInterest()
     {
-        return loveInterest;
+        return myLoveInterest;
     }
 
     public void SetLoveInterest(Mensch loveInterest)
     {
-        this.loveInterest = loveInterest;
+        this.myLoveInterest = loveInterest;
     }
 }

@@ -1,4 +1,6 @@
-dimension = 10
+from typing import List
+
+dimension: int = 10
 
 # Enum
 class Position:
@@ -8,86 +10,52 @@ class Position:
     BOT_LEFT = 4
 
 # Funktionen:
-def fill_canvas(field, symbol="⬜"):
-    # for y in range(dimension):
-    #     for x in range(dimension):
-    #         field[y][x] = symbol
-    
-    return [ [ symbol for _ in range(dimension)] for _ in range(dimension) ]
-    
-    # return field
+def fill_canvas(field: List[List[str]], symbol: str = "⬜") -> List[List[str]]:
+    return [[symbol for _ in range(dimension)] for _ in range(dimension)]
 
-
-def print_canvas(field):
+def print_canvas(field: List[List[str]]) -> None:
     for row in field:
         print("".join(row))
 
-
-def draw_triangle(field, symbol):
+def draw_triangle(field: List[List[str]], symbol: str) -> List[List[str]]:
     for y in range(len(field)):
         for x in range(len(field)):
             if x <= y:
                 field[y][x] = symbol
-
-    # return [[symbol if x <= y else field[y][x] for x in range(len(field))] for y in range(len(field))]
     return field
 
-
-def mirror_x(field):
+def mirror_x(field: List[List[str]]) -> List[List[str]]:
     copy_of_field = copy(field)
-
     for y in range(len(field)):
         for x in range(len(field)):
             copy_of_field[y][x] = field[len(field) - 1 - y][x]
-
     return copy_of_field
 
-
-def mirror_y(field):
+def mirror_y(field: List[List[str]]) -> List[List[str]]:
     copy_of_field = copy(field)
-
     for y in range(len(field)):
         for x in range(len(field)):
             copy_of_field[y][x] = field[y][len(field) - 1 - x]
-
     return copy_of_field
 
-
-def copy(field):
-    # copy_of_field = []
-    # for y in range(dimension):
-    #     row = []
-    #     for x in range(dimension):
-    #         row.append(field[y][x])
-
-    #     copy_of_field.append(row)
-
+def copy(field: List[List[str]]) -> List[List[str]]:
     return [[elem for elem in row] for row in field]
-    # return [row[:] for row in field]
-    # return [row for row in field]
 
-
-def zammstoepsln(container, triangle, position): #combine_form()
+def zammstoepsln(container: List[List[str]], triangle: List[List[str]], position: int) -> List[List[str]]:
     offset = len(triangle)
-
     for y in range(len(triangle)):
         for x in range(len(triangle)):
             if position == Position.TOP_LEFT:
                 container[y][x] = triangle[y][x]
-
             elif position == Position.TOP_RIGHT:
                 container[y][x + offset] = triangle[y][x]
-
             elif position == Position.BOT_LEFT:
                 container[y + offset][x] = triangle[y][x]   
-
             elif position == Position.BOT_RIGHT:
                 container[y + offset][x + offset] = triangle[y][x]
-
     return container
 
-
-def draw_diamant(triangle_top_right):
+def draw_diamant(triangle_top_right: List[List[str]]) -> List[List[str]]:
     triangle_top_left  = mirror_y(triangle_top_right)
     triangle_bot_right = mirror_x(triangle_top_right)
     triangle_bot_left  = mirror_x(triangle_top_left)
@@ -100,24 +68,13 @@ def draw_diamant(triangle_top_right):
 
     return diamant
 
-
 # Verwende Funktionen:
-# field = []
-# for _ in range(dimension):
-#     row = []
+field: List[List[str]] = [[None for _ in range(dimension)] for _ in range(dimension)]
 
-#     for _ in range(dimension):
-#         row.append(None)
-    
-#     field.append(row)
-field = [[None for _ in range(dimension)] for _ in range(dimension)]
-
-field = fill_canvas(
-    symbol = "◽", 
-    field  = field
-)
+field = fill_canvas(field, symbol="◽")
 
 triangle = draw_triangle(field, symbol="🔷")
-print_canvas(triangle)
 
-print_canvas(draw_diamant(triangle))
+diamant = draw_diamant(triangle)
+
+print_canvas(diamant)

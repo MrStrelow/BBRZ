@@ -7,7 +7,7 @@ public class Hund
     private int alter;
     private string geschlecht;
     private bool chipped;
-    private double gesundheit;
+    private double health;
 
     // Hat - Beziehungen
     private HundeBesitzer besitzer;
@@ -19,7 +19,7 @@ public class Hund
         this.name = name;
         this.alter = alter;
         this.geschlecht = geschlecht;
-        this.gesundheit = health;
+        this.health = health;
         this.chipped = chipped;
         // Spielpartner und Besitzer sind null (0..1 Kardinalität)
     }
@@ -33,6 +33,16 @@ public class Hund
         this.besitzer = besitzer;
         this.besitzer.AddHund(this);
     }
+
+    public Hund(Hund toCopy)
+    {
+        this.name = toCopy.name;
+        this.alter = toCopy.alter;
+        this.geschlecht = toCopy.geschlecht;
+        this.chipped = toCopy.chipped;
+        this.health = toCopy.health;
+    }
+
 
     public Hund(
         string name, int alter, string geschlecht, double health, 
@@ -166,11 +176,11 @@ public class Hund
 
     public double GetHealth()
     {
-        return gesundheit;
+        return health;
     }
 
     public void SetHealth(double health)
     {
-        this.gesundheit = health;
+        this.health = health;
     }
 }
