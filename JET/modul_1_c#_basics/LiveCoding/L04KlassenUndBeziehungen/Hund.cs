@@ -3,8 +3,8 @@
 public class Hund
 {
     // Felder
-    private string name;
-    private int alter;
+    public string name;
+    public int alter;
     private string geschlecht;
     private bool chipped;
     private double health;
@@ -12,6 +12,11 @@ public class Hund
     // Hat - Beziehungen
     private HundeBesitzer besitzer;
     private Hund spielfreund;
+
+    Hund()
+    {
+
+    }
 
     // Methoden:
     // - Konstruktor
