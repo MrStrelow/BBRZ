@@ -6,19 +6,12 @@ Außerdem ist, wenn unten "Zahl" erwähnt wird "Double/Float/Integer/Long" und d
 
 ## Definition der Typen
 
-Wir definieren/deklarieren nun alle Varianten von Typen, die wir uns anschauen wollen.
+Wir initialisieren nun alle Varianten von Typen, die wir uns anschauen wollen.
 
 ```java
 Integer ganzeZahl = 1;
 int ganzePrimitiveZahl = 10;
-```
 
-### Wiederholung:
-Der Basistyp eines ganzzahligen Wertes z.B. `35` ist `int`, und der einer Fließkommazahl z.B. `0.5` ist `double`.
-Deshalb muss hier, wie bei `Float`, bei der Zuweisung gesagt werden, dass es sich rechts vom Zuweisungsoperator `=` um einen `Long` handelt.
-Wir tun dies mit dem `L` oder `l` am Ende des Wertes.
-
-```java
 Long grosseGanzeZahl = 2L;
 long grosseGanzePrimitiveZahl = 20L;
 
@@ -32,7 +25,7 @@ Boolean boolscherWert = false;
 boolean boolscherPrimitiverWert = true;
 ```
 
-### Strings zur Speicherung von Zahlen und Wahrheitswerten
+Die folgenden Strings werden zu Speicherung von Zahlen verwendet. Diese werden von ``Variablen`` mit ``Typ`` *Integer* oder *Double* in diese *Strings* umgewandelt. 
 
 ```java
 String kleineGanzeTextZahl;
