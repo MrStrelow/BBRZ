@@ -23,8 +23,8 @@ public class VariablenUmwandeln {
         // DecimalFormat df = new DecimalFormat("#.##");
         DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance(Locale.GERMANY);
         df.setRoundingMode(RoundingMode.HALF_EVEN);
-        df.applyPattern("#.##");
-        
+        df.applyPattern("#.##"); // wird nur gebraucht wenn wir nicht new DecimalFormat("#.##"); schreiben.
+
         String myFormattedNumber = df.format(5.5548);
         System.out.println(myFormattedNumber);
 

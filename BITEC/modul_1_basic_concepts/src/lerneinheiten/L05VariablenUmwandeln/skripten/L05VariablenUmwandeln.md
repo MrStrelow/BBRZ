@@ -250,7 +250,7 @@ Wir legen dazu eine Variable des Typs `DecimalFormat` an.
 Achtung! Hier `.` auf `,` ausbessern für deutsche Computer.
 
 ```java
-DecimalFormat df = new DecimalFormat("#.##");
+DecimalFormat df = new DecimalFormat();
 ```
 
 `RoundingMode.FLOOR` bedeutet, wir schneiden die Kommazahlen ab.
@@ -258,18 +258,22 @@ DecimalFormat df = new DecimalFormat("#.##");
 Auch hier `.` auf `,` ausbessern für deutsche Computer.
 
 ```java
-df.applyLocalizedPattern("#.##");
 df.setRoundingMode(RoundingMode.FLOOR);
 ```
+Zusätzlich wollen wir ein `,` anstatt ``.`` als Trennsymbol für die Nachkommastellen. 
 
-Hier rufen wir die vorbereitete `format`-Methode auf.
+```java
+df.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMANY)); // wir setzten damit "." als ","
+df.applyLocalizedPattern("#,##"); // wir können hier unser Muster in der gewohnten Notation des Landes schreiben, wenn wir die systemsprache Deutsch haben.
+df.applyPattern("#.##"); // sonst geht immer #.##
+```
+
+Um nun die ``Variable`` zu formatieren rufen wir die `format`-Methode auf. Die Rückgabe ist ein ``Wert`` des ``Typs`` *String*.
 
 ```java
 String StringButItsADouble = df.format(anotherDouble);
 System.out.println(StringButItsADouble);
 ```
-
-Wenn hier die deutsche Variante von `1.000.000,00` und nicht die englische Variante `1,000,000.00` verwendet wird (Systemsprache Deutsch vs. Englisch).
 
 ### 3. String zu Zahl:
 

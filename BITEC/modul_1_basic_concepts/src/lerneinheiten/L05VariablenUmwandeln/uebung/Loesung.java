@@ -19,6 +19,7 @@ public class Loesung {
         Double distanz = Math.sqrt(Math.pow(xEnd - xStart, 2) + Math.pow(yEnd - yStart, 2));
         DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance(Locale.GERMANY);
         df.applyPattern("#.##");
+//        df.applyLocalizedPattern("#,##"); // wenn wir die systemsprache Deutsch haben versteht er durch diese methode "," als "."
         String formattedDistanz = df.format(distanz);
 
         System.out.println("Die Figur auf Position [x:" + xStart + " y:" + yStart + "] wurde auf Position [x:" + xEnd +" y:" + yEnd + "] geschoben. Distanz: " + formattedDistanz);
