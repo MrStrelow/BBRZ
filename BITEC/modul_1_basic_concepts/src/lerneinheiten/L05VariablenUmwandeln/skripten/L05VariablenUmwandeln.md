@@ -1,4 +1,5 @@
-Wir wollen hier Umwandlungen zwischen verschiedenen Typen (String, Double, Integer, Boolean, Float, Long, ...) kennenlernen.
+# Eine Variable in eine neue Variablen mit anderen Typ umwandeln
+ Wir wollen hier Umwandlungen zwischen verschiedenen Typen (String, Double, Integer, Boolean, Float, Long, ...) kennenlernen.
 
 Wir behandeln die Klassen "Integer/Double/..." usw. und auch primitive Datentypen "int/double/..." usw.
 Außerdem ist, wenn unten "Zahl" erwähnt wird "Double/Float/Integer/Long" und deren primitiven Varianten (double/float/int/long) gemeint.
@@ -137,9 +138,11 @@ System.out.println("Was ist es? - " + kleineKommaZahl.getClass().getSimpleName()
 System.out.println("Was ist es? - " + grosseKommaZahl.getClass().getSimpleName());
 ```
 
+#### Was tun wenn wir primitive Variablen haben?
+
 Was tun wir jedoch, wenn wir primitive Typen haben? Diese sind `int`, `double`, `long`, usw.  
 Dort können wir keine Methoden von der Variable aufrufen.  
-Hier gibt es ein Konzept, welches Typecasting genannt wird.  
+Hier gibt es ein Konzept, welches ``Typecasting`` genannt wird.  
 Wir schreiben dazu zwei geschwungene Klammern und in diesen den gewünschten Typ.  
 z.B. `(int)`.  
 
