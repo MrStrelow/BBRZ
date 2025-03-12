@@ -2,6 +2,7 @@ package lerneinheiten.L05VariablenUmwandeln.live;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class VariablenUmwandeln {
@@ -19,8 +20,11 @@ public class VariablenUmwandeln {
         // zahl zu string
         String myStringNumber = myDouble.toString();
 
-        DecimalFormat df = new DecimalFormat("#.##");
+        // DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance(Locale.GERMANY);
         df.setRoundingMode(RoundingMode.HALF_EVEN);
+        df.applyPattern("#.##");
+        
         String myFormattedNumber = df.format(5.5548);
         System.out.println(myFormattedNumber);
 
