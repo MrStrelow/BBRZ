@@ -23,7 +23,7 @@ public class Loesung {
         // 4)
         weiß = (x % 2 == 0 && y % 2 == 0 && (x + y) % 3 != 0 ) || (x % 2 == 1 && y % 2 == 1 && (x + y) % 3 != 0);
         schwarz = (x % 2 == 1 && y % 2 == 0 && (x + y) % 3 != 0 ) || (x % 2 == 0 && y % 2 == 1 && (x + y) % 3 != 0);
-        Boolean rot = (x + y) % 3 != 0;
+        Boolean rot = (x + y) % 3 == 0;
 
         // 5)
         weiß = x % 2 == 0;

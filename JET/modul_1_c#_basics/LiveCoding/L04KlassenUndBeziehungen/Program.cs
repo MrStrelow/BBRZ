@@ -9,10 +9,6 @@ Hund doggo = new Hund(
 
 Hund copyOfDoggy = new Hund(doggo);
 
-Console.WriteLine(doggo == copyOfDoggy);
-Console.WriteLine(doggo.Equals(copyOfDoggy));
-
-
 doggo.SetSpielfreund(copyOfDoggy);
 
 //Console.WriteLine(anotherDog == doggo);
@@ -29,8 +25,5 @@ SchaeferHunde hannah = new SchaeferHunde(
     capacity: 10, 
     zuBehueten: hunde
 );
-
-Hund doggu;
-Console.WriteLine(doggu.alter);
 
 HundeBesitzer hundeBesitzer = new HundeBesitzer(name: "Sabine", alter: 30, happiness: 5.0, capacity: 46, meinErsterHund: doggo);
