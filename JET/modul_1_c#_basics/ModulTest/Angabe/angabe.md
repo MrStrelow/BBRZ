@@ -216,8 +216,8 @@ Gegeben ist folgendes Muster
     5 🟩🔺🟩🟦🔺🟦
 ```
 Überlege: 
-* Was ist die ``Formel`` für ein *weißes* Feld? 
-* Was ist die ``Formel`` für ein *schwarzes* Feld?
+* Was ist die ``Formel`` für ein *blaues* Feld? 
+* Was ist die ``Formel`` für ein *grünes* Feld?
 * Was ist die ``Formel`` für ein *rotes* Feld?
 
 ---
