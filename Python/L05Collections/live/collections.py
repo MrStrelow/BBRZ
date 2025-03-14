@@ -1,11 +1,7 @@
-# 1.) userinput: 
-#   - die größe des spielbretts soll angegeben werden.
-#   - welche position soll als start gewählt werden, welche als ziel.
+import keyboard
+import time
 
-# i.) user informieren was er/sie eingeben soll
 dimension = 10
-# print(type(dimension))
-
 
 # 2 Spieler - 
 
@@ -29,7 +25,7 @@ def draw_board():
         print("".join(row))
 
 
-def draw_line(start, end, markers):
+def draw_line(start, end):
     delta_y = end["y"] - start["y"]
     delta_x = end["x"] - start["x"]
 
@@ -46,10 +42,35 @@ def draw_line(start, end, markers):
 
 def move_piece(player):
     # abfrage der tastatur
+    event = keyboard.read_event()
+    if event.event_type == keyboard.KEY_DOWN:
+        if event.name == "w" and :
+            
+        elif event.name == "s" and :
+            
+        elif event.name == "a" and:
+
+        elif event.name == "d" and:
+
+        elif event.name == "f":
+            pass
+
+    time.sleep(0.01)
+    # leers brett erzeugen
+    board = create_board()
+
+    # rufe draw line auf und
+    draw_line(start = player_positions[player], end = {"x" : x, "y" : y})
+
+    #... zeichne spieler symbole
+    for pl, pos in player_positions.items():
+        board[pos["y"]][pos["x"]] = players_darstellung[pl]
+
+    draw_board()
+
+
     # verändere den zustand des spielers
-    # rufe draw line auf
     # wenn der user fertig ist bewege figure auf das ziel
-    pass
 
 # aufruf
 board = create_board()
@@ -57,6 +78,6 @@ draw_board()
 
 
 while True:
-    for player in player_positions.keys:
+    for player in player_positions.keys():
         move_piece(player)
 
