@@ -205,7 +205,7 @@ public class Program
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
-* a) Warum brauchen wir ein ``try-catch`` in der ``Main`` Methode um ``kunde.ValidateKunde();`` sowie miteinander vergleichen zu können ``kunde.ValidateKundeGuardClause();``?
+* a) Warum brauchen wir ``try-catch`` Blöcke in der ``Main`` Methode für ``kunde.ValidateKunde();`` und ``kunde.ValidateKundeGuardClause();``? Was wäre der Unterschied wenn beide Methodenaufrufe in einem ``try-catch`` Block wären?
 * b) Die gültigen Zustände des Programms sind mit ✅ gekennzeichnet. Können diese zu einem gültigen Zustand ✅ Zusammengefasst werden? 
 
 ---
