@@ -9,7 +9,7 @@ dimension = 10
 
 # 2 Spieler - 
 
-players = {"A" : "♟️", "B" : "♙"}
+players_darstellung = {"A" : "♟️", "B" : "♙"}
 field_properties = {"black" : "⬛", "white" : "⬜"}
 markers = {"end" : "❌", "line" : "🔸"}
 
@@ -25,7 +25,7 @@ def draw_board():
 board = create_board()
 draw_board()
 
-positions = {"A" : {"x" : 1, "y" : 1}, "B" : {"x" : 1, "y" : 1}}
+player_positions = {"A" : {"x" : 1, "y" : 1}, "B" : {"x" : 1, "y" : 1}}
 
 
 
