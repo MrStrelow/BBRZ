@@ -43,35 +43,38 @@ def draw_line(start, end):
 def move_piece(player):
     # abfrage der tastatur
     event = keyboard.read_event()
+    draw_board()
 
     # was ist der startwert von dem wir ausgehen?
     x =...
     y =...
 
-    if event.event_type == keyboard.KEY_DOWN:
-        if event.name == "w" and darf ich den move machen:
-            x = .. oder y = ...
-        elif event.name == "s" and :
-            
-        elif event.name == "a" and:
+    # wie oft dürfen wir w a s oder d drücken machen?
+    ...:
+        if event.event_type == keyboard.KEY_DOWN:
+                if event.name == "w" and y > 0:
+                    y -= 1
+                elif event.name == "s" and y < dimension - 1:
+                    y += 1
+                elif event.name == "a" and x > 0:
+                    x -= 1
+                elif event.name == "d" and x < dimension - 1:
+                    x += 1
+                elif event.name == "enter":
+                    break
 
-        elif event.name == "d" and:
+        time.sleep(0.01)
+        # leers brett erzeugen
+        board = create_board()
 
-        elif event.name == "f":
-            pass
+        # rufe draw line auf und
+        draw_line(start = player_positions[player], end = {"x" : x, "y" : y})
 
-    time.sleep(0.01)
-    # leers brett erzeugen
-    board = create_board()
+        #... zeichne spieler symbole
+        for pl, pos in player_positions.items():
+            board[pos["y"]][pos["x"]] = players_darstellung[pl]
 
-    # rufe draw line auf und
-    draw_line(start = player_positions[player], end = {"x" : x, "y" : y})
-
-    #... zeichne spieler symbole
-    for pl, pos in player_positions.items():
-        board[pos["y"]][pos["x"]] = players_darstellung[pl]
-
-    draw_board()
+        draw_board()
 
 
     # verändere den zustand des spielers
