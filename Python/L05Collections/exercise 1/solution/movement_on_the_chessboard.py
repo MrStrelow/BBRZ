@@ -50,7 +50,7 @@ def move_piece(player):
                 x -= 1
             elif event.name == "d" and x < dimension - 1:
                 x += 1
-            elif event.name == "enter":
+            elif event.name == "f":
                 break
 
 
