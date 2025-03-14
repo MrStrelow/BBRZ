@@ -6,6 +6,16 @@
 dimension = 10
 # print(type(dimension))
 
+
+# 2 Spieler - 
+
+players = {"A" : "♟️", "B" : "♙"}
+field_properties = {"black" : "⬛", "white" : "⬜"}
+markers = {"end" : "❌", "line" : "🔸"}
+
+
+
+# TODO
 x_start, y_start = input("Startpunkt wählen [x y]: ").split(" ")
 x_start, y_start = int(x_start), int(y_start)
 
