@@ -1,1 +1,9 @@
-﻿
+﻿* Unsere `Felder` bzw. `Hat-Beziehungen` hier sind als `private` gekennzeichnet. Nenne Gründe warum dies sinnvoll sein kann.
+> Da es Teil der ``Datenabstraktion`` ist. (``Kapselung`` + ``Data-Hiding``). Hier ist ``Data-Hiding`` verantwortlich um den *Zustand* des ``Objekts`` vor ungewollten Zugriffen zu schützen. Wir schaffen das unter anderem wenn wir ``Felder`` als ``privat`` kennzeichnen.
+
+* Erkläre die grundlegende Funktion einer `Liste` im Vergleich zu einem `Dictionary` (es muss nicht auf Implementierungen, wie LinkedList oder ArrayList eingegangen werden).
+> Eine ``Liste`` ist ein ``dynamisches Array``. Dynamisch bedeutet die größe kann sich über die Zeit ändern. Sie dient als "Jack-of-All-Trades - but Master-of-None" ``Datenstruktur``. Bedeutet Sie kann sehr flexibel eingesetzt werden, jedoch bietet Sie keinen speziellen Vorteil in Situationen. Wir können diese als "ersten Versuch" einer Datenstruktur verwenden, und falls wir bemerken wir haben keine zu speziellen Anforderungen an die ``Datenstruktur``, diese weiterverwenden. Ein ``Dictionary`` ist spezialisierter und erlaubt uns *schnelle suchen* mit *flexiblen Schlüsseln* durchzuführen. Flexible Schlüssel bedeutet hier, dass der Typ des Schlüssels (**fast!**, wir brauchen etwas mit Identität, also ``Objekte``) beliebig sein kann und nicht nur z.B. die Position in der Datenstruktur ist, wie es z.B. im Array der Fall ist. Falls wir keine Schlüssel für unsere Datenstruktur haben, können wir kein ``Dictionary`` verwenden.
+
+* Nenne Situationen wann es sinnvoll erscheint ein `Dictionary` zu verwenden?
+> Wenn wir ``Schlüssel`` und ``Wert`` Paare haben.
+> Wenn wir schnell und oft Daten aus einer Datenstruktur finden müssen.
