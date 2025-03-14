@@ -11,7 +11,7 @@ square_colors = {"black": "⬛", "white": "⬜"}
 markers = {"end": "❌", "line": "🔸"}
 
 # Spieler und ihre Figuren
-players = {"A": "♟️", "B": "♙"}  # Schwarz und Weißes Bauer-Symbol
+players_darstellung = {"A": "♟️", "B": "♙"}  # Schwarz und Weißes Bauer-Symbol
 
 # Initialisiere das Schachbrett
 def create_board():
@@ -20,11 +20,11 @@ def create_board():
 board = create_board()
 
 # Startpositionen der Spieler
-positions = {"A": {"x": 1, "y": 1}, "B": {"x": dimension - 2, "y": dimension - 2}}
+player_positions = {"A": {"x": 1, "y": 1}, "B": {"x": dimension - 2, "y": dimension - 2}}
 
 # Setze die Figuren auf das Spielfeld
-for player, pos in positions.items():
-    board[pos["y"]][pos["x"]] = players[player]
+for player, pos in player_positions.items():
+    board[pos["y"]][pos["x"]] = players_darstellung[player]
 
 def draw_board():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -34,7 +34,7 @@ def draw_board():
 
 def move_piece(player):
     global board
-    x, y = positions[player]["x"], positions[player]["y"]
+    x, y = player_positions[player]["x"], player_positions[player]["y"]
     
     draw_board()
     
@@ -50,7 +50,7 @@ def move_piece(player):
                 x -= 1
             elif event.name == "d" and x < dimension - 1:
                 x += 1
-            elif event.name == "f":
+            elif event.name == "enter":
                 break
 
 
@@ -61,18 +61,18 @@ def move_piece(player):
         board = create_board()
         board[y][x] = markers["end"]
         
-        draw_line(positions[player]["x"], positions[player]["y"], x, y)
+        draw_line(player_positions[player]["x"], player_positions[player]["y"], x, y)
         
-        for pl, pos in positions.items():
-            board[pos["y"]][pos["x"]] = players[pl]
+        for pl, pos in player_positions.items():
+            board[pos["y"]][pos["x"]] = players_darstellung[pl]
 
         draw_board()
     
     # Endposition aktualisieren
     board = create_board()
-    positions[player]["x"], positions[player]["y"] = x, y
-    for pl, pos in positions.items():
-        board[pos["y"]][pos["x"]] = players[pl]
+    player_positions[player]["x"], player_positions[player]["y"] = x, y
+    for pl, pos in player_positions.items():
+        board[pos["y"]][pos["x"]] = players_darstellung[pl]
         
     draw_board()
 
@@ -89,6 +89,6 @@ def draw_line(x_start, y_start, x_end, y_end):
 
 # Spielablauf
 while True:
-    for player in players.keys():
+    for player in players_darstellung.keys():
         print(f"Spieler {player} ist am Zug!")
         move_piece(player)
