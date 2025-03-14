@@ -43,9 +43,14 @@ def draw_line(start, end):
 def move_piece(player):
     # abfrage der tastatur
     event = keyboard.read_event()
+
+    # was ist der startwert von dem wir ausgehen?
+    x =...
+    y =...
+
     if event.event_type == keyboard.KEY_DOWN:
-        if event.name == "w" and :
-            
+        if event.name == "w" and darf ich den move machen:
+            x = .. oder y = ...
         elif event.name == "s" and :
             
         elif event.name == "a" and:
