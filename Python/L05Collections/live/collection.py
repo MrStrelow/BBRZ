@@ -67,27 +67,27 @@ def draw_line(start, end):
 
 
 def move_piece(player):
-    x = player_positions[player]["x"]
-    y = player_positions[player]["y"]
+    x = ...
+    y = ...
     
     while True:
         event = keyboard.read_event()
 
         if event.event_type == keyboard.KEY_DOWN:
-            if event.name == "w" and y > 0:
-                y -= 1
+            if event.name == "w" ...:
+                ...
 
-            elif event.name == "s" and y < dimension - 1:
-                y += 1
+            elif event.name == "s" ...:
+                ...
 
-            elif event.name == "a" and x > 0:
-                x -= 1
+            elif event.name == "a" ...:
+                ...
 
-            elif event.name == "d" and x < dimension - 1:
-                x += 1
+            elif event.name == "d" ...:
+                ...
 
             elif event.name == "f":
-                break
+                ...
             
         time.sleep(0.01)
 
@@ -101,20 +101,21 @@ def move_piece(player):
         # rufe draw line auf und
         draw_line(start = player_positions[player], end = {"x" : x, "y" : y})
 
-        #... zeichne spieler symbole
+        # ... zeichne spieler symbole
         for pl, pos in player_positions.items():
             board[pos["y"]][pos["x"]] = players_darstellung[pl]
 
+        # zeichne alle infos welche im board stehen auf die console.
         draw_board(board)
         
     # Endposition aktualisieren - verändere den zustand des spielers
     # player_positions[player]["x"], player_positions[player]["y"] = x, y
-    player_positions[player]["x"] = x
-    player_positions[player]["y"] = y
+    ...
+    ...
     
     # bewege figure auf das ziel
-    for pl, pos in player_positions.items():
-        board[pos["y"]][pos["x"]] = players_darstellung[pl]
+    ...
+    ...
 
 
 ################### Main ##################
