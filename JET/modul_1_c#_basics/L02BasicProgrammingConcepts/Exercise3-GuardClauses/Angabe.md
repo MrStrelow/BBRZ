@@ -8,7 +8,7 @@ Welche ``Denkweisen`` üben wir hier?
 
 Lies davor: 
 * [gaurd clauses und de morgan's law](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/Skripten/L02.3GuardClauses.md)
-* [exceptions: nur das werfen dieser](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/Skripten/L02.7Exceptions.md)
+* [exceptions: der 1. Absatz um eine Exception werfen zu können ist notwendig.](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/Skripten/L02.7Exceptions.md)
 
 ## 3. Übung - Guard Clauses
 
