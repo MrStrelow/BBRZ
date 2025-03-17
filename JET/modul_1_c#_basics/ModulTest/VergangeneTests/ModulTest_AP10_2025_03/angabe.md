@@ -113,7 +113,7 @@ public class Kunde
                                     }
                                     else 
                                     {
-                                        Console.WriteLine("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
+                                        throw new InvalidOperationException("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
                                     }
                                 }
                                 else

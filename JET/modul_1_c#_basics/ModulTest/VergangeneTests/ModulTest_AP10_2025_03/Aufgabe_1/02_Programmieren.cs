@@ -43,7 +43,7 @@ public class Kunde
                                     }
                                     else
                                     {
-                                        Console.WriteLine("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
+                                        throw new InvalidOperationException("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
                                     }
                                 }
                                 else
@@ -108,6 +108,10 @@ public class Kunde
         {
             Console.WriteLine("✅ Kunde darf das Produkt kaufen.");
         }
+        else if (Produkt.Preis > Budget && IstKreditwürdig)
+        {
+            Console.WriteLine("✅ Kunde hat mehr als 20 Bestellungen und hat einen Kredit. Dieser Kunde darf Premium-Produkte kaufen.");
+        } 
         else
         {
             Console.WriteLine("✅ Kunde hat mehr als 20 Bestellungen und darf Premium-Produkte kaufen.");
@@ -124,12 +128,13 @@ public class Program
         Kunde kunde = new Kunde
         {
             IstAktiv = true,
-            Alter = 25,
+            Alter = 26,
+            IstKreditwürdig = true,
             Kundenkarte = "GoldCard",
             MitgliedschaftGueltigBis = DateTime.Now.AddMonths(12),
-            Bestellhistorie = 15,
+            Bestellhistorie = 21,
             Budget = 1000,
-            Produkt = new Produkt { IstPremium = true, Preis = 10005 }
+            Produkt = new Produkt { IstPremium = false, Preis = 10005 }
         };
 
         try
