@@ -128,6 +128,7 @@ public class Kunde
                         }
                         else
                         {
+                            // Anmerkung: Kunde darf auch wenn er zu wenig Budget hat normale Produkte kaufen.
                             Console.WriteLine("✅ Kunde darf das Produkt kaufen.");
                         }
                     }
