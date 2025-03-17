@@ -27,7 +27,7 @@ for i in range(dimension):
 # board = [
 #     [
 #         "⬜" if (i + j) % 2 == 0 else "⬛" 
-#             for j in range(dimension)
+#         for j in range(dimension)
 #     ] 
 #     for i in range(dimension)
 # ]

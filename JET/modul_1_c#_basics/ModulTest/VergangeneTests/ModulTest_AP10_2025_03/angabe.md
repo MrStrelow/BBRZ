@@ -210,7 +210,7 @@ public class Program
 
 ---
 
-## Muster erstellen [20 Punkte]
+## Muster erstellen [25 Punkte]
 ### Programmverständnis [10 / 25 Teilpunkte]
 Gegeben ist folgendes Muster
 ```

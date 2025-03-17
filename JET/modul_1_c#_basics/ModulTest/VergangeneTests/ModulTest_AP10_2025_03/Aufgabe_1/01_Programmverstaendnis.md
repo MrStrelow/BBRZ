@@ -29,7 +29,7 @@ else
 ---
 
 a) 💢 
-b) Exit der Methode fehlt: 
+b) Exit der Methode fehlt und **negation des Ausdrucks ist falsch**: 
   - wie 'return;' oder 'throw new Exception("");'. 
   - Ein Fehlen des Exits in der Methode bedeutet, der Code wird nicht abgebrochen bei Verletzung einer Guard.
      Es wird dadurch möglicherweise ein gültiger Zustand erreicht, auch wenn dies nicht beabsichtigt war. 

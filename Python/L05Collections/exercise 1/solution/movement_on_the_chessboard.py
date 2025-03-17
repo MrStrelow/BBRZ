@@ -40,7 +40,7 @@ def create_board():
     ]
 
 
-def draw_board(board): #TODO: fragen warum ohne parameter ein bug entsteht?
+def draw_board(board): #TODO: Klasse fragen warum ohne parameter ein bug entsteht. -> global vs. local scope.
     # os.system('cls' if os.name == 'nt' else 'clear') # flackert - die gesamte console wir gelöscht und neu erzeugt.
     # flacker nicht / weniger: warum? wir setzen die cursor-position auf 0/0 und zeichnen von dort - "bereits verwendeter speicher wird im hintergrund verwendet" - 
     sys.stdout.write("\033[H")  # setze cursor auf (0,0)
@@ -91,7 +91,7 @@ def move_piece(player):
             
         time.sleep(0.01)
 
-        # leers brett erzeugen
+        # leeres brett erzeugen
         global board
         board = create_board()
 

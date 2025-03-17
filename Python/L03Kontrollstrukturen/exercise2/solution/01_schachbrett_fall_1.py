@@ -5,6 +5,7 @@ def main():
     dimension = int(input("Größe des Spielbretts eingeben (gib 20 ein): "))
 
     # Userinput welcher solange fragt bis eine richtige Eingabe erfolgt.
+    # Beachte diesen Code nur wenn dir try-catch Blöcke bekannt sind!
     # while True:
     #     try:
     #         dimension = int(input())
