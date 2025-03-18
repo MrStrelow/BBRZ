@@ -63,7 +63,7 @@ Console.WriteLine("Alle Überprüfungen bestanden. Der Kunde darf einkaufen!");
 
 ### Programmieren [20 / 35 Teilpunkte]
 Schreibe folgendes `nested (verschachteltes) IF` als `Guard Clause` um.
-(Hinweis: alle ❗ sind Teil der `Guards`, alle ✅ sind Teil der `gültigen Zustände`)
+(Hinweis: alle ❗ sind Teil der `Guards`, alle ✅ sind Teil der `gewünschten Zustände`)
 
 Erstelle dazu ein Projekt in `Visual Studio` (oder einem Editor deiner Wahl) und kopiere den `gesamten Code` in ein `Programm.cs` File.
 
@@ -155,11 +155,11 @@ public class Kunde
 
     public void ValidateKundeGuardClause()
     {
-        // Guards: ungültige Zustände 
+        // Guards: ungewünschte Zustände 
         //TODO: implement me
         throw new NotImplementedException();
 
-        // Gültige: ungültige Zustände 
+        // gewünschte Zustände 
         //TODO: implement me
         throw new NotImplementedException();
     }
@@ -207,7 +207,7 @@ public class Program
 
 ### Theorie [5 / 35 Teilpunkte]
 * a) Warum brauchen wir ``try-catch`` Blöcke in der ``Main`` Methode für ``kunde.ValidateKunde();`` und ``kunde.ValidateKundeGuardClause();``? Was wäre der Unterschied wenn beide Methodenaufrufe in einem ``try-catch`` Block wären?
-* b) Die gültigen Zustände des Programms sind mit ✅ gekennzeichnet. Können diese zu einem gültigen Zustand ✅ Zusammengefasst werden? 
+* b) Die gewünschten Zustände des Programms sind mit ✅ gekennzeichnet. Können diese zu einem gewünschten Zustand ✅ Zusammengefasst werden? 
 
 ---
 

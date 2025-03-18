@@ -62,7 +62,7 @@ Console.WriteLine("Alle Checks bestanden. Die Tour kann starten!");
 
 ### Programmieren [35 / 50 Teilpunkte]
 Schreibe folgendes `nested (verschachteltes) IF` als `Guard Clause` um.
-(Hinweis: alle ❗ sind Teil der `Guards`, alle ✅ sind Teil der `gültigen Zustände`)
+(Hinweis: alle ❗ sind Teil der `Guards` (``ungewünschten``) Zustände, alle ✅ sind Teil der `gewünschten Zustände`)
 
 Erstelle dazu ein Projekt in `Visual Studio` (oder einem Editor deiner Wahl) und kopiere den `gesamten Code` in ein `Programm.cs` File.
 

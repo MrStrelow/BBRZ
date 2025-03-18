@@ -84,7 +84,7 @@ public class Kunde
 
     public void ValidateKundeGuardClause()
     {
-        // Guards: ungültige Zustände 
+        // Guards: ungewünschte Zustände 
         if (!IstAktiv)
             throw new InvalidOperationException("❗ Kunde ist nicht aktiv.");
 
@@ -103,7 +103,7 @@ public class Kunde
         if (Produkt.Preis > Budget && !IstKreditwürdig)
             throw new InvalidOperationException("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
 
-        // Gültige: ungültige Zustände 
+        // gewünschte Zustände 
         if (!Produkt.IstPremium)
         {
             Console.WriteLine("✅ Kunde darf das Produkt kaufen.");
