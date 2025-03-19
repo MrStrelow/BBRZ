@@ -18,7 +18,7 @@ public class VerzweigungenUndBedingungen {
         System.out.println("##########################################");
         System.out.println("das ist vor dem if mit else");
 
-        // If-Bedingung (if ohne else)
+        // If-Verzweigung (if mit else)
         if (alter >= 18) {
             Integer alterEinesAnderenKunden = 20;
             System.out.println("ist über 18: " + (alter > alterEinesAnderenKunden));
