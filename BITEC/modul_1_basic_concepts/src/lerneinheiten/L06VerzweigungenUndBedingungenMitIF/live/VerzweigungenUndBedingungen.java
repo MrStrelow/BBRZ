@@ -51,6 +51,7 @@ public class VerzweigungenUndBedingungen {
         }
 
         // If-Ausdruck (Expression)
+        System.out.println("##########################################");
         String note =   87 <= bewertungInProzent && bewertungInProzent <= 100   ? "Sehr Gut" :
                         75 <= bewertungInProzent && bewertungInProzent < 87     ? "Gut" :
                         62 <= bewertungInProzent && bewertungInProzent < 75     ? "Befriedigend" :
@@ -59,7 +60,11 @@ public class VerzweigungenUndBedingungen {
                                                                                   "außerhalb der grenzen 0 und 100, beides inklusive";
         System.out.println(note);
 
-        // sonstiges:
+        // sonstiges: Frage zu Block/Scope:
+        // ist es besser in den Bedingungen die Variablen zu definieren wo ich sie brauche oder außerhalb?
+
+        // Antwort: als Daumenregel außerhalb definieren, innerhalb überschreiben.
+        System.out.println("##########################################");
         if (true) {
             Integer menge = 5;
         }
