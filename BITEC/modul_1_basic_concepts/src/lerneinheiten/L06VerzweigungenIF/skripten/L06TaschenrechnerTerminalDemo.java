@@ -1,4 +1,4 @@
-package lerneinheiten.L06VerzweigungenIF;
+package lerneinheiten.L06VerzweigungenIF.skripten;
 
 import java.util.Scanner;
 

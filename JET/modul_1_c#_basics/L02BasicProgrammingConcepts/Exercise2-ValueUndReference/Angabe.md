@@ -3,7 +3,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Referenzdatentyp vs. Wertdatentyp  
 * Stack vs. Heap
 
-Welche ``Denkwweisen`` üben wir hier?
+Welche ``Denkweisen`` üben wir hier?
 * keine
 
 Lies davor: 
