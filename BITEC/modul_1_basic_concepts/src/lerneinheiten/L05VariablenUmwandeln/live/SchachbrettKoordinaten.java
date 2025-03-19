@@ -29,10 +29,10 @@ public class SchachbrettKoordinaten {
 
         // formatiere distanz auf , mit 2 nachkommastellen
         DecimalFormat decimalFormat = new DecimalFormat();
-        decimalFormat.applyPattern("#.##"); // 2 nachkommastellen
+        decimalFormat.applyPattern("0.00"); // 2 nachkommastellen
         decimalFormat.setDecimalFormatSymbols(new DecimalFormatSymbols(Locale.GERMAN)); //wir zwingen egal welche sprache am computer ist, einen beistrich zu machen.
 
-        String formatedDistanz = decimalFormat.format(distanz);
+        String formatedDistanz = decimalFormat.format(distanz); // formatiere die zahl mit dem oben angegebenen format.
         System.out.println(formatedDistanz);
 
     }
