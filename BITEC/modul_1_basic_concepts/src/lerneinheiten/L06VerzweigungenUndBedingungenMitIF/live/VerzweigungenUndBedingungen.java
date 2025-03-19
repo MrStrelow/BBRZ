@@ -33,28 +33,31 @@ public class VerzweigungenUndBedingungen {
 
         if (0 <= bewertungInProzent && bewertungInProzent < 50) {
             System.out.println("Nicht Genügend");
+
+        } else if (50 <= bewertungInProzent && bewertungInProzent < 62) {
+            System.out.println("Genügend");
+
+        } else if (62 <= bewertungInProzent && bewertungInProzent < 75) {
+            System.out.println("Befriedigend");
+
+        } else if (75 <= bewertungInProzent && bewertungInProzent < 87) {
+            System.out.println("Gut");
+
+        } else if (87 <= bewertungInProzent && bewertungInProzent <= 100) {
+            System.out.println("Sehr Gut");
+
         } else {
-            if (50 <= bewertungInProzent && bewertungInProzent < 62) {
-                System.out.println("Genügend");
-            } else {
-                if (62 <= bewertungInProzent && bewertungInProzent < 75) {
-                    System.out.println("Genügend");
-                } else {
-                    if (75 <= bewertungInProzent && bewertungInProzent < 87) {
-                        System.out.println("Genügend");
-                    } else {
-                        if (87 <= bewertungInProzent && bewertungInProzent <= 100) {
-                            System.out.println("Genügend");
-                        } else {
-                            System.out.println("außerhalb der grenzen 0 und 100, beides inklusive");
-                        }
-                    }
-                }
-            }
+            System.out.println("außerhalb der grenzen 0 und 100, beides inklusive");
         }
 
         // If-Ausdruck (Expression)
-
+        String note =   87 <= bewertungInProzent && bewertungInProzent <= 100   ? "Sehr Gut" :
+                        75 <= bewertungInProzent && bewertungInProzent < 87     ? "Gut" :
+                        62 <= bewertungInProzent && bewertungInProzent < 75     ? "Befriedigend" :
+                        50 <= bewertungInProzent && bewertungInProzent < 62     ? "Genügend" :
+                        0 <= bewertungInProzent && bewertungInProzent < 50      ? "Nicht Genügend" :
+                                                                                  "außerhalb der grenzen 0 und 100, beides inklusive";
+        System.out.println(note);
 
         // sonstiges:
         if (true) {
