@@ -1,4 +1,4 @@
-package lerneinheiten.L06VerzweigungenIF.uebung;
+package lerneinheiten.L06VerzweigungenUndBedingungenMitIF.uebung;
 
 public class Ue06VerzweigungIF_02_empty {
     public static void main(String[] args) {

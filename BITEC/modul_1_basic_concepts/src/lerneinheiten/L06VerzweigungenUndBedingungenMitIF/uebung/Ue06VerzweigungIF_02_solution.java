@@ -1,4 +1,4 @@
-package lerneinheiten.L06VerzweigungenIF.uebung;
+package lerneinheiten.L06VerzweigungenUndBedingungenMitIF.uebung;
 
 import java.util.Scanner;
 
