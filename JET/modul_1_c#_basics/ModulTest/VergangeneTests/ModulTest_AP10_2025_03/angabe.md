@@ -267,10 +267,12 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten.
 ---
 
 ### Programmieren [25 / 40 Teilpunkte]
-Implementiere Teile aus dem oben angegebene Klassendiagramm in C#
+Implementiere Teile aus dem oben angegebene Klassendiagramm in C#:
+
+**Wichtig:** Verändere die *rot markierte* ``Beziehung`` zwischen ``Shop`` und ``Employee`` zu ``Ein Employee hat 0-1 Shop`` momentan ist es ``Ein Employee hat 1 Shop``.
 1) Verwende die unten zur Verfügung gestellte ``Main-Klasse``. Diese ist [hier](#hilfestellung) zu finden. 
 2) ``Definiere`` dazu zuerst die ``Klassen`` sowie dessen ``Mitglieder`` und ``Beziehungen`` (Erstelle nur Get und Set Methoden welche im weiten Code benötigt werden). *Empfehlung: Verwende die Fehler in der zur verfügung gestellten Main-Methode als "Bauplan" für die Aufgabe. Versuche Fehler welche als rot-markiert werden, schrittweise "nicht mehr rot" zu machen. Starte dazu mit der 1. Anweisung ``Employee alice = new Employee(name: "Alice", salary: 3000);`` und kommentiere die restlichen Zeilen aus. Gehe danach zur nächsten Zeile. usw.*
-3) Wähle die ``Parameter`` der ``Konstruktoren`` nach eigenem Ermessen. Füge jedoch einen ``Copy-Konstruktor`` in den Klassen ``Shop``, ``Kunden`` und ``Employee`` ein. Vergiss nicht den Aufruf des ``Konstruktors`` der ``Basisklasse`` bei den ``Ist-Beziehungen``.
+3) Wähle die ``Parameter`` der ``Konstruktoren`` nach eigenem Ermessen. Füge jedoch einen ``Copy-Konstruktor`` in den Klassen ``Shop``, ``Kunden`` und ``Employee`` ein. Vergiss nicht den Aufruf des ``Konstruktors`` der ``Basisklasse`` bei den ``Ist-Beziehungen``. 
 4) ``Implementiere`` nun die unten angegebenen ``Methoden``.
 
 Implementiere folgendes `Verhalten` mit `Methoden`:
