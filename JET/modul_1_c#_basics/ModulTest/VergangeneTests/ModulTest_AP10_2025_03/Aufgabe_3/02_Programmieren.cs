@@ -32,7 +32,7 @@ public class Kunde
     public void Informieren(Produkt produkt)
     {
         if (bekannterKunde is null)
-            throw new InvalidOperationException("Der Kunde kennt keinen anderen Kunden.");
+            throw new InvalidOperationException($"{name} kennt keinen anderen Kunden und kann sich nicht dadurch nicht informieren.");
 
         Console.WriteLine($"{name} informiert sich über das Produkt '{produkt}' bei {bekannterKunde.name}.");
     }
@@ -196,16 +196,20 @@ public class Shop
         {
             Console.WriteLine($"Shop: {GetHashCode()}");
             this.PrintEmployees();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
 
             Console.WriteLine($"Shop: {partnerShop.GetHashCode()}");
             partnerShop.PrintEmployees();
+            Console.WriteLine();
 
             employees.Remove(employee);
             partnerShop.employees.Add(employee);
             Console.WriteLine($"{employee.GetName()} wurde von {this.GetHashCode()} zu {partnerShop.GetHashCode()} versetzt.");
 
+            Console.WriteLine();
             Console.WriteLine($"Shop: {GetHashCode()}");
             this.PrintEmployees();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
 
             Console.WriteLine($"Shop: {partnerShop.GetHashCode()}");
             partnerShop.PrintEmployees();
@@ -216,7 +220,7 @@ public class Shop
         }
     }
 
-    public void PrintEmployees()
+    private void PrintEmployees()
     {
         foreach (var emplyee in employees)
         {
@@ -229,27 +233,38 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        Employee emp1 = new Employee(name: "Alice", salary: 3000);
-        Employee emp2 = new Employee(name: "Bob", salary: 3000);
+        Employee alice = new Employee(name: "Alice", salary: 3000);
+        Employee bob = new Employee(name: "Bob", salary: 3000);
 
-        Shop shopB = new Shop(oenaceCode: "DE67890", myFirstEmployee: emp2);
-        Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: emp1, partnerShop: shopB);
+        Shop shopB = new Shop(oenaceCode: "DE67890", myFirstEmployee: bob);
+        Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: alice, partnerShop: shopB);
 
-        Kunde kunde1 = new Kunde("Max", shopA);
-        Kunde kunde2 = new Kunde("Anna", shopA, kunde1);
+        Kunde max = new Kunde("Max", shopB);
+        Kunde hannah = new Kunde("Anna", shopA, max);
 
-        kunde2.Informieren(Produkt.Laptop);
+        hannah.Informieren(Produkt.Laptop);  // müsste eigentlich einen try und catch block haben!
+        max.Informieren(Produkt.Smartphone); // müsste eigentlich einen try und catch block haben!
+
+        Kunde isolde = new Kunde("Isolde", shopA);
+        try
+        {
+            isolde.Informieren(Produkt.Fernseher); // wie hier.
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+        Kunde sanna = new Kunde(hannah);
 
         try
         {
-            shopA.Relocate(emp1);
+            shopA.Relocate(alice);
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
         }
-
-        shopA.PrintEmployees();
 
         // Erstellt eine Kopie von Shop A
         Shop shopACopy = new Shop(shopA);

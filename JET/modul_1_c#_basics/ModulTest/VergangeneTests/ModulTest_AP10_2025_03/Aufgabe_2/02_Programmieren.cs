@@ -19,7 +19,7 @@ for (int y = 0; y < dimension; y++)
         //bool red = (x + y) % 3 == 0;
 
         // oder einfacher wenn wir alles in (x + y) % 3 bzw. (x + y) % 2 denken
-        bool blue =  (x + y) % 2 == 0 && (x + y) % 3 != 0;
+        bool blue = (x + y) % 2 == 0 && (x + y) % 3 != 0;
         bool green = (x + y) % 2 == 1 && (x + y) % 3 != 0;
         bool red = (x + y) % 3 == 0;
 

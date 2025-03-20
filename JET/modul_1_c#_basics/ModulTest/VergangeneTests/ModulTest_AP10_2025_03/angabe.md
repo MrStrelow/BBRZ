@@ -256,7 +256,7 @@ static void Print(string[,] field)
 ## Klassen erstellen und Beziehung implementieren [40 Punkte]
 ### Programmverständnis [10 / 40 Teilpunkte]
 Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten.
-* Ist die ``Beziehung`` zwischen ``Kunde`` und ``Kunde`` eine Hat-Beziehung oder Ist- Beziehung? Ist diese Bidirektional oder Unidirektional?
+* Ist die ``Beziehung`` zwischen ``Kunde`` und ``Kunde`` eine Hat-Beziehung oder Ist- Beziehung?
 * Was bedeutet das neben der ``Methode`` *informieren* eingezeichnete **-**? Ist es sinnvoll die ``Methode`` sozu modellieren? Wenn ja, warum, wenn nein, was soll geändert werden?
 * Ist die ``Beziehung`` *vertretet* eine Hat- oder Ist-Beziehung? Was bedeutet *1-n*?
 * Die Hat-Beziehung zwischen *Shop* und *Employee* zwingt jedes `Objekt` der ``Klasse`` Employee zu allen Zeitpunkten mindestens einem *Shop* zugewiesen zu sein. Andererseits hat ein *Shop* mindestens einen *Employee*. Tritt bei der Erstellung der ``Objekte`` *Shop* und *Employee* dadurch ein Problem auf?
@@ -267,51 +267,61 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten.
 ---
 
 ### Programmieren [25 / 40 Teilpunkte]
-
-Implementiere das oben angegebene Klassendiagramm in C#
-* ``Definiere`` dazu zuerst die ``Klassen`` sowie dessen ``Mitglieder`` und ``Beziehungen`` (Erstelle nur Get und Set Methoden welche im weiten Code benötigt werden). 
-* Wähle die ``Parameter`` der ``Konstruktoren`` nach eigenem Ermessen. Füge jedoch einen ``Copy-Konstruktor`` in den Klassen ``Shop``, ``Kunden`` und ``Employee`` ein. Vergiss nicht den Aufruf des ``Konstruktors`` der ``Basisklasse`` bei den ``Ist-Beziehungen``.
-* ``Implementiere`` danach die unten angegebenen ``Methoden``.
-* Erstelle eine ``Main-Klasse`` welches die zu implementierenden ``Methoden`` aufruft. Ein Implementierungsvorschlag dazu ist bereits weiter [unten](#hilfestellung) zu finden.
+Implementiere Teile aus dem oben angegebene Klassendiagramm in C#
+1) Verwende die unten zur Verfügung gestellte ``Main-Klasse``. Diese ist [hier](#hilfestellung) zu finden. 
+2) ``Definiere`` dazu zuerst die ``Klassen`` sowie dessen ``Mitglieder`` und ``Beziehungen`` (Erstelle nur Get und Set Methoden welche im weiten Code benötigt werden). *Empfehlung: Verwende die Fehler in der zur verfügung gestellten Main-Methode als "Bauplan" für die Aufgabe. Versuche Fehler welche als rot-markiert werden, schrittweise "nicht mehr rot" zu machen. Starte dazu mit der 1. Anweisung ``Employee alice = new Employee(name: "Alice", salary: 3000);`` und kommentiere die restlichen Zeilen aus. Gehe danach zur nächsten Zeile. usw.*
+3) Wähle die ``Parameter`` der ``Konstruktoren`` nach eigenem Ermessen. Füge jedoch einen ``Copy-Konstruktor`` in den Klassen ``Shop``, ``Kunden`` und ``Employee`` ein. Vergiss nicht den Aufruf des ``Konstruktors`` der ``Basisklasse`` bei den ``Ist-Beziehungen``.
+4) ``Implementiere`` nun die unten angegebenen ``Methoden``.
 
 Implementiere folgendes `Verhalten` mit `Methoden`:
-* `Kunden` können sich über ein ``Produkt`` bei einem ihnen *bekannten* ``Kunden`` informieren. Das geschieht über den aufruf der ``informieren`` Methode. Gib dazu im Terminal aus, über welches Produkt und wer sich darüber informiert hat. Falls kein bekannter ``Kunde`` existiert soll eine ``Exception`` geworfen werden, falls die Methode `informieren` aufgerufen wird.
-* Einem ``Shop`` soll es möglich sein einen ``Employee`` einem anderen Shop zu übergeben. Dies geschieht mit der Methode ``relocate``. Falls kein PartnerShop existiert, soll eine Exception geworfen werden.
+1) `Kunden` können sich über ein ``Produkt`` bei einem ihnen *bekannten* ``Kunden`` informieren. Das geschieht über den Aufruf der ``informieren`` Methode. Gib dazu im Terminal aus, über welches Produkt und wer sich darüber informiert hat. Falls kein bekannter ``Kunde`` existiert soll eine ``Exception`` geworfen werden, falls die Methode `informieren` aufgerufen wird.
+2) **``[Bonus Aufgabe]``**  Einem ``Shop`` soll es möglich sein einen ``Employee`` einem anderen Shop zu übergeben. Dies geschieht mit der Methode ``relocate``. Falls kein PartnerShop existiert, soll eine Exception geworfen werden.
 
 ---
 
 #### **Hilfestellung:**
-
 Testprogramm:
 ```csharp
+
 public class Program
 {
     public static void Main(string[] args)
     {
-        Employee emp1 = new Employee(name: "Alice", salary: 3000);
-        Employee emp2 = new Employee(name: "Bob", salary: 3000);
+        Employee alice = new Employee(name: "Alice", salary: 3000);
+        Employee bob = new Employee(name: "Bob", salary: 3000);
 
-        Shop shopB = new Shop(oenaceCode: "DE67890", myFirstEmployee: emp2);
-        Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: emp1, partnerShop: shopB);
+        Shop shopB = new Shop(oenaceCode: "DE67890", myFirstEmployee: bob);
+        Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: alice, partnerShop: shopB);
 
-        Kunde kunde1 = new Kunde("Max", shopA);
-        Kunde kunde2 = new Kunde("Anna", shopA, kunde1);
+        Kunde max = new Kunde("Max", shopB);
+        Kunde hannah = new Kunde("Anna", shopA, max);
 
-        kunde2.Informieren(Produkt.Laptop);
+        hannah.Informieren(Produkt.Laptop);  // müsste eigentlich einen try und catch block haben!
+        max.Informieren(Produkt.Smartphone); // müsste eigentlich einen try und catch block haben!
 
-        try
-        {
-            shopA.Relocate(emp1);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
-
-        shopA.PrintEmployees();
-        
-        // Erstellt eine Kopie von Shop A
         Shop shopACopy = new Shop(shopA);
+
+        // BONUS Aufgabe!
+        // Kunde isolde = new Kunde("Isolde", shopA);
+        // try
+        // {
+        //     isolde.Informieren(Produkt.Fernseher); // wie hier.
+        // }
+        // catch (InvalidOperationException ex)
+        // {
+        //     Console.WriteLine(ex.Message);
+        // }
+
+        // Kunde sanna = new Kunde(hannah);
+
+        // try
+        // {
+        //     shopA.Relocate(alice);
+        // }
+        // catch (Exception e)
+        // {
+        //     Console.WriteLine(e.Message);
+        // }
     }
 }
 ```
@@ -363,15 +373,19 @@ public class Shop
         // print den Zustand vor der Veränderung
         Console.WriteLine($"Shop: {GetHashCode()}");
         this.PrintEmployees();
+        Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
 
         Console.WriteLine($"Shop: {partnerShop.GetHashCode()}");
         partnerShop.PrintEmployees();
+        Console.WriteLine();
 
         // TODO: implement me
 
         // print den Zustand nach der Veränderung
+        Console.WriteLine();
         Console.WriteLine($"Shop: {GetHashCode()}");
         this.PrintEmployees();
+        Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~");
 
         Console.WriteLine($"Shop: {partnerShop.GetHashCode()}");
         partnerShop.PrintEmployees();
@@ -385,6 +399,30 @@ public class Shop
         }
     }
 }
+```
+
+Erwarteter Output:
+```
+Anna informiert sich über das Produkt 'Laptop' bei Max.
+Max informiert sich über das Produkt 'Smartphone' bei Anna.
+Isolde kennt keinen anderen Kunden und kann sich nicht dadurch nicht informieren.
+```
+
+Erwarteter Output - Bonus:
+```
+Shop: 55915408
+Alice
+~~~~~~~~~~~~~~~~~~~~~~~~
+Shop: 33476626
+Bob
+
+Alice wurde von 55915408 zu 33476626 versetzt.
+
+Shop: 55915408
+~~~~~~~~~~~~~~~~~~~~~~~~
+Shop: 33476626
+Bob
+Alice
 ```
 
 ---

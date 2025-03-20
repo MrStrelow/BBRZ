@@ -60,7 +60,7 @@ public class VerzweigungenUndBedingungen {
                                                                                   "außerhalb der grenzen 0 und 100, beides inklusive";
         System.out.println(note);
 
-        // sonstiges: Frage zu Block/Scope:
+        // Sonstiges: Frage zu Block/Scope:
         // ist es besser in den Bedingungen die Variablen zu definieren wo ich sie brauche oder außerhalb?
 
         // Antwort: als Daumenregel außerhalb definieren, innerhalb überschreiben.
