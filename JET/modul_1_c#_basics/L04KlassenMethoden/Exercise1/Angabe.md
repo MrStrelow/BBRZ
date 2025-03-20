@@ -1,7 +1,7 @@
 # Hunde und dessen Besitzer:innen
 
 ## Klassen und Methoden definieren
-Gegeben ist ein UML [Klassendiagramm](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L04KlassenMethoden/Exercise1/UML/UML-Klassendiagramm-Hunde.png). 
+Gegeben ist ein UML ![Klassendiagramm](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_c%23_basics/L04KlassenMethoden/Exercise1/UML/UML-Klassendiagramm-Hunde_dark.png). 
 Versuche die ``Hat`` sowie ``Ist`` Beziehungen zu verstehen und...
 * **``definiere``** die ``Klassen`` und dessen ``Mitglieder`` (``Felder`` und ``Methoden``) in C#.
 * Vergiss nicht auf im Klassendiagramm nicht angeführten ``Methoden``. **``Implementiere``** die ``Konstruktoren`` sowie ``Get und Set`` Methoden. (Wir werden ``Get und Set`` bald mit ``Eigenschaften`` von C# ersetzen).
