@@ -9,7 +9,7 @@
 * Wie strukturiert man ein Programm so, dass `Logging` einfach aktiviert und deaktiviert werden kann?
 * Wie verhalten sich verschiedene `Log-Level` und wann werden sie verwendet?
 
-# Lies davor:
+# Bei Unklarheiten hier nachlesen:
 
 ---
 

@@ -11,7 +11,7 @@ Welche ``Denkwweisen`` üben wir hier?
 * Wie löse wir ``kleinere Teile`` eines ``großen Problems`` und ``kombiniere`` diese?
 * Wie gehe ich mit einer Mathematischen Funktion im Programmieren um (lineare Funktion, Steigung)?
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
 * [java vs. c#](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.0C%23_vs_Java_Syntax.md)
 
 ## 4. Aus Dreiecken 📐 werden Diamanten 💠

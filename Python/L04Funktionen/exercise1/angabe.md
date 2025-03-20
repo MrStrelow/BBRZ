@@ -12,7 +12,7 @@
 * Wie lösen wir `kleinere Teile` eines `großen Problems` und `kombinieren` diese?
 * Wie gehe ich mit einer mathematischen Funktion im Programmieren um (lineare Funktion, Steigung)?
 
-# Lies davor:
+# Bei Unklarheiten hier nachlesen:
 
 ---
 

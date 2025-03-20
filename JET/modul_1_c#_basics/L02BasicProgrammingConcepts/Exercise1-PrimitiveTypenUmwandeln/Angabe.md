@@ -5,7 +5,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 Welche ``Denkwweisen`` üben wir hier?
 * keine
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
 * [wie wandle ich variablen um?](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.1VariablenUmwandeln.md)
 
 ## 2. Übung - Variablenumwandlung in C#

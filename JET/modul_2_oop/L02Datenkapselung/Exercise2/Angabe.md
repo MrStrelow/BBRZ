@@ -14,7 +14,7 @@ Welche ``Denkweisen`` üben wir hier?
 * Wer hat welche Zuständigkeiten in einer Software?
 * Wie gehe ich mit komplexerer Software, welche teilweise vorprogrammiert ist.
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
 * [Klassen, Methoden und Eigenschaften](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L04KlassenMethoden/L04KlassenMethoden/L04.1KlassenMethoden.md)
 
 ## 1. Hamstern 🌲🟫🐹🌱🟦

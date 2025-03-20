@@ -5,7 +5,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 Welche ``Denkweisen`` üben wir hier?
 * keine
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
 * [Collections]()
 
 ## 1. Einfaches Lagerverwaltungssystem

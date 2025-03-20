@@ -8,7 +8,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 Welche ``Denkweisen`` üben wir hier?
 * Wie gehe ich mit einer Mathematischen Funktion um (lineare Funktion, Steigung)?
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
 * [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/Skripten/L02.0Kontrollstrukturen.md)
 
 ## 3. Schachbrett und Linien.

@@ -11,6 +11,17 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 
 Welche ``Denkweisen`` üben wir hier?
 * Wann brauche ich eine ``Klasse`` welche mir den Zustand und Verhalten eines ``Objektes`` vorgibt?
-* Wann kann ich ein ein ``dictionary`` oder ``Named-Tuple`` als *simples* ``Objekt`` ohne Klassenvorschrift verwenden (àla Javascript)?
+* Wann kann ich ein ein ``dictionary`` oder ``Named-Tuple`` als *simples* ``Objekt`` ohne Klassenvorschrift verwenden (à la Javascript)?
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
+* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/L03Kontrollstrukturen.md)
+* [Collections](https://github.com/MrStrelow/BBRZ/blob/main/Python/L05Collections/collections.md)
+
+## Schachbrett und Linien - Teil 2
+Wir erlauben nun durch Abfrage von Tastaturinputs (``w``, ``a``, ``s``, ``d`` und ``f``) eine Steuerung von Figuren. 
+
+### Testfälle
+Drücke ``w``, ``a``, ``s``, ``d`` um auf eine neue Position zu gehen und ``f`` um diese zu bestätigen.
+
+### Erwartete Ausgabe:
+![alt]()

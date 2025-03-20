@@ -5,7 +5,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 Welche ``Denkweisen`` üben wir hier?
 * keine
 
-Lies davor:
+Bei Unklarheiten hier nachlesen:
 * [Collections](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L03CollectionsTreesAndEnumerators/L03CollectionsTreesAndEnumerators/L03.0ListenUndDictionaries.md)
 
 ## 1. Einfaches Lagerverwaltungssystem

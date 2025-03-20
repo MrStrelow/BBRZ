@@ -6,7 +6,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 Welche ``Denkweisen`` üben wir hier?
 * keine
 
-Lies davor: 
+Bei Unklarheiten hier nachlesen: 
 * [call by reference vs. call by value](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.2CallByValueOrReference.md)
 
 ## 1. Übung - Argumente von Methoden: Call by Value oder Reference?
