@@ -80,23 +80,52 @@ Allgemein wird dies ``Scoping`` oder der ``Scope`` einer ``Variable`` genannt. D
 ### Wann verwenden wir eine Mehrfachverzweigung?
 ### Wann verwenden wir eine verschachtelte If-Verzweigung?
 
-## Was ist eine If-Anweisung (If-Statement)?
-**Wir verzichten auf folgendes.** Wir **könnten** jede Art von Programmzeile einen Namen geben. Diese sind ``Direktiven``, ``Anweisungen``, ``Deklarationen`` (welche nicht gleichzeitg ``Definitionen`` sind), ``Ausdrücke``, etc. Das ist jedoch sehr trocken und begrenzt nützlich.
+## Was ist eine If-Anweisung (If-Statement) und was ein If-Ausdruck (If-Expression)?
+**Wir verzichten auf folgendes.** Wir **könnten** jede Art von Programmzeile einen Namen geben. Diese sind ``Direktiven``, ``Anweisungen``, ``Deklarationen``, ``Definitionen``, ``Ausdrücke``, etc. Das ist jedoch sehr trocken und begrenzt nützlich.
 
 Wir picken jedoch ``Ausdrücke`` und ``Anweisungen`` raus und beziehen diese auf unsere ``If-Verzweigung`` sowie ``If-Bedingung``. Wir nennen das einen ``If-Ausdruck`` bzw. eine ``If-Anweisung``. 
 
+Zu ``If-Anweisung`` muss kein Beispiel gegeben werden. Es sind die uns bekannten ``If-Bedingungen`` oder ``If-Verzweigung``.
+
 Merken wir uns folgendes:
-> Eine **``If``**``-Anweisung`` ist der Aufruf von ``If-Bedingungen`` oder ``If-Verzweigung``. Diese liefern keinen ``Rückgabewert`` und sind deshalb ``Anweisungen``.
+> Eine **``If``**``-Anweisung`` ist in JAVA der Aufruf von ``If-Bedingungen`` oder ``If-Verzweigung``. Diese produzieren **keinen** ``Wert`` und sind deshalb ``Anweisungen``.
 
 Wir können also folgendes **nicht** schreiben. 
 ```java
 String antwort = if (alter >= 18) {
     yield "Verstehe. Sie sind alt genug.";
+} else {
+    yield "Wir können einen solch komplexen Vertrag nicht abschließen."
 }
 ```
-Hier ist *if* das ``Keyword`` und *"Verstehe. Sie sind alt genug."* ist der nicht verwendete ``Rückgabewert``. Diesen ``Rückgabewert`` würden wir gerne in der ``Variable`` Anwtwort speichern. **Das geht aber so nicht in JAVA**.
 
-In manchen Situationen wäre jedoch eine solches Konstrukt nützlich. Wir nennen solche Konstrukte ``Ausdrücke`` (Expressions).
+In manchen Situationen wäre jedoch eine solches Sprachkonstrukt nützlich. Genau solche Konstrukte werden ``Ausdrücke`` (Expressions) genannt. 
+
+> Ein **``If``**``-Ausdruck`` ist in JAVA der Aufruf des ``?: Operators``. Dieser produziert **einen** ``Wert`` und ist deshalb ein ``Ausdruck``.
+
+In JAVA und C# gibt es einen ``If-Ausdruck`` in der Form eines ``Operators``. Dieser ist der einzige welcher 3 ``Parameter`` hat und wird deshalb ``Ternärer Operator`` genannt. Ein alternativer Name ist der ``?:-Operator``.
+
+Schauen wir uns die Bedeutung in einem Beispiel an und denken an die uns bekannte ``If-Verzweigung``.
+
+```java
+String antwort = alter >= 18 ? "Verstehe. Sie sind alt genug." : "Wir können einen solch komplexen Vertrag nicht abschließen.";
+```
+
+Um es ein wenig direkter zu gestalten schauen wir uns den ``If-Ausdruck`` in Python an.
+```python
+antwort = "Verstehe. Sie sind alt genug." if alter >= 18 else "Wir können einen solch komplexen Vertrag nicht abschließen."
+```
+
+Hier scheint *"Verstehe. Sie sind alt genug."* einer ``Variable`` welche den ``Typ`` *String* hat, zugewiesen zu werden. Jedoch nur **wenn** *alter >= 18* ist. **Ansonsten** *"Wir können einen solch komplexen Vertrag nicht abschließen."*.
+
+Die Logik der Übersetzung zu JAVA ist somit folgende: 
+* Das ``?`` ist ``if`` und der ``:`` ist ``else``.
+* Wir beginnen mit der ``Zuweisung`` und nicht mit der ``Bedingung``.
+
+Wir bemerken:
+> Die ``If-Ausdrücke`` scheinen ``If-Verzweigungen`` zu sein und nicht ``If-Bedingungen``. Grund ist, es muss *immer* ein ``Wert`` zurück gegeben werden.
+
+
 
 ### Wann verwenden wir Anweisungen (Statements)?
 Wir verwenden ``If-Statements`` *eher*, wenn *mehrere Programmzeilen untereinander* in unseren einzelnen ``Verzweigungen`` benötigt werden.
@@ -116,7 +145,6 @@ if (connection != null && !connection.isClosed()) {
 }
 ```
 
-## Was ist eine Ausdruck (Expression)?
 Wir werden hier 2 Beispiele in unserem Kurs sehen. Diese ist die ``Switch-expression`` und ``If-Expression``. Letzteres wird auch ``?:-Operator`` bzw. ``ternärer Operator`` geannt.
  TODO
 Es sind quasi alle ``Kontrollstrukturen`` was wir in diesem Kurs kennen lernen werden ``Anweisungen`` (mit 2 Ausnahmen). Dabei ist eine ``Kontrollstruktur`` ein Sammelbegriff von jenen ``Anweisungen`` und ``Ausdrücke`` welche sich um den Ablauf eines Programmes kümmern. Das erwähnte hilft uns jedoch nicht wirklich um zu wissen was ``Anweisungen`` ausmachen. 
@@ -124,7 +152,3 @@ Es sind quasi alle ``Kontrollstrukturen`` was wir in diesem Kurs kennen lernen w
 
 und ist zudem eine ``Kontrollstruktur``, wenn
 > Eine ``Anweisung`` ist eine ``Kontrollstruktur`` wenn diese den Ablauf des Programms steuert.
-
-
-Wir merken uns:
-> Ein ``Ausdruck`` (Expression) besitzt einen ``Rückgabewert``. 

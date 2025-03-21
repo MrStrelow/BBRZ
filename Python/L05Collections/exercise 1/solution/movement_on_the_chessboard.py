@@ -89,7 +89,7 @@ def move_piece(player):
             elif event.name == "f":
                 break
             
-        time.sleep(0.01)
+        time.sleep(0.001)
 
         # leeres brett erzeugen
         global board
@@ -112,9 +112,8 @@ def move_piece(player):
     player_positions[player]["x"] = x
     player_positions[player]["y"] = y
     
-    # bewege figure auf das ziel
-    for pl, pos in player_positions.items():
-        board[pos["y"]][pos["x"]] = players_darstellung[pl]
+    # darstellung aktualisieren - bewege figure auf das ziel
+    board[player_positions[player]["y"]][player_positions[player]["x"]] = players_darstellung[player]
 
 
 ################### Main ##################

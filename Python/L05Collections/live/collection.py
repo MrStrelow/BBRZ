@@ -33,7 +33,7 @@ field_properties = {"black" : "⬛", "white" : "⬜"}
 def create_board():
     return [ 
         [
-            field_properties["black" if (i + j) % 2 == 0 else "white"] 
+            field_properties["black" if (i + j) % 2 == 0 else "white"]
             for j in range(dimension)
         ] 
         for i in range(dimension)
@@ -43,7 +43,7 @@ def create_board():
 def draw_board(board): #TODO: fragen warum ohne parameter ein bug entsteht?
     # os.system('cls' if os.name == 'nt' else 'clear') # flackert - die gesamte console wir gelöscht und neu erzeugt.
     # flacker nicht / weniger: warum? wir setzen die cursor-position auf 0/0 und zeichnen von dort - "bereits verwendeter speicher wird im hintergrund verwendet" - 
-    sys.stdout.write("\033[H")  # setze cursor auf (0,0)
+    sys.stdout.write("\u001B[H")  # setze cursor auf (0,0)
     sys.stdout.flush() # zwingt sofortige bewegung auf position 0/0 egal ob buffer voll ist.
 
     for row in board:
@@ -67,29 +67,29 @@ def draw_line(start, end):
 
 
 def move_piece(player):
-    x = ...
-    y = ...
+    x = player_positions[player]["x"]
+    y = player_positions[player]["y"]
     
     while True:
         event = keyboard.read_event()
 
         if event.event_type == keyboard.KEY_DOWN:
-            if event.name == "w" ...:
-                ...
+            if event.name == "w" and y > 0:
+                y -= 1
 
-            elif event.name == "s" ...:
-                ...
+            elif event.name == "s" and y < dimension - 1:
+                y += 1
 
-            elif event.name == "a" ...:
-                ...
+            elif event.name == "a" and x > 0:
+                x -= 1
 
-            elif event.name == "d" ...:
-                ...
+            elif event.name == "d" and x < dimension - 1:
+                x += 1
 
             elif event.name == "f":
-                ...
+                break
             
-        time.sleep(0.01)
+        time.sleep(0.001)
 
         # leers brett erzeugen
         global board
@@ -110,13 +110,11 @@ def move_piece(player):
         
     # Endposition aktualisieren - verändere den zustand des spielers
     # player_positions[player]["x"], player_positions[player]["y"] = x, y
-    ...
-    ...
+    player_positions[player]["x"] = x
+    player_positions[player]["y"] = y
     
-    # bewege figure auf das ziel
-    ...
-    ...
-
+    # darstellung aktualisieren - bewege figure auf das ziel
+    board[player_positions[player]["y"]][player_positions[player]["x"]] = players_darstellung[player]
 
 ################### Main ##################
 os.system('cls' if os.name == 'nt' else 'clear') # löschen alles was noch von der alten console übrig ist.
