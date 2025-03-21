@@ -11,7 +11,7 @@ Welche ``Denkweisen`` üben wir hier?
 Bei Unklarheiten hier nachlesen:
 * [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/Skripten/L02.0Kontrollstrukturen.md)
 
-## 3. Schachbrett und Linien.
+## Schachbrett und Linien.
 * Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `Console.ReadLine` und wandle diesen String in eine Zahl um. Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. Die 16-bit (4-hexbit) Uni-Codes für schwarze ⬛ und weiße ⬜ Symbole sind `\u21B1` und `\u21B2`. Falls diese nicht schön ausgefüllt dargestellt werden (die verwendete Font im Terminal unterstützt diese Symbole nicht als "emoji") verwende die 24-bit (5-hexbit) emojis 🟩 `\u1F7E9` und 🟦 `\u1F7E6`. (windows + . öffnet dir einen preview einiger Emojis auf Windows. Füge diese dann in den Code ``blackSquare = "⬛"`` ein)
 * Der User soll nun 2 Paare von `y` und `x` Koordinaten wählen, welche miteinander verbunden werden sollen. Markiere die Start- und Endpunkte mit einem 🟡 und ❌. Verwende für die Verbindung dieser Punkte den Zusammenhang $y=k\cdot x+d$ und $\frac{\Delta y}{\Delta x}=k$. Verwende für jede Zelle, welche als Teil der Linie von den oben genannten Zusammenhängen ausgewählt wird, das Symbol 🔸.
 Beginne mit folgenden Fall:
