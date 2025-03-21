@@ -10,7 +10,7 @@ CORS(app, origins=["http://127.0.0.1:5000"], methods=["GET", "POST"])
 # A simple route to be handled by Flask (the frontend)
 @app.route("/")
 def index():
-    return render_template("index_only_flask.html")  # Renders a simple HTML page
+    return render_template("index.html")  # Renders a simple HTML page
 
 # Flask route for GET request (API)
 @app.route("/api/data", methods=["GET"])
