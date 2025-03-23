@@ -1,4 +1,4 @@
-Diese Übung erweitert [Übung 2 aus den Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/exercise2/angabe.md). Die Lösung dazu ist [hier](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/exercise2/solution/schachbrett_fall_4.py) zu finden.
+Diese Übung erweitert [Übung 2 aus den Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/exercise2-linien-am-schachbrett/angabe.md). Die Lösung dazu ist [hier](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/exercise2/solution/schachbrett_fall_4.py) zu finden.
 
 ---
 

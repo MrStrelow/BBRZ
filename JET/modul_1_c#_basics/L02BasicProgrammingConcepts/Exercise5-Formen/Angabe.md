@@ -18,9 +18,9 @@ Bei Unklarheiten hier nachlesen:
 Generiere ``Formen``, welche vom ``User gewählt`` werden, sowie die benötigten Parameter der Formen. 
 
 Verwende dazu folgende Methoden welche alle in einer `ausführbaren Klasse` sich befinden (Klasse mit einer `Main` Methode):
-* static string[,] DrawTriangle(string[,] field, string symbol): zeichnet die [Basisform](#basisform) in ein 2d-Array.
-* static string[,] MirrorX(string[,] field): spiegle ein 2d-Array um die x-Achse.
-* static string[,] MirrorY(string[,] field): spiegle ein 2d-Array um die y-Achse.
+* ``static string[,] DrawTriangle(string[,] field, string symbol)``: zeichnet die [Basisform](#basisform) in ein 2d-Array.
+* ``static string[,] MirrorX(string[,] field)``: spiegle ein 2d-Array um die x-Achse.
+* ``static string[,] MirrorY(string[,] field)``: spiegle ein 2d-Array um die y-Achse.
 
 Versuche mit `MirrorY`, `MirrorX` und `DrawTriangle` alle 4 Fälle Teile des [Diamanten](#zusammengesetzte-formen) darzustellen.
 Verwende nun:

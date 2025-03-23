@@ -1,3 +1,4 @@
+# Zusammenfassung der Angabe
 # 1.) benutzereingabe von zahlen 0-100
 
 # 2.) 5 Leben, bei fehler soll eins abgezogen werden.
