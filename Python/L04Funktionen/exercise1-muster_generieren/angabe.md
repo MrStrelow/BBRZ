@@ -13,7 +13,8 @@
 * Wie gehe ich mit einer mathematischen Funktion im Programmieren um (lineare Funktion, Steigung)?
 
 # Bei Unklarheiten hier nachlesen:
-
+* [Wie verwende ich Funktionen?](https://github.com/MrStrelow/BBRZ/blob/main/Python/L04Funktionen/L04.1Funktionen.md)
+* [Was ist der Scope?](https://github.com/MrStrelow/BBRZ/blob/main/Python/L04Funktionen/L04.2Scope.md)
 ---
 
 ## 4. Aus Dreiecken 📐 werden Diamanten 💠
