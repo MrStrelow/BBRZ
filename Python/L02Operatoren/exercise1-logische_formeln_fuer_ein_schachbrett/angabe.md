@@ -1,4 +1,13 @@
-# Operatoren
+Welche ``Konzepte`` der Programmiersprache üben wir hier?
+* Operatoren händisch auswerten 
+* Auswertungsreihenfolge der Operatoren nachbauen
+
+Welche ``Denkweisen`` üben wir hier?
+* strukturiertes Denken 
+* Anweisungen in einer informellen Sprache (Deutsch) und diese anwenden.
+
+Bei Unklarheiten hier nachlesen: 
+* [Wie verwende ich Operatoren?](https://github.com/MrStrelow/BBRZ/blob/main/Python/L02Operatoren/L02.1Operatoren.md)
 
 ## Logische Operatoren
 
