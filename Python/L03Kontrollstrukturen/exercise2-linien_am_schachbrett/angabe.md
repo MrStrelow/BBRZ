@@ -9,7 +9,7 @@ Welche ``Denkweisen`` üben wir hier?
 * Wie gehe ich mit einer Mathematischen Funktion um (lineare Funktion, Steigung)?
 
 Bei Unklarheiten hier nachlesen:
-* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/L03Kontrollstrukturen.md)
+* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03.2SchleifenUndComprehentions/L03.2SchleifenUndComprehentions.md)
 
 ## Schachbrett und Linien.
 * Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `input()` und wandle diesen String in eine Zahl um. Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. Die 16-bit (4-hexbit) Uni-Codes für schwarze ⬛ und weiße ⬜ Symbole sind `\u21B1` und `\u21B2`. Falls diese nicht schön ausgefüllt dargestellt werden (die verwendete Font im Terminal unterstützt diese Symbole nicht als "emoji") verwende die 24-bit (5-hexbit) emojis 🟩 `\u1F7E9` und 🟦 `\u1F7E6`. (windows + . öffnet dir einen preview einiger Emojis auf Windows. Füge diese dann in den Code ``black_square = "⬛"`` ein)

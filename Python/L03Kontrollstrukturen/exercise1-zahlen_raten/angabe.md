@@ -8,7 +8,7 @@ Welche ``Denkweisen`` üben wir hier?
 * Wie steuere ich eine ``Schleife`` mit ``logischen Bedingungen``?
 
 Bei Unklarheiten hier nachlesen:
-* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/L03Kontrollstrukturen.md)
+* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03.2SchleifenUndComprehentions/L03.2SchleifenUndComprehentions.md)
 
 ## Zahlen zwischen 0 und 100 raten
 Der Benutzer muss eine geheime Zahl zwischen 0 und 100 am Terminal erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. 

@@ -1,4 +1,4 @@
-package lerneinheiten.L01ersteSchritte.live;
+package lerneinheiten.L01ErsteSchritte.live;
 
 public class ErsteSchritte {
 

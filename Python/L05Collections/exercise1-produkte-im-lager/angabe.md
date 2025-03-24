@@ -1,23 +1,24 @@
 Welche ``Konzepte`` der Programmiersprache üben wir hier?
-* For-Each-Schleife
+* For-Each-Schleife als einzige Schleife in Python
+* Verwendung von enumerate und zip bei For-Schleifen
 * Anwendung von Listen und Dictionaries.
 
 Welche ``Denkweisen`` üben wir hier?
-* keine
+* Schachtelungen von ``Collections`` in ``Collections``
 
 Bei Unklarheiten hier nachlesen:
-* [Collections]()
+* [Wie verwende ich Collections?](https://github.com/MrStrelow/BBRZ/blob/main/Python/L05Collections/L5.1Collections.md)
 
 ## 1. Einfaches Lagerverwaltungssystem
 **`Achtung! Wir verwenden hier keine Klassen für die ProduktTypen.`** Wir verzichten auf Identität eines Objektes und sagen, z.B. ein `string` mit dem Wert `Fahrrad` ist ein Fahrrad.
-Auch wenn wir abfragen ob ein `Fahrrad` in eine `kleine Box` passt, greifen wir **`nicht`** auf eigenschaften eines Objektes zu (z.B. schreiben wir nicht, `if(fahrrad.laenge > box.capacity`), sondern merken uns dass ein `Fahrrad` nicht in eine `kleine Box` passt.
+Auch wenn wir abfragen ob ein `Fahrrad` in eine `kleine Box` passt, greifen wir **`nicht`** auf eigenschaften eines Objektes zu (z.B. schreiben wir nicht, `if(fahrrad.laenge > box.capacity`), sondern merken uns dass ein `Fahrrad` nicht in eine `kleine Box` passt. Wir tun das mit ``box_type == "small" and product_type != "Kulli"`` gib  ``Box zu klein!`` aus.
 
 Hier nochmal in Code:
 ```python
 def my_method(..., product_type, box_type):
     if box_type == "small" and product_type == "Fahrrad":
-        # Erlaube keinen Zugriff auf die Box
-        pass
+        ... Erlaube keinen Zugriff auf die Box ...
+        
     # Weitere Logik folgt hier...
 
 ```

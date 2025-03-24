@@ -26,8 +26,8 @@ public class Loesung {
         Boolean rot = (x + y) % 3 == 0;
 
         // 5)
-        weiß = x % 2 == 0;
-        schwarz = x % 2 == 1;
+        weiß = (x + y) % 2 == 0;
+        schwarz = (x + y) % 2 == 1;
 
         // 6)
         schwarz = y == 0 || y == 5 || x == 0 || x == 5;

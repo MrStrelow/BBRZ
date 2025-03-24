@@ -1,4 +1,4 @@
-package lerneinheiten.L01ersteSchritte.uebung;
+package lerneinheiten.L01ErsteSchritte.uebung;
 
 public class Loesung {
 

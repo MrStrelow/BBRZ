@@ -1,20 +1,20 @@
 # Operatoren in Java
 
-Operatoren verknüpfen Variablen bzw. Werte miteinander und erzeugen basierend auf diesen einen neuen Wert.
+Operatoren verknüpfen ``Variablen`` bzw. ``Werte`` miteinander und erzeugen basierend auf diesen einen neuen ``Wert``.
 
-Der folgende `+` Operator, welcher die Bedeutung "Addition" hat, verknüpft die Zahlen `35` und `17` und erzeugt den neuen Wert `52`:
+Der folgende *+* ``Operator``, welcher die Bedeutung *"Addition"* hat, verknüpft die Zahlen *35* und *17* und erzeugt den neuen ``Wert`` *52*:
 
 ```java
 System.out.println(35 + 17);
 ```
 
-Die Bedeutung eines Operators ist abhängig vom Typ der Variablen bzw. Werte, welche in den Operator "hineingegeben" werden. Das sehen wir bei dem Ausdruck `"35" + "17"`. Hier hat der Operator `+` nicht die Bedeutung "Addition", sondern "Concatenation". Wir fügen also die Zeichenkette `"35"` mit der Zeichenkette `"17"` zusammen, was `"3517"` ergibt:
+Die Bedeutung eines ``Operators`` ist abhängig vom ``Typ`` der ``Variablen`` bzw. ``Werte``, welche in den ``Operator`` "hineingegeben" werden. Das sehen wir bei dem Ausdruck *"35" + "17"*. Hier hat der Operator `+` nicht die Bedeutung der *"Addition"*, sondern der *"Concatenation"* (zusammenfügen). Wir fügen also die Zeichenkette *"35"* mit der Zeichenkette "17" zusammen, was *"3517"* ergibt:
 
 ```java
 System.out.println("35" + "17");
 ```
 
-Das gleiche Verhalten gilt für Variablen:
+Das gleiche Verhalten gilt für ``Variablen``:
 
 ```java
 Integer firstInt = 35;
@@ -26,7 +26,7 @@ String secondString = "17";
 System.out.println(firstString + secondString);
 ```
 
-Im Allgemeinen kann angenommen werden, dass wenn ein Ausdruck (was auch immer er ist) einen Wert mit einem Typ erzeugt, dieses Ergebnis mit Operatoren weiter verknüpft werden kann. Es kann also eine Kette gebildet werden:
+Ein aufruf eines ``Operators`` erzeugt einen  ``Wert`` mit einem ``Typ``. Dieses Ergebnis kann direkt mit Operatoren weiter verknüpft werden kann. Es kann also eine Kette gebildet werden:
 
 ```java
 System.out.println(firstInt + secondInt + firstInt + secondInt);
@@ -62,9 +62,9 @@ Wir unterscheiden folgende Operatoren:
 - **String-Operatoren:**
     - `+`: concatenate bedeutet, Zeichen bzw. Zeichenketten zusammenzufügen.
 - **Arithmetische Operatoren:**
-    - `+`, `-`, `*`, `/` bei Variablen, welche Zahlen darstellen.
+    - `+`, `-`, `*`, `/`, `%` bei Variablen, welche Zahlen darstellen.
 - **Logische (oder auch boolesche) Operatoren:**
-    - `!`, `||`, `&&`, `^`: Dies sind beispielsweise das logische Nicht, logische Und, logische Oder und exklusives Oder.
+    - `!`, `||`, `&&`: Dies sind beispielsweise das logische Nicht, logische Und, logische Oder und exklusives Oder.
 - **Bitweise Operatoren:**
     - `|`, `&`, `^`, `~`, `<<`, `>>`, `>>>`: Bitweise Operatoren nehmen die binäre Darstellung einer Zahl und verknüpfen diese bitweise. Beispiel:
 

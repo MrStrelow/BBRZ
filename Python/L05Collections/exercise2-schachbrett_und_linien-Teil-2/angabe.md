@@ -1,4 +1,4 @@
-Diese Übung erweitert [Übung 2 aus den Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/exercise2-linien_am_schachbrett/angabe.md). Die Lösung dazu ist [hier](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/exercise2-linien_am_schachbrett/solution/schachbrett_fall_4.py) zu finden.
+Diese Übung erweitert [Übung 2 aus den Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03.2SchleifenUndComprehentions/exercise2-linien_am_schachbrett/angabe.md). Die Lösung dazu ist [hier](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03.2SchleifenUndComprehentions/exercise2-linien_am_schachbrett/solution/schachbrett_fall_4.py) zu finden.
 
 ---
 
@@ -15,7 +15,7 @@ Welche ``Denkweisen`` üben wir hier?
 * Wann kann ich ein ein ``dictionary`` oder ``Named-Tuple`` als *simples* ``Objekt`` ohne Klassenvorschrift verwenden (à la Javascript)?
 
 Bei Unklarheiten hier nachlesen:
-* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03Kontrollstrukturen/L03Kontrollstrukturen.md)
+* [Kontrollstrukturen](https://github.com/MrStrelow/BBRZ/blob/main/Python/L03.2SchleifenUndComprehentions/L03.2SchleifenUndComprehentions.md)
 * [Collections](https://github.com/MrStrelow/BBRZ/blob/main/Python/L05Collections/collections.md)
 
 ## Schachbrett und Linien - Teil 2

@@ -1,4 +1,4 @@
-package lerneinheiten.L01ersteSchritte.skripten;
+package lerneinheiten.L01ErsteSchritte.skripten;
 
 public class L01ErsteSchritte {
       public static void main(String[] args) {
