@@ -240,10 +240,14 @@ public class Program
         Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: alice, partnerShop: shopB);
 
         Kunde max = new Kunde("Max", shopB);
-        Kunde hannah = new Kunde("Anna", shopA, max);
+        Kunde hannah = new Kunde("Hannah", shopA, max);
 
         hannah.Informieren(Produkt.Laptop);  // müsste eigentlich einen try und catch block haben!
         max.Informieren(Produkt.Smartphone); // müsste eigentlich einen try und catch block haben!
+
+        Shop shopACopy = new Shop(shopA);
+        Kunde anna = new Kunde(hannah);
+        Employee rob = new Employee(bob);
 
         Kunde isolde = new Kunde("Isolde", shopA);
         try
@@ -255,8 +259,8 @@ public class Program
             Console.WriteLine(ex.Message);
         }
 
-        Kunde sanna = new Kunde(hannah);
 
+        // BONUS Aufgabe!
         try
         {
             shopA.Relocate(alice);
@@ -265,8 +269,5 @@ public class Program
         {
             Console.WriteLine(e.Message);
         }
-
-        // Erstellt eine Kopie von Shop A
-        Shop shopACopy = new Shop(shopA);
     }
 }

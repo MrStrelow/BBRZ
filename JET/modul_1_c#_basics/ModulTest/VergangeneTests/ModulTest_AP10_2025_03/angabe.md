@@ -296,26 +296,27 @@ public class Program
         Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: alice, partnerShop: shopB);
 
         Kunde max = new Kunde("Max", shopB);
-        Kunde hannah = new Kunde("Anna", shopA, max);
+        Kunde hannah = new Kunde("Hannah", shopA, max);
 
         hannah.Informieren(Produkt.Laptop);  // müsste eigentlich einen try und catch block haben!
         max.Informieren(Produkt.Smartphone); // müsste eigentlich einen try und catch block haben!
 
         Shop shopACopy = new Shop(shopA);
+        Kunde anna = new Kunde(hannah);
+        Employee rob = new Employee(bob);
+
+        Kunde isolde = new Kunde("Isolde", shopA);
+        try
+        {
+            isolde.Informieren(Produkt.Fernseher); // wie hier.
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
 
         // BONUS Aufgabe!
-        // Kunde isolde = new Kunde("Isolde", shopA);
-        // try
-        // {
-        //     isolde.Informieren(Produkt.Fernseher); // wie hier.
-        // }
-        // catch (InvalidOperationException ex)
-        // {
-        //     Console.WriteLine(ex.Message);
-        // }
-
-        // Kunde sanna = new Kunde(hannah);
-
         // try
         // {
         //     shopA.Relocate(alice);
@@ -405,8 +406,8 @@ public class Shop
 
 Erwarteter Output:
 ```
-Anna informiert sich über das Produkt 'Laptop' bei Max.
-Max informiert sich über das Produkt 'Smartphone' bei Anna.
+Hannah informiert sich über das Produkt 'Laptop' bei Max.
+Max informiert sich über das Produkt 'Smartphone' bei Hannah.
 Isolde kennt keinen anderen Kunden und kann sich nicht dadurch nicht informieren.
 ```
 
