@@ -50,20 +50,58 @@ public class Ue06VerzweigungIF_02_solution {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Gib einen Buchstaben ein um zu überprüfen ob dieser ein Vokal ist: ");
-        String userEingabe = scanner.nextLine();
+        String userinput = scanner.nextLine().toLowerCase();
 
-        if (userEingabe.length() != 1) {
+        // Variante 1
+        Integer userCharInput = (int) userinput.charAt(0);
+        if (97 <= userCharInput && userCharInput <= (97 + 26) && userinput.length() == 1) {
+            if (
+                userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+                userinput.equals("o") || userinput.equals("u")
+            ) {
+                System.out.println("Usereingabe ist ein Vokal.");
 
-            System.err.println("FEHLER! Es wurde nicht nur ein Buchstabe eingegeben!");
+            } else {
+                System.out.println("Ustereingabe ist ein Konsonant.");
+            }
+        } else {
+            System.out.println("Fehlerhafte Eingabe.");
+        }
+
+        // Variante 2
+        if (Character.isLetter(userCharInput) && userinput.length() == 1) {
+            if (
+                userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+                userinput.equals("o") || userinput.equals("u")
+            ) {
+                System.out.println("Usereingabe ist ein Vokal.");
+            } else {
+                System.out.println("Ustereingabe ist ein Konsonant.");
+            }
+        } else {
+            System.out.println("Fehlerhafte Eingabe.");
+        }
+
+        // Variante 3
+        if (
+            userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+            userinput.equals("o") || userinput.equals("u")
+        ) {
+            System.out.println("Usereingabe ist ein Vokal.");
+
+        } else if(
+            userinput.equals("b") || userinput.equals("c") || userinput.equals("d") ||
+            userinput.equals("f") || userinput.equals("g") || userinput.equals("h") ||
+            userinput.equals("j") || userinput.equals("k") || userinput.equals("l") ||
+            userinput.equals("m") || userinput.equals("n") || userinput.equals("p") ||
+            userinput.equals("q") || userinput.equals("r") || userinput.equals("s") ||
+            userinput.equals("t") || userinput.equals("v") || userinput.equals("w") ||
+            userinput.equals("x") || userinput.equals("y") || userinput.equals("z")
+        ) {
+            System.out.println("Ustereingabe ist ein Konsonant.");
 
         } else {
-
-            if (userEingabe.equals("a") || userEingabe == "e" || userEingabe == "i" || userEingabe == "o" || userEingabe == "u") {
-                System.out.println("Das ist ein Vokal");
-            } else {
-                System.out.println("Das ist ein Konsonant");
-            }
-
+            System.out.println("Ustereingabe ist ein Konsonant.");
         }
 
 //        Vergleichen von Strings
