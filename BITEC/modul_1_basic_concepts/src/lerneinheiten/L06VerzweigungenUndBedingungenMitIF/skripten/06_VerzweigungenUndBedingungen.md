@@ -30,7 +30,7 @@ wir merken uns (jedoch ohne die genaue Definition von ``else`` und ``If-Anweisun
 > Wir nennen eine ``If-Anweisung`` eine **``If-Bedingung``**, wenn diese kein ``else`` hat.
 
 ### Wann verwenden wir eine If-Bedingung?
-Wir modellieren mit einer ``IF-Bedingung`` so genannte *Wenn dann Aussage*. Wir dürfen diese also nur verwenden, wenn kein *alternatives* Verhalten angegeben wird. 
+Wir modellieren mit einer ``IF-Bedingung`` so genannte *Wenn-dann Aussagen*. Wir dürfen diese also nur verwenden, wenn kein *alternatives* Verhalten angegeben wird. 
 
 Ein Beispiel:
 ```java
@@ -76,9 +76,100 @@ Allgemein wird dies ``Scoping`` oder der ``Scope`` einer ``Variable`` genannt. D
 **Anmerkung:** Der Scope welcher durch ``{...}`` angegeben wird ist unabhängig von ``If-Bedingungen``. Dieses Konzept wird **immer** durch ``{...}`` angegeben, egal welches ``Keyword`` (z.B. *if*) daneben steht.
 
 ## Was ist eine Verzweigung (Branches)?
+Eine ``If-Verzweigung`` liegt vor, wenn wir zu einer ``If-Bedingung`` zusätzlich das *Gegenteil* dieser Bedingung hinzufügen.
+
+```java
+System.out.print("Wie alt sind Sie? ");
+Integer alter = ... // eine Zahl aus der Datenbank, oder aus der Usereingabe mittels Scanner.
+
+if (alter >= 18) {
+    System.out.println("Verstehe. Sie sind alt genug.");
+
+} else { // Was ist das Gegenteil von alter >= 18 ?
+    System.out.println("Verstehe. Sie sind NICHT alt genug.");
+}
+```
+
+Wir sehen hier, die Ausgabe *Verstehe. Sie sind alt genug.* wir nur ausgegeben wenn das *alter* größer oder gleich *18* ist. Das ist die gleiche Logik wie bei der ``If-Bedingung``. Wir erzeugen jedoch eine *Verzweigung* durch Anwendung des ``else``. Wir stellen uns nun 2 Türen vor, welche und wir können nur in eine der betreten. Ich gehe in die *linke* wenn *alter* größer oder gleich *18* ist und in die *rechte* wenn das *alter* **nicht** größer oder gleich *18* ist. Wir können diese Aussage umformen auf, wenn das *alter* kleiner *18* ist. Wir nennen dies eine ``If-Verzweigung``, denn wir erschaffen zwei *Zweige* welche ich nicht gleichzeitig betreten kann.
+
+wir merken uns (jedoch ohne die genaue Definition von ``else`` und ``If-Anweisung`` zu kennen) folgendes:
+> Eine ``If-Verzweigung`` erweitert eine ``If-Bedingung`` um den ``else``-Zweig.
+
+Wir können nun folgendes tun. Der ``Block`` unter dem ``if``- oder ``else``-Zweig erlaubt uns bereits bekannten Code dort zu schreiben. Das bedeutet auch, dass wir dort eine neue ``If-Verzweigung`` schreiben können. 
+
+```java
+if (alter >= 18) {
+    System.out.println("Verstehe. Sie sind alt genug.");
+    
+    if (hatFuehrerschein) {
+        System.out.println("Verstehe. Sie haben einen Führerschein.");
+
+    } else {
+        System.out.println("Verstehe. Sie haben KEINEN Führerschein.");
+    }
+    
+} else { 
+    System.out.println("Verstehe. Sie sind NICHT alt genug.");
+}
+```
+
+Wir merken uns:
+> Eine ``If-Verzweigung`` ist ``geschachtelt``, wenn eine *weitere* ``If-Verzweigung`` in der *ersten* ``If-Verzweigung`` steht.
+
+**Anmerkung:** Wir können auch ``If-Bedingungen`` in ``IF-Verzweigungen`` und umgekehrt schachteln.
+
+Solche *Schachtelungen* können im ``else``-Zweig bzw. ``if``-Zweig vorkommen. Auch in beiden gleichzeitig ist möglich.
+
 ### Wann verwenden wir eine If-Verzweigung?
-### Wann verwenden wir eine Mehrfachverzweigung?
+Wir modellieren mit einer ``If-Verzweigung`` so genannte *Wenn-dann-ansosnten Aussagen*. Das *Ansonsten* modellieren wir mit dem Keyword ``else``. Wir dürfen die ``If-Verzweigung`` also nur verwenden, wenn wir ein *gegenteiliges* Verhalten zur ``If-Bedingung`` angeben.
+
+```java
+// WENN ich alt genug bin, - die Bedingung, für diese Zweig ist alter >= 18
+if (alter >= 18) {
+    // DANN darf ich weiter.
+    System.out.println("Verstehe. Sie sind alt genug.");
+    
+} else { // ANSOSNTEN - die Bedingung, für diesen Zweig ist !(alter >= 18) -> alter < 18
+    System.out.println("Verstehe. Sie sind NICHT alt genug.");
+}
+```
+
+Wir merken uns:
+> Der ``else``-Zweig hat die *negierte* ``Bedingung`` des ``if``-Zweigs.
+
 ### Wann verwenden wir eine verschachtelte If-Verzweigung?
+Wir modellieren mit einer geschachtelten ``If-Verzweigung`` ähnliches wie bei einer nicht geschachtelten. Wir versuchen hier jedoch *kompliziertere* Aussagen zu ertsellen. Eine solceh wäre, "WENN ich älter bin als *18* und ich einen Führerschein habe, DANN darf ich ein Auto kaufen. ANSOSNTEN, WENN ich keinen jünger als 18 bin oder keinen Führerschein habe, DANN darf ich kein Auto kaufen.
+
+```java
+// WENN ich alt genug bin, - die Bedingung, für diese Zweig ist alter >= 18
+if (alter >= 18) {
+    // DANN muss ich einen Führerschein haben.
+    System.out.println("Verstehe. Sie sind alt genug.");
+    
+    // WENN ich einen Führerschein habe, - die Bedingung, für diese Zweig ist alter >= 18 && hatFuehrerschein
+    if (hatFuehrerschein) {
+        // DANN darf ich weiter
+        System.out.println("Verstehe. Sie haben einen Führerschein.");
+
+    } else {// ANSOSNTEN - die Bedingung, für diesen Zweig ist alter >= 18 && !hatFuehrerschein
+        System.out.println("Verstehe. Sie haben KEINEN Führerschein (sind jedoch alt genug).");
+    }
+    
+} else { // ANSOSNTEN - die Bedingung, für diesen Zweig ist !(alter >= 18) -> alter < 18
+    System.out.println("Verstehe. Sie sind NICHT alt genug.");
+}
+```
+
+Wir erkennen, dass eine Schachtelung eine gewisse Logik darstellt. Z.B. fällt uns auf, dass beide ``Bedingungen`` alter als 18 und hatFuehrerschein ein logisches UND ``alter >= 18 && hatFuehrerschein`` darstellt. 
+
+Wir merken uns:
+> Eine im ``if``-Zweig geschachteltes ``if-Verzweigung``, hat in dessen ``if``-Zweig ein logisches UND.
+
+Zudem sehen wir, dass die ``Bedingung`` für d
+
+### Wann verwenden wir eine Mehrfachverzweigung?
+Bedingungen schließen sich aus.
+
 
 ## Was ist eine If-Anweisung (If-Statement) und was ein If-Ausdruck (If-Expression)?
 **Wir verzichten auf folgendes.** Wir **könnten** jede Art von Programmzeile einen Namen geben. Diese sind ``Direktiven``, ``Anweisungen``, ``Deklarationen``, ``Definitionen``, ``Ausdrücke``, etc. Das ist jedoch sehr trocken und begrenzt nützlich.
@@ -87,7 +178,7 @@ Wir picken jedoch ``Ausdrücke`` und ``Anweisungen`` raus und beziehen diese auf
 
 Zu ``If-Anweisung`` muss kein Beispiel gegeben werden. Es sind die uns bekannten ``If-Bedingungen`` oder ``If-Verzweigung``.
 
-Merken wir uns folgendes:
+Merken wir uns:
 > Eine **``If``**``-Anweisung`` ist in JAVA der Aufruf von ``If-Bedingungen`` oder ``If-Verzweigung``. Diese produzieren **keinen** ``Wert`` und sind deshalb ``Anweisungen``.
 
 Wir können also folgendes **nicht** schreiben. 
@@ -101,6 +192,7 @@ String antwort = if (alter >= 18) {
 
 In manchen Situationen wäre jedoch eine solches Sprachkonstrukt nützlich. Genau solche Konstrukte werden ``Ausdrücke`` (Expressions) genannt. 
 
+Wir merken uns:
 > Ein **``If``**``-Ausdruck`` ist in JAVA der Aufruf des ``?: Operators``. Dieser produziert **einen** ``Wert`` und ist deshalb ein ``Ausdruck``.
 
 In JAVA und C# gibt es einen ``If-Ausdruck`` in der Form eines ``Operators``. Dieser ist der einzige welcher 3 ``Parameter`` hat und wird deshalb ``Ternärer Operator`` genannt. Ein alternativer Name ist der ``?:-Operator``.
@@ -111,7 +203,7 @@ Schauen wir uns die Bedeutung in einem Beispiel an und denken an die uns bekannt
 String antwort = alter >= 18 ? "Verstehe. Sie sind alt genug." : "Wir können einen solch komplexen Vertrag nicht abschließen.";
 ```
 
-Um es ein wenig direkter zu gestalten schauen wir uns den ``If-Ausdruck`` in Python an.
+Um es ein wenig intuitiver zu gestalten schauen wir uns den ``If-Ausdruck`` in Python an.
 ```python
 antwort = "Verstehe. Sie sind alt genug." if alter >= 18 else "Wir können einen solch komplexen Vertrag nicht abschließen."
 ```
@@ -122,33 +214,141 @@ Die Logik der Übersetzung zu JAVA ist somit folgende:
 * Das ``?`` ist ``if`` und der ``:`` ist ``else``.
 * Wir beginnen mit der ``Zuweisung`` und nicht mit der ``Bedingung``.
 
-Wir bemerken:
+Wir bemerken folgendes und merken uns:
 > Die ``If-Ausdrücke`` scheinen ``If-Verzweigungen`` zu sein und nicht ``If-Bedingungen``. Grund ist, es muss *immer* ein ``Wert`` zurück gegeben werden.
 
+### Wann verwenden wir If-Anweisungen (If-Statements)?
+Wir merken uns:
+>Wir verwenden ``If-Statements`` *eher*, wenn *mehrere Programmzeilen untereinander* in unseren einzelnen ``Verzweigungen`` benötigt werden.
 
+Im folgenden Beispiel ist der Code innerhalb der ``If-Verzweigung`` von der Variable *connection* abhängig. Deshalb können wir diesen Code nicht außerhalb der ``If-Verzweigung`` schreiben.
 
-### Wann verwenden wir Anweisungen (Statements)?
-Wir verwenden ``If-Statements`` *eher*, wenn *mehrere Programmzeilen untereinander* in unseren einzelnen ``Verzweigungen`` benötigt werden.
-Ein Beispiel:
+Was genau hier passiert ist uns nicht klar, jedoch können wir beginnen zu erkennen was ``Variablen`` und was ``Typen`` sind. Weiters auch was die ``Bedingung`` ist um diesen Programmcode auszuführen. 
 
 ```java
-if (connection != null && !connection.isClosed()) {
-    ResultSet dataBaseresult = executeQuery("SELECT username, email FROM users WHERE id = 1");
+if (connection != null) {
+    if (!connection.isClosed()) {
+        Statement statement = connection.createStatement(); // Achtung! Sicherheitsrisiko.
+        ResultSet dataBaseresult = statement.executeQuery("SELECT username, email FROM users WHERE id = 1"); 
+    
+        String username = dataBaseresult.getString("username");
+        String email = dataBaseresult.getString("email");
+    
+        User user = new User(username, email);
+        System.out.println("Benutzer erstellt: " + user.getId());
 
-    String username = dataBaseresult.getString("username");
-    String email = dataBaseresult.getString("email");
-
-    User user = new User(username, email);
-    System.out.println("Benutzer erstellt: " + user.getId());
-} else {
-    connection.close();
+    } else {
+        connection.close();
+    }
 }
 ```
 
-Wir werden hier 2 Beispiele in unserem Kurs sehen. Diese ist die ``Switch-expression`` und ``If-Expression``. Letzteres wird auch ``?:-Operator`` bzw. ``ternärer Operator`` geannt.
- TODO
-Es sind quasi alle ``Kontrollstrukturen`` was wir in diesem Kurs kennen lernen werden ``Anweisungen`` (mit 2 Ausnahmen). Dabei ist eine ``Kontrollstruktur`` ein Sammelbegriff von jenen ``Anweisungen`` und ``Ausdrücke`` welche sich um den Ablauf eines Programmes kümmern. Das erwähnte hilft uns jedoch nicht wirklich um zu wissen was ``Anweisungen`` ausmachen. 
+Weiters ist es oft nicht Zweckführend ``If-Bedingungen`` als ``If-Ausdruck`` darzustellen. Grund dafür ist die fehlende alternative Zuweisung der ``Variable``, wenn die ``Bedingung`` nicht erfüllt ist. Deshalb bleiben wir hier bei ``If-Ausdrücke``. 
 
+Wir merken uns:
+> Wenn wir ``If-Bedingungen`` schreiben wollen verwenden wir ``If-Anweisungen``.
 
-und ist zudem eine ``Kontrollstruktur``, wenn
-> Eine ``Anweisung`` ist eine ``Kontrollstruktur`` wenn diese den Ablauf des Programms steuert.
+### Wann verwenden wir If-Ausdrücke (If-Expressions)?
+Wir werden hier zwei Beispiele von ``Ausdrücken`` in unserem Kurs sehen. Diese ist der ``Switch-Ausdruck`` und ``If-Ausdruck``. Letzteres wird auch ``?:-Operator`` bzw. ``ternärer Operator`` geannt. Beide haben verschiedene "sprachliche" limits, welche uns mehr oder weniger ausdruckskraft geben. Zudem werden wir in anderen Srpachen wie C# und Python den Begriff eines ``Pattern Matchers`` kennen lernen. Wir verstehen diesen als flexible und mächtige ``switch-expression``, welche die Logik einer ``Anweisungen`` obsolet (zwecklos) machen kann. Es ist also nicht so einfach generell vom Einsatzgebiet eines ``Ausdrucks`` zu sprechen. Wir beschränken uns daher auf den ``If-Ausdruck`` mit der Umsetzung als ``?:-Operator``.
+
+Schauen wir uns konkret folgendes Programm an:
+```java
+// Mehrfachverzweigung (if else-if else-if ... else)
+Integer bewertungInProzent = 62;
+
+if (0 <= bewertungInProzent && bewertungInProzent < 50) {
+    System.out.println("Nicht Genügend");
+
+} else if (50 <= bewertungInProzent && bewertungInProzent < 62) {
+    System.out.println("Genügend");
+
+} else if (62 <= bewertungInProzent && bewertungInProzent < 75) {
+    System.out.println("Befriedigend");
+
+} else if (75 <= bewertungInProzent && bewertungInProzent < 87) {
+    System.out.println("Gut");
+
+} else if (87 <= bewertungInProzent && bewertungInProzent <= 100) {
+    System.out.println("Sehr Gut");
+
+} else {
+    System.out.println("außerhalb der grenzen 0 und 100, beides inklusive");
+}
+```
+
+Wir erkennen hier auf dem ersten Blick keine Notwendigkeit einen ``Wert`` mit einem ``If-Ausdruck`` zu erzeugen. Wir sehen nur Aufrufe von *System.out.println*`. Versuchen wir jedoch die Anzahl der Aufrufe von *System.out.println* zu reduzieren. Wir können das tun indem wir eine ``Variable`` vom ``Typ`` *String* ``definieren`` und in den verschiednen Zweigen der ``If-Verzweigung`` diese Variablen dem *System.out.println* übergeben. Siehe folgender Code.
+
+```java
+// Mehrfachverzweigung (if else-if else-if ... else)
+Integer bewertungInProzent = 62;
+String ausgabe;
+
+if (0 <= bewertungInProzent && bewertungInProzent < 50) {
+    ausgabe = "Nicht Genügend";
+
+} else if (50 <= bewertungInProzent && bewertungInProzent < 62) {
+    ausgabe = "Genügend";
+
+} else if (62 <= bewertungInProzent && bewertungInProzent < 75) {
+    ausgabe = "Befriedigend";
+
+} else if (75 <= bewertungInProzent && bewertungInProzent < 87) {
+    ausgabe = "Gut";
+
+} else if (87 <= bewertungInProzent && bewertungInProzent <= 100) {
+    ausgabe = "Sehr Gut";
+
+} else {
+    ausgabe = "außerhalb der grenzen 0 und 100, beides inklusive";
+}
+
+System.out.println(ausgabe);
+```
+
+Wir haben jedoch nun einen Anwendungsfall für einen ``If-Ausdruck`` erstellt.
+
+Wir merken uns:
+> Wenn ``Variablen`` ``definiert`` und in ``If-Verzweigungen`` "einfach" ``initialisiert`` werden, verwenden wir ``If-Ausdrücke``.
+
+Wir versuchen nun die obige ``If-Anweisung`` in einen ``If-Ausdruck`` umzuschreiben.
+Das Problem ist jedoch die ``Mehrfachverzweigung``, passt nicht direkt in das Muster des ``If-Ausdrucks``.
+
+Wir starten jedoch mit folgendem Programm:
+```java
+String note = 87 <= bewertungInProzent && bewertungInProzent <= 100 ? "Sehr Gut" : "alle anderen Fälle";
+System.out.println(note);
+```
+
+Wir [erinnern](TODO) uns, dass eine ``Mehrfachverzweigung`` auch als ``verschachtelte If-Verzweigung`` dargestellt werden kann.
+Die gleiche Logik wenden wir nun hier an. In dem ``Else``-Zweig schreiben wir eine neue ``If-Verzewigung``. Bedeutet ein neues *if* mit *else*.
+Wir ersetzen nun den ``Wert`` *"alle andern Fälle"* im  ``Else``-Zweig mit einem neuen ``?:-Operator``. Das ist nun hier die Schachtelung, auch wenn diese anders aussieht wie gewohnt.
+
+```java
+// If-Ausdruck (Expression)
+String note = 87 <= bewertungInProzent && bewertungInProzent <= 100 ? "Sehr Gut" : 75 <= bewertungInProzent && bewertungInProzent < 87 ? "Gut" : "alle anderen Fälle"; // im else zweig, was der : hier ist starten wir eine neue expression
+System.out.println(note);
+```
+
+**Anmerkung:** da ein ``If-Ausdruck`` einen ``Wert`` erzeugt, kann dieser auch in eine eigene neue ``Variable`` geschrieben werden. Das würde folgendermaßen aussehen. 
+
+```java
+// If-Ausdruck (Expression)
+String zwischenErgebnis = 75 <= bewertungInProzent && bewertungInProzent < 87 ? "Gut" : "alle anderen Fälle";
+String note = 87 <= bewertungInProzent && bewertungInProzent <= 100 ? "Sehr Gut" : zwischenErgebnis; // im else zweig, was der : hier ist starten wir eine neue expression
+System.out.println(note);
+```
+
+Wir wiederholen nun das "schachteln" der ``If-Ausdrücke``, bis wir am Ende unserer Mehrfachverzweigung sind. Eine "sinnvolle" Formatierung (Darstellung des Codes) ist notwendig um hier den Überblick zu bewahren. Wir versuchen hier zwischen ``Bedingung`` und *?* gleiche Abstände einzufügen (Tabulator Taste) und pro Zeile eine ``Verzweigung`` darzustellen.
+
+```java
+String note =   87 <= bewertungInProzent && bewertungInProzent <= 100   ? "Sehr Gut" :
+                75 <= bewertungInProzent && bewertungInProzent < 87     ? "Gut" :
+                62 <= bewertungInProzent && bewertungInProzent < 75     ? "Befriedigend" :
+                50 <= bewertungInProzent && bewertungInProzent < 62     ? "Genügend" :
+                0 <= bewertungInProzent && bewertungInProzent < 50      ? "Nicht Genügend" :
+                                                                        "außerhalb der grenzen 0 und 100, beides inklusive";
+System.out.println(note);
+```
+
+Wir merken uns:
+> ``If-Ausdrücke`` können geschachtelt werden. Da keine Klammern vorkommen, ist es für eine sinnvolle Lesbarkeit notwendig den ``Ausdruck`` zu formatieren.
