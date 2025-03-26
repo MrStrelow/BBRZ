@@ -30,7 +30,7 @@ public class BuchstabenErkennen {
                 System.out.println("Usereingabe ist ein Vokal.");
 
             } else {
-                System.out.println("Ustereingabe ist ein Konsonant.");
+                System.out.println("Usereingabe ist ein Konsonant.");
             }
         } else {
             System.out.println("Fehlerhafte Eingabe.");
@@ -44,7 +44,7 @@ public class BuchstabenErkennen {
             ) {
                 System.out.println("Usereingabe ist ein Vokal.");
             } else {
-                System.out.println("Ustereingabe ist ein Konsonant.");
+                System.out.println("Usereingabe ist ein Konsonant.");
             }
         } else {
             System.out.println("Fehlerhafte Eingabe.");
@@ -66,10 +66,32 @@ public class BuchstabenErkennen {
             userinput.equals("t") || userinput.equals("v") || userinput.equals("w") ||
             userinput.equals("x") || userinput.equals("y") || userinput.equals("z")
         ) {
-            System.out.println("Ustereingabe ist ein Konsonant.");
+            System.out.println("Usereingabe ist ein Konsonant.");
 
         } else {
-            System.out.println("Ustereingabe ist ein Konsonant.");
+            System.out.println("Usereingabe ist ein Konsonant.");
+        }
+
+        // Variante 4 - Guard Clause - basierend auf Variante 2
+        // Guards: beschütze gegen ungewünschte Logik
+        if (!Character.isLetter(userCharInput)) {
+            System.out.println("Fehlerhafte Eingabe.");
+            return;
+        }
+
+        if (userinput.length() != 1) {
+            System.out.println("Fehlerhafte Eingabe.");
+            return;
+        }
+
+        // Business Logic: gewünschte Logik
+        if (
+            userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+            userinput.equals("o") || userinput.equals("u")
+        ) {
+            System.out.println("Usereingabe ist ein Vokal.");
+        } else {
+            System.out.println("Usereingabe ist ein Konsonant.");
         }
     }
 }

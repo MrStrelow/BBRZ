@@ -62,7 +62,7 @@ public class Ue06VerzweigungIF_02_solution {
                 System.out.println("Usereingabe ist ein Vokal.");
 
             } else {
-                System.out.println("Ustereingabe ist ein Konsonant.");
+                System.out.println("Usereingabe ist ein Konsonant.");
             }
         } else {
             System.out.println("Fehlerhafte Eingabe.");
@@ -76,7 +76,7 @@ public class Ue06VerzweigungIF_02_solution {
             ) {
                 System.out.println("Usereingabe ist ein Vokal.");
             } else {
-                System.out.println("Ustereingabe ist ein Konsonant.");
+                System.out.println("Usereingabe ist ein Konsonant.");
             }
         } else {
             System.out.println("Fehlerhafte Eingabe.");
@@ -98,10 +98,10 @@ public class Ue06VerzweigungIF_02_solution {
             userinput.equals("t") || userinput.equals("v") || userinput.equals("w") ||
             userinput.equals("x") || userinput.equals("y") || userinput.equals("z")
         ) {
-            System.out.println("Ustereingabe ist ein Konsonant.");
+            System.out.println("Usereingabe ist ein Konsonant.");
 
         } else {
-            System.out.println("Ustereingabe ist ein Konsonant.");
+            System.out.println("Usereingabe ist ein Konsonant.");
         }
 
 //        Vergleichen von Strings
