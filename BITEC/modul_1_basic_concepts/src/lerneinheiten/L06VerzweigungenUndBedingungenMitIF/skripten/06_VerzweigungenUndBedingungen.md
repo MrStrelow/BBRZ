@@ -162,10 +162,30 @@ if (alter >= 18) {
 
 Wir erkennen, dass eine Schachtelung eine gewisse Logik darstellt. Z.B. fällt uns auf, dass beide ``Bedingungen`` alter als 18 und hatFuehrerschein ein logisches UND ``alter >= 18 && hatFuehrerschein`` darstellt. 
 
-Wir merken uns:
-> Eine im ``if``-Zweig geschachteltes ``if-Verzweigung``, hat in dessen ``if``-Zweig ein logisches UND.
+Wir merken uns, wenn wir *beide* ``if``-Zweige entlang gehen:
+> Eine geschachtelte ``If-Verzweigung`` ist vergleichbar mit einem ``logisches UND`` *&&*. Das *&&* verbindet beide ``Bedingungen`` der ``If``-Zweige.
 
-Zudem sehen wir, dass die ``Bedingung`` für d
+#### Wie entsteht eine Verschachtelung?
+Meistens entsteht eine ``Verschachtelung`` **nicht** in der Reihenfolge wie wir diese lesen. Wir lesen von der äußersten bis zur innersten. Es ist meistens genau anders herum. Wir beginnnen z.B. mit folgendem Code, welcher eine Abfrage der ``Variable`` *userInput* ist. Wir prüfen ob diese ein *Vokal* oder ein *Konsonant* ist. 
+
+```csharp
+if (
+    userinput.equals("a") || userinput.equals("e") || userinput.equals("i") ||
+    userinput.equals("o") || userinput.equals("u")
+) {
+    System.out.println("Usereingabe ist ein Vokal.");
+
+} else {
+    System.out.println("Usereingabe ist ein Konsonant.");
+}
+```
+
+Der Code ist korrekt. Jedoch haben wir 2 Fehler eingebaut. Wir haben nämlich nicht eingeschränkt was der User alles eingeben kann. Diese "ungewünschten" Zustände sind oft schwer zu erkennen. 
+* Der User gibt *a1* ein. Ausgabe ist **Konsonant**.
+* Der User gibt *9* ein, Ausgabe ist **Konsonant**.
+* Der User gibt *A* ein, Ausgabe ist **Konsonant**.
+
+Es muss also zuerst abgefragt werden ob der Input des Users nur Länge 1 hat, sowie nur Buchstaben von **a-z** bzw. **A-Z** verwendet werden
 
 ### Wann verwenden wir eine Mehrfachverzweigung?
 Bedingungen schließen sich aus.
