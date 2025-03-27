@@ -36,7 +36,7 @@ if (kunde is not null)
 
 if (!kunde.IstAktiv)
 {
-    Console.WriteLine("Der Kunde ist aktiv.");
+    Console.WriteLine("Der Kunde ist nicht aktiv.");
     return;
 }
 
@@ -178,10 +178,11 @@ public class Program
         Kunde kunde = new Kunde
         {
             IstAktiv = true,
-            Alter = 25,
+            Alter = 26,
+            IstKreditwürdig = true,
             Kundenkarte = "GoldCard",
             MitgliedschaftGueltigBis = DateTime.Now.AddMonths(12),
-            Bestellhistorie = 15,
+            Bestellhistorie = 21,
             Budget = 1000,
             Produkt = new Produkt { IstPremium = true, Preis = 10005 }
         };
@@ -210,8 +211,34 @@ public class Program
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
-* a) Gegeben ist eine ``If-Verzweigung`` (if mit else). Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
-* b) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
+* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
+* b) Gegeben ist eine ``If-Verzweigung`` (if mit else). Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
+* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
+```csharp
+if (false) 
+{
+    Console.WriteLine("If-Zweig")
+} 
+else 
+{
+    Console.WriteLine("Else-Zweig")
+}
+```
+
+vs.
+
+```csharp
+if (false) 
+{
+    Console.WriteLine("If-Bedingung")
+} 
+
+if (true) 
+{
+    Console.WriteLine("Auch eine IF-Bedingung")
+}
+```
+
 
 ---
 
@@ -415,7 +442,17 @@ Bob hat im Shop 55915408 - $0.00 verdient. Das Gehalt ist $3,000.00. Kassa: $0.0
 ---
 
 ### Theorie [5 / 40 Teilpunkte]
-* Erkläre was eine Hat und was eine Ist Beziehung darstellen soll. Welche Beziehung erweitert das Verhalten einer Bestehenden Klasse und welche erlaubt zugriffe auf ein anderes Objekt?
+* Ist es vorteilhaft eine ``Methode`` an ein ``Objekt`` zu koppeln? Denke an folgendes Beispiel
+```csharp
+kunde.Informieren(); // Methode aufrufbar beim Objekt
+```
+
+vs.
+
+```csharp
+Informieren(willInformiertWerden: kunde, informiertAnderen: bekannterDesKunden); // Funktion welche 2 beliebige Kunden entgegennimmt 
+```
+
 
 
 
