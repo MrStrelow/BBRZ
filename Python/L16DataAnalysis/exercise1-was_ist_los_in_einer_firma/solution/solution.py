@@ -22,7 +22,7 @@ def pd_print(*args):
 print("◽◽◽◽◽◽◽◽◽◽◽◽◽◽ Aufgabe 0 ◽◽◽◽◽◽◽◽◽◽◽◽◽◽")
 print(f"{Fore.BLUE}Aktuelles Arbeitsverzeichnis: {Style.RESET_ALL}", os.getcwd())
 
-base_path = os.path.join(os.getcwd(), "L16DataAnalysis", "exercise1")
+base_path = os.path.dirname(os.path.abspath(__file__))
 print(f"{Fore.BLUE}Pfad der py files: {Style.RESET_ALL}", base_path)
 
 data_path = os.path.join(base_path, "data")
