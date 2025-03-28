@@ -23,9 +23,14 @@
         NickName = nickName;
     }
 
+    public Person(string name)
+    {
+        Name = name;
+    }
+
     public Person() { }
 
-
+    // Methoden
     public void CalcuclateStuff()
     {
         NickName = "neuerNameWelchenIchAusrechne";
@@ -52,6 +57,29 @@ public class Program
         // Objekt Initialisierung
         Person hans = new Person { Name = "hans", NickName = "qwerty" };
         //Person per = new Person();
+        //per.SetName("hans");
+        //per.SetNickName("qwerty");
+        
+        Person hansAnders = new Person(name: "ASDF") { Name = "hans", NickName = "qwerty" };
+        //Person per = new Person(name: "ASDF");
+        //per.SetName("hans");
+        //per.SetNickName("qwerty");
+
+        Console.WriteLine(hans);
+
+        var hansAndersVar = new Person(name: "ASDF") { Name = "hans", NickName = "qwerty" };
+        //var per = new Person(name: "ASDF");
+        //per.SetName("hans");
+        //per.SetNickName("qwerty");
+
+        Person hansAndersVarNew = new(name: "ASDF") { Name = "hans", NickName = "qwerty" };
+        //Person per = new Person(name: "ASDF");
+        //per.SetName("hans");
+        //per.SetNickName("qwerty");
+        
+        // DAS GEHT NICHT! 
+        // var hansAndersVarNew = new(name: "ASDF") { Name = "hans", NickName = "qwerty" };
+        //Person per = new Person(name: "ASDF");
         //per.SetName("hans");
         //per.SetNickName("qwerty");
 
