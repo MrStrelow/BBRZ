@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding", "LiveCoding\LiveCoding.csproj", "{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeueSprachkonzepte", "NeueSprachkonzepte\NeueSprachkonzepte.csproj", "{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
