@@ -27,7 +27,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 app.mount("/uploads", StaticFiles(directory=UPLOAD_FOLDER), name="uploads")
 
 # Setup template directory
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="html")
 
 # FastAPI route for uploading image
 @app.post("/upload")
