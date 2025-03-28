@@ -4,7 +4,13 @@
     private string _name;
 
     public string Name {
-        set;
+        set
+        {
+            if (!Name.Equals("Hallo"))
+            {
+                _name = value;
+            }
+        }
         get; 
     }
 
