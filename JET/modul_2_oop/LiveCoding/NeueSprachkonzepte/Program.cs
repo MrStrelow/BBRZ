@@ -1,33 +1,41 @@
 ﻿public class Person
 {
     // Felder -> Eigenschaften
-    public string Name { get; set; }
-    private char nickName;
-    private int age;
+    private string _name;
 
-    public Person(string name, int age)
+    public string Name {
+        set;
+        get; 
+    }
+
+    public string NickName { get; set; }
+
+    // Konstruktor
+    public Person(string name, string nickName)
     {
         Name = name;
-        this.age = age;
-        this.nickName = 'a';
+        NickName = nickName;
     }
 
-    public Person(char nickName, int age)
+    public Person() { }
+
+
+    public void CalcuclateStuff()
     {
-        this.nickName = nickName;
-        this.age = age;
-        Name = "";
+        NickName = "neuerNameWelchenIchAusrechne";
+    }
+}
+
+public class Schueler : Person
+{
+    public Schueler(string name, string nickName) : base(name, nickName)
+    {
     }
 
-    public int GetAge()
+    public void Lernen()
     {
-        return age;
-    }
-
-    public void SetAge(int age)
-    {
-        //if (age > 0)
-            this.age = age;
+        Console.WriteLine(NickName);
+        NickName = "nein";
     }
 }
 
@@ -35,10 +43,31 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Person hans = new Person(name: "hans", age: 1);
+        // Objekt Initialisierung
+        Person hans = new Person { Name = "hans", NickName = "qwerty" };
+        //Person per = new Person();
+        //per.SetName("hans");
+        //per.SetNickName("qwerty");
+
+        Person sans = new Person { NickName = "qwerty" };
+        //Person per = new Person();
+        //per.SetNickName("qwerty");
+
+        Person lans = new Person { Name = "qwerty" };
+        //Person per = new Person();
+        //per.SetName("hans");
+
+        // var: typ wird ausgerechnet
+        var bans = new Person(name: "hans", nickName: "qwerty"); 
+
+
         Console.WriteLine(hans.Name);
+
+
+        // Eigenschaften
         hans.Name = "asdf";
         Console.WriteLine(hans.Name);
+        hans.NickName = "geht nicht";
         //Person hans = new Person(nickName: "asdf", age: 1);
         //Person hans = new Person(age: 1);
     }
