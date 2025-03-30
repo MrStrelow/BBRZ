@@ -86,11 +86,11 @@ Generated_Code/
 *.idb
 
 # Ignore WebAssembly artifacts
-*.wasm
-*.js
-*.js.map
-*.css
-*.html
+# *.wasm
+# *.js
+# *.js.map
+# *.css
+# *.html
 
 # Ignore specific file types that are not useful in version control
 *.tmp

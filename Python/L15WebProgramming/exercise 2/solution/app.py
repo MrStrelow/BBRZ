@@ -59,4 +59,5 @@ async def get_uploaded_images():
 async def get_html(request: Request):
     images = os.listdir(UPLOAD_FOLDER)  # Get list of uploaded files
     images = [img for img in images if img.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp'))]  # Filter image files
-    return templates.TemplateResponse("index.html", {"request": request, "images": images})
+    return templates.TemplateResponse("index_simpel.html", {"request": request, "images": images})
+    # return templates.TemplateResponse("index.html", {"request": request, "images": images})

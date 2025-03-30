@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image and View</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="file" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="message"></div>
+
+    <h2>Uploaded Images</h2>
+    <div id="imageGallery">
+        {% for image in images %}
+            <div class="image-container">
+                <img src="/uploads/{{ image }}" alt="{{ image }}" style="width: 200px; height: auto;">
+                <p>{{ image }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const formData = new FormData();
+            formData.append("file", document.getElementById("fileInput").files[0]);
+
+            const response = await fetch("http://127.0.0.1:8000/upload", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            if (data.message) {
+                document.getElementById("message").textContent = `Upload Successful: ${data.filename}`;
+            } else {
+                document.getElementById("message").textContent = `Error: ${data.error}`;
+            }
+        });
+    </script>
+</body>
+</html>

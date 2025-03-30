@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask + FastAPI Frontend</title>
+    <script>
+        async function fetchData() {
+            const response = await fetch('http://127.0.0.1:5000/api/data');
+            const data = await response.json();
+            document.getElementById("data").innerHTML = JSON.stringify(data);
+        }
+
+        async function sendData() {
+            const response = await fetch('http://127.0.0.1:5000/api/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: "John", age: 30})
+            });
+            const data = await response.json();
+            document.getElementById("data").innerHTML = JSON.stringify(data);
+        }
+    </script>
+</head>
+<body>
+    <h1>Flask + FastAPI Integration</h1>
+    <button onclick="fetchData()">Get Data (FastAPI GET)</button>
+    <button onclick="sendData()">Send Data (FastAPI POST)</button>
+    <div id="data"></div>
+</body>
+</html>

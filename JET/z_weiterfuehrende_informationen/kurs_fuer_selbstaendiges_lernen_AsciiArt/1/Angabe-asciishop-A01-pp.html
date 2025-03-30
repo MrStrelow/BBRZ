@@ -1,0 +1,589 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EPROG-LU - Aufgabe asciishop-A01-pp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<style type="text/css"><!--
+body {
+background-color: #FFFFFF;
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+color:#000000;
+}
+
+table {
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+border-style:none;
+}
+
+td {
+border-color:#000000;
+border-style:none;
+border-width:1px;
+vertical-align:middle;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:0px;
+padding-top:0px;
+}
+// --></style>
+</head>
+<body link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+
+<h1>Beispiel Angabe</h1>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+<tr>
+<td style="width:100px;"><b>K&uuml;rzel:</b></td><td>asciishop-A01-pp</td>
+<!--<td><b>Runde:</b></td><td>1</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Name:</b></td><td>AsciiShop, Runde#1</td>
+<!--<td><b>Evaluieren als:</b></td><td>Java</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kette:</b></td><td>Asciishop PP</td>
+<!--<td><b>Eingabe:</b></td><td>String</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kategorie:</b></td><td>Bildverarbeitung</td>
+<!--<td><b>Ausgabe:</b></td><td>String</td>-->
+</tr>
+</table>
+<p>
+
+
+<b>Mitgelieferte Datei(en):</b> <br>
+<b>Abzugebende Datei(en):</b> AsciiShop.java<br>
+<b>Optional abzugebende Datei(en):</b> <br>
+<b>Ausf&uuml;hrbar:</b> AsciiShop<br>
+
+<p>
+
+
+Die Klasse <em>AsciiShop</em> ist zu erstellen und soll eine
+ausf&uuml;hrbare Klasse sein und muss daher die <tt>public static void main(String[] args)</tt>
+Methode beinhalten.
+
+Ihr Programm wird automatisch auf Korrektheit &uuml;berpr&uuml;ft.
+Die &Uuml;berpr&uuml;fung erfolgt durch die Ausf&uuml;hrung der als
+ausf&uuml;hrbar bezeichneten Klasse (<em>AsciiShop</em>).
+
+
+<H2>Kurzbeschreibung:</H2>
+<style type="text/css">
+<!--
+  .new{
+    background-color: rgb(211, 217, 227);
+  }
+  dl {
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: -4px;
+  }
+  dd{
+    margin-left: 20px;
+    margin-top: 5px;  
+  }
+  span.grey{
+    color: #666;
+  }
+  ul.relaxed li{
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+
+-->
+</style>
+
+<p>Das Programm soll ein ASCII-Bild zeilenweise von der Standardeingabe einlesen und &uuml;berpr&uuml;fen, ob alle Zeilen gleich lang sind. Nach dem Einlesen wird die H&ouml;he und die Breite des Bildes (sprich L&auml;nge und Anzahl der Zeilen) ausgegeben. Sollte die Eingabe fehlerhaft sein, so wird stattdessen eine Fehlermeldung ausgegeben.</p>
+
+<h3>Lernziele</h3>
+<ul>
+<li>Einlesen mittels des Scanners</li>
+<li>Pr&uuml;fen von Eingaben</li>
+<li>Ausgeben &uuml;ber die Standardausgabe</li>
+<li> Kontrollstrukturen</li>
+</ul>
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#aufgabenstellung">Aufgabenstellung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#klassenundmethoden">Klassen und Methoden</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#einausgabedaten">Ein- und Ausgabedaten</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#bewertungkriterien">Bewertung und Kriterien</a></td>
+
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#hinweise">Hinweise</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do">FAQ</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#fehlerbehandlung">Fehlerbehandlung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#testen">Testen</a></td>
+</tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<a id="aufgabenstellung" name="aufgabenstellung"></a>
+<!--
+
+
+<H2>Allgemeine Hinweise:</H2>
+<ul>
+<li>
+<b>Die Gro&szlig;- und Kleinschreibung ist relevant!</b> Beachten Sie ganz genau die Angaben zu den
+Funktions- und Dateinamen.
+</li>
+<li>
+Die abzugebende Datei(en) m&uuml;ssen f&uuml;r die Abgabe ausnahmslos <b>archiviert</b> werden.
+Das Format der Archiv muss <b>Zip</b> sein, Programme wie WinZip, WinRar, jar (kommt mit der Java JDK Distribution)
+k&ouml;nnen Sie f&uuml;r die Archivierung verwenden. Dateiendung des Archivs muss .zip oder .jar sein.
+<br/> jar syntax:
+<ul>
+<li>
+Archivierung: <b><tt>jar Mcvf archiv_name.jar *</tt></b> (oder einzelne Dateien statt <tt>*</tt>)
+</li>
+<li>
+Inhalte anzeigen: <b><tt>jar tf archiv_name.jar</tt></b>
+</li>
+<li>
+Extrahieren: <b><tt>jar xvf archiv_name.jar</tt></b>
+</li>
+</ul>
+</li>
+<li>
+Ihr Programm darf nur genau jene Ausgabedaten liefern, die in der Spezifikation 
+verlangt werden. Die Ausgaben Ihres Programms werden automatisch mit
+Referenzdaten verglichen; etwaige Abweichungen f&uuml;hren zu Punkteabz&uuml;gen!
+</li>
+
+<li>
+Testen Sie Ihr Programm vor der Abgabe mit den mitgelieferten Eingabedateien.
+Geben Sie Ihre L&ouml;sung erst ab, wenn die Ausgaben Ihres Programms mit der
+ebenfalls mitgelieferten Ausgabedatei &uuml;bereinstimmen! Testen Sie Ihr
+Programm auch mit anderen Eingabedaten.<br/>
+</li>
+
+<li>
+Ihr Programm muss <b>immer</b> den Prozess Return Code 0 liefern. Verwenden Sie daher
+keine <code>System.exit(1)</code>-artige Unterbrechungen in Ihrem Programm.
+Am besten verzichten Sie v&ouml;llig auf System.exit() Aufrufe da dadurch der
+laufende JVM gewaltsam terminiert wird.<br/>
+</li>
+
+
+<li>
+Verwenden Sie die Klasse <code>Scanner</code> zum Einlesen von Daten.<br/>
+F&uuml;r die Ausgabe k&ouml;nnen Sie die Methoden <code>System.out.print</code> und
+<code>System.out.println</code> benutzen. Zum Erzeugen formatierter Ausgaben k&ouml;nnen
+Sie auch <code>System.out.printf</code> benutzen (wird im Allgemeinen aber nicht ben&ouml;tigt).
+Beachten Sie, dass wir bei der Beurteilung einen US-amerikanischen Region- und
+Spracheinstellungssatz (<i>locale</i>) f&uml;r die Beurteilung benutzen.
+Das bedeutet, dass wir f&uuml;r die Darstellung von <code>double</code>-Werten auch bei
+der Ein-/Ausgabe immer den Dezimalpunkt (und nicht Beistrich) benutzen
+(z.B. 3.14159 und nicht 3,14159). Falls Sie auf Ihrem Rechner eine andere Einstellung haben,
+k&ouml;nnen Sie zum Testen zuhause auch die Darstellung mit Beistrich benutzen (ist aber nicht
+konsistent mit den mitgelieferten Ein-/Ausgabe-Paaren) oder beim Aufruf von Java auch folgenden Befehl
+benutzen:
+<ul>
+<li><b><code>java -Duser.language=en -Duser.country=US AsciiShop</code></b></li>
+</ul>
+Sie werden sehen, dass dann w&auml;hrend des Ablaufs des Programmes bei der Eingabe
+von <code>double</code>-Werten eine Darstellung mit Dezimalpunkt erwartet wird.
+Wenden Sie sich bei Problemen mit den Ein-/Ausgabefunktionen bitte an die Tutoren im Labor.
+</li>
+<li>
+Programme, die Packages oder Klassen au&szlig;erhalb der verwendeten &Uuml;bungsumgebung 
+(<a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">J2SE Development Kit (JDK) 5.0</a>)
+verwenden, k&ouml;nnen von uns nicht getestet und beurteilt werden!<br/>
+</li>
+
+<li>
+Schreiben Sie Ihr Programm m&ouml;glichst allgemein und kommentieren Sie es
+gut. Die Kommentare im Programm gelten als Dokumentation.
+Die Dokumentation Ihrer Programme wird ebenfalls beurteilt. Es ist
+erlaubt/erw&uuml;nscht die Kommentare javadoc-konform zu erstellen.<br/>
+</li>
+</ul>
+
+
+<H2>Spezifikationsspezifische Hinweise:</H2>
+-->
+
+
+<H2>Aufgabenstellung:</H2>
+<p>Bei einem <a href="http://de.wikipedia.org/wiki/ASCII-Art">ASCII-Bild</a> werden die unterschiedlichen Helligkeitswerte (Pixel) eines Graustufenbildes durch ASCII-Zeichen dargestellt. Dies war vor der Einf&uuml;hrung von grafikf&auml;higen Computern die einzige Darstellungsm&ouml;glichkeit von bild&auml;hnlichen Objekten und h&auml;lt sich bis heute in E-Mail Signaturen und den bekannten Emoticons.</p>
+
+<hr />
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn">
+<pre><font class="iopair">.........................................
+.....!\_________________________/!\......
+.....!!.........................!!.\.....
+.....!!.........................!!..\....
+.....!!.........................!!..!....
+.....!!..........EPROG..........!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!../....
+.....!!_________________________!!./.....
+.....!/_________________________\!/......
+........__\_________________/__/!_.......
+.......!_______________________!/.)......
+.....________________________....(__.....
+..../oooo..oooo..oooo..oooo./!..._..)_...
+.../ooooooooooooooooooooooo/./..(_)_(_)..
+../ooooooooooooooooooooooo/./....(o.o)...
+./C=_____________________/_/....==\o/==..
+.........................................</font></pre>
+</td>
+</tr>
+</table>
+<b>Ein Beispiel f&uuml;r ein ASCII-Bild</b>
+<hr />
+
+<p>Das Programm soll ein solches Bild zeilenweise von der Standardeingabe einlesen. Lassen Sie Ihr Programm solange Bildzeilen einlesen, bis das Ende der Eingabe erreicht ist. Z&auml;hlen Sie dabei mit, wie viele Zeilen bereits eingelesen wurden und &uuml;berpr&uuml;fen Sie weiters, ob jede neu eingelesene Zeile gleich lang wie die bisher eingelesenen ist. Ist eine Zeile l&auml;nger oder k&uuml;rzer, so wird das Einlesen abgebrochen und "<code>INPUT MISMATCH</code>" in einer eigenen Zeile &uuml;ber die Standardausgabe ausgegeben. Sind alle Zeilen gleich lang, so wird nach Einlesen der letzten Zeile die Breite und H&ouml;he des eingelesen ASCII-Bildes in einer Zeile &uuml;ber die Standardausgabe ausgegeben.</p>
+<p>&nbsp;</p>
+
+
+<!-- Ben&ouml;tigte Klassen und Methoden -->
+
+<a id="klassenundmethoden" name="klassenundmethoden"></a>
+<h2>Klassen und Methoden</h2>
+<dl>
+<dt><b>AsciiShop</b></dt>
+<dd>Diese Klasse verarbeitet die Eingaben und verifiziert ob diese korrekt sind<br />
+
+	<dl>
+	<dt><code>public static void main(String[] args)</code></dt>
+	<dd>ist die einzige in dieser Runde zu implementierende Methode und f&uuml;hrt die gesamte Programmlogik entsprechend der Aufgabenstellung aus.</dd>
+	</dl>
+</dd>
+
+</dl>
+<p>&nbsp;</p>
+
+<!-- FAQ -->
+
+<a id="faq" name="faq"></a>
+<h2>Allgemeine Hinweise:</h2>
+<ul>
+<li>
+<b>Die Gro&szlig;- und Kleinschreibung ist relevant!</b> Beachten Sie ganz genau die Angaben zu den
+Funktions- und Dateinamen.
+</li>
+<li>
+Die abzugebende Datei(en) m&uuml;ssen f&uuml;r die Abgabe ausnahmslos <b>archiviert</b> werden.
+Das Format der Archiv muss <b>Zip</b> sein, Programme wie WinZip, WinRar, jar (kommt mit der Java JDK Distribution)
+k&ouml;nnen Sie f&uuml;r die Archivierung verwenden. Dateiendung des Archivs muss .zip oder .jar sein.
+<br/> jar syntax:
+<ul>
+<li>
+Archivierung: <b><tt>jar Mcvf archiv_name.jar *</tt></b> (oder einzelne Dateien statt <tt>*</tt>)
+</li>
+<li>
+Inhalte anzeigen: <b><tt>jar tf archiv_name.jar</tt></b>
+</li>
+<li>
+Extrahieren: <b><tt>jar xvf archiv_name.jar</tt></b>
+</li>
+</ul>
+</li>
+<li>
+Ihr Programm darf nur genau jene Ausgabedaten liefern, die in der Spezifikation 
+verlangt werden. Die Ausgaben Ihres Programms werden automatisch mit
+Referenzdaten verglichen; etwaige Abweichungen f&uuml;hren zu Punkteabz&uuml;gen!
+</li>
+
+<li>
+Testen Sie Ihr Programm vor der Abgabe mit den mitgelieferten Eingabedateien.
+Geben Sie Ihre L&ouml;sung erst ab, wenn die Ausgaben Ihres Programms mit der
+ebenfalls mitgelieferten Ausgabedatei &uuml;bereinstimmen! Testen Sie Ihr
+Programm auch mit anderen Eingabedaten.<br/>
+</li>
+
+<li>
+Ihr Programm muss <b>immer</b> den Prozess Return Code 0 liefern. Verwenden Sie daher
+keine <code>System.exit(1)</code>-artige Unterbrechungen in Ihrem Programm.
+Am besten verzichten Sie v&ouml;llig auf System.exit() Aufrufe da dadurch der
+laufende JVM gewaltsam terminiert wird.<br/>
+</li>
+
+
+<li>
+Verwenden Sie die Klasse <code>Scanner</code> zum Einlesen von Daten.<br/>
+F&uuml;r die Ausgabe k&ouml;nnen Sie die Methoden <code>System.out.print</code> und
+<code>System.out.println</code> benutzen. Zum Erzeugen formatierter Ausgaben k&ouml;nnen
+Sie auch <code>System.out.printf</code> benutzen (wird im Allgemeinen aber nicht ben&ouml;tigt).
+Beachten Sie, dass wir bei der Beurteilung einen US-amerikanischen Region- und
+Spracheinstellungssatz (<i>locale</i>) f&uuml;r die Beurteilung benutzen.
+Das bedeutet, dass wir f&uuml;r die Darstellung von <code>double</code>-Werten auch bei
+der Ein-/Ausgabe immer den Dezimalpunkt (und nicht Beistrich) benutzen
+(z.B. 3.14159 und nicht 3,14159). Falls Sie auf Ihrem Rechner eine andere Einstellung haben,
+k&ouml;nnen Sie zum Testen zuhause auch die Darstellung mit Beistrich benutzen (ist aber nicht
+konsistent mit den mitgelieferten Ein-/Ausgabe-Paaren) oder beim Aufruf von Java auch folgenden Befehl
+benutzen:
+<ul>
+<li><b><code>java -Duser.language=en -Duser.country=US AsciiShop</code></b></li>
+</ul>
+Sie werden sehen, dass dann w&auml;hrend des Ablaufs des Programmes bei der Eingabe
+von <code>double</code>-Werten eine Darstellung mit Dezimalpunkt erwartet wird.
+Wenden Sie sich bei Problemen mit den Ein-/Ausgabefunktionen bitte an die Tutoren im Labor.
+</li>
+<li>
+Programme, die Packages oder Klassen au&szlig;erhalb der verwendeten &Uuml;bungsumgebung 
+(<a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">J2SE Development Kit (JDK) 5.0</a>)
+verwenden, k&ouml;nnen von uns nicht getestet und beurteilt werden!<br/>
+</li>
+
+<li>
+Schreiben Sie Ihr Programm m&ouml;glichst allgemein und kommentieren Sie es
+gut. Die Kommentare im Programm gelten als Dokumentation.
+Die Dokumentation Ihrer Programme wird ebenfalls beurteilt. Es ist
+erlaubt/erw&uuml;nscht die Kommentare javadoc-konform zu erstellen.<br/>
+</li>
+</ul>
+
+<p>&nbsp;</p>
+
+
+<!-- Spezifikationsspezifische Hinweise -->
+
+<a id="hinweise" name="hinweise"></a>
+<H2>Hinweise:</H2>
+Beachten Sie die allgemeinen Hinweise zur Installation und zur Ein-/Ausgabe, sowie zur Abgabe und zur Beurteilung in den <a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do ">FAQ</a>. Beispiele zum Umgang mit Ein-/Ausgabe sowie den Methoden der Klasse <code>String</code> finden Sie im <a href="http://www.complang.tuwien.ac.at/franz/pk#skriptum">Skriptum</a> oder in den <a href="http://www.complang.tuwien.ac.at/franz/pk#folien">Vorlesungsfolien</a>.</p>
+
+<h3>Einlesen des Bildes</h3>
+<p>Verwenden Sie zum Einlesen des Bildes von der Standardeingabe die Klasse <a href="http://download.oracle.com/javase/6/docs/api/?java/util/Scanner.html"><code>Scanner</code></a>. Relevant sind insbesondere die Methoden <code>next</code> und <code>hasNext</code> bzw. <code>nextLine</code> und <code>hasNextLine</code>.</p>
+
+<h3>Zeilenl&auml;nge</h3>
+<p>Zum Bestimmen der Zeilenl&auml;nge bietet die Klasse <a href="http://download.oracle.com/javase/6/docs/api/?java/lang/String.html"><code>String</code></a> die Methode <code>length</code>.</p>
+
+<h3>Ausgabe</h3>
+<p>F&uuml;r die Ausgabe &uuml;ber die Standardausgabe verwenden Sie die Methoden <code>System.out.print</code> und <code>System.out.println</code>. </p>
+
+<h3>Testen</h3>
+<p>Es gibt zwei M&ouml;glichkeiten Ihr Programm zu testen: Sie k&ouml;nnen einerseits Eingaben in der Console vornehmen - entweder per direkter Eingabe oder auch per Einf&uuml;gen von der Zwischenablage. Um die Eingaben in der Console abzuschlie&szlig;en, geben Sie einen Zeilenumbruch gefolgt vom EOF-Zeichen (Tastenkombination <i>Strg+Z</i> (Windows) bzw. <i>Strg+D</i> (Mac, Linux)) ein. Das EOF-Zeichen muss dabei am Anfang einer Zeile stehen, geben Sie also beispielsweise nach der letzten Bildzeile <i>Enter</i> und dann <i>Strg+Z</i>/<i>Strg+D</i> ein. <br />
+Andererseits k&ouml;nnen Sie den Inhalt einer Datei als Eingabe verwenden: <b><code>java MyProgram < input.txt > output.txt</code></b>. Hierbei wird der Inhalt der Datei input.txt gelesen und als Eingabe an MyProgram weitergereicht. Die gesamte Ausgabe wird in die Datei output.txt geschrieben.</p>
+
+<a id="bewertungkriterien" name="bewertungkriterien"></a>
+<h3>Nicht-Funktionale Anforderungen</h3>
+<p>Im Rahmen des <b>Abschlussgesprächs</b> wird die Abgabe nach Kriterien wie Dokumentation (sprich Kommentare), Übersichtlichkeit des Codes, Verständnis, etc. beurteilt.</p>
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="padding: 10px;" colspan="3">
+
+Wenn Sie Fragen zur Implementierung oder auch zu Java haben, k&ouml;nnen Sie das Informatik-Forum nutzen. Im Rahmen der w&ouml;chentlichen Laborien stehen Tutoren für Fragen zur Verf&uuml;gung.
+
+</td>
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:50%;" ><a style="font-size: larger;" href="http://www.informatik-forum.at/forumdisplay.php?1452-Programmierpraxis-UE">Informatik-Forum</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px;  width:50%;"><a style="font-size: larger;" href="https://pp.caa.tuwien.ac.at/laborien/">Laborien</a></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<a id="einausgabedaten" name="einausgabedaten"></a>
+
+
+<H2>Eingabedaten:</H2>
+<p>
+Ein ASCII-Bild mit beliebig vielen Zeichen, wobei Sie davon ausgehen d&uuml;rfen, dass das Bild keine Leerzeichen enthält.
+</p>
+
+<a id="ausgabedaten" name="ausgabedaten"></a>
+
+
+<H2>Ausgabedaten:</H2>
+<p>
+Die Breite und H&ouml;he des ASCII-Bildes in einer Zeile durch ein Leerzeichen getrennt.
+</p>
+
+<a id="fehlerbehandlung" name="fehlerbehandlung"></a>
+
+
+<H2>Fehlerbehandlung:</H2>
+<p>
+Geben Sie "<code>INPUT MISMATCH</code>" aus, falls das Bild der Anforderung widerspricht und nicht alle Zeilen gleich lang sind.
+</p>
+
+<a id="testen" name="testen"></a>
+
+
+<H2>Testen:</H2>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">.........................................
+.....!\_________________________/!\......
+.....!!.........................!!.\.....
+.....!!.........................!!..\....
+.....!!.........................!!..!....
+.....!!..........EPROG..........!!..!....
+.....!!.........................!!..!....
+..............!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!../....
+.....!!_________________________!!./.....
+.....!/_________________________\!/......
+........__\_________________/__/!_.......
+.......!_______________________!/.)......
+.....________________________....(__.....
+..../oooo..oooo..oooo..oooo./!..._..)_...
+.../ooooooooooooooooooooooo/./..(_)_(_)..
+../ooooooooooooooooooooooo/./....(o.o)...
+./C=_____________________/_/....==\o/==..
+.........................................
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">INPUT MISMATCH
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>In Zeile 8 befinden sich zu wenig Zeichen</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">.........................................
+.....!\_________________________/!\......
+.....!!.........................!!.\.....
+.....!!.........................!!..\....
+.....!!.........................!!..!....
+.....!!..........EPROG..........!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!../....
+.....!!_________________________!!./.....
+.....!/_________________________\!/......
+........__\_________________/__/!_.......
+.......!_______________________!/.)......
+.....________________________....(__.....
+..../oooo..oooo..oooo..oooo./!..._..)_...
+.../ooooooooooooooooooooooo/./..(_)_(_)..
+../ooooooooooooooooooooooo/./....(o.o)...
+./C=_____________________/_/....==\o/==..
+.........................................
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">41 20
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Ein gültiges ASCII-Bild der Größe 41x20</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">======================.;+I.:======================
+====================;,.###,.;=====================
+====================,=;####..:====================
+===================;.=##W##Y+.;===================
+===================.:t##MM##X..===================
+==================:.###MMM##MM.;==================
+=================;,;##WWMM####.,;=================
+================;..###WWWWWM##M,,;================
+================,:;##WMWMWWWW##..,================
+================.XW#WWWWWWBWWW#WW.;===============
+===============:.B##WW#WWWWWMMW##..;==============
+===============.Y##WWWMWWMWWW#M###.:==============
+==============:.###WWWWWMWWWMMMW##.,:=============
+=============:,.##WWMMWMWWMWWWBMW#i=.=============
+=============.t##WWW#######WW#WMM##V.:============
+============:.=##WW############MMB#Bt.============
+============.IX#MW##Y=.iiiitVB###W###.;===========
+============.W##M##W....;YIii+t######.,;==========
+===========:.####MV,...BtiYYYI=YY#..t#=:==========
+==========;.Y##Y#BRIXRVIYVIIIIiYI#...#..;=========
+==========:.#i..MXB+IIIXXXVRXX+XR#...#=:,=========
+=========:,.#...X##,+IRMRXXXXY,###...t#Y..;=======
+========,.;R#....M##VIX+IYIIYR###.....###..,;=====
+======;..W##.....,i####RRR#####:,..,..XM##X;.,====
+====;...+###.......,IB#####MVi....,,,.=I##XV#..,==
+=;,..=####MV..,,......;;it;=.....,,,,..+#W;.V##..:
+:.:X##..##I..,,..................,,,,,..#+....Y#:.
+.=##t...i#t..,,.,..........,,,,,,.,..:.,Y#=.=:..#Y
+:#t..::.i#i........,,..,,,.:,,,,,,,,,,...#+.=,..#i
+.##+.::,#t:....,...,,,,.,,.:,.,,,,..,,,,.#;...:##;
+.i##R...#....,..,..,,,.,,,.....,,,.,,,,,.#=..###..
+,.W##..,#.........,...,,,,,,,,,...,,.,,:.V####X..=
+=,.i#####...,,,.,...,,,,,,.,,,:,,,,,,,,,.,M##MY.;=
+=;.;I###i..,,,...,,,..,.,,,,..,..,.,,.,,..B##MY.;=
+;,.:Y###...,,,.,....,,.,..,.,,.,,.,,,,,,..X###W.,=
+,:iB####...,,,.,.,,...,.,,,,,,....:,,,,,:.IB##MY.;
+,####W##...,,,...........,,,,,,,,,.,,.,,,.tR####.;
+:#######...,,..,.................:.,:,,,:.tR####.+
+..X##t##...,.........;=VXXR=......:,.,,,:.Y###Wi.;
+=:....##........;X#############t,...,,,,..M#....:=
+=====.##M.....i###Vi.........+V##W...,,,..##.:;===
+=====.=i#...####...,:======;:,..t##t.....BXB.=====
+=====;,,#####:..,;============;:..B##...,#i.:=====
+======;,......;==================:..t####+,:======
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">50 44
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Ein gültiges ASCII-Bild der Größe 50x44</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+</table>
+
+<br/>
+<b>Bemerkung:</b> Diese Beispiele dienen nur zur Verdeutlichung der Spezifikation und
+m&uuml;ssen nicht korrekt formatiert sein. Die korrekte Formatierung entnehmen Sie
+bitte dem mitgelieferten Outputfile. Zum Testen Ihrer L&ouml;sung
+k&ouml;nnen Sie aus den mitgelieferten Eingabedaten wie folgt eine Ausgabedatei
+erzeugen:
+
+<br/>
+<b><tt>java  AsciiShop &lt; asciishop-A01-pp.i1 &gt; asciishop-A01-pp.out1</tt></b>
+<p/>
+Das erzeugte File asciishop-A01-pp.out1 k&ouml;nnen Sie dann mit
+dem mitgelieferten Outputfile asciishop-A01-pp.o1 vergleichen.
+
+
+</body>
+</html>

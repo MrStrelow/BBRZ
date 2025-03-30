@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image and View</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="http://127.0.0.1:8000/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Uploaded Images</h2>
+    <div id="imageGallery">
+        {% for image in images %}
+            <div class="image-container">
+                <img src="/uploads/{{ image }}" alt="{{ image }}" style="width: 200px; height: auto;">
+                <p>{{ image }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

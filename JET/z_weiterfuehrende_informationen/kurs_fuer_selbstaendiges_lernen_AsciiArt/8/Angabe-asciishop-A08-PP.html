@@ -1,0 +1,1100 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>EPROG-LU - Aufgabe asciishop-A08-PP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<style type="text/css"><!--
+body {
+background-color: #FFFFFF;
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+color:#000000;
+}
+
+table {
+font-family:verdana,geneva,arial,helvetica,sans-serif;
+font-size:11px;
+border-style:none;
+}
+
+td {
+border-color:#000000;
+border-style:none;
+border-width:1px;
+vertical-align:middle;
+padding-left:0px;
+padding-right:0px;
+padding-bottom:0px;
+padding-top:0px;
+}
+// --></style>
+</head>
+<body link="#0000EE" vlink="#551A8B" alink="#FF0000">
+
+
+<h1>Beispiel Angabe</h1>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+<tr>
+<td style="width:100px;"><b>K&uuml;rzel:</b></td><td>asciishop-A08-PP</td>
+<!--<td><b>Runde:</b></td><td>8</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Name:</b></td><td>AsciiShop, Runde#8</td>
+<!--<td><b>Evaluieren als:</b></td><td>Java</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kette:</b></td><td>Asciishop PP</td>
+<!--<td><b>Eingabe:</b></td><td>String</td>-->
+</tr>
+<tr>
+<td style="width:100px;"><b>Kategorie:</b></td><td>Bildverarbeitung</td>
+<!--<td><b>Ausgabe:</b></td><td>String</td>-->
+</tr>
+</table>
+<p>
+
+
+<b>Mitgelieferte Datei(en):</b> asciishop-A07-bonus1.i1, asciishop-A07-bonus1.i2, Operation.java, ReplaceFactory.java, asciishop-A07-bonus1.o2, asciishop-A07-bonus1.o1<br>
+<b>Abzugebende Datei(en):</b> AsciiPoint.java, BinaryFactory.java, AsciiImage.java, AsciiShop.java, BinaryOperation.java, Operation.java, ReplaceFactory.java, FilterFactory.java, ReplaceOperation.java, LoadFactory.java, OperationException.java, Factory.java, MedianOperation.java, LoadOperation.java, ClearFactory.java, ClearOperation.java, FactoryException.java<br>
+<b>Optional abzugebende Datei(en):</b> StraightenRegionOperation.java, StraightenRegionFactory.java, FillOperation.java, FillFactory.java, Histogram.java, AsciiStack.java, AsciiStackNode.java, TransposeOperation.java, GrowRegionFactory.java, TransposeFactory.java, LineOperation.java, GrowRegionOperation.java, LineFactory.java<br>
+<b>Ausf&uuml;hrbar:</b> AsciiShop<br>
+
+<p>
+
+
+Die Klasse <em>AsciiShop</em> ist zu erstellen und soll eine
+ausf&uuml;hrbare Klasse sein und muss daher die <tt>public static void main(String[] args)</tt>
+Methode beinhalten.
+
+Ihr Programm wird automatisch auf Korrektheit &uuml;berpr&uuml;ft.
+Die &Uuml;berpr&uuml;fung erfolgt durch die Ausf&uuml;hrung der als
+ausf&uuml;hrbar bezeichneten Klasse (<em>AsciiShop</em>).
+
+
+<H2>Kurzbeschreibung:</H2>
+<style type="text/css">
+<!--
+  .new{
+    background-color: rgb(211, 217, 227);
+  }
+  .change{
+    background-color: rgb(255, 255, 225);
+  }
+  .remove{
+  	color: red;
+  	text-decoration: line-through;
+  }
+  .remove code {
+  	color: #555555;
+  }
+  
+  dl {
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: -4px;
+  }
+  dd{
+    margin-left: 20px;
+    margin-top: 5px;  
+  }
+  span.grey{
+    color: #666;
+  }
+  ul.relaxed li{
+    padding:4px;
+    margin-top:5px;
+    margin-bottom:5px;
+  }
+
+  table#values tbody tr td{
+    background-color: #eee;
+    padding: 4px;
+    text-align:center;
+    width: 30px;
+  }
+  table#values tbody tr td.caption{
+    background-color: #eee;
+    padding: 4px;
+    text-align:center;
+    font-weight: bold;
+  }
+-->
+</style>
+
+<p>
+Das Programm erstellt im ersten Schritt ein leeres Bild, auf dem dann unterschiedliche Operationen ausgef&uuml;hrt werden k&ouml;nnen. Neben den in der Vorrunde implementierten Operationen, gibt es noch einen weiteren Befehl, mit dem das Bild in ein Bin&auml;rbild umgewandelt werden kann.
+</p>
+
+<h2>Lernziele:</h2>
+<ul>
+<li>Kapselung von Funktionalit&auml;t in Klassen</li>
+<li>Exceptions</li>
+<li>Algorithmen</li>
+</ul>
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#aufgabenstellung">Aufgabenstellung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#klassenundmethoden">Klassen und Methoden</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#einausgabedaten">Ein- und Ausgabedaten</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;" ><a href="#bewertungskriterien">Bewertung und Kriterien</a></td>
+
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#hinweise">Hinweise</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do">FAQ</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#fehlerbehandlung">Fehlerbehandlung</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px; width:25%;"><a href="#testen">Testen</a></td>
+</tr>
+</table>
+
+
+<p>&nbsp;</p>
+
+<a id="aufgabenstellung" name="aufgabenstellung"></a>
+<!--
+
+
+<H2>Allgemeine Hinweise:</H2>
+<ul>
+<li>
+<b>Die Gro&szlig;- und Kleinschreibung ist relevant!</b> Beachten Sie ganz genau die Angaben zu den
+Funktions- und Dateinamen.
+</li>
+<li>
+Die abzugebende Datei(en) m&uuml;ssen f&uuml;r die Abgabe ausnahmslos <b>archiviert</b> werden.
+Das Format der Archiv muss <b>Zip</b> sein, Programme wie WinZip, WinRar, jar (kommt mit der Java JDK Distribution)
+k&ouml;nnen Sie f&uuml;r die Archivierung verwenden. Dateiendung des Archivs muss .zip oder .jar sein.
+<br/> jar syntax:
+<ul>
+<li>
+Archivierung: <b><tt>jar Mcvf archiv_name.jar *</tt></b> (oder einzelne Dateien statt <tt>*</tt>)
+</li>
+<li>
+Inhalte anzeigen: <b><tt>jar tf archiv_name.jar</tt></b>
+</li>
+<li>
+Extrahieren: <b><tt>jar xvf archiv_name.jar</tt></b>
+</li>
+</ul>
+</li>
+<li>
+Ihr Programm darf nur genau jene Ausgabedaten liefern, die in der Spezifikation 
+verlangt werden. Die Ausgaben Ihres Programms werden automatisch mit
+Referenzdaten verglichen; etwaige Abweichungen f&uuml;hren zu Punkteabz&uuml;gen!
+</li>
+
+<li>
+Testen Sie Ihr Programm vor der Abgabe mit den mitgelieferten Eingabedateien.
+Geben Sie Ihre L&ouml;sung erst ab, wenn die Ausgaben Ihres Programms mit der
+ebenfalls mitgelieferten Ausgabedatei &uuml;bereinstimmen! Testen Sie Ihr
+Programm auch mit anderen Eingabedaten.<br/>
+</li>
+
+<li>
+Ihr Programm muss <b>immer</b> den Prozess Return Code 0 liefern. Verwenden Sie daher
+keine <code>System.exit(1)</code>-artige Unterbrechungen in Ihrem Programm.
+Am besten verzichten Sie v&ouml;llig auf System.exit() Aufrufe da dadurch der
+laufende JVM gewaltsam terminiert wird.<br/>
+</li>
+
+
+<li>
+Verwenden Sie die Klasse <code>Scanner</code> zum Einlesen von Daten.<br/>
+F&uuml;r die Ausgabe k&ouml;nnen Sie die Methoden <code>System.out.print</code> und
+<code>System.out.println</code> benutzen. Zum Erzeugen formatierter Ausgaben k&ouml;nnen
+Sie auch <code>System.out.printf</code> benutzen (wird im Allgemeinen aber nicht ben&ouml;tigt).
+Beachten Sie, dass wir bei der Beurteilung einen US-amerikanischen Region- und
+Spracheinstellungssatz (<i>locale</i>) f&uml;r die Beurteilung benutzen.
+Das bedeutet, dass wir f&uuml;r die Darstellung von <code>double</code>-Werten auch bei
+der Ein-/Ausgabe immer den Dezimalpunkt (und nicht Beistrich) benutzen
+(z.B. 3.14159 und nicht 3,14159). Falls Sie auf Ihrem Rechner eine andere Einstellung haben,
+k&ouml;nnen Sie zum Testen zuhause auch die Darstellung mit Beistrich benutzen (ist aber nicht
+konsistent mit den mitgelieferten Ein-/Ausgabe-Paaren) oder beim Aufruf von Java auch folgenden Befehl
+benutzen:
+<ul>
+<li><b><code>java -Duser.language=en -Duser.country=US AsciiShop</code></b></li>
+</ul>
+Sie werden sehen, dass dann w&auml;hrend des Ablaufs des Programmes bei der Eingabe
+von <code>double</code>-Werten eine Darstellung mit Dezimalpunkt erwartet wird.
+Wenden Sie sich bei Problemen mit den Ein-/Ausgabefunktionen bitte an die Tutoren im Labor.
+</li>
+<li>
+Programme, die Packages oder Klassen au&szlig;erhalb der verwendeten &Uuml;bungsumgebung 
+(<a href="http://java.sun.com/j2se/1.5.0/download.jsp" target="_blank">J2SE Development Kit (JDK) 5.0</a>)
+verwenden, k&ouml;nnen von uns nicht getestet und beurteilt werden!<br/>
+</li>
+
+<li>
+Schreiben Sie Ihr Programm m&ouml;glichst allgemein und kommentieren Sie es
+gut. Die Kommentare im Programm gelten als Dokumentation.
+Die Dokumentation Ihrer Programme wird ebenfalls beurteilt. Es ist
+erlaubt/erw&uuml;nscht die Kommentare javadoc-konform zu erstellen.<br/>
+</li>
+</ul>
+
+
+<H2>Spezifikationsspezifische Hinweise:</H2>
+-->
+
+
+<H2>Aufgabenstellung:</H2>
+<p>
+In der vorhergehenden &Uuml;bungsrunde wurden die Operationen aus dem <code>AsciiImage</code> in einzelne Klassen ausgelagert. In dieser Runde wird der zweite Schritt in der Umstrukturierung vorgenommen und Code aus der Klasse <code>AsciiShop</code> ausgelagert. Die Wartung der Klasse wird dadurch erleichtert, ebenso wie das Hinzuf&uuml;gen neuer Operationen, wie beispielsweise eine Operation, die das Bild in ein Bin&auml;rbild umwandelt, als algorithmische Aufgabe in dieser Runde.
+</p>
+
+<h3>Erzeugen des Bildes</h3>
+
+<p>
+Das Erzeugen eines neuen Bildes erfolgt, wie in Runde 7 spezifiziert, mit Hilfe des Befehls <b><code>create</code></b>, der neben den beiden Parametern Breite und H&ouml;he des zu erzeugenden Bildes auch den Zeichensatz des Bildes erwartet. Dies ist ein String, der alle im Bild erlaubten Zeichen beinhaltet. Der Zeichensatz gibt au&szlig;erdem eine Ordnung der Zeichen vor, so ist das erste Zeichen das dunkelste und das letzte das hellste. Jedes Zeichen stellt somit eine Farbe dar. Das hellste Zeichen wird au&szlig;erdem als Farbe f&uuml;r ein neu erzeugtes Bild sowie beim L&ouml;schen des Bildinhaltes bei Eingabe des Befehls <b><code>clear</code></b> verwendet.
+</p>
+
+<p>
+Der <b><code>create</code></b> Befehl muss der erste eingegebene Befehl sein. Sie d&uuml;rfen davon ausgehen, dass sowohl die eingegebene Breite und H&ouml;he als auch der Zeichensatz g&uuml;ltig sind und m&uuml;ssen daher diesen Fehlerfall nicht behandeln.
+</p>
+<p>
+Das leere Bild kann mit Daten gef&uuml;llt werden. Dazu stehen verschiedene Befehle zur Verf&uuml;gung, darunter der Befehl <b><code>load</code></b>. Dieser Befehl (und damit das Einlesen von Bildern von der Standardeingabe) ist f&uuml;r ein g&uuml;ltiges Bild nicht zwingend erforderlich.
+</p>
+
+<h3>Befehle und Operationen am Bild</h3>
+<p>
+Die folgenden Befehle sind zul&auml;ssig, <span class="new">neue</span> und <span class="change">ver&auml;nderte</span> Befehle sind farblich hervorgehoben, nicht mehr geforderte durchgestrichen:
+</p>
+<ul class="relaxed">
+
+<li class="new"><b><code>binary</code></b> <code>threshold</code> wandelt das Bild in ein Bin&auml;rbild um, sodass alle Zeichen, die im Zeichensatz vor dem Zeichen <code>threshold</code> stehen, auf das dunkelste Zeichen gesetzt werden und alle Zeichen ab und inklusive <code>threshold</code> auf das hellste Zeichen des Zeichensatzes gesetzt werden.</li>
+
+<li><b><code>clear</code></b> l&ouml;scht den gesamten Bildinhalt, alle Pixel des Bildes werden auf das letzte Zeichen des Zeichensatzes des Bildes gesetzt.</li>
+
+<li><b><code>filter</code></b> <code>type</code> filtert das Bild mit einem sogenannten Medianfilter. Dadurch wird eine Gl&auml;ttung des Bildes erreicht. Lautet der Paramater (type) anders als <b><code>median</code></b>, soll keine Filterung durchgef&uuml;hrt und "<code>INPUT MISMATCH</code>" ausgegeben werden. </li>
+
+<li><b><code>load</code></b> <code>eof</code> liest ein Bild zeilenweise ein und speichert es in das anfangs mit <b><code>create</code></b> erzeugte Bild. Um das Ende der Eingabe zu erkennen, wird als Parameter  eine Zeichenkette (<code>eof</code>) angegeben, die das Ende der Bildeingabe kennzeichnet. Fehlt das Parameter, oder fehlt die <code>eof</code>-Zeichenkette am Ende der Daten, so soll "<code>INPUT MISMATCH</code>" ausgegeben werden.</li>
+
+<li><b><code>print</code></b> gibt das ASCII-Bild gefolgt von einer Leerzeile aus. Im Gegensatz zu fr&uuml;heren Runden, erfolgt die Ausgabe nicht mehr automatisch am Ende des Programms, sondern nur bei Eingabe dieses Befehls.</li>
+
+<li><b><code>replace</code></b> <code>oldChar newChar</code> ersetzt alle Vorkommen eines bestimmten Zeichens (oldChar) im Bild durch ein anderes Zeichen (newChar).</li>
+
+<li><b><code>undo</code></b> macht einen Befehl r&uuml;ckg&auml;ngig. Gibt es keinen weiteren Befehl, der r&uuml;ckg&auml;ngig gemacht werden kann, soll "<code>STACK EMPTY</code>" ausgegeben werden.</li>
+
+</ul>
+
+<p>
+Alle hier aufgef&uuml;hrten Befehle k&ouml;nnen in beliebiger Reihenfolge auftreten. So kann zum Beispiel nach <b><code>create</code></b> erst <b><code>print</code></b> und danach <b><code>load</code></b> folgen. Die genannten Befehle <b><code>binary</code></b>, <b><code>clear</code></b>, <b><code>filter</code></b>, <b><code>load</code></b> und <b><code>replace</code></b> haben entsprechende Klassen, die die Funktionalit&auml;t implementieren. 
+</p>
+
+<h3>Refaktorisierung</h3>
+
+<p>
+Auch wenn bereits die Operationen ausgelagert sind, ist es bisher immer noch erforderlich, dass in der Klasse <code>AsciiShop</code> die Eingaben verarbeitet, die Parameter f&uuml;r einen bestimmten Befehl eingelesen werden und dann der entsprechende Befehl erzeugt wird. Das Hinzuf&uuml;gen eines neuen Befehls erfordert also, neben der Erstellung einer neuen <code>Operation</code>-Klasse, auch die Modifikation des Codes in <code>AsciiShop</code>. Es ist leicht vorstellbar, dass dies problematisch ist, wenn zum Beispiel mehrere Entwickler an einer modularen Applikation arbeiten.  
+</p>
+
+<p>
+Daher wird in dieser Runde das Aufbereiten der Eingaben und das Erzeugen einer entsprechenden Operation ausgelagert. Hierzu wird f&uuml;r jeden Befehl eine eigene Klasse eingef&uuml;hrt, die das Verarbeiten der Eingaben &uuml;bernimmt und dann die fertig initialisierte <code>Operation</code> zur&uuml;ckgibt. Diese sogenannten Fabriken (dieser Name wird gew&auml;hlt, da analog zu einer Fabrik etwas erzeugt wird, hier eine neue <code>Operation</code>; dazu werden bestimmte Ressourcen ben&ouml;tigt, hier die entsprechenden Eingaben) alleine f&uuml;hren jedoch nur dazu, dass Code zum Einlesen von Parametern und zur Objekterzeugung aus dem <code>AsciiShop</code> herausgenommen wird.
+</p>
+
+<p>
+In einem n&auml;chsten Schritt soll die Auswahl des richtigen Befehls verbessert werden, so dass nicht mehr mit if/else if statisch die richtige Fabrik ausgew&auml;hlt werden muss. Dazu implementieren alle Fabriken das Interface <code>Factory</code> und bieten so eine vereinheitlichte Schnittstelle zur Erzeugung der Operationen. Im <code>AsciiShop</code> k&ouml;nnen nun alle Factories in einer geeigneten Datenstruktur abgelegt werden und je nach eingegebenem Befehl wird dynamisch die richtige <code>Factory</code> ausgew&auml;hlt, die wiederum die ben&ouml;tigte <code>Operation</code> zur&uuml;ckgibt. All dies ist nur m&ouml;glich, weil sowohl alle Factories ein gemeinsames Interface, wie auch alle Operationen ein gemeinsames Interface implementieren.
+</p>
+
+
+<h3>&Uuml;bungsm&ouml;glichkeiten</h3>
+<p>
+Sie k&ouml;nnen zu &Uuml;bungszwecken, nach dem Muster der anderen Operationen, Klassen f&uuml;r die Befehle <b><code>grow</code></b>, <b><code>line</code></b>, <b><code>transpose</code></b>, sowie <b><code>fill</code></b> entsprechend der Spezifikationen der Vorrunden implementieren. Sie k&ouml;nnen diesen Klassen auch die entsprechenden Befehle zuordnen, dies wird jedoch nicht getestet.
+</p>
+
+<p>&nbsp;</p>
+
+<h2>Bonusaufgaben</h2>
+<p>
+Bonusaufgaben werden nicht im Online-System getestet, die Beurteilung erfolgt erst w&auml;hrend des Abgabegespr&auml;chs.
+</p>
+
+<h3>Histogramm zeichnen <i>(+2,0 Punkte)</i></h3>
+<p>
+Ein Histogramm ist eine graphische Darstellung der H&auml;ufigkeitsverteilung metrisch skalierter Merkmale (vgl. <a href="http://de.wikipedia.org/wiki/Histogramm">Histogramm</a>). Erstellen Sie die Klasse <code>Histogram</code>, die eine statische Methode <code><span class="grey">public static AsciiImage</span> getHistogram<span class="grey">(AsciiImage img)</span></code> implementiert. Diese Methode gibt ein neues AsciiImage zur&uuml;ck, das das Histogramm (daher die H&auml;ufigkeitsverteilung der verschiedenen Farben) des &uuml;bergebenen AsciiImage darstellt. Das Histogramm soll folgende Form haben: 
+</p>
+
+<hr />
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn">
+<pre>
+<font class="iopair">
+.30............#.... 
+...............#.... 
+.26............#...# 
+...............#...# 
+.22............#...# 
+...............#...# 
+.18#...........#...# 
+...#...........#...# 
+.14#...........#..## 
+...#...........#..## 
+.10#...........#..## 
+...#...........#..## 
+..6#...........#..## 
+...##..........##### 
+..2##..#.########### 
+...#WMBRXVYIti+=;:,.
+</font></pre>
+</td>
+</tr>
+</table>
+<hr />
+
+<p>
+Das gesamte Histogramm ist 16 Pixel hoch. Die ersten 3 Spalten sind f&uuml;r Beschriftungen reserviert, danach gibt es f&uuml;r jedes Zeichen des Zeichensatzes eine Spalte. In der letzten Zeile des Histogramms stehen dabei die entsprechenden Zeichen des Zeichensatzes, dar&uuml;ber werden, je nach Anzahl der Vorkommnisse dieses Zeichens, Markierungen angebracht. Die Markierungen des h&auml;ufigst vorkommenden Zeichens gehen dabei bis ganz nach oben, die anderen im entsprechenden Verh&auml;ltnis dazu, niedriger. Kommt ein Zeichen gar nicht vor, so gibt es auch keine Markierung. Beim Berechnen der H&ouml;he der Markierungen soll aufgerundet werden. 
+</p>
+
+<p>
+In den linken drei Spalten werden rechtsb&uuml;ndig in jede zweite Zeile von oben beginnend die Prozente eingetragen. Hierbei werden die Prozente mathematisch gerundet. Als Hintergrund des Histogramms soll stets das Zeichen &lsquo;<code>.</code>&rsquo; verwendet werden, f&uuml;r die Markierungen &lsquo;<code>#</code>&rsquo;. Beachten Sie, dass das Histogramm unter Umst&auml;nden einen gr&ouml;&szlig;eren Zeichensatz als das Ausgangsbild haben muss, da die Zahlen und die Zeichen f&uuml;r Vordergrund und Hintergrund im Histogramm zul&auml;ssig sein m&uuml;ssen. F&uuml;gen Sie daher bei Bedarf die fehlenden Zeichen dem Zeichensatz hinzu. Stellen Sie dabei aber sicher, dass der Zeichensatz des Histogramms keine Zeichen doppelt beinhaltet.
+</p>
+
+<p>
+Mit dem Befehl <b><code>histogram</code></b> wird f&uuml;r das aktuelle <code>AsciiImage</code> ein Histogramm erzeugt und von einem Zeilenvorschub gefolgt ausgegeben. Dieser Befehl kann nicht r&uuml;ckg&auml;ngig gemacht werden.
+</p>
+
+<p>&nbsp;</p>
+
+<!-- Klassen und Methoden -->
+
+<a id="klassenundmethoden" name="klassenundmethoden"></a>
+<h2>Klassen und Methoden:</h2>
+
+<p>Die folgende Aufz&auml;hlung umfasst geforderte Methoden, <span class="new">neue</span> und <span class="change">ver&auml;nderte</span> Methoden sind farblich hervorgehoben, gegen&uuml;ber der Vorrunde nicht mehr geforderte durchgestrichen. Sie k&ouml;nnen nach Bedarf Hilfsmethoden und Methoden f&uuml;r freiwillige Aufgaben (Bonusaufgaben, &Uuml;bungsaufgaben) hinzuf&uuml;gen. Achten Sie auf die korrekte Datenkapselung. Insbesondere sollen Sie sinnvolle Zugriffsmodifikatoren f&uuml;r Variablen (und Methoden) verwenden.</p>
+
+<dl>
+<dt><b>AsciiShop</b></dt>
+<dd>Diese Klasse ist ausf&uuml;hrbar und beinhaltet daher die <code>main</code>-Methode. Sie verarbeitet die Eingaben, erzeugt das <code>AsciiImage</code> und gibt das Ergebnis aus. Methoden dieser Klasse lesen direkt von <code>System.in</code> ein und geben direkt auf <code>System.out</code> aus.
+
+	<dl>
+    <dt><code><span class="grey">public static void</span> main<span class="grey">(String[] args)</span></code></dt> 
+    <dd>liest die Daten und Befehle ein und gibt das Ergebnis aus.</dd>
+	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>AsciiImage</b></dt>
+<dd>Diese Klasse repr&auml;sentiert ein ASCII-Bild, es speichert die Zeichen des Bildes und bietet entsprechende Methoden zur Modifikation und zur Abfrage von Eigenschaften, wie beispielsweise H&ouml;he und Breite.
+	
+	<dl>
+    <dt><code><span class="grey">public</span> AsciiImage<span class="grey">(int width, int height, String charset)</span></code></dt> 
+    <dd>erzeugt ein ASCII-Bild der spezifizierten Gr&ouml;&szlig;e und mit dem angegebenen Zeichensatz. Anfangs sind alle Pixel auf den Wert hellsten Wert des Zeichensatz (also dem letzten Zeichen des Strings) gesetzt. &Uuml;berpr&uuml;fen Sie an diese Stelle ob Breite und H&ouml;he beide gr&ouml;&szlig;er 0 sind und werfen Sie andernfalls eine <code>IllegalArgumentException</code>. Werfen Sie auch eine <code>IllegalArgumentException</code>, falls das <code>charset</code> ein Zeichen doppelt enth&auml;lt oder gar keine Zeichen umfasst.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public</span> AsciiImage<span class="grey">(AsciiImage img)</span></code></dt> 
+ 	<dd>ist ein Kopierkonstruktor. Er erzeugt ein neues AsciiImage mit dem gleichen Inhalt, wie das &uuml;bergebene Bild.</dd>
+ 	</dl>
+ 	
+	<dl>
+    <dt><code><span class="grey">public String</span> getCharset<span class="grey">()</span></code></dt> 
+    <dd>gibt den Zeichensatz des Bildes als String zur&uuml;ck.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public int</span> getHeight<span class="grey">()</span></code></dt> 
+    <dd>gibt die H&ouml;he des Bildes (die Anzahl der Zeilen) zur&uuml;ck.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public char</span> getPixel<span class="grey">(int x, int y)</span></code></dt> 
+    <dd>gibt das an den &uuml;bergebenen Koordinaten/Indizes gespeicherte Zeichen zur&uuml;ck. &Uuml;berpr&uuml;fen Sie an dieser Stelle, ob die Indizes g&uuml;ltig sind und werfen Sie andernfalls eine <code>IndexOutOfBoundsException</code>.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public char</span> getPixel<span class="grey">(AsciiPoint p)</span></code></dt> 
+ 	<dd>gibt, analog zur Methode public char getPixel(int x, int y), das Zeichen, an der durch p spezifizierten Stelle, zur&uuml;ck. &Uuml;berpr&uuml;fen Sie an dieser Stelle, ob die Indizes g&uuml;ltig sind und werfen Sie andernfalls eine <code>IndexOutOfBoundsException</code>.</dd>
+ 	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public ArrayList&lt;AsciiPoint&gt;</span> getPointList<span class="grey">(char c)</span></code></dt> 
+ 	<dd>gibt eine ArrayList aller Pixel eines bestimmten Zeichens zur&uuml;ck. In dieser ArrayList sind Objekte vom Typ AsciiPoint, sollte es keine Punkte mit dem angegebenen Zeichen geben, so soll eine leere Liste zur&uuml;ckgegeben werden. Verwenden Sie diese Methode &uuml;berall dort, wo sie alle Pixel mit einem bestimmten Zeichen ben&ouml;tigen.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public int</span> getWidth<span class="grey">()</span></code></dt> 
+    <dd>gibt die Breite des Bildes (die L&auml;nge der Zeilen) zur&uuml;ck.</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public void</span> setPixel<span class="grey">(int x, int y, char c)</span></code></dt> 
+    <dd>speichert an den &uuml;bergebenen Koordinaten/Indizes das &uuml;bergebene Zeichen. &Uuml;berpr&uuml;fen Sie an dieser Stelle, ob die Indizes g&uuml;ltig sind und werfen Sie andernfalls eine IndexOutOfBoundsException. Werfen Sie eine <code>IndexOutOfBoundsException</code>, falls das Zeichen <code>c</code> nicht dem Zeichensatz des Bildes entspricht (sprich nicht im charset enthalten ist).</dd>
+	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public void</span> setPixel<span class="grey">(AsciiPoint p, char c)</span></code></dt> 
+ 	<dd>speichert, analog zur Methode public char setPixel(int x, int y, char c), das &uuml;bergebene Zeichen an der durch den p spezifizierten Stelle. &Uuml;berpr&uuml;fen Sie an dieser Stelle, ob die Indizes g&uuml;ltig sind und werfen Sie andernfalls eine IndexOutOfBoundsException. Werfen Sie eine <code>IndexOutOfBoundsException</code>, falls das Zeichen <code>c</code> nicht dem Zeichensatz des Bildes entspricht (sprich nicht im charset enthalten ist).</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public String</span> toString<span class="grey">()</span></code></dt> 
+    <dd>gibt eine lesbare Darstellung des ASCII-Bildes zur&uuml;ck. Die einzelnen Zeilen sollen dabei durch Zeilenumbr&uuml;che &lsquo;\n&rsquo; getrennt werden.</dd>
+	</dl>
+	
+</dd>
+</dl>
+
+<dl>
+<dt><b>AsciiPoint</b></dt>
+<dd>Diese Klasse repr&auml;sentiert einen Punkt, spezifiziert durch zwei ganzzahlige Koordinaten. Diese Klasse ist unver&auml;nderlich (immutable), sprich die Koordinaten sollen nachtr&auml;glich nicht mehr ver&auml;nderbar sein. Stellen Sie dies durch den Einsatz geeigneter Modifier sicher.
+
+	<dl>
+    <dt><code><span class="grey">public</span> AsciiPoint<span class="grey">(int x, int y)</span></code></dt> 
+ 	<dd>erzeugt einen Punkt mit den angegebenen Koordinaten.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public int</span> getX<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die x-Koordinate des Punktes zur&uuml;ck.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public int</span> getY<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die y-Koordinate des Punktes zur&uuml;ck.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public String</span> toString<span class="grey">()</span></code></dt> 
+ 	<dd>gibt eine lesbare Darstellung des Punktes in der Form <code>(x,y)</code> zur&uuml;ck.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>AsciiStack</b></dt>
+<dd>Diese Klasse implementiert einen Stack (vgl. <a href="http://de.wikipedia.org/wiki/Stapelspeicher">Stapelspeicher</a>), der seine Gr&ouml;&szlig;e dynamisch anpasst. Er kann eine beliebige Anzahl an <code>AsciiImage</code>-Objekten speichern, wobei der Zugriff immer nur auf das oberste Element m&ouml;glich ist. Sie k&ouml;nnen ihre Implementierung dieser Klasse (zusammen mit <code>AsciiStackNode</code>) aus der Vorrunde nutzen oder die vorgefertigte Klasse <code>java.util.Stack<AsciiImage></code> verwenden.
+
+	<dl>
+    <dt><code><span class="grey">public</span> AsciiStack<span class="grey">()</span></code></dt> 
+ 	<dd>initialisiert einen leeren Stack.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public boolean</span> empty<span class="grey">()</span></code></dt> 
+ 	<dd>&uuml;berpr&uuml;ft, ob zumindest ein Element am Stack liegt.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> pop<span class="grey">()</span></code></dt> 
+ 	<dd>gibt das oberste Element am Stack zur&uuml;ck und entfernt dieses. Liegt kein Element am Stack, so soll <code>null</code> zur&uuml;ckgegeben werden.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> peek<span class="grey">()</span></code></dt> 
+ 	<dd>gibt das oberste Element am Stack zur&uuml;ck ohne es zu entfernen. Liegt nichts am Stack, so soll <code>null</code> zur&uuml;ckgegeben werden.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public void</span> push<span class="grey">(AsciiImage img)</span></code></dt> 
+ 	<dd>legt ein <code>AsciiImage</code> oben auf den Stack. Ist der Stack zu diesem Zeitpunkt voll, so soll der Stack um <code>increment</code> vergr&ouml;&szlig;ert werden um so das Bild speichern zu k&ouml;nnen.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public int</span> size<span class="grey">()</span></code></dt> 
+ 	<dd>gibt die Anzahl der im Stack belegten Pl&auml;tze zur&uuml;ck.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<hr />
+<p>
+Die folgenden Klassen dienen zur Umsetzung bestimmter Bildoperationen bzw. der Erzeugen dieser. Die Bildoperationen implementieren das Interface <code>Operation</code>, die erzeugenden Klassen das Interface <code>Factory</code>, entsprechend der weiter unten beschriebenen Interfaces.
+</p>
+
+<dl>
+<dt><b>BinaryFactory</b> <code><span class="grey">implements</span> Factory</code></dt>
+<dd>Diese Factory erzeugt <code>BinaryOperations</code>.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> BinaryFactory<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>BinaryFactory</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public Operation</span> create<span class="grey">(Scanner scanner) throws FactoryException</span></code></dt> 
+ 	<dd>liest mit dem <code>Scanner</code> das Schwellwert Zeichen ein, erzeugt damit eine neue <code>BinaryOperation</code> und gibt diese zur&uuml;ck. Tritt beim Einlesen des Zeichens ein Fehler auf, so wird eine <code>FactoryException</code> geworfen.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>BinaryOperation</b> <code><span class="grey">implements</span> Operation</code></dt>
+<dd>Diese Klasse wandelt ein <code>AsciiImage</code> in ein Bin&auml;rbild um.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> BinaryOperation<span class="grey">(char threshold)</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>BinaryOperation</code> mit dem entsprechenden Schwellwert.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public AsciiImage</span> execute<span class="grey">(AsciiImage img) throws OperationException</span></code></dt> 
+ 	<dd>gibt ein neues AsciiImage zur&uuml;ck, das das Bin&auml;rbild des &uuml;bergebenen AsciiImage ist. Zur Umwandlung in ein Bin&auml;rbild werden alle Zeichen, die im Zeichensatz des Bildes vor dem Schwellwert kommen, auf das dunkelste Zeichen gesetzt, alle Zeichen ab dem Schwellwert werden auf das hellste Zeichen gesetzt. Sollte das Schwellwertzeichen nicht im Zeichensatz des <code>AsciiImage</code> vorkommen, so wird eine OperationException geworfen.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>ClearFactory</b> <code><span class="grey">implements</span> Factory</code></dt>
+<dd>Diese Factory erzeugt <code>ClearOperations</code>.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> ClearFactory<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>ClearFactory</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public Operation</span> create<span class="grey">(Scanner scanner)</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>ClearOperation</code> und gibt diese zur&uuml;ck.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>ClearOperation</b> <code><span class="grey">implements</span> Operation</code></dt>
+<dd>Diese Klasse setzt alle Pixel des Bildes auf das hellste Zeichen.
+
+	<dl>
+    <dt><code><span class="grey">public</span> ClearOperation<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>ClearOperation</code>.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> execute<span class="grey">(AsciiImage img)</span></code></dt> 
+ 	<dd>gibt ein neues <code>AsciiImage</code> zur&uuml;ck, das dem &uuml;bergebenen <code>AsciiImage</code> entspricht, wobei alle Zeichen auf das hellste Zeichen, sprich dem letzten Zeichen im Zeichensatz des Bildes, gesetzt sind.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>FilterFactory</b> <code><span class="grey">implements</span> Factory</code></dt>
+<dd>Diese Factory erzeugt <code>MedianOperations</code>.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> FilterFactory<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>FilterFactory</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public Operation</span> create<span class="grey">(Scanner scanner) throws FactoryException</span></code></dt> 
+ 	<dd>liest den n&auml;chsten String ein und gibt, falls dieser &lsquo;<code>median</code>&rsquo; ist, eine neue <code>MedianOperation</code> zur&uuml;ck. Tritt beim Einlesen des Strings ein Fehler auf, oder ist der String nicht &lsquo;<code>median</code>&rsquo;, so wird eine <code>FactoryException</code> geworfen.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>LoadFactory</b> <code><span class="grey">implements</span> Factory</code></dt>
+<dd>Diese Factory erzeugt <code>LoadOperations</code>.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> LoadFactory<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>LoadFactory</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public Operation</span> create<span class="grey">(Scanner scanner) throws FactoryException</span></code></dt> 
+ 	<dd>liest den <code>eof</code>-String ein und &uuml;bergibt in einem String alle Zeilen bis zum abschlie&szlig;enden <code>eof</code>-String durch Zeilenumbr&uuml;che getrennt an den Konstruktor der <code>LoadOperation</code>. Tritt beim Einlesen ein Fehler auf (<code>eof</code> fehlt), so wird eine <code>FactoryException</code> geworfen.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>LoadOperation</b> <code><span class="grey">implements</span> Operation</code></dt>
+<dd>L&auml;dt zeilenweise vorliegende Bilddaten in ein <code>AsciiImage</code>.
+
+	<dl>
+    <dt><code><span class="grey">public</span> LoadOperation<span class="grey">(String data)</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>LoadOperation</code> mit den entsprechenden Bilddaten. Diese Bilddaten liegen als String vor, wobei die Bildzeilen durch Zeilenumbr&uuml;che (&lsquo;<code>\n</code>&rsquo;) getrennt sind.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> execute<span class="grey">(AsciiImage img) throws OperationException</span></code></dt> 
+ 	<dd>gibt ein neues <code>AsciiImage</code> zur&uuml;ck, das von Gr&ouml;&szlig;e und Zeichensatz dem &uuml;bergebenen <code>AsciiImage</code> entspricht und in das die Daten geladen wurden. Tritt beim Laden ein Fehler auf (zu wenige oder zu viele Daten bzw. ung&uuml;ltige Zeichen), so wird eine <code>OperationException</code> mit einer entsprechenden Fehlermeldung geworfen.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>MedianOperation</b> <code><span class="grey">implements</span> Operation</code></dt>
+<dd>Diese Klasse gl&auml;ttet ein Bild mit einem 3x3-Medianfilter (vgl. <a href="http://de.wikipedia.org/wiki/Rangordnungsfilter#Medianfilter">Rangordnungsfilter#Medianfilter</a>).
+
+	<dl>
+    <dt><code><span class="grey">public</span> MedianOperation<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>MedianOperation</code>.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> execute<span class="grey">(AsciiImage img)</span></code></dt> 
+ 	<dd>f&uuml;hrt auf einer Kopie des Bildes den Medianfilter aus. Dabei werden immer 3 mal 3 Gr&ouml;&szlig;e Bl&ouml;cke des Bildes betrachtet, die Pixel nach ihrem `Helligkeitswert' sortiert und dann der Median (also das in der sortierten Liste in der Mitte stehende Zeichen) als neues Pixel im Mittelpunkt des Blocks gesetzt.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>ReplaceFactory</b> <code><span class="grey">implements</span> Factory</code></dt>
+<dd>Diese Factory erzeugt <code>ReplaceOperations</code>. Diese Klasse wird zu Anschauungszwecken vollständig implementiert zur Verfügung gestellt, sie können diese Klasse jedoch auch selber implementieren.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> ReplaceFactory<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>ReplaceFactory</code>.</dd>
+ 	</dl>
+
+	<dl class="new">
+    <dt><code><span class="grey">public Operation</span> create<span class="grey">(Scanner scanner) throws FactoryException</span></code></dt> 
+ 	<dd>liest mit Hilfe des <code>Scanners</code> zwei Zeichen ein und gibt eine damit initialisierte neue <code>ReplaceOperation</code> zur&uuml;ck. Tritt beim Einlesen ein Fehler auf (zu wenig Parameter), so wird eine <code>FactoryException</code> geworfen.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<dl>
+<dt><b>ReplaceOperation</b> <code><span class="grey">implements</span> Operation</code></dt>
+<dd>Diese Klasse ersetzt alle Vorkommnisse eines Zeichens in einem Bild durch ein anderes Zeichen. Diese Klasse wurde zu Anschauungszwecken vollständig implementiert in Runde 6 zur Verfügung gestellt, sie können diese Klasse jedoch auch selber implementieren.
+
+	<dl>
+    <dt><code><span class="grey">public</span> ReplaceOperation<span class="grey">(char oldChar, char newChar)</span></code></dt> 
+ 	<dd>erzeugt eine neue <code>ReplaceOperation</code> die alle Zeichen <code>oldChar</code> durch <code>newChar</code> ersetzt.</dd>
+ 	</dl>
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> execute<span class="grey">(AsciiImage img) throws OperationException</span></code></dt> 
+ 	<dd>gibt ein neues <code>AsciiImage</code> zur&uuml;ck, in dem alle Vorkommnisse des Zeichen <code>oldChar</code> durch das Zeichen <code>newChar</code> ersetzt worden sind. Falls das neue Zeichen nicht im Zeichensatz des <code>AsciiImage</code> enthalten ist, soll eine neue <code>OperationException</code> mit entsprechender Fehlermeldung geworfen werden.</dd>
+ 	</dl>
+
+</dd>
+</dl>
+
+<hr />
+<p>Interfaces und Exceptions.</p>
+
+<dl>
+<dt><b>FactoryException</b> <code><span class="grey">extends</span> Exception</code></dt>
+<dd>Diese Klasse erweitert <code>Exception</code> und wird zum Behandeln aller Fehlerf&auml;lle, die in einer <code>Factory</code>, also beim Einlesen von Parametern oder dem Erzeugen eines Befehls, auftreten, eingesetzt. Sie k&ouml;nnen bei Bedarf auch noch weitere Konstruktoren definieren.
+
+	<dl class="new">
+    <dt><code><span class="grey">public</span> FactoryException<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine leere <code>FactoryException</code>. Ruft den entsprechenden Super-Konstruktor in der Klasse <code>Exception</code> auf.</dd>
+ 	</dl>
+	
+	<dl class="new">
+    <dt><code><span class="grey">public</span> FactoryException<span class="grey">(String message)</span></code></dt> 
+ 	<dd>erzeugt eine <code>FactoryException</code> mit der entsprechenden Fehlerbeschreibung. Ruft den entsprechenden Super-Konstruktor in der Klasse  <code>Exception</code> auf.</dd>
+ 	</dl>
+	
+</dd>
+</dl>
+
+<dl>
+<dt><b>Factory</b></dt>
+<dd>Dieses Interface wird von allen Factories implementiert und definiert die Schnittstelle &uuml;ber die eine Operation bezogen werden kann. Bei Bedarf k&ouml;nnen Sie dies statt als Interface auch als abstrakte Klasse gestalten. Die Aufgabe der Factory ist es bei Bedarf Eingaben einzulesen und dann eine neue Operation zu erzeugen.
+
+	<dl class="new">
+    <dt><code><span class="grey">public Operation</span> create<span class="grey">(Scanner scanner) throws FactoryException</span></code></dt> 
+ 	<dd>erzeugt ein neues Objekt vom Typ <code>Operation</code>. Welche konkrete <code>Operation</code> erzeugt wird, h&auml;ngt von der implementierenden <code>Factory</code> ab. Bei Bedarf liest diese Methode vom &uuml;bergebenen <code>Scanner</code> Parameter ein. Sollten Parameter fehlen oder von einem falschen Typ sein, so soll eine <code>FactoryException</code> geworfen werden.</dd>
+ 	</dl>
+	
+</dd>
+</dl>
+
+
+<dl>
+<dt><b>OperationException</b> <code><span class="grey">extends</span> Exception</code></dt>
+<dd>Diese Klasse erweitert <code>Exception</code> und wird zum Behandeln aller Fehlerf&auml;lle, die beim Ausf&uuml;hren von Operationen auftreten, eingesetzt. Sie d&uuml;rfen bei Bedarf auch noch weitere Konstruktoren definieren.
+
+	<dl>
+    <dt><code><span class="grey">public</span> OperationException<span class="grey">()</span></code></dt> 
+ 	<dd>erzeugt eine leere <code>OperationException</code>. Ruft den entsprechenden Super-Konstruktor in der Klasse <code>Exception</code> auf.</dd>
+ 	</dl>
+	
+	<dl>
+    <dt><code><span class="grey">public</span> OperationException<span class="grey">(String message)</span></code></dt> 
+ 	<dd>erzeugt eine <code>OperationException</code> mit der entsprechenden Fehlerbeschreibung. Ruft den entsprechenden Super-Konstruktor in der Klasse <code>Exception</code> auf.</dd>
+ 	</dl>
+	
+</dd>
+</dl>
+
+<dl>
+<dt><b>Operation</b></dt>
+<dd>Dieses Interface wird von allen Operationen implementiert und definiert eine Methode, die zum Ausf&uuml;hren der Operation dient. Dieses Interface wird zur Verf&uuml;gung gestellt.
+
+	<dl>
+    <dt><code><span class="grey">public AsciiImage</span> execute<span class="grey">(AsciiImage img) throws OperationException</span></code></dt> 
+ 	<dd>f&uuml;hrt die Operation aus und gibt das Ergebnis als neues <code>AsciiImage</code> zur&uuml;ck. Das &uuml;bergebene <code>AsciiImage</code> wird von der Methode nicht ver&auml;ndert. M&ouml;gliche Parameter der Operation m&uuml;ssen im Konstruktor &uuml;bergeben werden. Sollte beim Ausf&uuml;hren der Operation ein Fehler auftreten, so soll eine <code>OperationException</code> geworfen werden.
+</dd>
+ 	</dl>
+	
+</dd>
+</dl>
+<hr />
+
+
+<p>&nbsp;</p>
+
+<!-- Spezifikationsspezifische Hinweise -->
+
+<a id="hinweise" name="hinweise"></a>
+<a id="bewertungskriterien" name="bewertungskriterien"></a>
+<h2>Hinweise:</h2>
+
+<p>Beachten Sie die allgemeinen Hinweise zur Installation und zur Ein-/Ausgabe, sowie zur Abgabe und zur Beurteilung in den <a href="http://tosca.inflab.tuwien.ac.at/eprip/faq.do ">FAQ</a>.</p>
+
+<h3>Exceptions</h3>
+<p>
+Die Klasse <code>AsciiImage</code> wirft ausschlie&szlig;lich spezielle <code>RuntimeExceptions</code>. Diese m&uuml;ssen nicht in der Methodensignatur angegeben werden und sollten auch nur sparsam eingesetzt werden. Sie dienen dazu, fehlerhafte Verwendungen von Methoden aufzuzeigen und sollten daher auch nicht gefangen werden. In Ihrem Programm k&ouml;nnen zwei weitere Arten von Exceptions auftreten. Tritt beim Einlesen der Parameter eines Befehls ein Fehler auf, so wirft die entsprechende <code>Factory</code> eine <code>FactoryException</code>. Fangen Sie diese ab und weisen Sie so den Benutzer auf eine fehlerhafte Eingabe hin. Sind die Parameter erfolgreich eingelesen, kann beim Ausf&uuml;hren des Befehls auf einem konkreten Bild ein Problem auftreten. So kann das &uuml;bergeben Zeichen nicht im Zeichensatz des aktuellen Bildes sein. In diesem Fall wird eine <code>OperationException</code> geworfen, die Sie wiederum im <code>AsciiShop</code> behandeln m&uuml;ssen.
+</p>
+
+<h3>Dynamische Wahl der Factory</h3>
+<p>
+Legen Sie am besten alle Factories in eine HashMap ab, wobei die Schl&uuml;ssel die entsprechenden Befehle sind. Dies ist dann die einzige Stelle, an der ein neuer Befehl hinzugef&uuml;gt werden muss. Wird ein Befehl eingelesen, so muss &uuml;berpr&uuml;ft werden, ob es eine entsprechende Factory in der HashMap gibt. Von dieser Factory kann dann die Operation abgefragt werden. Diese Operation kann anschlie&szlig;end ausgef&uuml;hrt werden. Hierbei kann immer mit den Interfaces gearbeitet werden, sprich es ist hier f&uuml;r den <code>AsciiShop</code> unerheblich, welche konkrete Implementierung der Interfaces vorliegt.
+</p>
+
+<h3>Binärbild</h3>
+<p>
+Nutzen Sie bei der Implementierung der <code>BinaryOperation</code> m&ouml;glichst viel der bereits bestehenden Funktionalit&auml;t, sprich Methoden in <code>AsciiImage</code> und andere Operationen.
+</p>
+
+<!-- Forum, Saalbetreuung -->
+
+<table cellspacing="3" cellpadding="0" style="margin-top:30px; width:100%; border: 3px solid #D3D9E3;">
+<tr>
+<td class="iopairIn" style="padding: 10px;" colspan="3">
+
+Wenn Sie Fragen zur Implementierung oder auch zu Java haben, k&ouml;nnen Sie das Informatik-Forum nutzen. Im Rahmen der w&ouml;chentlichen Laborien stehen Tutoren für Fragen zur Verf&uuml;gung.
+
+</td>
+</tr>
+<tr>
+<td class="iopairIn" style="text-align:center;padding:10px; width:50%;" ><a style="font-size: larger;" href="http://www.informatik-forum.at/forumdisplay.php?1452-Programmierpraxis-UE">Informatik-Forum</a></td>
+<td class="iopairIn" style="text-align:center;padding:10px;  width:50%;"><a style="font-size: larger;" href="https://pp.caa.tuwien.ac.at/laborien/">Laborien</a></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+
+<a id="eingabedaten" name="eingabedaten"></a>
+
+
+<H2>Eingabedaten:</H2>
+<p>
+Der erste Befehl muss <b><code>create</code></b>, gefolgt von Breite und H&ouml;he sowie dem Zeichensatz des Bildes sein. Danach k&ouml;nnen in beliebiger Reihenfolge beliebige viele der oben definierten Befehle folgen. Beachten Sie jedoch, dass der <b><code>create</code></b> Befehl nur einmal (n&auml;mlich als erster Befehl) auftreten darf. Sie d&uuml;rfen davon ausgehen, dass die mittels <b><code>load</code></b> eingelesenen Bilddaten keine Leerzeichen enthalten. Sie k&ouml;nnen weiters davon ausgehen, dass die gesamte Eingabe nicht leer ist.
+</p>
+
+<a id="ausgabedaten" name="ausgabedaten"></a>
+
+
+<H2>Ausgabedaten:</H2>
+<p>
+Bei jedem Aufruf von <b><code>print</code></b> soll das Bild korrekt formatiert und von einer Leerzeile gefolgt, ausgegeben werden. Wird <b><code>undo</code></b> eingegeben, so wird, falls der Stack leer ist, "<code>STACK EMPTY</code>" ausgegeben. Im Gegensatz zur vorherigen Runde, wird die Stack Belegung nun nicht mehr ausgegeben.
+</p>
+
+<a id="fehlerbehandlung" name="fehlerbehandlung"></a>
+
+
+<H2>Fehlerbehandlung:</H2>
+<p>Geben Sie "<code>INPUT MISMATCH</code>" aus und brechen Sie die weitere Verarbeitung ab, falls einer der folgenden Fehler auftritt:</p>
+<ul>
+<li>Der erste Befehl ist nicht <b><code>create</code></b></li>
+<li>Es gibt nicht genug Parameter vom richtigen Typ f&uuml;r einen Befehl</li>
+<li>Beim <b><code>load</code></b>-Befehl fehlt das <code>eof</code> Parameter oder das abschlie&szlig;ende <code>eof</code></li>
+<li>Nach dem Befehl <b><code>filter</code></b> steht nicht <code>`median'</code>.</li> 
+</ul>
+
+<p>Geben Sie auch "<code>INPUT MISMATCH</code>" aus, falls bei der Erzeugung eines Befehls eine <code>FactoryException</code> auftritt. Geben Sie bei allen Fehlern, die in einer <code>Operation</code> Klasse ausgel&ouml;st werden (also bei denen eine <code>OperationException</code> geworfen wird), "<code>OPERATION FAILED</code>" aus und brechen Sie die weitere Verarbeitung ab. Dies sind insbesondere folgende F&auml;lle: 
+</p>
+<ul>
+<li>Zwischen dem <b><code>load</code></b>-Befehl und dem Endzeichen sind mehr oder weniger Zeilen als das Bild hat</li>
+<li>Eine der Bildzeilen hat mehr oder weniger Zeichen als das Bild</li>
+<li>Ein Zeichen der zu ladenden Daten ist nicht Teil des Zeichensatzes</li>
+<li>Einer der Parameter eines Befehls ist ung&uuml;ltig, im Speziellen: unzul&auml;ssige Indizes (Index au&szlig;erhalb der Bildgrenzen), Zeichen (Zeichen nicht Teil des Zeichensatzes)</li> 
+</ul>
+
+<p>Geben Sie "<code>UNKNOWN COMMAND</code>" aus und brechen Sie die weitere Verarbeitung ab, falls einer der folgenden Fehler auftritt:</p>
+<ul>
+<li>Nach dem Befehl <b><code>create</code></b> folgt (sp&auml;ter) ein unbekannter Befehl.</li>
+<li>Nach dem Befehl <b><code>create</code></b> folgt (sp&auml;ter) erneut der Befehl <b><code>create</code></b>.</li>
+</ul>
+
+<a id="testen" name="testen"></a>
+
+
+<H2>Testen:</H2>
+
+<table cellspacing="1" cellpadding="5" width="100%">
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 30 27 #WMBRXVYIti+=;:,.
+load end
+============,.V+.;============
+===========;.X##..;===========
+===========..####..===========
+==========,.##M###.:==========
+=========;.R##WW##=.;=========
+=========..##MWMW##,.=========
+========:.I##WWMWW#W.,========
+=======;.:##WWWWWW##I.;=======
+=======:.W########M##..=======
+=======.:############V.;======
+=======.####...,.,M###,.======
+======,.###:..+++;,B..#.;=====
+=====;.#;.#i+YXVVY:#V.#..:====
+====:..#..##.RYYIt##...#=.,===
+==;..+#;...#######W....##W..:=
+:..t###......iVV=....,.+#iM#..
+.B#i,#..,,..........,,..#,..#I
+V#...#..,,,,,.,,,,:,,,..R#..V#
+;#+.i#..,,,,,,,,,.,,,,,.iX.X#,
+.i#=MV..,,,,.,,,,,,.,,,..###..
+,.t##..,,,,,,,,,,,,,,:,..V##.;
+..M#M..,,,,.,.,,,,,,,:,,.=##..
+i###M..,...........,,:,,..###.
+.####........=II;.....,,.;##R.
+,...#....X####MW###B.....Wi..:
+==;,##,###;........##i...#;,==
+===,.IVi..,;======:..B#B#t.;==
+end
+binary W
+print
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">..............................
+..............##..............
+.............####.............
+............##.###............
+............##..##............
+...........##....##...........
+...........##.....#...........
+..........##......##..........
+..........########.##.........
+.........############.........
+........####.......###........
+........###...........#.......
+.......#..#........#..#.......
+.......#..##......##...#......
+......#....#######.....##.....
+....###.................#..#..
+..#..#..................#...#.
+.#...#...................#...#
+.#...#......................#.
+..#......................###..
+...##.....................##..
+...#......................##..
+.###......................###.
+.####.....................##..
+....#.....####..###...........
+....##.###.........##....#....
+......................#.#.....
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Ein geladenes Bild wird mit Schwellwert W in ein Binärbild umgewandelt und das Ergebnis wird ausgegeben.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 30 27 #WMBRXVYIti+=;:,.
+load end
+============,.V+.;============
+===========;.X##..;===========
+===========..####..===========
+==========,.##M###.:==========
+=========;.R##WW##=.;=========
+=========..##MWMW##,.=========
+========:.I##WWMWW#W.,========
+=======;.:##WWWWWW##I.;=======
+=======:.W########M##..=======
+=======.:############V.;======
+=======.####...,.,M###,.======
+======,.###:..+++;,B..#.;=====
+=====;.#;.#i+YXVVY:#V.#..:====
+====:..#..##.RYYIt##...#=.,===
+==;..+#;...#######W....##W..:=
+:..t###......iVV=....,.+#iM#..
+.B#i,#..,,..........,,..#,..#I
+V#...#..,,,,,.,,,,:,,,..R#..V#
+;#+.i#..,,,,,,,,,.,,,,,.iX.X#,
+.i#=MV..,,,,.,,,,,,.,,,..###..
+,.t##..,,,,,,,,,,,,,,:,..V##.;
+..M#M..,,,,.,.,,,,,,,:,,.=##..
+i###M..,...........,,:,,..###.
+.####........=II;.....,,.;##R.
+,...#....X####MW###B.....Wi..:
+==;,##,###;........##i...#;,==
+===,.IVi..,;======:..B#B#t.;==
+end
+binary ;
+print
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">############..##..############
+###########..###...###########
+###########..####..###########
+##########..######..##########
+#########..########..#########
+#########..########..#########
+########..##########..########
+#######...###########..#######
+#######..############..#######
+#######..#############..######
+#######.####......####..######
+######..###...###..#..#..#####
+#####..#..########.##.#...####
+####...#..##.#######...##..###
+##...##....########....###...#
+...####......####......#####..
+.###.#..................#...##
+##...#..................##..##
+.##.##..................##.##.
+.#####...................###..
+..###....................###..
+..###....................###..
+#####.....................###.
+.####........###..........###.
+....#....###########.....##...
+##..##.###.........###...#..##
+###..###....######...#####..##
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Ein geladenes Bild wird mit Schwellwert ; in ein Binärbild umgewandelt und das Ergebnis wird ausgegeben.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 41 20 RPGOEC=o!\(/)_.
+load XXX
+.........................................
+.....!\_________________________/!\......
+.....!!.........................!!.\.....
+.....!!.........................!!..\....
+.....!!.........................!!..!....
+.....!!............PP...........!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!..!....
+.....!!.........................!!../....
+.....!!_________________________!!./.....
+.....!/_________________________\!/......
+........__\_________________/__/!_.......
+.......!_______________________!/.)......
+.....________________________....(__.....
+..../oooo..oooo..oooo..oooo./!..._..)_...
+.../ooooooooooooooooooooooo/./..(_)_(_)..
+../ooooooooooooooooooooooo/./....(o.o)...
+./C=_____________________/_/....==\o/==..
+.........................................
+XXX
+binary ?
+print
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">OPERATION FAILED
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Das Zeichen ? kommt im Zeichenset des Bildes nicht vor, weswegen die Binärbild Operation fehlschlägt.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+<tr>
+<td><hr/>
+<table cellspacing="5" cellpadding="5" width="100%">
+<tr>
+<td class="iopairIn" width="100"><b>In</b></td>
+<td class="iopairIn"><pre><font class="iopair">create 44 18 X.
+load /load
+.....X....X......................X....X.....
+....XXX..XXX....................XXX..XXX....
+....XXX..XXX....................XXX..XXX....
+....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....
+....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXX....................XXXXXXXX....
+....XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX....
+..XXXXXXXXXXXX................XXXXXXXXXXXX..
+.XXXXXXXXXXXXXX..............XXXXXXXXXXXXXX.
+.XXXXXXXXXXXXXX..............XXXXXXXXXXXXXX.
+.XXXXXXXXXXXXXX..............XXXXXXXXXXXXXX.
+/load
+replace X
+</font></pre></td>
+</tr>
+<tr>
+<td class="iopairOut"><b>Out</b></td>
+<td class="iopairOut"><pre><font class="iopair">INPUT MISMATCH
+</font></pre></td>
+</tr>
+<tr>
+<td><b>Beschreibung</b></td>
+<td>Beim replace-Befehl fehlt der zweite Parameter.</td>
+</tr>
+</table>
+<hr/></td>
+</tr>
+
+</table>
+
+<br/>
+<b>Bemerkung:</b> Diese Beispiele dienen nur zur Verdeutlichung der Spezifikation und
+m&uuml;ssen nicht korrekt formatiert sein. Die korrekte Formatierung entnehmen Sie
+bitte dem mitgelieferten Outputfile. Zum Testen Ihrer L&ouml;sung
+k&ouml;nnen Sie aus den mitgelieferten Eingabedaten wie folgt eine Ausgabedatei
+erzeugen:
+
+<br/>
+<b><tt>java  AsciiShop &lt; asciishop-A08-PP.i1 &gt; asciishop-A08-PP.out1</tt></b>
+<p/>
+Das erzeugte File asciishop-A08-PP.out1 k&ouml;nnen Sie dann mit
+dem mitgelieferten Outputfile asciishop-A08-PP.o1 vergleichen.
+
+
+</body>
+</html>
