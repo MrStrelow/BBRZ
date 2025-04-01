@@ -73,3 +73,4 @@ In Java können Strings mit `+` verkettet werden:
 ```java
 System.out.println("Hello" + " " + "World");
 ```
+

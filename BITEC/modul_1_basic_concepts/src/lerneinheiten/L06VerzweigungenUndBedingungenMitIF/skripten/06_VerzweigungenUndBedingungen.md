@@ -4,7 +4,7 @@ Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme sch
 Diese sind:
 * ✅ Variablen 
 * ✅ Operatoren (bzw. Methoden aufrufen) 
-* ❔ Verzweigungen und Bedingungen
+* ➡️ Verzweigungen und Bedingungen
 * ❔ Schleifen
 
 Wir behandeln nun die ``Verzweigungen`` und ``Bedingungen`` und verwenden dazu vorerst die Varianten mittels dem ``If`` und ``else`` Keywords.
@@ -49,18 +49,18 @@ Da wir mit den geschwungenen Klammern ``{}`` einen so genannten neuen ``Scope`` 
 
 Hier passiert ein Fehler... jedoch welcher?
 ```java
-public static void main(String[] args) {    // runde Klammern!
-    Integer alter = ... // diese Variable gibt es innerhalb umgebenen runden Klammern, bedeutet in der main methode
+public static void main(String[] args) {    // geschwungenen Klammern!
+    Integer alter = ... // diese Variable gibt es innerhalb der geschwungenen Klammern, bedeutet in der main methode
 
-    if (alter >= 18) {                      // runde Klammern!
-        Integer meinAlter = 21;
+    if (alter >= 18) {                          // geschwungenen Klammern!
+        Integer meinAlter = 21;                     // diese Variable gibt der If-Bedingung
         System.out.println("Verstehe. Sie sind alt genug. Ich selbst bin " + meinAlter);
-    }                                       // runde Klammern!
+    }                                           // geschwungenen Klammern!
 
-    if (alter >= 95) {                      // runde Klammern!
+    if (alter >= 95) {                          // geschwungenen Klammern!
         System.out.println("Verstehe. Sie sind alt genug. Jedoch wollen Sie noch Autofahren? Ich selbst bin " + meinAlter);
-    }                                       // runde Klammern!
-}                                           // runde Klammern!
+    }                                           // geschwungenen Klammern!
+}                                           // geschwungenen Klammern!
 ```
 
 Wir sehen, die ``Variable`` *meinAlter* existiert nur innerhalb der runden Klammern. Wir können es nur innerhalb von ``if (alter >= 18) { ... }`` verwenden. Wir versuchen es aber innerhalb von ``if (alter >= 95) { ... }`` zu verwenden. Dort erkennt JAVA diese ``Variable`` nicht und verhindert die Ausführung des Programms. 
@@ -73,7 +73,7 @@ Allgemein wird dies ``Scoping`` oder der ``Scope`` einer ``Variable`` genannt. D
 
 **Anmerkung:** Der Lösungsvorschlag in Intellij "Bring Variable ... into Scope" meint die Variable in jenen ``Scope`` zu geben in dem wir gerade befinden. Dadurch können wir diese ``Variable`` verwenden. 
 
-**Anmerkung:** Der Scope welcher durch ``{...}`` angegeben wird ist unabhängig von ``If-Bedingungen``. Dieses Konzept wird **immer** durch ``{...}`` angegeben, egal welches ``Keyword`` (z.B. *if*) daneben steht.
+**Anmerkung:** Der Scope welcher durch ``{...}`` angegeben wird ist unabhängig von ``If-Bedingungen``. Dieses Konzept wird **immer** durch ``{...}`` angegeben, egal ob und welches ``Keyword`` (z.B. *if*, *while*, *for*, etc.) daneben steht.
 
 ## Was ist eine Verzweigung (Branches)?
 Eine ``If-Verzweigung`` liegt vor, wenn wir zu einer ``If-Bedingung`` zusätzlich das *Gegenteil* dieser Bedingung hinzufügen.
@@ -185,11 +185,155 @@ Der Code ist korrekt. Jedoch haben wir 2 Fehler eingebaut. Wir haben nämlich ni
 * Der User gibt *9* ein, Ausgabe ist **Konsonant**.
 * Der User gibt *A* ein, Ausgabe ist **Konsonant**.
 
-Es muss also zuerst abgefragt werden ob der Input des Users nur Länge 1 hat, sowie nur Buchstaben von **a-z** bzw. **A-Z** verwendet werden
+Es muss also *zuerst* abgefragt werden ob der Input des Users nur Länge 1 hat, sowie nur Buchstaben von **a-z** bzw. **A-Z** verwendet werden. 
+
+```csharp
+// if (97 <= userCharInput && userCharInput <= (97 + 26) && userinput.length() == 1) { // oder...
+if (Character.isLetter(userCharInput) && userinput.length() == 1) {
+    // hier ist der gewünschte Zustand eingetreten
+
+} else {
+    // hier ist der ungewünschte Zustand eingetreten
+}
+```
+Wir geben nun den bereits geschreibenen Code in den *gewünschten* Zustand. Dadurch entsteht eine Schachtelung.
+
+```java
+// if (97 <= userCharInput && userCharInput <= (97 + 26) && userinput.length() == 1) { // oder...
+if (Character.isLetter(userCharInput) && userinput.length() == 1) {
+    if (
+        userinput.equals("a") || userinput.equals("e") || userinput.equals("i") ||
+        userinput.equals("o") || userinput.equals("u")
+    ) {
+        System.out.println("Usereingabe ist ein Vokal.");
+
+    } else {
+        System.out.println("Usereingabe ist ein Konsonant.");
+    }
+
+} else {
+    // hier ist der ungewünschte Zustand eingetreten
+}
+```
 
 ### Wann verwenden wir eine Mehrfachverzweigung?
-Bedingungen schließen sich aus.
+Wir erinnern uns an die ``If-Verzweigung``. Wir haben dort *zwei* Zweige und können nur einen davon ausführen. Einer ist der Code innerhalb des ``if-``Zweigs und die alternative dazu ist der Code innerhalb des ``else-``Zweigs. Wir können nur einen dieser Zweige ausführen, da sich die ``Bedingungen`` der Zweige gegenseitig ausschließen (Die Bedingung für den ``else``-Zweig ist das *Gegenteil* von der Bedingung im ``if-``Zweig).
 
+Dieses Konzept wollen wir nicht nur auf zwei Optionen beschränken. Wir stellen uns Türen vor, durch welche wir durchgehen wollen. Wenn wir mehr als 2 Türen beschreiben wollen, brauchen wir eine sogenannte ``Mehrfachverzweigung``. Diese ist durch folgendes *else-if* Konstrukt beschrieben.
+
+```java
+if (A) { // Bedingung ist: WENN "A wahr ist" DANN...
+    System.out.println("1. Zweig");
+
+} else if(B) { // ANSONSTEN, WENN "!A && B wahr ist" 
+    System.out.println("2. Zweig");
+
+} else { // ANSONSTEN ... hier ist jedoch diese Bedingung versteckt: !A && !B
+    System.out.println("3. Zweig");
+}
+```
+
+Ein Beispiel wäre, eine Software für eine Verwaltung von Kursen und Noten zu schreiben (Moodle). Dort wollen wir Ergebnisse in % zu Noten transformieren. Hier haben wir 6 "Buckets" (oder Türen) und wir können ein Ergebnis einen "Bucket" zuweisen (nur durch eine der 6 Türen gehen). 6, weil wir die Noten 1-5 haben und einen Fehlerzustand. 
+
+```java
+// Mehrfachverzweigung (if else-if else-if ... else)
+Integer bewertungInProzent = 62;
+
+if (0 <= bewertungInProzent && bewertungInProzent < 50) {
+    System.out.println("Nicht Genügend");
+
+} else if (50 <= bewertungInProzent && bewertungInProzent < 62) {
+    System.out.println("Genügend");
+
+} else if (62 <= bewertungInProzent && bewertungInProzent < 75) {
+    System.out.println("Befriedigend");
+
+} else if (75 <= bewertungInProzent && bewertungInProzent < 87) {
+    System.out.println("Gut");
+
+} else if (87 <= bewertungInProzent && bewertungInProzent <= 100) {
+    System.out.println("Sehr Gut");
+
+} else {
+    System.out.println("außerhalb der grenzen 0 und 100, beides inklusive");
+}
+```
+
+Wir merken uns:
+> ``Mehrfachverzweigungen`` können verwendet werden um nur **einen** von mehreren ``Zweigen`` zu wählen und dessen Code ausführen.
+
+### Können wir If-Anwesungen in andere umschreiben?
+Wir können alle Arten von ``If-Anweisungen`` (Verschachtelungen, Mehrfachverzweigung, Bedingungen, Verzweigungen) in eine andere Art umschreiben. Wann eine Variante besser als eine andere ist, ist ohne konkretes Beispiel schwer zu sagen. Wir haben jedoch oben ein paar Daumenregeln kennengelernt. Ein Beispiel dazu:
+
+```java
+// Mehrfachverzweigung
+if (
+    userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+    userinput.equals("o") || userinput.equals("u")
+) {
+    System.out.println("Usereingabe ist ein Vokal.");
+
+} else if(
+    userinput.equals("b") || userinput.equals("c") || userinput.equals("d") ||
+    userinput.equals("f") || userinput.equals("g") || userinput.equals("h") ||
+    userinput.equals("j") || userinput.equals("k") || userinput.equals("l") ||
+    userinput.equals("m") || userinput.equals("n") || userinput.equals("p") ||
+    userinput.equals("q") || userinput.equals("r") || userinput.equals("s") ||
+    userinput.equals("t") || userinput.equals("v") || userinput.equals("w") ||
+    userinput.equals("x") || userinput.equals("y") || userinput.equals("z")
+) {
+    System.out.println("Usereingabe ist ein Konsonant.");
+
+} else {
+    System.out.println("Usereingabe ist ein Konsonant.");
+}
+```
+
+vs.
+
+```java
+// verschachtelte Verzweigung
+if (Character.isLetter(userCharInput) && userinput.length() == 1) {
+    if (
+        userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+        userinput.equals("o") || userinput.equals("u")
+    ) {
+        System.out.println("Usereingabe ist ein Vokal.");
+    } else {
+        System.out.println("Usereingabe ist ein Konsonant.");
+    }
+} else {
+    System.out.println("Fehlerhafte Eingabe.");
+}
+```
+
+vs. 
+
+```java
+// Bedingungen
+// Guards: beschütze gegen ungewünschte Logik
+if (!Character.isLetter(userCharInput)) { 
+    System.out.println("Fehlerhafte Eingabe.");
+    return;
+}
+
+if (userinput.length() != 1) {
+    System.out.println("Fehlerhafte Eingabe.");
+    return;
+}
+
+// Business Logic: gewünschte Logik
+if (
+    userCharInput == 'a' || userinput.equals("e") || userinput.equals("i") ||
+    userinput.equals("o") || userinput.equals("u")
+) {
+    System.out.println("Usereingabe ist ein Vokal.");
+} else {
+    System.out.println("Usereingabe ist ein Konsonant.");
+}
+```
+
+All diese Programme haben das gleiche Verhalten.
 
 ## Was ist eine If-Anweisung (If-Statement) und was ein If-Ausdruck (If-Expression)?
 **Wir verzichten auf folgendes.** Wir **könnten** jede Art von Programmzeile einen Namen geben. Diese sind ``Direktiven``, ``Anweisungen``, ``Deklarationen``, ``Definitionen``, ``Ausdrücke``, etc. Das ist jedoch sehr trocken und begrenzt nützlich.
@@ -271,7 +415,7 @@ Wir merken uns:
 ### Wann verwenden wir If-Ausdrücke (If-Expressions)?
 Wir werden hier zwei Beispiele von ``Ausdrücken`` in unserem Kurs sehen. Diese ist der ``Switch-Ausdruck`` und ``If-Ausdruck``. Letzteres wird auch ``?:-Operator`` bzw. ``ternärer Operator`` geannt. Beide haben verschiedene "sprachliche" limits, welche uns mehr oder weniger ausdruckskraft geben. Zudem werden wir in anderen Srpachen wie C# und Python den Begriff eines ``Pattern Matchers`` kennen lernen. Wir verstehen diesen als flexible und mächtige ``switch-expression``, welche die Logik einer ``Anweisungen`` obsolet (zwecklos) machen kann. Es ist also nicht so einfach generell vom Einsatzgebiet eines ``Ausdrucks`` zu sprechen. Wir beschränken uns daher auf den ``If-Ausdruck`` mit der Umsetzung als ``?:-Operator``.
 
-Schauen wir uns konkret folgendes Programm an:
+Schauen wir uns konkret folgendes Programm welches [hier](#wann-verwenden-wir-eine-mehrfachverzweigung) beschreiben, an:
 ```java
 // Mehrfachverzweigung (if else-if else-if ... else)
 Integer bewertungInProzent = 62;

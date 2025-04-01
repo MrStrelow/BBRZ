@@ -1,4 +1,4 @@
-package lerneinheiten.L06VerzweigungenUndBedingungenMitIF.skripten;
+package lerneinheiten.L06VerzweigungenUndBedingungenMitIF.skripten.ProgrammOhneIntellijAusfuehren;
 
 import java.util.Scanner;
 

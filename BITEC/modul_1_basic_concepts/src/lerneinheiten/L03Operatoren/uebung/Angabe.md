@@ -1,6 +1,27 @@
 # Operatoren
 
 ## Logische Operatoren
+Löse folgende Ausdrücke im Kopf / am Zettel.
+
+```java
+Integer a = 4;
+Integer b = 3;
+Integer c = 3;
+Double d = 4.5;
+Integer e = 1;
+
+a != 4
+a > b
+b == c
+(b+1) == 4
+(a/b) == 1
+e < c
+(b/a) > 0
+(a%e) != 0
+(a > 0) && (a <= 4)
+!(a<c)
+```
+
 
 ### Schachbrett
 Überlege eine logische ``Formel`` welche folgendes Muster beschreibt:

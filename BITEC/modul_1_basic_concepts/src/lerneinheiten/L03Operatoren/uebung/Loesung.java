@@ -2,6 +2,43 @@ package lerneinheiten.L03Operatoren.uebung;
 
 public class Loesung {
     public static void main(String[] args) {
+        // Aufgabe
+        Integer a = 4;
+        Integer b = 3;
+        Integer c = 3;
+        Double d = 4.5;
+        Integer e = 1;
+
+        // a != 4
+        System.out.println(a != 4);
+
+        // a > b
+        System.out.println(a > b);
+
+        // b == c
+        System.out.println(b == c);
+
+        // (b+1) == 4
+        System.out.println((b+1) == 4);
+
+        // (a/b) == 1
+        System.out.println((a/b) == 1);
+
+        // e < c
+        System.out.println(e < c);
+
+        // (b/a) > 0
+        System.out.println((b/a) > 0);
+
+        // (a%e) != 0
+        System.out.println((a%e) != 0);
+
+        // (a > 0) && (a <= 4)
+        System.out.println((a > 0) && (a <= 4));
+
+        // !(a<c)
+        System.out.println(!(a<c));
+
         // 1)
         // x und y jeweils Integer Variblen - diese sind die Positionen der x und y Achse. Siehe Achsen neben den Schachbrett.
         Integer x = 0;
