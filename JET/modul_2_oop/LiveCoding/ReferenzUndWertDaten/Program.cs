@@ -3,10 +3,9 @@
     static void Main(string[] args)
     {
         Hund hund = new() { Name = "hundos", Alter = 25 };
-        Hund frido = new Hund { Name = "fridoro", Alter = 10 }; // beim Aufruf des Default-Konstruktors können die runden Klammern weggelassen werden.
-
         Console.WriteLine(hund.Alter);
-        Console.WriteLine("asdf");
+
+        Hund frido = new Hund { Name = "fridoro", Alter = 10 }; // beim Aufruf des Default-Konstruktors können die runden Klammern weggelassen werden.
 
         Console.WriteLine(Equals(frido, hund));
         Console.WriteLine(ReferenceEquals(frido, hund));
