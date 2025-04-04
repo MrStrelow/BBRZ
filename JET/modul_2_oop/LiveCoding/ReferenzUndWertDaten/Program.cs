@@ -2,7 +2,7 @@
 {
     static void Main(string[] args)
     {
-        Hund hund = new() { Name = "hundos", Alter = 5 };
+        Hund hund = new() { Name = "hundos", Alter = 25 };
         Hund frido = new Hund { Name = "fridoro", Alter = 10 }; // beim Aufruf des Default-Konstruktors können die runden Klammern weggelassen werden.
 
         Console.WriteLine(hund.Alter);
@@ -38,41 +38,100 @@
         hund.Besitzer = null;
         Console.WriteLine(hund.Besitzer);
 
-        // (gibt es nicht bei Wertdatentypen... außer wir machen folgendes...)
+        // (gibt es nicht bei Wertdatentypen... außer wir machen folgendes... auch ein ? neben der variable int alter schreiben)
+    }
+}
+public class Besitzer
+{
+    public string? Name { get; set; }
+    public int? Alter { get; set; }
+
+    public Besitzer(int? alter)
+    {
+        string bezeichnung = Name ?? "Unbekannt";
+
+
+        //if (Name is null)
+        //{
+        //    bezeichnung = "Unbekannt";
+        //}
+        //else
+        //{
+        //    bezeichnung = Name;
+        //}
+
+        if (Alter.HasValue)
+        {
+
+        }
+
+        alter ??= 0;
     }
 }
 
 public class Hund
 {
     public string? Name { get; set; }
+
+    //public int Alter // Warum geht das nicht? 
+    //{
+    //    get; set
+    //    {
+    //        if (value > 20)
+    //        {
+    //            Alter = value;
+    //        }
+    //    }
+    //}
+
+    private int _alter; // Wir brauchen!, was gibt nun get; zurück? Warum ist es immer noch 0, wenn wir es doch gesetzt haben?
+    //public int Alter
+    //{
+    //    get; set
+    //    {
+    //        if (value > 20)
+    //        {
+    //            _alter = value;
+    //        }
+    //    }
+    //}
+
+    //public int Alter // wir müssen auch das get mit dem feld _alter verbinden. Wir haben also wieder die get und set methoden wie in JAVA.
+    //{
+    //    get {
+    //        return _alter;
+    //    }
+    //    set
+    //    {
+    //        if (value > 20)
+    //        {
+    //            _alter = value;
+    //        }
+    //    }
+    //}
+
+    // die kürzeste version benötigt jedoch noch den "Lambda" Operator sowie "Expressions".
+    //public int Alter
+    //{
+    //    get => _alter;
+    //    set => _alter = value > 20 ? value : _alter;  
+    //}
+
+    // verwende die die klammern für komplizierteren Ausdrücke und für kurze die =>
     public int Alter
     {
-        get; set
+        get => _alter;
+        set
         {
-            if (value > 20)
+            if (value <= 20)
             {
-                Alter = value;
+                throw new ArgumentException("Alter must be greater than 20");
             }
+
+            _alter = value;
         }
     }
 
-    public Besitzer Besitzer;
+    public Besitzer? Besitzer;
     
-}
-
-public class Besitzer
-{
-    public string? Name { get; set; }
-    public int? Alter { get; set; }
-
-    public Besitzer(int alter)
-    {
-        string bezeichnung = Name ?? "Unbekannt";
-
-    }
-
-    public void Test()
-    {
-        Alter = 0;
-    }
 }
