@@ -27,7 +27,7 @@ public class ZahlenRaten {
         boolean playAgain = true;
 
         while (playAgain) {
-            int zahlZuRaten = random.nextInt(0,100);
+            int zahlZuRaten = random.nextInt(0,101);
             int leben = 5 - 1;
             int versuche = 0;
 
