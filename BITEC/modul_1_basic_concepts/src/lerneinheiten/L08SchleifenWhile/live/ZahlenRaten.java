@@ -28,7 +28,8 @@ public class ZahlenRaten {
 
         while (playAgain) {
             int zahlZuRaten = random.nextInt(0,100);
-            int leben = 5;
+            int leben = 5 - 1;
+            int versuche = 0;
 
             System.out.println("Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!");
 
@@ -47,10 +48,12 @@ public class ZahlenRaten {
 
                 // hier leben abfragen
                 if (leben == 0) {
-                    System.out.println("Du hast keine Leben mehr.");
+                    System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
                     break;
                 }
+
                 leben--;
+                versuche++;
 
                 // Spiellogik
                 if (guess > zahlZuRaten) {
@@ -60,7 +63,7 @@ public class ZahlenRaten {
                     System.out.println("Die Zahl ist größer. Du hast noch " + (leben + 1) + " Leben.");
 
                 } else if (guess == zahlZuRaten) {
-                    System.out.println("gewonnen.");
+                    System.out.println("gewonnen. Die Zahl war " + zahlZuRaten + ". Es wurden " + versuche + " benötigt.");
                     break;
                 }
             }
@@ -69,5 +72,8 @@ public class ZahlenRaten {
             System.out.print("Möchtest du nochmals spielen? [+/-]: ");
             playAgain = scanner.next().equals("+");
         }
+
+        System.out.println("Spiel beendet. Danke fürs Spielen!");
+        scanner.close();
     }
 }
