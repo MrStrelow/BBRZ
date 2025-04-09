@@ -24,42 +24,50 @@ public class ZahlenRaten {
         // Variablen Anlegen
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-        int zahlZuRaten = 20; //random.nextInt(0,100);
-        int leben = 5;
+        boolean playAgain = true;
 
-        System.out.println("Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!");
+        while (playAgain) {
+            int zahlZuRaten = random.nextInt(0,100);
+            int leben = 5;
 
-        // Beginne mit Logik (Kontrollstrukturen)
-        while (true) {
-            System.out.print("Gib eine Zahl ein [0-100]: ");
+            System.out.println("Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!");
 
-            // guards für falschen userinput
-            while (!scanner.hasNextInt()) {
-                System.out.println("Falscher userinput.");
-                scanner.next();
+            // Beginne mit Logik (Kontrollstrukturen)
+            while (true) {
+                System.out.print("Gib eine Zahl ein [0-100]: ");
+
+                // guards für falschen userinput
+                while (!scanner.hasNextInt()) {
+                    System.out.print("Falscher userinput, bitte neu eingeben: ");
+                    String falscherInputWelcherVerworfenWird = scanner.next();
+                }
+
+                // Userinput
+                int guess = scanner.nextInt();
+
+                // hier leben abfragen
+                if (leben == 0) {
+                    System.out.println("Du hast keine Leben mehr.");
+                    break;
+                }
+                leben--;
+
+                // Spiellogik
+                if (guess > zahlZuRaten) {
+                    System.out.println("Die Zahl ist kleiner. Du hast noch " + (leben + 1) + " Leben.");
+
+                } else if (guess < zahlZuRaten) {
+                    System.out.println("Die Zahl ist größer. Du hast noch " + (leben + 1) + " Leben.");
+
+                } else if (guess == zahlZuRaten) {
+                    System.out.println("gewonnen.");
+                    break;
+                }
             }
 
-            // Userinput
-            int guess = scanner.nextInt();
-
-            // hier leben abfragen
-            if (leben == 0) {
-                System.out.println("Du hast keine Leben mehr.");
-                break;
-            }
-            leben--;
-
-            // Spiellogik
-            if (guess > zahlZuRaten) {
-                System.out.println("Die Zahl ist kleiner. Du hast noch " + (leben + 1) + " Leben.");
-
-            } else if (guess < zahlZuRaten) {
-                System.out.println("Die Zahl ist größer. Du hast noch " + (leben + 1) + " Leben.");
-
-            } else if (guess == zahlZuRaten) {
-                System.out.println("gewonnen.");
-                break;
-            }
+            // Logik um spiel neuzustarten
+            System.out.print("Möchtest du nochmals spielen? [+/-]: ");
+            playAgain = scanner.next().equals("+");
         }
     }
 }
