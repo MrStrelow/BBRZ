@@ -26,6 +26,8 @@ public class ZahlenRaten {
         Scanner scanner = new Scanner(System.in);
         boolean playAgain = true;
 
+        // Beginne mit Logik (Kontrollstrukturen)
+        // spiele nochmals
         while (playAgain) {
             int zahlZuRaten = random.nextInt(0,101);
             int leben = 5 - 1;
@@ -34,6 +36,7 @@ public class ZahlenRaten {
             System.out.println("Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!");
 
             // Beginne mit Logik (Kontrollstrukturen)
+            // Wiederholung der Spiellogik
             while (true) {
                 // Userinput
                 System.out.print("Gib eine Zahl ein [0-100]: ");
