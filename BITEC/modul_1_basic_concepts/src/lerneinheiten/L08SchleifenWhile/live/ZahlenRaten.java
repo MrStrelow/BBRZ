@@ -35,18 +35,18 @@ public class ZahlenRaten {
 
             // Beginne mit Logik (Kontrollstrukturen)
             while (true) {
+                // Userinput
                 System.out.print("Gib eine Zahl ein [0-100]: ");
 
-                // guards für falschen userinput
+                // guards für falschen Userinput
                 while (!scanner.hasNextInt()) {
                     System.out.print("Falscher userinput, bitte neu eingeben: ");
-                    String falscherInputWelcherVerworfenWird = scanner.next();
+                    String inputWelcherKeineZahlIstUndVerworfenWird = scanner.next();
                 }
 
-                // Userinput
                 int guess = scanner.nextInt();
 
-                // hier leben abfragen
+                // Spiellogik: habe ich genug leben?
                 if (leben == 0) {
                     System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
                     break;
@@ -55,7 +55,7 @@ public class ZahlenRaten {
                 leben--;
                 versuche++;
 
-                // Spiellogik
+                // Spiellogik: wo bin ich mit meinem guess?
                 if (guess > zahlZuRaten) {
                     System.out.println("Die Zahl ist kleiner. Du hast noch " + (leben + 1) + " Leben.");
 
@@ -68,7 +68,7 @@ public class ZahlenRaten {
                 }
             }
 
-            // Logik um spiel neuzustarten
+            // Logik um Spiel neu starten zu können
             System.out.print("Möchtest du nochmals spielen? [+/-]: ");
             playAgain = scanner.next().equals("+");
         }
