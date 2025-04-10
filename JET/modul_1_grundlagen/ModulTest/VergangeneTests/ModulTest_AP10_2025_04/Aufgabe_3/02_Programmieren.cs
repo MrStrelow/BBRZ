@@ -4,13 +4,16 @@ public class Shop
 {
     private string oenaceCode;
     private double kassa;
-    private Employee myFirstEmployee;
+    private List<Employee> employees = new List<Employee>(); // muss aber nicht weiter implementiert werden.
+    //private List<Employee> employees = []; // oder kurz
+    private List<Kunde> kunden = new List<Kunde>(); // muss aber nicht weiter implementiert werden...
+    //private List<Kunde> kunden = []; // oder kurz
     private Shop partnerShop;
 
-    public Shop(string oenaceCode, Employee myFirstEmployee, Shop partnerShop)
+    public Shop(string oenaceCode, Employee myFirstEmployee, Shop partnerShop) // ... deshalb muss es auch hier kein Kunde übergeben werden.
     {
         this.oenaceCode = oenaceCode;
-        this.myFirstEmployee = myFirstEmployee;
+        employees.Add(myFirstEmployee);
         this.partnerShop = partnerShop;
         myFirstEmployee.SetWorkplace(this);
 
@@ -35,11 +38,6 @@ public class Shop
     public void SetKassa(double value)
     {
         kassa = value;
-    }
-
-    public Employee GetMyFirstEmployee()
-    {
-        return myFirstEmployee;
     }
 
     public Shop GetPartnerShop()

@@ -292,7 +292,7 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten.
 * Ist die ``Beziehung`` *partnerShop* eine Hat- oder Ist-Beziehung? Was bedeutet *0-1*?
 * Hat ein ``RetailKunde`` die Möglichkeit ``Produkte`` mithilfe der ``Methode``  zu kaufen?
 
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_c%23_basics/ModulTest/Angabe/exam_dark.png)
+![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/Angabe/exam_dark.png)
 
 
 ---

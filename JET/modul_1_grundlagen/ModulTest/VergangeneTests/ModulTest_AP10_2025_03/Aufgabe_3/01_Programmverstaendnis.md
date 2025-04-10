@@ -13,4 +13,4 @@
 * Die Hat-Beziehung zwischen *Shop* und *Employee* zwingt jedes `Objekt` der ``Klasse`` Employee zu allen Zeitpunkten mindestens einem *Shop* zugewiesen zu sein. Andererseits hat ein *Shop* mindestens einen *Employee*. Tritt bei der Erstellung der ``Objekte`` *Shop* und *Employee* dadurch ein Problem auf?
 > ja, denn wir müssen dadurch beide ``Objekte`` *gleichzeitig* erstellen. Wir erstellen ``Objekte`` mit ``Konstruktoren``. Der ``Konstruktor`` des *Shops* verlangt damit sofort einen *Employee* als ``Parameter``. Jedoch verlangt der ``Konstruktor`` des *Employees* sofort einen *Shop*. Das kann nicht funktionieren. Wir müssen daher einen *1ser* in der ``Hat-Beziehung`` auf einen *0* ändern. Das erlaubt uns zuerst einen *Employee* zu erstellen (ohne *Shop*) und danach den *Shop* zu erstellen (mit den zuvor erstellten *Employee*).
 
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_c%23_basics/ModulTest/VergangeneTests/ModulTest_AP10_2025_03/exam_dark.png)
+![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/VergangeneTests/ModulTest_AP10_2025_03/exam_dark.png)

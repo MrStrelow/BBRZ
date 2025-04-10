@@ -5,8 +5,6 @@
 
 ---
 
-TODO: check whats/if missing.
-
 Java ist eine objektorientierte Sprache, welche dadurch am Anfang Dinge verwendet, welche wir noch nicht erklärt haben.
 Das bedeutet, wir müssen für unsere ersten Programme folgendes berücksichtigen:
 

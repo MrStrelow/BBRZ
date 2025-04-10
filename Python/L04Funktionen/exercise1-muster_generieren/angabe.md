@@ -37,7 +37,7 @@ Für spätere Aufgaben wie [Steigung der Formen](#steigung-der-formen) und [Must
 Hilfsfunktionen:
 * `def print_field(field):` gibt ein 2D-Array aus, sodass die erste Dimension die `y-Achse` und die zweite Dimension die `x-Achse` darstellt.
 * `def fill_canvas(field, symbol):` befüllt ein 2D-Array komplett mit einem Symbol.
-* `def copy_field(field):` kopiert das Eingabefeld in ein neues 2D-Array und gibt es zurück. (Hinweis: Denk an [Call by Value vs. Reference](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_c%23_basics/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.2CallByValueOrReference.md)).
+* `def copy_field(field):` kopiert das Eingabefeld in ein neues 2D-Array und gibt es zurück. (Hinweis: Denk an [Call by Value vs. Reference](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_1_grundlagen/L02BasicProgrammingConcepts/L02BasicProgrammingConcepts/L02.2CallByValueOrReference.md)).
 
 Zuerst gibt der User an, welche Form generiert wird. Die Eingabe des Users soll der Name der Form sein. Diese sind:
 * Dreieck (rechtwinklig, gleichschenklig)

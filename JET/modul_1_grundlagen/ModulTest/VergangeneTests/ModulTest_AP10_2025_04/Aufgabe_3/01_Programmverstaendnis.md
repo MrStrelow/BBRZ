@@ -12,4 +12,4 @@
 * Hat ein ``RetailKunde`` die Möglichkeit ``Produkte`` mithilfe der ``Methode``  zu kaufen?
 > Ja, durch die ``Ist-Beziehung`` erweitert der ``RetailKunde`` den ``Kunden``. Dadurch hat der ``RetailKunde`` zumindest die gleichen Mitglieder wie ein ``Kunde``, nur kann der ``RetailKunde`` diese Mitglieder erweitern. 
 
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_c%23_basics/ModulTest/VergangeneTests/ModulTest_AP10_2025_04/exam_dark.png)
+![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/VergangeneTests/ModulTest_AP10_2025_04/exam_dark.png)

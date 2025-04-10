@@ -261,7 +261,7 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten.
 * Ist die ``Beziehung`` *vertretet* eine Hat- oder Ist-Beziehung? Was bedeutet *1-n*?
 * Die Hat-Beziehung zwischen *Shop* und *Employee* zwingt jedes `Objekt` der ``Klasse`` Employee zu allen Zeitpunkten mindestens einem *Shop* zugewiesen zu sein. Andererseits hat ein *Shop* mindestens einen *Employee*. Tritt bei der Erstellung der ``Objekte`` *Shop* und *Employee* dadurch ein Problem auf?
 
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_c%23_basics/ModulTest/VergangeneTests/ModulTest_AP10_2025_03/exam_dark.png)
+![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/VergangeneTests/ModulTest_AP10_2025_03/exam_dark.png)
 
 
 ---

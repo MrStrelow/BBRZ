@@ -3,7 +3,7 @@
 ## Klassen und Methoden definieren
 Gegeben ist ein UML Klassendiagramm. 
 
-![Klassendiagramm](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_c%23_basics/L04KlassenMethoden/Exercise1/UML/UML-Klassendiagramm-Hunde_dark.png). 
+![Klassendiagramm](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/L04KlassenMethoden/Exercise1/UML/UML-Klassendiagramm-Hunde_dark.png). 
 
 Versuche die ``Hat`` sowie ``Ist`` Beziehungen zu verstehen und...
 * **``definiere``** die ``Klassen`` und dessen ``Mitglieder`` (``Felder`` und ``Methoden``) in C#.
