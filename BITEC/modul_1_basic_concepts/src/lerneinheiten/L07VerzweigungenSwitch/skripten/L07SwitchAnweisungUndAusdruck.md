@@ -156,45 +156,100 @@ String ergebnis =
                                      "Die Variable hat nicht den Wert 1, 2 oder 5.";
 ```
 
-Diese geht schrittweise von oben nach unten TODO
+Diese geht schrittweise von oben nach unten. Wir müssen zuerst abfragen ob ``variable == 1`` ist, falls ja, führe den Code dort aus. Falls nein, geh weiter zu ``variable == 1 || variable == 5``. Hier müssen wir sogar mehr arbeiten. Wir haben dort eine Formel welche 2 Teile besitzt. Wir müssen nun die Bedingung ausrechnen. Wir überprüfen zuerst ob ``variable == 1`` ist, Falls ja, gut das ``logische ODER`` ergibt wahr und damit auch die ``Bedingung``. Falls nicht, müssen wir noch weiter zu ``variable == 5`` schauen. Wenn auch dieser Fall nicht eintreten sollte, führen wir den letzten Zweig aus. 
+
+Wenn wir dieses Verhalten als ``Switch-Ausdruck`` schreiben...
+```java
+Integer variable = 5;
+
+String ergebnis = switch (variable) {
+    case 1      -> "Die Variable hat den Wert eins";
+    case 2, 5   -> "Die Variable hat den Wert zwei oder fünf.";
+    default     -> "Die Variable hat nicht den Wert 1, 2 oder 5.";
+}
+```
+... haben wir folgenen Vorteil. Wir müssen keine ``Bedingungen`` ausrechnen, denn ein ``Switch-Ausdruck`` lässt diese nicht zu. Wir können nur Werte angeben. Das nutzen wir aus und erzeugen dadurch eine so genannte *Jump Table*. Wir vereinfachen es hier und stellen uns folgendes vor. Wir haben einen ``Schlüssel``, den wir direkt verwenden können. Dieser ist der ``Wert`` welchen wir neben *case* schreiben. In unserem Beispiel ist es für *case 1*, *1* und für *case 2, 5* ist es *2* oder *5*. Diese ``Schlüssel`` erlauben uns einen *direkten Zugriff* auf den auszuführenden Code, ohne die oben genannten logischen Bedingunen jedes Zweigs einzeln abzugehen bzw. falls diese komplizierter sind, diese auszurechnen. 
+
+Wenn wir später Datenstrukturen besprechen, geh hier zurück und lies den foglenden Satz nocheinmal: *"Jump Tables sind lowlevel Hashmaps und Mehrfachverzweigungen sind eine lowlevel Array/Listen suche."*
+
+**Anmerkung:** Es geht hier um das allgemeine Konzept und die *ursprüngliche* Idee der ``Switch-Verzweigung``. Wie Compiler optimieren, ob ein switch **wirklich schneller** ist oder nicht, hängt von der Sprache, der spezielle Compiler (wie schlau ist er? wie viel darf er optimieren?) dieser Sprache und die spezielle Verwendung der ``Switch-Verzweigung`` ab. Wir können Ergebnisse mit Leichtigkeit erzeugen, welche dem hier erwähnten wiedersprechen. Compiler sind eines der komplexesten Themen in der Informatik. Dadurch sind solche vereinfachten Aussagen, welche wir hier aufstellen meistens falsch. Jedoch ist es wichtig sich in solche Themen hineindenken zu können. [Hier](https://github.com/MrStrelow/BBRZ/blob/main/BITEC/modul_1_basic_concepts/src/lerneinheiten/L07VerzweigungenSwitch/live/SpeedTest.java) ist ein Beispiel wo es scheint, der JAVA Compiler schafft es nicht aus der ``Mehrfachverzweigung`` mit *if* einen genau so schnellen Code wie mit der *Jump Table* des ``Switch-Ausdrucks`` zu erzeugen. Ansonsten müssten die Laufzeiten gleich sein. 
+
+```java
+//switch duration: 9 ms, 16 ms, 169 ms
+//if duration: 455 ms, 308 ms, 579 ms
+```
+
+Wir erkenn jedoch, dass dieses Beispiel mit *1000* switch cases nicht gerade einem Beispiel aus der Praxis entspricht.
 
 
-### Was dann?
+**Anmerkung:** Es ist egal ob wir hier einen ``Ausdruck`` oder ``Anweisung`` verwenden. Die Logik der "Jump Table" bleibt bestehen.
+
 Wir merken uns:
+> ``Switch-Verzweigungen`` sind historisch leicht von ``Compilern`` im Maschinencode zu *Jump Tables* umgewandelt worden. Diese sind schneller als ``Mehrfachverzweigugnen`` mit ``If-Verzweigugnen``. Es kann jedoch sein, dass der ``Compiler`` auch die ``If-Verzweigugnen`` zu *Jump Tables* umwandelt.
+
+Wir merken uns zudem noch:
+> ``Switch-Verzweigungen`` verwenden wir **nie** mit der Begründung "wir optimieren den Code" dadurch. Wir verwenden es, wenn der **Code leserlicher** dadurch wird.
+
+### Was können wir nun für Typen verwenden?
+Kurz gehalten merken wir uns:
 > ``Switch-Ausdrücke`` haben folgenden Einschränkungen:
 > * Der ``Typ`` der ``Variable`` darf nur: *char*, *Character*, *byte*, *Byte*, *short*, *Short*, *int*, *Integer*, *String*, oder *Enum* sein.
 > * Der ``Bedingung`` ist auf *==* oder *.equals()* beschränkt.
 
+und beschäftigen uns nun mit der wichtigsten Frage. *Wann verwenden wir einen Switch-Ausdruck?*
 
 ## Wann verwenden wir einen Switch-Ausdruck?
-Wir schreiben diese um vereinfacht ``Bedingungen`` darzustellen, welche den ``Vergleichsoperator`` *==* oder *.equals()* verwenden. Die Variablen, die wir damit im `switch` vergleichen können, sind ``Zeichen(ketten)``, ``Zahlen`` und die uns unbekannte ``Enums``. 
+Wir haben hauptsächlich uns die ``Switch-Verzweigung`` in Vorbereitung auf die in C# oder Python verwendeten ``Pattern Matcher`` angeschaut. An sich ist der Anwendungsbereich eines ``Switch-Anweisung`` nicht gegeben, da der Compiler so oder so den Code optimiert und wir nicht in der hand haben ob *Jump Tables* verwendet werden. Es ist wie oven erwähnt nicht üblich ``Switch-Anweisung`` als Optimierungswerkzeug zu verwenden. Ein *Anwendungsfall* ist jedoch jener einer ``Merhfachverzweigung`` welche mit einem ``Switch-Ausdruck`` lesbarer umgesetzt werden kann als mit dem ``?: Operator``. Es kann zusätzlich der ``?: Operator`` aus Stilgründen nicht gewünscht sein und dadurch eine Verwendung des ``Switch-Ausdrucks`` in Betracht gezogen werden.
 
-Genauer gesagt, merken wir uns folgendes:
-> ``Switch-Statements`` haben folgenden Einschränkungen:
-> * Der ``Typ`` der ``Variable`` darf nur: *Enum*, *int*, *Integer*, *String*, *char* oder *Character* sein.
-> * Der ``Bedingung`` ist auf *==* oder *.equals()* beschränkt.
+Dazu ein Beispiel:
 
-
-## Historisch: Die Switch-Anweisung
-
-### Warum ist break bei der Switch-Anweisung essentiell:
-Kein ``break`` notwendig.
+```Schreiben Sie ein Java-Programm, das den Wochentag basierend auf einer Eingabe von 1 bis 7 (entsprechend den Wochentagen Montag bis Sonntag) ausgibt und dabei zufällige Emojis hinzufügt, um die Laune des jeweiligen Wochentages anzuzeigen. Es soll zusätzlich ein zufälliger Wert verwendet werden, um die Laune für bestimmte Wochentage zu variieren.```
 
 ```java
-switch (Variable) {
-    case Wert:
-        // Code
-        break;
-    case Wert:
-        // Code
-        break;
-    default:
-        // Code
-}
+Random random = new Random();
+Double zufallszahl = random.nextDouble();
 
+String output = switch (input) {
+    case 1 -> {
+        String res = "Montag :(";
 
-## Wie schreibe ich eine Verzweigung als Switch Anweisung?
-Ohne weiters diese ``Anweisung`` zu motivieren schauen wir uns die ``Syntax`` an.
+        if (zufallszahl < 0.8) {
+            res = res + ":(".repeat(5);
+        }
+
+        yield res;
+    }
+    case 2 -> "Dienstag";
+    case 3 -> "Mittwoch";
+    case 4 -> "Donnerstag";
+    case 5 -> {
+        String res = "Freitag :)";
+
+        if (zufallszahl < 0.3) {
+            res += ":)".repeat(7);
+        }
+
+        yield res;
+    }
+    case 6 -> "Samstag";
+    case 7 -> "Sonntag";
+    default -> "kein Wochentag";
+};
+
+System.out.println(output);
+
+```
+
+Wir werden noch weitere Werkzeuge kennenlernen um diesen Code übersichtlicher zu gestalten. Bis jetzt ist es so halbwegs vertretbar.
+
+Halten wir es kurz. Wir merken uns:
+> ``Switch-Verzweigungen`` verwenden wir falls ein ``If-Ausdruck`` welche mit dem ``?: Operator`` umgesetzt wird, mehrere Zeilen innerhalb eines ``Blocks`` benötigt, oder der ``?: Operator`` einfach aus Stilgründen nicht gewünscht wird. 
+
+## Historisch: Die klasische Switch-Anweisung - vermeide diese
+
+### Warum ist break bei der Switch-Anweisung essentiell:
+Wir verwenden break um aus ``Schleifen`` zu springen und auch hier um aus der ``Switch-Anweisung`` zu springen. 
+
 ```java
 switch (Variable) {
     case Wert:
@@ -208,13 +263,7 @@ switch (Variable) {
 }
 ```
 
-Hier sehen wir.
-
-*Beispiel:* Wochentage ausgeben
-
-Wir haben Wochentage [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]:
-- Wenn die Integer-Variable den Wert 1 hat, soll "Montag" ausgegeben werden, usw.
-- Für "Montag" fügen wir ":(" hinzu, für "Freitag" fügen wir ":)" hinzu.
+Schauen wir uns foglendes Beispiel an.
 
 ```java
 Scanner scanner = new Scanner(System.in);
@@ -233,65 +282,40 @@ switch (input) {
 }
 ```
 
+Hier Springen wir wenn die ``Variable`` *input* der ``Wert`` *1* hat, aus dem switch und führen die darunter liegenden *cases* nicht mehr aus.
+Das klingt jedoch eher als ein *Fehler* als Absicht. Der Grund ist foglender. 
+
 ```java
-String output = switch (input) {
-    case 1 -> "Montag :(";
-    case 2 -> "Dienstag";
-    case 3 -> "Mittwoch";
-    case 4 -> "Donnerstag";
-    case 5 -> "Freitag :)";
-    case 6 -> "Samstag";
-    case 7 -> "Sonntag";
-    default -> "Kein Wochentag.";
+switch (genre.toLowerCase()) {
+    case "action":
+        ausgabe = "Schauen wir einen Actionfilm!";
+        break;
+    case "komödie": // Achtung! Was passiert hier?
+    case "lustig":
+        ausgabe = "Lass uns eine Komödie sehen!";
+        break;
 }
 ```
 
-Wir können uns auch die Rückgabe sparen und diesen Ausdruck als Anweisung verwenden.
+Hier wird wenn komödie eingegeben wird der code daneben ausgeführt. Dieser ist jedoch zufällig leer. Ohne *break* führen wir den nächsten *case* aus, auch wenn das die ``Variable`` und der ``Wert`` nicht zusammenpassen. Wir führen also alles aus bis wir ein weiteres *break* sehen. Das passiet hier im case *"lustig"*. Bevor es möglich war mit Beistrich die Werte zusammenzufassen, war das die Umsetzung dieser Logik.
+Besser also foglendes:
 ```java
-switch (input) {
-    case 1 -> System.out.println("Montag :(");
-    case 2 -> System.out.println("Dienstag");
-    case 3 -> System.out.println("Mittwoch");
-    case 4 -> System.out.println("Donnerstag");
-    case 5 -> System.out.println("Freitag :)");
-    case 6 -> System.out.println("Samstag");
-    case 7 -> System.out.println("Sonntag");
-    default -> System.out.println("Kein Wochentag.");
+switch (genre.toLowerCase()) {
+    case "action":
+        ausgabe = "Schauen wir einen Actionfilm!";
+        break;
+    case "lustig", "komödie":
+        ausgabe = "Lass uns eine Komödie sehen!";
+        break;
 }
 ```
 
-### Mehrzeilige Blöcke mit `yield`:
+Zusätzlich konnte früher ohne *break* eine Art *Load from Save* umgesetzt werden.
 ```java
-Random random = new Random();
-Double zufallszahl = random.nextDouble();
-Double zufallszahlJederTag = random.nextDouble();
-
-String output = switch (input) {
-    case 1 -> {
-        String res = "Montag :)";
-        if (zufallszahl < 0.8) {
-            res = res + ":(".repeat(5);
-        }
-        yield res;
-    }
-    case 2 -> "Dienstag";
-    case 3 -> "Mittwoch";
-    case 4 -> "Donnerstag";
-    case 5 -> {
-        String res = "Freitag :)";
-        if (zufallszahl < 0.3) {
-            res = res + ":)".repeat(7);
-        }
-        yield res;
-    }
-    case 6 -> "Samstag";
-    case 7 -> "Sonntag";
-    default -> "kein Wochentag";
-};
-
-if (zufallszahlJederTag < 0.01) {
-    System.out.print(output + ":)");
-} else {
-    System.out.println(output);
+switch (status) {
+    case 1: System.out.println("Loading first Asset...");
+    case 2: System.out.println("Loading second Asset...");
+    case 3: System.out.println("Caluclating distance... finished!");
 }
 ```
+Wenn nun ``status = 1`` ist, werden alle 3 *cases* ausgegeben. Wenn ``status = 2`` nur case *2* und case *3*, usw.
