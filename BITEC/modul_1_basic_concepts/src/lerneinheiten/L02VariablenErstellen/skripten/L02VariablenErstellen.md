@@ -1,7 +1,7 @@
 # Variablen und Werte in Java
 
 #### Welche Begriffe werden hier verwendet?
-[``Programm``](../../../glossar.md#programm), [``Wert``](../../../glossar.md#wert), [``Konsole``](../../../glossar.md#Variable), [``Variable``](../../../glossar.md#Variable), [``Typ``](../../../glossar.md#Typ), [``String``](../../../glossar.md#String), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#Zuweisungsoperator), [``Compiler``](../../../glossar.md#compiler), [``statisch typisierte Programmiersprache``](../../../glossar.md#statisch-typisierte-Programmiersprache)
+[``Programm``](../../../glossar.md#programm), [``Wert``](../../../glossar.md#wert), [``Konsole``](../../../glossar.md#Variable), [``Variable``](../../../glossar.md#Variable), [``Typ``](../../../glossar.md#Typ), [``String``](../../../glossar.md#String), [``StringBuilder``](../../../glossar.md#StringBuilder), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Fießkommazahl``](../../../glossar.md#fießkommazahl), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#Zuweisungsoperator), [``Compiler``](../../../glossar.md#compiler), [``statisch typisierte Programmiersprache``](../../../glossar.md#statisch-typisierte-Programmiersprache), [``stark typisierte Programmiersprache``](../../../glossar.md#stark-typisierte-Programmiersprache), [``objektorientierte Programmiersprache``](../../../glossar.md#objektorientierte-Programmiersprache), [``Klasse``](../../../glossar.md#Klasse), [``Objekt``](../../../glossar.md#Objekt), [``Methode``](../../../glossar.md#Methode), [``primitive Datentypen``](../../../glossar.md#Methode), [``explizite Typumwandlung``](../../../glossar.md#explizite-typumwandlung), 
 
 ---
 
@@ -35,12 +35,12 @@ Da es umständlich ist immer von ``Werten`` eines ``Typs`` zu sprechen, werden w
 Wir kennzeichnen ``Strings`` (oder auch ``Zeichenketten`` genannt) , mit ``""``, damit der ``Compiler`` es von Symbolen der Programmiersprache, wie *System.out.println* unterscheiden kann. Da unsere Sprache textbasiert ist, haben wir leider eine doppelte Verwendung von Text. Durch eine Kennzeichnung wie eben ``""`` ist diese Unterscheidung möglich.
 
 ## Was erlauben uns Variablen zu tun?
-``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da JAVA eine ``statisch typisierte Programmiersprache`` ist müssen wir bei **jeder** ``Definition`` einer ``Variable`` den ``Typ`` dazuschreiben.
+``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da Java eine ``statisch typisierte Programmiersprache`` ist müssen wir bei **jeder** ``Definition`` einer ``Variable`` den ``Typ`` dazuschreiben.
 
 Wir haben bereits 2 verschiedene Arten kennen gelernt wie wir eine ``Variable`` anlegen könnnen. Eine ist die ``Variable`` zu ``definieren`` die andere ist eine ``Variable`` zu `definieren` und zu ``initialisieren``.
 
 ### Deklaration, Definition und Initialisierung
-Wir haben dieses Konzept schon in der vorherigen Lektion kennengelernt. Wir wiederholen es nur begrenzt hier und einigen uns, dass die Unterscheidung der Wörter ``Deklaration`` und ``Definition`` nur begrenzt Sinn macht. Grund ist Java unterscheidet nicht zwische diesen Konzepten für uns als Programmiere. Deshalb werden wir dieses immer als ``Definition`` benennen. Sie werden jedoch beide Begriffe online oder in Büchern sehen, welche jedoch meist Synonyme (gleich) für JAVA sind. Für Sprachen wie C/C++ ist jedoch eine solche Unterscheidung sinnvoll.
+Wir haben dieses Konzept schon in der vorherigen Lektion kennengelernt. Wir wiederholen es nur begrenzt hier und einigen uns, dass die Unterscheidung der Wörter ``Deklaration`` und ``Definition`` nur begrenzt Sinn macht. Grund ist Java unterscheidet nicht zwische diesen Konzepten für uns als Programmiere. Deshalb werden wir dieses immer als ``Definition`` benennen. Sie werden jedoch beide Begriffe online oder in Büchern sehen, welche jedoch meist Synonyme (gleich) für Java sind. Für Sprachen wie C/C++ ist jedoch eine solche Unterscheidung sinnvoll.
 
 Bei der ``Definition`` verzichten wir auf eine **sofortige** Zuweisung einer ``Variable`` mit einem ``Wert``. Zudem verschieben wir diese Zuweisung auf einen späteren Zeitpunkt im Programm. Diese Zuweisung wird auch ``Initialisierung`` genannt. Variablen welche **nur** ``definiert`` werden und nie ``initialisiert`` werden können nicht verwendet werden. 
 
@@ -53,13 +53,13 @@ String definiertUndInitialisiert = "Hallo";  // definiert + initialisiert
 definiert = 5      // die zuerst definierte variable wird nun initialisiert.
 ```
 
-Anmerkung: Für die ``Definition`` wird im ``Speicher`` ein Platz reserviert welcher für unsere ``Variable`` gedacht ist, jedoch ohne Wert. Eine physische Analogie wäre: *wir kaufen eine Leinwand, aber haben uns noch nicht entschieden, was wir malen wollen*. Für die ``Definition`` und ``Initialisierung`` wäre es *Wir kaufen eine Leinwand, und malen schon im Geschäft unser Bild*.
+Anmerkung: Für die ``Definition`` wird im *Speicher* ein Platz reserviert welcher für unsere ``Variable`` gedacht ist, jedoch ohne Wert. Eine physische Analogie wäre: *wir kaufen eine Leinwand, aber haben uns noch nicht entschieden, was wir malen wollen*. Für die ``Definition`` und ``Initialisierung`` wäre es *Wir kaufen eine Leinwand, und malen schon im Geschäft unser Bild*.
 
 ## Was kann ich einer Varaible zuweisen?
-Wir können mit dem Muster `<Typ> <Name>` eine Variable `definieren` bzw. mit `<Typ> <Name> <Zuweisungsoperator> <Wert>` `initialisieren`. Das Muster ist jedoch allgemeiner als hier dargestellt.
-Eigentlich müsste es `<Typ> <Name> <Zuweisungsoperator> <"alles was einen Wert mit gleichem Typ wie <Typ> erzeugt kann hier stehen">` heißen. 
+Wir können mit dem Muster *<Typ> <Name>* eine Variable ``definieren`` bzw. mit *<Typ> <Name> <Zuweisungsoperator> <Wert>* ``initialisieren``. Das Muster ist jedoch allgemeiner als hier dargestellt.
+Eigentlich müsste es *<Typ> <Name> <Zuweisungsoperator> <"Ausdrücke welche einen Wert mit gleichem Typ wie <Typ> erzeugt">* heißen. 
 
-Der ``Zuweisungsoperator`` ist mit dem Symbol ``=`` abgebildet. Wir können uns auch einen Pfeil nach links denken ``<-``, wenn wir das ``=`` bei einer Zuweisung sehen. Wir nehmen also den Ausdruck welcher rechts vom ``Zuweisungsoperator`` steht und "schreiben" es in die Variable welche links steht.
+Der ``Zuweisungsoperator`` ist mit dem Symbol *=* abgebildet. Wir können uns auch einen Pfeil nach links denken **<-**, wenn wir das *=* bei einer Zuweisung sehen. Wir nehmen also den ``Ausdruck`` welcher *rechts* vom ``Zuweisungsoperator`` steht und "schreiben" den erzeugten ``Wert`` in die ``Variable`` welche links steht.
 
 ```java
 String myString = "das ist ein String";               // Der Wert rechts vom = hat den Typ String.
@@ -70,37 +70,43 @@ String ersteZeileDerWebsite = new BufferedReader(new InputStreamReader(new URL("
 ```
 
 Wir merken uns:
-> Der ``Typ`` des ``Wertes`` muss mit dem ``Typ`` der ``Variable`` zusammenpassen, wenn wir diese mit dem ``Zuweisungsoperator`` *=* verbinden.
+> Der ``Typ`` des ``Wertes``, der ``Variable`` oder allgmein des ``Ausdrucks welcher einen Wert erzeugt`` rechts des ``Zuweisungsoperators`` *=*, muss mit dem ``Typ`` der ``Variable`` links zusammenpassen.
 
+> Ein ``Ausdruck`` ist eine Zeile ``Programmcode`` welche einen ``Wert`` erzeugt. 
 
 ## Verschiedene Arten von Typen
-- Zeichen(ketten):
-  - String (oder für mehr funktionalität, StringBuilder)
-  - char oder Character (16 Bits - ein Symbol einer Zeichenkette kann nur gespeichert werden. Diese ist im Hintergrund eine ganze Zahl)
-- Ganze Zahlen:
-  - long oder Long     (ganze Zahl -> [-2^32, +2^32],  keine Kommazahlen)
-  - int oder Integer   (ganze Zahl -> [-2^16, +2^16],  keine Kommazahlen)
-  - short oder Short   (ganze Zahl -> [-2^8,   +2^8],  keine Kommazahlen)
-  - byte oder Byte     (ganze Zahl -> [-2^4,   +2^4],  keine Kommazahlen)
-- Kommazahlen:
-  - float oder Float   (Kommazahl, weniger genau wie Double)
-  - Double oder Double (Kommazahl)
-- logische Werte:
-  - boolean oder Boolean (hat ``false`` oder ``true`` als Wert)
+- **Zeichen(ketten)**:
+  - ``String`` (oder *StringBuilder*)
+  - ``char`` oder ``Character`` (16 Bits - ein Symbol einer Zeichenkette kann nur gespeichert werden. Diese ist im Hintergrund eine ganze Zahl)
+- **Ganze Zahlen**:
+  - ``long`` oder ``Long``     (ganze Zahl -> [-2^32, +2^32],  keine Kommazahlen)
+  - ``int`` oder ``Integer``   (ganze Zahl -> [-2^16, +2^16],  keine Kommazahlen)
+  - ``short`` oder ``Short``   (ganze Zahl -> [-2^8,   +2^8],  keine Kommazahlen)
+  - ``byte`` oder ``Byte``     (ganze Zahl -> [-2^4,   +2^4],  keine Kommazahlen)
+- `**Kommazahlen**`:
+  - ``float`` oder ``Float``   (Kommazahl, weniger genau wie Double)
+  - ``Double`` oder ``Double`` (Kommazahl)
+- **logische Werte**:
+  - ``boolean`` oder ``Boolean`` (hat ``false`` oder ``true`` als Wert)
 
-**Anmerkung:** Wenn wir *nicht* die primitiven Typen verwenden sind immer alle Typen **groß** geschrieben. Wir können also gut unterscheiden zwischen klein geschriebenen ``Variablen`` und groß geschriebenen ``Typen``. Auch wenn wir den genauen Kontext nicht kennen, sollte es uns möglich sein ``Scanner`` als Typ zu identifizieren und ``scanner`` als variable.
+**Anmerkung:** Wenn wir *nicht* die primitiven Typen verwenden sind immer alle Typen *groß* geschrieben. Wir können also gut unterscheiden zwischen klein geschriebenen ``Variablen`` und groß geschriebenen ``Typen``. Auch wenn wir den genauen Kontext nicht kennen, sollte es uns möglich sein ``Scanner`` als ``Typ`` zu identifizieren und ``scanner`` als variable.
+
+```java
+Scanner scanner = new Scanner(System.in); // Scanner ist hier der Typ, scanner ist die Variable und rechts vom = steht ein Ausdruck welcher einen Wert des Types Scanner erzeugt.
+```
 
 Wir merken uns:
-> ``Typen`` werden groß geschrieben, ``Variablen`` klein. Wir erkennen somit anhande der Schreibweise, um welches Konzept es sich handelt.
+> ``Typen`` werden groß geschrieben, ``Variablen`` klein und rechts neben dem `Zuweisungsopertator` *=* steht ein ``Ausdruck``. Wir erkennen somit anhand der Schreibweise, um welches Konzept es sich handelt.
 
 ## Klassen und primitive Typen sind Typen
 Wenn wir den `<Typ>`...
-- klein schrieben → primitive Datentypen (keine ``Klassen``),
+- klein schrieben → ``primitive Datentypen`` (keine ``Klassen``),
 - groß schrieben → (sind ``Klassen``).
 
-``Klassen`` sind die "Grundbausteine" in JAVA und jeder objektorientierten Sprache und erlauben uns
-aus ``Klassen``, was ein `Typ` ist, ``Objekte``, was eine `Variable` ist, zu erzeugen. ``Objekte`` und ``Klassen`` können zusätzlich ``Metoden`` aufrufen. Diese ``Methoden`` stellen wir uns vor als "Befehle" vor die wir ausführen und (meistens) einen ``Wert`` zurückgeben.
-``Primitive Typen`` besitzten keine solche ``Methoden``, sind jedoch schlänker und brauchen weniger Speicher (siehe hier für mehr infos).
+``Klassen`` sind die "Grundbausteine" in Java und jeder ``objektorientierten Programmiersprache`` und erlauben uns
+aus ``Klassen``, was ein `Typ` ist, ``Objekte``, was eine `Variable` ist, zu erzeugen. ``Objekte`` und ``Klassen`` können zusätzlich ``Metoden`` aufrufen. Wir können das durch die Verwendung des ``Aufrufeoperators`` welcher durch einen *Punkt* dargestellt wird. ``Methoden`` stellen wir uns vor als "Befehle" vor die wir ausführen und ``Werte``/``Variablen`` entgegennehmen nehmen. Meistens wird ein ``Wert`` zurückgeben. Wir können diesen ``Wert`` also wieder mit dem ``Zuweisungsoperator`` einer ``Variable`` zuweisen.
+
+``Primitive Typen`` besitzten keine solche ``Methoden``, sind jedoch schlänker und brauchen weniger Speicher.
 
 Ein Beispiel dazu ist:
 ```java
@@ -112,70 +118,99 @@ int userInputPrimitiv = meinScanner.nextInt(); // und erzeugt mit der Methode "n
 userInputPrimitiv.toString(); // geht nicht, da Typ int und primitiv ist.
 ```
 
-JAVA erlaubt und unabhängig, ob eine Variable primitive ist oder nicht, diese mit dem Zuweisungsoperator "=" gleich zusetzten.
-An sich ist JAVA hier streng. wir können nicht eine Variable vom ``Typ`` ``String`` und eine vom Typ ``StringBuilder`` gleich setzten,
-das diese nicht den exakt gleichen ``Typ`` haben. Wir sehen das am vorherigen Beispiel aber auch einfacher am nächsten.
-Zudem sehen wir hier auch folgendes. Wenn eine Variable einmal definiert bzw. deklariert wird, dann muss diese nur mehr mit dem `<Namen>` angesprochen werden.
+Java erlaubt und unabhängig, ob eine Variable primitiv ist oder nicht, diese mit dem Zuweisungsoperator "=" gleich zusetzten.
+An sich ist Java hier streng. wir können nicht eine Variable vom ``Typ`` ``String`` und eine vom Typ ``StringBuilder`` gleich setzten,
+da diese verschiedene ``Typen`` haben. Wir sehen das am vorherigen Beispiel aber auch einfacher am nächsten.
 
 ```java
-userInputPrimitiv = userInput;
+Integer userInput = 5;
+int userInputPrimitiv = userInput;
+
 userInput = userInputPrimitiv;
 ```
 
-Falls wir doch den Typ nochmals zu einer bereits ``definierten`` Variable dazuschreiben, bekommen wir einen Fehler vom Compiler.
+Zudem sehen wir hier auch folgendes. Wenn eine Variable einmal ``definiert`` wird, dann muss diese nur mehr mit dem Namen der ``Variable`` angesprochen werden.
+Falls wir den ``Typ`` nochmals zu einer bereits ``definierten`` Variable dazuschreiben, bekommen wir einen Fehler vom ``Compiler``.
 
 ```java
+int myPrimitiveInteger;
 int myPrimitiveInteger = myInteger; // würde hier nicht funktionieren, da myPrimitiveInteger bereits definiert wurde.
 ```
 
-Wir werden zuerst einfachheitshalber nur die "Klassen" als Typen verwenden. Also keine primitiven Datentypen.
-Der Vorteil von Variablen, welche einen primitiven Typ haben ist, sie sind schlanker und verbrauchen "weniger" Speicher.
+Wir werden zuerst einfachheitshalber nur die ``Klassen`` als ``Typen`` verwenden. Also keine ``primitiven`` als ``Typen``.
+Der Vorteil von Variablen, welche einen ``primitiven Typ`` haben ist, sie sind schlanker und verbrauchen "weniger" Speicher und sind im **allgemeinen die korrekte Wahl**. Wir wünschen uns jedoch eine einheitliche Struktur welche uns die ```Klassen`` liefern. Diese ist, *Groß geschrieben bedeutet ``Typ``*.  
 
-Anmerkung: Auch ``kann möglicherweise`` der Ort an dem sie sich befinden (Stack) schneller für den Computer verwendbar sein, als der Ort wo mit ``sicherheit`` Objekte liegen (Heap). Der Nachteil: primitive Datentypen erlauben weniger "Funktionalität".
-
-Das sehen wir hier, wenn wir eine Zahl in einen String umwandeln wollen.
-Variablen, welche eine Klasse als Typ haben, besitzen Methoden, primitive Datentypen nicht.
+Im folgenden Beispiel sehen wir, wie wir eine Zahl in eine Zeichenkette umwandeln wollen.
+``Variablen``, welche eine ``Klasse`` als ``Typ`` haben, besitzen ``Methoden``, ``primitive Datentypen`` nicht.
 
 ```java
+Integer myInteger = 5; // Integer ist eine Klasse also ist myInteger ein Objekt und besitzt Methoden.
+
 String yetAnotherString = myInteger.toString();
 System.out.println(yetAnotherString);
 ```
 
-## Ergebnisse von Methoden
-
-Das Ergebnis der Methode ist ein Wert, welcher wie bei Operatoren einen Typ hat.
-Beim vorherigen Beispiel kommt eine Zahl in die Methode rein und ein String raus.
-
-Wir können nun `yetAnotherString` weiter verwenden, z.B. ausgeben oder weiter manipulieren:
+vs.
 
 ```java
-System.out.println(yetAnotherString.toUpperCase());
+int myPrimitiveInteger = 5; // int ist ein primitiver Typ, deshalb keine Klasse, also ist myInteger kein Objekt und hat keine Methoden.
+
+// String yetAnotherString = myInteger.toString(); // Fehler!
+String yetAnotherString = Integer.toString(myInteger);  // Wir verwenden eine Methode welche bei der Klasse Integer "lebt".
+System.out.println(yetAnotherString);
 ```
 
-Wir sehen auch, dass wir das Ergebnis der Methode `toUpperCase()` direkt verwenden können und dieses nicht in einer Variable speichern müssen. Falls wir später im Programm das Ergebnis erneut benötigen, wäre es jedoch verloren. Daher empfiehlt es sich, es in einer Variable zu speichern, insbesondere wenn die Berechnung aufwendig ist.
+**Anmerkung:** 
+* Der Vorteil ``primitiver Typen``: Auch kann *möglicherweise* der Ort an dem sich ``primitive Variablen`` befinden (Stack, Register, etc.) schneller für den Computer verwendbar sein, als der Ort wo mit *sicherheit* ``Objekte`` liegen (Heap). 
+* Der Nachteil: ``primitive Datentypen`` erlauben weniger "Funktionalität", da diese keine ``Methoden`` besitzen.
 
-Falls eine Methode z. B. 3 Stunden benötigt, um ein Ergebnis zu erzeugen, sollte dieses Ergebnis auf jeden Fall in einer Variable gespeichert werden.
+Wir merken uns:
+> ``Methoden`` erlauben uns kompakt "Befehle" auszuführen. Wir können ``Variablen``, ``Werte`` oder allgemein die erzeugten ``Werte`` eines ``Ausdrucks`` diesen ``Methoden`` übergeben und erhalten meist wieder einen ``Wert`` zurück.
+
+> ``Klassen`` sind ``Typen`` welche groß geschrieben werden, ``Objekte`` sind die ``Variablen`` wenn der ``Typ`` eine ``Klasse`` ist.
+
+> ``Methoden`` können bei ``Klassen`` oder ``Objekten`` mit dem ``Aufrufeoperator`` verwendet werden. 
+
+> Der ``Aufrufeoperator`` ist ein *Punkt* welcher nach der ``Klasse`` oder dem ``Objekt`` geschrieben wird.
+
+> ``Primitive Typen`` haben keine ``Methoden``, sind aber *effizienter*.
+
+## Ergebnisse von Methoden
+Das Ergebnis der ``Methode`` ist ein ``Wert`` einen Typ hat.
+
+Beim folgenden Beispiel kommt nochmals eine ``Variable`` des ``Typs`` *Integer* in die ``Methode`` rein und ein ``Wert`` mit ``Typ`` *String* raus.
+
+Wir können nun *yetAnotherString* weiter verwenden, z.B. ausgeben oder weiter manipulieren:
 
 ```java
+Integer myInteger = 5; 
+String yetAnotherString = myInteger.toString() + " hallo"; // Probier aus was Wert mit Typ String + " hallo" auf sich hat.
+System.out.println(yetAnotherString.toUpperCase()); // manipulieren diesen String mit der Methode toUpperCase().
+```
+
+Wir sehen auch, dass wir das Ergebnis der Methode *toUpperCase()* direkt verwenden können und dieses nicht in einer ``Variable`` speichern müssen. Falls wir später im ``Programm`` das Ergebnis erneut benötigen, ist es verloren. Daher empfiehlt es sich, es in einer ``Variable`` zu speichern. Insbesondere wenn die Berechnung, also der Aufruf der ``Methode`` aufwendig ist und viel Zeit in anspruch nimmt. Falls eine ``Methode`` z. B. drei Minuten benötigt um ein Ergebnis zu erzeugen, sollte dieses Ergebnis auf jeden Fall in einer ``Variable`` gespeichert werden.
+
+```java
+...
 String upperString = yetAnotherString.toUpperCase();
 System.out.println(upperString); // 1. Verwendung
 System.out.println(upperString); // 2. Verwendung ohne es neu ausrechnen zu müssen
 System.out.println(yetAnotherString.toUpperCase()); // wird neu berechnet, kann in anderen Fällen lange dauern.
 ```
 
-Gehen wir nun die verschiedenen Variablentypen durch. Beginnen wir mit Zeichenketten und einzelnen Zeichen.
+Gehen wir nun die verschiedenen ``Typen`` von ``Variablen`` genauer durch. Beginnen wir mit Zeichenketten und einzelnen Zeichen.
 
 ---
 
-## Zeichenketten (`String`) und einzelne Zeichen (`char`)
+## Zeichenketten und einzelne Zeichen
 
-### `Character` Datentyp
+### Ein Zeichen - Character
 
-Betrachten wir einen Typ, welcher nur eine Zuweisung zu einer Variable von einem Symbol erlaubt – Character.
+Betrachten wir einen ``Typ``, welcher nur eine Zuweisung zu einer ``Variable`` von einem Symbol erlaubt – dem Character.
 
-Dieser Typ ist der "komplizierteste", denn er benötigt ein wenig Vorwissen darüber, wie der Computer Symbole darstellt. Fast immer ist dies jedoch nicht notwendig zu verstehen, wenn wir in Zukunft Programme schreiben. Trotzdem ist es nicht schlecht, einmal darüber nachgedacht zu haben, denn abstrakte Strukturen zu erkennen und zu verstehen hilft sehr im Alltag eines Programmierers. Besonders wenn wir fehlerhaftes Verhalten programmieren und den Fehler suchen müssen.
+Dieser ``Typ`` ist der "komplizierteste", denn er benötigt ein wenig Vorwissen darüber, wie der Computer Symbole darstellt. Fast immer ist dies jedoch nicht notwendig zu verstehen, wenn wir in Zukunft ``Programme`` schreiben. Trotzdem ist es nicht schlecht, einmal darüber nachgedacht zu haben, denn abstrakte Strukturen zu erkennen und zu verstehen hilft sehr im Alltag eines Programmierers. Besonders wenn wir fehlerhaftes Verhalten programmieren und den Fehler suchen müssen. Dieser Abschnitt ist mehr als eine Denkaufgabe, als ein praktisches, direkt täglich anwendbares Werkzeug zu verstehen.
 
-Seht diesen Abschnitt also mehr als eine Denkaufgabe, als praktisches, direkt täglich anwendbares Wissen. Wir reden von Symbolen wie 'a', 'ø' oder '҈'. Warum beginnen wir also mit einer Variable `userInput`, welche zwar vom Typ `Character` ist, aber den Wert einer Zahl zugewiesen bekommt?
+Wir reden von Symbolen wie 'a', 'ø' oder '҈'. Warum beginnen wir also mit einer Variable `userInput`, welche zwar vom Typ `Character` ist, aber den Wert einer Zahl zugewiesen bekommt?
 
 ```java
 Character userInputDecimalNumber = 97; //ASCII-CODE - 10er basis - dec
@@ -190,19 +225,23 @@ Da der Computer meist nur mit Zahlen umgehen kann, gibt es ein "Mapping" von Zah
 
 In Windows gibt es eine Zeichentabelle (bei englischen Betriebssystemen "Character Map"), welche es erlaubt, diese Codes bzw. Tastenkürzel einzusehen. Dazu die Windows-Taste drücken und nach "Zeichentabelle" oder "Character Map" suchen.
 
-### ASCII-Codes:
-- Besteht aus 0 bis 255 Zeichen (mit 7 Bit darstellbar) → diese sind mit `Alt + <vierstelliger Code>` ansprechbar.
-- ø ist z. B. `Alt + 0248`. Der Bereich geht von `0032` bis `0255`. Die ersten 32 Zahlen sind Symbole, welche keine grafische Darstellung haben.
-- Diese Zeichen signalisieren z. B. das Ende eines Strings in C/C++.
+### ASCII/ANSI-Codes:
+- Besteht aus 0 bis 255 Zeichen (mit 8 Bit darstellbar) → diese sind mit *Alt + <vierstelliger Code>* ansprechbar. Wir können dies tun in dem wir die *Alt* Taste und den vierstelligen Code am **Touchpad** drücken. 
+- ø ist z. B. *Alt + 0248*. Der Bereich geht von *0032* bis *0255* und deckt große und kleine *Buchstaben*, sowie *Zahlen* und *Sonderzeichen* ab. 
+- Die ersten 32 Zahlen sind Symbole, welche keine grafische Darstellung haben. Diese Zeichen werden *Steuerzeichen* genannt und signalisieren z. B. das Ende eines Strings in C/C++.
   - `Alt + 0000` → (NUL): Null-Symbol
   - `Alt + 0001` → (SOH): Start einer Heading
   - `Alt + 0002` → (STX): Start des Streams
-  - `Alt + 0003` → (ETX): Ende des Streams (verwendet in manchen Netzwerkprotokollen)
+  - `Alt + 0003` → (ETX): Ende des Streams (verwendet in manchen Netzwerkprotokollen - z.B. Serial/RS-232)
+  ...
+  - `Alt + 0010` → (LF): Line Feed. Auch als "\n" bekannt.
 
+
+### UNI-Codes
 Ein Zeichen, welches außerhalb der 256 ASCII-Zeichen liegt, ist folgendes Symbol (Cyrillic Million Symbol):
 
 ```java
-Character million = '҉';
+Character million = '҉'; // aus der Zeichentabelle kopiert
 Character million = '\u0489'; // oder direkt mit dem code
 ```
 
@@ -212,35 +251,36 @@ Wir stellen das mit 0-9 sowie A-F dar.
 Wie zuvor hat auch das Symbol 'a' den hexadezimalen Wert `0x61` und den Unicode `U+0061`. Der ASCII-Code ist also dezimal, der Unicode hexadezimal.
 
 Smileys haben ebenfalls einen Unicode. Zum Beispiel hat 🌲 den Unicode `0x1F332`. Achtung! Hier ist ein fünftes Hex-Bit dazugekommen!
-Der Standardsatz von Unicode hat aber nur vier Hex-Bits `U+0000`. Die Lösung dazu schauen wir uns in einem späteren Java-Programm an.
+Der Standardsatz von Unicode hat aber nur vier Hex-Bits `U+0000`. Wir können also 🌲 nicht als ``Character`` darstellen.
 
-Für uns funktioniert es vorerst, wenn wir direkt das Symbol einfügen. Dazu die Windows-Taste und "Punkt" drücken.
+Für uns funktioniert es vorerst, wenn wir direkt das Symbol einfügen und zwar in einen ``Wert`` des ``Typs`` *String*. Dürcke dazu die Windows-Taste und "Punkt" Taste.
 
 ```java
-String tannenbaum = "🌲";
+// Character tannenbaum = '🌲'; // Fehler!
+String tannenbaum = "🌲"; // Mit String, welches eine Kette von Character ist, geht es aber.
 System.out.println(tannenbaum);
 ```
 
-Wir müssen uns zuerst mit dieser Lösung zufriedengeben, wenn wir nicht "diesen Trick" verwenden wollen.
+Wir merken uns:
+> ``Werte`` des ``Typs`` *Character* werden mit einem ``'`` am Beginn und einem ``'`` am Ende gekennzeichnet und erlauben nur ein Symbol dazwischen.
 
-```java
-Character basicSmiley = 0x263A;
-System.out.println(basicSmiley);
-```
+> ``Character`` sind ``Integer`` welche wenn angezeigt mit dem entsprechenden Symbol dargestellt werden.
+
+> Der ``Integer`` welcher einen ``Character`` ausmacht, können in verschiedenen ``Zahlensystemen`` angegeben werden.
 
 ### Verwendung von Operatoren mit Character-Typen
 
-Wenn wir Operatoren wie `+` auf Zahlen anwenden, können wir damit auch neue Symbole erzeugen. Das liegt daran, dass das Ergebnis des Operators eine Zahl ist, die einem Symbol zugeordnet werden kann:
+Wenn wir ``Operatoren`` wie *+* auf Zahlen anwenden, können wir damit auch neue Symbole erzeugen. Das liegt daran, dass das Ergebnis des ``Operators`` eine Zahl ist, die einem Symbol zugeordnet werden kann:
 
 ```java
 Character aPlusB = 97 + 98; // a // b 
-Character AMitToupee = 195; // Ã
+Character AMitToupet = 195; // Ã
 
-System.out.println(aPlusB + " ist das gleiche Symbol wie " + AMitToupee); // Ã
+System.out.println(aPlusB + " ist das gleiche Symbol wie " + AMitToupet); // Ã
 ```
 
 Es kann jedoch zu unerwartetem Verhalten kommen, wenn man Zeichen addiert:
-Wenn wir jedoch im Kopf haben dass Character Zahlen sind, sollte es weniger überraschend sein. 
+Wenn wir jedoch im Kopf haben dass ``Character`` Zahlen sind, sollte es weniger überraschend sein. 
 
 ```java
 Character abOderEtwasAnders = 'a' + 'b'; // keine concatenation, arithmetische addition
@@ -248,21 +288,18 @@ System.out.println("ich bin hier: " + abOderEtwasAnders); // Ã
 ```
 
 ### Typumwandlung (Type Casting)
-Wird eine Berechnung mit `Integer`-Werten durchgeführt, funktioniert eine direkte Zuweisung zu `Character` nicht mehr. In diesem Fall muss eine explizite Umwandlung vorgenommen werden. Wir schreiben vor dem ``Zuweisungsoperator`` eine runde Klammer in der der neue Typ stehen soll (z.B. ``(double) a``). 
+Wird eine Berechnung mit ``Variablen`` des Typs *Integer* durchgeführt, funktioniert eine direkte Zuweisung zu `Character` nicht mehr. In diesem Fall muss eine ``explizite Typumwandlung`` vorgenommen werden. Wir schreiben vor dem ``Zuweisungsoperator`` eine runde Klammer in der der neue ``Typ`` stehen soll (z.B. *(char) a*). Zudem ist auf die Klammerung zu Achten! ``(char) (a + b)`` bedeutet zuerst ``a + b`` und dann umwandeln in einen ``char``.
 
-``Achtung!`` Es kann nur in ``primitiven Typen`` umgewandelt werden. Das sind die klein geschriebenen (int, boolean, double, float, ...). Es muss also ``(char) (a+b)`` und nicht ``(Character) (a+b)`` stehen. 
-
-Zudem ist auf die Klammerung zu Achten! ``(char) (a + b)`` bedeutet zuerst ``a + b`` und dann umwandeln in einen ``char``.
+**Anmerkung:** Es kann nur in ``primitiven Typen`` umgewandelt werden. Das sind die klein geschriebenen (int, boolean, double, float, ...). Es muss also *(char) (a+b)* und nicht *(Character) (a+b)* stehen. 
 
 ```java
 Integer a = 97;
 Integer b = 98;
-Integer AMitToupeeInteger = a + b;
+Integer AMitToupetInteger = a + b;
 Character aPlusBAlsInteger = (char) (a + b);
 ```
-Grund dafür ist die ``starke`` Typisierung der Programmiersprache JAVA. Typumwanldungen müssen dadurch immer ``explizit`` angegeben werden. JAVA darf also nicht einfach so ohne Aufforderung des Programmierers den Typ ändern. Jedoch gibt es Ausnahmen, welche für einfachere Schreibweisen genehmigt wurden. Siehe ``Character meinSymbol = 95;`` sollte eigentlich ``Character meinSymbol = (char) 95;`` sein. 
 
-Allgemein können wir uns **vorerst** merken, dass wir mit ``Type Casting`` *Zahlen in andere ``primitive`` Zahlen umwandeln* können.
+Grund dafür ist die ``starke Typisierung der Programmiersprache`` Java. Typumwanldungen müssen dadurch immer ``explizit`` angegeben werden. Java darf also nicht einfach so ohne Aufforderung des Programmierers den ``Typ`` eines ``Ausdrucks`` ändern. Jedoch gibt es Ausnahmen, welche für einfachere Schreibweisen genehmigt wurden. Siehe *Character meinSymbol = 95;* sollte eigentlich *Character meinSymbol = (char) 95;* sein. 
 
 ```java
 Character userInputCharacter = (char) (98 + primitiv); //3 + 98 = 101 = e
@@ -286,30 +323,42 @@ System.out.println(userInputCharacter); // warum leer?
 
 Es ist hier eine ähnliche Logik wie bei ``(int) doubleZahl``. Es wird unntiges abgeschnitten und mit dem Rest weitergearbeitet. Es bleibt also der ``Wert`` 10 übrig. Was ist jedoch die Darstellung eines Symols mit ASCII Code 10? Die ersten 32 Zeichen werden für interne Steuerung verwendet und nicht dargestellt. Z.B. ist ``char newLine = 10`` das gleiche wie `\n`! Dieses wissen ist jedoch schon eher speziell und dient nur zum "erforschen". 
 
-### Einschränkungen bei der Zeichenkodierung
+Wir merken uns:
+> ``Type Casting`` wandelt ``Werte`` mit ``primitiven Typ`` in andere ``Werte`` mit ``primitiven Typ`` um.
+> ``Type Casting`` wird mittels ``runder Klammern`` und dem gewünschten ``primitiven Typ`` dazwischen angegeben. 
+> Ausdrücke rechts neben dem ``Type Casting`` müssen geklammert werden, wenn diese ``Operatoren`` beinhalten.
 
-Characters verwenden 16 Bit, während Integer 32 Bit haben. Zahlen über 65535 können nicht in `Character` gespeichert werden. Zudem gibt es Smileys welche 24 oder 32 bit brauchen in der UTF8 Kodierung. Das geht sich nicht in einer Variable aus.
+### Trockene Experimente: Einschränkungen bei der Zeichenkodierung
+
+``Characters`` verwenden 16 Bit, während ``Integer`` 32 Bit haben. Zahlen über *65535* können nicht in `Character` gespeichert werden. Zudem gibt es Emojis welche 24 oder 32 bit haben. Das geht sich nicht in einer ``Variable`` des ``Typs`` *Character* aus.
 
 ```java
 Character geht = 65535;
 // Character gehtNicht = 65536; // Dies würde zu einem Fehler führen.
 ```
 
-Auch `Short` kann hier nicht direkt verwendet werden, da es signiert ist. Ein Trick besteht darin, eine arithmetische Operation durchzuführen, die das Ergebnis nicht verändert:
+#### Warum passen 16 Bit shorts nicht mit dem 16 bit character zusammen?
+Ein `Short` wie wir später sehen ist ein ganze Zahl wie ein ``Integer`` nur mit 16 bit. ``Short`` kann jedoch nicht direkt verwendet werden, da alle ganzen Zahlen ``signiert`` sind. Das Bedeutet wir haben ca. gleich viele negative wie positive Zahlen. Dadurch haben wir 15 bit für die positiven und 15 bit für die negativen Zahlen. Ein bit wird für die Codierung ob es eine positive oder negative Zahl ist reserviert. Dadurch ist ``Short`` mit seinen 15 bit für positive Zahlen zu klein um 16 bit ``Characters`` darstellen zu können. Wir müssen also dem Computer sagen er soll eine groß genuge ``Variable`` daraus machen - einen ``Integer``. Wir können dies durch:
+* ``Type Casting`` wenn wir einen ``primitiven Typen`` wollen, 
+* ``Methoden`` wenn wir ein ``Objekt`` als ``Variable`` haben, oder einen
+* Trick verwenden indem wir eine arithmetische ``Operation`` durchzuführen, die das Ergebnis nicht verändert. Diese gibt einen ``Integer`` zurück.
 
 ```java
-Short AMitToupeeShort = AMitToupeeInteger.shortValue();
-Character AMitToupeeCharacter = (char) (AMitToupeeShort + 0);
-AMitToupeeCharacter = (char) (AMitToupeeInteger * 1);
+Short AMitToupetShort = AMitToupetInteger.shortValue();
+Character AMitToupetCharacter;
+AMitToupetCharacter = (char) ((int) AMitToupetShort); // Typecasting
+AMitToupetCharacter = (char) (AMitToupetShort.intValue()); // Methoden
+AMitToupetCharacter = (char) (AMitToupetShort + 0); // Trick - Aufruf eines Operators welcher einen Integer erzeugt
+AMitToupetCharacter = (char) (AMitToupetInteger * 1); // Trick - Aufruf eines Operators welcher einen Integer erzeugt
 
-System.out.println(aPlusBAlsInteger + " ist das gleiche Symbol wie " + AMitToupeeCharacter);
+System.out.println(aPlusBAlsInteger + " ist das gleiche Symbol wie " + AMitToupetCharacter);
 ```
 
-Diese Dinge sind jedoch nicht nützlich und dienen zum Kennenlernen der Programmiersprache. Keine Sorge, es muss nicht so Programmiert werden. Wir verwenden die Abstraktion von characters, Strings welche viel einfacher zu handhaben sind.
+**Anmerkung:** Diese Dinge sind jedoch begrenzt nützlich in der Praxis und dienen hier zum **Kennenlernen** der ``Programmiersprache``. Keine Sorge, es muss nicht so Programmiert werden. Wir verwenden die Verkettung von ``Characters``, welche wir als ``Strings`` bezeichnen. Dise sind viel einfacher zu handhaben.
 
-### Charaktere als Zahlen
+#### Warum können zwei Charaktere nicht miteinander verknüpft werden?
 
-Zeichen können nicht einfach miteinander verknüpft werden:
+Unser Ziel ist foglendes: Ich habe zwei ``Variablen`` des ``Typs`` *Character* und ich möchte diese aneinanderhängen. Wir werden sehen, dass so etwas ähnliches mit dem ``Operator`` *Concatenation* funktioniert und ebenso mit *+* umgesetzt wird.
 
 ```java
 Character aSehrVielAngenehmer = 'a';
@@ -317,39 +366,55 @@ Character bSehrVielAngenehmer = 'b';
 // Character aPlusBSehrVielAngenehmer = aSehrVielAngenehmer + bSehrVielAngenehmer; // Funktioniert nicht!
 ```
 
-Addiert man jedoch `Character`-Werte als Integer, kann die Summe wieder in ein Zeichen umgewandelt werden:
+Wir können versuchen mit ``Type Casting`` dem Computer explizit zu sagen, dass wir gerne einen neuen ``Character`` hätten und schreiben folgendes:
 
 ```java
-Integer aPlusBSehrVielAngenehmer = aSehrVielAngenehmer + bSehrVielAngenehmer;
-System.out.println("Immer noch " + (char) (aPlusBSehrVielAngenehmer + 0));
+Character aSehrVielAngenehmer = 'a';
+Character bSehrVielAngenehmer = 'b';
+Character aPlusBSehrVielAngenehmer = (char) (aSehrVielAngenehmer + bSehrVielAngenehmer);
+System.out.println("Wir addieren und haben wieder A mit dem Toupet: " + aPlusBSehrVielAngenehmer);
 ```
 
-Diese Dinge sind jedoch nicht nützlich und dienen zum Kennenlernen der Programmiersprache. Keine Sorge, es muss nicht so Programmiert werden. Wir verwenden die Abstraktion von characters, Strings welche viel einfacher zu handhaben sind.
+Jedoch wir sagen hier, "addiere die bieden `Character`-Werte als Integer". Was nicht dem entspricht was wir wollen. 
 
-### Strings in Java
-
-Java besitzt keinen primitiven Datentyp `string`. Ein `String` ist eine Aneinanderreihung von `Character`-Werten. Zeichenketten werden mit `""` dargestellt und können mit `+` verknüpft werden:
+Leider haben wir hier ein konzeptionelles Problem. Wenn wir 2 Character zusammenhängen wollen, dann sind es 2 Zeichen. Wir können nicht 2 Zeichen in einem Character speichern. Wenn wir das Ergebnis in einem *String*, welcher mehrere *Charactäre* gleichzeitg speichern kann schreiben wollen, müssen wir zuerst die ``Variablen`` des ``Typs`` *Character* in einen *String* umwandeln.
 
 ```java
-String myNewString = "hallo " + " " + "du"; // keine Addition. Wir hängen Strings aneinander.
+Character aSehrVielAngenehmer = 'a';
+Character bSehrVielAngenehmer = 'b';
+String aPlusBSehrVielAngenehmer = aSehrVielAngenehmer.toString() + bSehrVielAngenehmer.toString();
+System.out.println("Ah wir können nur zusemmhängen wenn wir den Typ String haben: " + aPlusBSehrVielAngenehmer);
+```
+
+### Mehrere Zeichen zusammengefasst als Zeichenketten - Strings
+
+Java besitzt keinen ``primitiven Typ`` *string*. Ein *String* ist eine Aneinanderreihung von ``Werten`` des ``Typs`` *Character*. Diese Aneinanderreihung stellt eine Zeichenkette dar und eine mögliche Form ist der ``Typ`` *String*. Diese werden mit *""* anstatt *''* gekennzeichnet und können mit `+` verknüpft werden:
+
+```java
+String myNewString = "hallo " + " " + "du " + "🌲"; // keine Addition. Wir hängen Strings aneinander.
 System.out.println(myNewString);
-
-String tannenbaum = "🌲";
-System.out.println(tannenbaum);
 ```
 
-Ein leistungsfähigerer Typ ist `StringBuilder`, der Methoden für Zeichenketten-Manipulationen bereitstellt:
+Ein "leistungsfähigerer" ``Typ`` ist `StringBuilder`, der Methoden für Zeichenketten-Manipulationen bereitstellt:
 
 ```java
 System.out.println(new StringBuilder("hallo").append(" ").append("du").reverse());
 ```
 
-Mehr zu Strings aber in ``L05VariablenUmwandeln`` und String Builder in ``L12StringManipulation``.
+Mehr zu ``String`` und ``StringBuilder`` werden wir in späteren Lerneinheiten kennenlernen.
 
-## Ganze Zahlen
-Ganze Zahlen (keine Kommazahlen, die aber negativ und positiv sein können) können wir mit mehreren Typen darstellen. Der Unterschied liegt in der maximalen Größe der darzustellenden Zahl.
+Wir merken uns:
+> Eine Aneinanderreihung von ``Character`` wird *Zeichenkette* genannt.
 
----
+> Ein *Typ* welcher eine Zeichenkette darstellt ist ``String``. 
+
+> Die ``Operation`` ``Concatenation`` beschreibt das aneinanderhängen von ``Werten``, ``Variablen`` oder allgemein ``Ausdrücken`` welche Zeichenketten darstellen.
+
+> Um ``Strings`` effizient manipulieren zu können verwenden wir den *Typ* ``StringBuilder``.
+
+## Positive und Negative Zahlen ohne Komma - Ganze Zahlen
+Ganze Zahlen (keine Kommazahlen, die aber negativ und positiv sein können) können wir mit mehreren ``Typen`` darstellen. Der Unterschied liegt in der maximalen Größe der darzustellenden Zahl. Es reicht aber über den ``Typ`` *Integer* beschreid zu wissen, denn wir werden diesen fast auschließlich verwenden.
+
 
 ### Byte
 Wir haben die kleinste Variante mit dem Typ **Byte** (8 Bit), welche hier eine sogenannte *signed Variable* ist. Wir berücksichtigen also das Vorzeichen.
@@ -448,46 +513,48 @@ Integer bitsOflong = Long.SIZE;
 
 System.out.println(grosseGanzeZahlPositive + " " + grosseGanzeZahlNegative + " " + bitsOflong);
 ```
-## Komma Zahlen
-Komma Zahlen unterscheiden sich von ganzen Zahlen, indem wir Nachkommastellen haben.
-Wir könnten einfach sagen wir nehmen 2 Integer, einer für vor dem Komma und einen für die Zahl nach dem Komma.
-Es gibt aber eine kompaktere Variante, welche sich Fließkommazahl nennt.
-Hier wird bestimmt, wie viel Bits wir für Vor- und Nachkommastelle brauchen.
+
+## Zahlen mit Kommastellen
+Kommazahlen unterscheiden sich von ganzen Zahlen, indem wir Nachkommastellen haben.
+Wir könnten einfach sagen wir nehmen 2 ``Integer``, einer für vor dem Komma und einen für die Zahl nach dem Komma.
+Es gibt aber eine kompaktere Variante, welche sich ``Fließkommazahl`` nennt. Hier wird berechnet, wie viel Bits wir für Vor- und Nachkommastelle brauchen.
 haben also keine fixe große Vor- und Nachkommastelle, sondern eine die "fließen" kann.
 
-### Float
+### Float - 32 Bit
 Für die Darstellung sind 32 bit zur Verfügung.
 Da wir uns nicht direkt mit der Darstellung auseinandersetzten müssen, sollten wir uns aber eines merken.
 Wenn wir viel Speicher für die Vorkommastelle brauchen, haben wir weniger Platz für die Nachkommastelle.
 Auch wenn wir Operatoren verwenden, kann es dadurch zu Ungenauigkeiten kommen.
 
-Zuerst schauen wir uns aber an wie wir eine Variable mit Typ float definieren.
-Da wir standard mäßig einen Wert mit Typ Double erzeugen, wenn wir eine Kommazahl schreiben, müssen wir dem Computer
-mitteilen, dass es sich um einen Float handelt. Wir tun das mithilfe des "F" oder "f" am Ende der Kommazahl.
+Zuerst schauen wir uns aber an wie wir eine ``Variable`` des ``Typs`` *float* ``definieren``.
+Da wir standard mäßig einen Wert mit ``Typ`` *Double* erzeugen, wenn wir eine Kommazahl schreiben, müssen wir dem Computer
+mitteilen, dass es sich um einen ``Float`` handelt. Wir tun das mithilfe des "F" oder "f" am Ende der Kommazahl.
 
 ```java
 Float myFirstFloat = 0.25F;
 System.out.println(myFirstFloat);
 ```
 
-Durch die Art wie wir Fließkommazahlen darstellen, ist es uns möglich scheinbar größere Zahlen als mit Long darzustellen.
+Durch die Art wie wir Fließkommazahlen darstellen, ist es uns möglich scheinbar größere Zahlen als mit ``Long`` darzustellen.
 ```java
-Float myStrngeAndBigFloat = 182255459184527355549958849981255210445.0F;
-Long tooLongforLong = 182255459184527355549958849981255210445L;
+Float myStrngeAndBigFloat = 340282346638528860000000000000000000000.0F; // kein Fehler - Zahl nicht zu groß für float
+                                                                        // aber nicht alle Zahlen dazwischen genau darstellbar, denn wir haben 32 bit zur Verfügung. 
+                                                                        // Es ist also nur ein Trick.
+Long tooLongforLong =       340282346638528860000000000000000000000L;   // Zahl zu groß für 64 Bit -> 2^64
 ```
 
-Aber das ist nur scheinbar so. Wir schneiden nämlich einige Zahlen weg, indem der Computer es so genau wie möglich approximiert.
-1.8225546E38 bedeutet wir nehmen die Zahl 1.8225546 und multiplizieren es mit 10^38. 10^38 bedeutet eine Zahl mit 38 Nullen.
-Also lässt sich 18225546 sehr genau darstellen und die restlichen 31 Stellen werden weggelassen.
+Aber das ist nur scheinbar so. Wir schneiden nämlich einige Zahlen zwischen dem Maximalen Wert und den nächst größeren Wert weg. Wir können also nicht den *Float.MAX_VALUE - 1* darstellen. Dieser ist gleich dem *Float.MAX_VALUE* *3.402823**5**e38*. Die nächst genauere Zahl wäre *Math.nextDown(Float.MAX_VALUE);*  was *3.402823**3**e38* ist. Wir haben also Löcher/Rundungsfehler der Größenordnung *1e31* was eine Zahl mit *31* Nullen ist.
 
 ```java
-System.out.println(myStrngeAndBigFloat);
+System.out.println(Float.MAX_VALUE);   // ergibt 3.4028235E38
+System.out.println(Float.MAX_VALUE-1); // ..auch 3.4028235E38
+System.out.println(Math.nextDown(Float.MAX_VALUE)); // 3.4028233E38
 ```
 
-### Double
-Genau das gleiche kann von Double behauptet werden, außer dass es doppelt so viele bits hat. 64 statt 32.
-Da wir ca 7 Nachkommastellen mit Float und ca 16 mit Double wird Double standardmäßig verwendet, da es sehr schnell
-passieren kann, dass wir mehr wie 6 Nachkommastellen brauchen. Grund dafür sind Rundungsfehler bei Operatoren.
+### Double - 2 * 32 Bit
+Genau das gleiche kann von ``Double`` behauptet werden, außer dass es doppelt so viele bits wie ``Float`` hat. *64* statt *32*.
+Da wir ca. *7* Nachkommastellen mit ``Float`` und ca. *16* mit ``Double``, wird ``Double`` standardmäßig verwendet, da es sehr schnell
+passieren kann, dass wir mehr wie *6* Nachkommastellen brauchen. Grund dafür sind Rundungsfehler und die oben geplante Ungenauigkeit. Wir werden nicht darauf eingehen wie ``Fließkommazahlen`` genau funktionieren, wir sollten uns jedoch merken, dass wir nicht auf magische weise viel größere Zahlen darstellen können als es die Bits zulassen. Wir müssen mit Rundungsfehlern leben und diese werden "smart" gestaltet, damit wir nicht eine Rundugnsgenauigkeit von *1e31* bei der Zahl *1* haben. Die Folge wäre dass die nächst genauere Zahl neben *1* *1e31* wäre. Dem ist aber nicht so. 
 
 ```java
 Double myFirstDouble = 0.25;
@@ -499,6 +566,24 @@ Durch die Art wie wir Fließkommazahlen darstellen, ist es uns möglich scheinba
 Double myStrngeAndBigDouble = 18225545918452735554995884998125521044555555555555555555544444444444481521515.0;
 System.out.println(myStrngeAndBigDouble);
 ```
+
+Gleich wie oben auch hier:
+```java
+System.out.println(Double.MAX_VALUE);   // ergibt 1.7976931348623157e308
+System.out.println(Double.MAX_VALUE-1); // ..auch 1.7976931348623157e308
+System.out.println(Math.nextDown(Double.MAX_VALUE)); // 1.7976931348623155e308
+```
+
+Wir merken uns:
+> ``Double`` und ``Float`` sind ``Fließkommzahlen`` da wir per Bedarf die Präzession einer Zahl durch ein fließendes Komma steuern können.
+
+> ``Werte``, ``Variablen`` und ``Ausdrücke`` welche mit ``Double`` und ``Float`` in Verbindung stehen, haben Rundungsfehler. 
+
+> Wir präferieren ``Double``, da ``Float`` nur ca *7*. Nachkommastellen darstellen kann. ``Double`` schafft ca. *14*.
+
+> Vorgriff: Wir vergleichen **niemals** ``Werte``, ``Variablen`` und ``Ausdrücke`` welche mit ``Double`` und ``Float`` in Verbindung stehen mit dem ``Vergleichsoperator`` *==*. 
+
+### Optional: Beispiele zur den Rundungsfehlern welche mit Operatoren enstehen
 
 Hier ein paar kurze Beispiele zu den Rundungsfehlern der Fließkommadarstellung der Zahlen.
 ```java
