@@ -1,7 +1,7 @@
 # Variablen und Werte in Java
 
 #### Welche Begriffe werden hier verwendet?
-[``Programm``](../../../glossar.md#programm), [``Wert``](../../../glossar.md#wert), [``Konsole``](../../../glossar.md#Variable), [``Variable``](../../../glossar.md#Variable), [``Typ``](../../../glossar.md#Typ), [``String``](../../../glossar.md#String), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#Zuweisungsoperator), [``Compiler``](../../../glossar.md#compiler), [``statisch typisierte Programmiersprache``](../../../glossar.md#statisch typisierte Programmiersprache)
+[``Programm``](../../../glossar.md#programm), [``Wert``](../../../glossar.md#wert), [``Konsole``](../../../glossar.md#Variable), [``Variable``](../../../glossar.md#Variable), [``Typ``](../../../glossar.md#Typ), [``String``](../../../glossar.md#String), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#Zuweisungsoperator), [``Compiler``](../../../glossar.md#compiler), [``statisch typisierte Programmiersprache``](../../../glossar.md#statisch-typisierte-Programmiersprache)
 
 ---
 
