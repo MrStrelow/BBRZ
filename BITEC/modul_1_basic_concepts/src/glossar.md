@@ -2,13 +2,13 @@
 
 ## Variable
 
-## programm
+## Programm
 
 ## main-methode
 
-## wert
+## Wert
 
-## typ
+## Typ
 
 ## string
 
@@ -27,3 +27,5 @@
 ## Zuweisungsoperator
 
 ## Projekt
+
+## statisch typisierte Programmiersprache
