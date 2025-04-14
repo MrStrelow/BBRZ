@@ -1,7 +1,7 @@
 ## Erste Schritte in Java
 
-#### Welche Begriffe führen wir hier ein?
-[`Programm`](glossar.md#programm), [`Main-Methode`](glossar.md#main-methode), [`Wert`](glossar.md#wert), [`Variable`](glossar.md#Variable), [`Typ`](glossar.md#Typ), [`String`](glossar.md#String), [`Integer`](glossar.md#integer), [`Double`](glossar.md#double), [`Boolean`](glossar.md#boolean), [`deklarieren`](glossar.md#deklarieren), [`initialisieren`](glossar.md#initialisieren), [`definieren`](glossar.md#definieren), [`Zuweisungsoperator`](glossar.md#Zuweisungsoperator)
+#### Welche Begriffe werden hier verwendet?
+[`Programm`](../../../glossar.md#programm), [`Main-Methode`](../../../glossar.md#main-methode), [`Wert`](../../../glossar.md#wert), [`Variable`](../../../glossar.md#Variable), [`Typ`](../../../glossar.md#Typ), [`String`](../../../glossar.md#String), [`Integer`](../../../glossar.md#integer), [`Double`](../../../glossar.md#double), [`Boolean`](../../../glossar.md#boolean), [`deklarieren`](../../../glossar.md#deklarieren), [`initialisieren`](../../../glossar.md#initialisieren), [`definieren`](../../../glossar.md#definieren), [`Zuweisungsoperator`](../../../glossar.md#Zuweisungsoperator)
 
 ---
 
