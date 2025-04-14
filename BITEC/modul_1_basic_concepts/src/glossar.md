@@ -1,7 +1,6 @@
 # Glossar
 
 ## Variable
-Eine Variable ist ein Platzhalter für Werte. Sie kann verschiedene Datentypen annehmen, wie z.B. `String`, `int`, `float`, usw.
 
 ## programm
 

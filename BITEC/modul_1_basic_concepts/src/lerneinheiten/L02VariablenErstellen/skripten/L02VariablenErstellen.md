@@ -1,12 +1,12 @@
 # Variablen und Werte in Java
 
 #### Welche Begriffe werden hier verwendet?
-[`Wert`](../../../glossar.md#wert), [`Konsole`](../../../glossar.md#Variable), [`Variable`](../../../glossar.md#Variable), [`Typ`](../../../glossar.md#Typ), [`String`](../../../glossar.md#String), [`Integer`](../../../glossar.md#integer), [`Double`](../../../glossar.md#double), [`Boolean`](../../../glossar.md#boolean), [`deklarieren`](../../../glossar.md#deklarieren), [`initialisieren`](../../../glossar.md#initialisieren), [`definieren`](../../../glossar.md#definieren), [`Zuweisungsoperator`](../../../glossar.md#Zuweisungsoperator)
+[`Programm`](../../../glossar.md#programm), [`Wert`](../../../glossar.md#wert), [`Konsole`](../../../glossar.md#Variable), [`Variable`](../../../glossar.md#Variable), [`Typ`](../../../glossar.md#Typ), [`String`](../../../glossar.md#String), [`Integer`](../../../glossar.md#integer), [`Double`](../../../glossar.md#double), [`Boolean`](../../../glossar.md#boolean), [`deklarieren`](../../../glossar.md#deklarieren), [`initialisieren`](../../../glossar.md#initialisieren), [`definieren`](../../../glossar.md#definieren), [`Zuweisungsoperator`](../../../glossar.md#Zuweisungsoperator), [`Compiler`](../../../glossar.md#compiler), [`statisch typisierte Programmiersprache`](../../../glossar.md#statisch%20typisierte%20Programmiersprache)
 
 ---
 
 ## Was wollen wir in einem Programm tun?
-Ein Computerprogramm ist für uns ist die **laufende** manipulation von ``Werten`` um ein Ergebnis zu erzeugen. In den meisten Computersprachen müssen wir diesen ``Werten`` immer einen ``Typ`` geben. Wir tun dies mit einer speziellen Kennzeichnung dieser ``Werte``. Diese Kennzeichnung schaut für die folgende ``Typen`` folgendermaßen aus:
+Ein ``Programm`` ist für uns ist die Manipulation von ``Werten`` um ein Ergebnis zu erzeugen. In den meisten Computersprachen müssen wir diesen ``Werten`` immer einen ``Typ`` geben. Wir tun dies mit einer speziellen Kennzeichnung dieser ``Werte``. Diese Kennzeichnung schaut für die folgende ``Typen`` folgendermaßen aus:
 
 | Typ | Kennzeichnung | Beispiel |
 |--------------|-----------|-----------|
@@ -26,21 +26,21 @@ System.out.println(true);       // ich bin ein Wert vom Typ Boolean.
 **Anmerkung**: Streng genommen sind die ``Typen`` der ``Werte``: ``String``, ``int``, ``double``, und ``boolean``. Was der Unterschied zwischen groß und klein geschriebenen Typen ist, ist vorerst nicht relevant.
 
 Wir merken uns:
-> 
+> Ein ``Computerprogramm`` ist für uns ist die Manipulation von ``Werten`` um ein Ergebnis zu erzeugen.
 
 ## Kurzsprechweise von Werten
 Da es umständlich ist immer von ``Werten`` eines ``Typs`` zu sprechen, werden wir z.B. anstatt ``"Hallo" ist ein Wert vom Typ String``, ``"Hallo" ist ein String`` sagen. Gleiches gilt für andere ``Typen``.
 
 ## Warum müssen wir Werte des Typ Strings zwischen "" schreiben?
-Wir kennzeichnen ``Strings`` (oder auch ``Zeichenketten`` genannt) , mit ``""``, damit der ``Compiler`` es von Symbolen der Programmiersprache, wie `System.out.println` unterscheiden kann. Da unsere Sprache textbasiert ist, haben wir leider eine doppelte Verwendung von Text. Durch eine Kennzeichnung wie eben ``""`` ist diese Unterscheidung möglich.
+Wir kennzeichnen ``Strings`` (oder auch ``Zeichenketten`` genannt) , mit ``""``, damit der ``Compiler`` es von Symbolen der Programmiersprache, wie *System.out.println* unterscheiden kann. Da unsere Sprache textbasiert ist, haben wir leider eine doppelte Verwendung von Text. Durch eine Kennzeichnung wie eben ``""`` ist diese Unterscheidung möglich.
 
 ## Was erlauben uns Variablen zu tun?
-``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da JAVA eine ``statisch typisierte`` Programmiersprache ist müssen wir bei **jeder** ``Definition`` einer ``Variable`` den ``Typ`` dazuschreiben.
+``Variablen`` erlauben uns ``Werte`` später im Programm wiederzuverwenden, indem wir diese durch einen ``Namen`` ansprechbar machen. Eine ``Variable`` wird also zu einem Platzhalter für verschiedene ``Werte`` eines bestimmten ``Typs``. Da JAVA eine ``statisch typisierte Programmiersprache`` ist müssen wir bei **jeder** ``Definition`` einer ``Variable`` den ``Typ`` dazuschreiben.
 
-Wir haben bereits 2 verschiedene Arten kennen gelernt wie wir eine ``Variable`` anlegen könnnen. Eine ist die ``Variable`` zu ``definieren`` die andere ist eine `Variable` zu `definieren und initialisieren`.
+Wir haben bereits 2 verschiedene Arten kennen gelernt wie wir eine ``Variable`` anlegen könnnen. Eine ist die ``Variable`` zu ``definieren`` die andere ist eine ``Variable`` zu `definieren` und zu ``initialisieren``.
 
 ### Deklaration, Definition und Initialisierung
-Die Unterscheidung der Wörter ``Deklaration`` und ``Definition`` macht nur begrenzt Sinn, da JAVA nicht zwische diesen Konzepten unterscheidet. Deshalb werden wir dieses immer als ``Definition`` benennen. Sie werden jedoch beide Begriffe online oder in Büchern sehen, welche jedoch meist Synonyme (gleich) für JAVA sind. Für Sprachen wie C/C++ ist jedoch eine solche Unterscheidung sinnvoll.
+Wir haben dieses Konzept schon in der vorherigen Lektion kennengelernt. Wir wiederholen es nur begrenzt hier und einigen uns, dass die Unterscheidung der Wörter ``Deklaration`` und ``Definition`` nur begrenzt Sinn macht. Grund ist Java unterscheidet nicht zwische diesen Konzepten für uns als Programmiere. Deshalb werden wir dieses immer als ``Definition`` benennen. Sie werden jedoch beide Begriffe online oder in Büchern sehen, welche jedoch meist Synonyme (gleich) für JAVA sind. Für Sprachen wie C/C++ ist jedoch eine solche Unterscheidung sinnvoll.
 
 Bei der ``Definition`` verzichten wir auf eine **sofortige** Zuweisung einer ``Variable`` mit einem ``Wert``. Zudem verschieben wir diese Zuweisung auf einen späteren Zeitpunkt im Programm. Diese Zuweisung wird auch ``Initialisierung`` genannt. Variablen welche **nur** ``definiert`` werden und nie ``initialisiert`` werden können nicht verwendet werden. 
 
@@ -69,6 +69,10 @@ String formatiert = String.format("Wert: %d", 42);    // Der Ausdruck rechts vom
 String ersteZeileDerWebsite = new BufferedReader(new InputStreamReader(new URL("https://www.example.com").openStream())).readLine(); // Der Ausdruck rechts vom = erzeugt einen Wert vom Typ String
 ```
 
+Wir merken uns:
+> Der ``Typ`` des ``Wertes`` muss mit dem ``Typ`` der ``Variable`` zusammenpassen, wenn wir diese mit dem ``Zuweisungsoperator`` *=* verbinden.
+
+
 ## Verschiedene Arten von Typen
 - Zeichen(ketten):
   - String (oder für mehr funktionalität, StringBuilder)
@@ -84,9 +88,12 @@ String ersteZeileDerWebsite = new BufferedReader(new InputStreamReader(new URL("
 - logische Werte:
   - boolean oder Boolean (hat ``false`` oder ``true`` als Wert)
 
-``Merke!`` Wenn wir *nicht* die primitiven Typen verwenden sind immer alle Typen **groß** geschrieben. Wir können also gut unterscheiden zwischen klein geschriebenen ``Variablen`` und groß geschriebenen ``Typen``. Auch wenn wir den genauen Kontext nicht kennen, sollte es uns möglich sein ``Scanner`` als Typ zu identifizieren und ``scanner`` als variable.
+**Anmerkung:** Wenn wir *nicht* die primitiven Typen verwenden sind immer alle Typen **groß** geschrieben. Wir können also gut unterscheiden zwischen klein geschriebenen ``Variablen`` und groß geschriebenen ``Typen``. Auch wenn wir den genauen Kontext nicht kennen, sollte es uns möglich sein ``Scanner`` als Typ zu identifizieren und ``scanner`` als variable.
 
-## Klassen sind Typen, aber primitive Typen sind auch Typen
+Wir merken uns:
+> ``Typen`` werden groß geschrieben, ``Variablen`` klein. Wir erkennen somit anhande der Schreibweise, um welches Konzept es sich handelt.
+
+## Klassen und primitive Typen sind Typen
 Wenn wir den `<Typ>`...
 - klein schrieben → primitive Datentypen (keine ``Klassen``),
 - groß schrieben → (sind ``Klassen``).
