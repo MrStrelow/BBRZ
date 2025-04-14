@@ -26,3 +26,5 @@ Eine Variable ist ein Platzhalter für Werte. Sie kann verschiedene Datentypen a
 ## definieren
 
 ## Zuweisungsoperator
+
+## Projekt

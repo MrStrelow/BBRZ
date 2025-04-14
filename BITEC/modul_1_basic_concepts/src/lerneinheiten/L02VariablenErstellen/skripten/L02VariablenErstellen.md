@@ -1,5 +1,10 @@
 # Variablen und Werte in Java
 
+#### Welche Begriffe werden hier verwendet?
+[`Wert`](../../../glossar.md#wert), [`Konsole`](../../../glossar.md#Variable), [`Variable`](../../../glossar.md#Variable), [`Typ`](../../../glossar.md#Typ), [`String`](../../../glossar.md#String), [`Integer`](../../../glossar.md#integer), [`Double`](../../../glossar.md#double), [`Boolean`](../../../glossar.md#boolean), [`deklarieren`](../../../glossar.md#deklarieren), [`initialisieren`](../../../glossar.md#initialisieren), [`definieren`](../../../glossar.md#definieren), [`Zuweisungsoperator`](../../../glossar.md#Zuweisungsoperator)
+
+---
+
 ## Was wollen wir in einem Programm tun?
 Ein Computerprogramm ist für uns ist die **laufende** manipulation von ``Werten`` um ein Ergebnis zu erzeugen. In den meisten Computersprachen müssen wir diesen ``Werten`` immer einen ``Typ`` geben. Wir tun dies mit einer speziellen Kennzeichnung dieser ``Werte``. Diese Kennzeichnung schaut für die folgende ``Typen`` folgendermaßen aus:
 
@@ -10,7 +15,7 @@ Ein Computerprogramm ist für uns ist die **laufende** manipulation von ``Werten
 | `Double` | eine Zahl mit Punkt (Kommazahlen) |`-9.6584` und `7.` was abgekürzt `7.0` ist. |
 | `Boolean` | das wort ``true`` und ``false`` klein geschrieben |  |
 
-Um dies nun in JAVA zu übersetzten übergeben wir im folgenden Code der Konsole ``Werte`` von verschiedenen ``Typen``. 
+Wir übergeben nun im folgenden Code der ``Konsole`` ``Werte`` von verschiedenen ``Typen``. Bedeutet wir geben diese auf der ``Konsole`` aus.
 
 ```java
 System.out.println("ich bin ein Wert vom Typ String.");
@@ -19,6 +24,9 @@ System.out.println(3658.968);   // ich bin ein Wert vom Typ Double.
 System.out.println(true);       // ich bin ein Wert vom Typ Boolean.
 ```
 **Anmerkung**: Streng genommen sind die ``Typen`` der ``Werte``: ``String``, ``int``, ``double``, und ``boolean``. Was der Unterschied zwischen groß und klein geschriebenen Typen ist, ist vorerst nicht relevant.
+
+Wir merken uns:
+> 
 
 ## Kurzsprechweise von Werten
 Da es umständlich ist immer von ``Werten`` eines ``Typs`` zu sprechen, werden wir z.B. anstatt ``"Hallo" ist ein Wert vom Typ String``, ``"Hallo" ist ein String`` sagen. Gleiches gilt für andere ``Typen``.

@@ -1,35 +1,80 @@
-## Erste Schritte in Java
+# Erste Schritte in Java und Intellij
 
 #### Welche Begriffe werden hier verwendet?
-[`Programm`](../../../glossar.md#programm), [`Main-Methode`](../../../glossar.md#main-methode), [`Wert`](../../../glossar.md#wert), [`Variable`](../../../glossar.md#Variable), [`Typ`](../../../glossar.md#Typ), [`String`](../../../glossar.md#String), [`Integer`](../../../glossar.md#integer), [`Double`](../../../glossar.md#double), [`Boolean`](../../../glossar.md#boolean), [`deklarieren`](../../../glossar.md#deklarieren), [`initialisieren`](../../../glossar.md#initialisieren), [`definieren`](../../../glossar.md#definieren), [`Zuweisungsoperator`](../../../glossar.md#Zuweisungsoperator)
+[`Java`](../../../glossar.md#programm), [`Projekt`](../../../glossar.md#programm), [`Programm`](../../../glossar.md#programm), [`Programmiersprache`](../../../glossar.md#programm), [`Main-Methode`](../../../glossar.md#main-methode), [`Entwicklungsumgebung`](../../../glossar.md#main-methode),  [`Intellij`](../../../glossar.md#wert), [`Fehler`](../../../glossar.md#wert), [`Warnung`](../../../glossar.md#wert), [`Wert`](../../../glossar.md#wert), [`Variable`](../../../glossar.md#Variable), [`Typ`](../../../glossar.md#Typ), [`String`](../../../glossar.md#String), [`Integer`](../../../glossar.md#integer), [`Double`](../../../glossar.md#double), [`Boolean`](../../../glossar.md#boolean), [`deklarieren`](../../../glossar.md#deklarieren), [`initialisieren`](../../../glossar.md#initialisieren), [`definieren`](../../../glossar.md#definieren), [`Zuweisungsoperator`](../../../glossar.md#Zuweisungsoperator)
 
 ---
 
-Java ist eine objektorientierte Sprache, welche dadurch am Anfang Dinge verwendet, welche wir noch nicht erklärt haben.
-Das bedeutet, wir müssen für unsere ersten Programme folgendes berücksichtigen:
+## Wie erstelle ich ein Programm?
+Unser Ziel fürs erste ist es ein ``Dokument`` zu erstellen, in welchen wir Programmieren können. Da ``Java`` eine objektorientierte ``Programmiersprache`` ist und wir nicht sofort mit objektorientierung beginnen, werden "Dinge" verwendet welche wir vorerste "auswendig lernen" müssen. Die Anzahl dieser hält sich jedoch in Grenzen. 
 
-1. Wir müssen unser File, welches den Programmcode enthält, in einem Projekt anlegen.
-   Dort wird der Ordner `src`, was "source" also "Quelle" bedeutet, von IntelliJ angelegt.
-   Nur innerhalb dieses `src`-Ordners können wir Files erstellen, in denen wir programmieren können.
-2. Wir haben ein File angelegt. Dieses ist eine Klasse mit dem Namen `L01ErsteSchritte`.
-   Das wird oben mit `public class L01ErsteSchritte` gemacht. Was die orange gefärbten `public` und `class` machen, ist vorerst nicht wichtig.
-   Eine Klasse ist für uns erstmal nur eine Umgebung, in der wir den Namen des Programms festhalten.
-   In den geschwungenen Klammern wird eine neue Umgebung geschaffen, in der wir weiter arbeiten können. Das gilt auch für zukünftige Programmkonstrukte.
-3. Wir erstellen innerhalb der neuen Umgebung, in der Klasse, eine neue Umgebung, in der wir nun programmieren können.
-   Das ist die Methode mit dem Namen `main`. Wieder, was die orange gefärbten `public static void` machen, wird in ein paar Monaten besprochen.
-   Das `String[] args` ist so weit auch nicht essenziell. Für uns ist es ein Mechanismus, mit dem wir weiter unten in diesem File von "der Außenwelt" Informationen bekommen können.
-   Wir brauchen, um mit dem Programmieren anfangen zu können, eine Klasse mit einem beliebigen Namen und eine Methode, die `main` heißt.
-   Diese muss GENAU so aussehen wie jene unten. Also `public static void main(String[] args)`. Wird z.B. das `String[] args` gelöscht, bekommen wir Fehler.
+Um unsere Programme zu schreiben verwenden eine ``Entwicklungsumgebung`` mit Namen ``Intellij``. Wir starten diese und legen dort ein ``Projekt`` an. Ein Projekt ist eine Ansammlung von ``Dokumenten`` in welchen wir Programmieren.
+
+1. Nach dem Start von Intellij sollte ein Fenster geöffnet werden welches einen Button "New Project" hat. 
+<p align="center" alt="Hier sollte ein Bild sein welches ein 'neues Projekt auswaehlen' beschreibt">
+  <img src="figures/01_neues_projekt_auswählen.png" />
+</p>
+
+2. Wähle danach einen Namen für das Projekt und mit einem Pfad den Ort wo dieses am Computer abgelegt wird. Drücke rechts auf das Ordner-Symbol um eine von Windows erzeugte Übersicht zu bekommen.
+<p align="center" alt="Hier sollte ein Bild sein welches ein 'neues Projekt anlegen' beschreibt">
+  <img src="figures/02_neues_projekt_anlegen.png" />
+</p>
+
+3. Wir ignorieren den Text in dem ``Dokument`` *Main.java* und drücken das *grüne Dreieck* rechts oben (oder Shift + F10). Wir führen damit ein ``Programm`` aus. Da wir von ``Intellij`` ein vorgefertigtes bekommen haben, müssen wir nicht zuerst eines schreiben um testen zu können ob ``Intellij`` mit ``Java`` funktioniert. Wir nenen ein solches Testprogramm ``Hello World Programm``. Nach ein paar Sekunden muss unten der im Bild rot *markierte Text* in der ``Konsole`` ausgegeben werden.
+<p align="center" alt="Hier sollte ein Bild sein welches ein 'Test programm starten' beschreibt">
+  <img src="figures/03_test_programm.png" />
+</p>
+
+4. Wir **löschen** nun das ``Dokument`` *Main.java* in der *Projektübersicht* links. Wir legen dies nun neu an und entfernen damit den vorgefertigten Code. Markiere das ``Dokument`` Dürcke dazu die *ENTF* Taste (oder *DEL* auf englisch) auf der Tastatur.
+<p align="center" alt="Hier sollte ein Bild sein welches ein 'Projekt übersicht' beschreibt">
+  <img src="figures/04_projekt_übersicht.png" />
+</p>
+
+5. Wir sehen den ORdner `src` was "source" also "Quelle" bedeutet. Nur innerhalb dieses `src`-Ordners können wir Files erstellen, in denen wir programmieren können.  Wir legen nun innerhalb des `src`-Ordners eine Datei mit der Endung *.java* an (siehe Bild). Dort schreiben wir in die erste Zeile *public class L01ErsteSchritte {}*. Was die orange gefärbten "Dinge" `public` und `class` machen, ist vorerst nicht wichtig. Eine Klasse ist für uns nur eine Umgebung, in der wir den Namen des ``Dokuments`` festhalten. In den *geschwungenen Klammern* wird eine neue Umgebung geschaffen, in welcher wir neues "Dinge" verwenden können.
+<p align="center" alt="Hier sollte ein Bild sein welches ein 'neues Dokument anlegen' beschreibt">
+  <img src="figures/05_dokument_anlegen.png" />
+</p> 
+
+6. Wir erstellen innerhalb der neuen Umgebung *public class L01ErsteSchritte {}*, eine neue Umgebung *public static void main(String[] args) {}*. Nur dort werden wir programmiern. Bezeichnet wird dies eine Methode mit dem Namen `main`. Wieder, was die orange gefärbten *public static void* machen, ist nicht relevant. 
+
+Wir sehen nun folgendes in unserem ``Dokument``.
 
 ```java
-public class L01ErsteSchritte {
-    public static void main(String[] args) {
+public class L01ErsteSchritte {                 // Klasse welche genau wie das Dokument heißt (ohne .java).
+    public static void main(String[] args) {    // main-Methode
         // ... hier Programmieren wir. 
         // Zudem sind die zwei hintereinander geschriebene // ein Kommentar, welches keinen Programmcode darstellt.
     }
 }
 ```
 
+**Anmerkung:** *String[] args* bietet uns eine Möglichkeit mit "der Außenwelt" zu kommunizieren. Das bedeutet, wenn wir ein Programm ausführen fließt information vom Aufrufer in das Programm hinein.
+
+Wir merken uns:
+> Wir erstellen nur ``Dokumente`` in denen wir *programmieren* nur innerhalb des ``src`` Ordners.
+
+> Der Name des ``Dokuments`` und das Wort neben *public class* muss gleich sein.
+
+> Wir *programmieren* vorerst nur innerhalb der ``main-Methode`` welche sich in einer Klasse befindet.
+
+> Text welcher mit *//* oder */**/* startet ist ein ``Kommentar``. Dieses Text ist dadurch nicht Teil der ``Programmiersprache``. 
+
+
+### Was bedeuten rote Buchstaben und rot- bzw. gelb-gezackte linien?
+Wir schauen uns folgendes Bild an:
+<p align="center" alt="Hier sollte ein Bild sein welches ein 'Fehler und Warnungen' beschreibt">
+  <img src="figures/06_fehler_und_warnungen.png" />
+</p> 
+
+Der Computer will uns hier folgendes mitteilen:
+> Der geschreibene Text ist nicht Teil der ``Programmiersprache`` wenn der Text **<span style="color:red">rot</span>** geschrieben wird.
+
+> Der geschreibene Text teil der ``Programmiersprache``, ist aber *fehlerhaft* wenn der Text **<span style="color: red; text-decoration: underline;"></span>** geschrieben wird.
+
+> Warnungen sind
+
+
+## Was mach ich in einem Programm?
 Hier ist nun der Punkt, an dem wir etwas machen können.
 Ein häufiges erstes Programm in einer Programmiersprache ist, "Hello World" auszugeben.
 Das soll sicherstellen, dass die Sprache bzw. das Setup der Umgebung funktioniert.
@@ -135,4 +180,6 @@ public class L01ErsteSchritte {
 }
 ```
 
-Die `Variable` `meinKombinierterString` können wir nun ausgeben.
+Die `Variable` `meinKombinierterString` können wir nun ausgeben.´
+
+### Empfehlung: Lege ich jede Übung oder Mitschrift ein Projekt an?  
