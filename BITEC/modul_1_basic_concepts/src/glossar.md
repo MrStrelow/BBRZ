@@ -10,13 +10,15 @@
 
 ## Typ
 
-## string
+## String
 
-## integer
+## StringBuilder
 
-## double
+## Integer
 
-## boolean
+## Double
+
+## Boolean
 
 ## deklarieren
 
@@ -29,3 +31,21 @@
 ## Projekt
 
 ## statisch typisierte Programmiersprache
+
+## stark typisierte Programmiersprache
+
+## objektorientierte Programmiersprache
+
+## Klasse
+
+## Objekt
+
+## primitiver Typ
+
+## Fließkommazahl
+
+## Compiler
+
+## explizite Typumwandlung
+
+## implizite Typumwandlung
