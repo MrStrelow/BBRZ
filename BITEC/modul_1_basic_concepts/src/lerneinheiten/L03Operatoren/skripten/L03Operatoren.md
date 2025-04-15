@@ -1,57 +1,183 @@
 # Operatoren in Java
 
-Operatoren verknüpfen ``Variablen`` bzw. ``Werte`` miteinander und erzeugen basierend auf diesen einen neuen ``Wert``.
+#### Welche Begriffe werden hier verwendet?
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``Anweisung``](../../../glossar.md#anweisung), [``Auswertungsreihenfolge eines Ausdrucks``](../../../glossar.md#auswertungsreihenfolge-eines-ausdrucks), [``Auswertung eines Ausdrucks``](../../../glossar.md#auswertung-eines-ausdrucks), [``Klammersetzung``](../../../glossar.md#klammersetzung)
 
-Der folgende *+* ``Operator``, welcher die Bedeutung *"Addition"* hat, verknüpft die Zahlen *35* und *17* und erzeugt den neuen ``Wert`` *52*:
+---
+
+Wir merken uns:
+> ``Operatoren`` verknüpfen ``Variablen``, ``Werte`` oder allgemein ``Ausdrücke`` miteinander und erzeugen basierend auf diesen einen neuen ``Wert``.
+
+Der folgende **+** ``Operator``, welcher die Bedeutung *"Addition"* hat, verknüpft die Zahlen *35* und *17* und erzeugt den neuen ``Wert`` *52*:
 
 ```java
 System.out.println(35 + 17);
 ```
 
-Die Bedeutung eines ``Operators`` ist abhängig vom ``Typ`` der ``Variablen`` bzw. ``Werte``, welche in den ``Operator`` "hineingegeben" werden. Das sehen wir bei dem Ausdruck *"35" + "17"*. Hier hat der Operator `+` nicht die Bedeutung der *"Addition"*, sondern der *"Concatenation"* (zusammenfügen). Wir fügen also die Zeichenkette *"35"* mit der Zeichenkette "17" zusammen, was *"3517"* ergibt:
-
+## Operatoren können überladen sein
+Wir schauen uns zuerst forlgendes Programm an.
 ```java
 System.out.println("35" + "17");
 ```
+
+Was ist das Ergebnis dieses ``Operatores`` **+**? Wir haben vorher gesehen, **+** stellt die Addition dar, also sollte hier "53" rauskommen.
+Wir sehen jedoch wenn wir dieses Programm ausführen, dass nicht *53* sondern *3517* rauskommt.
+```java
+System.out.println("35" + "17"); // 3517
+```
+
+Die Bedeutung eines ``Operators`` ist abhängig vom ``Typ`` der ``Variablen`` bzw. ``Werte``, welche in den ``Operator`` "hineingegeben" werden. Das sehen wir bei dem Ausdruck *"35" + "17"*. Hier hat der Operator **+** nicht die Bedeutung der *"Addition"*, sondern der *"Concatenation"* (zusammenfügen). Wir fügen also die Zeichenkette *"35"* mit der Zeichenkette *"17"* zusammen, was *"3517"* ergibt.
 
 Das gleiche Verhalten gilt für ``Variablen``:
 
 ```java
 Integer firstInt = 35;
 Integer secondInt = 17;
-System.out.println(firstInt + secondInt);
+System.out.println(firstInt + secondInt); //52
 
 String firstString = "35";
 String secondString = "17";
-System.out.println(firstString + secondString);
+System.out.println(firstString + secondString); //3517
 ```
 
-Ein aufruf eines ``Operators`` erzeugt einen  ``Wert`` mit einem ``Typ``. Dieses Ergebnis kann direkt mit Operatoren weiter verknüpft werden kann. Es kann also eine Kette gebildet werden:
+Wir merken uns:
+> Nicht das *Symbol* des ``Operators`` legt die Bedeutung von diesem fest, sondern die ``Typen`` der ``Werte`` und ``Variablen`` welche in den ``Operator`` "hineinfließen".
+
+## Operatoren erzeugen Werte und deshalb Ausdrücke
+Ein Aufruf eines ``Operators`` erzeugt einen  ``Wert`` mit einem ``Typ``. Dieses Ergebnis kann direkt mit ``Operatoren`` weiter verknüpft werden kann. Es kann also eine "Kette" gebildet werden. Da am Schluss dieser "Kette" ein finaler ``Wert`` erzeugt wird, ist diese "Kette" ebenfalls ein ``Ausdruck``.
 
 ```java
-System.out.println(firstInt + secondInt + firstInt + secondInt);
+Integer firstInt = 35;
+Integer secondInt = 17;
+System.out.println(firstInt + secondInt + firstInt + secondInt); // Kette: firstInt + secondInt + firstInt + secondInt ist ein Ausdruck
+
+Integer term = firstInt + secondInt + firstInt + secondInt // Kette: firstInt + secondInt + firstInt + secondInt ist ein Ausdruck
+System.out.println(term);
 ```
 
-Hier wird die Reihenfolge nicht beachtet, da es bei dem Operator `+`, interpretiert als "Addition", eine vordefinierte Reihenfolge gibt. Diese ist:
-1. Zuerst der am weitesten links stehende Ausdruck wird verarbeitet.
-2. Dann der eins weiter rechts stehende Ausdruck.
-3. Das Ergebnis wird mit dem nächsten rechten Ausdruck verknüpft und so weiter.
+Wie *werten* wir jedoch einen ``Ausdruck`` aus? Die pragmatische Antwort hier ist **gar nicht**, denn der Computer tut dies für uns. Wir sollten aber wissen was der Computer macht, ansonsten schreiben wir ``Ausdrücke`` welche wir anders verstehen als der Computer.
 
-Wenn wir die Reihenfolge steuern wollen, muss dies mit einer Klammer gemacht werden. Der nächste Ausdruck ist gleich dem vorherigen, jedoch wird hier die Reihenfolge direkt angegeben:
+Um nun "im Kopf" ``Ausdrücke`` auswerten zu können legen wir genauer fest was die ``Auswertung`` eines ``Ausdrucks`` bedeutet.
+Diese ist...
+* ein schrittweises ersetzen der ``Variablen`` mit dessen ``Werten`` und 
+* diese ``Werte`` mit den ``Operatoren`` zu neuen ``Werten`` zusammenfassen,
+* bis nur mehr *ein* ``Wert`` übrig ist.
+* ... ``Auswertungsreihenfolge``?
+
+Versuchen wir es hier und lassen es den Computer überprüfen. Jedoch haben wir ein Problem. Wo beginnen wir? 
+Mangels einer genaueren Anweisung... beginnen wir irgendwo. Sagen wir mit **secondInt** und **thirdInt**.
+```java
+Integer firstInt = 35;
+Integer secondInt = 17;
+Integer thirdInt = 21;
+Integer fourthInt = 5;
+
+System.out.println(firstInt + secondInt + thirdInt + fourthInt); // 78: Ersetzen der Variablen durch dessen Werte
+System.out.println(35       + 17        + 21       + 5);         // 78: Wir beginnen die Variable secondInt mit Wert 17 und die Variable thirdInt mit Wert 21 zusammenzuzählen. Das ergibt 38.
+System.out.println(35       + 38                   + 5);         // 78: Was nun? z.B. 38 + fourthInt, also 38 + 5 ergibt 43
+```
+
+Wie gehts nun weiter? Wir haben hier 2 Möglichkeiten. Entweder *firstInt + 38* oder *38 + fourthInt*. Mangels genauer Anweisungen beginnen wir wieder irgendwo. Sagen wir *38 + fourthInt*, also *38 + 5* ergibt *43*.
 
 ```java
-System.out.println(((firstInt + secondInt) + firstInt) + secondInt);
+System.out.println(35 + 43);         // 78: 78
+System.out.println(78);
 ```
 
-Wir können nun die Reihenfolge ändern, indem wir die Klammern verschieben. Das Ergebnis bleibt jedoch das gleiche, denn bei der Addition ist die Reihenfolge der Auswertung egal:
+Wir haben nun nur mehr eine Möglichkeit und bekommen als Ergebnis: *35 + 43 = 78*
+
+Es scheint richtig zu sein, denn wir haben das gleiche Ergebnis wie der Computer. Es scheint aber unwahrscheinlich, dass wir die gleiche ``Auswertungsreihenfolge`` wie der Computer gewählt haben. Versuchen wir "Dinge" zu ändern welche wir schon kennen. Was wenn wir einen anderen ``Typ`` bei den ``Variablen`` verwenden und dadurch die Bedeutung des ``Operators`` **+** von *Addition* auf ``Concatenation`` ändern?
+```java
+String halloString = "hallo";
+String duString = "du";
+String wieString = "wie";
+String gehtsString = "gehts";
+
+System.out.println(halloString + duString + wieString + gehtsString); // "halloduwiegehts"
+```
+
+Auch hier erkennen wir egal welche ``Auswertungsreihenfolge`` verwendet wird, kommt *"halloduwiegehts"* als ``Wert`` heraus. Ersetzen wir nun **+** mit __*__ 
+(*Multiplikation*) und gehen zum ``Typ`` *Integer* für die ``Variablen`` zurück. 
+```java
+Integer firstInt = 35;
+Integer secondInt = 17;
+Integer thirdInt = 21;
+Integer fourthInt = 5;
+
+System.out.println(firstInt * secondInt * thirdInt * fourthInt); // 62475
+```
+
+Eine händische Auswertung kommt zum gleichen Ergebnis, auch wenn wir wieder eine zufällige Reihenfolge wählen. Es scheint also, dass die ``Auswertungsreihenfolge`` egal ist wenn wir *gleiche* ``Operatoren`` in einem ``Ausdruck`` verwenden. **Wir sind jeodoch skeptisch und machen weiter.**
+
+### Wie steuere ich die Ausertungsreihenfolge?
+Um sicher zu gehen wiederholen wir nochmals mit **-** und **/**. Wir stoßen hier jedoch auf Probleme und führen gleich ein Werkzeug ein welches uns die ``Auswertungsreihenfolge`` steuern lässt. 
+Dies ist die ``Klammersetzung`` durch *runde* Klammern. Wenn wir nun einen ``Ausdrücke`` in einer runden Klammer sehen, dann wissen wir, dass dieser als erstes ausgeführt werden muss. Wenn in einer Klammer nur mehr ein ``Wert`` übrig ist, kann die Klammer entfernt werden.
 
 ```java
-System.out.println((firstInt + secondInt) + (firstInt + secondInt));
+Integer firstInt = 35;
+Integer secondInt = 17;
+Integer thirdInt = 21;
+Integer fourthInt = 5;
+
+System.out.println(firstInt - secondInt - thirdInt - fourthInt);    // -8: hier legen wir keine Reihenfolge fest.
+System.out.println(firstInt - (secondInt - thirdInt) - fourthInt);  // 34: wir sehen dass (secondInt - thirdInt) geklammer ist und müssen diesen Ausdruck als erstes auswerten. 
 ```
 
-Für die anderen arithmetischen Operatoren der Zahlen (`-`, `*`, `/`) gelten die Regeln aus der Mathematik.
+Wir bemerken ein komisches Verhalten. Der ``Ausdruck`` *firstInt - secondInt - thirdInt - fourthInt* ergibt *-8*, jedoch wenn wir *firstInt - (secondInt - thirdInt) - fourthInt* schreiben ergibt dieser *34*. Schon hier sehen wir, dass die **``Auswertungsreihenfolge`` wichtig** ist. Für die *Division* haben wir ein ähnliches Verhalten wie bei der *Subtraktion*.
 
-## Arten von Operatoren
+Wir schauen uns deshalb gar nicht die weiteren Schritte an und merken uns.
+> Bei ``Ausdrücke`` welche nur ``+`` (*Addition* und *Concatenation*) oder nur ``*`` (*Multiplikation*) verwenden, spielt die ``Auswertungsreihenfolge`` des ``Ausdrucks`` **keine** rolle.
+
+> Bei ``Ausdrücke`` welche nur ``-`` (*Subtraktion*) oder nur ``/`` (*Multiplikation*) verwenden, spielt die ``Auswertungsreihenfolge`` des ``Ausdrucks`` **eine** rolle.
+
+### Was ist die Auswertungsreihenfolge ohne Klammern und verschiedenen Operatoren?
+Da ``Operatoren`` eine vordefinierte Reihenfolge haben müssen wir nicht immer alles Klammern. Wir haben gesehen, bei "sortenreinen" ``Ausdrücken`` welche nur **+** oder __*__ verwenden, kommt immer der gleiche ``Wert`` heraus, egal welche ``Auswertungsreihenfolge`` verwendet wird. 
+
+**Anmerkung:** Die Regeln aus der Mathematik gelten auch hier. **Klammer vor Punkt vor Strich** - kurz *KlaBuStri*.
+
+Es muss aber eine ``Auswertungsreihenfolge`` geben wenn wir nicht Klammern. Jedoch welche ist diese?
+```java
+String duString = "du";
+Integer firstInt = 35;
+Integer secondInt = 17;
+Integer thirdInt = 21;
+Integer fourthInt = 5;
+
+System.out.println(duString + firstInt * (secondInt - thirdInt) + fourthInt); // du-1405
+System.out.println(duString + firstInt * secondInt - thirdInt + fourthInt); // Fehler!
+```
+
+Hier bemerken wir *duString + firstInt * (secondInt - thirdInt) + fourthInt* zwingt den Computer bei *(secondInt - thirdInt)* zu beginnen. 
+Wir werten nun folgendermaßen aus:
+```java
+System.out.println(duString + firstInt * (secondInt - thirdInt) + fourthInt); // du-1405: auszuwertende Variablen durch Werte ersetzen
+System.out.println(duString + firstInt * (17 - 21) + fourthInt); // du-1405: (17 - 21) ist -4
+System.out.println(duString + 35 * -4 + fourthInt); // du-1405: 35 * -4 ist -140
+System.out.println(duString + -140 + fourthInt); // du-1405: Was nun keine Klammer ist vorhanden? Wir wissen es kommt du-1405 raus. Der Computer scheint also einfach von links nach rechts vorzugehen.
+System.out.println("du" + -140 + fourthInt); // du-1405: Ist + die Addition oder die Concatenation?
+System.out.println("du" + -140 + fourthInt); // du-1405: Scheint die Concatenation zu sein, denn es müsste ein Fehler kommen, wenn es anders wäre. 
+System.out.println("du-140" + fourthInt); // du-1405: Scheint die Concatenation zu sein, denn es müsste ein Fehler kommen, wenn es anders wäre. 
+System.out.println("du-1405");
+```
+
+Wir merken uns:
+> Wenn keine Klammern vorhanden sind, ist die ``Auswertungsreihenfolge`` von *links* nach *rechts*. 
+
+Wieso erzeugt jedoch *duString + firstInt * secondInt - thirdInt + fourthInt* einen Fehler? 
+
+```java
+System.out.println(duString + firstInt * secondInt - thirdInt + fourthInt); // Wir beginnen links und interpretieren + als Concatenation
+System.out.println("du" + 35 * secondInt - thirdInt + fourthInt); // "du" + 35 ist "du35"
+System.out.println("du35" * secondInt - thirdInt + fourthInt); // wir starten wieder links und haben "du35" * secondInt. * hat keine Bedeutung bei Strings.
+... Fehler
+```
+
+Wir merken uns:
+> Die ``Auswertungsreihenfolge`` legt die *Bedeutung* eines ``Ausdrucks`` fest. 
+
+> Es gelten die *KlaBuStri* regeln aus der Mathematik. Diese müssen jedoch um die Vielzahl der noch nicht erwähnten ``Operatoren`` erweitert werden.
+
+## Welche Operatoren gibt es?
 
 Unterschiedliche Bedeutungen von Operatoren haben zur Folge, dass verschiedene Namen für diese existieren. Diese unterschiedlichen Bedeutungen sind meistens aufgrund der Typen der Werte, welche in eine Variable "reinfließen" bzw. "rausfließen".
 

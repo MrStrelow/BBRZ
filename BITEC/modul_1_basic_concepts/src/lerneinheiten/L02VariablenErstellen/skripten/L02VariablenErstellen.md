@@ -1,7 +1,7 @@
 # Variablen und Werte in Java
 
 #### Welche Begriffe werden hier verwendet?
-[``Programm``](../../../glossar.md#programm), [``Wert``](../../../glossar.md#wert), [``Konsole``](../../../glossar.md#Variable), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``StringBuilder``](../../../glossar.md#stringbuilder), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Fließkommazahl``](../../../glossar.md#fließkommazahl), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Compiler``](../../../glossar.md#compiler), [``statisch typisierte Programmiersprache``](../../../glossar.md#statisch-typisierte-programmiersprache), [``stark typisierte Programmiersprache``](../../../glossar.md#stark-typisierte-programmiersprache), [``objektorientierte Programmiersprache``](../../../glossar.md#objektorientierte-programmiersprache), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``primitive Datentypen``](../../../glossar.md#primitive-datentypen), [``explizite Typumwandlung``](../../../glossar.md#explizite-typumwandlung), 
+[``Programm``](../../../glossar.md#programm), [``Wert``](../../../glossar.md#wert), [``Konsole``](../../../glossar.md#Variable), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``StringBuilder``](../../../glossar.md#stringbuilder), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Fließkommazahl``](../../../glossar.md#fließkommazahl), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Compiler``](../../../glossar.md#compiler), [``statisch typisierte Programmiersprache``](../../../glossar.md#statisch-typisierte-programmiersprache), [``stark typisierte Programmiersprache``](../../../glossar.md#stark-typisierte-programmiersprache), [``objektorientierte Programmiersprache``](../../../glossar.md#objektorientierte-programmiersprache), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``primitive Datentypen``](../../../glossar.md#primitive-datentypen), [``explizite Typumwandlung``](../../../glossar.md#explizite-typumwandlung), [``Anweisung``](../../../glossar.md#anweisung), [``Ausdruck``](../../../glossar.md#ausdruck)
 
 ---
 
@@ -69,10 +69,13 @@ String formatiert = String.format("Wert: %d", 42);    // Der Ausdruck rechts vom
 String ersteZeileDerWebsite = new BufferedReader(new InputStreamReader(new URL("https://www.example.com").openStream())).readLine(); // Der Ausdruck rechts vom = erzeugt einen Wert vom Typ String
 ```
 
+Die *komplette Zeile* welche mit *;* abschließen wird nennen wir eine ``Anweisung``.
+
 Wir merken uns:
 > Der ``Typ`` des ``Wertes``, der ``Variable`` oder allgmein des ``Ausdrucks welcher einen Wert erzeugt`` rechts des ``Zuweisungsoperators`` *=*, muss mit dem ``Typ`` der ``Variable`` links zusammenpassen.
 
-> Ein ``Ausdruck`` ist eine Zeile ``Programmcode`` welche einen ``Wert`` erzeugt. 
+> Ein ``Ausdruck`` ist ``Programmcode`` welche einen ``Wert`` erzeugt. 
+> Eine *Zeile* eines ``Programmcodes`` welche mit einem ``;`` abgeschlossen wird ist eine ``Anweisung``. Diese erzeugt *keinen* ``Wert``.
 
 ## Verschiedene Arten von Typen
 - **Zeichen(ketten)**:

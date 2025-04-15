@@ -49,3 +49,7 @@
 ## explizite Typumwandlung
 
 ## implizite Typumwandlung
+
+## Anweisung
+
+## Ausdruck
