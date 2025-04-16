@@ -1,10 +1,8 @@
 package lerneinheiten.L09SchleifenFor.live;
 
-import com.sun.security.jgss.GSSUtil;
-
 import java.util.Scanner;
 
-public class Muster {
+public class MusterDiamantFortgeschritten {
     public static void main(String[] args) {
         System.out.println("##ende außerste###");
         System.out.println();
