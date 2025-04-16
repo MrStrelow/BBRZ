@@ -1,5 +1,6 @@
 package lerneinheiten.L07VerzweigungenSwitch.uebung;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Loesung {
@@ -136,6 +137,9 @@ public class Loesung {
         System.out.print("Wochentag eingeben (1=Mo, ..., 7=So): ");
         tag = scanner.nextInt();
 
+        tagName = "";
+        preis = 0;
+
         switch (tag) {
             case 1: tagName = "Montag"; preis = 4.5; break;
             case 2: tagName = "Dienstag"; preis = 6; break;
@@ -251,7 +255,7 @@ public class Loesung {
         // ```
 
         System.out.print("Wochentag eingeben: ");
-        tagAlsString = scanner.nextLine().toLowerCase();
+        String tagAlsString = scanner.nextLine().toLowerCase();
 
         ausgabe = switch (tagAlsString) {
             case "montag" -> "5 Tage";
@@ -315,6 +319,8 @@ public class Loesung {
         // Richtig! Du hast gewonnen.
         // ```
 
+        int versuch = 0;
+        Random random = new Random();
         int ziel = random.nextInt(1, 101);
 
         System.out.println("Ich denke an eine Zahl zwischen 1 und 100. Du hast 3 Versuche, um sie zu erraten.");
