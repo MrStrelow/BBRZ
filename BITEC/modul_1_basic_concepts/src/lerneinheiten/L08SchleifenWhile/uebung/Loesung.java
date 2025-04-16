@@ -1,8 +1,8 @@
-package uebungen.loesungen;
+package lerneinheiten.L08SchleifenWhile.uebung;
 
 import java.util.Scanner;
 
-public class Ue8While_solution {
+public class Loesung {
     public static void main(String[] args) {
 //        Schreiben Sie ein Programm, das 100 Mal Hello World auf die Konsole ausgibt.
 //        Erweitern Sie das Programm, sodass 100 Mal Hello World auf die Konsole in
