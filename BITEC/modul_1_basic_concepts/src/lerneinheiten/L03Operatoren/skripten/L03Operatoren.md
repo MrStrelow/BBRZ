@@ -178,7 +178,7 @@ Wir merken uns:
 > Es gelten die *KlaBuStri* regeln aus der Mathematik. Diese müssen jedoch um die Vielzahl der noch nicht erwähnten ``Operatoren`` erweitert werden.
 
 ## Welche Operatoren gibt es?
-
+TODO
 Unterschiedliche Bedeutungen von Operatoren haben zur Folge, dass verschiedene Namen für diese existieren. Diese unterschiedlichen Bedeutungen sind meistens aufgrund der Typen der Werte, welche in eine Variable "reinfließen" bzw. "rausfließen".
 
 Wir unterscheiden folgende Operatoren:
