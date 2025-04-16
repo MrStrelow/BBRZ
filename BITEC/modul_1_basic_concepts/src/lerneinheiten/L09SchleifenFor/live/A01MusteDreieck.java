@@ -2,7 +2,7 @@ package lerneinheiten.L09SchleifenFor.live;
 
 import java.util.Scanner;
 
-public class MusteDreieck {
+public class A01MusteDreieck {
     public static void main(String[] args) {
         System.out.println("##ende außerste###");
         System.out.println();

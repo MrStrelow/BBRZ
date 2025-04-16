@@ -2,7 +2,7 @@ package lerneinheiten.L09SchleifenFor.live;
 
 import java.util.Scanner;
 
-public class MusterDreieckSpitz {
+public class A02MusterDreieckSpitz {
     public static void main(String[] args) {
         System.out.println("##ende außerste###");
         System.out.println();

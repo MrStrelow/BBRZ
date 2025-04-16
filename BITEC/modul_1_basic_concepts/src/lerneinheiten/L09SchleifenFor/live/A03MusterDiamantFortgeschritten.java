@@ -2,7 +2,7 @@ package lerneinheiten.L09SchleifenFor.live;
 
 import java.util.Scanner;
 
-public class MusterDiamantFortgeschritten {
+public class A03MusterDiamantFortgeschritten {
     public static void main(String[] args) {
         System.out.println("##ende außerste###");
         System.out.println();
