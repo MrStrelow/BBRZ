@@ -10,16 +10,20 @@ public class Muster {
         Integer groesseSpielfeld = scanner.nextInt();
 
         // mustergenerierung
-        for (int zeilen = 0; zeilen < groesseSpielfeld; zeilen++ ) {
+        for (int zeilen = 0; zeilen < groesseSpielfeld; zeilen++) {
+//            for (int spalten = groesseSpielfeld - 1; spalten >= 0; spalten--) {
+            for (int spalten = 0; spalten < groesseSpielfeld; spalten++) {
 
-            for (int spalten = groesseSpielfeld - 1; spalten >= 0; spalten--) {
+                if (zeilen >= spalten) {
+                    System.out.print("⬜");
 
-                System.out.println("zeilen: " + zeilen + " - spalten: " + spalten);
+                } else {
+                    System.out.print("🔹");
+                }
 
             }
 
             System.out.println();
-
         }
     }
 }
