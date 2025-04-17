@@ -1,4 +1,4 @@
-package lerneinheiten.L08SchleifenWhile;
+package lerneinheiten.L08SchleifenWhile.skripten;
 
 import java.util.Scanner;
 

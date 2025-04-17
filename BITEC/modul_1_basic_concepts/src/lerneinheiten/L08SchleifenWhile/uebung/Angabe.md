@@ -141,47 +141,6 @@ Ausgabe:
 - Anzahl b: 2
 ```
 
-### Schachtelung von Schleifen
-Schreiben Sie ein Programm, das folgendes Muster mit for-Schleifen erzeugt:
-```
-*
-**
-***
-****
-*****
-****
-***
-**
-*
-```
-
-### Matrix
-Schreiben Sie ein Programm, das die Zahlen 0 bis 99 in einer 10x10 Matrix ausgibt.  
-Beispiel:
-```
- 0  1    2   3   4   5   6   7   8   9 
-10  11  12  13  14  15  16  17  18  19
-20  21  22  23  24  25  26  27  28  29
-30  31  32  33  34  35  36  37  38  39
-40  41  42  43  44  45  46  47  48  49
-50  51  52  53  54  55  56  57  58  59
-60  61  62  63  64  65  66  67  68  69
-70  71  72  73  74  75  76  77  78  79
-80  81  82  83  84  85  86  87  88  89
-90  91  92  93  94  95  96  97  98  99
-```
-Verwenden Sie `%2d` zur Formatierung der Zahlen.
-
-### Auffüllen zur Matrix
-Erstellen Sie ein Programm mit folgendem Output durch verschachtelte Schleifen:
-```
-....1
-...22
-..333
-.4444
-55555
-```
-
 ### Summe bilden
 Schreiben Sie eine do-while-Schleife, die Zahlen summiert, bis "exit" eingegeben wird.  
 Geben Sie am Ende auch den Durchschnitt aus.
@@ -208,3 +167,84 @@ Beispiel:
 -------------
 ```
 
+## Menü
+Implementiere ein Menü mit Optionen. Diese werden dann in die Console ausgegeben. Die Optionen werden wiederholt angezeigt, bis der Benutzer 0 eingibt. Bei ungültiger Eingabe soll "Ungültige Auswahl!" ausgegeben werden und es soll solange nachgefragt werden bis diese Eingabe korrekt ist.
+
+Optional: Führe eine Wahrscheinlichkeit von 10% ein, dass ein Befehlt nicht funktioniert. Die Anwender werden dann gebeten den Befehl neu einzugeben.
+
+Beispiel:
+```
+Wähle [0-4]
+1 - Festplatte formatieren
+2 - USB-Stick auswerfen
+3 - Bildschirm ausschalten
+4 - Task Beenden - es muss eine Id noch angegeben werden.
+0 - Programm beenden
+
+2
+Es wurde "USB-Stick auswerfen" gewählt.
+USB-Stick wurde ausgeworfen.
+
+Wähle [0-4]
+1 - Festplatte formatieren
+2 - USB-Stick auswerfen
+3 - Bildschirm ausschalten
+4 - Task Beenden - es muss eine Id noch angegeben werden.
+0 - Programm beenden
+
+4 11671
+Es wurde "Task Beenden" mit der ID: 11671 gewählt.
+Task mit ID: 11671 beendet.
+
+Wähle [0-4]
+1 - Festplatte formatieren
+2 - USB-Stick auswerfen
+3 - Bildschirm ausschalten
+4 - Task Beenden
+0 - Programm beenden
+
+0
+Es wurde "Programm beenden" gewählt. 
+```
+
+## Einnahmen erfassen
+Das Programm soll die Kosten für die Bereiche Nahrungsmittel, Getränke erfassen.
+* Fragen Sie die Benutzer nach deren Namen und begrüßen sie diese.
+* Fragen Sie die Benutzer in einer Schleife solang um die Eingaben, bis ``abbruch`` eingegeben wird. Anschließend sollen alle Summen angezeigt werden.
+* Schreiben Sie hierzu ein Menü mit der Abfrage der Aktion mit folgenden Optionen: 
+    * nahrung, getränk, abbruch
+
+* Legen Sie zwei double Variablen für Nahrung und Getränke an, in deren die eingegebenen Werte summiert werden.
+* Fragen Sie den Benutzer um den Betrag
+* Implementieren Sie folgende Logik
+    * nahrung: Variable für Nahrung wird um den eingegebenen Betrag erhöht
+    * getränk: Variable für Getränk wird um den eingegebenen Betrag erhöht
+    * abbruch: Ausgabe der beiden summen mit zwei Nachkommastellen.
+
+Beispiel
+```
+Willkommen bei der Einnahmenerfassung! 
+Wie ist Ihr Name? 
+Mathias
+ 
+Hallo Mathias! 
+Bitte wählen Sie eine Aktion (`nahrung`, `getränk`, `abbruch`): 
+getränk 
+
+Geben Sie eine Summe für die Kategorie getränk ein: 12.00 
+ 
+Bitte wählen Sie eine Aktion (`nahrung`, `getränk`, `abbruch`): 
+getränk 
+
+Geben Sie eine Summe für die Kategorie getränk ein: 10.00 
+ 
+Bitte wählen Sie eine Aktion (`nahrung`, `getränk`, `abbruch`): 
+nahrung
+
+Geben Sie eine Summe für die Kategorie getränk ein: 18.00 
+ 
+Bitte wählen Sie eine Aktion (`nahrung`, `getränk`, `abbruch`): 
+abbruch 
+
+Abrechnung für Mathias: 22,00€ für Getränke und 18,00€ für Nahrungsmittel. 
+```
