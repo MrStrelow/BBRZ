@@ -3,21 +3,20 @@
 public class Seed
 {
     // Felder
-    private (int x, int y) position;
-    private static String representation = "🌱";
+    // Eigenschaften (Properties)
+    public (int x, int y) Position { get; private set; }
+    public static string Representation => "🌱";
 
-    // (hat) Beziehungen
-    private Plane plane;
+    public Plane Plane { get; set; }
 
     // Konstruktor
     public Seed(Plane plane)
     {
-        this.plane = plane;
-
-        PositionAndManageSamen();
+        Plane = plane;
+        PositionAndManageSeed();
     }
 
-    private void PositionAndManageSamen()
+    private void PositionAndManageSeed()
     {
         var random = new Random();
         bool done;
@@ -25,70 +24,17 @@ public class Seed
 
         do
         {
-            x = random.Next(plane.GetSize());
-            y = random.Next(plane.GetSize());
+            x = random.Next(Plane.Size);
+            y = random.Next(Plane.Size);
 
-            done = plane.AssignInitialPosition(this, (x, y));
+            done = Plane.AssignInitialPosition(this, (x, y));
         } while (!done);
 
-        position = (x, y);
+        Position = (x, y);
     }
 
- 
-    public override String ToString()
+    public override string ToString()
     {
-        return representation;
-    }
-
-    // get-set Methoden
-    public (int x, int y) GetPosition()
-    {
-        return position;
-    }
-
-    public void SetPosition(int x, int y)
-    {
-        position.x = x;
-        position.y = y;
-    }
-
-    public void SetPosition((int x, int y) position)
-    {
-        this.position = position;
-    }
-
-    public int GetX()
-    {
-        return position.x;
-    }
-
-    public void SetX(int x)
-    {
-        position.x = x;
-    }
-
-    public int GetY()
-    {
-        return position.y;
-    }
-
-    public void SetY(int y)
-    {
-        position.y = y;
-    }
-
-    public static String GetRepresentation()
-    {
-        return representation;
-    }
-
-    public Plane GetPlane()
-    {
-        return plane;
-    }
-
-    public void SetPlane(Plane spielfeld)
-    {
-        this.plane = spielfeld;
+        return Representation;
     }
 }

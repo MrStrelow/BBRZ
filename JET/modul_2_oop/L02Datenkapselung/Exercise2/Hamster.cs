@@ -3,21 +3,24 @@
 public class Hamster
 {
     // Felder
-    private (int x, int y) position;
-    private String representation;
-    private static String hungryRepresentation = "😡";
-    private static String fedRepresentation = "🐹";
-    private bool isHungry;
+    private static string _hungryRepresentation = "😡";
+    private static string _fedRepresentation = "🐹";
 
-    // (hat) Beziehungen
+    // Eigenschaften (Properties)
+    public (int x, int y) Position { get; set; }
+    public string Representation { get; private set; }
+
+    public bool IsHungry { get; private set; }
+
+    // Beziehungen
     private Plane plane;
     private List<Seed> mouth = new List<Seed>();
 
     // Konstruktor
     public Hamster(Plane plane)
     {
-        isHungry = false;
-        representation = fedRepresentation;
+        IsHungry = false;
+        Representation = _fedRepresentation;
         this.plane = plane;
 
         PositionAndManageHamster();
@@ -32,13 +35,13 @@ public class Hamster
 
         do
         {
-            x = random.Next(plane.GetSize());
-            y = random.Next(plane.GetSize());
+            x = random.Next(plane.Size);
+            y = random.Next(plane.Size);
 
             done = plane.AssignInitialPosition(this, (x, y));
         } while (!done);
 
-        position = (x, y);
+        Position = (x, y);
     }
 
     public void Move()
@@ -52,34 +55,29 @@ public class Hamster
 
     public void NutritionBehaviour()
     {
-        // werde zufällig hungrig
         var random = new Random();
 
+        // Zufällig hungrig werden
         if (random.NextDouble() < 0.1)
         {
-            isHungry = true;
-            representation = hungryRepresentation;
+            IsHungry = true;
+            Representation = _hungryRepresentation;
         }
 
-        // ist ein Samen unter mir (hamster) ?
-        if (plane.ContainsSeed(position))
+        if (plane.ContainsSeed(Position))
         {
-            // habe ich hunger?
-            if (isHungry)
+            if (IsHungry)
             {
-                // wenn ja, dann rufe methode essen auf
                 EatSeedFromTile();
             }
             else
             {
-                // ansonsten rufe methode hamstern auf
                 PutInMouth();
             }
-
         }
         else
         {
-            if (isHungry && mouth.Any())
+            if (IsHungry && mouth.Any())
             {
                 EatSeedFromMouth();
             }
@@ -88,97 +86,31 @@ public class Hamster
 
     private void EatSeedFromMouth()
     {
-        // hamster wird nicht mehr hungrig.
         Eat();
-
-        // hamster entfernt den Samen aus dem Mund - könnte Queue sein, statt List. Hier haben wir verhalten eines Stacks.
         mouth.RemoveAt(0);
     }
 
     public void EatSeedFromTile()
     {
-        // hamster wird nicht mehr hungrig.
         Eat();
-
-        // hamster sagt dem spielfeld, der samen ist weg
         plane.HamsterIsEatingSeeds(this);
     }
 
     private void Eat()
     {
-        isHungry = false;
-        representation = fedRepresentation;
+        IsHungry = false;
+        Representation = _fedRepresentation;
     }
 
     public void PutInMouth()
     {
-        // hamster merkt sich, dass ein neues Samen Objekt gespeichtert wird.
-        var samen = plane.GetSamen(position);
+        var samen = plane.GetSeedOn(Position);
         mouth.Add(samen);
-
-        // hamster sagt dem spielfeld, der samen ist weg
         plane.HamsterIsStoringSeeds(this);
     }
 
-    public override String ToString()
+    public override string ToString()
     {
-        return representation;
-    }
-
-    // get-set Methoden
-    public (int x, int y) GetPosition()
-    {
-        return position;
-    }
-
-    public void SetPosition(int x, int y)
-    {
-        position.x = x;
-        position.y = y;
-    }
-
-    public void SetPosition((int x, int y) position)
-    {
-        this.position = position;
-    }
-
-    public int GetX()
-    {
-        return position.x;
-    }
-
-    public void SetX(int x)
-    {
-        position.x = x;
-    }
-
-    public int GetY()
-    {
-        return position.y;
-    }
-
-    public void SetY(int y)
-    {
-        position.y = y;
-    }
-
-    public void SetY((int x, int y) position)
-    {
-        this.position = position;
-    }
-
-    public String GetRepresentation()
-    {
-        return representation;
-    }
-
-    public static String GetHungryRepresentation()
-    {
-        return hungryRepresentation;
-    }
-
-    public static String GetFedRepresentation()
-    {
-        return fedRepresentation;
+        return Representation;
     }
 }

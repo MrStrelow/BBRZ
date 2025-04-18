@@ -3,46 +3,47 @@
 public class Plane
 {
     // Felder
-    private String[,] plane;
-    private int size;
-    private static String earthRepresentation = "🟫";
+    private string[,] _plane;
+    private static string _earthRepresentation = "🟫";
 
-    // (hat) Beziehungen
-    private Dictionary<(int x, int y), Seed> seeds = new Dictionary<(int x, int y), Seed>();
-    private List<Hamster> hamsters = new List<Hamster>();
+    // Eigenschaften
+    public int Size { get; }
+
+    // Beziehungen
+    private Dictionary<(int x, int y), Seed> seeds = new();
+    private List<Hamster> hamsters = new();
 
     // Konstruktor
     public Plane(int size)
     {
-        Random random = new Random();
-        this.size = size;
-        plane = new String[size,size];
+        Random random = new();
+        Size = size;
+        _plane = new string[size, size];
 
-        // wir belegen das spielfeld mit Bodensymbole
+        // Boden
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
             {
-                plane[i,j] = earthRepresentation;
+                _plane[i, j] = _earthRepresentation;
             }
         }
 
-        // wir brauchen Samen
+        // Samen
         int numberOfSeeds = random.Next(1, size * size);
         for (int i = 0; i < numberOfSeeds; i++)
         {
-            new Seed(this);
+            _ = new Seed(this);
         }
 
-        // wir brauchen Hamster
+        // Hamster
         int numberOfHamster = random.Next(1, size * size - numberOfSeeds + 1);
         for (int i = 0; i < numberOfHamster; i++)
         {
-            new Hamster(this);
+            _ = new Hamster(this);
         }
     }
 
-    // Methoden
     public void SimulateSeed()
     {
         RegrowSeeds();
@@ -60,14 +61,13 @@ public class Plane
     public void Print(int timeToSleep = 500)
     {
         AssignElementsToPlane();
-        // Console.Clear(); // Hier blinkt der Bildschrim, besser Console.SetCursorPosition(0, 0); verwenden.
         Console.SetCursorPosition(0, 0);
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < Size; i++)
         {
-            for (int j = 0; j < size; j++)
+            for (int j = 0; j < Size; j++)
             {
-                Console.Write(plane[i, j]);
+                Console.Write(_plane[i, j]);
             }
             Console.WriteLine();
         }
@@ -77,67 +77,64 @@ public class Plane
 
     public void Position(Hamster hamster, Direction direction)
     {
+        var pos = hamster.Position;
+
         switch (direction)
         {
             case Direction.UP:
-                if (hamster.GetY() > 0)
-                {
-                    hamster.SetY(hamster.GetY() - 1);
-                }
+                if (pos.y > 0)
+                    // Alternativ:// hamster.Position = (hamster.Position.x, hamster.Position.y - 1);
+                    pos.y--;
                 break;
 
             case Direction.DOWN:
-                if (hamster.GetY() < size - 1)
-                {
-                    hamster.SetY(hamster.GetY() + 1);
-                }
+                if (pos.y < Size - 1)
+                    pos.y++;
                 break;
 
             case Direction.LEFT:
-                if (hamster.GetX() > 0)
-                {
-                    hamster.SetX(hamster.GetX() - 1);
-                }
+                if (pos.x > 0)
+                    pos.x--;
                 break;
 
             case Direction.RIGHT:
-                if (hamster.GetX() < size - 1)
-                {
-                    hamster.SetX(hamster.GetX() + 1);
-                }
+                if (hamster.Position.x < Size - 1)
+                    pos.x++;
                 break;
         }
+
+        hamster.Position = pos;
     }
 
     public void AssignElementsToPlane()
     {
-        for (int i = 0; i < plane.GetLength(0); i++)
+        for (int i = 0; i < Size; i++)
         {
-            for (int j = 0; j < plane.GetLength(1); j++)
+            for (int j = 0; j < Size; j++)
             {
-                plane[i,j] = earthRepresentation;
+                _plane[i, j] = _earthRepresentation;
             }
         }
 
         foreach (var hamster in hamsters)
         {
-            plane[hamster.GetY(), hamster.GetX()] = hamster.GetRepresentation();    
+            _plane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
         }
 
         foreach (var seed in seeds.Values)
         {
-            plane[seed.GetY(), seed.GetX()] = Seed.GetRepresentation();
+            _plane[seed.Position.y, seed.Position.x] = Seed.Representation;
         }
     }
 
     public void HamsterIsEatingSeeds(Hamster hamster)
     {
-        seeds.Remove((hamster.GetX(), hamster.GetY()));
+        seeds.Remove((hamster.Position.x, hamster.Position.y));
     }
 
     public void HamsterIsStoringSeeds(Hamster hamster)
     {
-        seeds.Remove((hamster.GetX(), hamster.GetY()));
+        seeds.Remove((hamster.Position.x, hamster.Position.y));
     }
 
     public void RegrowSeeds()
@@ -146,8 +143,8 @@ public class Plane
         bool fieldIsTaken;
         (int x, int y) key;
 
-        int potentialGrowth = (int) Math.Pow(hamsters.Count, 2) / seeds.Count;
-        int freeTiles = size * size - hamsters.Count - seeds.Count; //not considering stacked hamsters
+        int potentialGrowth = (int)Math.Pow(hamsters.Count, 2) / seeds.Count;
+        int freeTiles = Size * Size - hamsters.Count - seeds.Count;
 
         int bound = Math.Min(potentialGrowth, freeTiles);
 
@@ -155,57 +152,41 @@ public class Plane
         {
             do
             {
-                key = (x: random.Next(size), y: random.Next(size));
-
+                key = (random.Next(Size), random.Next(Size));
                 fieldIsTaken = seeds.ContainsKey(key) || TileTakenByHamster(key);
-
             } while (fieldIsTaken);
 
             seeds[key] = new Seed(this);
         }
-
     }
 
     public bool AssignInitialPosition(Hamster hamster, (int x, int y) key)
     {
-        bool tileIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
-
-        if (tileIsEmpty)
+        if (!seeds.ContainsKey(key) && !TileTakenByHamster(key))
         {
-            plane[key.y, key.x] = hamster.GetRepresentation();
+            _plane[key.y, key.x] = hamster.Representation;
             hamsters.Add(hamster);
+            return true;
         }
 
-        return tileIsEmpty;
-    }
-
-    private bool TileTakenByHamster((int x, int y) key)
-    {
-        bool isTaken = false;
-
-        foreach (var hamster in hamsters)
-        {
-            if (hamster.GetPosition() == key)
-            {
-                isTaken = true;
-                break;
-            }
-        }
-
-        return isTaken;
+        return false;
     }
 
     public bool AssignInitialPosition(Seed seed, (int x, int y) key)
     {
-        bool tileIsEmpty = !seeds.ContainsKey(key) && !TileTakenByHamster(key);
-
-        if (tileIsEmpty)
+        if (!seeds.ContainsKey(key) && !TileTakenByHamster(key))
         {
-            plane[key.y, key.x] = Seed.GetRepresentation();
+            _plane[key.y, key.x] = Seed.Representation;
             seeds[key] = seed;
+            return true;
         }
 
-        return tileIsEmpty;
+        return false;
+    }
+
+    private bool TileTakenByHamster((int x, int y) key)
+    {
+        return hamsters.Any(h => h.Position == key);
     }
 
     public bool ContainsSeed((int x, int y) key)
@@ -213,19 +194,8 @@ public class Plane
         return seeds.ContainsKey(key);
     }
 
-    // get-set Methoden
-    public Seed GetSamen((int x, int y) key)
+    public Seed GetSeedOn((int x, int y) key)
     {
         return seeds[key];
-    }
-
-    public int GetSize()
-    {
-        return size;
-    }
-
-    public static String GetEarthRepresentation()
-    {
-        return earthRepresentation;
     }
 }
