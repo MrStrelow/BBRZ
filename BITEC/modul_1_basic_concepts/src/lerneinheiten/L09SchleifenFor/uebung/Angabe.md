@@ -463,43 +463,63 @@ Lager ist Voll. Wir melden uns wenn dieses frei ist.
 🪠🧼💍🪠🪠
 ```
  
-Passwort Generator
-Schreiben Sie ein Programm, zufällige Passwörter generiert.
-. Fragen Sie hierzu den Benutzer folgende Fragen:
-Soll das Passwort Großbuchstaben beinhalten?
-Soll das Passwort Ziffern beinhalten?
-Soll das Passwort Sonderzeichen beinhalten?
-Wie lang soll das Passwort sein?
-. Fragen Sie den Benutzer wie viele Passwörter generiert werden sollen
-. Überlegen Sie sich einen passenden Algorithmus um die eingegebene Anzahl an Passwörter zu
-generieren.
-. Geben Sie die Passwörter aus.
-Hangman
+## Passwort Generator
+Schreiben Sie ein Programm, dass zufällige Passwörter generiert.
+
+Fragen Sie hierzu den Benutzer folgende Fragen:
+* Soll das Passwort Großbuchstaben beinhalten?
+* Soll das Passwort Ziffern beinhalten?
+* Soll das Passwort Sonderzeichen beinhalten?
+* Wie lang soll das Passwort sein?
+* Fragen Sie den Benutzer wie viele Passwörter generiert werden sollen
+
+Beispiel:
+```
+Soll das Passwort Großbuchstaben beinhalten [+/-]? +
+Soll das Passwort Ziffern beinhalten [+/-]? +
+Soll das Passwort Sonderzeichen beinhalten [+/-]? +
+Wie lang soll das Passwort sein [ganze Zahl]? 10
+Wie viele Passwörter sollen generiert werden? 3
+
+Es wurden: 
+2G4fm"V2g8
+u710/&8GP! 
+Atn6a47*]e
+generiert
+```
+
+## Guess the Word
 Entwickeln Sie das Spiel "Hangman" in Java. Das Spiel sollte folgende Funktionen haben:
-. Fragen Sie den Benutzer nach einen Wort mit 3 Buchstaben. Die Zahl 3 soll in der Konstante Länge
-gespeichert werden und somit einfach veränderbar sein.
-. Ist das Wort zu lang oder leer, soll eine Fehlermeldung ausgegeben werden und erneut angefragt
-werden.
-. Anzeige des Status des Wortes, das der Spieler erraten muss (zum Beispiel als Striche (_), die die
-Buchstaben repräsentieren).
-. Eine Schleife, die dem Spieler erlaubt, Buchstaben zu raten, bis das Wort vollständig erraten oder der
-Galgenmann "vollständig gehängt" ist. (Groß-/Kleinschreibung soll egal sein)
-. Begrenzung der Anzahl der Fehlversuche des Spielers (zum Beispiel sechs Fehlversuche, bevor das
+* Fragen Sie den Benutzer nach einen Wort mit 3 Buchstaben. Die Zahl 3 soll in der Konstante Länge gespeichert werden und somit einfach veränderbar sein.
+* Ist das Wort zu lang oder leer, soll eine Fehlermeldung ausgegeben werden und erneut angefragt werden.
+* Anzeige des Status des Wortes, das der Spieler erraten muss (zum Beispiel als Striche (_), die die Buchstaben repräsentieren).
+* Eine Schleife, die dem Spieler erlaubt, Buchstaben zu raten, bis das Wort vollständig erraten oder der Galgenmann "vollständig gehängt" ist. (Groß-/Kleinschreibung soll egal sein)
+* Begrenzung der Anzahl der Fehlversuche des Spielers (zum Beispiel sechs Fehlversuche, bevor das
 Spiel endet).
-. Überprüfung der Eingaben des Spielers und Aktualisierung des Spielstands entsprechend der
+* Überprüfung der Eingaben des Spielers und Aktualisierung des Spielstands entsprechend der
 geratenen Buchstaben.
-. Anzeige des Gewinns oder Verlusts des Spiels nach dem Ende der Spielrunde.
-Nach jeder Runde soll ein Galgenmann angezeigt werden:
-08_forloop.md 2023-12-10
-4 / 5
-1 Fehler:
+* Anzeige des Gewinns oder Verlusts des Spiels nach dem Ende der Spielrunde.
+
+Beispielwörter mit 3 Buchstaben: Bau, Hut, Arm, Tag, Eis, Zoo, See
+Beispielwörter mit 4 Buchstaben: Haus, Bahn, Tier, Buch, Fest
+
+Optional: Führe das Programm im Terminal/Console aus und implementiere, dass das eingegebene Wort "verschwindet". Wir überschreiben die Zeile wo es ausgegeben wird. Verwende dazu die Konsolenbefehle
+
+#### Darstellung - Hangman
+Beispiel:
+```
+Wähle das Wort ohne dass deine Mitspieler es sehen: Hut
+Wort: _ _ _
     ____ 
    |    | 
    |     
    |     
    |    
   _|___  
-2 Fehler:
+
+Rate einen Buchstaben: a
+Wort: _ _ _
+
     ____ 
    |    | 
    |    O 
@@ -507,33 +527,66 @@ Nach jeder Runde soll ein Galgenmann angezeigt werden:
    |    
   _|___  
  
-3 Fehler:
+Rate einen Buchstaben: b
+Wort: _ _ _
+
+    ____ 
+   |    | 
+   |    O 
+   |    |  
+   |    
+  _|___  
+
+Rate einen Buchstaben: k
+Wort: _ _ _
+
     ____ 
    |    | 
    |    O 
    |   /|  
    |    
-  _|___  
+  _|___   
  
-4 Fehler:
+Rate einen Buchstaben: h
+Wort: H _ _
+
+    ____ 
+   |    | 
+   |    O 
+   |   /|  
+   |    
+  _|___ 
+ 
+Rate einen Buchstaben: e
+Wort: H _ _
+
     ____ 
    |    | 
    |    O 
    |   /|\ 
    |     
   _|___  
- 
-5 Fehler:
+
+Rate einen Buchstaben: u
+Wort: H u _
     ____ 
    |    | 
    |    O 
-08_forloop.md 2023-12-10
-5 / 5
+   |   /|\ 
+   |     
+  _|___
+ 
+Rate einen Buchstaben: p
+Wort: H u _
+   ____ 
+   |    | 
+   |    O 
    |   /|\  
    |   /  
   _|___  
- 
-6 Fehler:
+
+Rate einen Buchstaben: g
+Wort: H u _
     ____ 
    |    | 
    |    O 
@@ -541,53 +594,136 @@ Nach jeder Runde soll ein Galgenmann angezeigt werden:
    |   / \ 
   _|___  
  
-Beispielwörter mit 3 Buchstaben: Bau, Hut, Arm, Tag, Eis, Zoo, See
-Beispielwörter mit 4 Buchstaben: Haus, Bahn, Tier, Buch, Fest
+Verloren. Das Wort war: Hut.
+```
 
-## Hangman (Erweiterte Version)
-
-### Grundfunktionen
-
-- Eingabe eines Wortes mit fester Länge (z.B. 3 Buchstaben, in Konstante `LÄNGE` gespeichert)
-- Wort darf nicht leer oder zu lang sein
-- Anzeige des erratenen Status (z.B. `_ _ _`)
-- Schleife: Buchstabenraten bis Wort erraten oder max. Fehlversuche (z.B. 6)
-- Groß-/Kleinschreibung egal
-- Anzeige von Gewinn oder Verlust
-
-### Grafische Ausgabe
-
-Beispiel: Galgenmann mit 6 Fehlerstufen
-
-### Neue grafische Varianten:
-
-#### 1. Shark Fin - "Bring the shark fin nearer"
+#### Darstellung - Shark Fin
 
 - Grafik zeigt eine Hai-Flosse, die bei jedem Fehler näher kommt
-- Beispiel:
+Beispiel:
 ```
-Fehler 1:         ~~~~~~~
-Fehler 2:       ~~~~~~~
-Fehler 3:     ~~~~~~~
-Fehler 4:   ~~~~~~~
-Fehler 5: ~~~~~~~
-Fehler 6: JAWS!!!
+Wähle das Wort ohne dass deine Mitspieler es sehen: Hut
+Wort: _ _ _
+🦈🌊🌊🌊🌊🌊🏄🏻
+
+Rate einen Buchstaben: a
+Wort: _ _ _
+🌊🦈🌊🌊🌊🌊🏄🏻 
+ 
+Rate einen Buchstaben: b
+Wort: _ _ _
+🌊🌊🦈🌊🌊🌊🏄🏻  
+ 
+Rate einen Buchstaben: h
+Wort: H _ _
+🌊🌊🦈🌊🌊🌊🏄🏻
+ 
+Rate einen Buchstaben: e
+Wort: H _ _
+🌊🌊🌊🦈🌊🌊🏄🏻 
+
+Rate einen Buchstaben: u
+Wort: H u _
+🌊🌊🌊🦈🌊🌊🏄🏻
+ 
+Rate einen Buchstaben: p
+Wort: H u _
+🌊🌊🌊🌊🦈🌊🏄🏻 
+
+Rate einen Buchstaben: g
+Wort: H u _
+🌊🌊🌊🌊🌊🦈🏄🏻 
+
+Rate einen Buchstaben: k
+Wort: H u _
+🌊🌊🌊🌊🌊🌊🤕
+ 
+Verloren. Das Wort war: Hut.
 ```
 
-#### 2. Disappearing Sunday Ice Cream
-
-- Eis mit Kugeln (O O O) verschwindet mit jedem Fehler
-- Beispiel:
+#### Darstellung - Verschwindender Eisbecher
+Beispiel:
 ```
-Fehler 0:  (O O O)
-Fehler 1:  (O O)
-Fehler 2:  (O)
-Fehler 3:  ()
-Fehler 4:  
-Fehler 5:  (geschmolzen)
-Fehler 6:  (Trauriges Gesicht)
+Wähle das Wort ohne dass deine Mitspieler es sehen: Hut
+Wort: _ _ _
+  🔴
+ 🟢🟤
+🟢🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/
+
+Rate einen Buchstaben: a
+Wort: _ _ _
+  
+ 🟢🟤
+🟢🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/
+ 
+Rate einen Buchstaben: b
+Wort: _ _ _
+  
+ 🟢
+🟢🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/ 
+ 
+Rate einen Buchstaben: h
+Wort: H _ _
+  
+ 🟢
+🟢🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/
+ 
+Rate einen Buchstaben: e
+Wort: H _ _
+ 
+ 
+🟢🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/
+
+Rate einen Buchstaben: u
+Wort: H u _
+
+
+🟢🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/
+ 
+Rate einen Buchstaben: p
+Wort: H u _
+
+
+  🟠🐻‍❄️
+\ /\ /
+ \. /
+  \/
+
+Rate einen Buchstaben: g
+Wort: H u _
+
+
+    🐻‍❄️
+\ /\ /
+ \. /
+  \/ 
+
+Rate einen Buchstaben: k
+Wort: H u _
+
+
+
+\ /\ /
+ \. /
+  \/
+ 
+Verloren. Das Wort war: Hut.
 ```
-
-Beispielwörter: Bau, Hut, Arm, Tag, Eis, Zoo, See  
-Alternative mit 4 Buchstaben: Haus, Bahn, Tier, Buch, Fest
-
