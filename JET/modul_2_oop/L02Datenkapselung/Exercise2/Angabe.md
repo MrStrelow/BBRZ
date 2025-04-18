@@ -58,8 +58,14 @@ Hier als Code:
 class Hamster {
     ...
     // Felder
-    private Plane plane;
     ...
+
+    // Eigenschaften
+    ...
+
+    // hat-Beziehungen
+    ... 
+
     // Methoden
     void Move() 
     {
@@ -82,7 +88,7 @@ class Plane {
         switch (richtung)...
 
         // setzte die Position des Hamsters auf die neue Position
-        z.B. hamster.SetX(hamster.GetX() + 1);
+        z.B. hamster.SetX(hamster.X + 1);
         ...
     }
 
@@ -102,13 +108,13 @@ class Plane {
         // wir malen nun die Hamster dort hin, wo diese sich befinden sollen.
         foreach (var hamster in hamsters)
         {
-            plane[hamster.GetY(), hamster.GetX()] = hamster.GetRepresentation();    
+            plane[hamster.Y, hamster.X] = hamster.Representation;    
         }
 
         // wir malen nun die Seeds dort hin, wo diese sich befinden sollen.
         foreach (var seed in seeds)
         {
-            plane[seed.GetY(), seed.GetX()] = Seed.GetRepresentation();
+            plane[seed.Y, seed.X] = Seed.Representation;
         }
     }
 
@@ -166,6 +172,10 @@ public class Plane
 {
     // Felder
     ...
+
+    // Eigenschaften
+    ...
+
     // hat-Beziehungen
     ...
 
@@ -227,9 +237,6 @@ public class Plane
     }
 
     ...
-
-    // get-set Methoden
-    ...
 }
 ```
 
@@ -239,6 +246,9 @@ für den Hamster:
 public class Hamster
 {
     // Felder
+    ...
+
+    // Eigenschaften
     ...
 
     // (hat) Beziehungen
@@ -335,9 +345,6 @@ public class Hamster
     {
         return representation;
     }
-
-    // get-set Methoden
-    ...
 }
 ```
 
@@ -347,6 +354,10 @@ public class Seed
 {
     // Felder
     ...
+
+    // Eigenschaften
+    ...
+
     // (hat) Beziehungen
     ...
 
@@ -370,8 +381,6 @@ public class Seed
     {
         return representation;
     }
-
-    // get-set Methoden
     ...
 ```
 
