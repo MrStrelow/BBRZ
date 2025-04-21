@@ -226,3 +226,6 @@ myScanner.close();
 - Auch ein neues Anlegen eines Scanners mit `new Scanner(System.in)` funktioniert dann nicht mehr!
 - Also **nur den Scanner schließen, wenn er nicht mehr benötigt wird!**
 
+## "Has" Methoden des Scanners
+TODO
+

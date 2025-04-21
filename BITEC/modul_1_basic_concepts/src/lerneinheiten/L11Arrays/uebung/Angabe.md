@@ -224,3 +224,128 @@ Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 99
 Lager ist Voll. Wir melden uns wenn dieses frei ist.
 🪠🧼💍🪠🪠
 ```
+
+
+### Tic Tac Toe
+Implementieren Sie ein Tic Tac Toe-Spiel mit do-while:
+- X und O abwechselnd setzen
+- Spielbrett nach jedem Zug ausgeben
+- Spielende bei Sieg oder Unentschieden
+
+Beispiel:
+```
+-------------
+| X | X | X |
+-------------
+|   | O |   |
+-------------
+|   |   | O |
+-------------
+```
+
+// Tic Tac Toe
+            // Implementieren Sie ein Tic Tac Toe-Spiel mit do-while:
+            // - X und O abwechselnd setzen
+            // - Spielbrett nach jedem Zug ausgeben
+            // - Spielende bei Sieg oder Unentschieden
+            // Beispiel:
+            // -------------
+            // | X | X | X |
+            // -------------
+            // |   | O |   |
+            // -------------
+            // |   |   | O |
+            // -------------
+
+            import java.util.Scanner;
+
+public class TicTacToe {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char[][] brett = {
+                {' ', ' ', ' '},
+                {' ', ' ', ' '},
+                {' ', ' ', ' '}
+        };
+
+        char aktuellerSpieler = 'X';
+        boolean spielBeendet = false;
+        int zuege = 0;
+
+        do {
+            // Spielfeld anzeigen
+            zeigeBrett(brett);
+
+            // Eingabe abfragen
+            System.out.println("Spieler " + aktuellerSpieler + ", gib deine Position ein (Zeile 1-3 und Spalte 1-3):");
+            int zeile = 0;
+            int spalte = 0;
+            boolean gueltigeEingabe = false;
+
+            while (!gueltigeEingabe) {
+                System.out.print("Zeile: ");
+                zeile = scanner.nextInt() - 1;
+
+                System.out.print("Spalte: ");
+                spalte = scanner.nextInt() - 1;
+
+                if (zeile >= 0 && zeile < 3 && spalte >= 0 && spalte < 3 && brett[zeile][spalte] == ' ') {
+                    gueltigeEingabe = true;
+                } else {
+                    System.out.println("Ungültige Eingabe. Feld ist belegt oder außerhalb des Bereichs.");
+                }
+            }
+
+            // Spielzug setzen
+            brett[zeile][spalte] = aktuellerSpieler;
+            zuege++;
+
+            // Sieg prüfen
+            if (hatGewonnen(brett, aktuellerSpieler)) {
+                zeigeBrett(brett);
+                System.out.println("Spieler " + aktuellerSpieler + " hat gewonnen!");
+                spielBeendet = true;
+            } else if (zuege == 9) {
+                zeigeBrett(brett);
+                System.out.println("Unentschieden!");
+                spielBeendet = true;
+            } else {
+                // Spieler wechseln
+                aktuellerSpieler = (aktuellerSpieler == 'X') ? 'O' : 'X';
+            }
+
+        } while (!spielBeendet);
+
+        scanner.close();
+    }
+
+    // Spielfeld anzeigen
+    public static void zeigeBrett(char[][] brett) {
+        System.out.println("-------------");
+        int i = 0;
+        while (i < 3) {
+            int j = 0;
+            System.out.print("|");
+            while (j < 3) {
+                System.out.print(" " + brett[i][j] + " |");
+                j++;
+            }
+            System.out.println();
+            System.out.println("-------------");
+            i++;
+        }
+    }
+
+    // Gewinn prüfen
+    public static boolean hatGewonnen(char[][] b, char sp) {
+        int i = 0;
+        while (i < 3) {
+            if (b[i][0] == sp && b[i][1] == sp && b[i][2] == sp) return true; // Zeile
+            if (b[0][i] == sp && b[1][i] == sp && b[2][i] == sp) return true; // Spalte
+            i++;
+        }
+        if (b[0][0] == sp && b[1][1] == sp && b[2][2] == sp) return true;     // Diagonale \
+        if (b[0][2] == sp && b[1][1] == sp && b[2][0] == sp) return true;     // Diagonale /
+        return false;
+    }
+}

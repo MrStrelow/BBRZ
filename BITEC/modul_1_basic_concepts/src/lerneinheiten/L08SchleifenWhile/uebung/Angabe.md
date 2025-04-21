@@ -9,8 +9,6 @@
    Erweitern Sie das Programm, indem Sie vom Benutzer die untere und obere Grenze abfragen (z.B. 4 bis 12).
 
 3. Schreiben Sie eine While-Schleife, die von 10 bis 1 alle Zahlen im Format "10-9-8-...-1" ausgibt.  
-   Speichern Sie hierbei die Zahl 10 in der Konstante `bound`.  
-   Ändern Sie `bound` auf 100.
 
 4. Schreiben Sie ein Programm, das eine Zahl vom Benutzer einliest und die Summe aller Zahlen von 1 bis zur eingegebenen Zahl ausgibt.
 
@@ -41,14 +39,14 @@ Hinweis: Modulo-Operationen helfen beim Zerlegen in Stellen.
 Einlesen der oberen Grenze `n` und Ausgabe aller Primzahlen bis `n`.  
 Beachten Sie: 1 ist keine Primzahl.
 
-### Teilbar durch 3
+**Teilbar durch 3**
 Programmieren Sie eine Schleife, die alle durch 3 teilbaren Ganzzahlen zwischen 10 und 40 ausgibt.  
 Beispiel:
 ```
 12 15 18 21 24 27 30 33 36 39
 ```
 
-### Zahlen zwischen 0 und 100 raten
+### Zahlen raten
 Der Benutzer muss eine geheime Zahl zwischen 0 und 100 am Terminal erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage.
 
 Weiters soll folgendes gelten:
@@ -149,23 +147,6 @@ Geben Sie am Ende auch den Durchschnitt aus.
 - Anzahl der Würfel vom Benutzer abfragen
 - do-while-Schleife zum Würfeln und Raten der Augensumme erstellen
 - Hinweise geben: höher / niedriger
-
-### Tic Tac Toe
-Implementieren Sie ein Tic Tac Toe-Spiel mit do-while:
-- X und O abwechselnd setzen
-- Spielbrett nach jedem Zug ausgeben
-- Spielende bei Sieg oder Unentschieden
-
-Beispiel:
-```
--------------
-| X | X | X |
--------------
-|   | O |   |
--------------
-|   |   | O |
--------------
-```
 
 ## Menü
 Implementiere ein Menü mit Optionen. Diese werden dann in die Console ausgegeben. Die Optionen werden wiederholt angezeigt, bis der Benutzer 0 eingibt. Bei ungültiger Eingabe soll "Ungültige Auswahl!" ausgegeben werden und es soll solange nachgefragt werden bis diese Eingabe korrekt ist.
