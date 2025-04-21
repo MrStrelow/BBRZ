@@ -1,4 +1,4 @@
-package lerneinheiten.L09SchleifenFor;
+package lerneinheiten.L11Arrays;
 
 import java.util.Scanner;
 
