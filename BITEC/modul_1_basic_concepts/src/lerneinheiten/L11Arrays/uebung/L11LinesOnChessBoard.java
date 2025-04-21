@@ -1,8 +1,8 @@
-package lerneinheiten.L11Arrays;
+package lerneinheiten.L11Arrays.uebung;
 
 import java.util.Scanner;
 
-public class L09LinesOnChessBoard {
+public class L11LinesOnChessBoard {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
