@@ -12,7 +12,7 @@ For-Schleife, welche die gerade Zahlen von 2 bis 20 ausgibt. Erweitere das Progr
 
 3. Ungerade Zahlen rückwärts
 
-For-Schleife, welche die ungerade Zahlen von **15 bis 5** ausgibt. Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 15 beliebig anpassen kann.
+For-Schleife, welche die ungeraden Zahlen von **15 bis 5** ausgibt. Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 15 beliebig anpassen kann.
 
 4. Alphabet
 
@@ -45,7 +45,7 @@ For-Schleife, welche die Fakultät der Zahl 5 berechnet. Erweitere das Programm 
 Beispiel: 
 ```
 Berechne die Fakultät von [gerade zahl]: 5
-5! = 5*4*3*2*1 = 120
+5! = 1*2*3*4*5 = 120
 ```
 
 9. Multiplikationstabelle
@@ -110,10 +110,10 @@ Optional: färbe die Ausgabe rot wenn der User eine Primzahl eingibt. Eine Primz
 
 Beispiel:
 <pre>
-Berechne die Zeiler der Zahl [ganze Zahl]: 40
+Berechne die Teiler der Zahl [ganze Zahl]: 40
 teiler(40) = 1, 2, 4, 5, 8, 10, 20, 40
 
-Berechne die Zeiler der Zahl [ganze Zahl]: 7
+Berechne die Teiler der Zahl [ganze Zahl]: 7
 <span style="color:red">teiler(7) = 1, 7</span>
 </pre>
 
@@ -147,6 +147,7 @@ pow(3,4) = 81
 ```
 
 Optional: Füge einen Tabulator ``\t`` ein, falls nicht alle Zahlen in der Ausgabe untereinander stehen können.
+Hinweis: Verwende ```"\t".repeat(2)``` um z.B. 2 Tabulatoren einzufügen. Berechne die Anzahl der Tabulatoren mit ``String.valueOf(exponentGrenze).length() - 1;``
 
 ---
 
@@ -321,6 +322,13 @@ Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig
 --3--
 ---4-
 ----5
+
+6-----
+-5----
+--4---
+---4--
+----5-
+-----6
 ```
 Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
 
@@ -331,6 +339,13 @@ Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig
 --3--
 -2-4-
 1---5
+
+6----1
+-5--2-
+--43--
+--34--
+-2--5-
+1----6
 ```
 Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
 
@@ -341,6 +356,13 @@ Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig
 12321
 --4--
 --5--
+
+---6--
+---5--
+---4--
+123321
+---5--
+---6--
 ```
 
 Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
@@ -377,94 +399,65 @@ Beispiel:
 70  71  72  73  74  75  76  77  78  79
 80  81  82  83  84  85  86  87  88  89
 90  91  92  93  94  95  96  97  98  99
+
+0   1   2   3   4   5   6   7   8   9   10
+11  12  13  14  15  16  17  18  19  20  21
+22  23  24  25  26  27  28  29  30  31  32
+33  34  35  36  37  38  39  40  41  42  43
+44  45  46  47  48  49  50  51  52  53  54
+55  56  57  58  59  60  61  62  63  64  65
+66  67  68  69  70  71  72  73  74  75  76
+77  78  79  80  81  82  83  84  85  86  87
+88  89  90  91  92  93  94  95  96  97  98
+99 100 101 102 103 104 105 106 107 108 109
+110 111 112 113 114 115 116 117 118 119 120
 ```
-Verwenden Sie `%2d` zur Formatierung der Zahlen.
+*Hinweis: Verwenden Sie `System.out.printf("%3d", i);` zur Formatierung der Zahlen, falls eine zweistellige Zahl angegeben wird.
+Es werden 3 Stellen erzeugt z.B. "22 ". Falls der User eine dreistellige Zahl eingibt, verwende ``System.out.printf("%4d", i);``
+Berechne die Anzahl der Stellen mit ``String.valueOf(anzahlFelder).length() + 1;``*
 
 ## Die halbe Matrix
 Schreiben Sie ein Programm, das die Zahlen 0 bis *15 = (5 * (5 + 1)) / 2* in einer 5x5 Matrix ausgibt. Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
 
-Beispiel:
+Beispiel für input 10 -> (10 * 11)/2 = 55 Symbole:
 ```
-.  .  .  .  1
-.  .  .  2  3
-.  .  4  5  6
-.  7  8  9  10
-11 12 13 14 15
+.  .  .  .  .  .  .  .  .  01
+.  .  .  .  .  .  .  .  02 03
+.  .  .  .  .  .  .  04 05 06
+.  .  .  .  .  .  07 08 09 10
+.  .  .  .  .  11 12 13 14 15
+.  .  .  .  16 17 18 19 20 21
+.  .  .  22 23 24 25 26 27 28
+.  .  29 30 31 32 33 34 35 36
+.  37 38 39 40 41 42 43 44 45
+46 47 48 49 50 51 52 53 54 
+```
+
+Beispiel für input 15 -> (15 * 16)/2 = 120 Symbole:
+```
+.   .   .   .   .   .   .   .   .   .   .   .   .   .   001
+.   .   .   .   .   .   .   .   .   .   .   .   .   002 003
+.   .   .   .   .   .   .   .   .   .   .   .   004 005 006
+.   .   .   .   .   .   .   .   .   .   .   007 008 009 010
+.   .   .   .   .   .   .   .   .   .   011 012 013 014 015
+.   .   .   .   .   .   .   .   .   016 017 018 019 020 021
+.   .   .   .   .   .   .   .   022 023 024 025 026 027 028
+.   .   .   .   .   .   .   029 030 031 032 033 034 035 036
+.   .   .   .   .   .   037 038 039 040 041 042 043 044 045
+.   .   .   .   .   046 047 048 049 050 051 052 053 054 055
+.   .   .   .   056 057 058 059 060 061 062 063 064 065 066
+.   .   .   067 068 069 070 071 072 073 074 075 076 077 078
+.   .   079 080 081 082 083 084 085 086 087 088 089 090 091
+.   092 093 094 095 096 097 098 099 100 101 102 103 104 105
+106 107 108 109 110 111 112 113 114 115 116 117 118 119 120
 ```
 
 ---
 
 # For und While Schleife gemischt
-
-## Pakete einlagern
-Erstellen Sie einen String mit dem Inhalt ``"📦📦📦📦📦"``. Es sollen nun nach Benutzereingaben in leere Pakete Produkte eingelagert und entnommen werden können. Die Identifikation passiert über eine **Paketnummer**. Der String hat 5 leere Plätze mit den Indizes ``0, 1, 2, 3, 4``. (📦 bedeutet, dass der Platz leer ist.)
-* Legen Sie den ``String storage`` mit ``"📦📦📦📦📦"`` an.
-* Fragen Sie den Benutzer, welche Aktion er ausführen möchte. Geben Sie hierzu folgende Optionen:
-    * einlagern, auslagern, beenden
-
-* Nach der Wahl der Option, soll die **Paketnummer** angegeben werden. Es soll dieser **Paketnummer** eines einer der 10 verschiedene **Produkte** (``{0:"🌂", 1:"🧯", 2:"🧺", 3:"🧹", 4:"🪒", 5:"🧼", 6:"🪞", 7:"🚽", 8:"🪠", 9:"💍"}``) zugewisen werden. Die Zahlen in der Auflistung sind die **Produktnummern**. Diese ändern sich nicht.
-* Überschreiben den nächsten freien Platz mit dem Produkte anhand folgender Logik:
-    * einlagern: das erste 📦 wird durch die **Paketnummer** identifiziert und der user wird gefragt welches Produkt er will. Dazu gibt dieser die **Produktnummer** an. Gibt es keinen freien Platz mehr, so wird eine Meldung ausgegeben.
-    * auslagern: das Produkt welches über die Produktnummer identifiziert wird, wird durch 📦 ersetzt.
-    * beenden: beendet das Programm.
-    
-* Geben Sie in jedem Schleifendurchlauf die Variable storage aus.
-
-Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
-
-*Hinweis: Lege folgenden String an ``String produkte = "🌂🧯🧺🧹🪒🧼🪞🚽🪠💍"`` und lass die Benutzer die Position des Strings eingeben. Nehen wir an die Postion ist 4, wir schreiben ``int wahlDesUsersAlsUnicode = produkte.codePointAt(4)`` um den Unicode davon zu bekommen. Dieser ist im Dezimalsystem. Wir können mit``String produkt = new String(Character.toChars(wahlDesUsersAlsUnicode))`` einen String machen welchen wir direkt verwenden können.*.
-
-**Frage:** Warum funktioniert hier nicht ``produkte.charAt(4)``? (Siehe [L02](../../L02VariablenErstellen/skripten/L02VariablenErstellen.md)) 
-* Was gibt von charAt() für einen Typ zurück? 
-* Wie viele Bits bzw. Hex-Bits hat ein Character zur Verfügung?
-* Was ist der Unicode von 🌂 ``int unicode = produkte.codePointAt(0)`` ?
-* Wandle diese Zahl in eine Hexadezimalzahl um. (``String hexNumber = Integer.toHexString(unicode))``) 
-* Wie viele ist Hex-Bits hat ``hexNumber``? 
-
-Beispiel:
-```
-Willkommen: Wie groß ist das Lager [ganze Zahl]? 5 
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 2425 2 
-🧯📦📦📦📦 
- 
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 6472115482 6 
-🧯🧼📦📦📦 
- 
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 1 6 
-🧯🧼💍📦📦 
- 
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): auslagern 
-Geben Sie die Paketnummer ein: 2425
-📦🧼💍📦📦 
- 
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 1 8 
-Paketnummer bereits vergeben!
-📦🧼💍📦📦
-
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 13884 8 
-🪠🧼💍📦📦 
-
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 1388451 8 
-🪠🧼💍🪠📦 
-
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 16 8 
-🪠🧼💍🪠🪠
-
-Wählen Sie eine Aktion (einlagern, auslagern, beenden): einlagern 
-Geben Sie die Paketnummer sowie Produktnummer an [Paketnummer Produktnummer]: 999 8 
-Lager ist Voll. Wir melden uns wenn dieses frei ist.
-🪠🧼💍🪠🪠
-```
  
 ## Passwort Generator
-Schreiben Sie ein Programm, dass zufällige Passwörter generiert.
+Schreiben Sie ein Programm, dass zufällige Passwörter generiert. 
 
 Fragen Sie hierzu den Benutzer folgende Fragen:
 * Soll das Passwort Großbuchstaben beinhalten?
@@ -472,6 +465,15 @@ Fragen Sie hierzu den Benutzer folgende Fragen:
 * Soll das Passwort Sonderzeichen beinhalten?
 * Wie lang soll das Passwort sein?
 * Fragen Sie den Benutzer wie viele Passwörter generiert werden sollen
+
+Erweitere das Programm so, dass der Benutzer die Erzeugung der Passwörter wiederholen kann.
+
+Hinweis: Verwende für die Wahl der Symbole folgende variablen, welche final sind.
+Bedeutet diese können nicht mehr im Programm verändert werden.
+final String KLEINBUCHSTABEN = "abcdefghijklmnopqrstuvwxyz";
+final String GRO?BUCHSTABEN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+final String ZIFFERN = "0123456789";
+final String SONDERNZEICHEN = "!\"§$%&/()=?{[]}\\@#*+~^.,;:-_<>|";
 
 Beispiel:
 ```
@@ -486,11 +488,26 @@ Es wurden:
 u710/&8GP! 
 Atn6a47*]e
 generiert
+
+Neue Passwörter generieren [+/-]? +
+
+Soll das Passwort Großbuchstaben beinhalten [+/-]? -
+Soll das Passwort Ziffern beinhalten [+/-]? -
+Soll das Passwort Sonderzeichen beinhalten [+/-]? -
+Wie lang soll das Passwort sein [ganze Zahl]? 2
+Wie viele Passwörter sollen generiert werden? 1
+
+Es wurden: 
+ap
+generiert
+
+Neue Passwörter generieren [+/-]? -
+Programm wurde auf Wunsch des Benutzers beendet.
 ```
 
 ## Guess the Word
 Entwickeln Sie das Spiel "Hangman" in Java. Das Spiel sollte folgende Funktionen haben:
-* Fragen Sie den Benutzer nach einen Wort mit 3 Buchstaben. Die Zahl 3 soll in der Konstante Länge gespeichert werden und somit einfach veränderbar sein.
+* Fragen Sie den Benutzer nach einem Wort mit 3 Buchstaben. Die Zahl 3 soll in der Konstante Länge gespeichert werden und somit einfach veränderbar sein.
 * Ist das Wort zu lang oder leer, soll eine Fehlermeldung ausgegeben werden und erneut angefragt werden.
 * Anzeige des Status des Wortes, das der Spieler erraten muss (zum Beispiel als Striche (_), die die Buchstaben repräsentieren).
 * Eine Schleife, die dem Spieler erlaubt, Buchstaben zu raten, bis das Wort vollständig erraten oder der Galgenmann "vollständig gehängt" ist. (Groß-/Kleinschreibung soll egal sein)
@@ -504,6 +521,22 @@ Beispielwörter mit 3 Buchstaben: Bau, Hut, Arm, Tag, Eis, Zoo, See
 Beispielwörter mit 4 Buchstaben: Haus, Bahn, Tier, Buch, Fest
 
 Optional: Führe das Programm im Terminal/Console aus und implementiere, dass das eingegebene Wort "verschwindet". Wir überschreiben die Zeile wo es ausgegeben wird. Verwende dazu die Konsolenbefehle
+
+*Hinweis: Verwende folgenden Ort für die Darstellung des Problems (siehe Vorlage):*
+```
+static void zeichneHangman(int fehler) {
+    // switch ausdruck mit fehlerfällen oder 
+    // kompakter if ausdrücke (siehe Lösung) 
+}
+
+public static void zeichneSharkFin(int fehlversuche) {
+    // switch ausdruck mit den fehlerfällen
+}
+
+public static void zeichneEisbecher(int fehlversuche) {
+    // switch ausdruck mit den fehlerfällen
+}  
+```
 
 #### Darstellung - Hangman
 Beispiel:

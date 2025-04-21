@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class A01MusteDreieck {
     public static void main(String[] args) {
-        System.out.println("##ende außerste###");
-        System.out.println();
-
         // userinput
         Scanner scanner = new Scanner(System.in);
         System.out.print("Gib die größe des Musters ein [zahl]: ");
