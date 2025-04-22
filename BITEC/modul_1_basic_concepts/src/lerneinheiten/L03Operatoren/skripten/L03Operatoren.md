@@ -1,7 +1,7 @@
 # Operatoren in Java
 
 #### Welche Begriffe werden hier verwendet?
-[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``Anweisung``](../../../glossar.md#anweisung), [``Auswertungsreihenfolge eines Ausdrucks``](../../../glossar.md#auswertungsreihenfolge-eines-ausdrucks), [``Auswertung eines Ausdrucks``](../../../glossar.md#auswertung-eines-ausdrucks), [``Klammersetzung``](../../../glossar.md#klammersetzung)
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ),  [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``Anweisung``](../../../glossar.md#anweisung), [``Auswertungsreihenfolge eines Ausdrucks``](../../../glossar.md#auswertungsreihenfolge-eines-ausdrucks), [``Auswertung eines Ausdrucks``](../../../glossar.md#auswertung-eines-ausdrucks), [``Klammersetzung``](../../../glossar.md#klammersetzung)
 
 ---
 

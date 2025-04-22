@@ -1,7 +1,7 @@
 # Mehrfachverzweigungen mit Switch-Anweisungen und Switch-Ausdrücken
-TODO
+
 #### Welche Begriffe werden hier verwendet?
-[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``Anweisung``](../../../glossar.md#anweisung), [``Auswertungsreihenfolge eines Ausdrucks``](../../../glossar.md#auswertungsreihenfolge-eines-ausdrucks), [``Auswertung eines Ausdrucks``](../../../glossar.md#auswertung-eines-ausdrucks), [``Klammersetzung``](../../../glossar.md#klammersetzung)
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ),  [``logische Formel``](../../../glossar.md#logische-formel), [``Anweisung``](../../../glossar.md#anweisung), [``Switch-Anweisung``](../../../glossar.md#switch-anweisung), [``Ausdruck``](../../../glossar.md#ausdruck), [``Switch-Ausdruck``](../../../glossar.md#switch-ausdruck), [``Bedingung``](../../../glossar.md#bedingung), [``Verzweigung``](../../../glossar.md#bedingung), [``Mehrfachverzweigung``](../../../glossar.md#mehrfachverzweigung), [``Block``](../../../glossar.md#bedingung), [``Zweig``](../../../glossar.md#zweig)
 
 Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme schreiben zu können.
 Diese sind:
@@ -159,7 +159,7 @@ String ergebnis =
                                      "Die Variable hat nicht den Wert 1, 2 oder 5.";
 ```
 
-Diese geht schrittweise von oben nach unten. Wir müssen zuerst abfragen ob ``variable == 1`` ist, falls ja, führe den Code dort aus. Falls nein, geh weiter zu ``variable == 1 || variable == 5``. Hier müssen wir sogar mehr arbeiten. Wir haben dort eine Formel welche 2 Teile besitzt. Wir müssen nun die Bedingung ausrechnen. Wir überprüfen zuerst ob ``variable == 1`` ist, Falls ja, gut das ``logische ODER`` ergibt wahr und damit auch die ``Bedingung``. Falls nicht, müssen wir noch weiter zu ``variable == 5`` schauen. Wenn auch dieser Fall nicht eintreten sollte, führen wir den letzten Zweig aus. 
+Diese geht schrittweise von oben nach unten. Wir müssen zuerst abfragen ob ``variable == 1`` ist, falls ja, führe den Code dort aus. Falls nein, geh weiter zu ``variable == 1 || variable == 5``. Hier müssen wir sogar mehr arbeiten. Wir haben dort eine Formel welche 2 Teile besitzt. Wir müssen nun die Bedingung ausrechnen. Wir überprüfen zuerst ob ``variable == 1`` ist, Falls ja, gut das ``logische ODER`` ergibt wahr und damit auch die ``Bedingung``. Falls nicht, müssen wir noch weiter zu ``variable == 5`` schauen. Wenn auch dieser Fall nicht eintreten sollte, führen wir den letzten ``Zweig`` aus. 
 
 Wenn wir dieses Verhalten als ``Switch-Ausdruck`` schreiben...
 ```java

@@ -1,7 +1,7 @@
-# Codewiederholung mit ``While-Schleife``n
+# Codewiederholung mit der While-Schleife
 
 #### Welche Begriffe werden hier verwendet?
-[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``Anweisung``](../../../glossar.md#anweisung), [``While-Schleife``](../../../glossar.md#``While-Schleife``), [``Schleife``](../../../glossar.md#schleife)
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ),  [``logische Formel``](../../../glossar.md#logische-formel), [``Kontrollstruktur``](../../../glossar.md#kontrollstruktur), [``Anweisung``](../../../glossar.md#anweisung), [``Ausdruck``](../../../glossar.md#ausdruck), [``Bedingung``](../../../glossar.md#bedingung), [``Verzweigung``](../../../glossar.md#bedingung), [``Block``](../../../glossar.md#bedingung), [``Zweig``](../../../glossar.md#zweig) [``While-Schleife``](../../../glossar.md#``While-Schleife``), [``Schleife``](../../../glossar.md#schleife), [``Zählvariable``](../../../glossar.md#zählvariable), 
 
 Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme schreiben zu können.
 Diese sind:
@@ -15,15 +15,15 @@ Wir beginnen nun mit unserer ersten Schleife. Diese so genannte ``While-Schleife
 ## Warum Schleifen?
 Schauen wir uns folgenden Code an:
 ```java
-System.out.println(":)");
-System.out.println(":)");
-System.out.println(":)");
-System.out.println(":)");
+System.out.println("🙂");
+System.out.println("🙂");
+System.out.println("🙂");
+System.out.println("🙂");
 ```
 
-Dieser wiederholt 4 mal die Ausgabe des ``Strings`` *:)*. Wie oft aber soll jedoch ein solches *Wiederholen* geschehen, wenn wir die Anzahl der Wiederholungen nicht im vorhinein wissen? Ein Beispiel dafür wäre jede Interaktion mit einem User. Wir wissen nicht wie oft ein User eine *falsche* Eingabe tätigen wird. Wir können ohne ``Schleifen`` ein solches Problem nicht lösen. 
+Dieser wiederholt 4 mal die Ausgabe des ``Strings`` *🙂*. Wie oft aber soll jedoch ein solches *Wiederholen* geschehen, wenn wir die Anzahl der Wiederholungen nicht im vorhinein wissen? Ein Beispiel dafür wäre jede Interaktion mit einem User. Wir wissen nicht wie oft ein User eine *falsche* Eingabe tätigen wird. Wir können ohne ``Schleifen`` ein solches Problem nicht lösen. 
 
-Versuchen wir nun ein Programm zu schreiben welches den User eine Zahl eingeben lässt und so oft ':)' ausgibt.
+Versuchen wir nun ein Programm zu schreiben welches den User eine Zahl eingeben lässt und so oft *'🙂'* ausgibt.
 Wir müssten ohne Schleifen dazu eine *unendlich lange Verzweigung* schreiben.
 
 ```java
@@ -31,51 +31,199 @@ Scanner scanner = new Scanner(System.in);
 Integer userInput = Integer.parseInt(scanner.nextLine());
 
 switch (userInput) {
-    case 1 -> System.out.print(":)");
-    case 2 -> System.out.print(":):)");
-    case 3 -> System.out.print(":):):)");
-    case 4 -> System.out.print(":):):):)");
+    case 1 -> System.out.print("🙂");
+    case 2 -> System.out.print("🙂🙂");
+    case 3 -> System.out.print("🙂🙂🙂");
+    case 4 -> System.out.print("🙂🙂🙂🙂");
     case...
-    case 2_147_483_647 -> System.out.print(":):):):):):):):):):):):)....");
+    case 2_147_483_647 -> System.out.print("🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂....");
     default -> System.out.println("Ohne Schleifen nicht sinnvoll lösbar.");
 }
 ```
 
+**Anmerkung:** *"🙂".repeat(userInput)* kann hier verwendet werden um sich das Schreiben einer ``Schleife`` zu ersparen. Schleifen sind jedoch so allgemein, dass wir *"alles"* damit programmieren können. Falls es nicht wie hier durch *"🙂".repeat(userInput)* eine Lösung des Problems bereits gibt, müssen wir auf ``Schleifen`` als ``Kontrollstruktur`` zurückgreifen.
+
 Wir merken uns:
 > Ohne ``Schleifen`` müssten wir für die Lösung mancher Probleme unendlich lange ``Programme`` schreiben, was nicht umsetzbar ist.
 
-## Was benötige ich um Code zu wiederholen?
+## Was benötige ich um eine While-Schleife zu schreiben?
 Hier nun die *allgemeinste* Schleife. Die ``While-Schleife``. *Allgemein* bedeutet hier, dass alle anderen Schleifen, als diese dargestellt werden können.
 
-Die Essenz einer ``While-Schleife`` ist ein Wiederholen eines Teils des Codes, bis eine ``logische Bedingung`` nicht mehr erfüllt ist. 
-Hier ist dies "zaehlvariable < 3". Solange diese Schleifenbedingung erfüllt ist, also auf true auswertet, wird der Code welcher unter der
-While Schleife steht, ausgeführt. Dies ist hier  System.out.println(" :) "); und zaehlvariable = zaehlvariable + 1;
+Die Essenz einer ``While-Schleife`` ist ein Wiederholen eines Teils des Codes, bis eine ``logische Bedingung`` nicht mehr erfüllt ist. Hier ist diese *zaehlvariable < 3*. Solange diese ``Bedingung`` erfüllt ist, also auf *true* auswertet, wird der Code welcher im ``Block`` unterhalb der ``While-Schleife`` ist, ausgeführt. In diesem ``Block`` steht *System.out.println("🙂");* und *zaehlvariable = zaehlvariable + 1;*.
 
 ```java
-Integer zaehlvariable = 0; zaehlvariable = 1;
-While (zaehlvariable < 3) { zaehlvariable <= 3;
-    System.out.println(" :) ");
-    zaehlvariable = zaehlvariable + 1;
-}```
+int zaehlvariable = 0; // Zählvariable beginnt oft bei 0 - Grund für uns: Arrays, welche wir noch nicht kennen.
 
-**Anmerkung:** ":)".repeat(userInput) darf natürlich nicht verwendet werden! Das ist quasi eine Schleife!
-Hier ist zaehlvariable eine Zählvariable und zählt wie oft die Schleife ausgeführt wurde. Diese wird meist mit "i" geschrieben.
-Meistens wenn gezählt wird und mit der Zählvariable nicht wilde Dinge passieren
-(erhöht, und dann verringert in einem nicht vorhersehbaren Ausmaß), dann ist eine For Schleife besser geeignet.
-Siehe ForSchleife.java. Wenn aber nicht klar ist, wie oft etwas ausgeführt wird,
-also eben wilde Dinge mit der Zählvariable passieren, oder wir einfach nicht wissen, wann z.B. der User mit einer Ausgabe zufireden ist,
-dann wird eine While Schleife benötigt.
+While (zaehlvariable < 5) { // Start des Blocks
+    System.out.println("🙂");
 
-Beachte hier, dass es nur wichtig ist, wie oft etwas ausgeführt wird und nicht was der Wert der Zählvariable ist.
-Es ist also wichtig, dass 3 Mal die Schleife ausgeführt wird. Der Unterschied zwischen der ersten Zuweisung von i (i=1) und
-deren Abbruchbedingung mit dem "<" Operator (i <= 3 wird i < 4) ergibt die Anzahl der Schleifendurchläufe. Also 4-1 = 3.
-int i = 1; i = 101;
-While (i <= 3) { i <= 103;
-    System.out.println(" :) ");
-    i = i + 1;
+    zaehlvariable = zaehlvariable + 1; // Inkrement der Zählvariable
 }
+```
 
-Hier wird das Alter vom User eingegeben und erst wenn dieses "plausibel" ist, fahren wir mit dem restlichen Programm fort.
+Wir merken uns:
+> Eine ``While-Schleife`` wiederholt den Code des zugehörigen ``Blocks`` solange bis die ``Bedingung`` nicht mehr erfüllt ist.
+
+### Wir wissen wie oft eine Schleife ausgeführt wird
+Eine ``Zählvariable`` ist eine ``Variable`` welche zählt *wie oft* die ``Schleife`` ausgeführt wurde. Diese wird meist mit "i" für **I***ndex* geschrieben. Das obige Beispiel für eine ``While-Schleife`` ist eine welche eine ``Zählvariable`` verwendet. Wenn wir eine solche verwenden, wissen wir meist wie oft wir etwas wiederholen wollen. In dem obigen Fall ist es *3* mal. Wir nennen zudem die *Eröhung* der ``Zählvariable`` am Schluss der ``Schleife`` das *Inkrement* dieser. Wir inkrementieren damit am Ende der ``Schleife`` als letzte ``Anweisung`` diese um *1* und zählen damit wie oft die Schleife ausgeführt wurde. Die ``Bedingung`` muss nun diese Zählvariable beinhalten. Ansonsten zählen wir zwar, aber brechen die ``Schleife`` nicht nach 3 Wiederholungen ab.
+
+Wenn wir eine ``Zählvariable`` verwenden ist fast immer eine andere Art der Schleife zu bevorzugen. Die Konzepte hier sind jedoch 1 zu 1 dort Anwendbar.
+
+Wir merken uns ohne zu wissen was eine ``For-Schleife``:
+> Eine ``Zählvariable`` zählt wie oft eine ``Schleife`` ausgeführt wird. Die ``Zählvariable`` muss in der ``Bedingung`` enthalten sein.
+
+> Wenn eine ``Variable`` um *1* erhöht wird, nennen wir es ein ``Inkrement``.
+
+> Wenn eine ``Zählvariable`` verwendet wird verwenden wir eine ``For-Schleife`` anstatt einer ``While-Schleife``.
+
+#### Ich zähle von 0 bis 4, du von 107 bis 111, wer anderer von 4 bis 0
+Es ist wichtig wie oft eine ``Schleife`` ausgeführt wird. Wenn wir eine ``Zählvariable`` verwenden ist jedoch der ``Wert`` dieser meist unwichtig. Nur das *"3 Mal wiederholen"* der ``Schleife`` ist wichtig. Zählen wir *händisch* für den folgenden Code, wie wir eine ``Schleife`` zum Abbruch nach 5 Wiederholungen bringen.
+
+```java
+int i = 0; // Zählvariable beginnt oft bei 0 - Grund für uns: Arrays, welche wir noch nicht kennen.
+
+While (i < 5) { // Start des Blocks
+    System.out.println("🙂");
+
+    i = i + 1; // Inkrement der Zählvariable
+}
+```
+
+| Anzahl Wiederholungen | Wert von *i* vor der **einmaligen** Ausführung des Blocks | Ausgabe | Wert *nach* der **einmaligen ** Ausführung des Blocks | Bedingung vor der **einmaligen** Ausführung des Blocks  : i < 5 |
+|------------------------|-------------------------------|---------|--------------------------------| ---- |
+| 1                      | 0                             | 🙂       | 1                             | ✅ 0 < 5 |
+| 2                      | 1                             | 🙂       | 2                             | ✅ 1 < 5 |
+| 3                      | 2                             | 🙂       | 3                             | ✅ 2 < 5 |
+| 4                      | 3                             | 🙂       | 4                             | ✅ 3 < 5 |
+| 5                      | 4                             | 🙂       | 5                             | ✅ 4 < 5 |
+| 5                      | 5                             |           | 5                            | ❌ 5 < 5 |
+
+Wir merken uns:
+> Der ``Block`` der ``Schleife`` wird betreten, wenn die ``Bedingung`` *wahr* ist. 
+
+> Die ``Bedingung`` muss vor dem 1. betreten des ``Blocks`` der ``Schleife`` *wahr* sein.
+
+Wir versuchen nun eine ähnliche Tabelle für folgenden Code zu erzeugen.
+```java
+int i = 0; 
+
+While (i <= 5) { // Änderung: i < 5 wurde zu i <= 5
+    System.out.println("🙂");
+
+    i = i + 1; 
+}
+```
+
+| Anzahl Wiederholungen | Wert von *i* vor der **einmaligen** Ausführung des Blocks | Ausgabe | Wert *nach* der **einmaligen ** Ausführung des Blocks | Bedingung vor der **einmaligen** Ausführung des Blocks  : i < 5 |
+|------------------------|-------------------------------|---------|--------------------------------| ---- |
+| 1                      | 0                             | 🙂       | 1                             | ✅ 0 <= 5 |
+| 2                      | 1                             | 🙂       | 2                             | ✅ 1 <= 5 |
+| 3                      | 2                             | 🙂       | 3                             | ✅ 2 <= 5 |
+| 4                      | 3                             | 🙂       | 4                             | ✅ 3 <= 5 |
+| 5                      | 4                             | 🙂       | 5                             | ✅ 4 <= 5 |
+| 6                      | 5                             | 🙂       | 6                            | ✅ 5 <= 5 |
+| 6                      | 6                             |           | 6                            | ❌ 6 <= 5 |
+
+Es wird also diese Schleife *6* mal ausgeführt. Die vorherige nur *5* mal. Wie schaffen wir es wieder *5* Wiederholungen zu haben, ohne dem ``Vergleichsoperator`` zu verändern? Versuchen wir folgendes.
+
+```java
+int i = 1; // Änderung: i = 0 wurde zu i = 1
+
+While (i <= 5) { 
+    System.out.println("🙂");
+
+    i = i + 1; 
+}
+```
+
+| Anzahl Wiederholungen | Wert von *i* vor der **einmaligen** Ausführung des Blocks | Ausgabe | Wert *nach* der **einmaligen ** Ausführung des Blocks | Bedingung vor der **einmaligen** Ausführung des Blocks  : i <= 5 |
+|------------------------|-------------------------------|---------|--------------------------------| ---- |
+| 1                      | 1                             | 🙂       | 2                             | ✅ 1 <= 5 |
+| 2                      | 2                             | 🙂       | 3                             | ✅ 2 <= 5 |
+| 3                      | 3                             | 🙂       | 4                             | ✅ 3 <= 5 |
+| 4                      | 4                             | 🙂       | 5                             | ✅ 4 <= 5 |
+| 5                      | 5                             | 🙂       | 6                             | ✅ 5 <= 5 |
+| 6                      | 6                             |           | 6                            | ❌ 6 <= 5 |
+
+Wir sehen, wir haben wieder *5* Wiederholungen des ``Blocks`` der ``Schleife``.
+
+Schauen wir uns nun eine eher unnütze Zählweise an, jedoch welche auch *5* Wiederholungen des ``Blocks`` der ``Schleife`` erzeugt.
+
+```java
+int i = 107; // Änderung: i = 0 wurde zu i = 1
+
+While (i < 112) { 
+    System.out.println("🙂");
+
+    i = i + 1; 
+}
+```
+
+| Anzahl Wiederholungen | Wert von *i* vor der **einmaligen** Ausführung des Blocks | Ausgabe | Wert *nach* der **einmaligen ** Ausführung des Blocks | Bedingung vor der **einmaligen** Ausführung des Blocks  : i < 112 |
+|------------------------|-------------------------------|---------|--------------------------------| ---- |
+| 1                      | 107                             | 🙂       | 108                             | ✅ 107 < 112 |
+| 2                      | 108                             | 🙂       | 109                             | ✅ 108 < 112 |
+| 3                      | 109                             | 🙂       | 110                             | ✅ 109 < 112 |
+| 4                      | 110                             | 🙂       | 111                             | ✅ 110 < 112 |
+| 5                      | 111                             | 🙂       | 112                             | ✅ 111 < 112 |
+| 6                      | 112                             |           | 112                             | ❌ 112 < 112 |
+
+Wir sehen, wir haben wieder *5* Wiederholungen des ``Blocks`` der ``Schleife``.
+
+```java
+int i = 5; // Änderung: i = 0 wurde zu i = 5
+
+While (i > 0) { 
+    System.out.println("🙂");
+
+    i = i - 1; // Änderung: i = i + 1 wurde zu i = i -1
+}
+```
+
+Die Verringerung von *i* um eins wird ``Dekrement`` genannt.
+
+| Anzahl Wiederholungen | Wert von *i* vor der **einmaligen** Ausführung des Blocks | Ausgabe | Wert *nach* der **einmaligen ** Ausführung des Blocks | Bedingung vor der **einmaligen** Ausführung des Blocks  : i > 0 |
+|------------------------|-------------------------------|---------|--------------------------------| ---- |
+| 1                      | 5                             | 🙂       | 4                             | ✅ 5 > 0 |
+| 2                      | 4                             | 🙂       | 3                             | ✅ 4 > 0 |
+| 3                      | 3                             | 🙂       | 2                             | ✅ 3 > 0 |
+| 4                      | 2                             | 🙂       | 1                             | ✅ 2 > 0 |
+| 5                      | 1                             | 🙂       | 0                             | ✅ 1 > 0 |
+| 6                      | 0                             |           | 0                             | ❌ 0 > 0 |
+
+Wir sehen, wir haben wieder *5* Wiederholungen des ``Blocks`` der ``Schleife``.
+Jedoch ist hier die Richtung der Zählweise umgedereht worden. Diese ist für manche Probleme praktisch, wie z.B. dem umdrehen eines Musters. Mehr dazu in der Lerneinheit zur ```For-Schleife``. Es soll also aus
+```
+⬜🔹🔹🔹🔹
+⬜⬜🔹🔹🔹
+⬜⬜⬜🔹🔹
+⬜⬜⬜⬜🔹
+⬜⬜⬜⬜⬜
+```
+dieses Muster werden.
+```
+⬜⬜⬜⬜⬜
+⬜⬜⬜⬜🔹
+⬜⬜⬜🔹🔹
+⬜⬜🔹🔹🔹
+⬜🔹🔹🔹🔹
+```     
+
+Wir merken uns:
+> Der ``Block`` der ``Schleife`` wird betreten, wenn die ``Bedingung`` *wahr* ist. 
+
+> Die ``Bedingung`` muss vor dem 1. betreten des ``Blocks`` der ``Schleife`` *wahr* sein.
+
+> Die Anzahl der Wiederholungen einer ``Schleife`` ist nicht an eine bestimmte zählweise gebunden. Wir zählen jedoch fast immer die ``Zählvariable`` von ``0`` bis ``n`` oder von ``n`` bis ``0``.
+
+> Wenn die ``Zählvariable`` von ``0`` bis ``n`` gezählt wird, muss die ``Zählvariable`` ``inkrementiert`` werden.
+
+> Wenn die ``Zählvariable`` von  ``n`` bis ``0`` gezählt wird, muss die ``Zählvariable`` ``dekrementiert`` werden.
+
+### Wir wissen nicht wie oft eine Schleife ausgeführt wird
+Wenn nicht klar ist, wie oft wir unseren ``Block`` **innerhalb** der ``Schleife`` ausgeführt wird, verwenden wir eine ``While-Schleife``. Schauen wir uns ein Beispiel an. Hier wird das Alter vom User eingegeben und erst wenn dieses "plausibel" ist, machen wir mit dem ``Block`` **nach** der ``Schleife`` weiter.
+
+```java
 System.out.print("Bitte Alter eingeben: ");
 Integer alter = Integer.parseInt(scanner.nextLine());
 
@@ -83,9 +231,14 @@ While ( alter < 18 || alter > 120) {
     System.out.print("Bitte korrektes Alter eingeben: ");
     alter = Integer.parseInt(scanner.nextLine());
 }
+```
 
-Beachte hier die Bedingung der Schleife! Sind die beiden Bedingungen die gleichen?
-Versuche es mit einer Wahrheitstabelle zu überprüfen!
+Unser Problem hier ist wir wissen nicht, wie oft die ``Zuweisung`` der ``Variable`` alter durch *Integer.parseInt(scanner.nextLine());* passieren wird.
+
+
+**Anmerkung:** Beachte hier die ``Bedingung`` der ``Schleife``! Sind die beiden ``Bedingungen`` die gleichen?
+Versuche es mit einer Wahrheitstabelle zu überprüfen! Denke an ``Guard Clauses``.
+```java
 System.out.print("Bitte Alter eingeben: ");
 alter = Integer.parseInt(scanner.nextLine());
 
@@ -93,56 +246,206 @@ While ( !(alter >= 5 && alter <= 120) ) {
     System.out.print("Bitte korrektes Alter eingeben: ");
     alter = Integer.parseInt(scanner.nextLine());
 }
+```
 
-Achtung! Mit While Schleifen können endlose Programme entstehen!
-Damit ist gemeint, dass die Schleifenbedingung immer true ist.
+Wir merken uns:
+> Wenn wir nicht wissen wie oft der ``Block`` der ``Schleife`` ausgeführt wird, verwenden wir eine ``While-Schleife``.
+
+#### ... kann dann auch die Schleife unendlich oft ausgeführt werden?
+Die kurze Antwort ist, ja. Genauer ist damit ist gemeint, dass die ``Bedingung`` **für immer** auf *true* auswertet. Die einfachste ``Bedingung`` wo so etwas zutrifft ist der ``Ausdruck`` *true*.
+
+```java
 While (true) {
     System.out.println("das ist der letzte Durchlauf... oder?");
 }
+```
 
-Wir können aber mit dem Befehlt "break" aus einer Schleife rausspringen, wenn nötig.
-Bedeutet also, wenn wir in einer Schleife "break" sagen, ist egal, ob die Schleifenbedingung erfüllt ist, diese Beendet.
+#### break und continue - gut oder schlecht?
+Ist damit die ``Bedingung`` direkt mit dem ``Wert`` *true* niemals zu verwenden? Nicht wenn wir folgendes ``Keyword`` verwenden. ``break``. Wir kennen ``break`` bereits aus der ``Switch-Anweisung``. Diese erlaubt uns aus dem ``Block`` zu springen falls ein *case* zutrifft. Ansonsten würden alle anderen *cases* auch ausgeführt werden. 
+
+Wir können hier mit ``break`` aus der ``Schleife`` springen, egal ob die ``Bedingung`` erfüllt ist.
+
+```java
 While (true) {
-    System.out.println("erste ewige Schleife");
-    While (true) {
-        System.out.println("zweite ewige Schleife");
-        if (true) {
-            break;
-        }
-    }
+    System.out.println("sind wir hier für immer?... ");
     break;
 }
+```
 
-es gibt auch den Befehlt "condinue", dieser ist ähnlich wie "break", jedoch beenden wir nicht die Schleife, sondern
-beginnen sie von oben wieder. Hier wird also nie das "ich bin nicht bei Hallo 5 da" print verwendet.
-i = 0;
+Ein weiteres ``keyword`` ist ``condinue``. Dieses ist ähnlich wie ``break`` verwendet, jedoch springen wir nicht **aus** dem ``Block``, sondern "starten den ``Block`` neu". Wir steuern somit eine Art Neustart der Schleifendurchlaufs. Wir verwenden ``continue`` wenn wir z.B. eine Usereingabe nicht gültig ist, und wir neu nachfragen wollen, aber nicht den Code unterhalb von ``continue`` ausführen wollen.
+
+Es kann in manchen Situationen sinnvoll sein ``break`` zu verwenden, anstatt eine extra ``Variable`` einzuführen, welche wir als ``Bedingung`` verwenden. Auch spielt die ``Guard-Clause`` sehr in die ``Logik`` von ``break`` und ``continue``.Folgender Code ist kompakter und übersichtlicher 
+
+```java
+Scanner scanner = new Scanner(System.in);
+
+// Zuständigkeit: stelle sicher dass das Passwort passt und wiederhole die Eingabe.
+while (true) {
+    System.out.print("Gib ein Passwort ein: ");
+    String passwort = scanner.nextLine();
+
+    if (passwort.length() < 8) {
+        System.out.println("❌ Zu kurz (mind. 8 Zeichen)");
+        continue;
+    }
+
+    if (!passwort.matches(".*\\d.*")) {
+        System.out.println("❌ Muss mindestens eine Zahl enthalten");
+        continue;
+    }
+
+    if (passwort.equals("12345678")) {
+        System.out.println("❌ Dieses Passwort ist zu unsicher");
+        continue;
+    }
+
+    System.out.println("✅ Passwort akzeptiert");
+    break;
+}
+```
+
+als dieser Code.
+
+```java
+Scanner scanner = new Scanner(System.in);
+boolean akzeptiert = false;
+
+while (!akzeptiert) {
+    System.out.print("Gib ein Passwort ein: ");
+    String passwort = scanner.nextLine();
+
+    if (passwort.length() >= 8) {
+        if (passwort.matches(".*\\d.*")) {
+            if (!passwort.equals("12345678")) {
+                System.out.println("✅ Passwort akzeptiert");
+                akzeptiert = true;
+            } else {
+                System.out.println("❌ Dieses Passwort ist zu unsicher");
+            }
+        } else {
+            System.out.println("❌ Muss mindestens eine Zahl enthalten");
+        }
+    } else {
+        System.out.println("❌ Zu kurz (mind. 8 Zeichen)");
+    }
+}
+
+```
+
+Das ist natürlich übertrieben, denn hier ist die ``Verschachtelung`` der ``Mehrfachverzweigung`` das Problem und weniger die ``Schleife``.  Folgender Code ist ähnlich übersichtlich wie jener mit ``break`` und ``continue``. Falls wir eine ähnlich übersichtliche Variante finden welche ohne ``break`` und ``continue`` auskommt, sollten wir diese verwenden.
+ 
+```java
+Scanner scanner = new Scanner(System.in);
+boolean passwortAkzeptiert = false;
+
+while (!passwortAkzeptiert) {
+    System.out.print("Gib ein Passwort ein: ");
+    String passwort = scanner.nextLine();
+
+    boolean istZuKurz = passwort.length() < 8;
+    boolean keineZahl = !passwort.matches(".*\\d.*");
+    boolean unsicheresPasswort = passwort.equals("12345678");
+
+    if (istZuKurz) {
+        System.out.println("❌ Zu kurz (mind. 8 Zeichen)");
+
+    } else if (keineZahl) {
+        System.out.println("❌ Muss mindestens eine Zahl enthalten");
+
+    } else if (unsicheresPasswort) {
+        System.out.println("❌ Dieses Passwort ist zu unsicher");
+
+    } else {
+        System.out.println("✅ Passwort akzeptiert");
+        passwortAkzeptiert = true;
+    }
+}
+```
+
+Wir merken uns:
+> Wir springen aus den ``Block`` einer ``Schleife`` mit dem ``keyword`` ``break``.
+
+> Wir *können* ``break`` in einer ``Schleife`` verwenden, wenn uns klar ist welche``Pfade`` in einer ``Verzweigung`` zum Abbruch einer ``Schleife`` führen und diese **nicht** ``verschachtelt`` ist.
+
+> Wenn eine ``Guard Clause`` innerhalb einer ``Schleife`` verwendet wird, ist ``break`` notwendig um die Schleife zu verlassen.
+
+**Anmerkung:** Da wir aus dem ``Block`` mit dem ``keyword`` ``break``springen, wird Code welcher unterhal von ``break`` und ``continue`` steht nie ausgeführt. 
+
+```java
+While (true) {
+    System.out.println("sind wir hier für immer?... ");
+    break;
+    int a = 1+1; // Wird nie ausgeführt
+}
+```
+
+```java 
+int i = 0;
 
 While (i<10) {
     System.out.println("Hallo " + i);
     i++;
     continue;
-    System.out.println("ich bin nicht bei Hallo 5 da");
+    int a = 1+1; // Wird nie ausgeführt
 }
+```
 
-i = 0;
+## Zuständigkeiten eines Bocks
+Wir betrachten folgenden Code:
 
-Hier nochmal aber mit einer Bedingung für das continue. break und continue sind immer in einem if vorzufinden.
-Im allgemeinen, sind, wenn es geht, break und continue zu vermeiden.
-While (i<10) {
-    System.out.println("Hallo " + i);
-    i++;
-    if (i == 6){
-        continue;
+```java
+Scanner scanner = new Scanner(System.in);
+
+// Was ist die Aufgabe dieser Schleife? Überprüfen und "wichtigen" Code ausführen...
+while (true) {
+    System.out.print("Bitte gib eine ganze Zahl ein: ");
+
+    if (!scanner.hasNextInt()) {
+        System.out.println("Das war keine gültige Zahl!");
+        scanner.next(); // ungültige Eingabe verbrauchen
+        continue;       // Schleife neu starten
     }
-    System.out.println("ich bin nicht bei Hallo 5 da");
+
+    int userEingabe = scanner.nextInt();
+    // ... wichtiger Code welcher nur wiederholt werden soll, wenn der user eine korrekte Zahl eingibt.
+}
+```
+
+Wir können diesen Code jedoch schöner schreiben, denn wenn wir an ``Zuständigkeiten`` eins ``Blocks`` im Code denken, mischen wir hier zwei. Der *wichtige* code welcher wiederholt werden soll und die *Überprüfung* ob die Eingabe ein Ganze Zahl ist. Wir sollten diese trennen und erhalten eine ``Schleife`` welche kein ``continue`` benötigt.
+
+```java
+// Zuständigkeit: Überprüfung
+while (true) {
+    System.out.print("Bitte gib eine ganze Zahl ein: ");
+    int userEingabe;
+
+    if (scanner.hasNextInt()) {
+        userEingabe = scanner.nextInt();
+
+    } else {
+        System.out.println("Ungültige Eingabe.");
+        scanner.next(); // verbrauchen
+    }
 }
 
-############# Auf der Suche nach der DO-While Schleife #############
-Schauen wir uns zuerst folgendes Scenario an.
-wir schreiben eine While Schleife, welche aufgrund eines User-Inputs entscheiden soll, ob die Schleifer weiter
-fortgeführt werden soll, oder nicht.
+// Zuständigkeit: Wichtiger Code welcher nur ausgeführt weden soll, wenn UserEingabe eine ganze Zahl ist.
+while (...) {
+    ...
+}
+```
+
+Wir merken uns:
+> Die ``Zuständigkeit`` eines ``Blocks`` soll eindeutig in einem ``Kommentar`` erfasst werden können. 
+
+> Die ``Keywords`` ``continue`` und ``break`` können auf Fehler in der Zuteilung der ``Zuständigkeiten`` einer ``Kontrolstruktur`` hinweisen. 
+
+> Wir überlegen uns ``Zuständigkeiten`` eines ``Blocks`` bevor wir diesen implementieren und erfassen diese ``Zuständigkeiten`` in ``Kommentaren``.
+
+## Experimente: Auf der Suche nach der Do-While-Schleife
+Schauen wir uns zuerst folgendes Scenario an. Wir schreiben eine ``While-Schleife``, welche aufgrund eines User-Inputs entscheiden soll, ob die ``Schleifer`` weiter fortgeführt werden soll, oder nicht.
 Sagen wir der user soll so lange eine Zahl raten bis diese erraten wurde. Diese Zahl ist zwischen 1 und 100.
 
+```java
 Random random = new Random();
 
 Integer draw = random.nextInt(101);
@@ -150,10 +453,9 @@ Integer trials = 0;
 Integer guess;
 
 System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+
 While (true) {
     guess = Integer.parseInt(scanner.nextLine());
-    Was wäre der Nachteil, wenn wir hier guess definieren würden?
-    Tipp: Wir wollen z.B. die Variable guess, trial und draw nach der Loop ausgeben.
     String hint;
     trials++;
 
@@ -165,34 +467,21 @@ While (true) {
         hint = "klein";
         System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
 
-    } else {
+    } else { // guess == draw
         System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
         break;
     }
 }
+```
 
 Es fallen uns hier 2 Dinge auf:
-    - Die While Schleife müssen wir mittels break beenden. Wir benötigen dazu keine Bedingung in der While Schleife.
-    Eine häufige bzw. verschachtelte Verwendung von "break" und "continue" macht den Code unleserlich und schwer wartbar.
-
-    (ABER wir werden später sehen dass unser 1. Versuch hier, gar nicht so schlecht ist!
-    "continue", "break", usw. sind Werkzeuge und wenn wir diese sinnvoll verwenden können, sollen wir diese verwenden!
-    Die Kunst ist zu wissen, wann und wann nicht.
-    Hier eine Daumenregel, als Guards bzw. wenn keine Verschachtelungen vorhanden sind, sind break und continue gut.
-    Schlecht sind diese in der "Kernlogik" eines Programmes welche komplexere Logik hat. Dort kann schwer vorhersehbares Verhalten entstehen.)
-
-    - An sich wird die Steuerung, ob die Schleife beendet wird in der Bedingung der While Schleife gesteuert.
-    Diese wird in den Runden Klammern gegeben. Da wir mit break arbeiten brauchen wir
-    zusätzliche IF-Verzweigungen. Diese sind aber möglicherweise nicht in diesem Ausmaß notwendig.
+    * Die ``While-Schleife`` müssen wir mittels ``break`` beenden. Wir benötigen dazu keine ``Bedingung`` in der ``While-Schleife``. Eine häufige bzw. verschachtelte Verwendung von ``break`` und ``continue`` macht den Code unleserlich und schwer wartbar.
+    * An sich wird die Steuerung, ob die Schleife beendet wird in der Bedingung der ``While-Schleife`` gesteuert. Da wir mit ``break`` arbeiten brauchen wir zusätzliche ``If-Verzweigungen``. Diese sind aber möglicherweise nicht in diesem Ausmaß notwendig.
 
 Versuchen wir es nun ohne break zu schreiben.
+```java
 draw = random.nextInt(101);
 trials = 0;
-
-Wir stoßen hier aber auf ein Problem. Wir können nicht guess und draw vergleichen,
-wenn wir guess erst innerhalb der schleife zum ersten Mal mit einem Wert belegen (guess wird initialisiert).
-Bedeutet wir können, um dieses Problem zu umgehen außerhalb der Schleife "ein mal" den gesamten Inhalt dieser ausführen.
-TODO: vermeide doppelten Code! Schwer zu warten.
 System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
 
 guess = Integer.parseInt(scanner.nextLine());
@@ -227,27 +516,22 @@ While (guess != draw) {
         System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
     }
 }
+```
 
-Natürlich ist dies nicht die eleganteste Lösung. Diese ist sogar sehr unübersichtlich.
-Wir können dies ein wenig kürzer schreiben, jedoch das Hauptproblem verschwindet nicht.
-Dieses ist, dass wir einmal am Anfang eine Eingabe des Users benötigen, um die Logik der Schleife für beliebige
-Wiederholungen zu implementieren.
+Wir stoßen hier aber auf ein Problem. Wir können nicht *guess* und *draw* vergleichen, wenn wir *guess* erst innerhalb des ``BLocks`` der ``Schleife`` zum ersten Mal ``initialisieren``. Bedeutet wir können, um dieses Problem zu umgehen außerhalb der Schleife "ein mal" den gesamten Inhalt dieser ausführen. Das führt jedoch zu doppelten Code. Wir können dies ein wenig kürzer schreiben, jedoch das Problem verschwindet nicht. Dieses ist, dass wir einmal am Anfang eine Eingabe des Users benötigen, um die Logik der ``Schleife`` für beliebige Wiederholungen zu implementieren.
 
-Wir können jedoch einen Standardwert für den "guess" festlegen.
-Dieser muss aber mit Sicherheit "guess != draw" garantieren! Ansonsten ist das Spiel sofort gewonnen!
-Hier ist dies einfach, da wir den User nur zwischen 1 und 100 raten lassen. Wir können also guess auf einen Wert
-außerhalb legen (z.B. -5), um sicherzustellen, dass guess und draw unterschiedlich sind.
-Wir sehen, dass in diesem Fall die While Schleife mit Aufwand und dadurch mit potenziellen Bugs verbunden ist.
+Wir können jedoch einen Standardwert für den "guess" festlegen. Dieser muss aber mit Sicherheit *guess != draw* garantieren! Ansonsten ist das Spiel sofort gewonnen! Hier ist dies einfach, da wir den User nur zwischen 1 und 100 raten lassen. Wir können also guess auf einen Wert außerhalb legen (z.B. *-5*), um sicherzustellen, dass *guess* und *draw* unterschiedlich sind.
+
+Wir sehen, dass in diesem Fall die ``While-Schleife`` mit Aufwand und dadurch mit potenziellen Fehlern verbunden ist.
+
+Wir können nun weiters die ``IF-Anweisung`` versuchen zu vereinfachen. Wenn die ``Bedingung`` nicht erfüllt ist, muss *guess == draw* gelten. Dadurch wissen wir, dass nach der ``While-Schleife`` der Spieler die Zahl erraten hat.
+Wir können dadurch den else-``Zweig`` und das ``break`` entfernen.
+
+Wir sehen jetzt, dass wir in beiden *IF's* die gleiche ``Methode`` *sout* steht. Wir können somit einen ``If-Ausdruck`` verwenden. **Achtung!** Wir haben hier aber einen Fehler eingebaut! Welcher? Gewinne dazu das Spiel um es zu sehen.
+
+```java
 System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
 guess = -5;
-
-Wir können nun weiters die IF Verzweigungen vereinfachen.
-Wenn die Bedingung in der While loop nicht erfüllt ist, muss "guess == draw" gelten.
-Dadurch wissen wir, dass nach der While Schleife der Spieler die Zahl erraten hat.
-Wir können dadurch den ELSE Teil und das break entfernen.
-Wir sehen jetzt, dass wir in beiden IF's der gleiche "sout" steht und somit außerhalb der Verzweigung stehen kann.
-Wir sehen auch, dass ein simples IF-ELSE, welches Variablen Werte zuweist, mit einem Ternären-Operator geschrieben werden kann.
-TODO: Wir haben hier aber einen Fehler eingebaut! Welcher? Gewinne dazu das Spiel um es zu sehen.
 trials = 0;
 
 While (guess != draw) {
@@ -260,19 +544,12 @@ While (guess != draw) {
 }
 
 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
+```
 
-Wir sehen, dass dadurch unser Programm kürzer geworden ist.
-Kürzer bedeutet nicht immer lesbarer, jedoch sollte dies auch hier der Fall sein.
-Wir bemerken jedoch, dass wir hier Glück hatten.
-Wenn es sehr kompliziert ist eine korrekte (bedeutet immer bzw. für jede) Belegung von der Variable "guess" zu finden,
-kommt es im schlimmsten Fall zur Variante "einmal den Schleifeninhalt vor der Schleife ausführen".
-Das soll unbedingt vermieden werden!
+Der Fehler war, dass wir hier eine ``Mehrfachverzweigung`` in einen ``If-Ausdruck`` umgewandelt haben. Wir haben jedoch *guess != draw* als ``Bedingung`` der ``Schleife``. Es sollte also wenn wir gewonnen *guess == draw* haben die ``Schleife`` abbrechen. Jedoch passiert das immer nur am *Anfang* des ``Blocks`` bis dieser komplett ausgeführt wird. Es wird also auch wenn wir gewinnen ausgegeben *System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");*
 
-TODO: Der Fehler war, dass wir hier ein else-if in ein if-else (in der form eines ternären Operators) umgewandelt haben.
-    Es ist irreführend, dass hier guess != draw in der Bedingung der ``While-Schleife`` steht.
-    Jedoch ist der Fall, dass guess == draw während der Schleife nicht ausgeschlossen und muss deshalb noch behandelt werden.
-
-Um diesen Fehler ausbessern zu können, müssen wir ein "if (guess != draw)" schreiben.
+Um diesen Fehler ausbessern zu können, müssen wir eine ``If-Bedingung`` mit ``Bedingung``einführen *guess != draw*.
+```java
 trials = 0;
 
 While (guess != draw) {
@@ -285,15 +562,17 @@ While (guess != draw) {
 
     trials++;
 }
+```
 
-Es schaut aber komisch aus, denn wir haben bereits die gleiche Bedingung, welche in der IF-Verzweigung ist
-in der While Schleife geschrieben.
-Wir haben jedoch das Problem, dass nach der Überprüfung der Schleife "While(guess != draw)" unser
-relevanter Input erst nach dieser Überprüfung eingelesen wird.
+Es schaut aber komisch aus, denn wir haben bereits die gleiche ``Bedingung``, welche in der ``If-Bedingung`` ist
+in der ``While-Schleife`` geschrieben. Wir haben jedoch das Problem, dass nach der Überprüfung der ``Bedingung`` der ``Schleife`` *guess != draw* unser relevanter Input erst nach dieser Überprüfung eingelesen wird.
+
 Versuchen wir deshalb folgendes: Schieben wir den User-Input ans Ende der Schleife,
 dann wird im nächsten Schritt der passende User-Input in der While Bedingung verglichen.
 
-//TODO: Leider ist auch hier ein Fehler. Beginne das Spiel um diesen zu sehen.
+**Achtung!:** Leider ist auch hier ein Fehler. Beginne das Spiel um diesen zu sehen.
+
+```java
 trials = 0;
 
 While (guess != draw) {
@@ -306,16 +585,16 @@ While (guess != draw) {
 }
 
 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
+```
 
-TODO: der Fehler war folgendes. Wir vergleichen den standard Wert von "guess", welcher "-5" ist, während des
-    ersten Schleifendurchlaufs. Dies erzeugt immer einen falschen Vergleich.
+Der Fehler war folgendes. Wir vergleichen den standard Wert von "guess", welcher "-5" ist, während des ersten Schleifendurchlaufs. Dies erzeugt immer einen falschen Vergleich.
 
-Wir kommen also unsrem Problem nicht aus.
-Eine Möglichkeit das zu umgehen ist die erste Iteration der Schleife auszuschalten. Dies ist auch mit einem
-if() innerhalb der Schleife möglich.
-Jedoch sind meist sogenannte "of by one Conditions" wenn möglich zu vermeiden. "Off by one" bedeutet hier,
-der Code der Schleife ist korrekt für alle Schleifeniterationen, jedoch nicht für den 1. oder letzten.
-Diese verursachen zusätzlichen Code, wie hier das "if(trials > 0)"
+Wir kommen also unserem Problem nicht aus, dass wir ein Problem mit der ``Auswertungsreihenfolge`` von der ``Bedingung`` der ``Schleife`` und der Zuweisung der ``Variablen`` haben.
+
+Eine Möglichkeit das zu umgehen ist die erste ``Iteration`` der ``Schleife`` auszuschalten. Dies ist auch mit einem
+*if()* innerhalb der ``Schleife`` möglich. Jedoch sind meist sogenannte "of by one Conditions" wenn möglich zu vermeiden. "Off by one" bedeutet hier, der Code der ``Schleife`` ist korrekt für alle Wiederholungen, jedoch nicht für den 1. oder letzten. Diese verursachen zusätzlichen Code, wie hier das "if(trials > 0)" dargestellt wird.
+
+```java
 trials = 0;
 
 TODO: können wir eine "of by one Condition" vermeiden?
@@ -331,30 +610,30 @@ While (guess != draw) {
 }
 
 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
+```
 
-Eine kleine Vereinfachung erlaubt uns die DO-While Schleife.
-Damit können wir in diesem Fall:
+### Die Do-While Schleife
+Eine kleine Vereinfachung erlaubt uns die Do-``While-Schleife``. Damit können wir in diesem Fall:
 - doppelten Code vermeiden,
 - pre (vorher) initialisierung von guess,
-- ABER nicht die if Verzweigungen.
+- ABER nicht die ``If-Verzweigungen``.
 
-Zuerst schauen wir uns aber die Syntax der DO-While Schleife an.
-Es wird zuerst einmal der Block der Schleife ausgeführt, und erst danach die Bedingung überprüft.
+Zuerst schauen wir uns aber die Syntax der ``Do-While-Schleife`` an.
+Es wird zuerst einmal der ``Block`` der ``Schleife`` ausgeführt, und erst danach die ``Bedingung`` überprüft.
 Dadurch haben wir kein Problem mit der Weiterverarbeitung der Eingabe des Users.
 
-Wir schreiben nun unser Programm als DO-While Schleife.
-wir beginnen mit dem Keyword "do" und geben das keyword "While" am Ende der Schleife hin.
-Dies soll auf die Überprüfung nach dem einmaligen Ausführen des Codes im Block der Schleife hinweisen.
+Wir schreiben nun unser Programm als ``Do-While-Schleife``. Wir beginnen mit dem Keyword *do* und geben das ``keyword`` *While* am Ende der ``Schleife`` hin. Dies soll auf die Überprüfung nach dem einmaligen Ausführen des Codes im ``Block`` der ``Schleife`` hinweisen.
 
-Wir müssen uns nun nicht mehr um die Initialisierung von "guess" kümmern.
-TODO: Es muss jedoch leider diese vor der Schleife deklariert werden. Frage: warum?
+Wir müssen uns nun nicht mehr um die Initialisierung von *guess* kümmern.
 
+**Achtung!** Es muss jedoch leider diese vor der Schleife deklariert werden. Frage: warum?
+
+```java
 Integer guessDoWhile;
 
 do {
     guessDoWhile = Integer.parseInt(scanner.nextLine());
 
-    if (guessDoWhile != draw) {
     if (trials == 0) {
         hint = guessDoWhile > draw  ? "groß" : "klein";
         System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
@@ -364,9 +643,10 @@ do {
 } While (guessDoWhile != draw);
 
 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
+```
 
-Es mag nun die Nützlichkeit der DO-While hier nicht sehr dramatisch ausfallen, was nach dem ganzen Aufbau
+Es mag nun die Nützlichkeit der Do-While hier nicht sehr dramatisch ausfallen, was nach dem ganzen Aufbau
 ernüchternd erscheinen mag.
-Wir verwenden also ein DO-While, wenn wir:
-    - code einmal ausführen müssen und nicht eine Bedingung zusätzlich festlegen bzw. eine Variable initialisieren wollen.
-Mehr nicht.
+
+Wir merken uns:
+> Wir verwenden ein ``Do-While-Schleife``, wenn wir code einmal ausführen müssen unabhängig von der ``Beindung`` der ``Schleife``.
