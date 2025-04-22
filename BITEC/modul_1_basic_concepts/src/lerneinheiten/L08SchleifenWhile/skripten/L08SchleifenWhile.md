@@ -1,7 +1,7 @@
 # Codewiederholung mit der While-Schleife
 
 #### Welche Begriffe werden hier verwendet?
-[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ),  [``logische Formel``](../../../glossar.md#logische-formel), [``Kontrollstruktur``](../../../glossar.md#kontrollstruktur), [``Anweisung``](../../../glossar.md#anweisung), [``Ausdruck``](../../../glossar.md#ausdruck), [``Bedingung``](../../../glossar.md#bedingung), [``Verzweigung``](../../../glossar.md#bedingung), [``Block``](../../../glossar.md#bedingung), [``Zweig``](../../../glossar.md#zweig) [``While-Schleife``](../../../glossar.md#``While-Schleife``), [``Schleife``](../../../glossar.md#schleife), [``Zählvariable``](../../../glossar.md#zählvariable), 
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ),  [``logische Formel``](../../../glossar.md#logische-formel), [``Kontrollstruktur``](../../../glossar.md#kontrollstruktur), [``Anweisung``](../../../glossar.md#anweisung), [``Ausdruck``](../../../glossar.md#ausdruck), [``Bedingung``](../../../glossar.md#bedingung), [``Verzweigung``](../../../glossar.md#bedingung), [``Block``](../../../glossar.md#bedingung), [``Zweig``](../../../glossar.md#zweig) [``While-Schleife``](../../../glossar.md#while-schleife), [``Schleife``](../../../glossar.md#schleife), [``Zählvariable``](../../../glossar.md#zählvariable), [``break``](../../../glossar.md#break), [``continue``](../../../glossar.md#continue), [``Zuständigkeit eines Blocks``](../../../glossar.md#zuständigkeit-eines-blocks), [``Do-While-Schleife``](../../../glossar.md#wo-while-schleife), [``Auswertungsreihenfolge``](../../../glossar.md#auswertungsreihenfolge).
 
 Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme schreiben zu können.
 Diese sind:
@@ -64,7 +64,7 @@ While (zaehlvariable < 5) { // Start des Blocks
 Wir merken uns:
 > Eine ``While-Schleife`` wiederholt den Code des zugehörigen ``Blocks`` solange bis die ``Bedingung`` nicht mehr erfüllt ist.
 
-### Wenn wir wissen wie oft eine Schleife ausgeführt wird
+### Wenn die Schleife enldich ($n<\infty$) Wiederholungen hat
 Eine ``Zählvariable`` ist eine ``Variable`` welche zählt *wie oft* die ``Schleife`` ausgeführt wurde. Diese wird meist mit "i" für **I***ndex* geschrieben. Das obige Beispiel für eine ``While-Schleife`` ist eine welche eine ``Zählvariable`` verwendet. Wenn wir eine solche verwenden, wissen wir meist wie oft wir etwas wiederholen wollen. In dem obigen Fall ist es *3* mal. Wir nennen zudem die *Eröhung* der ``Zählvariable`` am Schluss der ``Schleife`` das *Inkrement* dieser. Wir inkrementieren damit am Ende der ``Schleife`` als letzte ``Anweisung`` diese um *1* und zählen damit wie oft die Schleife ausgeführt wurde. Die ``Bedingung`` muss nun diese Zählvariable beinhalten. Ansonsten zählen wir zwar, aber brechen die ``Schleife`` nicht nach 3 Wiederholungen ab.
 
 Wenn wir eine ``Zählvariable`` verwenden ist fast immer eine andere Art der Schleife zu bevorzugen. Die Konzepte hier sind jedoch 1 zu 1 dort Anwendbar.
@@ -74,7 +74,7 @@ Wir merken uns ohne zu wissen was eine ``For-Schleife``:
 
 > Wenn eine ``Variable`` um *1* erhöht wird, nennen wir es ein ``Inkrement``.
 
-> Wenn eine ``Zählvariable`` verwendet wird verwenden wir eine ``For-Schleife`` anstatt einer ``While-Schleife``.
+> Wenn eine ``Zählvariable`` welche nie unendlich $\infty$ werden kann vorkommt, verwenden wir eine ``For-Schleife`` anstatt einer ``While-Schleife``.
 
 #### Ich zähle von 0 bis 4, du von 107 bis 111, wer anderer von 4 bis 0
 Es ist wichtig wie oft eine ``Schleife`` ausgeführt wird. Wenn wir eine ``Zählvariable`` verwenden ist jedoch der ``Wert`` dieser meist unwichtig. Nur das *"3 Mal wiederholen"* der ``Schleife`` ist wichtig. Zählen wir *händisch* für den folgenden Code, wie wir eine ``Schleife`` zum Abbruch nach 5 Wiederholungen bringen.
@@ -216,8 +216,8 @@ Wir merken uns:
 
 > Wenn die ``Zählvariable`` von  ``n`` bis ``0`` gezählt wird, muss die ``Zählvariable`` ``dekrementiert`` werden.
 
-### Wenn wir nicht wissen wie oft eine Schleife ausgeführt wird
-Wenn nicht klar ist, wie oft wir unseren ``Block`` **innerhalb** der ``Schleife`` ausgeführt wird, verwenden wir eine ``While-Schleife``. Schauen wir uns ein Beispiel an. Hier wird das Alter vom User eingegeben und erst wenn dieses "plausibel" ist, machen wir mit dem ``Block`` **nach** der ``Schleife`` weiter.
+### Wenn die Schleife unendlich ($\infty$) Wiederholungen haben kann
+Wenn nicht klar ist, ob der ``Block`` **innerhalb** der ``Schleife`` **unendlich oft** ausgeführt wird, verwenden wir eine ``While-Schleife``. Schauen wir uns ein Beispiel an. Hier wird das Alter vom User eingegeben und erst wenn dieses "plausibel" ist, machen wir mit dem ``Block`` **nach** der ``Schleife`` weiter.
 
 ```java
 System.out.print("Bitte Alter eingeben: ");
@@ -245,7 +245,7 @@ While ( !(alter >= 5 && alter <= 120) ) {
 ```
 
 Wir merken uns:
-> Wenn wir nicht wissen wie oft der ``Block`` der ``Schleife`` ausgeführt wird, verwenden wir eine ``While-Schleife``.
+> Wenn der ``Block`` der ``Schleife`` **möglicherweise** unendlich oft ausgeführt wird, verwenden wir eine ``While-Schleife``.
 
 #### ... kann dann auch die Schleife unendlich oft ausgeführt werden?
 Die kurze Antwort ist, ja. Genauer ist damit ist gemeint, dass die ``Bedingung`` **für immer** auf *true* auswertet. Die einfachste ``Bedingung`` wo so etwas zutrifft ist der ``Ausdruck`` *true*.
