@@ -64,7 +64,7 @@ While (zaehlvariable < 5) { // Start des Blocks
 Wir merken uns:
 > Eine ``While-Schleife`` wiederholt den Code des zugehörigen ``Blocks`` solange bis die ``Bedingung`` nicht mehr erfüllt ist.
 
-### Wir wissen wie oft eine Schleife ausgeführt wird
+### Wenn wir wissen wie oft eine Schleife ausgeführt wird
 Eine ``Zählvariable`` ist eine ``Variable`` welche zählt *wie oft* die ``Schleife`` ausgeführt wurde. Diese wird meist mit "i" für **I***ndex* geschrieben. Das obige Beispiel für eine ``While-Schleife`` ist eine welche eine ``Zählvariable`` verwendet. Wenn wir eine solche verwenden, wissen wir meist wie oft wir etwas wiederholen wollen. In dem obigen Fall ist es *3* mal. Wir nennen zudem die *Eröhung* der ``Zählvariable`` am Schluss der ``Schleife`` das *Inkrement* dieser. Wir inkrementieren damit am Ende der ``Schleife`` als letzte ``Anweisung`` diese um *1* und zählen damit wie oft die Schleife ausgeführt wurde. Die ``Bedingung`` muss nun diese Zählvariable beinhalten. Ansonsten zählen wir zwar, aber brechen die ``Schleife`` nicht nach 3 Wiederholungen ab.
 
 Wenn wir eine ``Zählvariable`` verwenden ist fast immer eine andere Art der Schleife zu bevorzugen. Die Konzepte hier sind jedoch 1 zu 1 dort Anwendbar.
@@ -210,17 +210,13 @@ dieses Muster werden.
 ```     
 
 Wir merken uns:
-> Der ``Block`` der ``Schleife`` wird betreten, wenn die ``Bedingung`` *wahr* ist. 
-
-> Die ``Bedingung`` muss vor dem 1. betreten des ``Blocks`` der ``Schleife`` *wahr* sein.
-
 > Die Anzahl der Wiederholungen einer ``Schleife`` ist nicht an eine bestimmte zählweise gebunden. Wir zählen jedoch fast immer die ``Zählvariable`` von ``0`` bis ``n`` oder von ``n`` bis ``0``.
 
 > Wenn die ``Zählvariable`` von ``0`` bis ``n`` gezählt wird, muss die ``Zählvariable`` ``inkrementiert`` werden.
 
 > Wenn die ``Zählvariable`` von  ``n`` bis ``0`` gezählt wird, muss die ``Zählvariable`` ``dekrementiert`` werden.
 
-### Wir wissen nicht wie oft eine Schleife ausgeführt wird
+### Wenn wir nicht wissen wie oft eine Schleife ausgeführt wird
 Wenn nicht klar ist, wie oft wir unseren ``Block`` **innerhalb** der ``Schleife`` ausgeführt wird, verwenden wir eine ``While-Schleife``. Schauen wir uns ein Beispiel an. Hier wird das Alter vom User eingegeben und erst wenn dieses "plausibel" ist, machen wir mit dem ``Block`` **nach** der ``Schleife`` weiter.
 
 ```java
@@ -367,7 +363,7 @@ Wir merken uns:
 
 > Wir *können* ``break`` in einer ``Schleife`` verwenden, wenn uns klar ist welche``Pfade`` in einer ``Verzweigung`` zum Abbruch einer ``Schleife`` führen und diese **nicht** ``verschachtelt`` ist.
 
-> Wenn eine ``Guard Clause`` innerhalb einer ``Schleife`` verwendet wird, ist ``break`` notwendig um die Schleife zu verlassen.
+> Wenn eine ``Guard Clause`` innerhalb einer ``Schleife`` verwendet wird, **kann** ``break`` verwendet werden um die Schleife zu verlassen.
 
 **Anmerkung:** Da wir aus dem ``Block`` mit dem ``keyword`` ``break``springen, wird Code welcher unterhal von ``break`` und ``continue`` steht nie ausgeführt. 
 
@@ -446,11 +442,12 @@ Schauen wir uns zuerst folgendes Scenario an. Wir schreiben eine ``While-Schleif
 Sagen wir der user soll so lange eine Zahl raten bis diese erraten wurde. Diese Zahl ist zwischen 1 und 100.
 
 ```java
+Scanner scanner = new Scanner(System.in);
 Random random = new Random();
 
-Integer draw = random.nextInt(101);
-Integer trials = 0;
-Integer guess;
+int draw = random.nextInt(101);
+int trials = 0;
+int guess;
 
 System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
 
@@ -480,11 +477,14 @@ Es fallen uns hier 2 Dinge auf:
 
 Versuchen wir es nun ohne break zu schreiben.
 ```java
-draw = random.nextInt(101);
-trials = 0;
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int draw = random.nextInt(101);
+int trials = 0;
 System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
 
-guess = Integer.parseInt(scanner.nextLine());
+int guess = Integer.parseInt(scanner.nextLine());
 String hint;
 trials++;
 
@@ -530,9 +530,13 @@ Wir können dadurch den else-``Zweig`` und das ``break`` entfernen.
 Wir sehen jetzt, dass wir in beiden *IF's* die gleiche ``Methode`` *sout* steht. Wir können somit einen ``If-Ausdruck`` verwenden. **Achtung!** Wir haben hier aber einen Fehler eingebaut! Welcher? Gewinne dazu das Spiel um es zu sehen.
 
 ```java
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int draw = random.nextInt(101);
 System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
-guess = -5;
-trials = 0;
+int guess = -5;
+int trials = 0;
 
 While (guess != draw) {
     guess = Integer.parseInt(scanner.nextLine());
@@ -548,9 +552,15 @@ System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
 
 Der Fehler war, dass wir hier eine ``Mehrfachverzweigung`` in einen ``If-Ausdruck`` umgewandelt haben. Wir haben jedoch *guess != draw* als ``Bedingung`` der ``Schleife``. Es sollte also wenn wir gewonnen *guess == draw* haben die ``Schleife`` abbrechen. Jedoch passiert das immer nur am *Anfang* des ``Blocks`` bis dieser komplett ausgeführt wird. Es wird also auch wenn wir gewinnen ausgegeben *System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");*
 
-Um diesen Fehler ausbessern zu können, müssen wir eine ``If-Bedingung`` mit ``Bedingung``einführen *guess != draw*.
+Um diesen Fehler ausbessern zu können, müssen wir eine ``If-Bedingung`` mit ``Bedingung`` *guess != draw* einführen.
 ```java
-trials = 0;
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+int guess = -5;
+int trials = 0;
 
 While (guess != draw) {
     guess = Integer.parseInt(scanner.nextLine());
@@ -573,7 +583,13 @@ dann wird im nächsten Schritt der passende User-Input in der While Bedingung ve
 **Achtung!:** Leider ist auch hier ein Fehler. Beginne das Spiel um diesen zu sehen.
 
 ```java
-trials = 0;
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+int guess = -5;
+int trials = 0;
 
 While (guess != draw) {
     hint = guess > draw ? "groß" : "klein";
@@ -595,9 +611,14 @@ Eine Möglichkeit das zu umgehen ist die erste ``Iteration`` der ``Schleife`` au
 *if()* innerhalb der ``Schleife`` möglich. Jedoch sind meist sogenannte "of by one Conditions" wenn möglich zu vermeiden. "Off by one" bedeutet hier, der Code der ``Schleife`` ist korrekt für alle Wiederholungen, jedoch nicht für den 1. oder letzten. Diese verursachen zusätzlichen Code, wie hier das "if(trials > 0)" dargestellt wird.
 
 ```java
-trials = 0;
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
 
-TODO: können wir eine "of by one Condition" vermeiden?
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+int guess = -5;
+int trials = 0;
+
 While (guess != draw) {
     if (trials > 0) {
         hint = guess > draw ? "groß" : "klein";
@@ -629,24 +650,132 @@ Wir müssen uns nun nicht mehr um die Initialisierung von *guess* kümmern.
 **Achtung!** Es muss jedoch leider diese vor der Schleife deklariert werden. Frage: warum?
 
 ```java
-Integer guessDoWhile;
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+int guess; // nur definiert, früher auf -5 initialisiert.
+int trials = 0;
+
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
 
 do {
-    guessDoWhile = Integer.parseInt(scanner.nextLine());
+    guess = Integer.parseInt(scanner.nextLine());
 
     if (trials == 0) {
-        hint = guessDoWhile > draw  ? "groß" : "klein";
+        hint = guess > draw  ? "groß" : "klein";
         System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");
     }
 
     trials++;
-} While (guessDoWhile != draw);
+} While (guess != draw);
 
 System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
 ```
 
-Es mag nun die Nützlichkeit der Do-While hier nicht sehr dramatisch ausfallen, was nach dem ganzen Aufbau
+Es mag nun die Nützlichkeit der ``Do-While-Schleife`` hier nicht sehr dramatisch ausfallen, was nach dem ganzen Aufbau
 ernüchternd erscheinen mag.
+
+Jedoch scheint der Code mit dem ``If-Ausdruck`` nicht "geeignet" zu sein und gehen wieder zurück zur ``If-Anweisung``. Der Grund ist, dass wir nicht "kompakt" den Ausgabetext ergänzen können. Siehe folgendes Beispiel welches **nicht funktioniert**.
+
+```java
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int guess;
+int trial = 0;
+
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+
+do {
+    System.out.print("Rate eine Zahl: ");
+    guess = Integer.parseInt(scanner.nextLine());
+
+    String hint = 
+        guess > draw  ? 
+        "groß" : 
+            guess < draw ?
+            "klein" :
+             break; // unklar was hier bei einer Zuweisung passiert. Der Compiler lässt es nicht zu. Es wird kein Wert generiert.
+
+    System.out.println("Zahl ist zu " + hint + "!");
+
+    trial++;
+
+} while (guess != draw);
+
+System.out.println("Richtig! Du hast " + trials + " Versuche gebraucht.");
+```
+
+Wir ändern es wieder zurück auf eine ``If-Anwiesung``, einer ``Do-While-Schleife`` mit ``break`` um die ``Bedingung`` der ``Schleife`` einfach zu halten. Wir haben hier keine ``Verschachtelungen``, sowie viele "exits" mit ``break``.
+
+```java
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int guess;
+int trial = 0;
+
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+
+do {
+    System.out.print("Rate eine Zahl: ");
+    guess = Integer.parseInt(scanner.nextLine());
+
+    if (guess < draw) {
+        System.out.println("Inkorrekt! - Zahl ist zu groß.");
+
+    } else if (versuch > draw) {
+        System.out.println("Inkorrekt! - Zahl ist zu klein.");
+    }
+
+    trials++;
+
+} while (true);
+
+System.out.println("Richtig! Du hast " + trials + " Versuche gebraucht.");
+```
+
+Warum sind wir jedoch noch nicht ganz zufrieden. Der Grund ist, da wir hier nicht *exiplizit* die Ausgabe des Gewinns angeben. Wir erkennen jedoch hier, dass wir nicht immer eine ``Mehrfachverzweigung`` mit ``else`` abschließen müssen. Die ``Bedingung`` der ``Schleife`` ergänzt dann die ``Bedingung`` der ``Verzweigung``. Denke an die ``Zuständigkeiten``, welche hier nicht verteilt sind und nicht eindeutig den ``Konstrollstrukturen`` zugewisen sind.
+
+Wir beenden nun unsere "Experimente" halb frustriert, da wir es nicht so "hinbiegen" können, wie wir uns das vorgestellt haben und verbleiben mit folgender
+* ``If-Anwiesung``, einer 
+* ``Do-While-Schleife`` mit 
+* ``break`` um die ``Bedingung`` der ``Schleife`` einfach zu halten und
+* eindeutig zugewiesenen ``Zuständigkeiten``. 
+
+```java
+Scanner scanner = new Scanner(System.in);
+Random random = new Random();
+
+int guess;
+int trial = 0;
+
+int draw = random.nextInt(101);
+System.out.println("Rate eine Zahl zwischen 1 und (inklusive) 100");
+
+// Zuständigkeit: Game Loop - Jede Iteration ist ein Spielzug.
+do {
+    System.out.print("Rate eine Zahl: ");
+    versuch = Integer.parseInt(scanner.nextLine());
+
+    // Zuständigkeit: Was passiert in allen 3 Zweigen mit Bedingungen versuch < draw, versuch > draw und versuch == draw
+    if (versuch < draw) {
+        System.out.println("Inkorrekt! - Zahl ist zu groß.");
+
+    } else if (versuch > draw) {
+        System.out.println("Inkorrekt! - Zahl ist zu klein.");
+
+    } else { // if versuch == draw
+        System.out.println("Richtig! Du hast " + trials + " Versuche gebraucht.");
+        break;
+    }
+
+    trials++;
+
+} while (true);
+```
 
 Wir merken uns:
 > Wir verwenden ein ``Do-While-Schleife``, wenn wir code einmal ausführen müssen unabhängig von der ``Beindung`` der ``Schleife``.
