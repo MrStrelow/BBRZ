@@ -5,6 +5,13 @@
 
 ---
 
+Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme schreiben zu können.
+Diese sind:
+* ✅ Variablen 
+* ❔ Operatoren (bzw. Methoden aufrufen) 
+* ❔ Verzweigungen und Bedingte Ausdrücke
+* ❔ Schleifen
+
 ## Was wollen wir in einem Programm tun?
 Ein ``Programm`` ist für uns ist die Manipulation von ``Werten`` um ein Ergebnis zu erzeugen. In den meisten Computersprachen müssen wir diesen ``Werten`` immer einen ``Typ`` geben. Wir tun dies mit einer speziellen Kennzeichnung dieser ``Werte``. Diese Kennzeichnung schaut für die folgende ``Typen`` folgendermaßen aus:
 

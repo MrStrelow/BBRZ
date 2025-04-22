@@ -1,10 +1,13 @@
 # Mehrfachverzweigungen mit Switch-Anweisungen und Switch-Ausdrücken
+TODO
+#### Welche Begriffe werden hier verwendet?
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ), [``String``](../../../glossar.md#string), [``Integer``](../../../glossar.md#integer), [``Double``](../../../glossar.md#double), [``Boolean``](../../../glossar.md#boolean), [``deklarieren``](../../../glossar.md#deklarieren), [``initialisieren``](../../../glossar.md#initialisieren), [``definieren``](../../../glossar.md#definieren), [``Zuweisungsoperator``](../../../glossar.md#zuweisungsoperator), [``Klasse``](../../../glossar.md#klasse), [``Objekt``](../../../glossar.md#objekt), [``Methode``](../../../glossar.md#methode), [``Anweisung``](../../../glossar.md#anweisung), [``Auswertungsreihenfolge eines Ausdrucks``](../../../glossar.md#auswertungsreihenfolge-eines-ausdrucks), [``Auswertung eines Ausdrucks``](../../../glossar.md#auswertung-eines-ausdrucks), [``Klammersetzung``](../../../glossar.md#klammersetzung)
 
 Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme schreiben zu können.
 Diese sind:
 * ✅ Variablen 
 * ✅ Operatoren (bzw. Methoden aufrufen) 
-* ✅ Verzweigungen und Bedingungen
+* ✅ Verzweigungen und Bedingte Ausdrücke
 * ❔ Schleifen
 
 Der Grund warum wir nun eine weitere ``Verzweigung`` kennenlernen, ist rein um unseren "Wortschatz" aufzubessern. 

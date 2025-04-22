@@ -26,7 +26,7 @@ Wir sehen jedoch wenn wir dieses Programm ausführen, dass nicht *53* sondern *3
 System.out.println("35" + "17"); // 3517
 ```
 
-Die Bedeutung eines ``Operators`` ist abhängig vom ``Typ`` der ``Variablen`` bzw. ``Werte``, welche in den ``Operator`` "hineingegeben" werden. Das sehen wir bei dem Ausdruck *"35" + "17"*. Hier hat der Operator **+** nicht die Bedeutung der *"Addition"*, sondern der *"Concatenation"* (zusammenfügen). Wir fügen also die Zeichenkette *"35"* mit der Zeichenkette *"17"* zusammen, was *"3517"* ergibt.
+Die Bedeutung eines ``Operators`` ist abhängig vom ``Typ`` der ``Variablen`` bzw. ``Werte``, welche in den ``Operator`` "hineingegeben" werden. Das sehen wir bei dem ``Ausdruck`` *"35" + "17"*. Hier hat der Operator **+** nicht die Bedeutung der *"Addition"*, sondern der *"Concatenation"* (zusammenfügen). Wir fügen also die Zeichenkette *"35"* mit der Zeichenkette *"17"* zusammen, was *"3517"* ergibt.
 
 Das gleiche Verhalten gilt für ``Variablen``:
 

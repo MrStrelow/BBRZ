@@ -1,18 +1,27 @@
-# Verzweigungen und Bedingungen mit If
+# Verzweigungen und Bedingte Anweisungen mit If
+
+TODO
+#### Welche Begriffe werden hier verwendet?
+[``Wert``](../../../glossar.md#wert), [``Variable``](../../../glossar.md#variable), [``Typ``](../../../glossar.md#typ),  [``logische Formel``](../../../glossar.md#logische-formel), [``Kontrollstruktur``](../../../glossar.md#kontrollstruktur), [``Anweisung``](../../../glossar.md#anweisung), [``If-Anweisung``](../../../glossar.md#if-anweisung), [``Ausdruck``](../../../glossar.md#ausdruck), [``If-Ausdruck``](../../../glossar.md#if-ausdruck), [``Bedingung``](../../../glossar.md#bedingung), [``If-Bedingung``](../../../glossar.md#if-bedingung), [``Bedingte Anweisung``](../../../glossar.md#bedingte-anweisung), [``Verzweigung``](../../../glossar.md#bedingung), [``If-Verzweigung``](../../../glossar.md#if-bedingung), [``Mehrfachverzweigung``](../../../glossar.md#mehrfachverzweigung), [``Block``](../../../glossar.md#bedingung), [``Scope``](../../../glossar.md#bedingung), [``Zweig``](../../../glossar.md#zweig), 
 
 Wir haben 4 Grundlegende Werkzeuge erwähnt welche wir brauchen um Programme schreiben zu können.
 Diese sind:
 * ✅ Variablen 
 * ✅ Operatoren (bzw. Methoden aufrufen) 
-* ➡️ Verzweigungen und Bedingungen
+* ➡️ Verzweigungen und Bedingte Ausdrücke
 * ❔ Schleifen
 
-Wir behandeln nun die ``Verzweigungen`` und ``Bedingungen`` und verwenden dazu vorerst die Varianten mittels dem ``If`` und ``else`` Keywords.
+Wir behandeln nun ``Verzweigungen`` und ``Bedingten Anweisungen``. Wir verwenden dazu vorerst die Varianten mittels dem ``If`` und ``else`` Keywords.
 
 ## Was ist unser Ziel mit diesem Werkzeug?
-Stellen wir uns folgendes Problem vor. Wir haben eine Kontrolle einer Person bei einem Onlinevertragsabschluss und fragen ab, ob diese *alt genug* ist und einen *Führerschein* hat. Diese will ein Auto kaufen. Falls alt genug ist und einen Führerschein hat, befinden wir uns in einem Zustand welcher uns erlaubt den Kunden positiv abzuspeichern. Um dies umzusetzen brauchen wir ``Verzweigungen`` bzw. ``Bedingungen``. Diese steuern welcher Programmcode ausgeführt wird. Die Grundlage für eine solche Steuerung sind `logische Formeln` welche wir bereits kennen gelernt haben. Diese ``logischen Formeln`` bestehen aus ``booleschen Variablen`` welche mit ``logischen Operatoren`` bzw. ``Vergleichsoperatoren`` verknüpft werden. 
+Stellen wir uns folgendes Problem vor. Wir haben eine Kontrolle einer Person bei einem Onlinevertragsabschluss und fragen ab, ob diese *alt genug* ist und einen *Führerschein* hat. Diese will ein Auto kaufen. Falls alt genug ist und einen Führerschein hat, befinden wir uns in einem Zustand welcher uns erlaubt den Kunden positiv abzuspeichern. Um dies umzusetzen brauchen wir ``Verzweigungen`` bzw. ``Bedingten Anweisungen``. Diese steuern welcher Programmcode ausgeführt wird. Solche Konstrukte werden ``Konstrollstrukturen`` genannt. Die Grundlage für eine solche Steuerung sind ``logische Formeln`` welche wir bereits kennen gelernt haben. Diese ``logischen Formeln`` bestehen aus ``booleschen Variablen`` welche mit ``logischen Operatoren`` bzw. ``Vergleichsoperatoren`` verknüpft werden. 
 
-## Was ist eine Bedingung (Condition)?
+Wir merken uns:
+> Eine ``Kontrollstruktur`` steuert den Ablauf eines Programms.
+
+> Eine ``Bedingung`` ist eine ``logische Formel`` welche in einer ``Kontrollstruktur`` verwendet wird.
+
+## Was ist eine Bedingte Anweisung (Conditional)?
 Schreiben wir folgenden Code welcher die Kontrolle einer Person darstellt:
 
 ```java
@@ -24,13 +33,16 @@ if (alter >= 18) {
 }
 ```
 
-Wir sehen hier, die Ausgabe *Verstehe. Sie sind alt genug.* wir nur ausgegeben wenn das *alter* größer oder gleich *18* ist. Diese Ausgabe ist also ``bedingt`` auf die ``logische Formel`` *alter >= 18*. Wir nennen dies eine ``If-Bedingung``. Die Ausgabe *Wie alt sind sie?* hat keine Bedingung und ist dadurch bedingungslos.
+Wir sehen hier, die Ausgabe *Verstehe. Sie sind alt genug.* wird nur ausgegeben wenn das *alter* größer oder gleich *18* ist. Diese Ausgabe ist also ``bedingt`` auf die ``logische Formel`` *alter >= 18*, welche wir ``Bedingung`` nennen. Wir nennen die gesamte ``Kontrollstruktur`` kurz eine ``If-Bedingung``. Die Ausgabe *Wie alt sind sie?* hat keine ``Bedingung`` und ist dadurch bedingungslos. Bedeutet diese wird *immer* ausgeführt. 
 
-wir merken uns (jedoch ohne die genaue Definition von ``else`` und ``If-Anweisung`` zu kennen) folgendes:
-> Wir nennen eine ``If-Anweisung`` eine **``If-Bedingung``**, wenn diese kein ``else`` hat.
+wir merken uns :
+> Eine ``Bedingte Anweisung`` ist eine ``Kontrollstruktur`` welche uns erlaubt ``Code`` auszuführen, wenn eine ``Bedingung`` erfüllt ist.
 
 ### Wann verwenden wir eine If-Bedingung?
-Wir modellieren mit einer ``IF-Bedingung`` so genannte *Wenn-dann Aussagen*. Wir dürfen diese also nur verwenden, wenn kein *alternatives* Verhalten angegeben wird. 
+Wir merken uns:
+> Wir modellieren mit einer ``IF-Bedingung`` *Wenn-dann Aussagen*. 
+
+Wir dürfen diese also nur verwenden, wenn kein *alternatives* Verhalten angegeben wird. 
 
 Ein Beispiel:
 ```java
@@ -69,14 +81,14 @@ Wir erkennen zusätzlich, die ``Variable`` *alter* kann innerhalb von ``if (alte
 
 Allgemein wird dies ``Scoping`` oder der ``Scope`` einer ``Variable`` genannt. Dieser klärt wo welche Variable erkannt wird. Das ist z.B. innerhalb des ``Blocks`` von Zeile 10 ``{`` bis Zeile 25 ``}`` und dieser Bereich ist der ``Scope``. Wenn der Zugriff einer Variable *außerhalb* dieses ``Scopes`` ist, wird dies ``Variable is out of Scope`` genannt.
 
-> Der ``Scope`` ist in JAVA jener ``BLock`` welcher durch geschwungene Klammern ``{`` auf und zu ``}`` gekennzeichnet wird. Variablen können nur innerhalb dieses ``Scopes`` verwendet werden.
+> Der ``Scope`` ist in JAVA jener ``Block`` welcher durch geschwungene Klammern ``{`` auf und zu ``}`` gekennzeichnet wird. Variablen können nur innerhalb dieses ``Scopes`` verwendet werden.
 
 **Anmerkung:** Der Lösungsvorschlag in Intellij "Bring Variable ... into Scope" meint die Variable in jenen ``Scope`` zu geben in dem wir gerade befinden. Dadurch können wir diese ``Variable`` verwenden. 
 
 **Anmerkung:** Der Scope welcher durch ``{...}`` angegeben wird ist unabhängig von ``If-Bedingungen``. Dieses Konzept wird **immer** durch ``{...}`` angegeben, egal ob und welches ``Keyword`` (z.B. *if*, *while*, *for*, etc.) daneben steht.
 
 ## Was ist eine Verzweigung (Branches)?
-Eine ``If-Verzweigung`` liegt vor, wenn wir zu einer ``If-Bedingung`` zusätzlich das *Gegenteil* dieser Bedingung hinzufügen.
+Eine ``Verzweigung`` liegt vor, wenn wir zu einer ``If-Bedingung`` zusätzlich das *Gegenteil* der ``Bedingung`` hinzufügen.
 
 ```java
 System.out.print("Wie alt sind Sie? ");
@@ -90,12 +102,16 @@ if (alter >= 18) {
 }
 ```
 
-Wir sehen hier, die Ausgabe *Verstehe. Sie sind alt genug.* wir nur ausgegeben wenn das *alter* größer oder gleich *18* ist. Das ist die gleiche Logik wie bei der ``If-Bedingung``. Wir erzeugen jedoch eine *Verzweigung* durch Anwendung des ``else``. Wir stellen uns nun 2 Türen vor, welche und wir können nur in eine der betreten. Ich gehe in die *linke* wenn *alter* größer oder gleich *18* ist und in die *rechte* wenn das *alter* **nicht** größer oder gleich *18* ist. Wir können diese Aussage umformen auf, wenn das *alter* kleiner *18* ist. Wir nennen dies eine ``If-Verzweigung``, denn wir erschaffen zwei *Zweige* welche ich nicht gleichzeitig betreten kann.
+Wir sehen hier, die Ausgabe *Verstehe. Sie sind alt genug.* wir nur ausgegeben wenn das *alter* größer oder gleich *18* ist. Das ist die gleiche Logik wie bei der ``If-Bedingung``. Wir erzeugen jedoch eine *Verzweigung* durch Anwendung des ``else``. Wir stellen uns nun 2 Türen vor, welche und wir können nur in eine der betreten. Ich gehe in die *linke* wenn *alter* größer oder gleich *18* ist und in die *rechte* wenn das *alter* **nicht** größer oder gleich *18* ist. Wir können diese Aussage umformen auf, wenn das *alter* kleiner *18* ist. Wir nennen dies eine ``If-Verzweigung``, denn wir erschaffen zwei ``Zweige`` welche ich nicht gleichzeitig betreten kann.
 
-wir merken uns (jedoch ohne die genaue Definition von ``else`` und ``If-Anweisung`` zu kennen) folgendes:
-> Eine ``If-Verzweigung`` erweitert eine ``If-Bedingung`` um den ``else``-Zweig.
+Wir merken uns:
+> Wir nennen eine ``Kontrollstruktur``, welche eine ``Anweisung`` ist eine ``If-Anweisung``. Diese gibt keine ``Werte`` zurück.
 
-Wir können nun folgendes tun. Der ``Block`` unter dem ``if``- oder ``else``-Zweig erlaubt uns bereits bekannten Code dort zu schreiben. Das bedeutet auch, dass wir dort eine neue ``If-Verzweigung`` schreiben können. 
+> Wir nennen eine ``If-Anweisung`` eine **``If-Bedingung``**, wenn diese *kein* ``else`` hat.
+
+> Wir nennen eine ``If-Anweisung`` eine **``If-Verzweigung``**, wenn diese *ein* ``else`` hat.
+
+Wir können nun folgendes tun. Der ``Block`` unter dem *if*- oder *else*-``Zweig`` erlaubt uns bereits bekannten Code dort zu schreiben. Das bedeutet auch, dass wir dort eine neue ``If-Verzweigung`` schreiben können. 
 
 ```java
 if (alter >= 18) {
@@ -118,7 +134,7 @@ Wir merken uns:
 
 **Anmerkung:** Wir können auch ``If-Bedingungen`` in ``IF-Verzweigungen`` und umgekehrt schachteln.
 
-Solche *Schachtelungen* können im ``else``-Zweig bzw. ``if``-Zweig vorkommen. Auch in beiden gleichzeitig ist möglich.
+Solche *Schachtelungen* können im *else*-``Zweig`` bzw. *if*-``Zweig`` vorkommen. Auch in beiden gleichzeitig ist möglich.
 
 ### Wann verwenden wir eine If-Verzweigung?
 Wir modellieren mit einer ``If-Verzweigung`` so genannte *Wenn-dann-ansosnten Aussagen*. Das *Ansonsten* modellieren wir mit dem Keyword ``else``. Wir dürfen die ``If-Verzweigung`` also nur verwenden, wenn wir ein *gegenteiliges* Verhalten zur ``If-Bedingung`` angeben.
@@ -135,7 +151,9 @@ if (alter >= 18) {
 ```
 
 Wir merken uns:
-> Der ``else``-Zweig hat die *negierte* ``Bedingung`` des ``if``-Zweigs.
+> Der ``Block`` nach dem ``Keyword`` *if* oder *else* wird ``Zweig`` genannt.
+
+> Der *else*-``Zweig`` hat die *negierte* ``Bedingung`` des *if*-``Zweigs``.
 
 ### Wann verwenden wir eine verschachtelte If-Verzweigung?
 Wir modellieren mit einer geschachtelten ``If-Verzweigung`` ähnliches wie bei einer nicht geschachtelten. Wir versuchen hier jedoch *kompliziertere* Aussagen zu ertsellen. Eine solceh wäre, "WENN ich älter bin als *18* und ich einen Führerschein habe, DANN darf ich ein Auto kaufen. ANSOSNTEN, WENN ich keinen jünger als 18 bin oder keinen Führerschein habe, DANN darf ich kein Auto kaufen.
@@ -160,10 +178,10 @@ if (alter >= 18) {
 }
 ```
 
-Wir erkennen, dass eine Schachtelung eine gewisse Logik darstellt. Z.B. fällt uns auf, dass beide ``Bedingungen`` alter als 18 und hatFuehrerschein ein logisches UND ``alter >= 18 && hatFuehrerschein`` darstellt. 
+Wir erkennen, dass eine Schachtelung eine gewisse Logik darstellt. Z.B. fällt uns auf, dass beide ``Bedingungen`` *alter größer als 18 *und *hatFuehrerschein* ein ``logisches UND`` *alter >= 18 && hatFuehrerschein* darstellt. 
 
-Wir merken uns, wenn wir *beide* ``if``-Zweige entlang gehen:
-> Eine geschachtelte ``If-Verzweigung`` ist vergleichbar mit einem ``logisches UND`` *&&*. Das *&&* verbindet beide ``Bedingungen`` der ``If``-Zweige.
+Wir merken uns, wenn wir *beide* *if*-``Zweige`` entlang gehen:
+> Eine geschachtelte ``If-Verzweigung`` ist vergleichbar mit einem ``logisches UND`` *&&*. Das *&&* verbindet beide ``Bedingungen`` der *If*-``Zweige``.
 
 #### Wie entsteht eine Verschachtelung?
 Meistens entsteht eine ``Verschachtelung`` **nicht** in der Reihenfolge wie wir diese lesen. Wir lesen von der äußersten bis zur innersten. Es ist meistens genau anders herum. Wir beginnnen z.B. mit folgendem Code, welcher eine Abfrage der ``Variable`` *userInput* ist. Wir prüfen ob diese ein *Vokal* oder ein *Konsonant* ist. 
@@ -217,7 +235,7 @@ if (Character.isLetter(userCharInput) && userinput.length() == 1) {
 ```
 
 ### Wann verwenden wir eine Mehrfachverzweigung?
-Wir erinnern uns an die ``If-Verzweigung``. Wir haben dort *zwei* Zweige und können nur einen davon ausführen. Einer ist der Code innerhalb des ``if-``Zweigs und die alternative dazu ist der Code innerhalb des ``else-``Zweigs. Wir können nur einen dieser Zweige ausführen, da sich die ``Bedingungen`` der Zweige gegenseitig ausschließen (Die Bedingung für den ``else``-Zweig ist das *Gegenteil* von der Bedingung im ``if-``Zweig).
+Wir erinnern uns an die ``If-Verzweigung``. Wir haben dort *zwei* ``Zweige`` und können nur einen davon ausführen. Einer ist der Code innerhalb des *if-*``Zweigs`` und die alternative dazu ist der Code innerhalb des *else-*``Zweigs``. Wir können nur einen dieser ``Zweige`` ausführen, da sich die ``Bedingungen`` der ``Zweige`` gegenseitig ausschließen (Die ``Bedingung`` für den *else*-``Zweig`` ist das *Gegenteil* von der Bedingung im *if-*``Zweig``).
 
 Dieses Konzept wollen wir nicht nur auf zwei Optionen beschränken. Wir stellen uns Türen vor, durch welche wir durchgehen wollen. Wenn wir mehr als 2 Türen beschreiben wollen, brauchen wir eine sogenannte ``Mehrfachverzweigung``. Diese ist durch folgendes *else-if* Konstrukt beschrieben.
 
@@ -383,7 +401,7 @@ Wir bemerken folgendes und merken uns:
 
 ### Wann verwenden wir If-Anweisungen (If-Statements)?
 Wir merken uns:
->Wir verwenden ``If-Statements`` *eher*, wenn *mehrere Programmzeilen untereinander* in unseren einzelnen ``Verzweigungen`` benötigt werden.
+>Wir verwenden ``If-Anweisungen`` *eher*, wenn *mehrere Programmzeilen untereinander* in unseren einzelnen ``Verzweigungen`` benötigt werden.
 
 Im folgenden Beispiel ist der Code innerhalb der ``If-Verzweigung`` von der Variable *connection* abhängig. Deshalb können wir diesen Code nicht außerhalb der ``If-Verzweigung`` schreiben.
 
@@ -440,7 +458,7 @@ if (0 <= bewertungInProzent && bewertungInProzent < 50) {
 }
 ```
 
-Wir erkennen hier auf dem ersten Blick keine Notwendigkeit einen ``Wert`` mit einem ``If-Ausdruck`` zu erzeugen. Wir sehen nur Aufrufe von *System.out.println*`. Versuchen wir jedoch die Anzahl der Aufrufe von *System.out.println* zu reduzieren. Wir können das tun indem wir eine ``Variable`` vom ``Typ`` *String* ``definieren`` und in den verschiednen Zweigen der ``If-Verzweigung`` diese Variablen dem *System.out.println* übergeben. Siehe folgender Code.
+Wir erkennen hier auf dem ersten Blick keine Notwendigkeit einen ``Wert`` mit einem ``If-Ausdruck`` zu erzeugen. Wir sehen nur Aufrufe von *System.out.println*`. Versuchen wir jedoch die Anzahl der Aufrufe von *System.out.println* zu reduzieren. Wir können das tun indem wir eine ``Variable`` vom ``Typ`` *String* ``definieren`` und in den verschiednen ``Zweigen`` der ``If-Verzweigung`` diese Variablen dem *System.out.println* übergeben. Siehe folgender Code.
 
 ```java
 // Mehrfachverzweigung (if else-if else-if ... else)
@@ -484,8 +502,8 @@ System.out.println(note);
 ```
 
 Wir [erinnern](TODO) uns, dass eine ``Mehrfachverzweigung`` auch als ``verschachtelte If-Verzweigung`` dargestellt werden kann.
-Die gleiche Logik wenden wir nun hier an. In dem ``Else``-Zweig schreiben wir eine neue ``If-Verzewigung``. Bedeutet ein neues *if* mit *else*.
-Wir ersetzen nun den ``Wert`` *"alle andern Fälle"* im  ``Else``-Zweig mit einem neuen ``?:-Operator``. Das ist nun hier die Schachtelung, auch wenn diese anders aussieht wie gewohnt.
+Die gleiche Logik wenden wir nun hier an. In dem *Else*-``Zweig`` schreiben wir eine neue ``If-Verzewigung``. Bedeutet ein neues *if* mit *else*.
+Wir ersetzen nun den ``Wert`` *"alle andern Fälle"* im  **Else*-``Zweig`` mit einem neuen ``?:-Operator``. Das ist nun hier die Schachtelung, auch wenn diese anders aussieht wie gewohnt.
 
 ```java
 // If-Ausdruck (Expression)
