@@ -3,7 +3,7 @@ package lerneinheiten.L09SchleifenFor.live;
 public class B01Square {
     public static void main(String[] args) {
         String RESET = "\u001B[0m";
-        String BLACK = "\u001B[30m";
+        String WHITE = "\u001B[37m";
         String RED = "\u001B[31m";
         String GREEN = "\u001B[32m";
         String BLUE = "\u001B[34m";
@@ -17,7 +17,7 @@ public class B01Square {
                 } else if (spalte == 5 && 1 <= zeile && zeile <= 6 - 2 ) {
                     System.out.print(RED + (6 - zeile) + RESET);
                 } else if (spalte == 0 && 1 <= zeile && zeile <= 6 - 2) {
-
+                    System.out.print(WHITE + (zeile - 1) + RESET);
                 }
             }
 
