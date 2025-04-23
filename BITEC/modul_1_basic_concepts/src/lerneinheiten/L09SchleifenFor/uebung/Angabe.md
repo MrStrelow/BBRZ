@@ -368,21 +368,39 @@ Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig
 Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
 
 ## Formen mit Zahlen - Ziffernquadrat
-```
-0 1 2 3 4 5 6 7 8 9
-1                 8
-2                 7
-3                 6
-4                 5
-5                 4
-6                 3
-7                 2
-8                 1
-9 8 7 6 5 4 3 2 1 0
-```
+### Variante 1
+<pre>
+<span style="color:blue">1 2 3 4 5 6 7 8 9</span>
+<span style="color:grey">2</span>               <span style="color:red">8</span>
+<span style="color:grey">3</span>               <span style="color:red">7</span>
+<span style="color:grey">4</span>               <span style="color:red">6</span>
+<span style="color:grey">5</span>               <span style="color:red">5</span>
+<span style="color:grey">6</span>               <span style="color:red">4</span>
+<span style="color:grey">7</span>               <span style="color:red">3</span>
+<span style="color:grey">8</span>               <span style="color:red">2</span>
+<span style="color:green">9 8 7 6 5 4 3 2 1</span>
+</pre>
+
 Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 10 beliebig anpassen kann.
 
-*Hinmweis:* Die "Leere" inder Mitte sind Leerzeichen.
+*Hinweis:* Die "Leere" inder Mitte sind Leerzeichen.
+
+### Variante 2
+<pre>
+<span style="color:grey">1</span><span style="color:blue"> 2 3 4 5 6 7 8 </span><span style="color:red">9</span>
+<span style="color:grey">2</span>               <span style="color:red">8</span>
+<span style="color:grey">3</span>               <span style="color:red">7</span>
+<span style="color:grey">4</span>               <span style="color:red">6</span>
+<span style="color:grey">5</span>               <span style="color:red">5</span>
+<span style="color:grey">6</span>               <span style="color:red">4</span>
+<span style="color:grey">7</span>               <span style="color:red">3</span>
+<span style="color:grey">8</span>               <span style="color:red">2</span>
+<span style="color:grey">9</span><span style="color:green"> 8 7 6 5 4 3 2 </span><span style="color:red">1</span>
+</pre>
+
+Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 10 beliebig anpassen kann.
+
+*Hinweis:* Die "Leere" inder Mitte sind Leerzeichen.
 
 ## Matrix
 Schreiben Sie ein Programm, das die Zahlen 0 bis 99 in einer 10x10 Matrix ausgibt. Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 10 beliebig anpassen kann.

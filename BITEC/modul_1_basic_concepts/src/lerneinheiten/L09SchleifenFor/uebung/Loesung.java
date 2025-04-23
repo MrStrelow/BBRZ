@@ -5,6 +5,12 @@ import java.util.Scanner;
 
 public class Loesung {
     public static void main(String[] args) {
+        String RESET = "\u001B[0m";
+        String WHITE = "\u001B[37m";
+        String RED = "\u001B[31m";
+        String GREEN = "\u001B[32m";
+        String BLUE = "\u001B[34m";
+
         Scanner scanner = new Scanner(System.in);
 
         // 1. Zahlen von 1 bis n
@@ -239,7 +245,7 @@ public class Loesung {
         }
 
         if (hatZweiAlsTeiler && hatZahlSelbstAlsTeiler && !keinePrimzahl) {
-            System.out.println("\u001B[31m" + ergebnis + "\u001B[0m");
+            System.out.println(RED + ergebnis + RESET);
         } else {
             System.out.println(ergebnis);
         }
@@ -794,20 +800,52 @@ public class Loesung {
         // 9 8 7 6 5 4 3 2 1 0
         // Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 10 beliebig anpassen kann.
         // *Hinmweis:* Die "Leere" inder Mitte sind Leerzeichen.
-        for (int i = 0; i < groesseSpielfeld; i++) {
-            for (int j = 0; j < groesseSpielfeld; j++) {
-                if (i == 0) {
-                    System.out.print(j + " ");
-                } else if (i == groesseSpielfeld - 1) {
-                    System.out.print((groesseSpielfeld - 1 - j) + " ");
-                } else if (j == 0) {
-                    System.out.print(i + " ");
-                } else if (j == groesseSpielfeld - 1) {
-                    System.out.print((groesseSpielfeld - 1 - i) + " ");
+
+        // Variante 1 - Siehe Angabe für Farben:
+        for (int zeile = 0; zeile < groesseSpielfeld; zeile++) {
+            for (int spalte = 0; spalte < groesseSpielfeld; spalte++) {
+                if (zeile == 0) {
+                    System.out.print(BLUE + (spalte + 1) + RESET + " ");
+
+                } else if (zeile == groesseSpielfeld - 1) {
+                    System.out.print(GREEN + (groesseSpielfeld - spalte) + RESET + " ");
+
+                } else if (spalte == groesseSpielfeld - 1 && 1 <= zeile && zeile <= groesseSpielfeld - 2 ) {
+                    System.out.print(RED + (groesseSpielfeld - zeile) + RESET + " ");
+
+                } else if (spalte == 0 && 1 <= zeile && zeile <= groesseSpielfeld - 2) {
+                    System.out.print(WHITE + (zeile + 1) + RESET + " ");
+
                 } else {
                     System.out.print("  ");
                 }
             }
+
+            System.out.println();
+        }
+
+        System.out.println();
+
+        // Variante 2 - Siehe Angabe für Farben
+        for (int zeile = 0; zeile < groesseSpielfeld; zeile++) {
+            for (int spalte = 0; spalte < groesseSpielfeld; spalte++) {
+                if (zeile == 0 && 1 <= spalte && spalte <= groesseSpielfeld - 2 ) {
+                    System.out.print(BLUE + (spalte + 1) + RESET + " ");
+
+                } else if (zeile == groesseSpielfeld - 1 && 1 <= spalte && spalte <= groesseSpielfeld - 2 ) {
+                    System.out.print(GREEN + (groesseSpielfeld - spalte) + RESET + " ");
+
+                } else if (spalte == groesseSpielfeld - 1) {
+                    System.out.print(RED + (groesseSpielfeld - zeile) + RESET + " ");
+
+                } else if (spalte == 0) {
+                    System.out.print(WHITE + (zeile + 1) + RESET + " ");
+
+                } else {
+                    System.out.print("  ");
+                }
+            }
+
             System.out.println();
         }
 
