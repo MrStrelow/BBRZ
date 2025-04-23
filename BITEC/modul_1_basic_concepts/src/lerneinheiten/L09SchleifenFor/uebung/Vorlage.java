@@ -330,6 +330,10 @@ public class Vorlage {
         // 9 8 7 6 5 4 3 2 1 0
         // Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 10 beliebig anpassen kann.
         // *Hinmweis:* Die "Leere" inder Mitte sind Leerzeichen.
+        // Variante 1 - Siehe Angabe für Farben:
+
+
+        // Variante 2 - Siehe Angabe für Farben:
 
 
         // Matrix
