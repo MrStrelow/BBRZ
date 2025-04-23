@@ -8,14 +8,16 @@ public class B01Square {
         String GREEN = "\u001B[32m";
         String BLUE = "\u001B[34m";
 
-        for (int zeilen = 0; zeilen < 6; zeilen++) {
-            for (int spalten = 0; spalten < 6; spalten++) {
-                if (zeilen == 0) {
-                    System.out.print(BLUE + (spalten + 1) + RESET);
-                } else if (zeilen == 6 - 1) {
-                    System.out.print(GREEN + (6 - spalten) + RESET);
-                } else if (spalten == 5 && 1 <= zeilen && zeilen <= 6 - 2 ) {
-                    System.out.print(RED + (6 - zeilen) + RESET);
+        for (int zeile = 0; zeile < 6; zeile++) {
+            for (int spalte = 0; spalte < 6; spalte++) {
+                if (zeile == 0) {
+                    System.out.print(BLUE + (spalte + 1) + RESET);
+                } else if (zeile == 6 - 1) {
+                    System.out.print(GREEN + (6 - spalte) + RESET);
+                } else if (spalte == 5 && 1 <= zeile && zeile <= 6 - 2 ) {
+                    System.out.print(RED + (6 - zeile) + RESET);
+                } else if (spalte == 0 && 1 <= zeile && zeile <= 6 - 2) {
+
                 }
             }
 
