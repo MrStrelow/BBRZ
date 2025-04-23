@@ -11,13 +11,15 @@ public class B01Square {
         for (int zeile = 0; zeile < 6; zeile++) {
             for (int spalte = 0; spalte < 6; spalte++) {
                 if (zeile == 0) {
-                    System.out.print(BLUE + (spalte + 1) + RESET);
+                    System.out.print(BLUE + (spalte + 1) + RESET + " ");
                 } else if (zeile == 6 - 1) {
-                    System.out.print(GREEN + (6 - spalte) + RESET);
+                    System.out.print(GREEN + (6 - spalte) + RESET + " ");
                 } else if (spalte == 5 && 1 <= zeile && zeile <= 6 - 2 ) {
-                    System.out.print(RED + (6 - zeile) + RESET);
+                    System.out.print(RED + (6 - zeile) + RESET + " ");
                 } else if (spalte == 0 && 1 <= zeile && zeile <= 6 - 2) {
-                    System.out.print(WHITE + (zeile - 1) + RESET);
+                    System.out.print(WHITE + (zeile + 1) + RESET + " ");
+                } else {
+                    System.out.print("  ");
                 }
             }
 
