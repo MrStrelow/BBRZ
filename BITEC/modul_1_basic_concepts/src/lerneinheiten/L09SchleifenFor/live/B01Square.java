@@ -14,7 +14,7 @@ public class B01Square {
                     System.out.print(BLUE + (spalten + 1) + RESET);
                 } else if (zeilen == 6 - 1) {
                     System.out.print(GREEN + (6 - spalten) + RESET);
-                } else if (spalten == 5 && 1 < zeilen && zeilen < 6 - 1 ) {
+                } else if (spalten == 5 && 1 <= zeilen && zeilen <= 6 - 2 ) {
                     System.out.print(RED + (6 - zeilen) + RESET);
                 }
             }
