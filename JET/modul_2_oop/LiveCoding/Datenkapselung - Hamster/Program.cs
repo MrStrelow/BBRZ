@@ -1,10 +1,14 @@
-﻿namespace Hamster;
+﻿using System.Text;
+
+namespace Hamster;
 
 public class Simulation
 {
     static void Main(string[] args)
     {
         // User Intput:
+        Console.OutputEncoding = Encoding.UTF8;
+
         string promotForUser = "How large should the plane be?: ";
         Console.Write(promotForUser);
 
@@ -26,18 +30,18 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
-
+        
         while (true)
         {
             // Logik Methoden
             // simuliere die hamster
-            plane.SimulateHamster();
+            //plane.SimulateHamster();
 
-            // simuliree die seeds
-            plane.SimulateSeed();
+            //// simuliree die seeds
+            //plane.SimulateSeed();
 
-            // Darstellung anzeigen
-            //wie schnell läuft unser spiel
+            //// Darstellung anzeigen
+            ////wie schnell läuft unser spiel
             plane.Print(50);
         }
 
