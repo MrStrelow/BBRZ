@@ -16,7 +16,9 @@ def pd_print(*args):
     print(f"Zeilen und Spalten: {args[0].shape}")
 
 
-
 df = pd.read_csv("data.csv")
 
-pd_print(df)
+# pd_print(df)
+
+pd_print(df[df['Amount'] > 500])
+
