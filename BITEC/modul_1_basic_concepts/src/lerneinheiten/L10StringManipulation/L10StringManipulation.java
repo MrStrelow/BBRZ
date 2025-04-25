@@ -8,17 +8,16 @@ public class L10StringManipulation {
 
         // Da wir nun alle 4 Grundkonzepte kennengelernt haben, können wir diese auf Probleme anwenden welche sich mit
         // der Manipulation von Strings beschäftigt.
-        // Diese umfassen:
-        // - TODO:
+        // Diese umfassen unter anderem:
         // - Erkennen eines Palindrom (hannah, anna, nennen, lagertonnennotregal, ...)
         // - Abwechselnd Buchstaben eines Strings groß und klein machen.
-        // - TODO:
         // - Kompression eines Textes:
         //      "Dieser Text wird aber länger :("
         //      ->
         //      "D:[0], i:[1,13], e:[2,4,8,19,26], s:[3], r:[5,14,10,20,27], ' ':[6,11,16,21,28], T:[7], x:[9], t:[10], w:[12], d:[15], a:[17], b:[18], l:[22], ä:[23], n:[24], g:[25]"
         // - Erkennen eines Anagrams ("rätseln" = "lästern"; "Tom Marvolo Riddle" = "Lord Voldemort")
         // - Muster erkennen, wie Mailadressen (mit regular expressions)
+        // - user eingabe lesen bis diese ein muster regex erfüllt und dann alles kleinschreiben lassen.
 
         // Beginnen wir jedoch zuerst mit ein paar grundsätzlichen Methoden welche uns die Arbeit mit Strings erleichtern.
         // Diese sind:

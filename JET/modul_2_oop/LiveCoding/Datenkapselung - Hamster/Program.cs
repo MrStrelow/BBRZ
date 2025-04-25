@@ -10,7 +10,7 @@ public class Simulation
 
         int sizeOfPlane;
 
-        while (!int.TryParse(Console.ReadLine(), out sizeOfPlane)) 
+        while (!int.TryParse(Console.ReadLine(), out sizeOfPlane))
         {
             Console.Clear();
 
