@@ -13,8 +13,8 @@ public class Plane
     public int Size { get; set; }
 
     // Beziehungen
-    private Dictionary<(int x, int y), Seed> seeds = new();
-    private List<Hamster> hamsters = new();
+    private Dictionary<(int x, int y), Seed> _seeds = new();
+    private List<Hamster> _hamsters = new();
 
     // Konstruktor
     public Plane(int size)
@@ -36,18 +36,25 @@ public class Plane
 
         // wie viele hamster gibt es? zufällig.
         // Hamster erstellen
-        for (int i = 0; i < random.Next(minValue: 1, maxValue:Size); i++)
+        for (int i = 0; i < random.Next(1, Size*Size); i++)
         {
-            hamsters.Add(new Hamster());
+            _hamsters.Add(new Hamster());
+            // TODO
         }
 
 
         // wie viele seeds gibt es? zufällig.
         // Seeds erstellen
+        for (int i = 0; i < random.Next(1, Size*Size - _hamsters.Count); i++)
+        {
+            _seeds[(1, 4)] = new Seed();
+        }
     }
 
     public void Print(int delayInMilliseconds)
     {
+        Console.SetCursorPosition(0, 0);
+
         for (int zeile = 0; zeile < Size; zeile++)
         {
             for (int spalte = 0; spalte < Size; spalte++)
@@ -58,5 +65,6 @@ public class Plane
         }
 
         Thread.Sleep(delayInMilliseconds);
+        Console.WriteLine();
     }
 }
