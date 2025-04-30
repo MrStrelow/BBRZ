@@ -205,9 +205,10 @@ public class Loesung {
             System.out.print("fib(" + grenze + ") = " + fibCurrent + " + " + fibCurrent);
 
         for (int i = 0; i < grenze - 1; i++) {
-            int temp = fibCurrent + fibNext;
+            int ergebnis = fibCurrent + fibNext;
+            
             fibCurrent = fibNext;
-            fibNext = temp;
+            fibNext = ergebnis;
 
             System.out.print(i == grenze-2 ? " = " + fibNext : " + " + fibNext);
         }

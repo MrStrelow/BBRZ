@@ -16,8 +16,10 @@ public class C01Fibonacci {
 
         if (grenze == 0) {
             System.out.println("fib(0) = " + fibCurrent);
+
         } else if (grenze == 1) {
             System.out.println("fib(1) = " + fibNext);
+
         } else {
             System.out.print("fib(" + grenze + ") = " + fibCurrent + " + " + fibNext);
         }
