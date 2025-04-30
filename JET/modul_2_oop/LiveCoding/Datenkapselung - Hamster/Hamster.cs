@@ -24,7 +24,7 @@ public class Hamster
 
         var x = random.Next(_plane.Size);
         var y = random.Next(_plane.Size);
-        
+         // TODO
 
     }
 
