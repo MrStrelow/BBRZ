@@ -4,26 +4,32 @@ import java.util.Scanner;
 
 public class C01Fibonacci {
     public static void main(String[] args) {
+        // Variablen
+        Scanner scanner = new Scanner(System.in);
+        int fibCurrent = 0;
+        int fibNext = 1;
+        int ergebnis = 0;
+
+        // Userinput
         System.out.print("Wie viele Fibonacci-Zahlen berechnen? ");
-        int grenze = new Scanner(System.in).nextInt();
-        int fibCurrent = 0, fibNext = 1;
+        int grenze = scanner.nextInt();
+        System.out.print(fibCurrent + " + " + fibNext);
 
-        if (grenze == 0)
-            System.out.println("fib(0) = " + fibCurrent);
-        else if (grenze == 1)
-            System.out.println("fib(1) = " + fibNext);
-        else
-            System.out.print("fib(" + grenze + ") = " + fibCurrent + " + " + fibCurrent);
-
+        // Kontrollstrukturen
+        // TODO: funktioniert nicht für Eingabe: 0 und 1
         for (int i = 0; i < grenze - 1; i++) {
-            int temp = fibCurrent + fibNext;
-            fibCurrent = fibNext;
-            fibNext = temp;
+            ergebnis = fibCurrent + fibNext;
 
-            System.out.print(i == grenze-2 ? " = " + fibNext : " + " + fibNext);
+            fibCurrent = fibNext;
+            fibNext = ergebnis;
+
+            if (i != grenze - 2) {
+                System.out.print(" + " + fibNext);
+            }
         }
 
-        System.out.println();
-        System.out.println();
+        System.out.print(" = " + ergebnis);
+
+        scanner.close();
     }
 }
