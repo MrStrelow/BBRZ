@@ -13,10 +13,16 @@ public class C01Fibonacci {
         // Userinput
         System.out.print("Wie viele Fibonacci-Zahlen berechnen? ");
         int grenze = scanner.nextInt();
-        System.out.print(fibCurrent + " + " + fibNext);
+
+        if (grenze == 0) {
+            System.out.println("fib(0) = " + fibCurrent);
+        } else if (grenze == 1) {
+            System.out.println("fib(1) = " + fibNext);
+        } else {
+            System.out.print("fib(" + grenze + ") = " + fibCurrent + " + " + fibNext);
+        }
 
         // Kontrollstrukturen
-        // TODO: funktioniert nicht für Eingabe: 0 und 1
         for (int i = 0; i < grenze - 1; i++) {
             ergebnis = fibCurrent + fibNext;
 
@@ -28,7 +34,9 @@ public class C01Fibonacci {
             }
         }
 
-        System.out.print(" = " + ergebnis);
+        if (grenze >= 2) {
+            System.out.print(" = " + ergebnis);
+        }
 
         scanner.close();
     }
