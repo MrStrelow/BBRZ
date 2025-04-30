@@ -488,10 +488,12 @@ Erweitere das Programm so, dass der Benutzer die Erzeugung der Passwörter wiede
 
 Hinweis: Verwende für die Wahl der Symbole folgende variablen, welche final sind.
 Bedeutet diese können nicht mehr im Programm verändert werden.
+```java
 final String KLEINBUCHSTABEN = "abcdefghijklmnopqrstuvwxyz";
-final String GRO?BUCHSTABEN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+final String GROSSBUCHSTABEN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 final String ZIFFERN = "0123456789";
 final String SONDERNZEICHEN = "!\"§$%&/()=?{[]}\\@#*+~^.,;:-_<>|";
+```
 
 Beispiel:
 ```
