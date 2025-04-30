@@ -23,7 +23,7 @@ public class C03Passwoerter {
         String zeichenpool = kleinbuchstaben;
 
         // Userinput
-        System.out.print("Soll das Passwort Großbuchstaben beinhalten [+/-]?");
+        System.out.print("Soll das Passwort Großbuchstaben beinhalten [+/-]? ");
 
         String userInputGrossbuchstaben;
 
@@ -42,19 +42,68 @@ public class C03Passwoerter {
         }
 
         System.out.println();
+        System.out.print("Soll das Passwort Ziffern beinhalten [+/-]? ");
 
-        //Soll das Passwort Ziffern beinhalten [+/-]? +
-        //Soll das Passwort Sonderzeichen beinhalten [+/-]? +
-        //Wie lang soll das Passwort sein [ganze Zahl]? 10
-        //Wie viele Passwörter sollen generiert werden? 3
+        String userInputZiffer;
+
+        while ( true ) {
+            userInputZiffer = scanner.next();
+
+            if (userInputZiffer.equals("+") || userInputZiffer.equals("-")) {
+                break;
+            }
+
+            System.out.print("Die Eingabe " + RED + userInputZiffer + RESET + " ist nicht zulässig. Bitte + oder - eingeben: ");
+        }
+
+        if (userInputZiffer.equals("+")) {
+            zeichenpool += ziffern;
+        }
+
+        System.out.println();
+        System.out.print("Soll das Passwort Sonderzeichen beinhalten [+/-]? ");
+
+        String userInputSonderzeichen;
+
+        while ( true ) {
+            userInputSonderzeichen = scanner.next();
+
+            if (userInputSonderzeichen.equals("+") || userInputSonderzeichen.equals("-")) {
+                break;
+            }
+
+            System.out.print("Die Eingabe " + RED + userInputSonderzeichen + RESET + " ist nicht zulässig. Bitte + oder - eingeben: ");
+        }
+
+        if (userInputSonderzeichen.equals("+")) {
+            zeichenpool += sonderzeichen;
+        }
+
+        System.out.println();
+        System.out.print("Wie lang soll das Passwort sein [ganze Zahl]? ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.print("Eingabe von " + RED + scanner.next() + RESET + " ist nicht zulässig. Bitte eine ganze Zahl eingeben: ");
+        }
+
+        int laengePasswort = scanner.nextInt();
+
+        System.out.println();
+        System.out.print("Wie viele Passwörter sollen generiert werden [ganze Zahl]? ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.print("Eingabe von " + RED + scanner.next() + RESET + " ist nicht zulässig. Bitte eine ganze Zahl eingeben: ");
+        }
+
+        int anzahlPasswoerter = scanner.nextInt();
 
         // Kontrollstrukturen
         // Zuständigkeit: Wie viele Passwörter sollen generiert werden
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < anzahlPasswoerter; i++) {
             String password = "";
 
             // Zuständigkeit: Erzeuge Passwort - wiederhole "Länge des Passworts" mal
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < laengePasswort; j++) {
                 int position = random.nextInt(0, zeichenpool.length());
                 password += zeichenpool.charAt(position);
             }
