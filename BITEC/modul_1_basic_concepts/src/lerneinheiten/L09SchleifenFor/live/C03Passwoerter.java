@@ -27,10 +27,15 @@ public class C03Passwoerter {
 
         String userInputGrossbuchstaben;
 
-        do {
+        while ( true ) {
             userInputGrossbuchstaben = scanner.next();
+
+            if (userInputGrossbuchstaben.equals("+") || userInputGrossbuchstaben.equals("-")) {
+                break;
+            }
+
             System.out.print("Die Eingabe " + RED + userInputGrossbuchstaben + RESET + " ist nicht zulässig. Bitte + oder - eingeben: ");
-        } while ( !(userInputGrossbuchstaben.equals("+") || userInputGrossbuchstaben.equals("-")) );
+        }
 
         if (userInputGrossbuchstaben.equals("+")) {
             zeichenpool += grossbuchstaben;
