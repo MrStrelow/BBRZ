@@ -206,7 +206,7 @@ public class Loesung {
 
         for (int i = 0; i < grenze - 1; i++) {
             int ergebnis = fibCurrent + fibNext;
-            
+
             fibCurrent = fibNext;
             fibNext = ergebnis;
 
@@ -230,33 +230,28 @@ public class Loesung {
         // Berechne die Teiler der Zahl [ganze Zahl]: 7
         // teiler(7) = 1, 7
 
-        System.out.print("Gib eine Zahl ein um Teiler zu berechnen: ");
+        System.out.print("Gib eine Zahl ein um alle Teiler zu berechnen: ");
+
+        while (!scanner.hasNextInt()) {
+            System.out.print("Eingabe von " + RED + scanner.next() + RESET + " nicht möglich. Bitte eine ganze Zahl eingeben: ");
+        }
+
         grenze = scanner.nextInt();
+        
         String ergebnis = "teiler(" + grenze + ") = ";
-        boolean hatZweiAlsTeiler = false;
-        boolean hatZahlSelbstAlsTeiler = false;
-        boolean keinePrimzahl = false;
+        boolean istkeinePrimzahl = false;
 
         for (int teiler = 1; teiler <= grenze; teiler++) {
             if (grenze % teiler == 0) {
-                ergebnis += teiler + " ";
+                ergebnis += teiler + (teiler < grenze ? ", " : "");
 
-                if (teiler == 1) {
-                    hatZweiAlsTeiler = true;
-                } else if (teiler == grenze) {
-                    hatZahlSelbstAlsTeiler = true;
-                } else {
-                    keinePrimzahl = true;
+                if (teiler != 1 && teiler != grenze) {
+                    istkeinePrimzahl = true;
                 }
             }
         }
 
-        if (hatZweiAlsTeiler && hatZahlSelbstAlsTeiler && !keinePrimzahl) {
-            System.out.println(RED + ergebnis + RESET);
-        } else {
-            System.out.println(ergebnis);
-        }
-
+        System.out.println(istkeinePrimzahl ? ergebnis : RED + ergebnis + RESET);
         System.out.println();
 
         // 12. Potenzen
