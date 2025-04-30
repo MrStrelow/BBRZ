@@ -196,14 +196,20 @@ public class Loesung {
         System.out.print("Wie viele Fibonacci-Zahlen berechnen? ");
         grenze = scanner.nextInt();
         int fibCurrent = 0, fibNext = 1;
-        System.out.print(fibCurrent + "+" + fibNext);
+
+        if (grenze == 0)
+            System.out.println("fib(0) = " + fibCurrent);
+        else if (grenze == 1)
+            System.out.println("fib(1) = " + fibNext);
+        else
+            System.out.print("fib(" + grenze + ") = " + fibCurrent + " + " + fibCurrent);
 
         for (int i = 0; i < grenze - 1; i++) {
             int temp = fibCurrent + fibNext;
             fibCurrent = fibNext;
             fibNext = temp;
 
-            System.out.print(i == grenze-2 ? " = " + fibNext : "+" + fibNext);
+            System.out.print(i == grenze-2 ? " = " + fibNext : " + " + fibNext);
         }
 
         System.out.println();
