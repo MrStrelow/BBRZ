@@ -185,13 +185,13 @@ public class Loesung {
         // * Die **n.** Fibonacci-Zahl ist... die Summe aus der **n-2.** Fibonacci-Zahl, welche ``fib(n-2)`` ist und der **n-1.**, welche ``fib(n-1)`` ist, also **``fib(n)``**.
 
         // Beispiel:
-        // Berechne die Ficonacci-Zahlen von 1 bis [gerade zahl]: 7
+        // Berechne die Fibonacci-Zahlen von 1 bis [gerade zahl]: 7
         // fib(7) = 0 + 1 + 1 + 2 + 3 + 5 + 8 = 13
 
-        // Berechne die Ficonacci-Zahlen von 1 bis [gerade zahl]: 10
+        // Berechne die Fibonacci-Zahlen von 1 bis [gerade zahl]: 10
         // fib(10) = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + 34 = 55
 
-        // Berechne die Ficonacci-Zahlen von 1 bis [gerade zahl]: 15
+        // Berechne die Fibonacci-Zahlen von 1 bis [gerade zahl]: 15
         // fib(15) = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + 34 + 55 + 89 + 144 + 233 + 377 = 610
         System.out.print("Wie viele Fibonacci-Zahlen berechnen? ");
         grenze = scanner.nextInt();
