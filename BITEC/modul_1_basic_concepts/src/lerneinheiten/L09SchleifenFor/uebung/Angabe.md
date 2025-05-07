@@ -503,11 +503,11 @@ Soll das Passwort Sonderzeichen beinhalten [+/-]? +
 Wie lang soll das Passwort sein [ganze Zahl]? 10
 Wie viele Passwörter sollen generiert werden? 3
 
-Es wurden: 
+Es wurden folgende Passwörter...
 2G4fm"V2g8
 u710/&8GP! 
 Atn6a47*]e
-generiert
+... generiert.
 
 Neue Passwörter generieren [+/-]? +
 
@@ -517,9 +517,9 @@ Soll das Passwort Sonderzeichen beinhalten [+/-]? -
 Wie lang soll das Passwort sein [ganze Zahl]? 2
 Wie viele Passwörter sollen generiert werden? 1
 
-Es wurden: 
+Es wurden folgende Passwörter...
 ap
-generiert
+... generiert.
 
 Neue Passwörter generieren [+/-]? -
 Programm wurde auf Wunsch des Benutzers beendet.

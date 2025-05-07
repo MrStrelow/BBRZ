@@ -5,26 +5,32 @@ import java.util.Scanner;
 
 public class C03Passwoerter {
     public static void main(String[] args) {
-        // Variablen
-        String RESET = "\u001B[0m";
-        String WHITE = "\u001B[37m";
-        String RED = "\u001B[31m";
-        String GREEN = "\u001B[32m";
-        String BLUE = "\u001B[34m";
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-
         // Konstanten
+        final String RESET = "\u001B[0m";
+        final String WHITE = "\u001B[37m";
+        final String RED = "\u001B[31m";
+        final String GREEN = "\u001B[32m";
+        final String BLUE = "\u001B[34m";
+
         final String kleinbuchstaben = "abcdefghijklmnopqrstuvwxyz";
         final String grossbuchstaben = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         final String ziffern = "0123456789";
         final String sonderzeichen = "!\"§$%&/()=?{[]}\\@#*+~^.,;:-_<>|";
 
-        String zeichenpool = kleinbuchstaben;
-        boolean nochmal;
 
-        // Userinput
+        // Variablen
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        boolean nochmal;
+        String zeichenpool;
+
         do {
+            // Achtung! Nach jeder Wiederholung zurücksetzen.
+            zeichenpool = kleinbuchstaben;
+
+            // ~~~~~~~~~~~~~~~~~~~ START UserInput ~~~~~~~~~~~~~~~~~~~
+            // ------------------- Soll das Passwort Großbuchstaben beinhalten [+/-]? -------------------
             System.out.print("Soll das Passwort Großbuchstaben beinhalten [+/-]? ");
 
             String userInputGrossbuchstaben;
@@ -43,7 +49,7 @@ public class C03Passwoerter {
                 zeichenpool += grossbuchstaben;
             }
 
-            System.out.println();
+            // ------------------- Soll das Passwort Ziffern beinhalten [+/-]? -------------------
             System.out.print("Soll das Passwort Ziffern beinhalten [+/-]? ");
 
             String userInputZiffer;
@@ -62,7 +68,7 @@ public class C03Passwoerter {
                 zeichenpool += ziffern;
             }
 
-            System.out.println();
+            // ------------------- Soll das Passwort Sonderzeichen beinhalten [+/-]? -------------------
             System.out.print("Soll das Passwort Sonderzeichen beinhalten [+/-]? ");
 
             String userInputSonderzeichen;
@@ -81,7 +87,7 @@ public class C03Passwoerter {
                 zeichenpool += sonderzeichen;
             }
 
-            System.out.println();
+            // ------------------- Wie lang soll das Passwort sein [ganze Zahl]? -------------------
             System.out.print("Wie lang soll das Passwort sein [ganze Zahl]? ");
 
             while (!scanner.hasNextInt()) {
@@ -90,7 +96,7 @@ public class C03Passwoerter {
 
             int laengePasswort = scanner.nextInt();
 
-            System.out.println();
+            // ------------------- Wie viele Passwörter sollen generiert werden [ganze Zahl]? -------------------
             System.out.print("Wie viele Passwörter sollen generiert werden [ganze Zahl]? ");
 
             while (!scanner.hasNextInt()) {
@@ -99,26 +105,33 @@ public class C03Passwoerter {
 
             int anzahlPasswoerter = scanner.nextInt();
 
+            // ~~~~~~~~~~~~~~~~~~~ ENDE UserInput ~~~~~~~~~~~~~~~~~~~
+
             // Kontrollstrukturen
+            System.out.println();
             System.out.println("Es wurden folgende Passwörter...");
 
-            // Zuständigkeit: Wie viele Passwörter sollen generiert werden
+            // Zuständigkeit: Erzeuge mehrere Passwörter.
+            // Wie viele Passwörter sollen generiert werden? - wiederhole "anzahl der Passwörter" mal
             for (int i = 0; i < anzahlPasswoerter; i++) {
                 String password = "";
 
-                // Zuständigkeit: Erzeuge Passwort - wiederhole "Länge des Passworts" mal
+                // Zuständigkeit: Erzeuge ein Passwort.
+                // Wie lange soll das Passwort sein? - wiederhole "Länge des Passwort" mal
                 for (int j = 0; j < laengePasswort; j++) {
                     int position = random.nextInt(0, zeichenpool.length());
                     password += zeichenpool.charAt(position);
                 }
 
-                System.out.println(password);
+                System.out.println(BLUE + password + RESET);
             }
 
             System.out.println("... generiert.");
+            System.out.println();
 
-            System.out.println("Neue Passwörter generieren [+/-]? ");
+            System.out.print("Neue Passwörter generieren [+/-]? ");
 
+            // ------------------- UserInput -------------------
             String userInputNeustart;
 
             while ( true ) {
@@ -138,6 +151,8 @@ public class C03Passwoerter {
             } else {
                 nochmal = true;
             }
+
+            System.out.println();
 
         } while (nochmal);
     }
