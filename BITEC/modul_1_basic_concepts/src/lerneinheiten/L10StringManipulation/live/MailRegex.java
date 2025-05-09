@@ -4,9 +4,7 @@ import java.util.regex.Pattern;
 
 public class MailRegex {
     public static void main(String[] args) {
-//        String mail = "mathias.cammerlander@.gmail.com";
-//        String regex = "^([a-zA-Z]+)\\.([a-zA-Z]+)@(yahoo|gmail)\\.[a-z]{2,63}";
-        String mail = "mathias.cammerlander@.gmail.com";
+        String mail = "mathias.cammerlander@gmail.com";
         String regex = "^([a-zA-Z]+)\\.([a-zA-Z]+)@(yahoo|gmail)\\.[a-z]{2,63}";
 
         boolean hasMatched = Pattern.matches(regex, mail);
