@@ -6,7 +6,7 @@ public class Hamster
     private static string _hungryRepresentation = "😡";
     private static string _fedRepresentation = "🐹";
 
-    // Eigenschaftenpublic
+    // Eigenschaften
     public (int x, int y) Position { get; set; }
     public string Representation { get; private set; }
     public bool IsHungry { get; private set; }
@@ -22,10 +22,21 @@ public class Hamster
         // Zufällige Position wählen
         var random = new Random();
 
-        var x = random.Next(_plane.Size);
-        var y = random.Next(_plane.Size);
-         // TODO
+        bool done;
+        int x;
+        int y;
 
+        // Plane sagt passt oder passt nicht
+        // Zuständigkeit: probiere neue zufällige x und y zuweisungen aus.
+        do 
+        {
+            x = random.Next(_plane.Size);
+            y = random.Next(_plane.Size);
+            done = plane.TryToAssignInitialPosition(this, (x,y));
+        }
+        while (!done);
+
+        Position = (x, y); 
     }
 
 

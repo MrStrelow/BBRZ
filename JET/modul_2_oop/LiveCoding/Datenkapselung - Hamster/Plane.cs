@@ -38,8 +38,7 @@ public class Plane
         // Hamster erstellen
         for (int i = 0; i < random.Next(1, Size*Size); i++)
         {
-            _hamsters.Add(new Hamster());
-            // TODO
+            _hamsters.Add(new Hamster(this));
         }
 
 
@@ -49,6 +48,27 @@ public class Plane
         {
             _seeds[(1, 4)] = new Seed();
         }
+    }
+
+    public bool TryToAssignInitialPosition(Hamster hamster, (int x, int y) positionOfHamsterToBeAssigned)
+    {
+        bool positionIsEmpty = false;
+
+        foreach (var alreadyExistingHamster in _hamsters)
+        {
+            if (alreadyExistingHamster.Position == positionOfHamsterToBeAssigned)
+            {
+                positionIsEmpty = true;
+            }
+        }
+
+        if (positionIsEmpty)
+        {
+            _plane[positionOfHamsterToBeAssigned.y, positionOfHamsterToBeAssigned.x] = "🐹"; // TODO
+        }
+
+        return positionIsEmpty;
+
     }
 
     public void Print(int delayInMilliseconds)
