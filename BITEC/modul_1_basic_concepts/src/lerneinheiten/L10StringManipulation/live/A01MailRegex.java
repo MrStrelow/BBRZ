@@ -2,7 +2,7 @@ package lerneinheiten.L10StringManipulation.live;
 
 import java.util.regex.Pattern;
 
-public class MailRegex {
+public class A01MailRegex {
     public static void main(String[] args) {
         String mail = "mathias.cammerlander@gmail.com";
         String regex = "^([a-zA-Z]+)\\.([a-zA-Z]+)@(yahoo|gmail)\\.[a-z]{2,63}";

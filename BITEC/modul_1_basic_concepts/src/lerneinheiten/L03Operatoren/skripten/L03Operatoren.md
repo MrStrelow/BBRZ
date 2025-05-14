@@ -496,7 +496,6 @@ Es soll nur ein Beispiel sein, dass es auch andere, "abstraktere" Operatoren geb
 
 Entschuldigung für das Missverständnis! Hier ist der Text mit den korrekten Anpassungen, bei denen ` ``` ` durch ````` ersetzt wurde:
 
-```md
 ## Gemischte Operatoren
 
 ### Zuweisung und Arithmetische Operatoren

@@ -10,7 +10,7 @@
 //     * beenden: beendet das Programm.
 // * Geben Sie in jedem Schleifendurchlauf die Variable storage aus.
 // Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
-// *Hinweis: Lege folgenden String an ``String produkte = "🌂🧯🧺🧹🪒🧼🪞🚽🪠💍"`` und lass die Benutzer die Position des Strings eingeben. Nehen wir an die Postion ist 4, wir schreiben ``int wahlDesUsersAlsUnicode = produkte.codePointAt(4)`` um den Unicode davon zu bekommen. Dieser ist im Dezimalsystem. Wir können mit``String produkt = new String(Character.toChars(wahlDesUsersAlsUnicode))`` einen String machen welchen wir direkt verwenden können.*.
+// *Hinweis: Lege folgenden String an ``String produkte = "🌂🧯🧺🧹🪒🧼🪞🚽🪠💍"`` und lass die Benutzer die Position des Strings eingeben. Nehen wir an die Postion ist 4, wir schreiben ``int wahlDesUsersAlsUnicode = produkte.codePointAt(4)`` um den Unicode davon zu bekommen. Dieser ist im Dezimalsystem. Wir können mit``String produkt = Character.toString(wahlDesUsersAlsUnicode)`` einen String machen welchen wir direkt verwenden können.*.
 // **Frage:** Warum funktioniert hier nicht ``produkte.charAt(4)``? (Siehe [L02](../../L02VariablenErstellen/skripten/L02VariablenErstellen.md))
 // * Was gibt von charAt() für einen Typ zurück?
 // * Wie viele Bits bzw. Hex-Bits hat ein Character zur Verfügung?
@@ -174,7 +174,7 @@ Erstellen Sie einen String mit dem Inhalt ``"📦📦📦📦📦"``. Es sollen 
 
 Erweitere das Programm so, dass der Benutzer die bisherige Grenze von 5 beliebig anpassen kann.
 
-*Hinweis: Lege folgenden String an ``String produkte = "🌂🧯🧺🧹🪒🧼🪞🚽🪠💍"`` und lass die Benutzer die Position des Strings eingeben. Nehen wir an die Postion ist 4, wir schreiben ``int wahlDesUsersAlsUnicode = produkte.codePointAt(4)`` um den Unicode davon zu bekommen. Dieser ist im Dezimalsystem. Wir können mit``String produkt = new String(Character.toChars(wahlDesUsersAlsUnicode))`` einen String machen welchen wir direkt verwenden können.*.
+*Hinweis: Lege folgenden String an ``String produkte = "🌂🧯🧺🧹🪒🧼🪞🚽🪠💍"`` und lass die Benutzer die Position des Strings eingeben. Nehen wir an die Postion ist 4, wir schreiben ``int wahlDesUsersAlsUnicode = produkte.codePointAt(4)`` um den Unicode davon zu bekommen. Dieser ist im Dezimalsystem. Wir können mit``String produkt = Character.toString(wahlDesUsersAlsUnicode)`` einen String machen welchen wir direkt verwenden können.*.
 
 **Frage:** Warum funktioniert hier nicht ``produkte.charAt(4)``? (Siehe [L02](../../L02VariablenErstellen/skripten/L02VariablenErstellen.md))
 * Was gibt von charAt() für einen Typ zurück?

@@ -13,10 +13,10 @@ public class L11LinesOnChessBoard {
         String[][] brett = new String[dimension][dimension];
 
 //        char whiteSquareCode = 0x2588; // ░
-//        String whiteSquare = new String(Character.toChars(whiteSquareCode)); // ░
+//        String whiteSquare = Character.toString(whiteSquareCode); // ░
 //
 //        char blackSquareCode = 0x2591; // █
-//        String blackSquare = new String(Character.toChars(whiteSquareCode)); // █
+//        String blackSquare = Character.toString(whiteSquareCode); // █
 
 //        String whiteSquare = "0x2591"; // █
 //        String blackSquare= "\u2588"; // ░

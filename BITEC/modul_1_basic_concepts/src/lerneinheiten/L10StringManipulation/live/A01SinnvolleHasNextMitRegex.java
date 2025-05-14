@@ -1,9 +1,8 @@
 package lerneinheiten.L10StringManipulation.live;
 
-import java.util.Random;
 import java.util.Scanner;
 
-public class SinnvolleHasNextMitRegex {
+public class A01SinnvolleHasNextMitRegex {
     public static void main(String[] args) {
         // Konstanten
         final String RESET = "\u001B[0m";
@@ -14,7 +13,6 @@ public class SinnvolleHasNextMitRegex {
 
         // Variablen
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
         // Achtung! Nach jeder Wiederholung zurücksetzen.
         String zeichenpool = kleinbuchstaben;
@@ -50,5 +48,6 @@ public class SinnvolleHasNextMitRegex {
 //            if (userInputGrossbuchstaben.equals("+")) {
 //                zeichenpool += grossbuchstaben;
 //            }
+        scanner.close();
     }
 }

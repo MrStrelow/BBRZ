@@ -91,7 +91,7 @@ String myString = "🐻‍❄️🟠🤕🌊🏄🏻‍♂️";
 
 for (int i = 0; i < myString.length(); i++) {
     // System.out.println(myString.charAt(i)); // Error.
-    System.out.println(new String(Character.toChars(myString.codePointAt(i)))); 
+    System.out.println(Character.toString(myString.codePointAt(i))); 
 }
 ```
 
