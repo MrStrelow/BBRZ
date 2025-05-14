@@ -24,12 +24,21 @@ public class A01BubbleSort {
 //        System.out.println(Arrays.toString(zahlen));
 //        System.out.println(zahlen.getClass());
 
-//        int[] zahlen = new int[];
+        // sortiere User input
+        // Schritt 1: Vergleiche die 1. (Index 0) und 2. (Index 1) Zahl im Array.
+        // Falls die 1. größer ist wie die 2., dann vertausche diese, andernfalls mach nichts.
 
 
-        // sortiere userinput
+        for (int j = 0; j < userinput.length - 1; j++) {
+            for (int i = 0; i < userinput.length - j - 1; i++) {
+                if (zahlen[i] > zahlen[i+1]) {
+                    int tmp = zahlen[i];
+                    zahlen[i] = zahlen[i+1];
+                    zahlen[i+1] = tmp;
+                }
+            }
+            System.out.println(Arrays.toString(zahlen));
+        }
 
-
-        
     }
 }
