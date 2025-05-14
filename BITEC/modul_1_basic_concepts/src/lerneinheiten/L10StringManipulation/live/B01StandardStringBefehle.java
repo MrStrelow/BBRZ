@@ -1,5 +1,6 @@
 package lerneinheiten.L10StringManipulation.live;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class B01StandardStringBefehle {
@@ -65,6 +66,47 @@ public class B01StandardStringBefehle {
             }
         }
 
+        // Umkehrung. Finde das erste Vorkommen eines Symbols und gib den Index aus?
         System.out.println(text.indexOf("🐹"));
+
+        System.out.println("#######");
+        text = "halllo";
+        int charKommtSoOftVor = 0;
+
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == 'l') {
+                charKommtSoOftVor++;
+                System.out.println(i);
+            }
+        }
+
+//        System.out.println(charKommtSoOftVor);
+
+        System.out.println("~~~~~~~~~~~~~~~~~");
+        int position = 0;
+        StringBuilder textBuilder = new StringBuilder(text);
+
+        while (true) {
+            position = textBuilder.indexOf("l");
+
+            if (position <= -1) {
+                break;
+            }
+
+            textBuilder.replace(position, position+1, "_");
+            System.out.println(position);
+        }
+
+        // formatierte ausgabe mit system.out.printf
+        // Zahlenformat
+        System.out.printf("hallo %.3f und danach %d", 13.06796, 20);
+        System.out.println();
+
+        // Uhrzeitformat
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
+        System.out.printf("hallo %tY~%td~%tm und danach %d", now, now, now, 20);
+        System.out.printf("hallo %tY~%td~%tB und danach %d", now, now, now, 20);
+
     }
 }
