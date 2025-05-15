@@ -49,7 +49,6 @@ public class Hamster
         var direction = Enum.GetValues<Direction>()[directionIndex];
 
         _plane.Position(this, direction);
+       
     }
-
-
 }

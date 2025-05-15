@@ -91,6 +91,8 @@ public class Plane
     {
         Console.SetCursorPosition(0, 0);
 
+        AssignElementToPlane();
+
         for (int zeile = 0; zeile < Size; zeile++)
         {
             for (int spalte = 0; spalte < Size; spalte++)
@@ -104,6 +106,30 @@ public class Plane
         Console.WriteLine();
     }
 
+    private void AssignElementToPlane()
+    {
+        // alles ist erde
+        for (int y = 0; y < Size; y++)
+        {
+            for (int x = 0; x < Size; x++)
+            {
+                _plane[y, x] = _earthRepresentation;
+            }
+        }
+
+        // nimm hamster und zeichne die position
+        foreach (var hamster in _hamsters)
+        {
+            _plane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
+        }
+
+        // nimm seeds und zeichne die position
+        foreach (var seedling in _seeds.Values)
+        {
+            _plane[seedling.Position.y, seedling.Position.x] = Seed.Representation;
+        }
+    }
+
     public void SimulateHamster()
     {
         foreach (var hamster in _hamsters)
@@ -114,23 +140,41 @@ public class Plane
 
     public void Position(Hamster hamster, Direction direction)
     {
+        var pos = hamster.Position;
+
         switch(direction)
         {
             case Direction.LEFT:
-                // ??
+                if (pos.x != 0)
+                {
+                    pos.x--;
+                } 
                 break;
 
             case Direction.RIGHT:
-                // ??
+                if (pos.x != Size - 1)
+                {
+                    pos.x++;
+                }
                 break;
 
             case Direction.UP:
-                // ??
+                if (pos.y != 0)
+                {
+                    pos.y--;
+                }
                 break;
 
             case Direction.DOWN:
-                // ??
+                if (pos.y != Size - 1)
+                {
+                    pos.y++;
+                }
                 break;
         }
+
+        hamster.Position = pos;
+
+        //Console.WriteLine($"Hamster: {hamster.GetHashCode()} - pos:{hamster.Position}");
     }
 }
