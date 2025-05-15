@@ -10,46 +10,51 @@ public class B01StandardStringBefehle {
         String vergleich = "Dies ist ein Satz welcher uEberprueft wird.";
         StringBuilder aha = new StringBuilder("Dies ist ein Satz welcher ueberprueft wird.");
 
-////        System.out.println(text == vergleich);
-//        System.out.println(text.equals(vergleich));
-////        System.out.println(text.toLowerCase().equals(vergleich.toLowerCase()));
-//        System.out.println(text.equalsIgnoreCase(vergleich));
-//        System.out.println(text.equalsIgnoreCase(vergleich));
-//        System.out.println(text.contentEquals(aha));
-//
-//        // Kommt ein Wort in einem String vor
-//        System.out.println(text.contains("ueberprueft"));
-//        System.out.println(text.startsWith("Dies i"));
-//        System.out.println(text.endsWith("ueberprueft wird."));
-//
-//        Scanner scanner = new Scanner(System.in);
-//        String lowerCaseVergleich = vergleich.toLowerCase();
-//        System.out.println("Eingabe: ");
-//        String userInput = scanner.nextLine().toLowerCase();
-//        boolean userInputKommtVor = lowerCaseVergleich.contains(userInput);
-//        System.out.println(userInputKommtVor);
-//
-//        // Wie extrahiere ich einen Teil eines Strings?
-//        // ... mit substring
-//        int berechneterStart = 50;
-//        int berechnetesEnde = 50;
-//
-//        if (berechneterStart < text.length() && berechnetesEnde < text.length()) {
-//            System.out.println(text.substring(berechneterStart, berechnetesEnde));
-//        } else {
-//            System.out.println("geht nicht");
-//        }
+//        System.out.println(text == vergleich);
+        System.out.println(text.equals(vergleich));
+//        System.out.println(text.toLowerCase().equals(vergleich.toLowerCase()));
+        System.out.println(text.equalsIgnoreCase(vergleich));
+        System.out.println(text.equalsIgnoreCase(vergleich));
+        System.out.println(text.contentEquals(aha));
 
-//        // ... mit substring
-//        System.out.println("zahlen angeben: ");
-//        int start = scanner.nextInt();
-//        int ende = scanner.nextInt();
-//
-//        berechneterStart = Math.max(Math.min(start, text.length()), 0);
-//        berechnetesEnde = Math.min(Math.max(ende, 0), text.length());
-//        System.out.println(berechneterStart);
-//        System.out.println(berechnetesEnde);
-//        System.out.println(text.substring(berechneterStart, berechnetesEnde));
+        // Kommt ein Wort in einem String vor
+        System.out.println(text.contains("ueberprueft"));
+        System.out.println(text.startsWith("Dies i"));
+        System.out.println(text.endsWith("ueberprueft wird."));
+
+        Scanner scanner = new Scanner(System.in);
+        String lowerCaseVergleich = vergleich.toLowerCase();
+        System.out.println("Eingabe: ");
+        String userInput = scanner.nextLine().toLowerCase();
+        boolean userInputKommtVor = lowerCaseVergleich.contains(userInput);
+        System.out.println(userInputKommtVor);
+
+        // Wie extrahiere ich einen Teil eines Strings?
+        // ... mit substring
+        System.out.println("zahlen angeben: ");
+        int start = scanner.nextInt();
+        int ende = scanner.nextInt();
+
+        boolean startInnerhalbDesTextes = 0 <= start && start <= text.length();
+        boolean endeInnerhalbDesTextes = 0 <= ende && ende <= text.length();
+        String result;
+
+        if (startInnerhalbDesTextes && endeInnerhalbDesTextes) {
+            result = text.substring(start, ende);
+        } else {
+            result = text.substring(0, text.length());
+        }
+
+        System.out.println(result);
+
+        // ... mit substring und Math.min und Math.max - oberer Code ist jedoch leichter verständlich.
+        int berechneterStartVersuch = Math.max(Math.min(start, text.length()), 0);
+        int berechnetesEndeVersuch = Math.min(Math.max(ende, 0), text.length());
+
+        int berechneterStart = Math.min(berechneterStartVersuch, berechnetesEndeVersuch);
+        int berechnetesEnde = Math.max(berechneterStartVersuch, berechnetesEndeVersuch);
+
+        System.out.println(text.substring(berechneterStart, berechnetesEnde));
 
         // ... mit charAt
         text = "Wi🌊rd⬜🟩🟫.🐹";
@@ -57,7 +62,7 @@ public class B01StandardStringBefehle {
 //            System.out.println("i:" + i + " - " + text.charAt(i));
 //            System.out.println("i:" + i + " - " + text.substring(i, i+1));
             int unicode = text.codePointAt(i);
-            String result = Character.toString(unicode);
+            result = Character.toString(unicode);
             System.out.println("i:" + i + " - " + result + " - " + Integer.toHexString(unicode));
 
 //            if (Character.isEmoji(unicode)) {

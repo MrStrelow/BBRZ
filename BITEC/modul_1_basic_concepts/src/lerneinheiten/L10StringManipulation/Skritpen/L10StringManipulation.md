@@ -123,21 +123,17 @@ Die ``Methoden`` *charAt* und *substring* ermöglichen es, spezifische *Characte
 Wir beginnen mit der ``Methode`` *substring* und betrachten folgendes Beispiel:
 ```java
 String text = "Dies ist ein Satz welcher ueberprueft wird.🌊";
-        String mySubString = text.substring(0, 2); 
-        System.out.println(mySubString);
+String mySubString = text.substring(0, 2); 
+System.out.println(mySubString);
 
-        mySubString = text.substring(0, text.length()); 
-        System.out.println(mySubString);
+mySubString = text.substring(0, text.length()); 
+System.out.println(mySubString);
 
-        mySubString = text.substring(5, text.length() - 5); 
-        System.out.println(mySubString);
+mySubString = text.substring(5, text.length() - 5); 
+System.out.println(mySubString);
 
-        int userinputVon = -25;
-        int userinputBis = 394;
-
-        int mindestensNull = Math.max(0, userinputVon);
-        int hoechstensLaenge = Math.min(text.length(), userinputBis);
-        System.out.println(text.substring(mindestensNull, hoechstensLaenge)); 
+mySubString = text.substring(500, text.length() - 500); 
+System.out.println(mySubString);
 ```
 
 Wir erzeugen folgenden output, ...
@@ -145,10 +141,32 @@ Wir erzeugen folgenden output, ...
 Di
 Dies ist ein Satz welcher ueberprueft wird.🌊
 ist ein Satz welcher ueberprueft wi
-Dies ist ein Satz welcher ueberprueft wird.🌊
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: Range [500, -455) out of bounds for length 45
+	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckFromToIndex(Preconditions.java:112)
+	at java.base/jdk.internal.util.Preconditions.checkFromToIndex(Preconditions.java:349)
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4861)
+	at java.base/java.lang.String.substring(String.java:2830)
+	at lerneinheiten.L10StringManipulation.texst.main(texst.java:17)
 ```
 
-... und erkennen, dass der ``Index`` für den Beginn des *substrings* bei *0* zu zählen beginnt und das Ende nicht inklusive ist. Weiters sehen wir die Nützlichkeit der ``Methode`` *Math.min* um die kleinere von 2 Zahlen und der ``Methode`` *Math.max* um die größere von 2 Zahlen bestimmen zu können. Diese können verwendet werden um berechnungen an einer sinnvollen stelle abzuscheiden. Hier ist es *mindestens* *0* und *höchstens* *text.length*.
+... und erkennen, dass der ``Index`` für den Beginn des *substrings* bei *0* zu zählen beginnt und das Ende nicht inklusive ist. 
+
+Wir sehen jedoch, zusätzlich falls der Text kürzer als *500* Symbole ist, können wir *text.substring(500, text.length() - 500);* nicht verwenden. Wir sollten hier eine ``Guard`` einbauen welche korrektes Verhalten sicherstellt.
+```java
+int userinputVon = -25;
+int userinputBis = 394;
+
+int mindestensNull = Math.max(0, userinputVon);
+int hoechstensLaenge = Math.min(text.length(), userinputBis);
+System.out.println(text.substring(mindestensNull, hoechstensLaenge)); 
+```
+
+Weiters sehen wir die Nützlichkeit der ``Methode`` *Math.min* um die kleinere von 2 Zahlen und der ``Methode`` *Math.max* um die größere von 2 Zahlen bestimmen zu können. Diese können verwendet werden um berechnungen an einer sinnvollen stelle abzuscheiden. Hier ist es *mindestens* *0* und *höchstens* *text.length*.
 
 Wieso verwenden wir jedoch *Math.max* um die **kleinere** Zahl zu bestimmen und *Math.min* um die **größere** Zahl zu bestimmen? Folgende Abbildung soll dies erklären:
 TODO
@@ -268,7 +286,10 @@ Wir merken uns
 4. Teile eines Textes ersetzen / Text einfügenMit String.replace()Diese Methode ersetzt alle Vorkommnisse eines bestimmten Zeichens oder einer Zeichenfolge durch eine andere. Beachten Sie, dass String-Objekte in Java unveränderlich ("immutable") sind; replace() gibt einen neuen String zurück.        // Ersetzt alle 'i' im ursprünglichen 'input'-String durch "XXXX"
         String meinErsetzterText = input.replace("i", "XXXX");
         System.out.println("Der orginale Text: " + input + " wurde mit " + meinErsetzterText + " ersetzt.");
-Mit StringBuilderDa Strings unveränderlich sind, kann bei vielen Modifikationen die Verwendung von StringBuilder effizienter sein. StringBuilder erlaubt veränderliche Zeichenfolgen.Beispiel für Modifikationen mit StringBuilder:(Verwendet den oben definierten input String)        StringBuilder meinEingefügterText = new StringBuilder(input);
+Mit StringBuilderDa Strings unveränderlich sind, kann bei vielen Modifikationen die Verwendung von StringBuilder effizienter sein. StringBuilder erlaubt veränderliche Zeichenfolgen.Beispiel für Modifikationen mit StringBuilder:(Verwendet den oben definierten input String)        
+
+
+StringBuilder meinEingefügterText = new StringBuilder(input);
 
         // Fügt "NEU" an Index 10 ein
         meinEingefügterText.insert(10, "NEU");
