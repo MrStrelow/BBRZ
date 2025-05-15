@@ -35,7 +35,7 @@ public class Simulation
         {
             // Logik Methoden
             // simuliere die hamster
-            //plane.SimulateHamster();
+            plane.SimulateHamster();
 
             //// simuliree die seeds
             //plane.SimulateSeed();

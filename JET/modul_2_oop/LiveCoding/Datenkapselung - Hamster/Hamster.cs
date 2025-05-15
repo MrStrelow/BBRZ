@@ -20,6 +20,7 @@ public class Hamster
     {
         _plane = plane;
         Representation = Hamster._fedRepresentation;
+        
         // Zufällige Position wählen
         var random = new Random();
 
@@ -40,6 +41,15 @@ public class Hamster
         Position = (x, y); 
     }
 
-
     // Methoden
+    public void Move()
+    {
+        var random = new Random();
+        int directionIndex = random.Next(Enum.GetValues<Direction>().Length);
+        var direction = Enum.GetValues<Direction>()[directionIndex];
+
+        _plane.Position(this, direction);
+    }
+
+
 }

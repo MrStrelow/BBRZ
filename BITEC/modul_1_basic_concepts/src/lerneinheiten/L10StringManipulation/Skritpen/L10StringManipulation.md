@@ -156,7 +156,42 @@ Exception in thread "main" java.lang.StringIndexOutOfBoundsException: Range [500
 
 ... und erkennen, dass der ``Index`` für den Beginn des *substrings* bei *0* zu zählen beginnt und das Ende nicht inklusive ist. 
 
-Wir sehen jedoch, zusätzlich falls der Text kürzer als *500* Symbole ist, können wir *text.substring(500, text.length() - 500);* nicht verwenden. Wir sollten hier eine ``Guard`` einbauen welche korrektes Verhalten sicherstellt.
+Wir sehen jedoch, zusätzlich falls der Text kürzer als *500* Symbole ist, können wir *text.substring(500, text.length() - 500);* nicht verwenden. Wir sollten hier eine ``Guard`` einbauen welche korrektes Verhalten sicherstellt. Auch lassen wir den User zahlen angeben, welche als *start* und *ende* verwendet werden sollen.
+
+```java
+// Userinput - start
+ System.out.print("start angeben: ");
+while (!scanner.hasNextInt()) {
+    System.out.println("Bitte eine Zahl eingeben, nicht " + scanner.next());
+}
+
+int start = scanner.nextInt();
+
+// Userinput - end
+System.out.print("ende angeben: ");
+while (!scanner.hasNextInt()) {
+    System.out.println("Bitte eine Zahl eingeben, nicht " + scanner.next());
+}
+
+int ende = scanner.nextInt();
+
+// Bedingungen ob Userinputs korrekt sind
+boolean startInnerhalbDesTextes = 0 <= start && start <= text.length();
+boolean endeInnerhalbDesTextes = 0 <= ende && ende <= text.length();
+String result;
+
+// Guard - wir beheben die fehlerhafte Eingabe falls diese auftritt.
+if (startInnerhalbDesTextes && endeInnerhalbDesTextes) {
+    result = text.substring(0, text.length());
+} 
+
+result = text.substring(start, ende);
+
+System.out.println(result);
+```
+
+Da wir hier nur eine ``Zuweisung`` innerhalb der ``Verzweigung`` haben
+
 ```java
 int userinputVon = -25;
 int userinputBis = 394;

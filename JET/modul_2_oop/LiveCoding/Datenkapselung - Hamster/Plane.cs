@@ -46,7 +46,7 @@ public class Plane
         // Seeds erstellen
         for (int i = 0; i < random.Next(1, Size*Size - _hamsters.Count); i++)
         {
-            var seed = new Seed();
+            var seed = new Seed(this);
             _seeds[seed.Position] = seed;
         }
     }
@@ -65,7 +65,7 @@ public class Plane
             }
         }
 
-        // grafischer Aufruf.
+        // grafischer Aufruf
         if (!positionIsTaken)
         {
             _plane[positionOfHamsterToBeAssigned.y, positionOfHamsterToBeAssigned.x] = hamster.Representation; 
@@ -73,6 +73,18 @@ public class Plane
 
         return positionIsTaken;
 
+    }
+
+    public bool TryToAssignInitialPosition(Seed seed, (int x, int y) positionOfSeedToBeAssigned)
+    {
+        if (!_seeds.ContainsKey(positionOfSeedToBeAssigned))
+        {
+            // grafischer Aufruf
+            _plane[positionOfSeedToBeAssigned.y, positionOfSeedToBeAssigned.x] = Seed.Representation;
+            return false;
+        }
+
+        return true;
     }
 
     public void Print(int delayInMilliseconds)
@@ -90,5 +102,35 @@ public class Plane
 
         Thread.Sleep(delayInMilliseconds);
         Console.WriteLine();
+    }
+
+    public void SimulateHamster()
+    {
+        foreach (var hamster in _hamsters)
+        {
+            hamster.Move();
+        }
+    }
+
+    public void Position(Hamster hamster, Direction direction)
+    {
+        switch(direction)
+        {
+            case Direction.LEFT:
+                // ??
+                break;
+
+            case Direction.RIGHT:
+                // ??
+                break;
+
+            case Direction.UP:
+                // ??
+                break;
+
+            case Direction.DOWN:
+                // ??
+                break;
+        }
     }
 }

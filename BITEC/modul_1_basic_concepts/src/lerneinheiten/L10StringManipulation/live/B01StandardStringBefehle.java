@@ -31,8 +31,18 @@ public class B01StandardStringBefehle {
 
         // Wie extrahiere ich einen Teil eines Strings?
         // ... mit substring
-        System.out.println("zahlen angeben: ");
+        System.out.print("start angeben: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Bitte eine Zahl eingeben, nicht " + scanner.next());
+        }
+
         int start = scanner.nextInt();
+
+        System.out.print("ende angeben: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Bitte eine Zahl eingeben, nicht " + scanner.next());
+        }
+
         int ende = scanner.nextInt();
 
         boolean startInnerhalbDesTextes = 0 <= start && start <= text.length();
