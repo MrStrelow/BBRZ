@@ -46,28 +46,32 @@ public class Plane
         // Seeds erstellen
         for (int i = 0; i < random.Next(1, Size*Size - _hamsters.Count); i++)
         {
-            _seeds[(1, 4)] = new Seed();
+            var seed = new Seed();
+            _seeds[seed.Position] = seed;
         }
     }
 
     public bool TryToAssignInitialPosition(Hamster hamster, (int x, int y) positionOfHamsterToBeAssigned)
     {
-        bool positionIsEmpty = false;
+        bool positionIsTaken = false;
 
+        // Logik
         foreach (var alreadyExistingHamster in _hamsters)
         {
             if (alreadyExistingHamster.Position == positionOfHamsterToBeAssigned)
             {
-                positionIsEmpty = true;
+                positionIsTaken = true;
+                break;
             }
         }
 
-        if (positionIsEmpty)
+        // grafischer Aufruf.
+        if (!positionIsTaken)
         {
-            _plane[positionOfHamsterToBeAssigned.y, positionOfHamsterToBeAssigned.x] = "🐹"; // TODO
+            _plane[positionOfHamsterToBeAssigned.y, positionOfHamsterToBeAssigned.x] = hamster.Representation; 
         }
 
-        return positionIsEmpty;
+        return positionIsTaken;
 
     }
 

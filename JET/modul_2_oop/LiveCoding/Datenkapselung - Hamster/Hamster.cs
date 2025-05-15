@@ -19,10 +19,11 @@ public class Hamster
     public Hamster(Plane plane)
     {
         _plane = plane;
+        Representation = Hamster._fedRepresentation;
         // Zufällige Position wählen
         var random = new Random();
 
-        bool done;
+        bool notDone;
         int x;
         int y;
 
@@ -32,9 +33,9 @@ public class Hamster
         {
             x = random.Next(_plane.Size);
             y = random.Next(_plane.Size);
-            done = plane.TryToAssignInitialPosition(this, (x,y));
+            notDone = plane.TryToAssignInitialPosition(this, (x,y));
         }
-        while (!done);
+        while (notDone);
 
         Position = (x, y); 
     }
