@@ -51,4 +51,61 @@ public class Hamster
         _plane.Position(this, direction);
        
     }
+
+    public void NutritionBehaviour()
+    {
+        //  bin ich hungrig?
+        var random = new Random();
+
+        if (random.NextDouble() < 0.1)
+        {
+            IsHungry = true;
+            Representation = Hamster._hungryRepresentation;
+        }
+
+        // steh ich auf einen seedling
+        if (_plane.ContainsSeed(Position))
+        {
+            if(IsHungry)
+            {
+                EatSeedFromTile();
+            }
+            else
+            {
+                PutInMouthList();
+            }
+        }
+        else
+        {
+            if (IsHungry && mouth.Any())
+            {
+                EatSeedlingFromMouth();
+            }
+        }
+
+    }
+
+    private void EatSeedFromTile()
+    {
+        Eat();
+        _plane.HamsterIsEatingSeeds(this);
+    }
+
+    private void PutInMouthList()
+    {
+        var seedling = _plane.GetSeedlingOn(Position);
+        mouth.Add(seedling);
+    }
+
+    private void EatSeedlingFromMouth()
+    {
+        Eat();
+        mouth.RemoveAt(0);
+    }
+
+    private void Eat()
+    {
+        IsHungry = false;
+        Representation = _fedRepresentation;
+    }
 }

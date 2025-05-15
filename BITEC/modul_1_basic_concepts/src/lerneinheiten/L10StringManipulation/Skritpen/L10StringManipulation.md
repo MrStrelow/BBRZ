@@ -181,8 +181,10 @@ boolean endeInnerhalbDesTextes = 0 <= ende && ende <= text.length();
 String result;
 
 // Guard - wir beheben die fehlerhafte Eingabe falls diese auftritt.
-if (startInnerhalbDesTextes && endeInnerhalbDesTextes) {
+if (!(startInnerhalbDesTextes && endeInnerhalbDesTextes)) {
     result = text.substring(0, text.length());
+    System.out.println(result)
+    return;
 } 
 
 result = text.substring(start, ende);
@@ -190,7 +192,22 @@ result = text.substring(start, ende);
 System.out.println(result);
 ```
 
-Da wir hier nur eine ``Zuweisung`` innerhalb der ``Verzweigung`` haben
+Da wir hier nur eine ``Zuweisung`` innerhalb der ``If-Bedingung`` (welches eine ``Anweisung`` ist) haben, ist auch die Verwendung von einem ``Ausdruck`` möglich. 
+
+```java
+...
+// Bedingungen ob Userinputs korrekt sind
+boolean startInnerhalbDesTextes = 0 <= start && start <= text.length();
+boolean endeInnerhalbDesTextes = 0 <= ende && ende <= text.length();
+String result;
+
+// Guard - wir beheben die fehlerhafte Eingabe falls diese auftritt.
+result = startInnerhalbDesTextes && endeInnerhalbDesTextes ? 
+            text.substring(start, ende) : 
+            text.substring(0, text.length());
+
+System.out.println(result);
+```
 
 ```java
 int userinputVon = -25;

@@ -135,6 +135,7 @@ public class Plane
         foreach (var hamster in _hamsters)
         {
             hamster.Move();
+            hamster.NutritionBehaviour();
         }
     }
 
@@ -176,5 +177,20 @@ public class Plane
         hamster.Position = pos;
 
         //Console.WriteLine($"Hamster: {hamster.GetHashCode()} - pos:{hamster.Position}");
+    }
+
+    public void HamsterIsEatingSeeds(Hamster hamster)
+    {
+        _seeds.Remove(hamster.Position);
+    }
+
+    public Seed GetSeedlingOn((int x, int y) position)
+    {
+        return _seeds[position];
+    }
+
+    public bool ContainsSeed((int x, int y) position)
+    {
+        return _seeds.ContainsKey(position);
     }
 }
