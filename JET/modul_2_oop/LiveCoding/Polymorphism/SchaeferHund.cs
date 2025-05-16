@@ -23,4 +23,9 @@ public class SchaeferHund : IHund, IFreund
     {
         Console.WriteLine("ich huete.");
     }
+
+    public override string ToString()
+    {
+        return $"🐕{Groesse}";
+    }
 }

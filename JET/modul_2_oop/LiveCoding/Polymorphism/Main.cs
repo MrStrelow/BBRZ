@@ -10,8 +10,9 @@ internal class MainProg
 {
     static void Main(string[] args)
     {
+        Console.OutputEncoding = Encoding.UTF8;
         // Wenn wir vom Interface IHund in Pudel und SchaeferHund ableiten.
-        IHund pudel = new Pudel() { Groesse = 20};
+        IHund pudel = new Pudel() { Groesse = 20 };
         IHund schaefer = new SchaeferHund() { Groesse = 100 };
         var hunde = new List<IHund> { schaefer, pudel };
 
@@ -22,7 +23,7 @@ internal class MainProg
 
         foreach (var elems in hunde)
         {
-            Console.WriteLine($"Hund: {elems.GetHashCode()} vom Typ: {elems.GetType()} hat groesse {elems.Groesse}");
+            Console.WriteLine($"Hund: {elems} vom Typ: {elems.GetType()} hat groesse {elems.Groesse}");
             elems.bellen();
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 

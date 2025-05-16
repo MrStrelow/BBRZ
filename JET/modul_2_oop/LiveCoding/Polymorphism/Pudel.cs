@@ -14,4 +14,8 @@ public class Pudel : IHund
     {
         Console.WriteLine("ich belle wie ein Pudel.");
     }
+
+    public override string ToString(){
+        return $"🐶{Groesse}";
+    }
 }

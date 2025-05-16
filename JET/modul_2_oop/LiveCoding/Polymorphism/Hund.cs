@@ -11,4 +11,8 @@ public abstract class Hund
     public int Groesse { get; set; }
     public abstract void bellen();
 
+    public override string ToString()
+    {
+        return $"🐕{Groesse}🐶";
+    }
 }
