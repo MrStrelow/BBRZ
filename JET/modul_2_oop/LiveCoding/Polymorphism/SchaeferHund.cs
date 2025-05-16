@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace Polymorphism;
 
-public class SchaeferHund : Hund
+public class SchaeferHund : IHund, IFreund
 {
-    public override void bellen()
+    public void bellen()
     {
         Console.WriteLine("ich belle wie ein Schaefer.");
     }
 
-    public void heuten()
+    public void freundSein()
     {
-        Console.WriteLine("ich heute.");
+        Console.WriteLine("Freund.");
+    }
+
+    public void hueten()
+    {
+        Console.WriteLine("ich huete.");
     }
 }

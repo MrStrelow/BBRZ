@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Polymorphism;
 
-public abstract class Hund
+public interface IFreund
 {
-    public int Groesse { get; set; }
-    public abstract void bellen();
-
+    void freundSein();
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Polymorphism;
 
-public abstract class Hund
+public class Pudel : Hund
 {
-    public int Groesse { get; set; }
-    public abstract void bellen();
-
+    public override void bellen()
+    {
+        Console.WriteLine("ich belle wie ein Pudel.");
+    }
 }

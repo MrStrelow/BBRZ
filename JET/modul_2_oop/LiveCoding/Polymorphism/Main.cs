@@ -10,19 +10,21 @@ internal class MainProg
 {
     static void Main(string[] args)
     {
-        Hund hund = new Hund();
-        SchaeferHund schaefer = new SchaeferHund();
+        Hund pudel = new Pudel() { Groesse = 20};
+        Hund schaefer = new SchaeferHund() { Groesse = 100 };
 
-        var hunde = new List<Hund> { schaefer, hund };
+        var hunde = new List<Hund> { schaefer, pudel };
 
         foreach (var elems in hunde)
         {
+            Console.WriteLine($"Hund: {elems.GetHashCode()} vom Typ: {elems.GetType()} hat groesse {elems.Groesse}");
             elems.bellen();
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
             // "pattern matching style" - verwende das.
             if (elems is SchaeferHund schaeferHund)
             {
-                schaeferHund.heuten();
+                schaeferHund.hueten();
             }
 
             // "older c# style" - as versucht es und liefert null wenns fehlschlägt.
