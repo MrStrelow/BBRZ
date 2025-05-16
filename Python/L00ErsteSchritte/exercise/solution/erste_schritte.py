@@ -86,14 +86,11 @@ print("=== Arbeiten mit Argumenten ===")
 
 # 3. Erstes Argument ausgeben (ohne Fehlerbehandlung)
 #    Wenn sys.argv[1] nicht existiert, bricht das Programm hier mit einem IndexError ab.
-print("Das erste übergebene Argument ist:", sys.argv[0])
+print("Das erste übergebene Argument ist:", sys.argv[1])
 print("-" * 30) # Trennlinie
 
-# 4. Satz mit beiden Argumenten ausgeben (ohne Fehlerbehandlung)
-#    Wenn sys.argv[1] oder sys.argv[2] nicht existiert,
-#    bricht das Programm hier (oder in der Zeile darüber) mit einem IndexError ab.
-arg1 = sys.argv[0]
-arg2 = sys.argv[0]
+arg1 = sys.argv[1]
+arg2 = sys.argv[2]
 print(f"Das erste Argument ist {arg1} und das zweite Argument ist {arg2}.")
 # Alternative mit + Operator:
 # print("Das erste Argument ist " + arg1 + " und das zweite Argument ist " + arg2 + ".")

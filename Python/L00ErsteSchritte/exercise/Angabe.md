@@ -82,6 +82,32 @@ Programm-Argumente sind Werte, die einem Skript beim Aufruf über die Kommandoze
     ```
     Verwenden Sie `sys.argv[1]` und `sys.argv[2]`. Achten Sie auch hier auf eine ausreichende Anzahl an Argumenten.
 
+    Hinweis: 
+    * Starte das `Program mit ``py erste_schritte.py "BBRZ" "WIEN"`` im Terminal. Der Pfad muss der des Ordners eins über dem Python-File sein. 
+    * Alternativ erstelle einen Ordner ``.vscode`` im äußersten Ordner und füge dort ein File ``launch.json`` ein. Dort füge folgendes im Ordner ``.vscode`` ein:
+    ```
+    {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "BBRZ", // Deine Argumente
+                "WIEN"
+            ]
+        }
+    ]
+}
+    ```
+
+### Optionale Information
 In Python können Strings mit `+` verkettet werden, oder Sie verwenden f-Strings für eine modernere Formatierung:
 ```python
 name = "Welt"
