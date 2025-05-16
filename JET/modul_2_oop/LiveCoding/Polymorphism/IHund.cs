@@ -8,5 +8,6 @@ namespace Polymorphism;
 
 public interface IHund
 {
+    public int Groesse { get; set; }
     void bellen();
 }

@@ -10,10 +10,15 @@ internal class MainProg
 {
     static void Main(string[] args)
     {
-        Hund pudel = new Pudel() { Groesse = 20};
-        Hund schaefer = new SchaeferHund() { Groesse = 100 };
+        // Wenn wir vom Interface IHund in Pudel und SchaeferHund ableiten.
+        IHund pudel = new Pudel() { Groesse = 20};
+        IHund schaefer = new SchaeferHund() { Groesse = 100 };
+        var hunde = new List<IHund> { schaefer, pudel };
 
-        var hunde = new List<Hund> { schaefer, pudel };
+        // Wenn wir von der abstrakten Klasse Hund in Pudel und SchaeferHund ableiten.
+        //Hund pudel = new Pudel() { Groesse = 20 };
+        //Hund schaefer = new SchaeferHund() { Groesse = 100 };
+        //var hunde = new List<IHund> { schaefer, pudel };
 
         foreach (var elems in hunde)
         {

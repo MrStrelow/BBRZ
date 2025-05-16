@@ -8,6 +8,7 @@ namespace Polymorphism;
 
 public class SchaeferHund : IHund, IFreund
 {
+    public int Groesse { get; set; }
     public void bellen()
     {
         Console.WriteLine("ich belle wie ein Schaefer.");
