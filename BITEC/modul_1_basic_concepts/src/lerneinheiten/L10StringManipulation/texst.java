@@ -4,17 +4,18 @@ import java.util.Random;
 
 public class texst {
     public static void main(String[] args) {
-        String text = "Dies ist ein Satz welcher ueberprueft wird.🌊";
-        String mySubString = text.substring(0, 2);
-        System.out.println(mySubString);
+        String text = "Wi🌊rd⬜🟩🟫.🐹";
 
-        mySubString = text.substring(0, text.length());
-        System.out.println(mySubString);
+        for (int i = 0; i < text.length(); i++) {
+            int unicode = text.codePointAt(i);
+            String korrekteDarstellung = Character.toString(unicode);
+            String hexZiffern = Integer.toHexString(unicode);
 
-        mySubString = text.substring(5, text.length() - 5);
-        System.out.println(mySubString);
+            System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + korrekteDarstellung + " mit Unicode: " + hexZiffern + " ein Emoji: " + Character.isEmoji(unicode));
 
-        mySubString = text.substring(500, text.length() - 500);
-        System.out.println(mySubString);
+            if (Character.isEmoji(unicode)) {
+                i++;
+            }
+        }
     }
 }

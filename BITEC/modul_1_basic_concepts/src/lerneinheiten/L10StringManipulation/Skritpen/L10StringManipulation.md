@@ -156,15 +156,14 @@ Exception in thread "main" java.lang.StringIndexOutOfBoundsException: Range [500
 
 ... und erkennen, dass der ``Index`` für den Beginn des *substrings* bei *0* zu zählen beginnt und das Ende nicht inklusive ist. 
 
-Wir sehen jedoch, zusätzlich falls der Text kürzer als *500* Symbole ist, können wir *text.substring(500, text.length() - 500);* nicht verwenden. Wir sollten hier eine ``Guard`` einbauen welche korrektes Verhalten sicherstellt. Auch lassen wir den User zahlen angeben, welche als *start* und *ende* verwendet werden sollen.
+Wir sehen jedoch, zusätzlich falls der Text kürzer als *500* Symbole ist, können wir *text.substring(500, text.length() - 500);* nicht verwenden. Wir sollten hier eine ``Verzweigung`` einbauen welche korrektes Verhalten sicherstellt. Auch lassen wir den User zahlen angeben, welche als *start* und *ende* verwendet werden sollen.
 
 ```java
 // Userinput - start
- System.out.print("start angeben: ");
+System.out.print("start angeben: ");
 while (!scanner.hasNextInt()) {
     System.out.println("Bitte eine Zahl eingeben, nicht " + scanner.next());
 }
-
 int start = scanner.nextInt();
 
 // Userinput - end
@@ -172,7 +171,6 @@ System.out.print("ende angeben: ");
 while (!scanner.hasNextInt()) {
     System.out.println("Bitte eine Zahl eingeben, nicht " + scanner.next());
 }
-
 int ende = scanner.nextInt();
 
 // Bedingungen ob Userinputs korrekt sind
@@ -180,19 +178,17 @@ boolean startInnerhalbDesTextes = 0 <= start && start <= text.length();
 boolean endeInnerhalbDesTextes = 0 <= ende && ende <= text.length();
 String result;
 
-// Guard - wir beheben die fehlerhafte Eingabe falls diese auftritt.
-if (!(startInnerhalbDesTextes && endeInnerhalbDesTextes)) {
-    result = text.substring(0, text.length());
-    System.out.println(result)
-    return;
-} 
-
-result = text.substring(start, ende);
+// Verzweigung - wir beheben die fehlerhafte Eingabe falls diese auftritt.
+if (startInnerhalbDesTextes && endeInnerhalbDesTextes) {
+    result = text.substring(start, ende);
+} else {
+    result = text
+}
 
 System.out.println(result);
 ```
 
-Da wir hier nur eine ``Zuweisung`` innerhalb der ``If-Bedingung`` (welches eine ``Anweisung`` ist) haben, ist auch die Verwendung von einem ``Ausdruck`` möglich. 
+Da wir hier genau eine ``Zuweisung`` innerhalb der ``If-Bedingung`` (welches eine ``Anweisung`` ist) haben, ist auch die Verwendung von einem ``Ausdruck`` möglich. 
 
 ```java
 ...
@@ -201,35 +197,65 @@ boolean startInnerhalbDesTextes = 0 <= start && start <= text.length();
 boolean endeInnerhalbDesTextes = 0 <= ende && ende <= text.length();
 String result;
 
-// Guard - wir beheben die fehlerhafte Eingabe falls diese auftritt.
+// If-Verzweigung als Ausdruck - wir beheben die fehlerhafte Eingabe falls diese auftritt.
 result = startInnerhalbDesTextes && endeInnerhalbDesTextes ? 
             text.substring(start, ende) : 
-            text.substring(0, text.length());
+            text;
 
 System.out.println(result);
 ```
-
-```java
-int userinputVon = -25;
-int userinputBis = 394;
-
-int mindestensNull = Math.max(0, userinputVon);
-int hoechstensLaenge = Math.min(text.length(), userinputBis);
-System.out.println(text.substring(mindestensNull, hoechstensLaenge)); 
-```
-
-Weiters sehen wir die Nützlichkeit der ``Methode`` *Math.min* um die kleinere von 2 Zahlen und der ``Methode`` *Math.max* um die größere von 2 Zahlen bestimmen zu können. Diese können verwendet werden um berechnungen an einer sinnvollen stelle abzuscheiden. Hier ist es *mindestens* *0* und *höchstens* *text.length*.
-
-Wieso verwenden wir jedoch *Math.max* um die **kleinere** Zahl zu bestimmen und *Math.min* um die **größere** Zahl zu bestimmen? Folgende Abbildung soll dies erklären:
-TODO
 
 Wir merken uns:
 > Die ``Methode`` *substring* verlangt für den ``Parameter`` *start* mindestens den ``Wert`` *0* und für den ``Parameter`` *end* höchstens die Länge des *Strings* aus welchem ein *Teilstring* entnommen wird.
 > Der ``Parameter`` *start* der ``Methode`` *substring* ist inklusive.
 > Der ``Parameter`` *end* der ``Methode`` *substring* ist exklusive.
 
+##### Optional: Wie kann ich Math.min und Math.max verwenden?
+Wir betrachten kurz eine alternative Denkweise um sicherzustellen, dass ein korrekter Input der ``Methode`` *substring* übergeben wird. Wir begrenzen dazu die ``Variable`` *start* und *end* **sinnvoll**. Das bedeutet *start* hat **mindestens** den ``Wert`` *0* und **höchstens** den ``Wert`` *text.length*. Wir setzten diese Begrenzung mit 
+* der ``Methode``*Math.min*, welche die *kleinere* von 2 Zahlen berechnet und 
+* die ``Methode`` *Math.max*, welche die *größere* von 2 Zahlen berechnet.
+
+Versuche nun den folgenden Code zu verstehen (hier werden die ``Variablen`` *start* und *ende*):
+```java
+...
+int berechneterStartVersuch = Math.max(Math.min(start, text.length()), 0);
+int berechnetesEndeVersuch = Math.min(Math.max(ende, 0), text.length());
+
+int berechneterStart = Math.min(berechneterStartVersuch, berechnetesEndeVersuch);
+int berechnetesEnde = Math.max(berechneterStartVersuch, berechnetesEndeVersuch);
+
+System.out.println(text.substring(berechneterStart, berechnetesEnde));
+```
+
+Wir erkennen jedoch, dass z.B. in **diesem** Fall ein ``If-Ausdruck`` zu bevorzugen ist.
+
 #### ... unter verwendung von charAt
 Der Unterschied zu *substirng* ist, dass wir mit der ``Methode`` *charAt* nur **ein** Symbol an einem ``Index`` auslesen können. Wir schauen uns für *charAt* dazu folgendes Beispiel an, welches zudem die Länge eines *Strings* benötigt. Wir bekommen diese mit der ``Methode`` *length*.
+
+```java
+String text = "Dies ist ein Satz welcher ueberprueft wird.";
+
+for (int i = 0; i < text.length(); i++) {
+    System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + text.charAt(i));            
+}
+
+```
+Dieser Code produziert folgenden Ouput:
+```
+An Position: [0] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character D
+An Position: [1] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character i
+An Position: [2] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character e
+An Position: [3] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character s
+An Position: [4] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character  
+...
+An Position: [38] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character w
+An Position: [39] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character i
+An Position: [40] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character r
+An Position: [41] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character d
+An Position: [42] des Strings 'Dies ist ein Satz welcher ueberprueft wird.' ist der Character .
+```
+
+Wir verändern jedoch nun die ``Variable`` *text* folgendermaßen.
 
 ```java
 String text = "Dies ist ein Satz welcher ueberprueft wird.🌊";
@@ -258,35 +284,68 @@ An Position: [44] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' 
 
 Uns fällt auf, dass wir hier *45* Characters angezeigt bekommen. Wenn wir diese händisch zählen jedoch nur *44*. Zudem bemerken wir, dass der Character am ``Index`` *43* und *44* beides 🌊 darstellt und mit *?* ausgegeben wird.
 
-Wir erinnern uns, dass Emojis mehr als 16 Bit benötigen können und dadurch 2 Symbole belegen könnten. Wir können deshalb nicht die ``Methode`` *charAt* für 🌊 verwenden. Was können wir dann tun?
-
-Wir müssen hier zwei Methoden aufrufe verwenden um dies umsetzen zu können. 
+Wir erinnern uns, dass ``Emojis`` mehr als 16 Bit benötigen **können** und dadurch 2 Symbole belegen **könnten**. Wir können deshalb nicht die ``Methode`` *charAt* für 🌊 verwenden. Was können wir nun jedoch tun um 🌊 ausgeben zu können?
+Wir rufen dazu zwei ``Methoden`` auf. 
 * Wir extrahieren aus dem String den ``Unicode`` mit *codePointAt*.
 * Wir wandeln den CodePoint, welcher potentiell *> 16* bit ist und dadurch mehrere *Characters* benötigt, mit *Character.toString* in einen *String* um.
+
+Um auf einen Blick sehen zu können, dass wirklich mehr als 16 Bit für 🌊 verwendet werden, verwenden wir zudem die ``Methode`` *Integer.toHexString*. Diese nimmt den ``Unicode``, welcher durch die ``Methode`` *codePointAt* im ``Dezimalsystem`` dargestellt wird, und wandeln es in eine *Zahl* im ``Hexadezimalsystem`` um.
 
 ```java
 String text = "Dies ist ein Satz welcher ueberprueft wird.🌊";
 
 for (int i = 0; i < text.length(); i++) {
-    System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + Character.toString(text.codePointAt(i)));            
+    int unicode = text.codePointAt(i);
+    System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + Character.toString(text.codePointAt(i)) + " mit Unicode: " + Integer.toHexString(unicode));            
 }
 ```
 
-Wir bemerken jedoch, dass die letzten zwei Zeilen der Ausgabe immer noch komisch sind
+Folgender Output wird erzeugt:
+```
+An Position: [0] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character D mit Unicode: 44
+An Position: [1] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character i mit Unicode: 69
+An Position: [2] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character e mit Unicode: 65
+An Position: [3] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character s mit Unicode: 73
+An Position: [4] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character   mit Unicode: 20
+...
+An Position: [38] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character w mit Unicode: 77
+An Position: [39] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character i mit Unicode: 69
+An Position: [40] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character r mit Unicode: 72
+An Position: [41] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character d mit Unicode: 64
+An Position: [42] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character . mit Unicode: 2e
+An Position: [43] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character 🌊 mit Unicode: 1f30a
+An Position: [44] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character ? mit Unicode: df0a
+```
+
+Die `hexadezimale` Darstellung des ``Unicodes`` ist einfacher zu zählen. *2* ``hexadezimale`` ``Ziffern`` stellen *$16^2 = 256 = 2^8$* Symbole dar, was auch *8* ``bits`` tun (ein ``Byte``). Wir stellen also mit *4* ``hexadezimalen`` ``Ziffern``, genau gleich viele Symbole wie mit *16* ``bit`` dar. Wenn wir nun *5* ``hexadezimalen`` ``Ziffern`` sehen, haben wir ein Problem mit dem ``Rückgabetyp`` *Character* von der ``Methode`` *charAt*. Wir benötigen dadurch *codePointAt* und *Character.toString*.
+
+Wir bemerken jedoch zusätzlich, dass die letzten zwei Zeilen der Ausgabe immer noch komisch sind. 
 ```
 ...
 An Position: [43] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character 🌊
 An Position: [44] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character ?
 ```
+Wieso brauchen wir nicht **beide** *Character* an der Stelle *43* und *44* um 🌊 darstellen zu können? Wieso müssen wir scheinbar den *Character* an der Stelle *44* entfernen?
 
-Wir müssen im Falle eines Enojis, welches die Länge der ``Variable`` *text* künstlich aufbläst, korrigieren. Wir verwenden deshalb folgende ``Bedingung``.
+##### Optional: UTF-16 und Surrogate-Pairs:
+*Strings* werden intern mit ``UTF16`` repräsentiert. In ``UTF16`` werden Zeichen durch 16-Bit dargestellt.
+
+Um Zeichen außerhalb der 16 Bit darzustellen, verwendet ``UTF16`` ``Surrogate Pairs``. Dies beinhaltet zwei 16-Bit *Character* welche 🌊 zusammen darstellen:
+* High-``Surrogate`` (aus dem Unicodebereich *D800* bis *DBFF*)
+* Low-``Surrogate`` (aus dem Unicodebereich *DC00* bis *DFFF*)
+
+Hier ist *text.charAt(i)* ein High-Surrogate und *text.charAt(i+1)* ein Low-Surrogate. Wird jedoch *codePointAt(i)* afugerufen, erkennt diese ``Methode`` beim High-``Surrogate*``, dass es sich um ein ``Surrogate``-Paar handelt und gibt den ``Unicode`` des vollständigen Symbols zurück (hier *1f30a*). Beim Low-``Surrogate*`` wird jedoch der ``Unicode`` von diesem zurückgegeben (hier *df0a*).
+
+Was tun wir nun? Wir müssen im Falle eines *Emojis*, welches die Länge der ``Variable`` *text* künstlich aufbläst, korrigieren. Wir verwenden deshalb folgende ``Bedingung``.
 
 ```java
+String text = "Dies ist ein Satz welcher ueberprueft wird.🌊";
+
 for (int i = 0; i < text.length(); i++) {
-    int unicode = text.codePointAt(i) // Wir führen hier eine neue Variable ein, da wir den unicode an zwei stellen benötigen. Wir müssten ansonsten unnötigerweise diesen doppelt berechnen.
+    int unicode = text.codePointAt(i) 
+    System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + Character.toString(unicode) + " mit Unicode: " + Integer.toHexString(unicode));
 
-    System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + Character.toString(unicode));
-
+    // (... wir stehen sind dieser Methode in unserer Bedingung sehr suspekt gegenüber...)
     if (Character.isEmoji(unicode)) {
         i++;
     }
@@ -301,27 +360,71 @@ An Position: [42] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' 
 An Position: [43] des Strings 'Dies ist ein Satz welcher ueberprueft wird.🌊' ist der Character 🌊
 ```
 
-Um auf einen Blick sehen zu können, dass wirklich mehr als 16 Bit für 🌊 verwendet werden, verwenden wir die ``Methode`` *Integer.toHexString*. Diese nimmt den ``Unicode``, welcher durch die ``Methode`` *codePointAt* im ``Dezimalsystem`` dargestellt wird, und wandeln es in eine *Zahl* im ``Hexadezimalsystem`` um.
+Diese scheint zu funktionieren und wir haben das Problem möglicherweise gelöst. Jedoch betrachten wir folgende **Änderung** der ``Variable`` *text*.
 
 ```java
-System.out.println(Integer.toHexString(text.codePointAt(i)));
-```
-Folgender Output wird erzeugt:
-```
-```
+String text = "Wi🌊rd⬜🟩🟫.🐹";
 
-Warum ist das nützlich?
+for (int i = 0; i < text.length(); i++) {
+    int unicode = text.codePointAt(i);
+    String korrekteDarstellung = Character.toString(unicode);
+    String hexZiffern = Integer.toHexString(unicode);
 
+    System.out.println("An Position: [" + i + "] des Strings '" + text + "' ist der Character " + korrekteDarstellung + " mit Unicode: " + hexZiffern + " ein Emoji: " + Character.isEmoji(unicode));
 
-Ein etwas
-```java
-String myString = "🐻‍❄️🟠🤕🌊🏄🏻‍♂️";
-
-for (int i = 0; i < myString.length(); i++) {
-    // System.out.println(myString.charAt(i)); // Error.
-    System.out.println(Character.toString(myString.codePointAt(i)));
+    if (Character.isEmoji(unicode)) {
+        i++;
+    }
 }
 ```
+
+Im folgenden Output bemerken wir, dass 🟩 nach ⬜ fehlt. Wieso?
+
+```
+...
+An Position: [5] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character d mit Unicode: 64 ein Emoji: false
+An Position: [6] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character ⬜ mit Unicode: 2b1c ein Emoji: true
+An Position: [8] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character ? mit Unicode: dfe9 ein Emoji: false
+...
+An Position: [12] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character 🐹 mit Unicode: 1f439 ein Emoji: true
+```
+
+Wir bemerken, dass ⬜ sonderbar ist. Dieses Symbol ist zwar ein ``Emoji`` laut der ``Methode`` *Character.isEmoji()*, benötigt jedoch nur 16 ``bit``. Wir übersprignen deshlab mit *i++* bei *if(Character.isEmoji(unicode))* die Darstellung von 🟩 und plotten den 2. Character von 🟩 (``surrogate``) welcher als *?* dargestellt wird.
+
+Es stimmt also die ``Bedingung`` *Character.isEmoji()* nicht! Diese identifiziert **nicht** 16 Bit vs. >16 Bit Characters. Die Lösung also nicht eine ``Methode`` welche ``Emojis`` identifiziert zu verwenden, sondern eine *technischere* Bedingung zu verwenden. Wir hatten gesagt wenn wir mehr als *16* ``bits`` benötigen, dann haben wir einen zusätzlichen *Character*. Das können wir mit *hexZiffern.length() > 4* abfragen.
+
+```java
+String text = "Wi🌊rd⬜🟩🟫.🐹";
+
+for (int i = 0; i < text.length(); i++) {
+    int unicode = text.codePointAt(i);
+    String korrekteDarstellung = Character.toString(unicode);
+    String hexZiffern = Integer.toHexString(unicode);
+
+    System.out.println("i:" + i + " - " + korrekteDarstellung + " - " + hexZiffern);
+
+//  if (Character.isEmoji(unicode)) {
+    if (hexZiffern.length() > 4) {
+        i++;
+    }
+}
+```
+
+Damit finden wir unser verlorenes 🟩 wieder.
+
+```
+An Position: [0] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character W mit Unicode: 57 ein Emoji: false
+An Position: [1] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character i mit Unicode: 69 ein Emoji: false
+An Position: [2] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character 🌊 mit Unicode: 1f30a ein Emoji: true
+An Position: [4] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character r mit Unicode: 72 ein Emoji: false
+An Position: [5] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character d mit Unicode: 64 ein Emoji: false
+An Position: [6] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character ⬜ mit Unicode: 2b1c ein Emoji: true
+An Position: [7] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character 🟩 mit Unicode: 1f7e9 ein Emoji: true
+An Position: [9] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character 🟫 mit Unicode: 1f7eb ein Emoji: true
+An Position: [11] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character . mit Unicode: 2e ein Emoji: false
+An Position: [12] des Strings 'Wi🌊rd⬜🟩🟫.🐹' ist der Character 🐹 mit Unicode: 1f439 ein Emoji: true
+```
+TODO
 Wir merken uns
 > length
 > 
