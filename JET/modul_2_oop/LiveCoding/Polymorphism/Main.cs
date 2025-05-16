@@ -25,18 +25,17 @@ internal class MainProg
                 schaeferHund.heuten();
             }
 
-            // "saver older c# style" - as versucht es und liefert null wenns fehlschlägt.
-            //if (elems is SchaeferHund)
+            // "older c# style" - as versucht es und liefert null wenns fehlschlägt.
+            
+            //var elemsPossibleNull = elems as SchaeferHund;
+
+            //if (elemsPossibleNull is not null)
             //{
-            //    var elemsPossibleNull = elems as SchaeferHund;
-                
-            //    if (elemsPossibleNull is not null)
-            //    {
-            //        elemsPossibleNull.heuten();
-            //    }
+            //    elemsPossibleNull.heuten();
             //}
 
-            // "risky older c# style" - as versucht es und liefert null wenns fehlschlägt.
+            // "older c# style" - as versucht es und liefert null wenns fehlschlägt.
+            // schlägt nicht fehl, da wir if haben
             //if (elems is SchaeferHund)
             //{
             //    (elems as SchaeferHund).heuten();
