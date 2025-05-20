@@ -2,7 +2,7 @@ package lerneinheiten.L10StringManipulation;
 
 import java.util.Scanner;
 
-public class L10StringManipulation {
+public class AlternativeLoesungWelcheNochEinzuarbeitenIst {
 
     public static void main(String[] args) {
 
