@@ -27,7 +27,7 @@ vorname = "Mathias"
 nachname = "Cammerlander🟢ᵿ"
 alter = 32
 
-ausgabe = vorname + nachname + str(alter)
+ausgabe = "\u001B[31m" + vorname + "\u0097  \u001B[0m\n" + nachname + " " + str(alter)
 
 print(ausgabe)
 

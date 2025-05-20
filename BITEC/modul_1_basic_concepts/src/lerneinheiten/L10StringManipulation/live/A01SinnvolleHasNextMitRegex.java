@@ -26,7 +26,7 @@ public class A01SinnvolleHasNextMitRegex {
             System.out.print("Die Eingabe " + RED + scanner.nextLine() + RESET + " ist nicht zulässig. Bitte + oder - eingeben: ");
         }
 
-        if( scanner.next().equals("+")) {
+        if(scanner.next().equals("+")) {
             zeichenpool += grossbuchstaben;
         }
 
