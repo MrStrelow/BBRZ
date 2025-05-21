@@ -164,7 +164,7 @@ Exception in thread "main" java.lang.StringIndexOutOfBoundsException: Range [500
 	at java.base/jdk.internal.util.Preconditions.checkFromToIndex(Preconditions.java:349)
 	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4861)
 	at java.base/java.lang.String.substring(String.java:2830)
-	at lerneinheiten.L10StringManipulation.texst.main(texst.java:17)
+	at lerneinheiten.L10StringOperationen.texst.main(texst.java:17)
 ```
 
 ... und erkennen, dass der ``Index`` für den Beginn des *substrings* bei *0* zu zählen beginnt und das Ende nicht inklusive ist. 

@@ -1,4 +1,4 @@
-package lerneinheiten.L10StringManipulation.live;
+package lerneinheiten.L10StringOperationen.live;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;

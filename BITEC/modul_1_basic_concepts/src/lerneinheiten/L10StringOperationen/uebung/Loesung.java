@@ -1,4 +1,4 @@
-package lerneinheiten.L10StringManipulation.uebung;
+package lerneinheiten.L10StringOperationen.uebung;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,6 +11,7 @@ import java.util.Locale; // Für Formatierung von Zahlen (z.B. Dezimaltrennzeich
 
 // Für optionale Uhrzeit-Aufgaben:
 
+ TODO - anpassen der angabe und überarbeitung des KI codes.
 
 public class Loesung {
 

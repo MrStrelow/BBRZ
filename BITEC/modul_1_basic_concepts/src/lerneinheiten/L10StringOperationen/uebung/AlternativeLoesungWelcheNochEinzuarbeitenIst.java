@@ -1,4 +1,4 @@
-package lerneinheiten.L10StringManipulation;
+package lerneinheiten.L10StringOperationen;
 
 import java.util.Scanner;
 
