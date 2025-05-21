@@ -11,7 +11,7 @@ import java.util.Locale; // Für Formatierung von Zahlen (z.B. Dezimaltrennzeich
 
 // Für optionale Uhrzeit-Aufgaben:
 
- TODO - anpassen der angabe und überarbeitung des KI codes.
+// TODO - anpassen der angabe und überarbeitung des KI codes.
 
 public class Loesung {
 
@@ -795,32 +795,32 @@ public class Loesung {
         // Wir müssen also:
         // - (um ganz genau zu sein, alle Leerzeichen entfernen und alles in Kleinbuchstaben umwandeln)
         // - das Wort umdrehen
-        // - vergleichen, ob es mit dem nicht umgedrehten übereinstimmt.
-        // Wenn ja, dann ist es ein Palindrom, ansonsten nicht.
-        String cleanInput = input.replace(" ", "").toLowerCase();
-        String verdrehterInput = new StringBuilder(cleanInput).reverse().toString();
-
-        boolean isPalindrome = verdrehterInput.equals(cleanInput);
-        System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
-
-        // Andere Variante: ohne Umdrehen des strings - wir drehen den Ansatz um! - Schritte von links und rechts gleichzeitig und vergleiche diese
-        for (int left = 0; left < input.length(); left++) {
-            int right = input.length()-1-left;
-
-            if( input.charAt(left) != input.charAt(right) ) {
-                isPalindrome = false;
-                break;
-            } else {
-                isPalindrome = true;
-            }
-        }
-        System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
-
-        // ### Anagramm-Ermittler 🕵️‍♀️
-        //
-        // Zwei Strings sind Anagramme, wenn sie dieselben Zeichen in derselben Anzahl enthalten, aber möglicherweise in einer anderen Reihenfolge (z.B. "listen" und "silent", oder "Tom Marvolo Riddle" und "Ich bin Lord Voldemort" nach der Normalisierung).
-        //
-        // Schreibe ein Java-Programm, das:
+//        // - vergleichen, ob es mit dem nicht umgedrehten übereinstimmt.
+//        // Wenn ja, dann ist es ein Palindrom, ansonsten nicht.
+//        String cleanInput = input.replace(" ", "").toLowerCase();
+//        String verdrehterInput = new StringBuilder(cleanInput).reverse().toString();
+//
+//        boolean isPalindrome = verdrehterInput.equals(cleanInput);
+//        System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
+//
+//        // Andere Variante: ohne Umdrehen des strings - wir drehen den Ansatz um! - Schritte von links und rechts gleichzeitig und vergleiche diese
+//        for (int left = 0; left < input.length(); left++) {
+//            int right = input.length()-1-left;
+//
+//            if( input.charAt(left) != input.charAt(right) ) {
+//                isPalindrome = false;
+//                break;
+//            } else {
+//                isPalindrome = true;
+//            }
+////        }
+//        System.out.println("Ist es ein Palindrom? - " + (isPalindrome ? "Ja" : "Nein") + "!");
+//
+//        // ### Anagramm-Ermittler 🕵️‍♀️
+//        //
+//        // Zwei Strings sind Anagramme, wenn sie dieselben Zeichen in derselben Anzahl enthalten, aber möglicherweise in einer anderen Reihenfolge (z.B. "listen" und "silent", oder "Tom Marvolo Riddle" und "Ich bin Lord Voldemort" nach der Normalisierung).
+//        //
+//        // Schreibe ein Java-Programm, das:
         //
         // 1.  Den Benutzer zur Eingabe von zwei Strings auffordert.
         // 2.  Beide Strings vorverarbeitet:
