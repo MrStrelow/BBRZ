@@ -72,31 +72,31 @@ US-Note eingeben: C
 ### Entscheidungen treffen
 
 * Führen Sie eine Konsolenabfrage des ersten Vornamens durch.
-* Fragen Sie, ob die Person einen zweiten Vornamen hat (Eingabe "ja" oder "nein", Groß-/Kleinschreibung soll ignoriert werden). [cite: 17]
-* Wenn die Eingabe "ja" ist: [cite: 17]
-    * Zweiter Vorname wird abgefragt. [cite: 17]
-    * Danach wird der Nachname abgefragt. [cite: 18]
-    * Ausgabe von Vorname, 2. Vorname und Nachname. [cite: 18]
-* Wenn die Eingabe "nein" ist: [cite: 18]
-    * Der Nachname wird abgefragt. [cite: 18]
-    * Ausgabe von Vorname und Nachname. [cite: 18]
+* Fragen Sie, ob die Person einen zweiten Vornamen hat (Eingabe "ja" oder "nein", Groß-/Kleinschreibung soll ignoriert werden).
+* Wenn die Eingabe "ja" ist: 
+    * Zweiter Vorname wird abgefragt. 
+    * Danach wird der Nachname abgefragt. 
+    * Ausgabe von Vorname, 2. Vorname und Nachname. 
+* Wenn die Eingabe "nein" ist: 
+    * Der Nachname wird abgefragt. 
+    * Ausgabe von Vorname und Nachname. 
 * Wenn die Eingabe weder "ja" noch "nein" ist:
-    * Ausgabe von "Unbekannte Eingabe". [cite: 18]
+    * Ausgabe von "Unbekannte Eingabe". 
 
 ### Uhrzeiten (Optionale Übungen)
 
-Lesen Sie sich zuerst in die Formatierung und Verarbeitung von Uhrzeiten in Java ein (z.B. mit `java.time.LocalTime`, `java.time.LocalDate`, `java.time.LocalDateTime` und `java.time.format.DateTimeFormatter`). [cite: 19]
+Lesen Sie sich zuerst in die Formatierung und Verarbeitung von Uhrzeiten in Java ein (z.B. mit `java.time.LocalTime`, `java.time.LocalDate`, `java.time.LocalDateTime` und `java.time.format.DateTimeFormatter`).
 
-1.  Schreiben Sie ein Java-Programm, das die aktuelle Uhrzeit im 24-Stunden-Format (hh:mm:ss) ausgibt. [cite: 19]
-2.  Schreiben Sie ein Programm, das eine Zeichenkette mit einer Uhrzeit im Format "13:45" einliest und sie dann im 12-Stunden-Format (z.B. "01:45 PM") formatiert ausgibt. [cite: 20]
-3.  Erstellen Sie ein Programm, das eine `LocalTime`-Instanz erhält und die verbleibende Zeit bis Mitternacht (00:00:00) in Stunden, Minuten und Sekunden ausgibt. [cite: 21]
-4.  Schreiben Sie ein Programm, das die aktuelle Uhrzeit mit Millisekunden formatiert (hh:mm:ss.SSS) und ausgibt. [cite: 22]
-5.  Erstellen Sie ein Programm, das eine Uhrzeit im 24-Stunden-Format via Programmargumente als Zeichenkette (z.B. "18:30") akzeptiert und diese in eine `LocalTime`-Instanz konvertiert. [cite: 23]
-6.  Schreiben Sie ein Java-Programm, das die aktuelle Uhrzeit in einer Zeile und das aktuelle Datum in einer anderen Zeile ausgibt. [cite: 24]
-7.  Schreiben Sie ein Programm, das die aktuelle Uhrzeit und das aktuelle Datum in einem benutzerdefinierten Format (z. B. "Mittwoch, 27. Oktober 2023, 15:30 Uhr") ausgibt. [cite: 25]
+1.  Schreiben Sie ein Java-Programm, das die aktuelle Uhrzeit im 24-Stunden-Format (hh:mm:ss) ausgibt. 
+2.  Schreiben Sie ein Programm, das eine Zeichenkette mit einer Uhrzeit im Format "13:45" einliest und sie dann im 12-Stunden-Format (z.B. "01:45 PM") formatiert ausgibt. 
+3.  Erstellen Sie ein Programm, das eine `LocalTime`-Instanz erhält und die verbleibende Zeit bis Mitternacht (00:00:00) in Stunden, Minuten und Sekunden ausgibt. 
+4.  Schreiben Sie ein Programm, das die aktuelle Uhrzeit mit Millisekunden formatiert (hh:mm:ss.SSS) und ausgibt. 
+5.  Erstellen Sie ein Programm, das eine Uhrzeit im 24-Stunden-Format via Programmargumente als Zeichenkette (z.B. "18:30") akzeptiert und diese in eine `LocalTime`-Instanz konvertiert. 
+6.  Schreiben Sie ein Java-Programm, das die aktuelle Uhrzeit in einer Zeile und das aktuelle Datum in einer anderen Zeile ausgibt. 
+7.  Schreiben Sie ein Programm, das die aktuelle Uhrzeit und das aktuelle Datum in einem benutzerdefinierten Format (z. B. "Mittwoch, 27. Oktober 2023, 15:30 Uhr") ausgibt. 
 
 
-### String-Grundlagen 기초
+### String in String Builder umwandeln
 
 Schreibe ein Java-Programm, das den Benutzer zur Eingabe eines Text-Strings auffordert. Führe dann die folgenden Operationen durch und zeige die Ergebnisse an:
 
@@ -121,24 +121,32 @@ Schreibe ein Java-Programm, das den Benutzer nach einem String fragt und dann ei
     * Fordere den Benutzer auf, einen Text-String einzugeben.
     * Iteriere durch den String und zähle für jedes Zeichen dessen Gesamtvorkommen im String.
     * Zeige die Anzahl für jedes Zeichen an, stelle dabei aber sicher, dass du die Häufigkeit für jedes eindeutige Zeichen nur *einmal* ausgibst. Wenn der String beispielsweise "banane" ist, sollte die Ausgabe 'b': 1, 'a': 3, 'n': 2 zeigen und 'a' nicht dreimal auflisten.
-        * **Hinweis**: Du kannst einen Hilfs-String verwenden, um dir zu merken, für welche Zeichen die Häufigkeit bereits ausgegeben wurde.
+    * **Hinweis**: Du kannst einen Hilfs-String verwenden, um dir zu merken, für welche Zeichen die Häufigkeit bereits ausgegeben wurde. Es kann auch ein Array verwendet werden. 
 
 ---
 
-### Wortzauberei 🧙‍♂️
-
+### Doppelte Wörter
 Erstelle ein Java-Programm, das die Anzahl der Wörter in einem gegebenen String zählt. Implementiere eine robuste Benutzerführung für die Eingabe:
 
 * Fordere den Benutzer so lange zur Eingabe eines Text-Strings auf, bis eine gültige Eingabe erfolgt.
-* Der eingegebene String darf **nicht** leer sein.
-* Der eingegebene String **muss** mindestens ein Leerzeichen enthalten (als einfache Methode, um sicherzustellen, dass potenziell mehrere Wörter vorhanden sind).
+    * Der eingegebene String darf **nicht** leer sein.
+    * Der eingegebene String **muss** mindestens ein Leerzeichen enthalten (als einfache Methode, um sicherzustellen, dass potenziell mehrere Wörter vorhanden sind).
+    * Im eingegebene String muss die Eingabe genau doppelt vorkommen ("hallo hallo "", "ok warum ok warum ")
 * Sobald eine gültige Eingabe empfangen wurde, teile den String in Wörter auf und zeige die Gesamtzahl der Wörter an.
-    * **Hinweis**: Die `split()`-Methode der `String`-Klasse wird hier sehr nützlich sein.
+* Tausche jeden *Vokal* (a, e, i, o, u) mit einem zufälligen *Sonderzeichen* aus. 
+* **Hinweis**: Die `split()`-Methode der `String`-Klasse, welches ein ``Array`` erzeugt, sowie ``Backreferences`` sind hier nützlich. Es kann auch ohne ``Array`` gelöst werden z.B. mit einer ``Schleife`` welche wenn ein *" "* vorkommt, einen Zähler erhöht (``Inkrement``). 
 
 ---
 
-### Abwechselnde Groß-/Kleinschreibung 🔄
+## Passwort Generator - Teil 2
+Verwende die Angabe *Passwort Generator* aus dem [Übungsblatt der Schleifen](../../L09SchleifenFor/uebung/Angabe.md#passwort-generator)
 
+Wir erweitern dieses Programm jedoch folgendermaßen:
+Wenn ein Passwort zufällig generiert wurde, kann es sein, dass nicht alle *Anforderungen* des Users umgesetzt wurden. Damit ist gemein er möchte ein Passwort mit *Großbuchstaben* und *Ziffern*. Unser [Programm](../../L09SchleifenFor/uebung/Angabe.md#passwort-generator) **kann**, **muss** aber nicht ein solches liefern.
+
+Erweitere das Programm, mithlfe eines ``RegEx``, welcher prüft ob das generierte Passwort die benötigten Zeichen enthält. Wenn es nicht der Fall ist, wiederhole die Generierung des Passworts bis es zutrifft. Der Sinn dahinter ist wirklich zufällige Passworter zu generieren und nicht, z.B. zu sagen, "wenn noch Zahlen im Passwort fehlen, füge eine am Ende hinzu". Eine solche Generierung ist rein technisch nicht komplett zufällig.
+
+### Abwechselnde Groß-/Kleinschreibung 🔄
 Schreibe ein Java-Programm, das die Groß-/Kleinschreibung von Zeichen in einem vom Benutzer bereitgestellten String manipuliert.
 
 * **a) Einfache abwechselnde Großschreibung**:
@@ -158,8 +166,7 @@ Schreibe ein Java-Programm, das die Groß-/Kleinschreibung von Zeichen in einem 
 
 ---
 
-### Grundlegende Datenkompression (Konzeptionell) 🤏
-
+### Grundlegende Datenkompression 🤏
 Bei dieser Übung geht es mehr darum, einen Prozess zu durchdenken. Stelle dir vor, du müsstest eine einfache Form der Datenkompression implementieren, die als Lauflängenkodierung (Run-Length Encoding, RLE) bezeichnet wird.
 
 **Was ist Lauflängenkodierung (RLE)?**

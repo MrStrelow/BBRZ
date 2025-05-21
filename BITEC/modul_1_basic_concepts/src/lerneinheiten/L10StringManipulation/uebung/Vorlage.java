@@ -168,9 +168,7 @@ public class Vorlage {
         
         
         // ### Zeichenanalyse 📊
-        
         // Schreibe ein Java-Programm, das den Benutzer nach einem String fragt und dann eine Zeichenanalyse durchführt:
-        
         // * **a) Zählung eines bestimmten Zeichens**:
         //     * Fordere den Benutzer auf, ein einzelnes Zeichen einzugeben, das gezählt werden soll.
         //     * Fordere den Benutzer auf, einen Text-String einzugeben.
@@ -181,24 +179,36 @@ public class Vorlage {
         //     * Zeige die Anzahl für jedes Zeichen an, stelle dabei aber sicher, dass du die Häufigkeit für jedes eindeutige Zeichen nur *einmal* ausgibst. Wenn der String beispielsweise "banane" ist, sollte die Ausgabe 'b': 1, 'a': 3, 'n': 2 zeigen und 'a' nicht dreimal auflisten.
         //         * **Hinweis**: Du kannst einen Hilfs-String verwenden, um dir zu merken, für welche Zeichen die Häufigkeit bereits ausgegeben wurde.
         
-        // ---
         
-        // ### Wortzauberei 🧙‍♂️
-        
+        // ### Doppelte Wörter
         // Erstelle ein Java-Programm, das die Anzahl der Wörter in einem gegebenen String zählt. Implementiere eine robuste Benutzerführung für die Eingabe:
         
         // * Fordere den Benutzer so lange zur Eingabe eines Text-Strings auf, bis eine gültige Eingabe erfolgt.
-        // * Der eingegebene String darf **nicht** leer sein.
-        // * Der eingegebene String **muss** mindestens ein Leerzeichen enthalten (als einfache Methode, um sicherzustellen, dass potenziell mehrere Wörter vorhanden sind).
+        //     * Der eingegebene String darf **nicht** leer sein.
+        //     * Der eingegebene String **muss** mindestens ein Leerzeichen enthalten (als einfache Methode, um sicherzustellen, dass potenziell mehrere Wörter vorhanden sind).
+        //     * Im eingegebene String muss die Eingabe genau doppelt vorkommen ("hallo hallo "", "ok warum ok warum ")
         // * Sobald eine gültige Eingabe empfangen wurde, teile den String in Wörter auf und zeige die Gesamtzahl der Wörter an.
-        //     * **Hinweis**: Die `split()`-Methode der `String`-Klasse wird hier sehr nützlich sein.
-        
-        // ---
-        
+        // * Tausche jeden *Vokal* (a, e, i, o, u) mit einem zufälligen *Sonderzeichen* aus. 
+        // * **Hinweis**: Die `split()`-Methode der `String`-Klasse, welches ein ``Array`` erzeugt, sowie ``Backreferences`` 
+        // sind hier nützlich. Es kann auch ohne ``Array`` gelöst werden z.B. mit einer ``Schleife`` welche wenn ein *" "* 
+        // vorkommt, einen Zähler erhöht (``Inkrement``). 
+
+
+        // ## Passwort Generator - Teil 2
+        // Verwende die Angabe *Passwort Generator* aus dem [Übungsblatt der Schleifen](../../L09SchleifenFor/uebung/Angabe.md#passwort-generator)
+
+        // Wir erweitern dieses Programm jedoch folgendermaßen:
+        // Wenn ein Passwort zufällig generiert wurde, kann es sein, dass nicht alle *Anforderungen* 
+        // des Users umgesetzt wurden. Damit ist gemein er möchte ein Passwort mit *Großbuchstaben* und *Ziffern*. 
+        // Unser [Programm](../../L09SchleifenFor/uebung/Angabe.md#passwort-generator) **kann**, **muss** aber nicht ein solches liefern.
+
+        // Erweitere das Programm, mithlfe eines ``RegEx``, welcher prüft ob das generierte Passwort die benötigten Zeichen enthält. 
+        // Wenn es nicht der Fall ist, wiederhole die Generierung des Passworts bis es zutrifft. Der Sinn dahinter ist wirklich zufällige Passworter zu generieren und nicht, z.B. zu sagen, 
+        // "wenn noch Zahlen im Passwort fehlen, füge eine am Ende hinzu". Eine solche Generierung ist rein technisch nicht komplett zufällig.
+                
+
         // ### Abwechselnde Groß-/Kleinschreibung 🔄
-        
         // Schreibe ein Java-Programm, das die Groß-/Kleinschreibung von Zeichen in einem vom Benutzer bereitgestellten String manipuliert.
-        
         // * **a) Einfache abwechselnde Großschreibung**:
         //     * Fordere den Benutzer zur Eingabe eines Strings auf.
         //     * Erstelle einen neuen String, bei dem Zeichen an geraden Indizes (0, 2, 4, ...) in Großbuchstaben umgewandelt werden und Zeichen an ungeraden Indizes in ihrer ursprünglichen Schreibweise verbleiben.
@@ -248,14 +258,6 @@ public class Vorlage {
         // *Du musst für diese Übung nicht den vollständigen Java-Code schreiben, sondern dich auf die algorithmischen Schritte konzentrieren.*
         
         // ---
-
-        // ### Ist es ein Palindrom?
-        // Das bedeutet, dass das Wort von vorne und von hinten gelesen den gleichen Text ergibt.
-        // Wir müssen also:
-        // - (um ganz genau zu sein, alle Leerzeichen entfernen und alles in Kleinbuchstaben umwandeln)
-        // - das Wort umdrehen
-        // - vergleichen, ob es mit dem nicht umgedrehten übereinstimmt.
-        // Wenn ja, dann ist es ein Palindrom, ansonsten nicht.
         
         // ### Anagramm-Ermittler 🕵️‍♀️
         
