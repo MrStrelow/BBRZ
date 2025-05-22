@@ -8,5 +8,6 @@ namespace Hamster;
 
 public interface IRenderer
 {
+    public int DelayInMilliseconds { get; set; }
     void Render();
 }

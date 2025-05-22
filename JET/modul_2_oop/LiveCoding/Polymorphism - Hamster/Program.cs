@@ -30,7 +30,12 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
-        IRenderer renderer = new ConsoleRenderer();
+        IRenderer renderer = new HtmlRenderer(plane);
+        //IRenderer rendererC = new ConsoleRenderer(plane);
+        
+        //IRenderer rendererH = new HtmlRenderer(plane);
+        //IRenderer rendererC = new ConsoleRenderer(plane);
+        
         
         while (true)
         {
@@ -44,6 +49,8 @@ public class Simulation
             //// Darstellung anzeigen
             ////wie schnell läuft unser spiel
             renderer.Render();
+            //rendererH.Render();
+            //rendererC.Render();
         }
 
     }

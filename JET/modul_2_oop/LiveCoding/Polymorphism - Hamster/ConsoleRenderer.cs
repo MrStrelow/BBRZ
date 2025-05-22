@@ -12,6 +12,9 @@ public class ConsoleRenderer : IRenderer
     // Felder
     private string[,] _plane;
 
+    // Eigenschaft
+    public int DelayInMilliseconds { get; set; } = 50;
+    
     // Beziehungen
     public Plane Plane { get; set; }
 
@@ -38,29 +41,29 @@ public class ConsoleRenderer : IRenderer
             Console.WriteLine();
         }
 
-        Thread.Sleep(delayInMilliseconds);
+        Thread.Sleep(DelayInMilliseconds);
         Console.WriteLine();
     }
 
     private void AssignElementToPlane()
     {
         // alles ist erde
-        for (int y = 0; y < Size; y++)
+        for (int y = 0; y < Plane.Size; y++)
         {
-            for (int x = 0; x < Size; x++)
+            for (int x = 0; x < Plane.Size; x++)
             {
-                _plane[y, x] = _earthRepresentation;
+                _plane[y, x] = Plane.EarthRepresentation;
             }
         }
 
         // nimm hamster und zeichne die position
-        foreach (var hamster in _hamsters)
+        foreach (var hamster in Plane.Hamsters)
         {
             _plane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
         }
 
         // nimm seeds und zeichne die position
-        foreach (var seedling in _seeds.Values)
+        foreach (var seedling in Plane.Seeds.Values)
         {
             _plane[seedling.Position.y, seedling.Position.x] = Seed.Representation;
         }
