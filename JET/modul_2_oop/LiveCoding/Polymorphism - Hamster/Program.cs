@@ -43,7 +43,7 @@ public class Simulation
 
             //// Darstellung anzeigen
             ////wie schnell läuft unser spiel
-            plane.Print(50);
+            renderer.Render();
         }
 
     }

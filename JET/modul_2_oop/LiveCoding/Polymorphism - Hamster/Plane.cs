@@ -6,7 +6,6 @@ namespace Hamster;
 public class Plane
 {
     // Felder
-    private string[,] _plane;
     private static string _earthRepresentation = "🟫";
 
     // Eigenschaften
@@ -21,18 +20,8 @@ public class Plane
     {
         // variablen initialisieren
         Size = size;
-        _plane = new string[size, size];
 
         var random = new Random();
-
-        // Boden erstellen - grafisch
-        for (int zeile = 0; zeile < size; zeile++)
-        {
-            for (int spalte = 0; spalte < size; spalte++)
-            {
-                _plane[zeile,spalte] = _earthRepresentation;
-            }
-        }
 
         // wie viele hamster gibt es? zufällig.
         // Hamster erstellen
@@ -40,7 +29,6 @@ public class Plane
         {
             _hamsters.Add(new Hamster(this));
         }
-
 
         // wie viele seeds gibt es? zufällig.
         // Seeds erstellen
@@ -65,12 +53,6 @@ public class Plane
             }
         }
 
-        // grafischer Aufruf
-        if (!positionIsTaken)
-        {
-            _plane[positionOfHamsterToBeAssigned.y, positionOfHamsterToBeAssigned.x] = hamster.Representation; 
-        }
-
         return positionIsTaken;
 
     }
@@ -79,55 +61,10 @@ public class Plane
     {
         if (!_seeds.ContainsKey(positionOfSeedToBeAssigned))
         {
-            // grafischer Aufruf
-            _plane[positionOfSeedToBeAssigned.y, positionOfSeedToBeAssigned.x] = Seed.Representation;
             return false;
         }
 
         return true;
-    }
-
-    public void Print(int delayInMilliseconds)
-    {
-        Console.SetCursorPosition(0, 0);
-
-        AssignElementToPlane();
-
-        for (int zeile = 0; zeile < Size; zeile++)
-        {
-            for (int spalte = 0; spalte < Size; spalte++)
-            {
-                Console.Write(_plane[zeile,spalte]);
-            }
-            Console.WriteLine();
-        }
-
-        Thread.Sleep(delayInMilliseconds);
-        Console.WriteLine();
-    }
-
-    private void AssignElementToPlane()
-    {
-        // alles ist erde
-        for (int y = 0; y < Size; y++)
-        {
-            for (int x = 0; x < Size; x++)
-            {
-                _plane[y, x] = _earthRepresentation;
-            }
-        }
-
-        // nimm hamster und zeichne die position
-        foreach (var hamster in _hamsters)
-        {
-            _plane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
-        }
-
-        // nimm seeds und zeichne die position
-        foreach (var seedling in _seeds.Values)
-        {
-            _plane[seedling.Position.y, seedling.Position.x] = Seed.Representation;
-        }
     }
 
     public void SimulateHamster()
