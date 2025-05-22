@@ -30,19 +30,20 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
-        IRenderer renderer = new ConsoleRenderer(plane) {TimeToSleepMs = 50 };
+        IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 1000 };
+        //IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 1000 };
 
         while (true)
         {
             // Logik Methoden
-            // simuliere die hamster
+            // simulate hamster
             plane.SimulateHamster();
 
-            //// simuliree die seeds
+            //// simulate seedlings
             plane.SimulateSeed();
 
+            // Darstellungs Methoden
             //// Darstellung anzeigen
-            ////wie schnell läuft unser spiel
             renderer.Render();
         }
 

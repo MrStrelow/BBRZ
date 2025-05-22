@@ -8,5 +8,6 @@ namespace Hamster;
 
 public interface IRenderer
 {
+    public int TimeToSleepMs { get; set; }
     void Render();
 }

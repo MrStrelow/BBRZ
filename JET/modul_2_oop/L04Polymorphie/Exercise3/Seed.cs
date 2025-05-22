@@ -3,34 +3,38 @@
 public class Seed
 {
     // Felder
-    private Plane _plane;
-
     // Eigenschaften (Properties)
-    public (int x, int y) Position { get; set; }
-    public static string Representation = "🌱";
+    public (int x, int y) Position { get; private set; }
+    public static string Representation => "🌱";
 
+    public Plane Plane { get; set; }
+
+    // Konstruktor
     public Seed(Plane plane)
     {
-        _plane = plane;
+        Plane = plane;
+        PositionAndManageSeed();
+    }
 
-        // Zufällige Position wählen
+    private void PositionAndManageSeed()
+    {
         var random = new Random();
+        bool done;
+        int x, y;
 
-        bool notDone;
-        int x;
-        int y;
-
-        // Plane sagt passt oder passt nicht
-        // Zuständigkeit: probiere neue zufällige x und y zuweisungen aus.
         do
         {
-            x = random.Next(_plane.Size);
-            y = random.Next(_plane.Size);
-            notDone = plane.AssignInitialPosition(this, (x, y));
-        }
-        while (notDone);
+            x = random.Next(Plane.Size);
+            y = random.Next(Plane.Size);
+
+            done = Plane.AssignInitialPosition(this, (x, y));
+        } while (!done);
 
         Position = (x, y);
     }
-}
 
+    public override string ToString()
+    {
+        return Representation;
+    }
+}

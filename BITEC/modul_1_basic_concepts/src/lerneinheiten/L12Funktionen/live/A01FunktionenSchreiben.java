@@ -2,7 +2,7 @@ package lerneinheiten.L12Funktionen.live;
 
 import java.util.Scanner;
 
-public class A02FunktionenSchreiben {
+public class A01FunktionenSchreiben {
     public static void main(String[] args) {
         // rufe die Funktion auf welche den Userinput aufruft.
         Scanner scanner = new Scanner(System.in);

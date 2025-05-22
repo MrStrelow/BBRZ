@@ -1,43 +1,34 @@
-﻿// ConsoleRenderer.cs
-using System; // Für Console
-using System.Threading; // Für Thread.Sleep
+﻿using System; 
+using System.Threading;
 
 namespace Hamster;
 
-public class ConsoleRenderer : IRenderer // Implementiert IRenderer
+public class ConsoleRenderer : IRenderer 
 {
+    // Felder
     private readonly Plane _plane;
-    private static readonly string _earthRepresentation = "🟫"; // readonly machen
+    private static readonly string _earthRepresentation = "🟫";
+    private string[,] _displayPlane;
 
-    /// <summary>
-    /// Die Zeit in Millisekunden, die nach dem Rendern eines Frames gewartet wird.
-    /// </summary>
-    public int TimeToSleepMs { get; set; } = 150; // Standardwert, kann von außen gesetzt werden
+    // Properties
+    public int TimeToSleepMs { get; set; } = 150;
 
     public ConsoleRenderer(Plane plane)
-    {
+    { 
         _plane = plane ?? throw new ArgumentNullException(nameof(plane));
+        _displayPlane = new string[_plane.Size, _plane.Size];
     }
 
-    // Implementiert die Methode der IRenderer-Schnittstelle
     public void Render()
     {
-        string[,] displayPlane = new string[_plane.Size, _plane.Size];
-        AssignElementsToDisplay(displayPlane);
-
-        // Optimierung: Nur neu zeichnen, wenn sich etwas geändert hat (komplexer)
-        // Für dieses Beispiel zeichnen wir immer den gesamten Bildschirm neu.
-        if (Console.WindowWidth > 0 && Console.WindowHeight > 0) // Vermeidet Fehler, wenn Konsole noch nicht bereit ist
-        {
-            Console.SetCursorPosition(0, 0);
-        }
-
+        AssignElementsToDisplay(_displayPlane);
+        Console.SetCursorPosition(0, 0);
 
         for (int i = 0; i < _plane.Size; i++)
         {
             for (int j = 0; j < _plane.Size; j++)
             {
-                Console.Write(displayPlane[i, j]);
+                Console.Write(_displayPlane[i, j]);
             }
             Console.WriteLine();
         }
@@ -47,7 +38,6 @@ public class ConsoleRenderer : IRenderer // Implementiert IRenderer
 
     private void AssignElementsToDisplay(string[,] displayPlane)
     {
-        // Boden
         for (int i = 0; i < _plane.Size; i++)
         {
             for (int j = 0; j < _plane.Size; j++)
@@ -56,23 +46,20 @@ public class ConsoleRenderer : IRenderer // Implementiert IRenderer
             }
         }
 
-        // Samen
-        foreach (var seed in _plane.GetSeeds())
+        // Seedlings
+        foreach (var seed in _plane.Seeds.Values)
         {
-            if (seed.Position.y < _plane.Size && seed.Position.x < _plane.Size &&
-                seed.Position.y >= 0 && seed.Position.x >= 0) // Boundary check
+            if (seed.Position.y < _plane.Size && seed.Position.x < _plane.Size && seed.Position.y >= 0 && seed.Position.x >= 0) 
             {
                 displayPlane[seed.Position.y, seed.Position.x] = Seed.Representation;
             }
         }
 
         // Hamster
-        foreach (var hamster in _plane.GetHamsters())
+        foreach (var hamster in _plane.Hamsters)
         {
-            if (hamster.Position.y < _plane.Size && hamster.Position.x < _plane.Size &&
-               hamster.Position.y >= 0 && hamster.Position.x >= 0) // Boundary check
+            if (hamster.Position.y < _plane.Size && hamster.Position.x < _plane.Size && hamster.Position.y >= 0 && hamster.Position.x >= 0)
             {
-                // Stelle sicher, dass der Hamster über dem Samen gezeichnet wird, falls am selben Ort
                 displayPlane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
             }
         }

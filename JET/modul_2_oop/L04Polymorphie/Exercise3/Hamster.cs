@@ -6,106 +6,110 @@ public class Hamster
     private static string _hungryRepresentation = "😡";
     private static string _fedRepresentation = "🐹";
 
-    // Eigenschaften
+    // Eigenschaften (Properties)
     public (int x, int y) Position { get; set; }
     public string Representation { get; private set; }
+
     public bool IsHungry { get; private set; }
 
     // Beziehungen
-    private Plane _plane;
-    private List<Seed> mouth = new();
+    private Plane plane;
+    private List<Seed> mouth = new List<Seed>();
 
-    // Konstruktoren
+    // Konstruktor
     public Hamster(Plane plane)
     {
-        _plane = plane;
-        Representation = Hamster._fedRepresentation;
-        
-        // Zufällige Position wählen
-        var random = new Random();
+        IsHungry = false;
+        Representation = _fedRepresentation;
+        this.plane = plane;
 
-        bool notDone;
-        int x;
-        int y;
-
-        // Plane sagt passt oder passt nicht
-        // Zuständigkeit: probiere neue zufällige x und y zuweisungen aus.
-        do 
-        {
-            x = random.Next(_plane.Size);
-            y = random.Next(_plane.Size);
-            notDone = plane.TryToAssignInitialPosition(this, (x,y));
-        }
-        while (notDone);
-
-        Position = (x, y); 
+        PositionAndManageHamster();
     }
 
     // Methoden
+    private void PositionAndManageHamster()
+    {
+        var random = new Random();
+        bool done;
+        int x, y;
+
+        do
+        {
+            x = random.Next(plane.Size);
+            y = random.Next(plane.Size);
+
+            done = plane.AssignInitialPosition(this, (x, y));
+        } while (!done);
+
+        Position = (x, y);
+    }
+
     public void Move()
     {
         var random = new Random();
-        int directionIndex = random.Next(Enum.GetValues<Direction>().Length);
-        var direction = Enum.GetValues<Direction>()[directionIndex];
+        int index = random.Next(Enum.GetValues<Direction>().Length);
+        var direction = Enum.GetValues<Direction>()[index];
 
-        _plane.Position(this, direction);
-       
+        plane.Position(this, direction);
     }
 
     public void NutritionBehaviour()
     {
-        //  bin ich hungrig?
         var random = new Random();
 
+        // Zufällig hungrig werden
         if (random.NextDouble() < 0.1)
         {
             IsHungry = true;
-            Representation = Hamster._hungryRepresentation;
+            Representation = _hungryRepresentation;
         }
 
-        // steh ich auf einen seedling
-        if (_plane.ContainsSeed(Position))
+        if (plane.TryGetSeed(Position, out var seed))
         {
-            if(IsHungry)
+            if (IsHungry)
             {
                 EatSeedFromTile();
             }
             else
             {
-                PutInMouthList();
+                PutInMouth(seed);
             }
         }
         else
         {
             if (IsHungry && mouth.Any())
             {
-                EatSeedlingFromMouth();
+                EatSeedFromMouth();
             }
         }
-
     }
 
-    private void EatSeedFromTile()
-    {
-        Eat();
-        _plane.HamsterIsEatingSeeds(this);
-    }
-
-    private void PutInMouthList()
-    {
-        var seedling = _plane.GetSeedlingOn(Position);
-        mouth.Add(seedling);
-    }
-
-    private void EatSeedlingFromMouth()
+    private void EatSeedFromMouth()
     {
         Eat();
         mouth.RemoveAt(0);
+    }
+
+    public void EatSeedFromTile()
+    {
+        Eat();
+        plane.HamsterIsEatingSeeds(this);
     }
 
     private void Eat()
     {
         IsHungry = false;
         Representation = _fedRepresentation;
+    }
+
+    public void PutInMouth(Seed seed)
+    {
+        mouth.Add(seed);
+        plane.HamsterIsStoringSeeds(this);
+    }
+
+    public override string ToString()
+    {
+        return Representation;
     }
 }
