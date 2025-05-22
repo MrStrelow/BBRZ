@@ -30,6 +30,7 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
+        IRenderer renderer = new ConsoleRenderer();
         
         while (true)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hamster;
 
-public class ConsoleRenderer
+public class ConsoleRenderer : IRenderer
 {
 
 }

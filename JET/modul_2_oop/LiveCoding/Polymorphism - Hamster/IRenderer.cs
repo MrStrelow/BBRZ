@@ -8,5 +8,5 @@ namespace Hamster;
 
 public interface IRenderer
 {
-
+    void Render();
 }
