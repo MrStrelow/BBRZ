@@ -8,7 +8,23 @@ namespace Hamster;
 
 public class BigLegHamster : Hamster
 {
+    public string FedRepresentation { get; protected set; } = "🐰";
+
     public BigLegHamster(Plane plane) : base(plane)
     {
+    }
+
+    public override void Move()
+    {
+        var random = new Random();
+        int firstDirectionIndex = random.Next(Enum.GetValues<Direction>().Length);
+        int secondDirectionIndex = random.Next(Enum.GetValues<Direction>().Length);
+
+        var firstDirection = Enum.GetValues<Direction>()[firstDirectionIndex];
+        var secondDirection = Enum.GetValues<Direction>()[secondDirectionIndex];
+
+        var directions = new List<Direction>() { firstDirection, secondDirection };
+        
+        PlaneObj.Position(this, directions);
     }
 }

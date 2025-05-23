@@ -27,7 +27,7 @@ public class Plane
         // Hamster erstellen
         for (int i = 0; i < random.Next(1, Size*Size); i++)
         {
-            Hamsters.Add(new BigLegHamster(this)); // TODO: welche hamster soll es geben?
+            Hamsters.Add(new BigMouthHamster(this)); // TODO: welche hamster soll es geben?
         }
 
         // wie viele seeds gibt es? zufällig.
@@ -76,40 +76,51 @@ public class Plane
         }
     }
 
+
+    // überladen!
     public void Position(Hamster hamster, Direction direction)
+    {
+        Position(hamster, new List<Direction> { direction });
+    }
+
+    public void Position(Hamster hamster, List<Direction> directions)
     {
         var pos = hamster.Position;
 
-        switch(direction)
+        foreach (var direction in directions)
         {
-            case Direction.LEFT:
-                if (pos.x != 0)
-                {
-                    pos.x--;
-                } 
-                break;
+            switch(direction)
+            {
+                case Direction.LEFT:
+                    if (pos.x != 0)
+                    {
+                        pos.x--;
+                    } 
+                    break;
 
-            case Direction.RIGHT:
-                if (pos.x != Size - 1)
-                {
-                    pos.x++;
-                }
-                break;
+                case Direction.RIGHT:
+                    if (pos.x != Size - 1)
+                    {
+                        pos.x++;
+                    }
+                    break;
 
-            case Direction.UP:
-                if (pos.y != 0)
-                {
-                    pos.y--;
-                }
-                break;
+                case Direction.UP:
+                    if (pos.y != 0)
+                    {
+                        pos.y--;
+                    }
+                    break;
 
-            case Direction.DOWN:
-                if (pos.y != Size - 1)
-                {
-                    pos.y++;
-                }
-                break;
+                case Direction.DOWN:
+                    if (pos.y != Size - 1)
+                    {
+                        pos.y++;
+                    }
+                    break;
+            }
         }
+
 
         hamster.Position = pos;
 

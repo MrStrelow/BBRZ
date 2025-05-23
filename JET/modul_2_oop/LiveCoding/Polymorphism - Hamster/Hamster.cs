@@ -4,22 +4,22 @@ public abstract class Hamster
 {
     // Felder
     private static string _hungryRepresentation = "😡";
-    private static string _fedRepresentation = "🐹";
 
     // Eigenschaften
+    public string FedRepresentation { get; protected set; }
     public (int x, int y) Position { get; set; }
     public string Representation { get; private set; }
     public bool IsHungry { get; private set; }
 
     // Beziehungen
-    private Plane _plane;
+    protected Plane PlaneObj { get; set; }
     private List<Seed> mouth = new();
 
     // Konstruktoren
     public Hamster(Plane plane)
     {
-        _plane = plane;
-        Representation = Hamster._fedRepresentation;
+        PlaneObj = plane;
+        Representation = FedRepresentation;
         
         // Zufällige Position wählen
         var random = new Random();
@@ -32,8 +32,8 @@ public abstract class Hamster
         // Zuständigkeit: probiere neue zufällige x und y zuweisungen aus.
         do 
         {
-            x = random.Next(_plane.Size);
-            y = random.Next(_plane.Size);
+            x = random.Next(PlaneObj.Size);
+            y = random.Next(PlaneObj.Size);
             notDone = plane.TryToAssignInitialPosition(this, (x,y));
         }
         while (notDone);
@@ -56,7 +56,7 @@ public abstract class Hamster
         }
 
         // steh ich auf einen seedling
-        if (_plane.ContainsSeed(Position))
+        if (PlaneObj.ContainsSeed(Position))
         {
             if(IsHungry)
             {
@@ -80,12 +80,12 @@ public abstract class Hamster
     private void EatSeedFromTile()
     {
         Eat();
-        _plane.HamsterIsEatingSeeds(this);
+        PlaneObj.HamsterIsEatingSeeds(this);
     }
 
     private void PutInMouthList()
     {
-        var seedling = _plane.GetSeedlingOn(Position);
+        var seedling = PlaneObj.GetSeedlingOn(Position);
         mouth.Add(seedling);
     }
 
@@ -98,6 +98,6 @@ public abstract class Hamster
     private void Eat()
     {
         IsHungry = false;
-        Representation = _fedRepresentation;
+        Representation = FedRepresentation;
     }
 }
