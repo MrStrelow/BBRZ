@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace Hamster;
 
-public class HtmlRenderer : Hamster, IComparable, IRenderer
+public class HtmlRenderer : IRenderer
 {
     private readonly Plane _plane;
     private readonly string _filePath; 
