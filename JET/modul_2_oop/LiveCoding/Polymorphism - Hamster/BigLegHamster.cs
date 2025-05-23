@@ -8,10 +8,11 @@ namespace Hamster;
 
 public class BigLegHamster : Hamster
 {
-    public string FedRepresentation { get; protected set; } = "🐰";
+    public override string FedRepresentation { get; protected set; } = "🐰";
 
     public BigLegHamster(Plane plane) : base(plane)
     {
+        //FedRepresentation = "🐰";
     }
 
     public override void Move()

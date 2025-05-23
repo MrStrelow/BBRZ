@@ -27,7 +27,14 @@ public class Plane
         // Hamster erstellen
         for (int i = 0; i < random.Next(1, Size*Size); i++)
         {
-            Hamsters.Add(new BigMouthHamster(this)); // TODO: welche hamster soll es geben?
+            if( random.NextDouble() < 0.5 )
+            {
+                Hamsters.Add(new BigMouthHamster(this)); 
+            }
+            else
+            {
+                Hamsters.Add(new BigLegHamster(this)); 
+            }
         }
 
         // wie viele seeds gibt es? zufällig.
