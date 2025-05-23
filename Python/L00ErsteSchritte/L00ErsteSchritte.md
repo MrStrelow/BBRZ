@@ -86,14 +86,39 @@ Hier verbinden (konkatenieren) wir `Variablen` miteinander und fügen dazwischen
 
 ```python
 # Variable initialisieren
-erster_string_teil = "Python ist"
+erster_string = "Das ist"
 
 # Andere Variable initialisieren
-zweiter_string_teil = "super!"
+zweiter_string = "ein Satz mit einer"
+
+erster_int = 1337
+
+dritter_string
 
 # Variablen mit dem Operator '+' verbinden (String-Konkatenation)
 # und das Ergebnis in einer neuen Variable speichern (diese wird dabei initialisiert).
-mein_kombinierter_string = erster_string_teil + " " + zweiter_string_teil
+mein_kombinierter_string = erster_string + " " + zweiter_string + " " + erster_int
+
+# Den Inhalt der kombinierten Variable ausgeben
+print(mein_kombinierter_string)
+```
+
+Wir erhalten hier jedoch einen Fehler. ``Python`` ist hier strikt. Es erlaubt uns nicht beliebig verschiedene ``Variablen`` in verschiedene ``Typen`` umzuwandeln. Wir erzeugen mit dem ``Operator`` *+*, welcher hier ``Concatenation`` (Zusammenhängen) bedeutet, aus zwei ``Werten`` oder ``Variablen`` des ``Typs`` *String*, einen neuen ``Wert`` vom ``Typ`` *String*. Hier haben wir jedoch bei der ``Variable`` *erster_int* den ``Typ`` *Integer*. Wir müssen diesen also in einen *String* umwandeln und danach fahren wir fort. Diese umwandlung muss von uns geschrieben werden, nicht von ``Python`` selbst entschieden werden. Wir schreiben daher *str(erster_int)*, um den ``Wert`` welcher sich in der ``Variable`` *erster_int* befindet, zu kopieren und diesen in einen neuen ``Wert`` mit ``Typ`` *String* umzuwandeln. 
+
+```python
+# Variable initialisieren
+erster_string = "Das ist"
+
+# Andere Variable initialisieren
+zweiter_string = "ein Satz mit einer"
+
+erster_int = 1337
+
+dritter_string
+
+# Variablen mit dem Operator '+' verbinden (String-Konkatenation)
+# und das Ergebnis in einer neuen Variable speichern (diese wird dabei initialisiert).
+mein_kombinierter_string = erster_string + " " + zweiter_string + " " + str(erster_int)
 
 # Den Inhalt der kombinierten Variable ausgeben
 print(mein_kombinierter_string)
@@ -105,7 +130,7 @@ Wir merken uns:
 
 > Ein `Wert` ist eine von der Programmiersprache akzeptierte Einheit von Daten (z.B. eine Zahl, ein Text), die im *Speicher* des `Programms` abgelegt wird.
 
-> Jeder `Wert` hat einen `Typ` (z.B. `int`, `str`, `bool`). Der `Typ` legt die Bedeutung und die möglichen Operationen für diesen `Wert` fest. Python erkennt den Typ dynamisch bei der Wertzuweisung.
+> Jeder `Wert` hat einen `Typ` (z.B. `int`, `str`, `bool`). Der `Typ` legt die Bedeutung und die möglichen Operationen für diesen `Wert` fest. Python erkennt den ``Typ`` dynamisch bei der Zuweisung mit dem ``Operator`` *=*.
 
 > Eine `Variable` ist ein *Name* oder ein *Platzhalter*, der auf einen `Wert` im Speicher verweist.
 

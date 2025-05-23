@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace Hamster;
 
-public class HtmlRenderer : IRenderer
+public class HtmlRenderer : Hamster, IComparable, IRenderer
 {
     private readonly Plane _plane;
     private readonly string _filePath; 
@@ -106,5 +106,10 @@ public class HtmlRenderer : IRenderer
     private bool IsValidPosition((int x, int y) position)
     {
         return position.y < _plane.Size && position.x < _plane.Size && position.y >= 0 && position.x >= 0;
+    }
+
+    public int CompareTo(object? obj)
+    {
+        throw new NotImplementedException();
     }
 }

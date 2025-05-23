@@ -30,8 +30,8 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
-        IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 1000 };
-        //IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 1000 };
+        //IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 1000 };
+        IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 1000 };
 
         while (true)
         {

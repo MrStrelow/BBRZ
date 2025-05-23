@@ -65,16 +65,19 @@ Programm-Argumente sind Werte, die einem Skript beim Aufruf über die Kommandoze
         Hier wären `"Wien"` das erste Argument (`sys.argv[1]`) und `"BBRZ"` das zweite (`sys.argv[2]`). `sys.argv[0]` ist immer der Name des Skripts selbst.
     * **In IDEs (z.B. VS Code, PyCharm):** Suchen Sie in den Ausführungskonfigurationen ("Run/Debug Configurations", "launch.json" etc.) nach einer Option, um Programm-Argumente festzulegen.
 
-    *(Hinweis: Die genaue Einstellungsmethode für Programm-Argumente in einer IDE variiert. Konsultieren Sie die Dokumentation Ihrer IDE.)*
+    *(Hinweis: Die genaue Einstellungsmethode für Programm-Argumente in einer IDE variiert. Siehe unten für VS-Code)*
 
 2.  Importieren Sie das `sys`-Modul am Anfang Ihrer Python-Datei (`import sys`).
     Geben Sie in Ihrer `hallo_welt.py` (oder einer neuen Datei) 3 Leerzeilen und folgende Titelzeile aus:
     ```
+
+
+
     === Arbeiten mit Argumenten ===
     ```
-    **Tipp für Leerzeilen:** `print("\n\n\n...")` oder mehrere `print()`-Aufrufe.
+    **Tipp für Leerzeilen:** `print("\n\n\n\n\n...")` oder mehrere `print()`-Aufrufe.
 
-3.  Geben Sie darunter das erste übergebene Argument aus. **Tipp:** Dieses ist über `sys.argv[1]` zugreifbar. Stellen Sie sicher, dass mindestens ein Argument übergeben wurde, um einen `IndexError` zu vermeiden (z.B. mit einer `if`-Abfrage auf `len(sys.argv)`).
+3.  **Optional:** Geben Sie darunter das erste übergebene Argument aus. **Tipp:** Dieses ist über `sys.argv[1]` zugreifbar. Stellen Sie sicher, dass mindestens ein Argument übergeben wurde, um einen `IndexError` zu vermeiden (z.B. mit einer `if`-Abfrage auf `len(sys.argv)`).
 
 4.  Geben Sie folgendes auf die Konsole aus, wobei die Werte für die Stadt und die Organisation aus den Programm-Argumenten stammen sollen:
     ```
@@ -84,36 +87,38 @@ Programm-Argumente sind Werte, die einem Skript beim Aufruf über die Kommandoze
 
     Hinweis: 
     * Starte das `Program mit ``py erste_schritte.py "BBRZ" "WIEN"`` im Terminal. Der Pfad muss der des Ordners eins über dem Python-File sein. 
-    * Alternativ erstelle einen Ordner ``.vscode`` im äußersten Ordner und füge dort ein File ``launch.json`` ein. Dort füge folgendes im Ordner ``.vscode`` ein:
-    ```
+    * Alternativ erstelle einen Ordner ``.vscode`` im **äußersten** Ordner des Projektes und füge dort ein File ``launch.json`` ein. Dort füge folgendes im Ordner ``.vscode`` ein:
+```
     {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Python Debugger: Current File",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal",
-            "args": [
-                "BBRZ", // Deine Argumente
-                "WIEN"
-            ]
-        }
-    ]
-}
-    ```
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python Debugger: Current File",
+                "type": "debugpy",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal",
+                "args": [
+                    "BBRZ", // Deine Argumente
+                    "WIEN"
+                ]
+            }
+        ]
+    }
+```
+
+**Starte danach das Programm im ``DebugModus``.**
 
 ### Optionale Information
-In Python können Strings mit `+` verkettet werden, oder Sie verwenden f-Strings für eine modernere Formatierung:
+In Python können Strings mit `+` verkettet werden, oder Sie verwenden f-Strings für eine Formatierung ohne dem aufruf von *str(mein:int)* oder *int(mein_str)*:
 ```python
 name = "Welt"
-# Mit +
-print("Hallo" + " " + name)
-# Mit f-String (oft bevorzugt)
-print(f"Hallo {name}")
+mein_int = 101
+# Mit Operator *+* Concatenation
+print("Hallo" + " " + name + "-" + str(mein_int))
+# Mit format-String
+print(f"Hallo {name} {mein_int}")
 ```
-Für diese Übung können Sie bei der `+`-Verkettung bleiben, um näher am Java-Beispiel zu sein.
