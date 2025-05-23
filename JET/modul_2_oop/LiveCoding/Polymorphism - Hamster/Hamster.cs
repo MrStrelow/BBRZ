@@ -1,6 +1,6 @@
 ﻿namespace Hamster;
 
-public class Hamster
+public abstract class Hamster
 {
     // Felder
     private static string _hungryRepresentation = "😡";
@@ -42,15 +42,7 @@ public class Hamster
     }
 
     // Methoden
-    public void Move()
-    {
-        var random = new Random();
-        int directionIndex = random.Next(Enum.GetValues<Direction>().Length);
-        var direction = Enum.GetValues<Direction>()[directionIndex];
-
-        _plane.Position(this, direction);
-       
-    }
+    public abstract void Move();
 
     public void NutritionBehaviour()
     {
