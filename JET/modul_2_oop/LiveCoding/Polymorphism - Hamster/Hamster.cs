@@ -6,7 +6,9 @@ public abstract class Hamster
     private static string _hungryRepresentation = "😡";
 
     // Eigenschaften
-    public virtual string FedRepresentation { get; protected set; }
+    // Wenn wir verhindern wollen dass es null sein kann schreiben wir abstract statt virtual
+    //public virtual string FedRepresentation { get; protected set; }
+    public abstract string FedRepresentation { get; protected set; }
     public (int x, int y) Position { get; set; }
     public string Representation { get; private set; }
     public bool IsHungry { get; private set; }

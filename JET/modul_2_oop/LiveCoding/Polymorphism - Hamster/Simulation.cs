@@ -31,7 +31,7 @@ public class Simulation
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
         //IRenderer renderer = new HtmlRenderer(plane);
-        IRenderer renderer = new ConsoleRenderer(plane);
+        IRenderer renderer = new ConsoleRenderer(plane) { DelayInMilliseconds = 2000 };
         
         //IRenderer rendererH = new HtmlRenderer(plane);
         //IRenderer rendererC = new ConsoleRenderer(plane);

@@ -9,7 +9,7 @@ namespace Hamster;
 
 public class BigMouthHamster : Hamster
 {
-    public override string FedRepresentation { get; protected set; } = "😃";
+    public override string FedRepresentation { get; protected set; } = "🐹";
 
     public BigMouthHamster(Plane plane) : base(plane)
     {
