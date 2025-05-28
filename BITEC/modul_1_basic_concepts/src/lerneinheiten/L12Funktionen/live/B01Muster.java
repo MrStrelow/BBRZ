@@ -1,10 +1,5 @@
 package lerneinheiten.L12Funktionen.live;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-
 import static lerneinheiten.L12Funktionen.live.B01Muster.Richtung.*;
 
 public class B01Muster {
@@ -38,8 +33,13 @@ public class B01Muster {
 
         int groesseSpielfeld = 5;
         String[][] diamant = erzeugeDiamant(groesseSpielfeld);
+        String[][] pfeilOben = spiegelnX(erzeugePfeil(groesseSpielfeld));
+        String[][] pfeilUnten = erzeugePfeil(groesseSpielfeld);
 //        var diamant = erzeugeDiamant(groesseSpielfeld);
+
+        print(pfeilOben);
         print(diamant);
+        print(pfeilUnten);
 
 //        System.out.println(Arrays.deepToString(brett));
     }
@@ -107,27 +107,40 @@ public class B01Muster {
         String[][] dreieckLinksOben = spiegelnY(dreieckRechtsOben);
 
         String[][] diamant = new String[2*groesseSpielfeld][2*groesseSpielfeld];
-        diamant = kombiniereZuDiamant(diamant, dreieckRechtsOben, RechtsOben);
-        diamant = kombiniereZuDiamant(diamant, dreieckRechtsUnten, RechtsUnten);
-        diamant = kombiniereZuDiamant(diamant, dreieckLinksOben, LinksOben);
-        diamant = kombiniereZuDiamant(diamant, dreieckLinksUnten, LinksUnten);
+        diamant = kombiniere(diamant, dreieckRechtsOben, RechtsOben);
+        diamant = kombiniere(diamant, dreieckRechtsUnten, RechtsUnten);
+        diamant = kombiniere(diamant, dreieckLinksOben, LinksOben);
+        diamant = kombiniere(diamant, dreieckLinksUnten, LinksUnten);
 
         return diamant;
     }
 
-    static String[][] kombiniereZuDiamant(String[][] diamant, String[][] dreieck, Richtung richtung) {
+    static String[][] erzeugePfeil(int groesseSpielfeld) {
+        String[][] dreieckRechtsOben = erzeugeDreieck(groesseSpielfeld);
+        String[][] dreieckRechtsUnten = spiegelnX(dreieckRechtsOben);
+        String[][] dreieckLinksUnten = spiegelnY(dreieckRechtsUnten);
+        String[][] dreieckLinksOben = spiegelnY(dreieckRechtsOben);
+
+        String[][] diamant = new String[2*groesseSpielfeld][2*groesseSpielfeld];
+        diamant = kombiniere(diamant, dreieckRechtsOben, LinksOben);
+        diamant = kombiniere(diamant, dreieckRechtsUnten, RechtsUnten);
+        diamant = kombiniere(diamant, dreieckLinksOben, RechtsOben);
+        diamant = kombiniere(diamant, dreieckLinksUnten, LinksUnten);
+
+        return diamant;
+    }
+
+    static String[][] kombiniere(String[][] diamant, String[][] dreieck, Richtung richtung) {
         for (int zeilen = 0; zeilen < dreieck.length; zeilen++) {
             for (int spalten = 0; spalten < dreieck.length; spalten++) {
                 switch (richtung) {
                     case LinksOben -> diamant[zeilen][spalten] = dreieck[zeilen][spalten];
-                    case RechtsOben -> {}
-                    case LinksUnten -> {}
-                    case RechtsUnten -> {}
+                    case RechtsOben -> diamant[zeilen][spalten + dreieck.length] = dreieck[zeilen][spalten];
+                    case LinksUnten -> diamant[zeilen + dreieck.length][spalten] = dreieck[zeilen][spalten];
+                    case RechtsUnten -> diamant[zeilen + dreieck.length][spalten + dreieck.length] = dreieck[zeilen][spalten];
                 }
             }
         }
-
-        print(diamant);
 
         return diamant;
     }
