@@ -55,12 +55,12 @@ public class HtmlRenderer : IRenderer
             }
         }
 
-        // Place seeds onto the display grid
-        foreach (var seed in _plane.Seeds.Values)
+        // Place Seedlings onto the display grid
+        foreach (var Seedling in _plane.Seedlings.Values)
         {
-            if (IsValidPosition(seed.Position))
+            if (IsValidPosition(Seedling.Position))
             {
-                displayPlane[seed.Position.y, seed.Position.x] = $"<td style='background-color:#90EE90;'>{Seed.Representation}</td>";
+                displayPlane[Seedling.Position.y, Seedling.Position.x] = $"<td style='background-color:#90EE90;'>{Seedling.Representation}</td>";
             }
         }
 

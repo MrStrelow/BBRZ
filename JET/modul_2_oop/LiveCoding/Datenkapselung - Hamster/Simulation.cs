@@ -37,8 +37,8 @@ public class Simulation
             // simuliere die hamster
             plane.SimulateHamster();
 
-            //// simuliree die seeds
-            plane.SimulateSeed();
+            //// simuliree die Seedlings
+            plane.SimulateSeedling();
 
             //// Darstellung anzeigen
             ////wie schnell läuft unser spiel

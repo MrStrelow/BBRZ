@@ -1,6 +1,6 @@
 ﻿namespace Hamster;
 
-public class Seed
+public class Seedling
 {
     // Felder
     private Plane _plane;
@@ -9,7 +9,7 @@ public class Seed
     public (int x, int y) Position { get; private set; }
     public static string Representation = "🌱";
 
-    public Seed(Plane plane)
+    public Seedling(Plane plane)
     {
         _plane = plane;
 

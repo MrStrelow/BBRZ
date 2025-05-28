@@ -13,7 +13,7 @@ public class Hamster
 
     // Beziehungen
     private Plane _plane;
-    private List<Seed> mouth = new();
+    private List<Seedling> mouth = new();
 
     // Konstruktoren
     public Hamster(Plane plane)
@@ -63,12 +63,12 @@ public class Hamster
             Representation = Hamster._hungryRepresentation;
         }
 
-        // steh ich auf einen seedling
-        if (_plane.ContainsSeed(Position))
+        // steh ich auf einen Seedlingling
+        if (_plane.ContainsSeedling(Position))
         {
             if(IsHungry)
             {
-                EatSeedFromTile();
+                EatSeedlingFromTile();
             }
             else
             {
@@ -79,25 +79,25 @@ public class Hamster
         {
             if (IsHungry && mouth.Any())
             {
-                EatSeedlingFromMouth();
+                EatSeedlinglingFromMouth();
             }
         }
 
     }
 
-    private void EatSeedFromTile()
+    private void EatSeedlingFromTile()
     {
         Eat();
-        _plane.HamsterIsEatingSeeds(this);
+        _plane.HamsterIsEatingSeedlings(this);
     }
 
     private void PutInMouthList()
     {
-        var seedling = _plane.GetSeedlingOn(Position);
-        mouth.Add(seedling);
+        var Seedlingling = _plane.GetSeedlinglingOn(Position);
+        mouth.Add(Seedlingling);
     }
 
-    private void EatSeedlingFromMouth()
+    private void EatSeedlinglingFromMouth()
     {
         Eat();
         mouth.RemoveAt(0);

@@ -5,11 +5,9 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skripten", "Skripten\Skripten.csproj", "{064F4784-D7E7-4B78-BE2E-A11263238C89}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise1", "Exercise1\Exercise1.csproj", "{0A605583-0C49-47B7-B4AA-89F7D3530A68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise1-ProdukteImLager", "Exercise1-ProdukteImLager\Exercise1-ProdukteImLager.csproj", "{0A605583-0C49-47B7-B4AA-89F7D3530A68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise2", "Exercise2\Exercise2.csproj", "{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding", "LiveCoding\LiveCoding.csproj", "{369E9D9C-3667-4FAD-B616-84C266F33B7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise2-EigeneListenImplementieren", "Exercise2-EigeneListenImplementieren\Exercise2-EigeneListenImplementieren.csproj", "{BAEF1F5C-07F5-473B-A68B-5D752CA32EF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

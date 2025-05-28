@@ -12,7 +12,7 @@ public class Plane
     public int Size { get; set; }
 
     // Beziehungen
-    public Dictionary<(int x, int y), Seed> Seeds { get; private set; } = new();
+    public Dictionary<(int x, int y), Seedling> Seedlings { get; private set; } = new();
     public List<Hamster> Hamsters { get; private set; } = new();
 
     // Konstruktor
@@ -37,12 +37,12 @@ public class Plane
             }
         }
 
-        // wie viele seeds gibt es? zufällig.
-        // Seeds erstellen
+        // wie viele Seedlings gibt es? zufällig.
+        // Seedlings erstellen
         for (int i = 0; i < random.Next(1, Size*Size - Hamsters.Count); i++)
         {
-            var seed = new Seed(this);
-            Seeds[seed.Position] = seed;
+            var Seedling = new Seedling(this);
+            Seedlings[Seedling.Position] = Seedling;
         }
     }
 
@@ -64,9 +64,9 @@ public class Plane
 
     }
 
-    public bool TryToAssignInitialPosition(Seed seed, (int x, int y) positionOfSeedToBeAssigned)
+    public bool TryToAssignInitialPosition(Seedling Seedling, (int x, int y) positionOfSeedlingToBeAssigned)
     {
-        if (!Seeds.ContainsKey(positionOfSeedToBeAssigned))
+        if (!Seedlings.ContainsKey(positionOfSeedlingToBeAssigned))
         {
             return false;
         }
@@ -134,34 +134,34 @@ public class Plane
         //Console.WriteLine($"Hamster: {hamster.GetHashCode()} - pos:{hamster.Position}");
     }
 
-    public void HamsterIsEatingSeeds(Hamster hamster)
+    public void HamsterIsEatingSeedlings(Hamster hamster)
     {
-        Seeds.Remove(hamster.Position);
+        Seedlings.Remove(hamster.Position);
     }
 
-    public Seed GetSeedlingOn((int x, int y) position)
+    public Seedling GetSeedlinglingOn((int x, int y) position)
     {
-        return Seeds[position];
+        return Seedlings[position];
     }
 
-    public bool ContainsSeed((int x, int y) position)
+    public bool ContainsSeedling((int x, int y) position)
     {
-        return Seeds.ContainsKey(position);
+        return Seedlings.ContainsKey(position);
     }
 
-    public void SimulateSeed()
+    public void SimulateSeedling()
     {
-        RegrowSeeds();
+        RegrowSeedlings();
     }
 
-    public void RegrowSeeds()
+    public void RegrowSeedlings()
     {
         var random = new Random();
         bool fieldIsTaken;
         (int x, int y) key;
 
-        int potentialGrowth = (int)Math.Pow(Hamsters.Count, 2) / Seeds.Count;
-        int freeTiles = Size * Size - Hamsters.Count - Seeds.Count;
+        int potentialGrowth = (int)Math.Pow(Hamsters.Count, 2) / Seedlings.Count;
+        int freeTiles = Size * Size - Hamsters.Count - Seedlings.Count;
 
         int bound = Math.Min(potentialGrowth, freeTiles);
 
@@ -170,10 +170,10 @@ public class Plane
             do
             {
                 key = (random.Next(Size), random.Next(Size));
-                fieldIsTaken = Seeds.ContainsKey(key);
+                fieldIsTaken = Seedlings.ContainsKey(key);
             } while (fieldIsTaken);
 
-            Seeds[key] = new Seed(this);
+            Seedlings[key] = new Seedling(this);
         }
     }
 }

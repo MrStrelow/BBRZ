@@ -62,10 +62,10 @@ public class ConsoleRenderer : IRenderer
             _plane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
         }
 
-        // nimm seeds und zeichne die position
-        foreach (var seedling in Plane.Seeds.Values)
+        // nimm Seedlings und zeichne die position
+        foreach (var Seedlingling in Plane.Seedlings.Values)
         {
-            _plane[seedling.Position.y, seedling.Position.x] = Seed.Representation;
+            _plane[Seedlingling.Position.y, Seedlingling.Position.x] = Seedling.Representation;
         }
     }
 }
