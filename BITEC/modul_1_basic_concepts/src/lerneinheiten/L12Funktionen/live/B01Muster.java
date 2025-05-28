@@ -1,8 +1,11 @@
 package lerneinheiten.L12Funktionen.live;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import static lerneinheiten.L12Funktionen.live.B01Muster.Richtung.*;
 
 public class B01Muster {
     public static void main(String[] args) {
@@ -34,22 +37,39 @@ public class B01Muster {
         // 4️⃣⬜🔹🔹🔹🔹
 
         int groesseSpielfeld = 5;
-        String[][] dreieck = erzeugeDreieck(groesseSpielfeld);
-//        var dreieck = erzeugeDreieck(groesseSpielfeld);
-        String[][] gespiegeltesDreieck = spiegelnX(dreieck);
+        String[][] diamant = erzeugeDiamant(groesseSpielfeld);
+//        var diamant = erzeugeDiamant(groesseSpielfeld);
+        print(diamant);
 
-        print(gespiegeltesDreieck);
 //        System.out.println(Arrays.deepToString(brett));
     }
 
-    static String[][] spiegelnX(String[][] array) {
-        for (int zeilen = 0; zeilen < array.length; zeilen++) {
-            for (int spalten = 0; spalten < array[0].length; spalten++) {
-                array[array.length-1-zeilen][spalten] = array[zeilen][spalten];
+    static String[][] spiegelnY(String[][] array) {
+        String [][] gespiegeltesArray = new String[array.length][array[0].length];
+        int anzahl_zeilen = array.length;
+        int anzahl_spalten = array[0].length;
+
+        for (int zeilen = 0; zeilen < anzahl_zeilen; zeilen++) {
+            for (int spalten = 0; spalten < anzahl_spalten; spalten++) {
+                gespiegeltesArray[zeilen][anzahl_spalten - 1 - spalten] = array[zeilen][spalten];
             }
         }
 
-        return array;
+        return gespiegeltesArray;
+    }
+
+    static String[][] spiegelnX(String[][] array) {
+        String [][] gespiegeltesArray = new String[array.length][array[0].length];
+        int anzahl_zeilen = array.length;
+        int anzahl_spalten = array[0].length;
+
+        for (int zeilen = 0; zeilen < anzahl_zeilen; zeilen++) {
+            for (int spalten = 0; spalten < anzahl_spalten; spalten++) {
+                gespiegeltesArray[anzahl_zeilen - 1 - zeilen][spalten] = array[zeilen][spalten];
+            }
+        }
+
+        return gespiegeltesArray;
     }
 
     static void print(String[][] array) {
@@ -78,5 +98,41 @@ public class B01Muster {
         }
 
         return dreieck;
+    }
+
+    static String[][] erzeugeDiamant(int groesseSpielfeld) {
+        String[][] dreieckRechtsOben = erzeugeDreieck(groesseSpielfeld);
+        String[][] dreieckRechtsUnten = spiegelnX(dreieckRechtsOben);
+        String[][] dreieckLinksUnten = spiegelnY(dreieckRechtsUnten);
+        String[][] dreieckLinksOben = spiegelnY(dreieckRechtsOben);
+
+        String[][] diamant = new String[2*groesseSpielfeld][2*groesseSpielfeld];
+        diamant = kombiniereZuDiamant(diamant, dreieckRechtsOben, RechtsOben);
+        diamant = kombiniereZuDiamant(diamant, dreieckRechtsUnten, RechtsUnten);
+        diamant = kombiniereZuDiamant(diamant, dreieckLinksOben, LinksOben);
+        diamant = kombiniereZuDiamant(diamant, dreieckLinksUnten, LinksUnten);
+
+        return diamant;
+    }
+
+    static String[][] kombiniereZuDiamant(String[][] diamant, String[][] dreieck, Richtung richtung) {
+        for (int zeilen = 0; zeilen < dreieck.length; zeilen++) {
+            for (int spalten = 0; spalten < dreieck.length; spalten++) {
+                switch (richtung) {
+                    case LinksOben -> diamant[zeilen][spalten] = dreieck[zeilen][spalten];
+                    case RechtsOben -> {}
+                    case LinksUnten -> {}
+                    case RechtsUnten -> {}
+                }
+            }
+        }
+
+        print(diamant);
+
+        return diamant;
+    }
+
+    public enum Richtung {
+        RechtsOben, LinksOben, RechtsUnten, LinksUnten
     }
 }
