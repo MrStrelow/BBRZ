@@ -1,5 +1,4 @@
 ﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
 
 namespace Hamster.Strategies;
 
@@ -8,9 +7,11 @@ namespace Hamster.Strategies;
 public sealed class ImageRepresentation : IVisualRepresentation
 {
     public object Representation { get; init; }
+    public string Path { get; init; }
 
     public ImageRepresentation(string path)
     {
+        Path = path;
         Representation = Image.Load(path);
     }
 }

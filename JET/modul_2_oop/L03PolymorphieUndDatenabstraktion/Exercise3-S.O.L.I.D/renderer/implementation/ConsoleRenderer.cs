@@ -1,4 +1,5 @@
-﻿using System; 
+﻿using Hamster.Strategies;
+using System; 
 using System.Threading;
 
 namespace Hamster;
@@ -7,8 +8,7 @@ public sealed class ConsoleRenderer : IRenderer
 {
     // Felder
     private readonly Plane _plane;
-    private static readonly string _earthRepresentation = "🟫";
-    private string[,] _displayPlane;
+    private UnicodeRepresentation[,] _displayPlane;
 
     // Properties
     public int TimeToSleepMs { get; set; } = 150;
@@ -16,7 +16,7 @@ public sealed class ConsoleRenderer : IRenderer
     public ConsoleRenderer(Plane plane)
     { 
         _plane = plane ?? throw new ArgumentNullException(nameof(plane));
-        _displayPlane = new string[_plane.Size, _plane.Size];
+        _displayPlane = new UnicodeRepresentation[_plane.Size, _plane.Size];
     }
 
     public void Render()
@@ -36,13 +36,13 @@ public sealed class ConsoleRenderer : IRenderer
         Thread.Sleep(TimeToSleepMs);
     }
 
-    private void AssignElementsToDisplay(string[,] displayPlane)
+    private void AssignElementsToDisplay(IVisualRepresentation[,] displayPlane)
     {
         for (int i = 0; i < _plane.Size; i++)
         {
             for (int j = 0; j < _plane.Size; j++)
             {
-                displayPlane[i, j] = _earthRepresentation;
+                displayPlane[i, j] = Plane.Representation;
             }
         }
 

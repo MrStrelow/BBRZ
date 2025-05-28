@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using System.Globalization; 
-
+using System.Globalization;
+using Hamster.Strategies;
 namespace Hamster;
 
 public sealed class HtmlRenderer : IRenderer
@@ -20,6 +20,7 @@ public sealed class HtmlRenderer : IRenderer
 
     public void Render()
     {
+        TODO use image paths of representation 
         StringBuilder htmlBuilder = new StringBuilder();
 
         // Start HTML document
@@ -43,7 +44,7 @@ public sealed class HtmlRenderer : IRenderer
         htmlBuilder.AppendLine("    <table>");
 
         // Create a temporary display grid for easier HTML generation
-        string[,] displayPlane = new string[_plane.Size, _plane.Size];
+        var displayPlane = new UnicodeRepresentation[_plane.Size, _plane.Size];
 
         // Initialize with earth representation
         for (int i = 0; i < _plane.Size; i++)
@@ -58,7 +59,7 @@ public sealed class HtmlRenderer : IRenderer
         foreach (var Seedling in _plane.Seedlings.Values)
         {
             if (IsValidPosition(Seedling.Position))
-            {
+            {< img src = "wedding.jpg" >
                 displayPlane[Seedling.Position.y, Seedling.Position.x] = $"<td style='background-color:#90EE90;'>{Seedling.Representation}</td>";
             }
         }

@@ -1,4 +1,6 @@
 ﻿// Plane.cs
+using Hamster.Strategies;
+
 namespace Hamster;
 
 public class Plane
@@ -12,10 +14,14 @@ public class Plane
     public List<Hamster> Hamsters { get; private set; } = new();
     public IRenderer Renderer { get; set; }
 
+    public static IVisualRepresentation? Representation { get; protected set; }
+
     // Konstruktor
-    public Plane(int size)
+    public Plane(int size, IRenderer renderer)
     {
         Size = size;
+        Renderer = renderer;
+
         var random = new Random();
 
         int numberOfSeedlings = random.Next(1, size * size);
@@ -37,6 +43,20 @@ public class Plane
                 Hamsters.Add(new BigMouthHamster(this, Renderer));
             }
         }
+
+        IVisualRepresentation representation = Renderer switch // tight coupling.
+        {
+            HtmlRenderer => new ImageRepresentation("resources/soil.png"), 
+            // TODO: Sprich "Fehler" an. Verwenden wir wirklich das Image oder nur den path?
+            // Wir haben hier die Haupteigenschaft Image welche wirnicht wirklich verwenden.
+            // Neue Implementierung -> html representation. Das schaut aber gleich aus wie die unicode representation.
+            // wir sollten uns nicht mit solchen dinge aufhalten, denn diese haben keinen effekt auf die Kriterien/Ziele.
+
+            ConsoleRenderer => new UnicodeRepresentation("🟫"),
+            _ => throw new NotSupportedException()
+        };
+
+
     }
 
     public void SimulateSeedling()
