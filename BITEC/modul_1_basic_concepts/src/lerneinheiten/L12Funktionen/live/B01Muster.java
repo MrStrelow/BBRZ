@@ -34,7 +34,7 @@ public class B01Muster {
         // 4️⃣⬜🔹🔹🔹🔹
 
         // ...
-        
+
         int groesseSpielfeld = 5;
         String[][] diamant = erzeugeDiamant(groesseSpielfeld);
         String[][] pfeilOben = spiegelnX(erzeugePfeil(groesseSpielfeld));

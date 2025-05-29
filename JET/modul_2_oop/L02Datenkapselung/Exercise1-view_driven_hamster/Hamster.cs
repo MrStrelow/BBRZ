@@ -71,9 +71,11 @@ public class Hamster
         // Sehr Problematisch! Die Position in dem Dictionary und das merken des Seedlingling Symbols ist nicht konsistent,
         // falls wir diese nicht korrekt überschreiben, wenn wir einen Seedlingling essen!
         // Es muss also in HamsterIsStoringSeedlings und HamsterIsEatingSeedlings der Code hamster.RememberSymbolOnPlane = EarthRepresentation; aufgerufen werden.
-        // Falls wir das vergessen haben wir einen Key Error.
-        if (RememberSymbolOnPlane == Seedling.Representation) 
-        //if (_plane.ContainsSeedling(Position))
+        // Falls wir das vergessen, merken wir uns auch Hamster Symbole wenn zwei hamster gleichzeitg auf ein Feld gehen!
+        // Siehe Klasse Plane für weitere Erklärungen.
+
+        if (RememberSymbolOnPlane == Seedling.Representation) // view logic: bad
+        //if (_plane.ContainsSeedling(Position)) // state logic: good
         { 
             if (IsHungry)
             {

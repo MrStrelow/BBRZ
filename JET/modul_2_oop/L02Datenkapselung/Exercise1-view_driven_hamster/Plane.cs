@@ -48,7 +48,7 @@ public class Plane
 
     public void SimulateSeedling()
     {
-        RegrowSeedlings();
+        //RegrowSeedlings(); // BUG: Ausgeschalten um den Fehler besser zu sehen!.
     }
 
     public void SimulateHamster()
@@ -133,10 +133,11 @@ public class Plane
                 hamsterSymbol == Hamster.FedRepresentation ||
                 hamsterSymbol == Hamster.HungryRepresentation;
 
-        if (!noHamsterOnThisPosition)
-        {
-            hamster.RememberSymbolOnPlane = _plane[hamster.Position.y, hamster.Position.x]; // Problematisch! Wir sehen hier warum.
-        }
+        // BUG:
+        //if (!noHamsterOnThisPosition) // TIPP: um es besser zu sehen schalten wir das nachwachsen der seedlings aus.
+        //{
+        hamster.RememberSymbolOnPlane = _plane[hamster.Position.y, hamster.Position.x]; // Problematisch! Wir sehen hier warum.
+        //}
 
         _plane[hamster.Position.y, hamster.Position.x] = hamster.Representation;
     }
