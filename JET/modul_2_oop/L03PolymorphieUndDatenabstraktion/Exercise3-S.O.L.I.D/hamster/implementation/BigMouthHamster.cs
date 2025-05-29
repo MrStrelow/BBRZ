@@ -1,27 +1,16 @@
 ﻿using Hamster.Strategies;
-using System;
+using Hamster.Visuals;
+
 namespace Hamster;
 
 public class BigMouthHamster : Hamster
 {
-    protected override NutritionBehaviour MyNutritionBehaviour { get; set; } = new MyopicNutritionBehaviour();
+    protected override NutritionBehaviour MyNutritionBehaviour { get; set; } = new ForesightedNutritionBehaviour();
     protected override IMovementStrategy MyMovementStragegy { get; set; } = new OneStepMovementStrategy();
-    public override IVisualRepresentation HungryRepresentation { get; protected set; }
-    public override IVisualRepresentation FedRepresentation { get; protected set; }
+    public override IVisuals HungryVisual { get; protected set; } = new HungryBigMouthHamsterVisuals();
+    public override IVisuals FedVisual { get; protected set; } = new HungryBigMouthHamsterVisuals();
 
-    public BigMouthHamster(Plane plane, IRenderer renderer) : base(plane, renderer)
+    public BigMouthHamster(Plane plane) : base(plane)
     {
-        (IVisualRepresentation fed, IVisualRepresentation hangry)  representationTuple = renderer switch
-        {
-            HtmlRenderer => (
-                new ImageRepresentation("resources/BigMouthHamster_fed.png"),
-                new ImageRepresentation("resources/BigMouthHamster_hangry.png")
-            ),
-
-            ConsoleRenderer => (
-                new UnicodeRepresentation("🐹"),
-                new UnicodeRepresentation("😡")
-            )
-        };
     }
 }

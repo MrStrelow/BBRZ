@@ -1,4 +1,5 @@
 ﻿using Hamster.Strategies;
+using Hamster.Visuals;
 
 namespace Hamster;
 
@@ -8,24 +9,24 @@ public abstract class Hamster
 
     // Eigenschaften
     // Wenn wir verhindern wollen dass es null sein kann schreiben wir abstract statt virtual
-    //public virtual string FedRepresentation { get; protected set; }
-    public abstract IVisualRepresentation HungryRepresentation { get; protected set; }
-    public abstract IVisualRepresentation FedRepresentation { get; protected set; }
-    public IVisualRepresentation Representation { get; private set; }
+    // public virtual string FedRepresentation { get; protected set; }
+    public abstract IVisuals HungryVisual { get; protected set; } 
+    public abstract IVisuals FedVisual { get; protected set; } 
+    public IVisuals CurrentVisual { get; private set; }
     public (int x, int y) Position { get; set; }
     public bool IsHungry { get; private set; }
 
     // Beziehungen
-    protected Plane World { get; set; }
+    protected Plane MyPlane { get; set; }
     public List<Seedling> Mouth { get; protected set; } = new();
     protected abstract NutritionBehaviour MyNutritionBehaviour { get; set; }
     protected abstract IMovementStrategy MyMovementStragegy { get; set; }
 
     // Konstruktoren
-    public Hamster(Plane plane, IRenderer renderer)
+    public Hamster(Plane plane)
     {
-        World = plane;
-        Representation = FedRepresentation ?? throw new NullReferenceException(nameof(FedRepresentation));
+        MyPlane = plane;
+        CurrentVisual = FedVisual;
 
         // Zufällige Position wählen
         var random = new Random();
@@ -38,8 +39,8 @@ public abstract class Hamster
         // Zuständigkeit: probiere neue zufällige x und y zuweisungen aus.
         do
         {
-            x = random.Next(World.Size);
-            y = random.Next(World.Size);
+            x = random.Next(MyPlane.Size);
+            y = random.Next(MyPlane.Size);
             notDone = plane.IsInitialPositionValid(this, (x, y));
         }
         while (notDone);
@@ -50,13 +51,13 @@ public abstract class Hamster
     // Methoden
     public void Move()
     {
-        MyMovementStragegy.Execute(this, World);
+        MyMovementStragegy.Execute(this, MyPlane);
     }
 
     public void NutritionBehaviour()
     {
         var mutator = new HamsterMutator(this); // this is the key to being hungry
-        MyNutritionBehaviour.Execute(mutator, World);
+        MyNutritionBehaviour.Execute(mutator, MyPlane);
     }
 
     // nested class which is private

@@ -29,10 +29,9 @@ public class Simulation
         Console.CursorVisible = false;
 
         // Start der Simulation:
-        Plane plane = new Plane(sizeOfPlane); // TODO factory method.
-        IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 500 }; // TODO factory method.
-        //IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 500 }; // TODO factory method.
-        plane.Renderer = renderer; // TODO factory method.
+        Plane plane = new Plane(sizeOfPlane);
+        IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 500 };
+        //IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 500 };
 
         while (true)
         {
@@ -47,6 +46,5 @@ public class Simulation
             //// Darstellung anzeigen
             renderer.Render();
         }
-
     }
 }

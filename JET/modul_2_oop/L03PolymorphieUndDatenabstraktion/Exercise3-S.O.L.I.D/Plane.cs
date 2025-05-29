@@ -1,5 +1,4 @@
-﻿// Plane.cs
-using Hamster.Strategies;
+﻿using Hamster.Visuals;
 
 namespace Hamster;
 
@@ -12,22 +11,23 @@ public class Plane
     // Beziehungen
     public Dictionary<(int x, int y), Seedling> Seedlings { get; private set; } = new();
     public List<Hamster> Hamsters { get; private set; } = new();
-    public IRenderer Renderer { get; set; }
 
-    public static IVisualRepresentation? Representation { get; protected set; }
+    // TODO: Sprich "Fehler" an. Verwenden wir wirklich das Image oder nur den path?
+    // Wir haben hier die Haupteigenschaft Image welche wir nicht wirklich verwenden.
+    // Neue Implementierung -> html representation. Das schaut aber gleich aus wie die unicode representation.
+    // wir sollten uns nicht mit solchen dinge aufhalten, denn diese haben keinen effekt auf die Kriterien/Ziele.
+    public static IVisuals Visual { get; protected set; } = new PlaneVisuals();
 
     // Konstruktor
-    public Plane(int size, IRenderer renderer)
+    public Plane(int size)
     {
         Size = size;
-        Renderer = renderer;
-
         var random = new Random();
 
         int numberOfSeedlings = random.Next(1, size * size);
         for (int i = 0; i < numberOfSeedlings; i++)
         {
-            var Seedling = new Seedling(this, Renderer);
+            var Seedling = new Seedling(this);
             Seedlings[Seedling.Position] = Seedling;
         }
 
@@ -36,32 +36,18 @@ public class Plane
         {
             if (random.NextDouble() < 0.5)
             {
-                Hamsters.Add(new BigLegHamster(this, Renderer));
+                Hamsters.Add(new BigLegHamster(this));
             }
             else
             {
-                Hamsters.Add(new BigMouthHamster(this, Renderer));
+                Hamsters.Add(new BigMouthHamster(this));
             }
         }
-
-        IVisualRepresentation representation = Renderer switch // tight coupling.
-        {
-            HtmlRenderer => new ImageRepresentation("resources/soil.png"), 
-            // TODO: Sprich "Fehler" an. Verwenden wir wirklich das Image oder nur den path?
-            // Wir haben hier die Haupteigenschaft Image welche wirnicht wirklich verwenden.
-            // Neue Implementierung -> html representation. Das schaut aber gleich aus wie die unicode representation.
-            // wir sollten uns nicht mit solchen dinge aufhalten, denn diese haben keinen effekt auf die Kriterien/Ziele.
-
-            ConsoleRenderer => new UnicodeRepresentation("🟫"),
-            _ => throw new NotSupportedException()
-        };
-
-
     }
 
     public void SimulateSeedling()
     {
-        RegrowSeedlings(Renderer);
+        RegrowSeedlings();
     }
 
     public void SimulateHamster()
@@ -130,7 +116,7 @@ public class Plane
         Seedlings.Remove(Seedling.Position);
     }
 
-    public void RegrowSeedlings(IRenderer Renderer)
+    public void RegrowSeedlings()
     {
         int potentialGrowth = (int)Math.Pow(Hamsters.Count, 2) / Seedlings.Count;
         int freeTiles = Size * Size - Hamsters.Count - Seedlings.Count;
@@ -139,7 +125,7 @@ public class Plane
 
         for (int i = 0; i < bound; i++)
         {
-            var Seedling = new Seedling(this, Renderer);
+            var Seedling = new Seedling(this);
             Seedlings[Seedling.Position] = Seedling;
         }
     }

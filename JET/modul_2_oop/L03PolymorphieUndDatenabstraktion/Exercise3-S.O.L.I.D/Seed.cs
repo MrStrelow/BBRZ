@@ -1,4 +1,5 @@
 ﻿using Hamster.Strategies;
+using Hamster.Visuals;
 
 namespace Hamster;
 
@@ -7,12 +8,12 @@ public class Seedling
     // Felder
     // Eigenschaften (Properties)
     public (int x, int y) Position { get; private set; }
-    public static IVisualRepresentation? Representation { get; protected set; }
+    public static IVisuals Visual { get; protected set; } = new SeedlingVisuals();
 
     public Plane Plane { get; set; }
 
     // Konstruktor
-    public Seedling(Plane plane, IRenderer renderer)
+    public Seedling(Plane plane)
     {
         Plane = plane;
 
@@ -30,14 +31,5 @@ public class Seedling
         } while (!done);
 
         Position = (x, y);
-
-        IVisualRepresentation representation = renderer switch
-        {
-            HtmlRenderer => new ImageRepresentation("resources/seedling.png"),
-            ConsoleRenderer => new UnicodeRepresentation("🌱"),
-            _ => throw new NotSupportedException()
-        };
-
-        Representation = representation;
     }
 }

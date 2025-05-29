@@ -3,24 +3,28 @@ using System.IO;
 using System.Text;
 using System.Globalization;
 using Hamster.Strategies;
+using Hamster.Visuals.Representations;
 namespace Hamster;
 
 public sealed class HtmlRenderer : IRenderer
 {
     private readonly Plane _plane;
-    private readonly string _filePath; 
+    private readonly string _filePath;
+    // Array of Tuples: html styles are stored in string, the image itself is stored in IRepresentation.
+    private (IRepresentation, string)[,] _planeVisualRepresentations;
 
     public int TimeToSleepMs { get; set; } = 1000;
 
     public HtmlRenderer(Plane plane, string outputFilePath = "../../../simulation.html")
     {
-        _plane = plane ?? throw new ArgumentNullException(nameof(plane));
+        _plane = plane;
         _filePath = outputFilePath;
+        // Achtung! verwirrend... IRepresentation = new HtmlRepresentation vs. (IRepresentation, string) = new (HtmlRepresentation, string) -> last is wrong
+        _planeVisualRepresentations = new (IRepresentation, string)[_plane.Size, _plane.Size]; 
     }
 
     public void Render()
     {
-        TODO use image paths of representation 
         StringBuilder htmlBuilder = new StringBuilder();
 
         // Start HTML document
@@ -44,23 +48,23 @@ public sealed class HtmlRenderer : IRenderer
         htmlBuilder.AppendLine("    <table>");
 
         // Create a temporary display grid for easier HTML generation
-        var displayPlane = new UnicodeRepresentation[_plane.Size, _plane.Size];
+        
 
         // Initialize with earth representation
         for (int i = 0; i < _plane.Size; i++)
         {
             for (int j = 0; j < _plane.Size; j++)
             {
-                displayPlane[i, j] = "<td style='background-color:#8B4513;'>🟫</td>";
+                _planeVisualRepresentations[i, j] = (Plane.Visual.ImageRepresentation, $"<td style='background-color:#8B4513;'> <img src={Plane.Visual.ImageRepresentation.Path} </td>");
             }
         }
 
         // Place Seedlings onto the display grid
         foreach (var Seedling in _plane.Seedlings.Values)
         {
-            if (IsValidPosition(Seedling.Position))
-            {< img src = "wedding.jpg" >
-                displayPlane[Seedling.Position.y, Seedling.Position.x] = $"<td style='background-color:#90EE90;'>{Seedling.Representation}</td>";
+            if (IsValidPosition(Seedling.Position)) // remove to Trust plane as a server.
+            {
+                _planeVisualRepresentations[Seedling.Position.y, Seedling.Position.x] = (Seedling.Visual.ImageRepresentation, $"<td style='background-color:#90EE90;'>{Seedling.Visual.ImageRepresentation.Path}</td>");
             }
         }
 
@@ -69,8 +73,8 @@ public sealed class HtmlRenderer : IRenderer
         {
             if (IsValidPosition(hamster.Position))
             {
-                string hamsterStyle = hamster.IsHungry ? "background-color:#FFCCCB;" : "background-color:#ADD8E6;";
-                displayPlane[hamster.Position.y, hamster.Position.x] = $"<td style='{hamsterStyle}'>{hamster.Representation}</td>";
+                string backgroundStyle = hamster.IsHungry ? "background-color:#FFCCCB;" : "background-color:#ADD8E6;";
+                _planeVisualRepresentations[hamster.Position.y, hamster.Position.x] = (hamster.CurrentVisual.ImageRepresentation, $"<td style='{backgroundStyle}'>{hamster.CurrentVisual.ImageRepresentation.Path}</td>");
             }
         }
 
@@ -80,7 +84,7 @@ public sealed class HtmlRenderer : IRenderer
             htmlBuilder.AppendLine("        <tr>");
             for (int j = 0; j < _plane.Size; j++)
             {
-                htmlBuilder.Append(displayPlane[i, j]);
+                htmlBuilder.Append(_planeVisualRepresentations[i, j]);
             }
             htmlBuilder.AppendLine("        </tr>");
         }

@@ -107,9 +107,4 @@ public class Hamster
         mouth.Add(Seedling);
         plane.HamsterIsStoringSeedlings(this);
     }
-
-    public override string ToString()
-    {
-        return Representation;
-    }
 }
