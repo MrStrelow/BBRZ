@@ -30,8 +30,8 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane); // TODO factory method.
-        //IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 500 }; // TODO factory method.
-        IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 500 }; // TODO factory method.
+        IRenderer renderer = new ConsoleRenderer(plane) { TimeToSleepMs = 500 }; // TODO factory method.
+        //IRenderer renderer = new HtmlRenderer(plane) { TimeToSleepMs = 500 }; // TODO factory method.
         plane.Renderer = renderer; // TODO factory method.
 
         while (true)
