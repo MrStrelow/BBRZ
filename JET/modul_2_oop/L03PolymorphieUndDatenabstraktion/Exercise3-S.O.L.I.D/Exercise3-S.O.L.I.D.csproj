@@ -6,6 +6,7 @@
     <RootNamespace>Exercise3_S.O.L.I.D</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

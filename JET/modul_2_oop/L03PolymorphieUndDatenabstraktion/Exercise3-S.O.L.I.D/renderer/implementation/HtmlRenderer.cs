@@ -11,9 +11,10 @@ public sealed class HtmlRenderer : IRenderer
     private readonly Plane _plane;
     private readonly string _filePath;
     // Array of Tuples: html styles are stored in string, the image itself is stored in IRepresentation.
-    private (IRepresentation, string)[,] _planeVisualRepresentations;
+    private (IRepresentation image, string html)[,] _planeVisualRepresentations;
 
     public int TimeToSleepMs { get; set; } = 1000;
+    private readonly int _maxWidth = new int[] { Plane.Visual.ImageRepresentation.SizeToDisplay, Seedling.Visual.ImageRepresentation.SizeToDisplay }.Max();
 
     public HtmlRenderer(Plane plane, string outputFilePath = "../../../simulation.html")
     {
@@ -55,7 +56,23 @@ public sealed class HtmlRenderer : IRenderer
         {
             for (int j = 0; j < _plane.Size; j++)
             {
-                _planeVisualRepresentations[i, j] = (Plane.Visual.ImageRepresentation, $"<td style='background-color:#8B4513;'> <img src={Plane.Visual.ImageRepresentation.Path} </td>");
+                _planeVisualRepresentations[i, j] = 
+                    (
+                        image: Plane.Visual.ImageRepresentation, 
+                        html:   $"<td " +
+                                    $"style='" +
+                                        $"background-color:#8B4513; " +
+                                        $"max-width: {_maxWidth}px; " +
+                                        $"max-height: {_maxWidth}px; " +
+                                        $"overflow: auto;" +
+                                    $"'" +
+                                $"> " +
+                                    $"<img " +
+                                        $"src='{Plane.Visual.ImageRepresentation}' " +
+                                        $"width='{Plane.Visual.ImageRepresentation.SizeToDisplay}' " +
+                                        $"height='{Plane.Visual.ImageRepresentation.SizeToDisplay}'" +
+                                    $"/> " +
+                                $"</td>");
             }
         }
 
@@ -64,7 +81,23 @@ public sealed class HtmlRenderer : IRenderer
         {
             if (IsValidPosition(Seedling.Position)) // remove to Trust plane as a server.
             {
-                _planeVisualRepresentations[Seedling.Position.y, Seedling.Position.x] = (Seedling.Visual.ImageRepresentation, $"<td style='background-color:#90EE90;'>{Seedling.Visual.ImageRepresentation.Path}</td>");
+                _planeVisualRepresentations[Seedling.Position.y, Seedling.Position.x] = 
+                    (
+                        image: Seedling.Visual.ImageRepresentation, 
+                        html:   $"<td " +
+                                    $"style='" +
+                                        $"background-color:#90EE90; " +
+                                        $"max-width: {_maxWidth}px; " +
+                                        $"max-height: {_maxWidth}px; " +
+                                        $"overflow: auto;" +
+                                    $"'" +
+                                $"> " +
+                                    $"<img " +
+                                        $"src='{Seedling.Visual.ImageRepresentation}' " +
+                                        $"width='{Seedling.Visual.ImageRepresentation.SizeToDisplay}' " +
+                                        $"height='{Seedling.Visual.ImageRepresentation.SizeToDisplay}'" +
+                                    $"/> " +
+                                $"</td>");
             }
         }
 
@@ -73,8 +106,24 @@ public sealed class HtmlRenderer : IRenderer
         {
             if (IsValidPosition(hamster.Position))
             {
-                string backgroundStyle = hamster.IsHungry ? "background-color:#FFCCCB;" : "background-color:#ADD8E6;";
-                _planeVisualRepresentations[hamster.Position.y, hamster.Position.x] = (hamster.CurrentVisual.ImageRepresentation, $"<td style='{backgroundStyle}'>{hamster.CurrentVisual.ImageRepresentation.Path}</td>");
+                string backgroundStyle = hamster.IsHungry ? "background-color:#FFCCCB" : "background-color:#ADD8E6";
+                _planeVisualRepresentations[hamster.Position.y, hamster.Position.x] = 
+                    (
+                        image: hamster.CurrentVisual.ImageRepresentation, 
+                        html:   $"<td " +
+                                    $"style='" +
+                                        $"{backgroundStyle}; " +
+                                        $"max-width: {_maxWidth}px; " +
+                                        $"max-height: {_maxWidth}px; " +
+                                        $"overflow: auto;" +
+                                    $"'" +
+                                $"> " +
+                                    $"<img " +
+                                        $"src='{hamster.CurrentVisual.ImageRepresentation}' " +
+                                        $"width='{hamster.CurrentVisual.ImageRepresentation.SizeToDisplay}' " +
+                                        $"height='{hamster.CurrentVisual.ImageRepresentation.SizeToDisplay}'" +
+                                    $"/> " +
+                                $"</td>");
             }
         }
 
@@ -84,7 +133,7 @@ public sealed class HtmlRenderer : IRenderer
             htmlBuilder.AppendLine("        <tr>");
             for (int j = 0; j < _plane.Size; j++)
             {
-                htmlBuilder.Append(_planeVisualRepresentations[i, j]);
+                htmlBuilder.Append(_planeVisualRepresentations[i, j].html); // We dont use the image! wrong design choice in image Representation!
             }
             htmlBuilder.AppendLine("        </tr>");
         }
@@ -111,10 +160,5 @@ public sealed class HtmlRenderer : IRenderer
     private bool IsValidPosition((int x, int y) position)
     {
         return position.y < _plane.Size && position.x < _plane.Size && position.y >= 0 && position.x >= 0;
-    }
-
-    public int CompareTo(object? obj)
-    {
-        throw new NotImplementedException();
     }
 }

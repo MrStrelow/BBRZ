@@ -7,6 +7,6 @@ namespace Hamster.Visuals;
 public class PlaneVisuals : IVisuals
 {
     // TODO: wir machen das in zukunft lazy - bedeutet erst wenn wir z.B. eine image representation brauchen, dann wird diese erzeugt.
-    public ImageRepresentation ImageRepresentation { get; init; } = new("../../../resources/Plane.png");
+    public ImageRepresentation ImageRepresentation { get; init; } = new("../../../resources/Plane.png", 80);
     public UnicodeRepresentation UnicoeRepresentation { get; init; } = new("🟫");
 }

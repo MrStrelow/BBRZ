@@ -7,6 +7,6 @@ namespace Hamster.Visuals;
 public class HungryBigMouthHamsterVisuals : IVisuals
 {
     // TODO: wir machen das in zukunft lazy - bedeutet erst wenn wir z.B. eine image representation brauchen, dann wird diese erzeugt.
-    public ImageRepresentation ImageRepresentation { get; init; } = new("../../../resources/BigMouthHamster_hangry.png");
-    public UnicodeRepresentation UnicoeRepresentation { get; init; } = new("😡");
+    public ImageRepresentation ImageRepresentation { get; init; } = new ("../../../resources/BigMouthHamster_hangry.png", 70);
+    public UnicodeRepresentation UnicoeRepresentation { get; init; } = new ("😡");
 }

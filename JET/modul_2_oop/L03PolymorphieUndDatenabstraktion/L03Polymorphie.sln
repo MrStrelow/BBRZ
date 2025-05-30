@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2-abstract_classes"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise3-S.O.L.I.D", "Exercise3-S.O.L.I.D\Exercise3-S.O.L.I.D.csproj", "{42CCA624-0514-42B9-95BB-2E5B4F4AEEC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise4 - DurchblickImWirrWarr", "Exercise4 - DurchblickImWirrWarr\Exercise4 - DurchblickImWirrWarr.csproj", "{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{42CCA624-0514-42B9-95BB-2E5B4F4AEEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42CCA624-0514-42B9-95BB-2E5B4F4AEEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42CCA624-0514-42B9-95BB-2E5B4F4AEEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

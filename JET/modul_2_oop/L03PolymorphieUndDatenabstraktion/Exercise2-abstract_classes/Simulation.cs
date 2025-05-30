@@ -46,6 +46,5 @@ public class Simulation
             //// Darstellung anzeigen
             renderer.Render();
         }
-
     }
 }
