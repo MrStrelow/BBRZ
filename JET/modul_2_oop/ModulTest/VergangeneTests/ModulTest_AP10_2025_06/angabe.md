@@ -148,13 +148,16 @@ Gegeben ist folgender Code welcher ``Klassen`` mit ``Felder`` (inklusive ``Hat-B
 * ``var`` *var hempter = new Hamster(plane);* 
 * ``Target-Typing`` *new ()* z.B. in einem ``Feld`` *class Hamster { private List<Seedling> _mouth = new (); }
 * ``named-arguments`` *:* z.B. *new Hamster(plane: wateryAndMountainy Habitat) { Name = "hello" };*
+* ``optional-arguments`` *int age = 25* z.B. *public Hamster(string name, int age = 25)*. Es kann also *var Herbert = new Hamster("Herbert");* aufgerufen werden wo nun *herbert* *age=25* besitzt.
+* ``Guard-Clauses`` innerhalb der ``set`` der ``Property``.
 
 Es soll dadurch **keine** 
 * ``Get-Methoden`` bzw. ``Set-Methoden`` vorkommen,
 * ``Felder`` (außer wir bruachen ``Backing Felder`` für ``set-guards``) vorkommen,
 * Warnungen welche sich mit ``null`` beschäftigen vorkommen (Die Verwendung des ``Null-Forgiving`` Operator ``!`` ist nicht erlaubt), 
-* weniger vermischte ``Verzweigungen`` von ``Business-Logik`` und ``Exceptions``.
-im Code vorhanden sein
+und 
+* **weniger** vermischte ``Verzweigungen`` von ``Business-Logik`` und ``Exceptions``.
+im Code vorhanden sein. ``Guard Clauses``.
 
 **Hinweise!:** 
 * Achte im neu geschriebenen Code auf das ``Data-Hiding`` der ``Datenkaplesung``. Bei welchen ``Feldern`` und ``Methoden`` steht ``public``, ``protected``, ``private``, etc.
@@ -332,6 +335,38 @@ ah. _isHungry ist null.
 
 ---
 
+## Interfaces, abstract Classes und S.O.L.I.D [45 Punkte]
+### Programmverständnis [20 / 45 Teilpunkte]
+Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind hier zwei Klassendiagramme gegeben, eines stellt eine **sauberere** bezogen auf ``S.O.L.I.D`` dar, die andere eine **schlechtere** Lösung.
+* Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
+* Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
+
+---
+
+![alt](LargeClassDiagram-transparent.png)
+
+---
+
+![alt](SmallClassDiagram-transparent.png)
+
+---
+
+### Programmieren [25 / 45 Teilpunkte]
+Verwende folgenden Code welcher [hier](VorlageAufgabe3.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``NervousHamster`` ist.
+* anderes ``INutritionBehaviour``: 
+    * Auch wenn dieser Hunger hat, soll es eine 50/50 chance geben, dass dieser einen ``Seedling`` aufsammelt und nicht isst.
+    * Wenn dieser **einmal** einen leeren ``Mouth`` hat, dann wird dieser nie wieder ``Seedlings`` sammeln. Wenn ein ``Seedling`` gefunden wird, wird dieser sofort gegessen, egal ob *hungrig* oder *satt*.
+* andere ``IRandomMovementStrategy``: 
+    * Anwendung der ``OneStepMovementStrategy`` solange bis...
+    * ... dieser **einmal** einen leeren ``Mouth`` hatte. Ab dann bewegt dieser Hamster sich immer 2 ``Felder`` nach, *oben*, *unten*, *links* oder *rechts*. Dies ist ähnlich wie die ``DoubleStepMovementStrategy``, jedoch ist es nicht möglich nach *oben* und dann nach *rechts* gehen zu können. 
+* andere ``IVisuals``:
+    * Diese soll für die ``HtmlRepresentation`` ein beliebiges *Bild* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
+    * Diese soll für die ``UnicoeRepresentation`` ein beliebiges *Emoji* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
+
+**Hinweis:** Orientieren Sie sich an den bereits geschreibenen Code! Z.B. ist in ``FedBigLegHamsterVisuals`` der Code den Sie benötigen gegeben. Dieser kann kopiert und in einer **neuen** ``Klasse`` implementiert werden. Danach wird dieser leicht angepasst. Z.B. der ``Emoji`` wird ausgetauscht.
+
+---
+
 ## static vs. non-static und Referenz vs. Wertdaten [10 Punkte]
 ### Programmverständnis [10 / 10 Teilpunkte]
 Gegeben ist folgendes Programm, welches ``Referenzdaten`` beinhaltet. Diese können ``static`` oder auch nicht ``static`` sein. Wenn wir uns während der Ausführung des Programms den Arbeitsspeicher anschauen bemerken wir, dass dieses Programm viel Speicher benötigt.
@@ -427,37 +462,5 @@ c)
 * Warum haben wir **``2 * 2 bytes`` (der/die Character selbst) +**? Reichen nicht *2* bytes = *16* bit für einen *Character*?
 * ist *string* ein ``Wertdatentyp`` oder ein ``Referenzdatentyp``? 
 * es gibt bei einem *string* eine spezielle Speicherung, diese heißt ``internal string pool``, welche bei Version 2 verwendet wird. Wie wirkt sich dieser ``internal string pool`` in unserem Programm aus?
-
----
-
-## Interfaces, abstract Classes und S.O.L.I.D [45 Punkte]
-### Programmverständnis [20 / 45 Teilpunkte]
-Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind hier zwei Klassendiagramme gegeben, eines stellt eine **sauberere** bezogen auf ``S.O.L.I.D`` dar, die andere eine **schlechtere** Lösung.
-* Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
-* Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
-
----
-
-![alt](LargeClassDiagram-transparent.png)
-
----
-
-![alt](SmallClassDiagram-transparent.png)
-
----
-
-### Programmieren [25 / 45 Teilpunkte]
-Verwende folgenden Code welcher [hier](VorlageAufgabe3.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``NervousHamster`` ist.
-* anderes ``INutritionBehaviour``: 
-    * Auch wenn dieser Hunger hat, soll es eine 50/50 chance geben, dass dieser einen ``Seedling`` aufsammelt und nicht isst.
-    * Wenn dieser **einmal** einen leeren ``Mouth`` hat, dann wird dieser nie wieder ``Seedlings`` sammeln. Wenn ein ``Seedling`` gefunden wird, wird dieser sofort gegessen, egal ob *hungrig* oder *satt*.
-* andere ``IRandomMovementStrategy``: 
-    * Anwendung der ``OneStepMovementStrategy`` solange bis...
-    * ... dieser **einmal** einen leeren ``Mouth`` hatte. Ab dann bewegt dieser Hamster sich immer 2 ``Felder`` nach, *oben*, *unten*, *links* oder *rechts*. Dies ist ähnlich wie die ``DoubleStepMovementStrategy``, jedoch ist es nicht möglich nach *oben* und dann nach *rechts* gehen zu können. 
-* andere ``IVisuals``:
-    * Diese soll für die ``HtmlRepresentation`` ein beliebiges *Bild* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
-    * Diese soll für die ``UnicoeRepresentation`` ein beliebiges *Emoji* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
-
-**Hinweis:** Orientieren Sie sich an den bereits geschreibenen Code! Z.B. ist in ``FedBigLegHamsterVisuals`` der Code den Sie benötigen gegeben. Dieser kann kopiert und in einer **neuen** ``Klasse`` implementiert werden. Danach wird dieser leicht angepasst. Z.B. der ``Emoji`` wird ausgetauscht.
 
 ---

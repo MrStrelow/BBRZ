@@ -1,5 +1,6 @@
 ﻿using java = OldJavaStyleHamster;
 using csharp = NewCSharpStyleHamster;
+using System.Text;
 
 namespace OldJavaStyleHamster
 {
@@ -25,7 +26,15 @@ namespace OldJavaStyleHamster
         {
             _isHungry = isHungry;
             _representation = _fedRepresentation;
-            _plane = plane;
+            
+            if (plane == null) 
+            {
+                throw new ArgumentNullException(nameof(plane), "Eine Ebene (Plane) muss bereitgestellt werden.");
+            } 
+            else
+            {
+                _plane = plane;
+            }
         }
 
         public string GetRepresentation()
@@ -86,8 +95,8 @@ namespace OldJavaStyleHamster
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            Plane plane = new Plane();
-            Hamster hempter = new Hamster(plane, null);
+            Plane snowhabitat = new Plane();
+            Hamster hempter = new Hamster(snowhabitat, null);
 
             Console.WriteLine(hempter.GetRepresentation());
             // Achtung! Hiest ist ? teil der If-Expression umgesetzt mit dem ?:-Operator. 
@@ -101,8 +110,66 @@ namespace NewCSharpStyleHamster
 {
     public class Hamster
     {
-        // TODO: implemente me.
+        // Statische Felder für Repräsentationen, readonly ist gute Praxis
+        private static readonly string _hungryRepresentation = "😡";
+        private static readonly string _fedRepresentation = "🐹";
+
+        // Backing Field für die Representation Property, notwendig wegen der Validierungslogik im Setter.
+        private string _representation;
+
+        // Property für Representation
+        public string Representation
+        {
+            // Lambda-Operator für den Getter
+            get => _representation;
+            // protected set, um die ursprüngliche Sichtbarkeit von SetRepresentation beizubehalten
+            protected set
+            {
+                // Null-Check für den Wert
+                if (value is null)
+                    throw new ArgumentNullException(nameof(value), "Representation darf nicht null sein.");
+
+                // Expliziter Check auf leeren String, bevor auf value[0] zugegriffen wird
+                if (value.Length == 0)
+                    throw new ArgumentException("Representation darf nicht leer sein.", nameof(value));
+
+                // Replikation der ursprünglichen (fehlerbehafteten) Logik für den "Emoji-Check".
+                if (!char.IsSurrogate(value[0]))
+                    throw new ArgumentException($"'{value}' ist kein Emoji (basierend auf Original-Logik und Annahme, dass Emoji mit Surrogate beginnt).", nameof(value));
+
+                _representation = value;
+            }
+        }
+
+        // IsHungry Property vom Typ bool? (Nullable<bool>).
+        // Dies ermöglicht den null-Zustand und ist notwendig, um die ursprüngliche Konsolenausgabe zu erreichen.
+        // Der "kleine Zusatz" aus dem Hinweis bezieht sich auf die Verwendung von bool? und den damit verbundenen C#-Features.
+        public bool? IsHungry { get; protected set; } // Property; protected set wie bei SetIsHungry
+
+        // Position Property, öffentlicher get und set Zugriff wie bei GetPosition/SetPosition
+        public (int x, int y) Position { get; set; } // Property
+
+        // Interne Datenliste für Seedling-Objekte.
+        // Target-Typing (new()) wird für die Initialisierung verwendet.
+        // Dieses Feld dient der internen Komposition und wird nicht direkt als von außen setzbare Eigenschaft offengelegt.
+        private List<Seedling> _mouth = new();
+
+        // Die dem Hamster zugeordnete Ebene (Plane).
+        public Plane MyPlane { get; private set; } // Auto-Property mit Getter und implizitem Init-Setter
+
+        // Konstruktor
+        // Verwendet einen optionalen Parameter für isHungry (Standardwert false).
+        public Hamster(Plane plane, bool? isHungry = false)
+        {
+            // Null-Coalescing-Operator (??) zur Prüfung des essentiellen Parameters.
+            // Wirft eine ArgumentNullException, wenn associatedPlane null ist.
+            MyPlane = plane ?? throw new ArgumentNullException(nameof(plane), "Eine Ebene (Plane) muss bereitgestellt werden.");
+
+            IsHungry = isHungry; 
+            _representation = _fedRepresentation;
+        }
     }
+
     public class Plane;
     public class Seedling;
 
@@ -110,12 +177,37 @@ namespace NewCSharpStyleHamster
     {
         public static void run()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Plane plane = new Plane();
+            // Stellt sicher, dass Emojis korrekt in der Konsole dargestellt werden.
+            Console.OutputEncoding = Encoding.UTF8;
 
-            // TODO: implement me.
-            throw new NotImplementedException("\u001B[31mLösche diese Zeile und füge deinen eigenen Cod ein!.\u001b[0m");
+            // Verwendung von 'var' für die Typinferenz.
+            var snowhabitat = new Plane();
+
+            // Erstellung einer Hamster-Instanz:
+            // - Verwendung von 'var'.
+            // - Verwendung von benannten Argumenten (hier 'associatedPlane:') für bessere Lesbarkeit.
+            // - Der 'isHungry'-Parameter im Konstruktor hat den Standardwert 'null', wenn er nicht angegeben wird.
+            //   Hier wird explizit 'null' übergeben, um dem Verhalten des alten Codes zu entsprechen.
+            var hempter = new Hamster(plane: snowhabitat, isHungry: null);
+
+            // Beispiel für die Verwendung eines Objektinitialisierers für eine Eigenschaft mit öffentlichem Setter,
+            // falls diese zusätzlich zu den Konstruktorargumenten initialisiert werden soll:
+            // hempter.Position = (10, 5); 
+            // Oder kombiniert bei der Erstellung:
+            // var hempter = new Hamster(associatedPlane: plane, isHungry: null) { Position = (10, 5) };
+            // Da Position standardmäßig (0,0) ist (Default für Tupel von Ints), ist eine explizite Initialisierung hier nicht nötig, um das alte Verhalten zu matchen.
+
+            Console.WriteLine(hempter.Representation);
+
+            // Replikation der ursprünglichen Ausgabelogik für IsHungry:
+            // - Wenn IsHungry null ist, wird "ah. _isHungry ist null." ausgegeben.
+            // - Andernfalls wird der boolesche Wert ("True" oder "False") ausgegeben.
+            // Console.WriteLine behandelt bool? korrekt, wenn es nicht null ist.
+            // Das Casting zu (object) stellt sicher, dass bei einem nicht-null hempter.IsHungry
+            // dessen ToString()-Methode aufgerufen wird, was "True" oder "False" ergibt.
+            Console.WriteLine(hempter.IsHungry is null ? "ah. _isHungry ist null." : (object)hempter.IsHungry);
         }
+    }
     }
 }
 
