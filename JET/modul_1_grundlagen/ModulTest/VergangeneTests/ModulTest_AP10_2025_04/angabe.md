@@ -55,7 +55,7 @@ Console.WriteLine("Alle Überprüfungen bestanden. Der Kunde darf einkaufen!");
 ```
 
  - a) Finde die Fehler in diesem Code und markiere diese.
- - b) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionellen falschen `Guard Clause` führen. 
+ - b) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionell falschen `Guard Clause` führen. 
 
 ---
 

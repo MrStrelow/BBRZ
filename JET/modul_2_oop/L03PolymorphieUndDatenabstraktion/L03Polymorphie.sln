@@ -5,13 +5,13 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skripten", "Skripten\Skripten.csproj", "{5D1AC550-AB17-46E4-B120-2AEB881079B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1-interfaces", "Exercise1-interfaces\Exercise1-interfaces.csproj", "{F9158A6E-D39C-432E-ADA1-911652EA8438}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1-Interfaces", "Exercise1-Interfaces\Exercise1-Interfaces.csproj", "{F9158A6E-D39C-432E-ADA1-911652EA8438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2-abstract_classes", "Exercise2-abstract_classes\Exercise2-abstract_classes.csproj", "{C68E7148-291F-457A-9116-52294110605A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2-AbstractClasses", "Exercise2-AbstractClasses\Exercise2-AbstractClasses.csproj", "{C68E7148-291F-457A-9116-52294110605A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise3-S.O.L.I.D", "Exercise3-S.O.L.I.D\Exercise3-S.O.L.I.D.csproj", "{42CCA624-0514-42B9-95BB-2E5B4F4AEEC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise4 - DurchblickImWirrWarr", "Exercise4 - DurchblickImWirrWarr\Exercise4 - DurchblickImWirrWarr.csproj", "{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise4-DurchblickImWirrWarr", "Exercise4-DurchblickImWirrWarr\Exercise4-DurchblickImWirrWarr.csproj", "{D2723A5F-A6A3-4CDF-AA4B-27C99FA30591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCoding", "LiveCoding\LiveCoding.csproj", "{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L00.1Properties", "L00.1Properties\L00.1Properties.csproj", "{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeueSprachkonzepte", "NeueSprachkonzepte\NeueSprachkonzepte.csproj", "{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L00.2PropertiesUndSetGuards", "L00.2PropertiesUndSetGuards\L00.2PropertiesUndSetGuards.csproj", "{778BECF9-83DB-4ACB-9F98-564952553F8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenzUndWertDaten", "ReferenzUndWertDaten\ReferenzUndWertDaten.csproj", "{778BECF9-83DB-4ACB-9F98-564952553F8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01.1NullCoalescing", "L01.1NullCoalescing\L01.1NullCoalescing.csproj", "{6099F3A6-37EB-44B1-816B-E5A8EB5CC217}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datenkapselung - Hamster", "Datenkapselung - Hamster\Datenkapselung - Hamster.csproj", "{6099F3A6-37EB-44B1-816B-E5A8EB5CC217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01.3Flyweight", "L01.3Flyweight\L01.3Flyweight.csproj", "{53A578B2-790D-4577-916B-DA10C806CD8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism - Hamster", "Polymorphism - Hamster\Polymorphism - Hamster.csproj", "{53A578B2-790D-4577-916B-DA10C806CD8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.0Hamster", "L02.0Hamster\L02.0Hamster.csproj", "{4F07EE28-E3B7-41A6-95AD-B7A384CBB3B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID - Hamster", "SOLID - Hamster\SOLID - Hamster.csproj", "{4F07EE28-E3B7-41A6-95AD-B7A384CBB3B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03.1Polymorphism - Erste Schritte", "L03.1Polymorphism - Erste Schritte\L03.1Polymorphism - Erste Schritte.csproj", "{F81E0B45-224F-4C15-9076-2490E9E589FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{F81E0B45-224F-4C15-9076-2490E9E589FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03.2Polymorphism - Interfaces - Hamster", "L03.2Polymorphism - Interfaces - Hamster\L03.2Polymorphism - Interfaces - Hamster.csproj", "{9EF6EDB1-19B5-4EDC-8898-034727AD7DA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03.3Polymorphism - AbstractClasses - Hamster", "L03.3Polymorphism - AbstractClasses - Hamster\L03.3Polymorphism - AbstractClasses - Hamster.csproj", "{EB50207D-F8B7-4F29-B2BD-87A8AF9C6EA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{558E90C9-5F76-43B1-B6B6-F0FCF4A0E5DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83AF77FA-08DB-4EAB-BDAF-77ACA9C41480}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +49,14 @@ Global
 		{F81E0B45-224F-4C15-9076-2490E9E589FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F81E0B45-224F-4C15-9076-2490E9E589FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F81E0B45-224F-4C15-9076-2490E9E589FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EF6EDB1-19B5-4EDC-8898-034727AD7DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF6EDB1-19B5-4EDC-8898-034727AD7DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF6EDB1-19B5-4EDC-8898-034727AD7DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF6EDB1-19B5-4EDC-8898-034727AD7DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB50207D-F8B7-4F29-B2BD-87A8AF9C6EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB50207D-F8B7-4F29-B2BD-87A8AF9C6EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB50207D-F8B7-4F29-B2BD-87A8AF9C6EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB50207D-F8B7-4F29-B2BD-87A8AF9C6EA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
