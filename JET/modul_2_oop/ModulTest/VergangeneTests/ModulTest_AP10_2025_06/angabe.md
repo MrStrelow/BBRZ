@@ -25,9 +25,9 @@ Notenschlüssel:
 
 ---
 
-## C# Style OOP - Properties, Object Initializer, Nullable, Null Coalescing, ... [55 / 100 Punkte]
+## C# Style OOP - Properties, Object Initializer, Nullable, Null Coalescing, ... [45 / 100 Punkte]
 
-### Programmverständnis [25 / 55 Teilpunkte]
+### Programmverständnis [20 / 45 Teilpunkte]
 Gegeben ist folgender Code welcher ``Properties``(Eigenschaften) und ``Set-Gaurds`` verwendet. 
 
 ```csharp
@@ -138,7 +138,7 @@ Console.Write($"ohne ??= - {_x}");
 **Hinweis:** Eines ist eine ``If-Verzweigung`` das andere ist eine ``If-Bedingung``.
 ---
 
-### Programmieren [25 / 55 Teilpunkte]
+### Programmieren [20 / 45 Teilpunkte]
 Gegeben ist folgender Code welcher ``Klassen`` mit ``Felder`` (inklusive ``Hat-Beziehungen``) und die Erstellung von `Objekten` durch ``Konstruktoren`` darstellt. Schreibe den gegebenen Code um und verwende folgende Werkzeuge aus ``C#``:
 * ``Properties``(Eigenschaften) *Name { get; set; }* 
 * ``Object-Initializer`` *new Hamster { Name = "hello" };*
@@ -297,7 +297,7 @@ public class Comparisson
 
 ---
 
-### Theorie [5 / 55 Teilpunkte]
+### Theorie [5 / 45 Teilpunkte]
 * a) wieso schreiben wir meistens ``public`` bei einer ``Property`` (Eigenschaft)? Sollten wir laut ``Data-Hiding`` nicht unsere ``Felder`` vor uneingeschränkten Zugrifen beschützen? 
 * c) Wann ist es **notwendig** ``new ()`` anstatt ``var`` zu schreiben? Es scheint, dass ``var`` die flexiblere Variante ist. Schau dazu folgenden Code an und probiere diesen aus.
 ```csharp
@@ -334,7 +334,7 @@ ah. _isHungry ist null.
 
 ## static vs. non-static und Referenz vs. Wertdaten [10 Punkte]
 ### Programmverständnis [10 / 10 Teilpunkte]
-Gegeben ist folgendes Programm. Wenn wir uns den Arbeitsspeicher des Computers anschauen bemerken wir, dieses Programm benötigt viel Speicher.
+Gegeben ist folgendes Programm, welches ``Referenzdaten`` beinhaltet. Diese können ``static`` oder auch nicht ``static`` sein. Wenn wir uns während der Ausführung des Programms den Arbeitsspeicher anschauen bemerken wir, dass dieses Programm viel Speicher benötigt.
 
 ```csharp
 using System.Diagnostics;
@@ -389,54 +389,64 @@ public class Programm
 
 Erwarteter Output:
 ```
-1) static string darstellung_static = "🐹";
+1) static ... "🐹";
 Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 3312.83 MB
 Approximate private bytes increase (Process): 4361.90 MB
 
-2) string darstellung_internal_string_pool = "🐹";
-Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 3312.83 MB
-Approximate private bytes increase (Process): 4362.51 MB
+2) "🐹";
+Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 4075.76 MB
+Approximate private bytes increase (Process): 5140.50 MB
 
-3) string darstellung_instance_new = new string("a");
-Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 5601.64 MB
-Approximate private bytes increase (Process): 6688.52 MB
-
-3) string darstellung_instance_new = new string("🐹");
-Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 6364.59 MB
-Approximate private bytes increase (Process): 7459.57 MB
+3) new string("🐹");
+Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 10179.27 MB
+Approximate private bytes increase (Process): 11334.81 MB
 
 4) leere Klasse ohne Felder
 Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 3312.83 MB
 Approximate private bytes increase (Process): 4365.58 MB
 ```
 
-Begründe warum die Anwendung von ``Referenzdaten`` wie hier mit *string* verschiedenes Verhalten hat. Gehe dazu auf die Idee von ``Referenzdaten`` ein und grenze diese zu ``Wertdaten`` ab.
+a) Begründe warum die Anwendung von ``Referenzdaten`` wie hier mit *string* in den 4 Fällen ein verschiedenes Verhalten hat. Gehe dazu 
+* auf die Idee von ``Referenzdaten`` ein (was liegt meistens im ``Stack``, was liegt im ``Heap``) und 
+* wie werden ``Referenzen`` grafisch dargstellt? 
+* Sparen wir uns Speicher wenn alle ``Referenzen`` auf ein Ziel zeigen? 
 
-Bonus:
-Begründe warum ein Anstieg von ca. 3 GB sinn macht, wenn ``new string("🐹");`` verwendet wird.
+b) Begründe warum die GB an Ram ca. Sinn machen. Berechne dazu überschalgsmäßig die Größen welche im Programm angegeben sind.
+
 Denke an:
-* wie groß ein ``Character`` ist und wie viele ``Character`` werden für das Symbol ``🐹`` benötigt? 
-* ist *string* ein ``Wertdatentyp`` oder ein ``Referenzdatentyp``? Die Größe eines ``Referenzdatentyp`` ist ca. 
+* Die Größe eines ``Objektes`` vom ``Typ`` *string* ist ca. 
     * ``16 bytes`` (leeres objekt) + 
-    * ``?? bytes`` (der/die Character selbst) + 
+    * ``04 bytes = 2 * 2 bytes`` (der/die Character selbst) + 
     * ``04 bytes`` (speziell für string, hat ein Feld Länge, Typ int = 32 bit = 4 byte) + 
     * ``02 bytes`` (details, nicht relevant hier) 
-    * = ``? bytes``
+    * = ``26 bytes`` > ``24 bytes`` also **``32 byte`` pro string objekt**. 
+* Die Größe eines beliebigen ``Objekts`` mindestens ``24 byte`` ist, jedoch ``16 byte`` unsere Basis zum rechnen ist. Falls wir ein leeres Objekt haben ist es ``24 byte`` und falls wir z.B. ein ``Feld`` in einem Objekt haben welches nur eine ``Referenz`` ist, haben wir ``16 byte`` + ``8 byte``, also auch ``24 byte``.
+* Die Größe einer ``Referenz`` selbst ``8 byte`` ist.
 
-* Nimm das Ergebnis vom vorherigen Punkt und akzeptiere, dass wir Schritte der Größe von 8 ``byte`` benötigen. Das bedeutet, falls das Ergebnis z.B. ``17`` byte ist, brauchen wir in Wahrheit ``24`` byte.
+c) 
+* Warum haben wir **``2 * 2 bytes`` (der/die Character selbst) +**? Reichen nicht *2* bytes = *16* bit für einen *Character*?
+* ist *string* ein ``Wertdatentyp`` oder ein ``Referenzdatentyp``? 
+* es gibt bei einem *string* eine spezielle Speicherung, diese heißt ``internal string pool``, welche bei Version 2 verwendet wird. Wie wirkt sich dieser ``internal string pool`` in unserem Programm aus?
 
 ---
 
-## Interfaces, abstract Classes und S.O.L.I.D [35 Punkte]
-### Programmverständnis [15 / 35 Teilpunkte]
+## Interfaces, abstract Classes und S.O.L.I.D [45 Punkte]
+### Programmverständnis [20 / 45 Teilpunkte]
 Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind hier zwei Klassendiagramme gegeben, eines stellt eine **sauberere** bezogen auf ``S.O.L.I.D`` dar, die andere eine **schlechtere** Lösung.
 * Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``S.O.L.I.D`` besser abgebildet ist.
 * Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``S.O.L.I.D`` besser abgebildet ist.
 
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/Angabe/exam_dark.png)
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/Angabe/exam_dark.png)
+---
 
-### Programmieren [20 / 35 Teilpunkte]
+![alt](LargeClassDiagram-transparent.png)
+
+---
+
+![alt](SmallClassDiagram-transparent.png)
+
+---
+
+### Programmieren [25 / 45 Teilpunkte]
 Verwende folgenden Code welcher [hier](VorlageAufgabe3.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``NervousHamster`` ist.
 * anderes ``INutritionBehaviour``: 
     * Auch wenn dieser Hunger hat, soll es eine 50/50 chance geben, dass dieser einen ``Seedling`` aufsammelt und nicht isst.

@@ -4,18 +4,30 @@ using System.Text;
 
 public class Programm
 {
-    public class Hamster
+    public class Hamster // mindestens 24 byte für ein Objekt 100_000_000 mal
     {
         // Version 1
-        //static string darstellung_static = "🐹"; 
+        // Objekt: 24 byte 100_000_000 mal ...
+        static string darstellung_static_fed = "🐹";     // + 8 byte Referenz auf string ein mal + 32 byte string ein mal
+        static string darstellung_static_hungry = "😡";  // + 8 byte Referenz auf string ein mal + 32 byte string ein mal
+        // ergibt ca. 2.4 GB + 8 byte * 100_000_000 Referenzen in der Liste = 3.2 GB
+
         // Version 2
-        // string darstellung_instance_interned = "🐹"; 
-        // Version 3                                      
-        //string darstellung_instance_new = new string("a");
+        // Objekt: 16 byte 100_000_000 mal ... da wir mit den folgenden referenezn über 24 Byte pro Objekt kommen.
+        //string darstellung_instance_interned_fed = "🐹";       // 8 byte Referenz auf string 100_000_000 mal + 32 byte string ein mal
+        //string darstellung_instance_interned_hungry = "😡";    // 8 byte refernez auf string 100_000_000 mal + 32 byte string ein mal
+        // ergibt ca. 3.2 GB + 8 byte * 100_000_000 Referenzen in der Liste = 4.0 GB
+
+        // Version 3
+        // Objekt: 16 byte 100_000_000 mal ... da wir mit den folgenden referenezn über 24 Byte pro Objekt kommen.
+        //string darsellung_instance_new_fed = new string("🐹");     // 8 byte refernez 100_000_000 auf string mal + 32 byte für string im heap 100_000_000 mal
+        //string darsellung_instance_new_hungry = new string("😡");  // 8 byte refernez 100_000_000 auf string mal + 32 byte für string im heap 100_000_000 mal
+        // ergibt ca. 9.6 GB + 8 byte * 100_000_000 Referenzen in der Liste = 10.4 GB
+
         // Version 4
-        //string darsellung_instance_new = new string("🐹");
-        // Version 5
-        // kommentiere alles oben aus und definiere damit eine leere Klasse.
+        // kommentiere alles oben aus und definiere damit eine leere Klasse. 
+        // (16 ist zu klein, mindestens 24... deshalb) 24 byte für ein Objekt 100_000_000 mal
+        // ergibt ca. 2.4 GB + 8 byte * 100_000_000 Referenzen in der Liste = 3.2 GB
     }
 
     static void Main(string[] args)
