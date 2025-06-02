@@ -433,8 +433,8 @@ c)
 ## Interfaces, abstract Classes und S.O.L.I.D [45 Punkte]
 ### Programmverständnis [20 / 45 Teilpunkte]
 Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind hier zwei Klassendiagramme gegeben, eines stellt eine **sauberere** bezogen auf ``S.O.L.I.D`` dar, die andere eine **schlechtere** Lösung.
-* Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``S.O.L.I.D`` besser abgebildet ist.
-* Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``S.O.L.I.D`` besser abgebildet ist.
+* Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
+* Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
 
 ---
 
