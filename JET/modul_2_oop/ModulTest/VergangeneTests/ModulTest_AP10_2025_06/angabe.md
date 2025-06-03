@@ -419,7 +419,6 @@ public class Programm
         long privateBytesUsed = privateBytesAfter - privateBytesBefore;
 
         Console.WriteLine($"Approximate managed memory used by hamsters and list (GC.GetTotalMemory): {memoryUsedByGC / (1024.0 * 1024.0):F2} MB");
-        Console.WriteLine($"Approximate private bytes increase (Process): {privateBytesUsed / (1024.0 * 1024.0):F2} MB");
 
         GC.KeepAlive(hamsters); // Kein Hamster wird vom Gargabe Collector entfernt! Tierschutz++; :)
     }
@@ -430,19 +429,15 @@ Erwarteter Output:
 ```
 1) static ... "🐹";
 Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 3312.83 MB
-Approximate private bytes increase (Process): 4361.90 MB
 
 2) "🐹";
 Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 4075.76 MB
-Approximate private bytes increase (Process): 5140.50 MB
 
 3) new string("🐹");
 Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 10179.27 MB
-Approximate private bytes increase (Process): 11334.81 MB
 
 4) leere Klasse ohne Felder
 Approximate managed memory used by hamsters and list (GC.GetTotalMemory): 3312.83 MB
-Approximate private bytes increase (Process): 4365.58 MB
 ```
 
 a) Begründe warum die Anwendung von ``Referenzdaten`` wie hier mit *string* in den 4 Fällen ein verschiedenes Verhalten hat. Gehe dazu 
@@ -452,7 +447,7 @@ a) Begründe warum die Anwendung von ``Referenzdaten`` wie hier mit *string* in 
 * Ist *string* ein ``Wertdatentyp`` oder ein ``Referenzdatentyp``? 
 * Es gibt bei einem *string* eine spezielle Speicherung, diese heißt ``internal string pool``, welche bei Version 2 verwendet wird. Wie wirkt sich dieser ``internal string pool`` in unserem Programm aus?
 
-b) Begründe warum die GB an Ram ca. Sinn machen. Berechne dazu überschalgsmäßig die Größen welche im Programm angegeben sind.
+b) Begründe warum die GB im Arbeitspeicher ca. Sinn machen. Berechne dazu überschalgsmäßig die Größen welche im Programm angegeben sind.
 
 Denke an:
 * Die Größe eines ``Objektes`` vom ``Typ`` *string* ist ca. 
