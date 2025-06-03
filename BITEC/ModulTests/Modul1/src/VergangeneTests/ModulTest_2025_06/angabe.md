@@ -186,7 +186,9 @@ daten[0][0][0][0][0] // 5. erzeugter Wert.
 
 ## Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
-
+regex matched folgende zahlen als buchstaben
+* drei-und-vierzig
+* dre-iundvier-zig
 
 ---
 
@@ -280,11 +282,20 @@ if (true)
 
 ## Funktionen (Methoden) schreiben [30 Punkte]
 ### Programmverständnis [10 / 30 Teilpunkte]
-
+schachteln von funktionen.
+muster stuff.
+nur aufrufen nichts programmieren.
 
 ---
 
 ### Programmieren [20 / 30 Teilpunkte]
+programmiere oben mit funktionen.
+* 1. das ist die funktion
+* 2. das ist die function
+* 3. dast ist die funktion
 
+### Theorie [05 / 30 Teilpunkte]
+* unterschied argument und parameter.
+* was sollen funktoinen erleichtern
 
 ---
