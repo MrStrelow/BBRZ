@@ -341,6 +341,7 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind
 * Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
 * Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
 
+**Hinweis!** Falls das Bild zu klein ist können Sie dieses mit Rechtsklick extra offnen und zoomen.
 ---
 
 ![alt](LargeClassDiagram-transparent.png)
@@ -354,7 +355,7 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind
 ### Programmieren [25 / 45 Teilpunkte]
 Verwende folgenden Code welcher [hier](VorlageAufgabe2.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``NervousHamster`` ist.
 * anderes ``INutritionBehaviour`` mit Namen ``NervousNutritionBehaviour``:
-    * Diese werden mit einer chance von *80%* pro SPielzug *hungrig*.
+    * Diese werden mit einer chance von *80%* pro Spielzug *hungrig*.
     * Auch wenn dieser Hunger hat, soll es eine 50/50 chance geben, dass dieser einen ``Seedling`` aufsammelt und nicht isst.
     * Wenn dieser **einmal** einen leeren ``Mouth`` hat, dann wird dieser nie wieder ``Seedlings`` sammeln. Wenn ein ``Seedling`` gefunden wird, wird dieser sofort gegessen, egal ob *hungrig* oder *satt*.
 * andere ``IRandomMovementStrategy`` mit Namen ``NervousMovementStrategy``: 
