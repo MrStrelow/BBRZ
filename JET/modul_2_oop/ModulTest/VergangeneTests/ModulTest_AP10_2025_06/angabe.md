@@ -341,7 +341,10 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind
 * Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
 * Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``Open for Extension and closed for Modification``, welches das *O* in ``S.O.L.I.D`` ist, besser abgebildet ist.
 
-**Hinweis!** Falls das Bild zu klein ist können Sie dieses mit Rechtsklick extra offnen und zoomen.
+**Hinweis!** 
+* Falls das Bild zu klein ist können Sie mit Rechtsklick dieses in einem Neuen Fenster öffnen.
+* Falls die Linien schwer zu erkennen sind und sie keinen darkmode verwenden, probiere jene für den brightmode ohne transparenz [hier](LargeClassDiagram-bright-transparent.png) und [hier](SmallClassDiagram-bright-transparent.png), sowie ohne transparenz jedoch für den darkmode [hier](LargeClassDiagram.png) und [hier](SmallClassDiagram.png). 
+
 ---
 
 ![alt](LargeClassDiagram-transparent.png)
@@ -387,11 +390,9 @@ public class Programm
         //static string darstellung_static = "🐹"; 
         // Version 2
         // string darstellung_instance_interned = "🐹"; 
-        // Version 3                                      
-        //string darstellung_instance_new = new string("a");
-        // Version 4
+        // Version 3
         //string darsellung_instance_new = new string("🐹");
-        // Version 5
+        // Version 4
         // kommentiere alles oben aus und definiere damit eine leere Klasse.
     }
 
