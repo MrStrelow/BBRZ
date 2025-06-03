@@ -51,29 +51,33 @@ Der Benutzer muss eine geheime Zahl zwischen 0 und 100 am Terminal erraten. Nach
 
 Weiters soll folgendes gelten:
 
-* Geheime Zahl:
-  Das Programm wählt zu Beginn eine zufällige Zahl zwischen 0 und 100 aus.
-  Verwenden dazu die ``Funktion`` *randint* aus dem ``Modul`` *random*. Um die ``Funktion`` verwenden zu können, schreibe folgendes in die erste Zeile des Programmes ``from random import randint``.
+* **Geheime Zahl:**
+  Das Programm wählt zu Beginn eine zufällige Zahl zwischen 0 und 100 (einschließlich) aus.
+  Verwenden Sie dazu die Klasse `Random` aus dem Paket `java.util`. Um diese Klasse verwenden zu können, schreiben Sie `import java.util.Random;` am Anfang Ihres Programms. Erstellen Sie dann ein Objekt dieser Klasse, z.B. `Random random = new Random();`, und verwenden Sie die Methode `nextInt()`, um eine Zufallszahl zu generieren: `int geheimeZahl = random.nextInt(101);` (dies generiert eine Zahl von 0 bis 100).
+  Alternativ können Sie `Math.random()` verwenden: `int geheimeZahl = (int)(Math.random() * 101);`. Hier ist kein spezieller Import nötig.
 
-* Userinput:
-  Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht.
+* **Userinput:**
+  Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht. Verwenden Sie die Klasse `Scanner` aus dem Paket `java.util` um Eingaben aus dem Terminal einzulesen. Importieren Sie dazu `import java.util.Scanner;` und erstellen Sie ein `Scanner`-Objekt, z.B. `Scanner scanner = new Scanner(System.in);`. Mit `scanner.nextInt();` können Sie dann eine Ganzzahl einlesen.
 
-* Interaktion mit Benutzer:innen:
+* **Interaktion mit Benutzer:innen:**
   Wenn die Eingabe zu hoch ist, gibt das Programm die Nachricht *"Die Zahl ist zu hoch!"* aus.
   Wenn die Eingabe zu niedrig ist, gibt das Programm die Nachricht *"Die Zahl ist zu klein!"* aus.
   Bei korrekter Eingabe zeigt das Programm *"Herzlichen Glückwunsch, Sie haben die Zahl erraten!"* an und beendet das Spiel.
 
-* Anzahl der Versuche:
-  Ein:e Benutzer:in hat ``5`` Leben. Bei jeder falschen Eingabe verliert diese:r ein Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit der Nachricht: *"Game Over! Die geheime Zahl war: ``<Geheime Zahl>``".
+* **Anzahl der Versuche:**
+  Ein:e Benutzer:in hat `5` Leben. Bei jeder falschen Eingabe verliert diese:r ein Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit der Nachricht: *"Game Over! Die geheime Zahl war: <Geheime Zahl>"*.
 
-* ``optional``: Gib am Ende die Anzahl der Versuche aus, die ein:e Benutzer:in benötigt um die Zahl zu erraten. Füge eine Möglichkeit hinzu, das Spiel nach einem Durchgang erneut zu starten.
+* **`optional`**: Gib am Ende die Anzahl der Versuche aus, die ein:e Benutzer:in benötigt um die Zahl zu erraten. Füge eine Möglichkeit hinzu, das Spiel nach einem Durchgang erneut zu starten.
 
-#### Hilfestellung:
-* Nutzen Sie eine ``Schleife``, um die Eingaben zu prüfen, bis die Zahl erraten wurde oder die Leben aufgebraucht sind. Welche ``Schleife`` verwenden wir, wenn *die Anzahl der Wiederholungen unbekannt ist*?
-* Verwenden Sie ``geheime_zahl = randint(0, 100)``
-  **Achtung!** inklusive 0 und inklusive 100! Hier weicht Python von z.B. JAVA ab. Dort wäre exklusive 100 bei der Angabe der Zahl 100.
-* ``leben = 5`` (Zählt, wie viele Leben ein:e Benutzer:in hat).
-* Nutzen Sie ``input()`` um Eingaben aus dem Terminal einzulesen.
+## Hilfestellung:
+* Nutzen Sie eine `Schleife` (z.B. eine `while`-Schleife), um die Eingaben zu prüfen, bis die Zahl erraten wurde oder die Leben aufgebraucht sind. Eine `while`-Schleife eignet sich gut, wenn die Anzahl der Wiederholungen unbekannt ist.
+
+* Verwenden Sie `int geheimeZahl = random.nextInt(101);` (wenn Sie die `Random`-Klasse verwenden) oder `int geheimeZahl = (int)(Math.random() * 101);`.
+  **Achtung!** `random.nextInt(101)` generiert eine Zahl von 0 bis 100 (also inklusive 0 und inklusive 100). `Math.random()` generiert eine Fließkommazahl zwischen 0.0 (inklusiv) und 1.0 (exklusiv). Multipliziert mit 101 ergibt das einen Bereich von 0.0 bis 100.999..., durch die Umwandlung in `int` werden die Nachkommastellen abgeschnitten, was effektiv zu Zahlen von 0 bis 100 führt.
+
+* `int leben = 5;` (Zählt, wie viele Leben ein:e Benutzer:in hat).
+
+* Nutzen Sie `scanner.nextInt()` (wobei `scanner` Ihr `Scanner`-Objekt ist) um Eingaben aus dem Terminal einzulesen. Denken Sie daran, das `Scanner`-Objekt am Ende mit `scanner.close();` zu schließen, um Ressourcen freizugeben, besonders wenn das Programm länger läuft oder komplexer wird.
 
 #### Testfälle:
 ```

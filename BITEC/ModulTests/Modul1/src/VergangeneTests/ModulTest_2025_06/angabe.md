@@ -1,4 +1,4 @@
-# Modultest 1 - JET AP10
+# Modultest 1 - BITEC BT02/03
 
 Sie haben `180 Minuten` Zeit die Aufgaben zu lösen
 * Sie können maximal 100 Punkte erreichen
@@ -25,192 +25,229 @@ Notenschlüssel:
 
 ---
 
-## Guard Clauses [35 / 100 Punkte]
+## Arrays [35 / 100 Punkte]
 
-### Programmverständnis [10 / 35 Teilpunkte]
-Gegeben ist folgender Code welcher eine Guard Clause darstellt. Die Felder (Eigenschaften) der Objekte der Klasse Pilot haben den Typ `bool`.
+### Programmverständnis [10 / 25 Teilpunkte]
+Gegeben ist folgender Code, welcher den ``Bubble Sort`` darstellt. 
 
 ```csharp
-if (kunde is not null)
-    throw new ArgumentNullException("Kunde darf nicht null sein.");
+package VergangeneTests.ModulTest_2025_06.Aufgabe_1;
 
-if (!kunde.IstAktiv)
-{
-    Console.WriteLine("Der Kunde ist nicht aktiv.");
-    return;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Programmieren_02 {
+    static String ANSI_RESET = "\u001B[0m";
+    static String ANSI_RED = "\u001B[31m";
+    static String ANSI_BLUE = "\u001B[34m";
+    static String ANSI_YELLOW = "\u001B[33m";
+    static String colorOfOuterLoop = ANSI_RED;
+    static String colorOfInnerLoop = ANSI_BLUE;
+    
+    public static void main(String[] args) {
+        int[] zahlen = {53, 5, 2, 26, -86};
+        int platzhalter;
+
+        for (int j = zahlen.length - 1; j > 0; j--) {
+            System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
+            
+            for (int i = zahlen.length - 1; i > 0; i--) {
+                String zahlenColored = colorAt(
+                    zahlen,
+                    new int[]{i-1, i},
+                    new String[]{colorOfOuterLoop, colorOfOuterLoop},
+                    ANSI_RESET
+                );
+
+                System.out.println(
+                    "[" +
+                        colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
+                        colorOfInnerLoop + "j=" + j + ANSI_RESET +
+                    "]: " +
+                    zahlenColored + ANSI_RESET
+                );
+
+                if (zahlen[i-1] > zahlen[i]) {
+                    platzhalter = zahlen[i+1];
+                    zahlen[i+1] = zahlen[i-1];
+                    zahlen[i-1] = platzhalter;
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("🏁".repeat(14));
+        System.out.println(ANSI_YELLOW + Arrays.toString(zahlen) + ANSI_RESET);
+    }
+    
+    static String colorAt(int[] zahlen, int[] posToColor, String[] colorOfPos, String baseColor) {
+        String[] coloredZahlen = new String[zahlen.length];
+
+        for (int i = 0; i < zahlen.length; i++) {
+            coloredZahlen[i] = Integer.toString(zahlen[i]);
+        }
+
+        for (int i = 0; i < posToColor.length; i++) {
+            coloredZahlen[posToColor[i]] = colorOfPos[i] + zahlen[posToColor[i]] + baseColor;
+        }
+
+        return baseColor + Arrays.toString(coloredZahlen);
+    }
 }
-
-if (string.IsNullOrEmpty(kunde.Kundenkarte))
-{
-    return;
-    Console.WriteLine("Der Kunde hat keine Kundenkarte.");
-}
-
-if (kunde.MitgliedschaftGueltigBis >= DateTime.Now)
-    throw new User("Die Mitgliedschaft des Kunden ist abgelaufen.");
-else 
-    Console.WriteLine("Die Mitgliedschaft des Kunden ist gültig.");
-
-Console.WriteLine("Alle Überprüfungen bestanden. Der Kunde darf einkaufen!");
 ```
 
- - a) Finde die Fehler in diesem Code und markiere diese.
- - b) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionell falschen `Guard Clause` führen. 
+1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen. 
+2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
+    * Was ist die Aufgabe der äußeren For-Schleife?
+    * Was ist die Aufgabe der inneren For-Schleife?
+    * Was ist die Aufgabe der If-Anweisung?
+    * Was ist die Aufgabe der Variable *platzhalter*?
+    * Was würde passieren wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
+```java
+
+zahlen[i] = zahlen[i-1];
+zahlen[i-1] = zahlen[i];
+```
 
 ---
 
-### Programmieren [20 / 35 Teilpunkte]
-Schreibe folgendes `nested (verschachteltes) IF` als `Guard Clause` um.
-(Hinweis: alle ❗ sind Teil der `Guards`, alle ✅ sind Teil der `gewünschten Zustände`)
+### Programmieren [10 / 25 Teilpunkte]
+<table style="width:100%">
+  <tr>
+    <td style="vertical-align: top; padding-right: 10px; width: 50%;">
+      Wir erinnern uns an folgende Grafik:
+      <ul>
+        <li>Was bedeutet wenn eine Zahl schwarz umrandet wird?</li>
+        <li>Ist dieses Verhalten in unserem Code vorhanden?</li>
+        <li>Wenn nein, versuche diese Optimierung in das oben angegebene Programm einzubauen.</li>
+      </ul>
+    </td>
+    <td style="vertical-align: top; padding-left: 10px; width: 50%;">
+      <div style="text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif" alt="GIF von Bubble Sort welches auf Wikipedia den Ablauf des Algorithmus darstellt.">
+      </div>
+    </td>
+  </tr>
+</table>
 
-Erstelle dazu ein Projekt in `Visual Studio` (oder einem Editor deiner Wahl) und kopiere den `gesamten Code` in ein `Programm.cs` File.
+**Hinweis:** Denke pragmatisch, falls es nicht mit dem angegebene Code möglich ist. Gibt es wo anders eine andere Schreibweise des Codes weche verwendet werden kann?
 
-```csharp
-using System;
-using System.Text;
+**Bonus:** Beschreibe den Code der *colorAt* ``Methode``. Versuche zudem die Zahlen im ``Array`` *zahlen* in *Cyan* einzufärben, aber die eckigen *Klammern* und *Beistriche* nicht einzufärben (*ANSI_RESET*).
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px;">
+  [
+  <div style="color:cyan">53</div>,
+  <div style="color:cyan">5</div>,
+  <div style="color:cyan">2</div>,
+  <div style="color:cyan">26</div>,
+  <div style="color:cyan">-86</div>
+  ]
+</div>
 
-public class Produkt
-{
-    public bool IstPremium { get; set; }
-    public decimal Preis { get; set; }
-}
+Erwarteter Output:
+```
+Durchgang: 4
+[i=4, j=4]: [53, 5, 2, 26, -86]
+[i=3, j=4]: [53, 5, 2, -86, 26]
+[i=2, j=4]: [53, 5, -86, 2, 26]
+[i=1, j=4]: [53, -86, 5, 2, 26]
 
-public class Kunde
-{
-    // Eigenschaften / Felder
-    public bool IstAktiv { get; set; }
-    public int Alter { get; set; }
-    public string Kundenkarte { get; set; }
-    public DateTime MitgliedschaftGueltigBis { get; set; }
-    public int Bestellhistorie { get; set; }
-    public decimal Budget { get; set; }
-    public bool IstKreditwürdig{ get; set; }
+Durchgang: 3
+[i=3, j=3]: [-86, 53, 5, 2, 26]
+[i=2, j=3]: [-86, 53, 2, 5, 26]
+[i=1, j=3]: [-86, 2, 53, 5, 26]
 
-    // Hat-Beziehungen
-    public Produkt Produkt { get; set; }
+Durchgang: 2
+[i=2, j=2]: [-86, 2, 53, 5, 26]
+[i=1, j=2]: [-86, 2, 53, 5, 26]
 
-    public void ValidateKunde()
-    {
-        if (IstAktiv)
-        {
-            if (Alter >= 21)
-            {
-                if (!string.IsNullOrEmpty(Kundenkarte))
-                {
-                    if (MitgliedschaftGueltigBis > DateTime.Now)
-                    {
-                        if (Produkt.IstPremium)
-                        {
-                            if (Bestellhistorie > 20)
-                            {
-                                if (Produkt.Preis > Budget)
-                                {
-                                    throw new InvalidOperationException("❗ Kunde darf das Premium-Produkt nicht kaufen. Zu wenig Geld.");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("✅ Kunde hat mehr als 20 Bestellungen. Dieser Kunde darf Premium-Produkte kaufen.");
-                                }
-                            }
-                            else
-                            {
-                                throw new InvalidOperationException("❗ Kunde hat zu wenig Bestellungen für Premium-Produkte.");
-                            }
-                        }
-                        else
-                        {
-                            if (Produkt.Preis > Budget)
-                            {
-                                if (IstKreditwürdig)
-                                {
-                                    Console.WriteLine("✅ Kunde hat einen Kredit. Dieser Kunde darf das Produkt kaufen.");
-                                }
-                                else 
-                                {
-                                    throw new InvalidOperationException("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("✅ Kunde darf das Produkt kaufen.");
-                            }
-                        }
-                    }
-                    else
-                    {
-                        throw new InvalidOperationException("❗ Die Mitgliedschaft des Kunden ist abgelaufen.");
-                    }
-                }
-                else
-                {
-                    throw new InvalidOperationException("❗ Kunde wird gefragt ob eine Kundenkarte erwünscht ist. Diese:r ist generft und geht aus dem Geschäft.");
-                }
-            }
-            else
-            {
-                throw new InvalidOperationException("❗ Kunde muss mindestens 21 Jahre alt sein.");
-            }
-        }
-        else
-        {
-            throw new InvalidOperationException("❗ Kunde ist nicht aktiv.");
-        }
-    }
+Durchgang: 1
+[i=1, j=1]: [-86, 2, 53, 5, 26]
 
-    public void ValidateKundeGuardClause()
-    {
-        // Guards: ungewünschte Zustände 
-        //TODO: implement me
-        throw new NotImplementedException();
-
-        // gewünschte Zustände 
-        //TODO: implement me
-        throw new NotImplementedException();
-    }
-}
-
-public class Program
-{
-    public static void Main()
-    {
-        Console.OutputEncoding = Encoding.UTF8;
-
-        Kunde kunde = new Kunde
-        {
-            IstAktiv = true,
-            Alter = 26,
-            IstKreditwürdig = true,
-            Kundenkarte = "GoldCard",
-            MitgliedschaftGueltigBis = DateTime.Now.AddMonths(12),
-            Bestellhistorie = 21,
-            Budget = 1000,
-            Produkt = new Produkt { IstPremium = true, Preis = 10005 }
-        };
-
-        try
-        {
-            kunde.ValidateKunde();
-        }
-        catch (InvalidOperationException ex)
-        {
-            Console.WriteLine($"Fehler: {ex.Message}");
-        }
-
-        try
-        {
-            kunde.ValidateKundeGuardClause();
-        }
-        catch (InvalidOperationException ex)
-        {
-            Console.WriteLine($"Fehler: {ex.Message}");
-        }
-    }
-}
+🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
+[-86, 2, 53, 5, 26]
 ```
 
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
+1) Was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code:
+```java
+String[][][][][] daten = new String[10][5][15][8][2];
+daten[0][0][0][0]    // 1. erzeugter Wert.
+daten[3][1][6][5]    // 2. erzeugter Wert.
+daten[0][0][0]       // 3. erzeugter Wert.
+daten[0]             // 4. erzeugter Wert.
+daten[0][0][0][0][0] // 5. erzeugter Wert.
+```
+
+**Hinweis:** Falls es nicht im Kopf geht, versuche ``JAVA`` den ``Typ`` ausgeben zu lassen. Recherchiere dazu im Internet.
+
+---
+
+## Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
+### Programmverständnis [10 / 60 Teilpunkte]
+
+
+---
+
+### Programmieren [40 / 60 Teilpunkte]
+Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.
+
+**Hinweis:** Erstelle das Programm schrittweise. Zuerst das Programm ohne die *50%* Wahrscheinlichkeit. Danach versuche diese hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User *ein-und-dreißig* eingibt eine ``Variable`` mit ``Wert`` *Integer* zu erzeugen? Wie machen wir es für alle 100 Fälle? 
+
+Weiters soll folgendes gelten:
+* **Geheime Zahl:**
+  Das Programm wählt zu Beginn eine zufällige Zahl zwischen 0 und 100 (einschließlich) aus.
+  Verwenden Sie dazu die Klasse `Random` aus dem Paket `java.util`. Um diese Klasse verwenden zu können, schreiben Sie `import java.util.Random;` am Anfang Ihres Programms. Erstellen Sie dann ein Objekt dieser Klasse, z.B. `Random random = new Random();`, und verwenden Sie die Methode `nextInt()`, um eine Zufallszahl zu generieren.
+
+* **Userinput:**
+  Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht. Verwenden Sie die Klasse `Scanner` aus dem Paket `java.util` um Eingaben aus dem Terminal einzulesen. Importieren Sie dazu `import java.util.Scanner;` und erstellen Sie ein `Scanner`-Objekt, z.B. `Scanner scanner = new Scanner(System.in);`. Mit `scanner.nextInt();` können Sie dann eine Ganzzahl einlesen.
+  **Wichtig!:** Es soll dem User möglich sein auch wenn **falsche** Eingaben getätigt wurde, diese ausbessern zu können. Fordere dazu den User solange auf etwas einzugeben bis dieses dem erwarteten Muster entspricht.
+
+* **Interaktion mit Benutzer:innen:**
+  Wenn die Eingabe zu hoch ist, gibt das Programm die Nachricht *"Die Zahl ist zu hoch!"* aus.
+  Wenn die Eingabe zu niedrig ist, gibt das Programm die Nachricht *"Die Zahl ist zu klein!"* aus.
+  Bei korrekter Eingabe zeigt das Programm *"Herzlichen Glückwunsch, Sie haben die Zahl erraten!"* an und beendet das Spiel.
+
+* **Anzahl der Versuche:**
+  Ein:e Benutzer:in hat `5` Leben. Bei jeder falschen Eingabe verliert diese:r ein Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit der Nachricht: *"Game Over! Die geheime Zahl war: ``<Geheime Zahl>``"*.
+
+* **`optional`**: Gib am Ende die Anzahl der Versuche aus, die ein:e Benutzer:in benötigt um die Zahl zu erraten. Füge eine Möglichkeit hinzu, das Spiel nach einem Durchgang erneut zu starten.
+
+### Testfälle:
+```
+Geben Sie Ihre Schätzung ein:
+> aäsdjw
+Die Eingabe ist ungültig. Sie haben noch 5 Leben.
+
+Geben Sie Ihre Schätzung ein:
+> 50
+Die Zahl ist zu hoch! Sie haben noch 4 Leben.
+
+Geben Sie Ihre Schätzung ein:
+> 25
+Die Zahl ist zu klein! Sie haben noch 3 Leben.
+
+Geben Sie Ihre Schätzung ALS WORT ein:
+> siebenunddreißig
+Die Eingabe ist ungültig. Sie haben noch 3 Leben.
+
+Geben Sie Ihre Schätzung ALS WORT ein:
+> sieben-und-dreißig
+Die Zahl ist zu hoch! Sie haben noch 2 Leben.
+
+Geben Sie Ihre Schätzung ein:
+> 30
+Die Zahl ist zu klein! Sie haben noch 1 Leben.
+
+Geben Sie Ihre Schätzung ein:
+> 35
+Game Over! Die geheime Zahl war: 33
+```
+
+---
+
+### Theorie [10 / 60 Teilpunkte]
 * a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
 * b) Gegeben ist eine ``If-Verzweigung`` (if mit else). Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
 * c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
@@ -239,220 +276,15 @@ if (true)
 }
 ```
 
-
 ---
 
-## Muster erstellen [25 Punkte]
-### Programmverständnis [10 / 25 Teilpunkte]
-Gegeben ist folgendes Muster
-```
-             x
-       0 1 2  3 4  5
-    0 🔺🟩🟦🔺🟩🟦
-    1 🟩🟦🔺🟩🟦🔺
-  y 2 🟦🔺🟩🟦🔺🟩
-    3 🔺🟩🟦🔺🟩🟦
-    4 🟩🟦🔺🟩🟦🔺
-    5 🟦🔺🟩🟦🔺🟩
-```
-Überlege: 
-* Was ist die ``Formel`` für ein *blaues* Feld? 
-* Was ist die ``Formel`` für ein *grünes* Feld?
-* Was ist die ``Formel`` für ein *rotes* Feld?
-
----
-
-### Programmieren [15 / 25 Teilpunkte]
-Erzeuge mithilfe von 2 verschachtelten ``For-Schleifen`` das oben angegebene Muster. Erzeuge ein ``Multidimensionales String Array`` und weise diesem die Symbole 🟩🟦🔺 basierend auf einer ``if-Verzweigung`` zu. Verwende in dieser ``If-Verzweigung`` die oben erstellte ``Formel`` um zwischen den zu zeichnenden Symbolen 🟩🟦🔺zu unterscheiden. 
-
-Verwende ``Console.OutputEncoding = Encoding.UTF8;`` um die verwendeten Symbole im Terminal darzustellen. 
-
-Verwende für die Ausgabe folgende print Methode:
-```csharp
-static void Print(string[,] field)
-{
-    for (int y = 0; y < field.GetLength(0); y++)
-    {
-        for (int x = 0; x < field.GetLength(0); x++)
-        {
-            Console.Write(field[y, x]);
-        }
-        Console.WriteLine();
-    }
-}
-```
-
----
-
-## Klassen erstellen und Beziehung implementieren [40 Punkte]
-### Programmverständnis [10 / 40 Teilpunkte]
-Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten.
-* Ist die ``Beziehung`` zwischen ``Shop`` und ``Employee`` eine ``Hat-Beziehung`` oder ``Ist-Beziehung``?
-* Was bedeutet das neben der ``Methode`` *relocateEmployee* eingezeichnete **+**? Ist es sinnvoll die ``Methode`` mit **+** zu modellieren? Wenn ja, warum, wenn nein, was soll geändert werden?
-* Ist die ``Beziehung`` *partnerShop* eine Hat- oder Ist-Beziehung? Was bedeutet *0-1*?
-* Hat ein ``RetailKunde`` die Möglichkeit ``Produkte`` mithilfe der ``Methode``  zu kaufen?
-
-![alt](https://raw.githubusercontent.com/MrStrelow/BBRZ/refs/heads/main/JET/modul_1_grundlagen/ModulTest/Angabe/exam_dark.png)
+## Funktionen (Methoden) schreiben [30 Punkte]
+### Programmverständnis [10 / 30 Teilpunkte]
 
 
 ---
 
-### Programmieren [25 / 40 Teilpunkte]
-Implementiere Teile aus dem oben angegebene Klassendiagramm in C#
-1) Verwende die unten zur Verfügung gestellte ``Main-Klasse``. Diese ist [hier](#hilfestellung) zu finden. 
-2) ``Definiere`` dazu zuerst die ``Klassen`` sowie dessen ``Mitglieder`` und ``Beziehungen`` (Erstelle nur Get und Set Methoden welche im weiten Code benötigt werden). *Empfehlung: Verwende die Fehler in der zur verfügung gestellten Main-Methode als "Bauplan" für die Aufgabe. Versuche Fehler welche als rot-markiert werden, schrittweise "nicht mehr rot" zu machen. Starte dazu mit der 1. Anweisung ``Employee alice = new Employee(name: "Alice", salary: 3000);`` und kommentiere die restlichen Zeilen aus. Gehe danach zur nächsten Zeile. usw.*
-3) Wähle die ``Parameter`` der ``Konstruktoren`` nach eigenem Ermessen. Füge jedoch einen ``Copy-Konstruktor`` in den Klassen ``Shop``, ``Kunden`` und ``Employee`` ein. Vergiss nicht den Aufruf des ``Konstruktors`` der ``Basisklasse`` bei den ``Ist-Beziehungen``.
-4) ``Implementiere`` nun die unten angegebenen ``Methoden``.
+### Programmieren [20 / 30 Teilpunkte]
 
-Implementiere folgendes `Verhalten` mit `Methoden`:
-1) Einem ``Kunden`` soll es möglich sein ``Produkte`` zu kaufen. Falls ein Kunde die ``Methode`` *kaufen* aufruft, wird dem ``Shop`` in welchem der ``Kunde`` einkauft ein... 
-    * Fixbetrag von ``1.000,00€`` in die *kassa* übergeben. 
-    * Falls das ``Produkt`` jedoch ein *Papierflieger* ist, wird **anstatt** der ``1.000,00€``, ``2,50€`` übergeben. 
-    * Falls das ``Produkt`` jedoch  100g *Goldbarren* ist, **anstatt** der ``1.000,00€`` ``10.000,00€`` (zehntausend). 
-*Hinweis: Implementiere falls notwendig, ``Get-`` sowie ``Set-Methoden`` um von anderen ``Klassen`` auf ``Felder`` zugreifen zu können. Es ist nicht notwenedig für alle ``Felder`` eine ``Get-`` sowie ``Set-Methode`` zu implementieren.*
-2) **``[Bonus Aufgabe]``** `Employees` können durch die Methode ``working`` Geld pro Aufruf dieser ``Methode`` verdienen. Verringere dazu das ``Feld`` *kassa* im ``Shop`` in welchem der ``Employee`` arbeitet um den Wert des ``Feldes`` *salary*. Ist die *kassa* leer, muss der Shop sich Geld aus dem partner shop ausleihen. Hat der ``Shop`` keinen *partnerShop* oder auch dieser hat kein Geld mehr, bekommt der ``Employee`` das existierende Geld. Falls nichts vorhanden ist, bekommt dieser nichts. 
----
-
-#### **Hilfestellung:**
-Testprogramm:
-```csharp
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        Employee alice = new Employee(name: "Alice", salary: 3000);
-        Employee bob = new Employee(name: "Bob", salary: 3000);
-
-        Shop shopB = new Shop(oenaceCode: "DE67890", myFirstEmployee: bob);
-        Shop shopA = new Shop(oenaceCode: "AT12345", myFirstEmployee: alice, partnerShop: shopB);
-
-        Kunde max = new Kunde("Max", shopB);
-        Kunde hannah = new Kunde("Anna", shopA, max);
-
-        for (int i = 0; i < 10; i++) 
-        {
-            max.kaufen(Produkt.Papierflieger);
-        }
-
-        hannah.kaufen(Produkt.Goldbarren);
-        hannah.Kaufen(Produkt.Goldbarren);
-
-        Kunde sanna = new Kunde(hannah);
-
-        // BONUS Aufgabe!
-        // for (int i = 0; i < 4; i++)
-        // {
-        //     alice.Working();
-        // }
-
-        // for (int i = 0; i < 4; i++)
-        // {
-        //     bob.Working();
-        // }
-        
-        // Erstellt eine Kopie von Shop A
-    }
-}
-```
-
-Employee:
-```csharp
-public class Employee
-{
-   // Felder
-    // TODO: implement me
-
-    // Hat-Beziehungen
-    // TODO: implement me
-
-    // Konstruktoren
-    public Employee(string name, double salary)
-    {
-       // TODO: implement me
-    }
-
-    // Implementiere diese MEthode für die Bonus Aufgabe!
-    public void Working()
-    {
-        double payment;
-
-        // TODO: implement me
-
-        // {payment:C} ist die Kurzform von payment.ToString("C"); und gibt der Zahl eine "Currency"-Formatierung wie (1.50€).
-        Console.WriteLine($"{name} hat im Shop {workplace.GetHashCode()} - {payment:C} verdient. Das Gehalt ist {salary:C}. Kassa: {workplace.GetKassa():C} - Kassa Partner: {workplace.GetPartnerShop().GetKassa():C}");
-    }
-}
-```
-
-Kunde:
-```csharp
-public class Kunde
-{
-    // Felder
-    // TODO: implement me
-
-    // Hat-Beziehungen
-    // TODO: implement me
-
-    // Konstruktoren
-     public Kunde(string name, Shop shop, Kunde bekannter)
-    {
-       // TODO: implement me
-    }
-
-    // Implementiere diese Methode für die Bonus Aufgabe!
-    public void Kaufen(Produkt produkt)
-    {
-        // TODO: implement me
-
-        /// {preis:C} ist die Kurzform von preis.ToString("C"); und gibt der Zahl eine "Currency"-Formatierung wie (1.50€).
-        Console.WriteLine($"{name} hat {produkt} für {preis:C} gekauft. Kassa von Shop {shop.GetHashCode()}: {shop.GetKassa():C}");
-    }
-}
-```
-
-Erwarteter Output:
-```
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $2.50
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $5.00
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $7.50
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $10.00
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $12.50
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $15.00
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $17.50
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $20.00
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $22.50
-Max hat Papierflieger für $2.50 gekauft. Kassa von Shop 55915408: $25.00
-Anna hat Goldbarren für $10,000.00 gekauft. Kassa von Shop 33476626: $10,000.00
-Anna hat Goldbarren für $10,000.00 gekauft. Kassa von Shop 33476626: $20,000.00
-```
-
-Erwarteter Output - Bonus:
-```
-Alice hat im Shop 33476626 - $3,000.00 verdient. Das Gehalt ist $3,000.00. Kassa: $17,000.00 - Kassa Partner: $25.00
-Alice hat im Shop 33476626 - $3,000.00 verdient. Das Gehalt ist $3,000.00. Kassa: $14,000.00 - Kassa Partner: $25.00
-Alice hat im Shop 33476626 - $3,000.00 verdient. Das Gehalt ist $3,000.00. Kassa: $11,000.00 - Kassa Partner: $25.00
-Alice hat im Shop 33476626 - $3,000.00 verdient. Das Gehalt ist $3,000.00. Kassa: $8,000.00 - Kassa Partner: $25.00
-Bob hat im Shop 55915408 - $3,000.00 verdient. Das Gehalt ist $3,000.00. Kassa: $0.00 - Kassa Partner: $5,025.00
-Bob hat im Shop 55915408 - $3,000.00 verdient. Das Gehalt ist $3,000.00. Kassa: $0.00 - Kassa Partner: $2,025.00
-Bob hat im Shop 55915408 - $2,025.00 verdient. Das Gehalt ist $3,000.00. Kassa: $0.00 - Kassa Partner: $0.00
-Bob hat im Shop 55915408 - $0.00 verdient. Das Gehalt ist $3,000.00. Kassa: $0.00 - Kassa Partner: $0.00
-```
 
 ---
-
-### Theorie [5 / 40 Teilpunkte]
-* Ist es vorteilhaft eine ``Methode`` an ein ``Objekt`` zu koppeln? Denke an folgendes Beispiel
-```csharp
-kunde.Informieren(); // Methode aufrufbar beim Objekt
-```
-
-vs.
-
-```csharp
-Informieren(willInformiertWerden: kunde, informiertAnderen: bekannterDesKunden); // Funktion welche 2 beliebige Kunden entgegennimmt 
-```
-
-
-
-
