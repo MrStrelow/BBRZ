@@ -352,13 +352,15 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind
 ---
 
 ### Programmieren [25 / 45 Teilpunkte]
-Verwende folgenden Code welcher [hier](VorlageAufgabe3.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``NervousHamster`` ist.
-* anderes ``INutritionBehaviour``: 
+Verwende folgenden Code welcher [hier](VorlageAufgabe2.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``NervousHamster`` ist.
+* anderes ``INutritionBehaviour`` mit Namen ``NervousNutritionBehaviour``:
+    * Diese werden mit einer chance von *80%* pro SPielzug *hungrig*.
     * Auch wenn dieser Hunger hat, soll es eine 50/50 chance geben, dass dieser einen ``Seedling`` aufsammelt und nicht isst.
     * Wenn dieser **einmal** einen leeren ``Mouth`` hat, dann wird dieser nie wieder ``Seedlings`` sammeln. Wenn ein ``Seedling`` gefunden wird, wird dieser sofort gegessen, egal ob *hungrig* oder *satt*.
-* andere ``IRandomMovementStrategy``: 
+* andere ``IRandomMovementStrategy`` mit Namen ``NervousMovementStrategy``: 
     * Anwendung der ``OneStepMovementStrategy`` solange bis...
     * ... dieser **einmal** einen leeren ``Mouth`` hatte. Ab dann bewegt dieser Hamster sich immer 2 ``Felder`` nach, *oben*, *unten*, *links* oder *rechts*. Dies ist ähnlich wie die ``DoubleStepMovementStrategy``, jedoch ist es nicht möglich nach *oben* und dann nach *rechts* gehen zu können. 
+    **Hinweis: ** überschreibe dazu die ``Methode`` *Move* von *Hamster* und frage dort ab welche *Strategy* zu verwenden ist.
 * andere ``IVisuals``:
     * Diese soll für die ``HtmlRepresentation`` ein beliebiges *Bild* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
     * Diese soll für die ``UnicoeRepresentation`` ein beliebiges *Emoji* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.

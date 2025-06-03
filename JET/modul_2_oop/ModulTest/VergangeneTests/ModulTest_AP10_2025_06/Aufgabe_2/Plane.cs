@@ -34,13 +34,17 @@ public class Plane
         int numberOfHamster = random.Next(1, size * size - numberOfSeedlings + 1);
         for (int i = 0; i < numberOfHamster; i++)
         {
-            if (random.NextDouble() < 0.5)
+            if (random.NextDouble() < 0.33)
+            {
+                Hamsters.Add(new BigLegHamster(this));
+            }
+            else if (random.NextDouble() < 0.33)
             {
                 Hamsters.Add(new BigLegHamster(this));
             }
             else
             {
-                Hamsters.Add(new BigMouthHamster(this));
+                Hamsters.Add(new NervousHamster(this));
             }
         }
     }

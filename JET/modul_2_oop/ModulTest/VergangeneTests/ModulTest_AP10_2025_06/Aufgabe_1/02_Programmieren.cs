@@ -208,7 +208,6 @@ namespace NewCSharpStyleHamster
             Console.WriteLine(hempter.IsHungry is null ? "ah. _isHungry ist null." : (object)hempter.IsHungry);
         }
     }
-    }
 }
 
 public class Comparisson

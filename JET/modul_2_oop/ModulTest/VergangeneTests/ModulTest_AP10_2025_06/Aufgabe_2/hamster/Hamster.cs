@@ -49,19 +49,19 @@ public abstract class Hamster
     }
 
     // Methoden
-    public void Move()
+    public virtual void Move()
     {
         MyMovementStragegy.Execute(this, MyPlane);
     }
 
-    public void NutritionBehaviour()
+    public virtual void NutritionBehaviour()
     {
         var mutator = new HamsterMutator(this); // this is the key to being hungry
         MyNutritionBehaviour.Execute(mutator, MyPlane);
     }
 
     // nested class which is private
-    private class HamsterMutator : IHamsterMutator
+    protected class HamsterMutator : IHamsterMutator
     {
         public Hamster MutatedHamster { get; init; }
 
