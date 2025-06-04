@@ -43,34 +43,33 @@ public class Programmieren_02 {
     static String ANSI_YELLOW = "\u001B[33m";
     static String colorOfOuterLoop = ANSI_RED;
     static String colorOfInnerLoop = ANSI_BLUE;
-    
+
     public static void main(String[] args) {
         int[] zahlen = {53, 5, 2, 26, -86};
-        int platzhalter;
 
-        for (int j = zahlen.length - 1; j > 0; j--) {
+        for (int j = 0; j < zahlen.length - 1; j++) {
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
-            
-            for (int i = zahlen.length - 1; i > 0; i--) {
+
+            for (int i = 0; i < zahlen.length - 1; i++) {
                 String zahlenColored = colorAt(
-                    zahlen,
-                    new int[]{i-1, i},
-                    new String[]{colorOfOuterLoop, colorOfOuterLoop},
-                    ANSI_RESET
+                        zahlen,
+                        new int[]{i+1, i},
+                        new String[]{colorOfOuterLoop, colorOfOuterLoop},
+                        ANSI_RESET
                 );
 
                 System.out.println(
-                    "[" +
-                        colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
-                        colorOfInnerLoop + "j=" + j + ANSI_RESET +
-                    "]: " +
-                    zahlenColored + ANSI_RESET
+                        "[" +
+                                colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
+                                colorOfInnerLoop + "j=" + j + ANSI_RESET +
+                                "]: " +
+                                zahlenColored + ANSI_RESET
                 );
 
-                if (zahlen[i-1] > zahlen[i]) {
-                    platzhalter = zahlen[i+1];
-                    zahlen[i+1] = zahlen[i-1];
-                    zahlen[i-1] = platzhalter;
+                if (zahlen[i] > zahlen[i+1]) {
+                    int platzhalter = zahlen[i-1];
+                    zahlen[i-1] = zahlen[i];
+                    zahlen[i] = platzhalter;
                 }
             }
             System.out.println();
@@ -79,7 +78,7 @@ public class Programmieren_02 {
         System.out.println("🏁".repeat(14));
         System.out.println(ANSI_YELLOW + Arrays.toString(zahlen) + ANSI_RESET);
     }
-    
+
     static String colorAt(int[] zahlen, int[] posToColor, String[] colorOfPos, String baseColor) {
         String[] coloredZahlen = new String[zahlen.length];
 
@@ -96,6 +95,10 @@ public class Programmieren_02 {
 }
 ```
 
+Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
+
+![alt text todo](output_bubbles_farben.png)
+
 1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen. 
 2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
     * Was ist die Aufgabe der äußeren For-Schleife?
@@ -105,8 +108,8 @@ public class Programmieren_02 {
     * Was würde passieren wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
 ```java
 
-zahlen[i] = zahlen[i-1];
-zahlen[i-1] = zahlen[i];
+zahlen[i] = zahlen[i+1];
+zahlen[i+1] = zahlen[i];
 ```
 
 ---
@@ -145,26 +148,26 @@ zahlen[i-1] = zahlen[i];
 
 Erwarteter Output:
 ```
-Durchgang: 4
-[i=4, j=4]: [53, 5, 2, 26, -86]
-[i=3, j=4]: [53, 5, 2, -86, 26]
-[i=2, j=4]: [53, 5, -86, 2, 26]
-[i=1, j=4]: [53, -86, 5, 2, 26]
-
-Durchgang: 3
-[i=3, j=3]: [-86, 53, 5, 2, 26]
-[i=2, j=3]: [-86, 53, 2, 5, 26]
-[i=1, j=3]: [-86, 2, 53, 5, 26]
-
-Durchgang: 2
-[i=2, j=2]: [-86, 2, 53, 5, 26]
-[i=1, j=2]: [-86, 2, 53, 5, 26]
+Durchgang: 0
+[i=0, j=0]: [53, 5, 2, 26, -86]
+[i=1, j=0]: [5, 53, 2, 26, -86]
+[i=2, j=0]: [5, 2, 53, 26, -86]
+[i=3, j=0]: [5, 2, 26, 53, -86]
 
 Durchgang: 1
-[i=1, j=1]: [-86, 2, 53, 5, 26]
+[i=0, j=1]: [5, 2, 26, -86, 53]
+[i=1, j=1]: [2, 5, 26, -86, 53]
+[i=2, j=1]: [2, 5, 26, -86, 53]
+
+Durchgang: 2
+[i=0, j=2]: [2, 5, -86, 26, 53]
+[i=1, j=2]: [2, 5, -86, 26, 53]
+
+Durchgang: 3
+[i=0, j=3]: [2, -86, 5, 26, 53]
 
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-[-86, 2, 53, 5, 26]
+[-86, 2, 5, 26, 53]
 ```
 
 ---
