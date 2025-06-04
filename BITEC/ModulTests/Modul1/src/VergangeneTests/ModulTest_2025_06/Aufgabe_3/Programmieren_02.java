@@ -35,7 +35,7 @@ public class Programmieren_02 {
 
             if (guess == zahlZuRaten) {
                 System.out.println("Gewonnen! Die Zahl war " + zahlZuRaten + ". Es wurden " + versuche + " Versuche benötigt.");
-                return; // Exit game
+                return;
             } else {
                 livesLeft--;
                 if (livesLeft > 0) {
