@@ -44,15 +44,17 @@ public class Programmieren_02 {
 
                     guess = scanner.nextInt();
 
-                    // NEU:
-                    // wenn eine Zahl ausgeschrieben erwartet wird!
+                // NEU:
+                // wenn eine Zahl ausgeschrieben erwartet wird!
                 } else {
                     System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
 
                     String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
-                    String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun";
-                    String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn;
-                    String dreizehnBisNeunZehn = "(" + ersterTeilDreizehnBisNeunZehn + ")-zehn";
+                    String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
+                    String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
+                    String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
+                    String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+                    String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
                     String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
                     String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
                     String hundert = "ein-hundert";

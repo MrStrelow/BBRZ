@@ -25,12 +25,12 @@ Notenschlüssel:
 
 ---
 
-## Arrays [35 / 100 Punkte]
+## Aufgabe 1: Arrays [35 / 100 Punkte]
 
 ### Programmverständnis [10 / 25 Teilpunkte]
 Gegeben ist folgender Code, welcher den ``Bubble Sort`` darstellt. 
 
-```csharp
+```java
 package VergangeneTests.ModulTest_2025_06.Aufgabe_1;
 
 import java.lang.reflect.Array;
@@ -100,7 +100,7 @@ public class Programmieren_02 {
 Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
 
 <div style="text-align: left; ">
-    <img src="output_bubbles_farben.png" alt="erwarteter output" style="width: 25%;">
+    <img src="output_bubbles_farben.png" alt="erwarteter output" style="width: 20%;">
 </div>
 
 1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen. 
@@ -109,7 +109,7 @@ Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
     * Was ist die Aufgabe der inneren For-Schleife?
     * Was ist die Aufgabe der If-Anweisung?
     * Was ist die Aufgabe der Variable *platzhalter*?
-    * Was würde passieren wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
+    * Was würde passieren, wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
 
 ```java
 zahlen[i] = zahlen[i+1];
@@ -164,11 +164,11 @@ Durchgang: 3
 **Bonus:** Beschreibe den Code der *colorAt* ``Methode``. Versuche zudem die Zahlen im ``Array`` *zahlen* in *Cyan* einzufärben, aber die eckigen *Klammern* und *Beistriche* nicht einzufärben (*ANSI_RESET*).
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px;">
   [
-  <div style="color:cyan">53</div>,
-  <div style="color:cyan">5</div>,
-  <div style="color:cyan">2</div>,
-  <div style="color:cyan">26</div>,
-  <div style="color:cyan">-86</div>
+  <div style="color:cyan;">53</div>,
+  <div style="color:cyan;">5</div>,
+  <div style="color:cyan;">2</div>,
+  <div style="color:cyan;">26</div>,
+  <div style="color:cyan;">-86</div>
   ]
 </div>
 
@@ -189,7 +189,7 @@ daten[0][0][0][0][0] // 5. erzeugter Wert hat Typ...?
 
 ---
 
-## Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
+## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
 Gegeben ist ein ``RegEx``. 
 * Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
@@ -202,11 +202,10 @@ Gegeben ist ein ``RegEx``.
 ---
 
 ### Programmieren [40 / 60 Teilpunkte]
-**Hinweis:** Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
+Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.**
 
-Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.
-
-**Hinweis:** Erstelle das Programm schrittweise. Zuerst das Programm ohne die *50%* Wahrscheinlichkeit. Danach versuche diese hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User *ein-und-dreißig* eingibt eine ``Variable`` mit ``Wert`` *Integer* zu erzeugen? Wie machen wir es für alle 100 Fälle? 
+**Hinweis:** Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
+Dies Programm ist ohne die *50%* Wahrscheinlichkeit der Eingabe in der Form *fünf-und-dreißig*. Danach versuche diese Form hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User eine ausgeschriebene Zahl eingibt, dies gleich dem ``Wert`` *ein-und-dreißig* ist und wir dann *31* als *Integer* zurückgeben? Wie machen wir es für alle 100 Fälle? 
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
@@ -220,9 +219,11 @@ Weiters soll folgendes gelten:
 * **RegEx für Erkennung der Zahlen als Text**: Es kann dieser ``Regex`` verwendet werden um z.B. ``fünf-und-dreißig`` zu erkennen.
 ```java
 String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
-String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun";
-String basis = "ein|zwei" + ersterTeilDreizehnBisNeunZehn;
-String dreizehnBisNeunZehn = "(" + ersterTeilDreizehnBisNeunZehn + ")-zehn";
+String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
+String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
+String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
+String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
 String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
 String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
 String hundert = "ein-hundert";
@@ -270,34 +271,29 @@ Spiel beendet. Danke fürs Spielen!
 * a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
 * b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
 * c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
-```csharp
-if (false) 
-{
-    Console.WriteLine("If-Zweig")
-} 
-else 
-{
-    Console.WriteLine("Else-Zweig")
+```java
+if (false) {
+    System.out.println("If-Zweig")
+} else {
+    System.out.println("Else-Zweig")
 }
 ```
 
 vs.
 
-```csharp
-if (false) 
-{
-    Console.WriteLine("If-Bedingung")
+```java
+if (false) {
+    System.out.println("If-Bedingung")
 } 
 
-if (true) 
-{
-    Console.WriteLine("Auch eine IF-Bedingung")
+if (true) {
+    System.out.println("Auch eine IF-Bedingung")
 }
 ```
 
 ---
 
-## Funktionen (Methoden) schreiben [30 Punkte]
+## Aufgabe 3: Funktionen (Methoden) schreiben [30 Punkte]
 ### Programmverständnis [10 / 30 Teilpunkte]
 Folgender *Code-Ausschnitt* funktionier nicht. Finde den Fehler, bessere diesen aus und erkläre warum es ein Fehler ist.
 ```java

@@ -14,11 +14,17 @@ public class Programmieren_02 {
     public static void main(String[] args) {
         int[] zahlen = {53, 5, 2, 26, -86};
 
+        // Begriffe: Die Begriffe lehnen sich am Gif in der VergangeneTests.ModulTest_2025_06.Angabe an.
+        // Äußere Schleife: Wiederhole die rote "Bubble" für mindestens jede Zahl ein mal.
         for (int j = 0; j < zahlen.length - 1; j++) {
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
 
-            for (int i = 0; i < zahlen.length - 1; i++) {
+            // Innere Schleife: Die Bubble steigt auf - schiebe die rote "Bubble" nach rechts, bis zum Ende des Arrays.
+            for (int i = 0; i < zahlen.length - 1 - j; i++) {
+
+                // Verzweigung: Die größere Zahl soll rechts in der roten "Bubble" stehen.
                 if (zahlen[i] > zahlen[i+1]) {
+                    // Platzhalter wird benötigt, um keine Werte beim Tausch zu verlieren.
                     int platzhalter = zahlen[i+1];
                     zahlen[i+1] = zahlen[i];
                     zahlen[i] = platzhalter;

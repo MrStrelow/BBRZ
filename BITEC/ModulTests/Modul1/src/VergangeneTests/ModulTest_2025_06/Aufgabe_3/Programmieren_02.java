@@ -24,25 +24,32 @@ public class Programmieren_02 {
 
     static void playSingleGame(Scanner scanner, Random random) {
         int zahlZuRaten = random.nextInt(MIN_NUMBER, MAX_NUMBER + 1); // random.nextInt(bound) is exclusive for upper
-        int livesLeft = MAX_LIVES;
+        int leben = MAX_LIVES - 1;
         int versuche = 0;
 
         System.out.println("Eine Zahl zwischen " + MIN_NUMBER + " und " + MAX_NUMBER + " wurde gewählt. Rate die Zahl!");
 
-        while (livesLeft > 0) {
+        while (true) {
             int guess = getUserGuess(scanner, random);
-            versuche++;
 
-            if (guess == zahlZuRaten) {
-                System.out.println("Gewonnen! Die Zahl war " + zahlZuRaten + ". Es wurden " + versuche + " Versuche benötigt.");
-                return;
-            } else {
-                livesLeft--;
-                if (livesLeft > 0) {
-                    displayGameStatus(guess, zahlZuRaten, livesLeft);
-                } else {
-                    System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
-                }
+            if (leben == 0) {
+                System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
+                break;
+            }
+
+            versuche++;
+            leben--;
+
+            // Spiellogik: wo bin ich mit meinem guess?
+            if (guess > zahlZuRaten) {
+                System.out.println("Die Zahl ist kleiner. Du hast noch " + (leben + 1) + " Leben.");
+
+            } else if (guess < zahlZuRaten) {
+                System.out.println("Die Zahl ist größer. Du hast noch " + (leben + 1) + " Leben.");
+
+            } else if (guess == zahlZuRaten) {
+                System.out.println("gewonnen. Die Zahl war " + zahlZuRaten + ". Es wurden " + versuche + " benötigt.");
+                break;
             }
         }
     }
@@ -53,6 +60,7 @@ public class Programmieren_02 {
         if (erwartetZiffer) {
             System.out.print("Gib eine Zahl ein [" + MIN_NUMBER + "-" + MAX_NUMBER + "]: ");
             return getNumericInput(scanner);
+
         } else {
             System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
             return getWordInput(scanner);
@@ -64,14 +72,17 @@ public class Programmieren_02 {
             System.out.print("Falscher Input, bitte eine Zahl eingeben: ");
             scanner.next();
         }
+
         return scanner.nextInt();
     }
 
     static int getWordInput(Scanner scanner) {
         String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
-        String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun";
-        String basis = "ein|zwei" + ersterTeilDreizehnBisNeunZehn;
-        String dreizehnBisNeunZehn = "(" + ersterTeilDreizehnBisNeunZehn + ")-zehn";
+        String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
+        String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
+        String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
+        String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+        String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
         String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
         String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
         String hundert = "ein-hundert";
@@ -86,7 +97,7 @@ public class Programmieren_02 {
 
         while (!scanner.hasNext(pattern)) {
             System.out.print("Falscher userinput, bitte neu eingeben: ");
-            String inputWelcherKeineZahlIstUndVerworfenWird = scanner.next().toLowerCase();
+            scanner.next();
         }
 
         String inputWord = scanner.next();
@@ -112,8 +123,8 @@ public class Programmieren_02 {
             case "drei-zehn" -> 13;
             case "vier-zehn" -> 14;
             case "fünf-zehn" -> 15;
-            case "sech-zehn" -> 16; // Note: Original was "sechs-zehn", typically "sechzehn"
-            case "sieb-zehn" -> 17; // Note: Original was "sieben-zehn", typically "siebzehn"
+            case "sech-zehn" -> 16;
+            case "sieb-zehn" -> 17;
             case "acht-zehn" -> 18;
             case "neun-zehn" -> 19;
             case "zwanzig" -> 20;
