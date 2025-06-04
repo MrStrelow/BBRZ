@@ -34,8 +34,8 @@
                     );
 
                     if (zahlen[i] > zahlen[i+1]) {
-                        int platzhalter = zahlen[i-1];
-                        zahlen[i-1] = zahlen[i];
+                        int platzhalter = zahlen[i+1];
+                        zahlen[i+1] = zahlen[i];
                         zahlen[i] = platzhalter;
                     }
                 }
