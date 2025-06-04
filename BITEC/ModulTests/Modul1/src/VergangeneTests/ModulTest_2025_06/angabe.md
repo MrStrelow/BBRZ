@@ -51,6 +51,13 @@ public class Programmieren_02 {
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
 
             for (int i = 0; i < zahlen.length - 1; i++) {
+                if (zahlen[i] > zahlen[i+1]) {
+                    int platzhalter = zahlen[i-1];
+                    zahlen[i-1] = zahlen[i];
+                    zahlen[i] = platzhalter;
+                }
+            
+                // Bunte - Ausgabe
                 String zahlenColored = colorAt(
                         zahlen,
                         new int[]{i+1, i},
@@ -60,17 +67,12 @@ public class Programmieren_02 {
 
                 System.out.println(
                         "[" +
-                                colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
-                                colorOfInnerLoop + "j=" + j + ANSI_RESET +
-                                "]: " +
-                                zahlenColored + ANSI_RESET
+                            colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
+                            colorOfInnerLoop + "j=" + j + ANSI_RESET +
+                        "]: " +
+                        zahlenColored + ANSI_RESET
                 );
 
-                if (zahlen[i] > zahlen[i+1]) {
-                    int platzhalter = zahlen[i-1];
-                    zahlen[i-1] = zahlen[i];
-                    zahlen[i] = platzhalter;
-                }
             }
             System.out.println();
         }
@@ -97,7 +99,9 @@ public class Programmieren_02 {
 
 Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
 
-![alt text todo](output_bubbles_farben.png)
+<div style="text-align: left; ">
+    <img src="output_bubbles_farben.png" alt="erwarteter output" style="width: 25%;">
+</div>
 
 1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen. 
 2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
@@ -106,8 +110,8 @@ Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
     * Was ist die Aufgabe der If-Anweisung?
     * Was ist die Aufgabe der Variable *platzhalter*?
     * Was würde passieren wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
-```java
 
+```java
 zahlen[i] = zahlen[i+1];
 zahlen[i+1] = zahlen[i];
 ```
@@ -133,19 +137,6 @@ zahlen[i+1] = zahlen[i];
   </tr>
 </table>
 
-**Hinweis:** Denke pragmatisch, falls es nicht mit dem angegebene Code möglich ist. Gibt es wo anders eine andere Schreibweise des Codes weche verwendet werden kann?
-
-**Bonus:** Beschreibe den Code der *colorAt* ``Methode``. Versuche zudem die Zahlen im ``Array`` *zahlen* in *Cyan* einzufärben, aber die eckigen *Klammern* und *Beistriche* nicht einzufärben (*ANSI_RESET*).
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px;">
-  [
-  <div style="color:cyan">53</div>,
-  <div style="color:cyan">5</div>,
-  <div style="color:cyan">2</div>,
-  <div style="color:cyan">26</div>,
-  <div style="color:cyan">-86</div>
-  ]
-</div>
-
 Erwarteter Output:
 ```
 Durchgang: 0
@@ -170,17 +161,28 @@ Durchgang: 3
 [-86, 2, 5, 26, 53]
 ```
 
+**Bonus:** Beschreibe den Code der *colorAt* ``Methode``. Versuche zudem die Zahlen im ``Array`` *zahlen* in *Cyan* einzufärben, aber die eckigen *Klammern* und *Beistriche* nicht einzufärben (*ANSI_RESET*).
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px;">
+  [
+  <div style="color:cyan">53</div>,
+  <div style="color:cyan">5</div>,
+  <div style="color:cyan">2</div>,
+  <div style="color:cyan">26</div>,
+  <div style="color:cyan">-86</div>
+  ]
+</div>
+
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
 1) Was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code:
 ```java
 String[][][][][] daten = new String[10][5][15][8][2];
-daten[0][0][0][0]    // 1. erzeugter Wert.
-daten[3][1][6][5]    // 2. erzeugter Wert.
-daten[0][0][0]       // 3. erzeugter Wert.
-daten[0]             // 4. erzeugter Wert.
-daten[0][0][0][0][0] // 5. erzeugter Wert.
+daten[0][0][0][0]    // 1. erzeugter Wert hat Typ...?
+daten[3][1][6][5]    // 2. erzeugter Wert hat Typ...?
+daten[0][0][0]       // 3. erzeugter Wert hat Typ...?
+daten[0]             // 4. erzeugter Wert hat Typ...?
+daten[0][0][0][0][0] // 5. erzeugter Wert hat Typ...?
 ```
 
 **Hinweis:** Falls es nicht im Kopf geht, versuche ``JAVA`` den ``Typ`` ausgeben zu lassen. Recherchiere dazu im Internet.
@@ -190,16 +192,18 @@ daten[0][0][0][0][0] // 5. erzeugter Wert.
 ## Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
 Gegeben ist ein ``RegEx``. 
-* Beschreibe was dieser darstellen soll.
 * Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
+* Beschreibe ca. was dieser darstellen soll.
 
 ```rx
-^null|eins|zehn|elf|zwölf|ein|zweidrei|vier|fünf|sechs|sieben|acht|neun|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig|((ein|zweidrei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))|ein-hundert$
+^(ein-hundert|null|eins|zehn|elf|zwölf|ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig)|((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))$
 ```
 
 ---
 
 ### Programmieren [40 / 60 Teilpunkte]
+**Hinweis:** Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
+
 Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.
 
 **Hinweis:** Erstelle das Programm schrittweise. Zuerst das Programm ohne die *50%* Wahrscheinlichkeit. Danach versuche diese hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User *ein-und-dreißig* eingibt eine ``Variable`` mit ``Wert`` *Integer* zu erzeugen? Wie machen wir es für alle 100 Fälle? 
@@ -242,33 +246,22 @@ String pattern = "^" +
 
 #### Erwarteter Output:
 ```
-Geben Sie Ihre Schätzung ein:
-> aäsdjw
-Die Eingabe ist ungültig. Sie haben noch 5 Leben.
-
-Geben Sie Ihre Schätzung ein:
-> 50
-Die Zahl ist zu hoch! Sie haben noch 4 Leben.
-
-Geben Sie Ihre Schätzung ein:
-> 25
-Die Zahl ist zu klein! Sie haben noch 3 Leben.
-
-Geben Sie Ihre Schätzung ALS WORT ein:
-> siebenunddreißig
-Die Eingabe ist ungültig. Sie haben noch 3 Leben.
-
-Geben Sie Ihre Schätzung ALS WORT ein:
-> sieben-und-dreißig
-Die Zahl ist zu hoch! Sie haben noch 2 Leben.
-
-Geben Sie Ihre Schätzung ein:
-> 30
-Die Zahl ist zu klein! Sie haben noch 1 Leben.
-
-Geben Sie Ihre Schätzung ein:
-> 35
-Game Over! Die geheime Zahl war: 33
+Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!
+Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: 50
+Falscher userinput, bitte neu eingeben: warum?
+Falscher userinput, bitte neu eingeben: fünfzig
+Die Zahl ist kleiner. Du hast noch 4 Leben.
+Gib eine Zahl ein [0-100]: 25
+Die Zahl ist größer. Du hast noch 3 Leben.
+Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: sieben-und-dreißig
+Die Zahl ist größer. Du hast noch 2 Leben.
+Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: fünf-und-vierzig
+Die Zahl ist kleiner. Du hast noch 1 Leben.
+Gib eine Zahl ein [0-100]: neun-und-dreißig
+Falscher userinput, bitte neu eingeben: 39
+Du hast keine Leben mehr. Die Zahl war 40.
+Möchtest du nochmals spielen? [+/-]: -
+Spiel beendet. Danke fürs Spielen!
 ```
 
 ---

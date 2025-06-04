@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 public class Programmieren_02 {
     public static void main(String[] args) {
-        final String RED = "\u001B[31m";
-        final String RESET = "\u001B[0m";
-
         // Variablen Anlegen
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -26,50 +23,60 @@ public class Programmieren_02 {
             // Wiederholung der Spiellogik
             while (true) {
                 // Wie darf der User seinen Versuch eingeben?
-                boolean erwartetZiffer = random.nextBoolean();
+                boolean erwartetZahl = random.nextBoolean();
+
+                int guess;
 
                 // Userinput
-                if (erwartetZiffer) {
+
+                // NEU:
+                // wenn eine Zahl erwartet wird!
+                if (erwartetZahl) {
+
+                    //alter Code
                     System.out.print("Gib eine Zahl ein [0-100]: ");
-                } else {
-                    System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
-                }
 
-                // guards für falschen Userinput
-                int guess = -1;
-
-                if (erwartetZiffer) {
-
+                    // guards für falschen Userinput
                     while (!scanner.hasNextInt()) {
                         System.out.print("Falscher userinput, bitte neu eingeben: ");
-                        String inputWelcherKeineZahlIstUndVerworfenWird = scanner.next();
+                        scanner.next();
                     }
 
                     guess = scanner.nextInt();
 
+                    // NEU:
+                    // wenn eine Zahl ausgeschrieben erwartet wird!
                 } else {
+                    System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
+
                     String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
                     String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun";
-                    String basis = "ein|zwei" + ersterTeilDreizehnBisNeunZehn;
+                    String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn;
                     String dreizehnBisNeunZehn = "(" + ersterTeilDreizehnBisNeunZehn + ")-zehn";
                     String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
                     String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
                     String hundert = "ein-hundert";
 
                     String pattern = "^" +
-                        nichtKombinierbar + "|" +
-                        basis +
-                        "|(" + dreizehnBisNeunZehn + ")|" +
-                        zehnerStellen +
-                        "|(" + kombinierterRest + ")|" +
-                        hundert + "$";
+                            nichtKombinierbar + "|" +
+                            basis +
+                            "|(" + dreizehnBisNeunZehn + ")|" +
+                            zehnerStellen +
+                            "|(" + kombinierterRest + ")|" +
+                            hundert + "$";
 
+                    // passen hasNextInt auf hasNext(pattern) an
                     while (!scanner.hasNext(pattern)) {
                         System.out.print("Falscher userinput, bitte neu eingeben: ");
-                        String inputWelcherKeineZahlIstUndVerworfenWird = scanner.next();
+                        scanner.next();
                     }
 
-                    guess = switch (scanner.next()) {
+                    // hier kommt nun ein String zurück.
+                    String zahlAlsString = scanner.next();
+
+                    // wir sind pragmatisch. wir lösen es mit einem Switch.
+                    guess = switch (zahlAlsString) {
+                        case "null" -> 0;
                         case "eins" -> 1;
                         case "zwei" -> 2;
                         case "drei" -> 3;
@@ -169,14 +176,15 @@ public class Programmieren_02 {
                         case "sieben-und-neunzig" -> 97;
                         case "acht-und-neunzig" -> 98;
                         case "neun-und-neunzig" -> 99;
-                        case "hundert" -> 100;
+                        case "ein-hundert" -> 100;
                         default -> {
-                            System.out.println("darf nicht vorkommen");
+                            System.out.println("darf nicht vorkommen, da RegEx uns schon beschützt.");
                             yield -1;
                         }
                     };
                 }
 
+                // Hier ist der Code wieder "normal" wie in der Vorlage.
                 // Spiellogik: habe ich genug leben?
                 if (leben == 0) {
                     System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
