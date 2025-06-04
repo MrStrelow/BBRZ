@@ -186,9 +186,13 @@ daten[0][0][0][0][0] // 5. erzeugter Wert.
 
 ## Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
-regex matched folgende zahlen als buchstaben
-* drei-und-vierzig
-* dre-iundvier-zig
+Gegeben ist ein ``RegEx``. 
+* Beschreibe was dieser darstellen soll.
+* Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
+
+```rx
+^null|eins|zehn|elf|zwölf|ein|zweidrei|vier|fünf|sechs|sieben|acht|neun|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig|((ein|zweidrei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))|ein-hundert$
+```
 
 ---
 
@@ -206,6 +210,25 @@ Weiters soll folgendes gelten:
   Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht. Verwenden Sie die Klasse `Scanner` aus dem Paket `java.util` um Eingaben aus dem Terminal einzulesen. Importieren Sie dazu `import java.util.Scanner;` und erstellen Sie ein `Scanner`-Objekt, z.B. `Scanner scanner = new Scanner(System.in);`. Mit `scanner.nextInt();` können Sie dann eine Ganzzahl einlesen.
   **Wichtig!:** Es soll dem User möglich sein auch wenn **falsche** Eingaben getätigt wurde, diese ausbessern zu können. Fordere dazu den User solange auf etwas einzugeben bis dieses dem erwarteten Muster entspricht.
 
+* **RegEx für Erkennung der Zahlen als Text**: Es kann dieser ``Regex`` verwendet werden um z.B. ``fünf-und-dreißig`` zu erkennen.
+```java
+String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
+String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun";
+String basis = "ein|zwei" + ersterTeilDreizehnBisNeunZehn;
+String dreizehnBisNeunZehn = "(" + ersterTeilDreizehnBisNeunZehn + ")-zehn";
+String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
+String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
+String hundert = "ein-hundert";
+
+String pattern = "^" +
+    nichtKombinierbar + "|" +
+    basis +
+    "|(" + dreizehnBisNeunZehn + ")|" +
+    zehnerStellen +
+    "|(" + kombinierterRest + ")|" +
+    hundert + "$";
+```
+
 * **Interaktion mit Benutzer:innen:**
   Wenn die Eingabe zu hoch ist, gibt das Programm die Nachricht *"Die Zahl ist zu hoch!"* aus.
   Wenn die Eingabe zu niedrig ist, gibt das Programm die Nachricht *"Die Zahl ist zu klein!"* aus.
@@ -214,9 +237,7 @@ Weiters soll folgendes gelten:
 * **Anzahl der Versuche:**
   Ein:e Benutzer:in hat `5` Leben. Bei jeder falschen Eingabe verliert diese:r ein Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit der Nachricht: *"Game Over! Die geheime Zahl war: ``<Geheime Zahl>``"*.
 
-* **`optional`**: Gib am Ende die Anzahl der Versuche aus, die ein:e Benutzer:in benötigt um die Zahl zu erraten. Füge eine Möglichkeit hinzu, das Spiel nach einem Durchgang erneut zu starten.
-
-### Testfälle:
+#### Erwarteter Output:
 ```
 Geben Sie Ihre Schätzung ein:
 > aäsdjw
@@ -251,7 +272,7 @@ Game Over! Die geheime Zahl war: 33
 
 ### Theorie [10 / 60 Teilpunkte]
 * a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
-* b) Gegeben ist eine ``If-Verzweigung`` (if mit else). Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
+* b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
 * c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
 ```csharp
 if (false) 
@@ -282,20 +303,86 @@ if (true)
 
 ## Funktionen (Methoden) schreiben [30 Punkte]
 ### Programmverständnis [10 / 30 Teilpunkte]
-schachteln von funktionen.
-muster stuff.
-nur aufrufen nichts programmieren.
+Folgender *Code-Ausschnitt* funktionier nicht. Finde den Fehler, bessere diesen aus und erkläre warum es ein Fehler ist.
+```java
+...
+
+public static void main(String[] args) {
+    String[][] muster = ...
+    String[][] zweiMalGedrehtesMuster = drehen(drehen(muster));
+}
+
+static void drehen(String[][] array) {
+    ...
+}
+...
+```
+
+**Anmerkung:** Die Antwort "wegen den drei Punkten" bzw. wegen den fehlenden main usw. wäre kreativ, ist aber hier nicht gemeint.
 
 ---
 
 ### Programmieren [20 / 30 Teilpunkte]
-programmiere oben mit funktionen.
-* 1. das ist die funktion
-* 2. das ist die function
-* 3. dast ist die funktion
+Verwende folgende ``Funktionen`` (Methoden) um das *Zahlen Raten* Programm mit *Schnitstellen* zu versehen.
+Diese sind in der Hilfestellung unten in einem Programm zu sehen.
+
+#### **Hilfestellung:**
+```java
+public class Programmieren_02 {
+    static final int MAX_LIVES = 5;
+    static final int MIN_NUMBER = 0;
+    static final int MAX_NUMBER = 100;
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        boolean playAgain = true;
+
+        while (playAgain) {
+            playSingleGame(scanner, random);
+            playAgain = askToPlayAgain(scanner);
+        }
+
+        System.out.println("Spiel beendet. Danke fürs Spielen!");
+        scanner.close();
+    }
+
+    static void playSingleGame(Scanner scanner, Random random) {
+        ...
+    }
+
+    static int getUserGuess(Scanner scanner, Random random) {
+        ...
+        return getWordInput(...);
+        ...
+        return getNumericInput(...);
+    }
+
+    static int getNumericInput(Scanner scanner) {
+        ...
+    }
+
+    static int getWordInput(Scanner scanner) {
+        ...
+    }
+
+    static int convertWordToNumber(String wordInput) {
+        ...
+    }
+
+    static void displayGameStatus(int guess, int zahlZuRaten, int livesLeft) {
+        ...
+    }
+
+    static boolean askToPlayAgain(Scanner scanner) {
+        ...
+    }
+}
+```
 
 ### Theorie [05 / 30 Teilpunkte]
-* unterschied argument und parameter.
-* was sollen funktoinen erleichtern
+* Was ist der Unterschied zwischen dem ``Rückgabeparameter`` und dem ``Eingangsparameter``?
+* Braucht jede ``Funktion`` (Methode) solche ``Parameter``? 
+* Warum sollen wir uns mit ``Funktionen`` quälen? Was ist deren Vorteil wenn wir diese Verwenden?
 
 ---

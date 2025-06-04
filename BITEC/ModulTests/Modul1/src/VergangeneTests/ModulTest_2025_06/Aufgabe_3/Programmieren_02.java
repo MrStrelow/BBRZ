@@ -22,7 +22,7 @@ public class Programmieren_02 {
         scanner.close();
     }
 
-    private static void playSingleGame(Scanner scanner, Random random) {
+    static void playSingleGame(Scanner scanner, Random random) {
         int zahlZuRaten = random.nextInt(MIN_NUMBER, MAX_NUMBER + 1); // random.nextInt(bound) is exclusive for upper
         int livesLeft = MAX_LIVES;
         int versuche = 0;
@@ -47,7 +47,7 @@ public class Programmieren_02 {
         }
     }
 
-    private static int getUserGuess(Scanner scanner, Random random) {
+    static int getUserGuess(Scanner scanner, Random random) {
         boolean erwartetZiffer = random.nextBoolean(); // Randomly decide input type
 
         if (erwartetZiffer) {
@@ -59,54 +59,41 @@ public class Programmieren_02 {
         }
     }
 
-    private static int getNumericInput(Scanner scanner) {
+    static int getNumericInput(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             System.out.print("Falscher Input, bitte eine Zahl eingeben: ");
-            scanner.next(); // Consume invalid input
+            scanner.next();
         }
-        int guess = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
-        return guess;
+        return scanner.nextInt();
     }
 
-    private static int getWordInput(Scanner scanner) {
+    static int getWordInput(Scanner scanner) {
         String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
-        String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun"; // sech-zehn, sieb-zehn use different stems
-        String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn; // Corrected: added pipe for "zwei"
-        String dreizehnBisNeunZehn = "(" + "(drei|vier|fünf|sech|sieb|acht|neun)" + ")-zehn"; // Adjusted for sech-zehn etc.
+        String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|sechs|sieben|acht|neun";
+        String basis = "ein|zwei" + ersterTeilDreizehnBisNeunZehn;
+        String dreizehnBisNeunZehn = "(" + ersterTeilDreizehnBisNeunZehn + ")-zehn";
         String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
         String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
-        String hundert = "ein-hundert"; // Should be "einhundert" or "hundert" for the switch, pattern might need adjustment
-        // The switch uses "hundert" and "ein-hundert". Let's make the pattern accommodate "ein-hundert".
+        String hundert = "ein-hundert";
 
-
-        // Simplified pattern for matching any of the expected word formats.
-        // The switch statement will do the actual validation of specific words.
-        // This regex is complex and might still have edge cases. The switch is the ultimate validator.
-        String pattern = "^(" +
+        String pattern = "^" +
                 nichtKombinierbar + "|" +
-                basis + // Covers 1-9
+                basis +
                 "|(" + dreizehnBisNeunZehn + ")|" +
                 zehnerStellen +
                 "|(" + kombinierterRest + ")|" +
-                "hundert|ein-hundert" + // Added hundert
-                ")$";
+                hundert + "$";
 
-
-        String inputWord;
-        while (true) {
-            inputWord = scanner.nextLine().trim().toLowerCase(); // Read whole line, trim, lowercase
-            if (inputWord.matches(pattern)) { // Check if the input broadly matches one of the structures
-                int value = convertWordToNumber(inputWord);
-                if (value != -1) { // Check if conversion was successful
-                    return value;
-                }
-            }
-            System.out.print("Falscher Wort-Input oder unbekanntes Wort, bitte neu eingeben: ");
+        while (!scanner.hasNext(pattern)) {
+            System.out.print("Falscher userinput, bitte neu eingeben: ");
+            String inputWelcherKeineZahlIstUndVerworfenWird = scanner.next().toLowerCase();
         }
+
+        String inputWord = scanner.next();
+        return convertWordToNumber(inputWord);
     }
 
-    private static int convertWordToNumber(String wordInput) {
+    static int convertWordToNumber(String wordInput) {
         // Ensure consistent casing for the switch, though getWordInput already does toLowerCase()
         return switch (wordInput.toLowerCase()) {
             case "null" -> 0; // Added null
@@ -214,7 +201,7 @@ public class Programmieren_02 {
         };
     }
 
-    private static void displayGameStatus(int guess, int zahlZuRaten, int livesLeft) {
+    static void displayGameStatus(int guess, int zahlZuRaten, int livesLeft) {
         if (guess > zahlZuRaten) {
             System.out.println("Die Zahl ist kleiner. Du hast noch " + livesLeft + " Leben.");
         } else {
@@ -222,13 +209,14 @@ public class Programmieren_02 {
         }
     }
 
-    private static boolean askToPlayAgain(Scanner scanner) {
+    static boolean askToPlayAgain(Scanner scanner) {
         System.out.print("Möchtest du nochmals spielen? [+/-]: ");
-        String choice = scanner.nextLine().trim(); // Use nextLine and trim
-        while (!choice.equals("+") && !choice.equals("-")) {
+
+        while (!scanner.hasNext("[+-]")) {
             System.out.print("Ungültige Eingabe. Bitte '+' oder '-' eingeben: ");
-            choice = scanner.nextLine().trim();
+            String inputWelcherKeineZahlIstUndVerworfenWird = scanner.next();
         }
-        return choice.equals("+");
+
+        return scanner.next().equals("+");
     }
 }
