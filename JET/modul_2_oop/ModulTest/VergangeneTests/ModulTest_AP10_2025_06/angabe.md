@@ -45,19 +45,20 @@ public int Id
     }
 }
 
-private int _InGameCash;
+private int _inGameCash;
 public int InGameCash
 {
-    get; set
+    get { return _inGameCash; } 
+    set
     {
         if (value >= Game.SmallestPossibleAmount)
         {
-            _InGameCash = value; // wenn mehr oder gleich als Game.SmallestPossibleAmount gekauft wird, ist es ok.
+            _inGameCash = value; // wenn mehr oder gleich als Game.SmallestPossibleAmount gekauft wird, ist es ok.
         }
         else
         {
             SaveStateOfUser(this); // anstonsten, speichere derzeitgen Zustand des users, und
-            _games_won_by_User = 9651; // setze _InGameCash auf 0, und
+            _games_won_by_User = 9651; // setze _inGameCash auf 0, und
             flagForScam(this); // teile dem System mit, es handelt sich um einen möglichen Betrug.
         }
     }
@@ -118,7 +119,7 @@ public int? X
 
 - a)
     1) Finde die Fehler in diesem Code und markiere diese.
-    2) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionell falschen ``Object-Initialization`` führen. 
+    2) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionell falschen ``Property``(Eigenschaft) führen. 
 - b) Was bedeuten ``??`` und ``??=``? Schreibe dazu es in ein ``If-Statement`` um. Verwende dazu folgendes Beispiel:
 ```csharp
 int _x = 50;
@@ -296,13 +297,21 @@ public class Comparisson
 }
 ```
 
-
+Erwarteter Output:
+```
+🐹
+ah. _isHungry ist null.
+⚠️~~~~~ darüber und darunter soll beides gleich aussehn ~~~~~⚠️
+🐹
+ah. _isHungry ist null.
+```
 
 ---
 
 ### Theorie [5 / 45 Teilpunkte]
 * a) wieso schreiben wir meistens ``public`` bei einer ``Property`` (Eigenschaft)? Sollten wir laut ``Data-Hiding`` nicht unsere ``Felder`` vor uneingeschränkten Zugrifen beschützen? 
 * c) Wann ist es **notwendig** ``new ()`` anstatt ``var`` zu schreiben? Es scheint, dass ``var`` die flexiblere Variante ist. Schau dazu folgenden Code an und probiere diesen aus.
+
 ```csharp
 public class Plane;
 public class Hamster
@@ -322,15 +331,6 @@ public class Programm
         Hamster hompter = new(); // Gibt es hier einen Fehler?
     }
 }
-```
-
-Erwarteter Output:
-```
-🐹
-ah. _isHungry ist null.
-⚠️~~~~~ darüber und darunter soll beides gleich aussehn ~~~~~⚠️
-🐹
-ah. _isHungry ist null.
 ```
 
 ---
