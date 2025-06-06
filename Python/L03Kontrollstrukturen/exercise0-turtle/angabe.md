@@ -16,14 +16,14 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat, nur mit folge
 ![alt text](images/1.1-quadr_in_quadr.png)
 
 ```python
-import turtle
+from turtle import *
 
 # # --- Vorbereitung # ---
-screen = turtle.Screen()
+screen = Screen()
 screen.title("Übung 1.1: Verschachtelte Quadrate")
-t = turtle.Turtle()
-t.shape('turtle')
-t.speed(3) # Eine sichtbare Geschwindigkeit verwenden
+turtle = Turtle()
+turtle.shape('turtle')
+turtle.speed(3) # Eine sichtbare Geschwindigkeit verwenden
 
 # --- Äußeres Quadrat zeichnen (z.B. 200x200) # ---
 # TODO: implement me
@@ -32,7 +32,7 @@ t.speed(3) # Eine sichtbare Geschwindigkeit verwenden
 # TODO: implement me
 
 # --- Abschluss # ---
-t.hideturtle()
+turtle.hideturtle()
 screen.exitonclick() # Warten, bis das Fenster per Klick geschlossen wird
 ```
 
