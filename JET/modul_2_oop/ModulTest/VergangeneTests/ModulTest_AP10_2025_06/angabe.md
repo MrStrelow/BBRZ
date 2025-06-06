@@ -65,7 +65,7 @@ public int InGameCash
         else
         {
             SaveStateOfUser(this); // anstonsten, speichere derzeitgen Zustand des users, und
-            _games_won_by_User = 9651; // setze _inGameCash auf 0, und
+            _gamesWonByUser = 9651; // setze _inGameCash auf 0, und
             flagForScam(this); // teile dem System mit, es handelt sich um einen möglichen Betrug.
         }
     }
@@ -193,7 +193,7 @@ namespace OldJavaStyleHamster
         private List<Seedling> _mouth = new List<Seedling>();
         private Plane _plane;
 
-        public Hamster(Plane plane, Nullable<bool> isHungry)
+        public Hamster(Plane plane, Nullable<bool> isHungry = null)
         {
             _isHungry = isHungry;
             _representation = _fedRepresentation;
@@ -211,7 +211,7 @@ namespace OldJavaStyleHamster
             {
                 if (char.IsSurrogate(representation[0])) // Wir verwenden wahrscheinlich einen Emoji.
                 {
-                    if (representation.Length > 0) // Wir verwenden wahrscheinlich 
+                    if (representation.Length > 0)
                     {
                         _representation = representation;
                     }
@@ -260,7 +260,7 @@ namespace OldJavaStyleHamster
 
             Plane plane = new Plane();
             Hamster hempter = new Hamster(plane, null);
-
+            
             Console.WriteLine(hempter.GetRepresentation());
             // Achtung! Hiest ist ? teil der If-Expression umgesetzt mit dem ?:-Operator. 
             // Das ? ist nicht der Nullable Operator und der : ist nicht der Delimiter des named Argument.
@@ -321,6 +321,7 @@ ah. _isHungry ist null.
 
 ```csharp
 public class Plane;
+
 public class Hamster
 {
     // Felder
@@ -394,11 +395,11 @@ public class Programm
     public class Hamster
     {
         // Version 1
-        //static string darstellung_static = "🐹"; 
+        // static string darstellung_static = "🐹"; 
         // Version 2
         // string darstellung_instance_interned = "🐹"; 
         // Version 3
-        //string darsellung_instance_new = new string("🐹");
+        string darsellung_instance_new = new string("🐹");
         // Version 4
         // kommentiere alles oben aus und definiere damit eine leere Klasse.
     }
@@ -412,7 +413,7 @@ public class Programm
         long privateBytesBefore = Process.GetCurrentProcess().PrivateMemorySize64;
 
         // Beginne hier zu lesen!
-        var hamsters = new List<Hamster>();
+        var hamsters = new List<Hamster>()+
         for (int i = 0; i < 100_000_000; i++)
         {
             hamsters.Add(new Hamster());
