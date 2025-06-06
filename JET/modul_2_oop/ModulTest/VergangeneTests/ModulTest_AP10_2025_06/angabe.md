@@ -30,7 +30,14 @@ Notenschlüssel:
 ### Programmverständnis [20 / 45 Teilpunkte]
 Gegeben ist folgender Code welcher ``Properties``(Eigenschaften) und ``Set-Gaurds`` verwendet. 
 
+**Hinweis:**
+* es kann nicht 2 mal ein ``visibility modifier`` neben ``get`` und ``set`` stehen. Wenn so etwas gewünscht ist, schreiben wir den weniger restritiven ``visiblity modifier`` neben der ``Property`` (Eigenschaft) selbst. ``public string Name { proteced get; private set; }`` vs. ``protected string Name { get; private set; }``
+
 ```csharp
+protected string Name { get; private set; }
+
+private string Name { get; protected set; }
+
 public string Name { protected get; private set; }
 
 public int Id

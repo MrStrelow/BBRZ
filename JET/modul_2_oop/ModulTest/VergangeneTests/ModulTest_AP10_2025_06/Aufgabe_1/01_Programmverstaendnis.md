@@ -4,7 +4,13 @@
 
 ```csharp
 // Korrekt
-public string Name { protected get; private set; } // passt.
+protected string Name { get; private set; } 
+
+// Fehler - modifier für property selbst (links) darf nicht einschränkender als jene bei den get und set sein.
+private string Name { get; protected set; } 
+
+// Fehler - nur ein modifier für get und set möglich.
+public string Name { protected get; private set; } 
 
 // Fehler
 public int Id

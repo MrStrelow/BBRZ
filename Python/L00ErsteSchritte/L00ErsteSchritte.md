@@ -1,11 +1,10 @@
 ## Was mache ich in einem Programm?
 
-Hier ist nun der Punkt, an dem wir etwas machen können. `Programme` werden vom Computer in der Regel von `oben nach unten` gelesen und ausgeführt. Wir schreiben dort eine Art *Befehl* oder *Anweisung* in jede Zeile. Damit werden die weiter unten geschriebenen "Befehle" später als jene davor ausgeführt.
+Hier ist nun der Punkt, an dem wir etwas machen können. `Programme` werden vom Computer in der Regel *von oben nach unten* gelesen und ausgeführt. Wir schreiben dort eine Art *Befehl* oder *Anweisung* in jede Zeile. Damit werden die weiter unten geschriebenen "Befehle" später als jene davor ausgeführt.
 
-Hier geben wir "Dinge" auf der `Konsole` (oft auch Terminal genannt) aus. Das wird in Python mit der eingebauten Funktion `print()` gemacht. Wenn wir diese Funktion verwenden, schreiben wir in die runden Klammern `()` das, was wir auf der `Konsole` ausgeben wollen. In unserem Fall ist es der `Wert` "Hello World". Ein `Wert` ist eine von der Programmiersprache akzeptierte Kette an Symbolen (oder Daten), die wir im Speicher des `Programms` wiederfinden können.
+Hier geben wir "Dinge" auf der `Konsole` (oft auch Terminal genannt) aus. Das wird in Python mit der eingebauten Funktion `print()` gemacht. Wenn wir diese ``Funktion`` verwenden, schreiben wir in die runden Klammern `()` das, was wir auf der `Konsole` ausgeben wollen. In unserem Fall ist es der `Wert` *"Hello World"*. Ein `Wert` ist eine von der Programmiersprache akzeptierte Daten, die wir im Speicher des `Programms` wiederfinden können.
 
 ```python
-# Dateiname könnte z.B. L01_erste_schritte.py sein
 # Die folgende Zeile gibt den Text "Hello World" auf der Konsole aus.
 print("Hello World")
 ```
@@ -26,8 +25,6 @@ print(meine_variable)
 print(meine_variable)
 ```
 
-**Anmerkung:** Die Funktion `print()` ist bereits sehr kurz und direkt. Es gibt keine speziellen Kürzel wie `sout` in manchen Java-IDEs, da `print()` so fundamental und einfach zu tippen ist.
-
 Wir wollen aber mehr als nur das machen. In Programmiersprachen gibt es, unter anderem, folgende wichtige `Kontrollstrukturen`:
 
 * `Variablen`,
@@ -35,7 +32,7 @@ Wir wollen aber mehr als nur das machen. In Programmiersprachen gibt es, unter a
 * `Operatoren` (z.B. `+`, `-`, `*`, `/`, `and`, `or`) und
 * `Schleifen` (z.B. `for`- oder `while`-Schleifen).
 
-Diese vier merken wir uns, denn diese sind für uns momentan am wichtigsten. Mit diesen können wir theoretisch alles Programmieren was ihr an Software kennt. Diese werden in späteren Einheiten erklärt. Alle anderen Konzepte beschäftigen sich damit, wie wir Programme verständlicher und in der Gruppe angenehmer programmieren können. Wenn wir also diese 4 grundlegenden Konzepte erarbeitet und in unsere Denkweise eingebaut haben, können wir schon interessante Dinge programmieren. Bis dahin bitte ich um Geduld.
+Diese vier merken wir uns, denn diese sind für uns momentan am wichtigsten. Mit diesen können wir theoretisch alles Programmieren was ihr an Software kennt. Diese werden in späteren Einheiten erklärt. Wenn wir also diese 4 grundlegenden Konzepte erarbeitet und in unsere Denkweise eingebaut haben, können wir schon interessante Dinge programmieren. Bis dahin bitte ich um Geduld.
 
 Wir gehen hier auf `Variablen` ein. Diese sind der Baustein aller weiteren `Kontrollstrukturen`, welche wir verwenden.
 Eine Variable ist ein Platzhalter für Werte. Anstatt also zu sagen "Hello World", können wir dieses Wort (diesen Text) in einer Variablen speichern.
@@ -55,15 +52,9 @@ In Python wird eine Variable **initialisiert**, indem ihr ein Wert zugewiesen wi
 # Python erkennt automatisch, dass 'mein_string' den Typ 'str' (String) hat.
 mein_string = "Hallo Python"
 print(mein_string)
-
-# Würde man versuchen, eine Variable zu verwenden, die noch nicht initialisiert wurde,
-# (d.h. der noch kein Wert zugewiesen wurde), gäbe es einen NameError.
-# print(uninitialisierte_variable) # Dies würde einen Fehler verursachen.
 ```
 
-Hier haben wir den Namen der Variablen (`mein_string`) links vom Gleichheitszeichen `=` geschrieben und rechts davon den Wert, den sie speichern soll. In Python schließen wir Anweisungen üblicherweise *nicht* mit einem Strichpunkt ab.
-
-Eine Variable wird in Python also **initialisiert**, indem man ihr mit dem Zuweisungsoperator `=` einen Wert gibt. Dies ist der Moment, in dem die Variable "entsteht" und ihren Typ durch den zugewiesenen Wert erhält:
+Hier haben wir den Namen der Variablen (`mein_string`) links vom Gleichheitszeichen *=* geschrieben und rechts davon den Wert, den sie speichern soll. Wir können uns also den ``Zuweisungsoperator`` *=* als "Pfeil" nach links vorstellen *mein_string <- "Hallo Python"*. Wir nehmen damit was *rechts* vom *=* steht und schreiben es in die ``Variable`` links vom  *=*. Dies ist der Moment, in dem die Variable "entsteht" und ihren Typ durch den zugewiesenen Wert erhält:
 
 ```python
 # Initialisieren der Variable (erstellt die Variable und weist einen Wert zu)
