@@ -1,56 +1,58 @@
 from turtle import *
 
 # --- Vorbereitung # ---
-screen = Screen()
-screen.title("Übung 7.6: Farbige Punkte - Mehrfachverzweigung")
-screen_width = screen.window_width()
-screen_height = screen.window_height()
-hideturtle()
-speed("fastest")
+bildschirm = Screen()
+bildschirm.title("Steuere die Turtle mit den Pfeiltasten")
 
-# Vertikale Streifen zeichnen
-# Für 5 Streifen brauchen wir 4 Trennlinien.
-# Jede Linie ist bei einem Fünftel der Breite verschoben.
-# Die Koordinaten gehen von -breite/2 bis +breite/2.
-# Positionen der Linien: -3/10, -1/10, +1/10, +3/10 der Breite
-linie1_x = -screen_width * 0.3
-linie2_x = -screen_width * 0.1
-linie3_x = screen_width * 0.1
-linie4_x = screen_width * 0.3
-    
-penup()
+# Erstellen unserer Helden-Turtle
+held = Turtle()
+held.shape("turtle")
+held.shapesize(2)
+held.color("darkgreen")
+held.penup()
 
 # --- Logik # ---
-groesse_des_punktes = 40
+# Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
+SCHRITTWEITE = 20
 
-def zeichne_bunten_punkt(x, y):
-    penup() 
-    goto(x, y)
+# Wir brauchen vier separate Funktionen, eine für jede Pfeiltaste.
 
-    # Farbe basierend auf expliziter Bereichslogik bestimmen
-    
-    # Streifen 1 (ganz links)
-    if x <= linie1_x:
-        dot(groesse_des_punktes, "green")
-        
-    # Streifen 2 (links)
-    elif linie1_x < x and x <= linie2_x:
-        dot(groesse_des_punktes, "violet")
-        
-    # Streifen 3 (Mitte)
-    elif linie2_x < x and x <= linie3_x:
-        dot(groesse_des_punktes, "orange")
-        
-    # Streifen 4 (rechts)
-    elif linie3_x < x and x <= linie4_x:
-        dot(groesse_des_punktes, "blue")
-        
-    # Streifen 5 (ganz rechts)
-    elif linie4_x < x:
-        dot(groesse_des_punktes, "red")
+def gehe_hoch():
+    """Setzt die Ausrichtung nach oben (90 Grad) und geht einen Schritt."""
+    held.setheading(90)
+    held.forward(SCHRITTWEITE)
 
-# Auf Klicks lauschen
-screen.onclick(zeichne_bunten_punkt)
+def gehe_runter():
+    """Setzt die Ausrichtung nach unten (270 Grad) und geht einen Schritt."""
+    held.setheading(270)
+    held.forward(SCHRITTWEITE)
+
+def gehe_links():
+    """Setzt die Ausrichtung nach links (180 Grad) und geht einen Schritt."""
+    held.setheading(180)
+    held.forward(SCHRITTWEITE)
+
+def gehe_rechts():
+    """Setzt die Ausrichtung nach rechts (0 Grad) und geht einen Schritt."""
+    held.setheading(0)
+    held.forward(SCHRITTWEITE)
+
+
+# --- Ereignis-Verknüpfung (Event Binding) ---
+# Damit Tastendrücke erkannt werden, müssen wir zwei Dinge tun:
+# 1. Dem Bildschirm sagen, dass er "zuhören" soll.
+bildschirm.listen()
+
+# 2. Jede Taste mit der Funktion verknüpfen, die sie auslösen soll.
+# Die Namen für die Pfeiltasten sind: "Up", "Down", "Left", "Right"
+bildschirm.onkey(gehe_hoch, "Up")
+bildschirm.onkey(gehe_runter, "Down")
+bildschirm.onkey(gehe_links, "Left")
+bildschirm.onkey(gehe_rechts, "Right")
+
 
 # --- Abschluss # ---
-screen.mainloop()
+# Hält das Fenster offen und wartet auf Tastendrücke.
+bildschirm.mainloop()
+
+#TODO beispiel mit keyboards.
