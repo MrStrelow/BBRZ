@@ -1,35 +1,30 @@
-## Events mit Turtle
+## Userinput als Events mit Turtle
 ### Mausgesteuerte Bewegung
 Wir legen unserer Turtle mit der Maus Seegras irgendwo am Bildschirm hin. Wir drücken dazu mit der Linken Maustaste auf einen Ort am Bildschirm.
 Die Turtle bewegt sich anschließend dorthin und macht einen Abdruck von sich selbst um sich zu merken wo einmal ein Seegras hingelegt worden ist. Wenn wir auf einen anderen Ort klicken, bewegt sich die Turtle auch dorthin und macht weider einen Abdruck. Dieses verhalten wiederholt sich bis wir das Fenster rechts oben beim X schließen.
 
-Verwende dazu folgende ``Funktionen``:
-* ``xcor()``: 
-* ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
+Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
-* ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
-* ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
+
+Sowie folgende ``Funktionen``:
+* * ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/2.1-left.png">
-    <img style="" height="240" width="240" src="images/2.1-right.gif">
+    <img style="" height="240" width="240" src="../images/7.4.gif">
 </div>
-
-#### Vatiante 2
 
 ```python
 from turtle import *
 
 # --- Vorbereitung # ---
 screen = Screen()
-screen.title("Übung 3.1: Maussteuerung")
+screen.title("Übung 7.4: Maussteuerung")
 shape('turtle')
-speed(8)
+speed(3)
 
 # --- Eigene Funktionen # ---
 # Diese Funktion wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt
@@ -39,66 +34,124 @@ def bewege_turtle(x, y):
 
 # --- Logik # ---
 penup()
-# Dem Bildschirm sagen, dass er die Funktion move_turtle bei jedem Klick aufrufen soll
+
+# Diese Funktion ist eine komplizierte. Wir behandeln dies nur weil es im Lehrplan steht.
+# Diese horch auf einen Klick mit der Maus. Wir nennen das ein Event. Wenn dieses Event passiert, führen wir den Code in der eigens geschriebenen Funktion bewege_turtle aus. Wir erreichen das, wenn wir den Namen der Funktion übergeben. Wir verwenden die Funktion damit als Variable. Der Aufruf der Funktion passiert dann innerhalb von onclick und ist nicht mehr für uns ersichtlich.
+# Zudem lebt diese ``Funktion`` bei der ``Variable`` screen. Wir können dies deshalb nur aufrufen wenn wir davor screen mit einem Punkt danach schreiben.
 screen.onclick(bewege_turtle)
 
 # --- Abschluss # ---
-# Hält die Hauptprogrammschleife am Laufen, um auf Ereignisse zu warten
+# Das hier ist eine Art Schleife. Wir lassen das Programm laufen und wenn ein Event passiert, dann führen wir dieses aus.
 screen.mainloop()
 ```
 
 
-### Farbige Punkte pro Quadrant bei Klick
-Zeichne ein Fadenkreuz. Wenn der Benutzer klickt, erscheint ein großer Punkt (ca. 1 cm Durchmesser). Die Farbe des Punktes hängt vom Quadranten des Klicks ab: 
+### Farbige Punkte - Mehrfachverzweigung
+Unsere Turtle fängt an zu graben. Was sich unter dem Sand verbrigt weiß sie noch nicht. Hilf den Ort mit der Maus zu zeigen wo sie Graben soll.
+
+#### Fenster Form
+Wenn der Benutzer klickt, erscheint ein großer Punkt (ca. 1 cm Durchmesser). Die Farbe des Punktes hängt vom Quadranten des Klicks ab: 
 * oben links ist rot, 
 * oben rechts blau,
 * unten links grün und 
 * unten rechts gelb.
 
 ```python
-import turtle
+from turtle import *
 
-# # --- Vorbereitung # ---
-screen = turtle.Screen()
-screen.title("Übung 3.2: Quadranten-Punkte")
+# --- Vorbereitung # ---
+screen = Screen()
+screen.title("Übung 7.5: Farbige Punkte - Mehrfachverzweigung")
 screen_width = screen.window_width()
 screen_height = screen.window_height()
-t = turtle.Turtle()
-t.hideturtle()
-t.speed(0)
-
-# --- Fadenkreuz zeichnen # ---
-t.penup()
-t.goto(-screen_width/2, 0)
-t.pendown()
-t.goto(screen_width/2, 0)
-t.penup()
-t.goto(0, -screen_height/2)
-t.pendown()
-t.goto(0, screen_height/2)
-
-Eine Turtle zum Zeichnen der Punkte erstellen
-dot_drawer = turtle.Turtle()
-dot_drawer.shape('turtle')
-dot_drawer.penup()
+hideturtle()
+speed("fastest")
+penup()
 
 # --- Logik # ---
-Ungefähr 38 Pixel pro cm auf den meisten Bildschirmen
-DOT_DIAMETER = 38
+DOT_DIAMETER = 80
 
 def draw_colored_dot(x, y):
-dot_drawer.goto(x, y)
+    goto(x, y)
 
-# Farbe basierend auf dem Quadranten bestimmen
-if x < 0 and y > 0: # Oben Links
-    dot_drawer.dot(DOT_DIAMETER, "red")
-elif x > 0 and y > 0: # Oben Rechts
-    dot_drawer.dot(DOT_DIAMETER, "blue")
-elif x < 0 and y < 0: # Unten Links
-    dot_drawer.dot(DOT_DIAMETER, "green")
-else: # Unten Rechts
-    dot_drawer.dot(DOT_DIAMETER, "yellow")
-Auf Klicks lauschen
+    # Farbe basierend auf dem Quadranten bestimmen
+    if x < 0 and y > 0: # Oben Links
+        dot(DOT_DIAMETER, "red")
+    elif x > 0 and y > 0: # Oben Rechts
+        dot(DOT_DIAMETER, "blue")
+    elif x < 0 and y < 0: # Unten Links
+        dot(DOT_DIAMETER, "green")
+    else: # Unten Rechts
+        dot(DOT_DIAMETER, "yellow")
+
+# Auf Klicks lauschen
+screen.onclick(draw_colored_dot)
+
+# --- Abschluss # ---
+screen.mainloop()
+```
+
+#### Streifen
+Zeichne Steifen von oben nach unten. Wenn der Benutzer klickt, erscheint ein großer Punkt (40 Pixel an Durchmesser). Die Farbe hängt ab in welchen Steifen wir graben: 
+1. Steifen ganz links ist grün.
+2. Steifen links ist violett.
+3. Steifen in der Mitte ist orange.
+4. Steifen rechts ist blau.
+5. Steifen ganz rechts ist rot.
+
+```python
+from turtle import *
+
+# --- Vorbereitung # ---
+screen = Screen()
+screen.title("Übung 7.6: Farbige Punkte - Mehrfachverzweigung")
+screen_width = screen.window_width()
+screen_height = screen.window_height()
+hideturtle()
+speed("fastest")
+
+# Vertikale Streifen zeichnen
+# Für 5 Streifen brauchen wir 4 Trennlinien.
+# Jede Linie ist bei einem Fünftel der Breite verschoben.
+# Die Koordinaten gehen von -breite/2 bis +breite/2.
+# Positionen der Linien: -3/10, -1/10, +1/10, +3/10 der Breite
+line1_x = -screen_width * 0.3
+line2_x = -screen_width * 0.1
+line3_x = screen_width * 0.1
+line4_x = screen_width * 0.3
+    
+penup()
+
+# --- Logik # ---
+DOT_DIAMETER = 40
+
+def zeichne_bunten_punkt(x, y):
+    penup() 
+    goto(x, y)
+
+    # Farbe basierend auf expliziter Bereichslogik bestimmen
+    
+    # Streifen 1 (ganz links)
+    if x < linie1_x:
+        dot(PUNKT_DURCHMESSER, "green")
+        
+    # Streifen 2
+    elif x >= linie1_x and x < linie2_x:
+        dot(PUNKT_DURCHMESSER, "violet")
+        
+    # Streifen 3 (Mitte)
+    elif x >= linie2_x and x < linie3_x:
+        dot(PUNKT_DURCHMESSER, "orange")
+        
+    # Streifen 4
+    elif x >= linie3_x and x < linie4_x:
+        dot(PUNKT_DURCHMESSER, "blue")
+        
+    # Streifen 5 (ganz rechts)
+    elif x >= linie4_x:
+        dot(PUNKT_DURCHMESSER, "red")
+
+# Auf Klicks lauschen
 screen.onclick(draw_colored_dot)
 
 # --- Abschluss # ---
