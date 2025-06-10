@@ -1,76 +1,48 @@
 from turtle import *
 
-# --- Vorbereitung # ---
-title("Übung 1.3: Verschachtelte Quadrate - Wo bin ich und wohin gehe ich?")
-shape("turtle")
-speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
+# # --- Vorbereitung # ---
+screen = Screen()
+screen.title("Übung 1.1: Verschachtelte Quadrate")
 
-# --- Logik # ---
+shape("turtle")
+speed(1) # Eine sichtbare Geschwindigkeit verwenden
+
 # --- Äußeres Quadrat zeichnen (z.B. 200x200) # ---
-# Wir verwenden die orange Schnur für den Garten.
-color("orange")
-so_weit_gehe_ich = 200
+so_weit_gehe_ich = 100
 so_viel_drehe_ich_mich = 90
 
+# das ist das große quadrat
 penup()
-neuer_ort = -so_weit_gehe_ich/2
-goto(neuer_ort, neuer_ort)
+goto(x=-so_weit_gehe_ich/2, y=-so_weit_gehe_ich/2)
 pendown()
 
-# Erste Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
 left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
-# Zweite Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
 left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
-# Dritte Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
 left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
-# Vierte Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
-left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
 
-
-# --- Inneres Quadrat zeichnen (z.B. 100x100) # ---
+# das ist das kleine quadrat
 penup()
-neuer_ort = -so_weit_gehe_ich/4
-goto(neuer_ort, neuer_ort)
-
+goto(x=-so_weit_gehe_ich/4, y=-so_weit_gehe_ich/4)
 pendown()
-# Wir verwenden die violette Schnur für das Haus.
-color("purple")
-so_weit_gehe_ich = so_weit_gehe_ich / 2
-# so_weit_gehe_ich /= 2 # Wir können es kürzer mithilfe des gemischten Operators /= schreiben. Diese ist eine division und Zuweisung  in einer Zeile.
 
-# Erste Vorwärtsbewegung mit der Schnur
-forward(so_weit_gehe_ich)
-# wir erhöhen die variable umfang_haus
-left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
+left(90)
+# so_weit_gehe_ich = so_weit_gehe_ich / 2   # das ist das gleiche wie
+so_weit_gehe_ich /= 2                       # das ist das gleiche wie
 
-# Zweite Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
 left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
-# Dritte Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
 left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
-# Vierte Vorwärtsbewegung mit der Schnur
 forward(so_weit_gehe_ich)
 left(so_viel_drehe_ich_mich)
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
+forward(so_weit_gehe_ich)
 
-hideturtle()
 
 # --- Abschluss # ---
-exitonclick() # Warten, bis das Fenster per Klick geschlossen wird.
+heid_dördl = hideturtle
+heid_dördl()
+screen.exitonclick() # Warten, bis das Fenster per Klick geschlossen wird
