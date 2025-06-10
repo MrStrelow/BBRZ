@@ -1,20 +1,22 @@
 ## Schleifen mit Turtle
 ### Wiederholte Bewegung - für immer
-Unsere Turtle will die Welt erforschen. Dazu mekrt sich unsere Turtle am Anfang wo sie gestartet ist. Das ist auf der Position *x=0* und *y=0*. Sie steht also wieder am Rande des Meeres. Links von ihr ist das Meer und rechts von ihr ist Sand. Nun wiederholt sie folgendes Verhalten **für immer**. Die Turtle bewegt sich auf *eine zufällige Position* und **markiert** diese. Sie *gräbt* sich nicht mehr ein, sondern bewegt sich zu ihrer Markierung in der Mitte zurück. Wenn sie in der Mitte angekommen ist, geht sie zur nächsten zufälligen Position. Wenn die Turtle ins Meer geht, schwimmt sie. Ansonsten geht sie am Sand. Wenn die Turtle im Meer schwimmt, stelle sie als Kreis dar. Ansonsten stelle sie als Turtle, wie bisher dar. 
+Unsere Turtle will die Welt erforschen. Dazu merkt sich unsere Turtle am Anfang wo sie gestartet ist. Das ist auf der Position *x=0* und *y=0*. Sie steht also wieder am Rande des Meeres. Links von ihr ist das Meer und rechts von ihr ist Sand. Nun wiederholt sie folgendes Verhalten **für immer**. Die Turtle bewegt sich auf *eine zufällige Position* und **markiert** diese. Sie *gräbt* sich nicht mehr ein, sondern bewegt sich zu ihrer Markierung in der Mitte zurück. Wenn sie in der Mitte angekommen ist, geht sie zur nächsten zufälligen Position. Wenn die Turtle ins Meer geht, schwimmt sie. Ansonsten geht sie am Sand. Wenn die Turtle im Meer schwimmt, stelle sie als Kreis dar. Ansonsten stelle sie als Turtle, wie bisher dar. 
 
-Verwende dazu folgende ``Funktionen``:
+Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
-* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/3.1.gif">
+    <img style="" height="240" width="240" src="images/6.1.gif">
 </div>
 
 ```python
@@ -22,7 +24,7 @@ from turtle import *
 from random import randint
 
 # --- Vorbereitung (passiert nur einmal) # ---
-title("Übung 3.1: Wiederholte Bewegung - für immer")
+title("Übung 6.1: Wiederholte Bewegung - für immer")
 shape('turtle')
 speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
 penup() # Wir heben die Turtle nur einmal am Anfang auf.
@@ -49,7 +51,7 @@ while ...:
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-    # Wir bewegen uns zur Position zufällig gewählten Position.
+    # Wir bewegen uns zur zufällig gewählten Position.
     # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
     # Wir bewegen uns zur Ausgangsposition zurück.
@@ -61,19 +63,21 @@ while ...:
 ### Wiederholte Bewegung - 5 mal
 Unsere Turtle will wieder die Welt erforschen. Die Angabe aus der vorherigen Beispiel ist wieder umzusetzen. Jedoch ist die Turtle nach 5 Bewegungen müde, kehrt zur Mitte zurück und hört danach auf.
 
-Verwende dazu folgende ``Funktionen``:
+Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
-* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/3.2.gif">
+    <img style="" height="240" width="240" src="images/6.2.gif">
 </div>
 
 ```python
@@ -81,7 +85,7 @@ from turtle import *
 from random import randint
 
 # --- Vorbereitung (passiert nur einmal) # ---
-title("Übung 3.2: Wiederholte Bewegung - 5 mal")
+title("Übung 6.2: Wiederholte Bewegung - 5 mal")
 shape('turtle')
 speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
 penup() # Wir heben die Turtle nur einmal am Anfang auf.
@@ -108,7 +112,7 @@ for ... in ...:
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-    # Wir bewegen uns zur Position zufällig gewählten Position.
+    # Wir bewegen uns zur zufällig gewählten Position.
     # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
     # Wir bewegen uns zur Ausgangsposition zurück.
@@ -123,20 +127,22 @@ exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenst
 ### Wiederholte Bewegung - *manchmal* für immer
 Unsere Turtle will wieder die Welt erforschen. Die Angabe aus der vorherigen Beispiel ist wieder umzusetzen. Jedoch will die Turtle Abwechslung. Wenn sie 4-mal im gleichen Habitat (Sand oder Wasser) sich aufhält, dann hört sie auf und gräbt sich in der mitte wieder ein.
 
-Verwende dazu folgende ``Funktionen``:
+Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
-* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/3.3-kurz.gif">
-    <img style="" height="240" width="240" src="images/3.3-lange.gif">
+    <img style="" height="240" width="240" src="images/6.3-kurz.gif">
+    <img style="" height="240" width="240" src="images/6.3-lang.gif">
 </div>
 
 ```python
@@ -144,7 +150,7 @@ from turtle import *
 from random import randint
 
 # --- Vorbereitung (passiert nur einmal) # ---
-title("Übung 3.3: Wiederholte Bewegung - *manchmal* für immer")
+title("Übung 6.3: Wiederholte Bewegung - *manchmal* für immer")
 shape('turtle')
 speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
 penup() # Wir heben die Turtle nur einmal am Anfang auf.
@@ -196,7 +202,7 @@ while ...:
     if langeweile_steigt == ...:
         ist_interessiert = ...
 
-    # Wir bewegen uns zur Position zufällig gewählten Position.
+    # Wir bewegen uns zur zufällig gewählten Position.
     goto(ziel_in_x, ziel_in_y)
     stamp()
 

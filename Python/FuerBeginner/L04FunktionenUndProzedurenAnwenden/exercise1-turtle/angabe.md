@@ -12,7 +12,7 @@ Zeichne nun ein kleines Quadrat zentriert in einem größeren Quadrat mit folgen
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/1.1.gif">
+    <img style="" height="240" width="240" src="images/4.1.gif">
 </div>
 
 #### Version 1 - Mit Werten als Parameter
@@ -20,7 +20,7 @@ Zeichne nun ein kleines Quadrat zentriert in einem größeren Quadrat mit folgen
 from turtle import *
 
 # --- Vorbereitung # ---
-title("Übung 1.1: Verschachtelte Quadrate")
+title("Übung 4.1: Verschachtelte Quadrate")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
@@ -78,12 +78,12 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/1.2.gif">
+    <img style="" height="240" width="240" src="images/4.2.gif">
 </div>
 
 ```python
 # --- Vorbereitung # ---
-title("Übung 1.2: Verschachtelte Quadrate - Farben und Umfang")
+title("Übung 4.2: Verschachtelte Quadrate - Farben und Umfang")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
@@ -170,11 +170,16 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 * ``color("orange")``: Die Turtle malt orange Linien am Bildschirm.
 * ``print(umfang_garten, umfang_haus)``: Mit dieser ``Prozedur`` kann eine Variable für den Umfang des Gartens und eine Variable für den Umfang des Hauses auf die Console ausgegeben werden.
 
+**Hinweise:**
+<div style="text-align: left;">
+    <img style="" height="240" width="240" src="images/4.3.gif">
+</div>
+
 ```python
 from turtle import *
 
 # --- Vorbereitung # ---
-title("Übung 1.3: Verschachtelte Quadrate - Wo bin ich und wohin gehe ich?")
+title("Übung 4.3: Verschachtelte Quadrate - Wo bin ich und wohin gehe ich?")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
@@ -248,7 +253,7 @@ Verwende folgende ``Prozeduren``:
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/1.3.gif">
+    <img style="" height="240" width="240" src="images/4.4.gif">
 </div>
 
 ```python
@@ -256,7 +261,7 @@ from turtle import *
 from math import sqrt
 
 # --- Vorbereitung # ---
-title("Übung 1.3: Renoviertes Haus")
+title("Übung 4.4: Renoviertes Haus")
 shape('turtle')
 speed(1)
 

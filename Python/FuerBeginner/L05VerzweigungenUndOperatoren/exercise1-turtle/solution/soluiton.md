@@ -6,15 +6,17 @@ Verwende dazu folgende ``Funktionen``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
+
+Sowie folgende ``Funktionen``:
+* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/2.1-left.png">
-    <img style="" height="240" width="240" src="../images/2.1-right.gif">
+    <img style="" height="240" width="240" src="../images/5.1-left.png">
+    <img style="" height="240" width="240" src="../images/5.1-right.gif">
 </div>
 
 ```python
@@ -22,7 +24,7 @@ from turtle import *
 from random import randint
 
 # --- Vorbereitung # ---
-title("Übung 2.1: Turtle in der rechten Hälfte")
+title("Übung 5.1: Turtle in der rechten Hälfte")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
@@ -61,11 +63,13 @@ Verwende dazu folgende ``Funktionen``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
-* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 **Hinweise:**
 <div style="text-align: left;">
@@ -78,7 +82,7 @@ from turtle import *
 from random import randint
 
 # --- Vorbereitung # ---
-title("Übung 2.2: Anderes Symbol")
+title("Übung 5.2: Anderes Symbol")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
 # --- Logik # ---
@@ -104,7 +108,7 @@ if ziel_in_x > 0:
 else:
     shape('circle') # Form für die linke Seite auf 'circle' setzen
 
-# Wir bewegen uns zur Position zufällig gewählten Position.
+# Wir bewegen uns zur zufällig gewählten Position.
 goto(ziel_in_x, ziel_in_y)
 
 # Am schluss versteckt sich die Turtle.

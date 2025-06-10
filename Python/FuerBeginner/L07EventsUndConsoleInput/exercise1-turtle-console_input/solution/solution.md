@@ -1,106 +1,174 @@
-## Events mit Turtle
-### Mausgesteuerte Bewegung
-Wir legen unserer Turtle mit der Maus Seegras irgendwo am Bildschirm hin. Wir drücken dazu mit der Linken Maustaste auf einen Ort am Bildschirm.
-Die Turtle bewegt sich anschließend dorthin und macht einen Abdruck von sich selbst um sich zu merken wo einmal ein Seegras hingelegt worden ist. Wenn wir auf einen anderen Ort klicken, bewegt sich die Turtle auch dorthin und macht weider einen Abdruck. Dieses verhalten wiederholt sich bis wir das Fenster rechts oben beim X schließen.
+## Userinput auf der Console mit Turtle
+### Wiederholte Bewegung mit Userinput - für immer
+Unsere Turtle will wieder die Welt erforschen. Dazu mekrt sich unsere Turtle am Anfang wo sie gestartet ist. Das ist auf der Position *x=0* und *y=0*. Sie steht also wieder am Rande des Meeres. Links von ihr ist das Meer und rechts von ihr ist Sand. Nun wiederholt sie folgendes Verhalten **für immer**. Die Turtle bewegt sich auf **ein vom User gewählte Position** und **markiert** diese. Sie *gräbt* sich nicht mehr ein, sondern bewegt sich zu ihrer Markierung in der Mitte zurück. Wenn sie in der Mitte angekommen ist, geht sie zur nächsten **vom User gewählten** Position. Wenn die Turtle ins Meer geht, schwimmt sie. Ansonsten geht sie am Sand. Wenn die Turtle im Meer schwimmt, stelle sie als Kreis dar. Ansonsten stelle sie als Turtle, wie bisher dar. 
 
-Verwende dazu folgende ``Funktionen``:
-* ``xcor()``: 
-* ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
+Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
-* ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
-* ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
-* ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
+* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/2.1-left.png">
-    <img style="" height="240" width="240" src="images/2.1-right.gif">
+    <img style="" height="240" width="240" src="../images/7.1.gif">
 </div>
-
-#### Vatiante 2
 
 ```python
 from turtle import *
+from random import randint
 
-# --- Vorbereitung # ---
-screen = Screen()
-screen.title("Übung 3.1: Maussteuerung")
+# --- Vorbereitung (passiert nur einmal) # ---
+title("Übung 7.1: Wiederholte Bewegung mit Userinput - für immer")
 shape('turtle')
-speed(8)
-
-# --- Eigene Funktionen # ---
-# Diese Funktion wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt
-def bewege_turtle(x, y):
-    goto(x, y) # Bewege die Turtle zu den geklickten Koordinaten
-    stamp() # Wir drücken die Turtle auf den Boden und machen damit einen Abdruck.
+speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
+penup() # Wir heben die Turtle nur einmal am Anfang auf.
 
 # --- Logik # ---
-penup()
-# Dem Bildschirm sagen, dass er die Funktion move_turtle bei jedem Klick aufrufen soll
-screen.onclick(bewege_turtle)
+# Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
+stamp() 
+penup() # Wir heben die Turtle auf, damit wir keine Linie zeichnen.
+
+while True:
+    ziel_in_x = int(input("Gib bitte die neue Position in x ein: "))
+    ziel_in_y = int(input("Gib bitte die neue Position in y ein: "))
+
+    # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
+    if ziel_in_x > 0:
+        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+    else:
+        shape('circle') # Form für die linke Seite auf 'circle' setzen
+
+    # Wir bewegen uns zur zufällig gewählten Position.
+    goto(ziel_in_x, ziel_in_y)
+    print("Ziel erreich!🏁 Drehe um.🔁")
+    # Wir bewegen uns zur Ausgangsposition zurück.
+    goto(0, 0)
 
 # --- Abschluss # ---
-# Hält die Hauptprogrammschleife am Laufen, um auf Ereignisse zu warten
-screen.mainloop()
 ```
 
+### Wiederholte Bewegung mit Userinput - für *fast* immer
+Unsere Turtle will wieder die Welt erforschen. Jedoch gibt es einen Unterschied zur vorherigen Angabe. Wenn wir *-9999* eingeben, dann sagen wir der Turtle wir wollen nicht mehr Erkunden. Damit endet unser Programm.
 
-### Farbige Punkte pro Quadrant bei Klick
-Zeichne ein Fadenkreuz. Wenn der Benutzer klickt, erscheint ein großer Punkt (ca. 1 cm Durchmesser). Die Farbe des Punktes hängt vom Quadranten des Klicks ab: 
-* oben links ist rot, 
-* oben rechts blau,
-* unten links grün und 
-* unten rechts gelb.
+Verwende dazu folgende ``Prozeduren``:
+* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
+* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
+
+**Hinweise:**
+<div style="text-align: left;">
+    <img style="" height="240" width="240" src="../images/7.2.gif">
+</div>
 
 ```python
-import turtle
+from turtle import *
+from random import randint
 
-# # --- Vorbereitung # ---
-screen = turtle.Screen()
-screen.title("Übung 3.2: Quadranten-Punkte")
-screen_width = screen.window_width()
-screen_height = screen.window_height()
-t = turtle.Turtle()
-t.hideturtle()
-t.speed(0)
-
-# --- Fadenkreuz zeichnen # ---
-t.penup()
-t.goto(-screen_width/2, 0)
-t.pendown()
-t.goto(screen_width/2, 0)
-t.penup()
-t.goto(0, -screen_height/2)
-t.pendown()
-t.goto(0, screen_height/2)
-
-Eine Turtle zum Zeichnen der Punkte erstellen
-dot_drawer = turtle.Turtle()
-dot_drawer.shape('turtle')
-dot_drawer.penup()
+# --- Vorbereitung (passiert nur einmal) # ---
+title("Übung 7.2: Wiederholte Bewegung mit Userinput - für fast immer")
+shape('turtle')
+speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
+penup() # Wir heben die Turtle nur einmal am Anfang auf.
 
 # --- Logik # ---
-Ungefähr 38 Pixel pro cm auf den meisten Bildschirmen
-DOT_DIAMETER = 38
+# Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
+stamp() 
+penup() # Wir heben die Turtle auf, damit wir keine Linie zeichnen.
 
-def draw_colored_dot(x, y):
-dot_drawer.goto(x, y)
+while True:
+    ziel_in_x = int(input("Gib bitte die neue Position in x ein: "))
+    ziel_in_y = int(input("Gib bitte die neue Position in y ein: "))
 
-# Farbe basierend auf dem Quadranten bestimmen
-if x < 0 and y > 0: # Oben Links
-    dot_drawer.dot(DOT_DIAMETER, "red")
-elif x > 0 and y > 0: # Oben Rechts
-    dot_drawer.dot(DOT_DIAMETER, "blue")
-elif x < 0 and y < 0: # Unten Links
-    dot_drawer.dot(DOT_DIAMETER, "green")
-else: # Unten Rechts
-    dot_drawer.dot(DOT_DIAMETER, "yellow")
-Auf Klicks lauschen
-screen.onclick(draw_colored_dot)
+    if ziel_in_x == -9999 or ziel_in_y == -9999:
+        print("Genug erforscht. 🐢 Bis bald.👋🏻")
+        break
+
+    # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
+    if ziel_in_x > 0:
+        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+    else:
+        shape('circle') # Form für die linke Seite auf 'circle' setzen
+
+    # Wir bewegen uns zur zufällig gewählten Position.
+    goto(ziel_in_x, ziel_in_y)
+    print("Ziel erreich!🏁 Drehe um.🔁")
+    # Wir bewegen uns zur Ausgangsposition zurück.
+    goto(0, 0)
 
 # --- Abschluss # ---
-screen.mainloop()
 ```
+
+### Wiederholte Bewegung mit Userinput - für *fast* immer - angenehmere Variante
+Unsere Turtle will wieder die Welt erforschen. Jedoch ist es unagenehm zwei mal *-9999* einzugeben wenn wir abbrechen wollen. Wir versuchen nun einmal "bye" einzugeben um der Turtle zu sagen, dass wir aufhören wollen. Dazu müssen wir eine ``Variable`` verwenden welche einen *Text* halten kann. Da ist eine ``Variable`` des ``Typs`` *String*. 
+
+Verwende dazu folgende ``Prozeduren``:
+* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
+* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
+
+Sowie folgende ``Funktionen``:
+* ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
+
+**Hinweise:**
+<div style="text-align: left;">
+    <img style="" height="240" width="240" src="../images/7.3.gif">
+</div>
+
+```python
+from turtle import *
+from random import randint
+
+# --- Vorbereitung (passiert nur einmal) # ---
+title("Übung 7.3: Wiederholte Bewegung mit Userinput - für fast immer - angenehmere Variante")
+shape('turtle')
+speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
+penup() # Wir heben die Turtle nur einmal am Anfang auf.
+
+# --- Logik # ---
+# Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
+stamp() 
+penup() # Wir heben die Turtle auf, damit wir keine Linie zeichnen.
+
+while True:
+    eingabe = input("Gib bitte die neue Position in x ein: ")
+
+    if eingabe == "bye":
+        break
+    else:
+        ziel_in_x = int(eingabe)
+
+    eingabe = input("Gib bitte die neue Position in y ein: ")
+
+    if eingabe == "bye":
+        break
+    else:
+        ziel_in_y = int(eingabe)
+
+    # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
+    if ziel_in_x > 0:
+        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+    else:
+        shape('circle') # Form für die linke Seite auf 'circle' setzen
+
+    # Wir bewegen uns zur zufällig gewählten Position.
+    goto(ziel_in_x, ziel_in_y)
+    print("Ziel erreich!🏁 Drehe um.🔁")
+    # Wir bewegen uns zur Ausgangsposition zurück.
+    goto(0, 0)
+
+# --- Abschluss # ---
+```
+
+
+

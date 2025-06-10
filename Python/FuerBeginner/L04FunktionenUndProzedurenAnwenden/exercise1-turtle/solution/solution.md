@@ -12,7 +12,7 @@ Zeichne nun ein kleines Quadrat zentriert in einem größeren Quadrat mit folgen
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/1.1.gif">
+    <img style="" height="240" width="240" src="../images/4.1.gif">
 </div>
 
 #### Version 1 - Mit Werten als Parameter
@@ -137,7 +137,7 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/1.2.gif">
+    <img style="" height="240" width="240" src="../images/4.2.gif">
 </div>
 
 ```python
@@ -244,6 +244,11 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 * ``color("orange")``: Die Turtle malt orange Linien am Bildschirm.
 * ``print(umfang_garten, umfang_haus)``: Mit dieser ``Prozedur`` kann eine Variable für den Umfang des Gartens und eine Variable für den Umfang des Hauses auf die Console ausgegeben werden.
 
+**Hinweise:**
+<div style="text-align: left;">
+    <img style="" height="240" width="240" src="../images/4.3.gif">
+</div>
+
 ```python
 from turtle import *
 
@@ -340,7 +345,7 @@ Verwende folgende ``Prozeduren``:
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/1.3.gif">
+    <img style="" height="240" width="240" src="../images/4.4.gif">
 </div>
 
 ```python
