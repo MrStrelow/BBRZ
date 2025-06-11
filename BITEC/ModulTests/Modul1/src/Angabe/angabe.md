@@ -213,19 +213,20 @@ Weiters soll folgendes gelten:
 * **RegEx für Erkennung der Zahlen als Text**: Es kann dieser ``Regex`` verwendet werden um z.B. ``fünf-und-dreißig`` zu erkennen.
 ```java
 String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
-        String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
-        String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
-        String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
-        String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
-        String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
-        String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
-        String zehnerStellenAlsZahl = "20|30|40|50|60|70|80|90";
-        String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
-        String hundert = "ein-hundert";
+String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
+String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
+String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
+String einerStellenOhneEins = "zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+String basisFuerZehnerStellen = "ein|" + einerStellenOhneEins;
+String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
+String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
+String zehnerStellenAlsZahl = "20|30|40|50|60|70|80|90";
+String kombinierterRest = "(" + basisFuerZehnerStellen + ")-und-(" + zehnerStellen + ")";
+String hundert = "ein-hundert";
 
-        String pattern = "^" +
-        nichtKombinierbar + "|" +
-        basis +
+String pattern = "^" +
+        "|(" + nichtKombinierbar + ")" +
+        "|(" + einerStellenOhneEins + ")" +
         "|(" + dreizehnBisNeunZehn + ")" +
         "|(" + zehnerStellenAlsZahl + ")" +
         "|(" + kombinierterRest + ")" +
