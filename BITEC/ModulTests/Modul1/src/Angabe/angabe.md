@@ -120,12 +120,13 @@ zahlen[i+1] = zahlen[i];
 ---
 
 ### Programmieren [10 / 25 Teilpunkte]
+Schreibe folgende Antworten als Kommentare im Java-File.
 <table style="width:100%">
   <tr>
     <td style="vertical-align: top; padding-right: 10px; width: 50%;">
       Wir erinnern uns an folgende Grafik:
       <ul>
-        <li>Was bedeutet wenn eine Zahl schwarz umrandet wird?</li>
+        <li>Was bedeutet, wenn eine Zahl schwarz umrandet wird?</li>
         <li>Ist dieses Verhalten in unserem Code vorhanden?</li>
         <li>Wenn nein, versuche diese Optimierung in das oben angegebene Programm einzubauen.</li>
         <li>Erkläre was hier optimiert wird.</li>
@@ -183,7 +184,7 @@ daten[0][5][0]       // 6. erzeugter Wert hat Typ...?
 ## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
 Gegeben ist ein ``RegEx``. 
-* Suche und beschreibe die ``Operatoren`` und ``Multiziplizäten``mwelche hier verwendet wurden.
+* Suche und beschreibe die ``Operatoren`` und ``Multiziplizäten`` welche hier verwendet wurden.
 * Beschreibe was dieser darstellen soll.
 
 ```rx
@@ -295,64 +296,6 @@ static string[][] spiegelnX(String[] array) {
 **Anmerkung:** Die Antwort "wegen den drei Punkten" bzw. wegen den fehlenden main usw. wäre kreativ, ist aber hier nicht gemeint.
 
 ---
-
-### Programmieren [20 / 30 Teilpunkte]
-Verwende folgende ``Funktionen`` (Methoden) um das *Zahlen Raten* Programm mit *Schnitstellen* zu versehen.
-Diese sind in der Hilfestellung unten in einem Programm zu sehen.
-
-#### **Hilfestellung:**
-```java
-public class Programmieren_02 {
-    static final int MAX_LIVES = ...
-    static final int MIN_NUMBER = ...
-    static final int MAX_NUMBER = ...
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        boolean playAgain = true;
-
-        while (playAgain) {
-            playSingleGame(scanner, random);
-            playAgain = askToPlayAgain(scanner);
-        }
-
-        System.out.println("Spiel beendet. Danke fürs Spielen!");
-        scanner.close();
-    }
-
-    static void playSingleGame(Scanner scanner, Random random) {
-        ...
-    }
-
-    static int getUserGuess(Scanner scanner, Random random) {
-        ...
-        return getWordInput(...);
-        ...
-        return getNumericInput(...);
-    }
-
-    static int getNumericInput(Scanner scanner) {
-        ...
-    }
-
-    static int getWordInput(Scanner scanner) {
-        ...
-    }
-
-    static int convertWordToNumber(String wordInput) {
-        ...
-    }
-
-    static void displayGameStatus(int guess, int zahlZuRaten, int livesLeft) {
-        ...
-    }
-
-    static boolean askToPlayAgain(Scanner scanner) {
-        ...
-    }
-}
-```
 
 ### Theorie [05 / 30 Teilpunkte]
 * Was ist der Unterschied zwischen dem ``Rückgabeparameter`` und dem ``Eingangsparameter``?
