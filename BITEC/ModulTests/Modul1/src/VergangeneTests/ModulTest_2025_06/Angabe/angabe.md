@@ -199,8 +199,7 @@ Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Einga
 
 **Hinweis:**
 * Lege zwei Variablen an ``int zaehleVorkommenEinerZahl = 0;`` und ``int zaehleVorkommenEinerZahlAlsText = 0;``. Mit diesen können wir bis z.B. 4 zählen. Das würde bedeuten wir haben 4 mal hintereinander z.B. eine Eingabe der Zahl gehabt. Wenn das der Fall ist ändern wir die Ziehung von ``erwartetZahl=true;`` auf ``erwartetZahl=false;``.
-* Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
-  Dies Programm ist ohne die *30%* Wahrscheinlichkeit der Eingabe in der Form *fünf-und-dreißig*. Danach versuche diese Form hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User eine ausgeschriebene Zahl eingibt, dies gleich dem ``Wert`` *ein-und-dreißig* ist und wir dann *31* als *Integer* zurückgeben? Wie machen wir es für alle 100 Fälle?
+* Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code, welcher sich online befindet als Vorlage (bei der Lösung im Probetest oder die Lösung der Übung).
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
