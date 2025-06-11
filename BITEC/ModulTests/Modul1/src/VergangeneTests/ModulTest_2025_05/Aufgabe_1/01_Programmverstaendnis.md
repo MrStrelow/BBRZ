@@ -1,4 +1,7 @@
-package VergangeneTests.ModulTest_2025_06.Aufgabe_1;
+﻿1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen.
+
+```java
+package VergangeneTests.ModulTest_2025_05.Aufgabe_1;
 
 import java.util.Arrays;
 
@@ -16,24 +19,10 @@ public class Programmieren_02 {
         for (int j = 0; j < zahlen.length - 1; j++) {
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
 
-            // Frage - Was bedeutet wenn eine Zahl schwarz umrandet wird?:
-            // Die schwarz umrandete Zahl ist eine Zahl welche bereits an der richtigen Stelle ist.
-
-            // Frage - Ist dieses Verhalten in unserem Code vorhanden?
-            // Nein, denn wir vergleichen weiter die Zahlen, auch wenn diese an der richtigen Stelle sind.
-
-            // Frage - Wenn nein, versuche diese Optimierung in das oben angegebene Programm einzubauen
-            // i < zahlen.length - 1 - j;
-            for (int i = 0; i < zahlen.length - 1 - j; i++) {
-
-                // Frage - Erkläre was hier optimiert wird.
-                // wir starten bei j=0 und gehen wenn -j bei i < zahlen.length - 1 - j; steht, beim ersten Mal alle Zahlen durch.
-                // Danach einmal weniger, denn j wurde auf 1 erhöht. Danach zweimal weniger. usw.
-                // Da wir nach jedem Durchlauf der äußeren Schleife eine Zahl fixieren,
-                // wollen diese Zahl nicht mehr anschauen in der unteren If-Bedingung.
+            for (int i = 0; i < zahlen.length - 1; i++) {
                 if (zahlen[i] > zahlen[i + 1]) {
-                    int platzhalter = zahlen[i + 1];
-                    zahlen[i + 1] = zahlen[i];
+                    int platzhalter = zahlen[i - 1]; // HIER: zahlen[i-1] sollte zahlen[i+1] sein
+                    zahlen[i - 1] = zahlen[i];       // HIER: zahlen[i-1] sollte zahlen[i+1] sein
                     zahlen[i] = platzhalter;
                 }
 
@@ -75,3 +64,20 @@ public class Programmieren_02 {
         return baseColor + Arrays.toString(coloredZahlen);
     }
 }
+```
+2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
+Begriffe: Die Begriffe lehnen sich am Gif in der VergangeneTests.ModulTest_2025_05.Angabe an.
+   * Was ist die Aufgabe der äußeren For-Schleife?
+     * Wiederhole die rote "Bubble" für mindestens jede Zahl ein mal.
+   * Was ist die Aufgabe der inneren For-Schleife?
+     * Die Bubble steigt auf - schiebe die rote "Bubble" nach rechts, bis zum Ende des Arrays.
+   * Was ist die Aufgabe der If-Anweisung?
+     * Die größere Zahl soll rechts in der roten "Bubble" stehen.
+   * Was ist die Aufgabe der Variable *platzhalter*?
+     * Platzhalter wird benötigt, um keine Werte beim Tausch zu verlieren.
+   * Was würde passieren, wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
+     * ``i = 0`` und die zahlen sind ein array welches wir als ``[3,5]`` darstellen. Wenn wir ``zahlen[i+1]``, was ``5`` ist, mit ``=`` auf ``zahlen[i]`` setzen verlieren wir die ``3``. Wir haben dann ``[3,3]`` und haben die ``5`` verloren. Danach tauschen wir ``3`` mit ``3``.
+```java
+zahlen[i] = zahlen[i+1];
+zahlen[i+1] = zahlen[i];
+```

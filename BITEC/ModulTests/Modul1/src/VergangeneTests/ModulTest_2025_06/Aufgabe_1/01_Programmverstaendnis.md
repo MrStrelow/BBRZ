@@ -1,8 +1,8 @@
 ﻿1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen.
+
 ```java
 package VergangeneTests.ModulTest_2025_06.Aufgabe_1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Programmieren_02 {
@@ -16,30 +16,30 @@ public class Programmieren_02 {
     public static void main(String[] args) {
         int[] zahlen = {53, 5, 2, 26, -86};
 
-        for (int j = 0; j < zahlen.length - 1; j++) {
+        for (int j = 10; j < zahlen.length + 18; j=j+2) { // komisch aber passt.
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
 
-            for (int i = 0; i < zahlen.length - 1; i++) {
-                if (zahlen[i] > zahlen[i+1]) {     
-                    int platzhalter = zahlen[i-1]; // HIER: zahlen[i-1] sollte zahlen[i+1] sein
-                    zahlen[i-1] = zahlen[i];       // HIER: zahlen[i-1] sollte zahlen[i+1] sein
-                    zahlen[i] = platzhalter;
+            for (int i = 0; i <= zahlen.length; j++) { // i < zahlen.length - 1; i++)
+                if (zahlen[j] < zahlen[i + 1]) { // zahlen[i] > zahlen[i + 1]
+                    int platzhalter = zahlen[i]; // int platzhalter = zahlen[i + 1];
+                    zahlen[i + 1] = zahlen[j];   // zahlen[i + 1] = zahlen[i];
+                    platzhalter = zahlen[i];     // zahlen[i] = platzhalter;
                 }
-            
+
                 // Bunte - Ausgabe
                 String zahlenColored = colorAt(
                         zahlen,
-                        new int[]{i+1, i},
+                        new int[]{i + 1, i},
                         new String[]{colorOfOuterLoop, colorOfOuterLoop},
                         ANSI_RESET
                 );
 
                 System.out.println(
                         "[" +
-                            colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
-                            colorOfInnerLoop + "j=" + j + ANSI_RESET +
-                        "]: " +
-                        zahlenColored + ANSI_RESET
+                                colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
+                                colorOfInnerLoop + "j=" + j + ANSI_RESET +
+                                "]: " +
+                                zahlenColored + ANSI_RESET
                 );
 
             }
@@ -66,7 +66,7 @@ public class Programmieren_02 {
 }
 ```
 2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
-Begriffe: Die Begriffe lehnen sich am Gif in der VergangeneTests.ModulTest_2025_06.Angabe an.
+Begriffe: Die Begriffe lehnen sich am Gif in der VergangeneTests.ModulTest_2025_05.Angabe an.
    * Was ist die Aufgabe der äußeren For-Schleife?
      * Wiederhole die rote "Bubble" für mindestens jede Zahl ein mal.
    * Was ist die Aufgabe der inneren For-Schleife?

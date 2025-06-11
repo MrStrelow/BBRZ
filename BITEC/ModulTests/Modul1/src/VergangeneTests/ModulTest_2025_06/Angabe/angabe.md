@@ -14,7 +14,7 @@ Die Nutzung des Internets umfasst nicht
 * sonstige Kommunikation mit anderen Usern
 
 Die Nutzung von allen anderen Dingen, muss vorher mit mir abgesprochen werden
-(z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet. 
+(z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet.
 Die Folge des Schummeln ist eine Bewertung mit 0 Punkten.
 
 * Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 10:15 schicken)
@@ -27,13 +27,12 @@ Notenschlüssel:
 
 ## Aufgabe 1: Arrays [35 / 100 Punkte]
 
-### Programmverständnis [10 / 25 Teilpunkte]
-Gegeben ist folgender Code, welcher den ``Bubble Sort`` darstellt. 
+### Programmverständnis [20 / 35 Teilpunkte]
+Gegeben ist folgender Code, welcher den ``Bubble Sort`` darstellt.
 
 ```java
 package VergangeneTests.ModulTest_2025_06.Aufgabe_1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Programmieren_02 {
@@ -47,30 +46,30 @@ public class Programmieren_02 {
     public static void main(String[] args) {
         int[] zahlen = {53, 5, 2, 26, -86};
 
-        for (int j = 0; j < zahlen.length - 1; j++) {
+        for (int j = 10; j < zahlen.length + 18; j=j+2) {
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
 
-            for (int i = 0; i < zahlen.length - 1; i++) {
-                if (zahlen[i] > zahlen[i+1]) {
-                    int platzhalter = zahlen[i-1];
-                    zahlen[i-1] = zahlen[i];
-                    zahlen[i] = platzhalter;
+            for (int i = 0; i <= zahlen.length; j++) {
+                if (zahlen[j] < zahlen[i + 1]) {
+                    int platzhalter = zahlen[i];
+                    zahlen[i + 1] = zahlen[j];
+                    platzhalter = zahlen[i];
                 }
-            
+
                 // Bunte - Ausgabe
                 String zahlenColored = colorAt(
                         zahlen,
-                        new int[]{i+1, i},
+                        new int[]{i + 1, i},
                         new String[]{colorOfOuterLoop, colorOfOuterLoop},
                         ANSI_RESET
                 );
 
                 System.out.println(
                         "[" +
-                            colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
-                            colorOfInnerLoop + "j=" + j + ANSI_RESET +
-                        "]: " +
-                        zahlenColored + ANSI_RESET
+                                colorOfOuterLoop + "i=" + i + ANSI_RESET + ", " +
+                                colorOfInnerLoop + "j=" + j + ANSI_RESET +
+                                "]: " +
+                                zahlenColored + ANSI_RESET
                 );
 
             }
@@ -97,13 +96,15 @@ public class Programmieren_02 {
 }
 ```
 
-Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
+Dieses Programm erzeugt, wenn die Fehler behoben wurde folgenden Output:
 
 <div style="text-align: left; ">
     <img src="output_bubbles_farben.png" alt="erwarteter output" style="width: 20%;">
 </div>
 
-1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen. 
+1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen.
+    * Erkläre, warum es fehler sind.
+
 2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
     * Was ist die Aufgabe der äußeren For-Schleife?
     * Was ist die Aufgabe der inneren For-Schleife?
@@ -118,15 +119,17 @@ zahlen[i+1] = zahlen[i];
 
 ---
 
-### Programmieren [10 / 25 Teilpunkte]
+### Programmieren [10 / 35 Teilpunkte]
+Schreibe folgende Antworten als Kommentare im Java-File.
 <table style="width:100%">
   <tr>
     <td style="vertical-align: top; padding-right: 10px; width: 50%;">
       Wir erinnern uns an folgende Grafik:
       <ul>
-        <li>Was bedeutet wenn eine Zahl schwarz umrandet wird?</li>
+        <li>Was bedeutet, wenn eine Zahl schwarz umrandet wird?</li>
         <li>Ist dieses Verhalten in unserem Code vorhanden?</li>
         <li>Wenn nein, versuche diese Optimierung in das oben angegebene Programm einzubauen.</li>
+        <li>Erkläre was hier optimiert wird.</li>
       </ul>
     </td>
     <td style="vertical-align: top; padding-left: 10px; width: 50%;">
@@ -161,51 +164,43 @@ Durchgang: 3
 [-86, 2, 5, 26, 53]
 ```
 
-**Bonus:** Beschreibe den Code der *colorAt* ``Methode``. Versuche zudem die Zahlen im ``Array`` *zahlen* in *Cyan* einzufärben, aber die eckigen *Klammern* und *Beistriche* nicht einzufärben (*ANSI_RESET*).
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px;">
-  [
-  <div style="color:cyan;">53</div>,
-  <div style="color:cyan;">5</div>,
-  <div style="color:cyan;">2</div>,
-  <div style="color:cyan;">26</div>,
-  <div style="color:cyan;">-86</div>
-  ]
-</div>
-
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
 1) Was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code:
+   **Achtung!** Wenn der Code einen Fehler erzeugt, ist dies anzugeben.
 ```java
-String[][][][][] daten = new String[10][5][15][8][2];
-daten[0][0][0][0]    // 1. erzeugter Wert hat Typ...?
+String[][][] daten = new String[10][5][15];
+daten[0][0]          // 1. erzeugter Wert hat Typ...?
 daten[3][1][6][5]    // 2. erzeugter Wert hat Typ...?
-daten[0][0][0]       // 3. erzeugter Wert hat Typ...?
-daten[0]             // 4. erzeugter Wert hat Typ...?
-daten[0][0][0][0][0] // 5. erzeugter Wert hat Typ...?
+daten[1][5][1]       // 3. erzeugter Wert hat Typ...?
+daten[6]             // 4. erzeugter Wert hat Typ...?
+dater[0][4][0]       // 5. erzeugter Wert hat Typ...?
+daten[0][5][0]       // 6. erzeugter Wert hat Typ...?
 ```
-
-**Hinweis:** Falls es nicht im Kopf geht, versuche ``JAVA`` den ``Typ`` ausgeben zu lassen. Recherchiere dazu im Internet.
 
 ---
 
-## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
-### Programmverständnis [10 / 60 Teilpunkte]
-Gegeben ist ein ``RegEx``. 
-* Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
-* Beschreibe ca. was dieser darstellen soll.
+## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [50 Punkte]
+### Programmverständnis [10 / 50 Teilpunkte]
+Gegeben ist ein ``RegEx``.
+* Suche und beschreibe die ``Operatoren`` und ``Multiziplizäten`` welche hier verwendet wurden.
+* Beschreibe was dieser darstellen soll.
 
 ```rx
-^(ein-hundert|null|eins|zehn|elf|zwölf|ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig)|((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))$
+^((ein-hundert|null|eins|zehn|elf|zwölf|ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig)))+$
 ```
-
 ---
 
-### Programmieren [40 / 60 Teilpunkte]
-Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.**
+### Programmieren [30 / 50 Teilpunkte]
+Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *30%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint. Jedoch gibt es hier ein paar Nachbesserungen.**
+* Es soll jedoch nicht möglich sein, wenn eine Zahl teilbar durch 10 ist und diese größer als 10 ist, jedoch nicht 100 ist, diese als Text *z.B. fünfzig* eingeben zu können. Es soll immer diese als Zahl *z.B. 50* eingegeben werden.
+* Außerdem soll sichergestellt werden, dass nicht drei mal hintereinander eine Zahl *z.B. 54* oder ein Zahl als Text *z.B. vier-und-fünfzig* eingegeben werden muss. **Detail: Falls bei der 4. Ziehung die Zahl *z.B. füngzig* kommt, können wir nicht *fünzig* eingeben. Hier ist es erlaubt zum 4. mal hintereinander eine Zahl einzugeben.**
 
-**Hinweis:** Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
-Dies Programm ist ohne die *50%* Wahrscheinlichkeit der Eingabe in der Form *fünf-und-dreißig*. Danach versuche diese Form hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User eine ausgeschriebene Zahl eingibt, dies gleich dem ``Wert`` *ein-und-dreißig* ist und wir dann *31* als *Integer* zurückgeben? Wie machen wir es für alle 100 Fälle? 
+**Hinweis:**
+* Lege zwei Variablen an ``int zaehleVorkommenEinerZahl = 0;`` und ``int zaehleVorkommenEinerZahlAlsText = 0;``. Mit diesen können wir bis z.B. 4 zählen. Das würde bedeuten wir haben 4 mal hintereinander z.B. eine Eingabe der Zahl gehabt. Wenn das der Fall ist ändern wir die Ziehung von ``erwartetZahl=true;`` auf ``erwartetZahl=false;``.
+* Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
+  Dies Programm ist ohne die *30%* Wahrscheinlichkeit der Eingabe in der Form *fünf-und-dreißig*. Danach versuche diese Form hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User eine ausgeschriebene Zahl eingibt, dies gleich dem ``Wert`` *ein-und-dreißig* ist und wir dann *31* als *Integer* zurückgeben? Wie machen wir es für alle 100 Fälle?
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
@@ -222,19 +217,21 @@ String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
 String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
 String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
 String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
-String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+String einerStellenOhneEins = "zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+String basisFuerZehnerStellen = "ein|" + einerStellenOhneEins;
 String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
 String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
-String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
+String zehnerStellenAlsZahl = "20|30|40|50|60|70|80|90";
+String kombinierterRest = "(" + basisFuerZehnerStellen + ")-und-(" + zehnerStellen + ")";
 String hundert = "ein-hundert";
 
 String pattern = "^" +
-    nichtKombinierbar + "|" +
-    basis +
-    "|(" + dreizehnBisNeunZehn + ")|" +
-    zehnerStellen +
-    "|(" + kombinierterRest + ")|" +
-    hundert + "$";
+        "|(" + nichtKombinierbar + ")" +
+        "|(" + einerStellenOhneEins + ")" +
+        "|(" + dreizehnBisNeunZehn + ")" +
+        "|(" + zehnerStellenAlsZahl + ")" +
+        "|(" + kombinierterRest + ")" +
+        "|" + hundert + "$";
 ```
 
 * **Interaktion mit Benutzer:innen:**
@@ -267,114 +264,43 @@ Spiel beendet. Danke fürs Spielen!
 
 ---
 
-### Theorie [10 / 60 Teilpunkte]
-* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
-* b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
-* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
-```java
-if (false) {
-    System.out.println("If-Zweig")
-} else {
-    System.out.println("Else-Zweig")
-}
-```
-
-vs.
-
-```java
-if (false) {
-    System.out.println("If-Bedingung")
-} 
-
-if (true) {
-    System.out.println("Auch eine IF-Bedingung")
-}
-```
-
+### Theorie [10 / 50 Teilpunkte]
+* a) Was ist der Unterschied zwischen einem ``If-Ausdruck`` und einer ``If-Anweisung``?
+* b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``!(alter >= 25)`` ist?
+* c) Kann ein ``If-Ausdruck`` das gleiche Verhalten wie eine ``If-Anweisung`` haben? Erstelle ein Beispiel und unterstütze deine Antwort damit.
 ---
 
-## Aufgabe 3: Funktionen (Methoden) schreiben [30 Punkte]
-### Programmverständnis [10 / 30 Teilpunkte]
-Folgender *Code-Ausschnitt* funktionier nicht. Finde den Fehler, bessere diesen aus und erkläre warum es ein Fehler ist.
+## Aufgabe 3: Funktionen (Methoden) schreiben [15 Punkte]
+### Programmverständnis [10 / 15 Teilpunkte]
+Folgender *Code-Ausschnitt* funktionier nicht. Finde die Fehler, bessere diese aus und erkläre warum es Fehler sind.
 ```java
-...
-
 public static void main(String[] args) {
     String[][] muster = ...
-    String[][] zweiMalGedrehtesMuster = drehen(drehen(muster));
+    String[][] gedrehtesMuster = drehen(spieglenX(transponieren(muster)));
 }
 
-static void drehen(String[][] array) {
+// ein String ist ein Array von Characters - deshalb gibt es hier ein Character[][][] anstatt String[][]
+static Character[][][] transponieren(String[] array) {
+    Character[][][] result;
     ...
+    return result;
 }
-...
+
+static string[][] spiegelnX(String[] array) {
+    String[][] result;
+    ...
+    return result;
+}
 ```
 
 **Anmerkung:** Die Antwort "wegen den drei Punkten" bzw. wegen den fehlenden main usw. wäre kreativ, ist aber hier nicht gemeint.
 
 ---
 
-### Programmieren [20 / 30 Teilpunkte]
-Verwende folgende ``Funktionen`` (Methoden) um das *Zahlen Raten* Programm mit *Schnitstellen* zu versehen.
-Diese sind in der Hilfestellung unten in einem Programm zu sehen.
-
-#### **Hilfestellung:**
-```java
-public class Programmieren_02 {
-    static final int MAX_LIVES = 5;
-    static final int MIN_NUMBER = 0;
-    static final int MAX_NUMBER = 100;
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
-        boolean playAgain = true;
-
-        while (playAgain) {
-            playSingleGame(scanner, random);
-            playAgain = askToPlayAgain(scanner);
-        }
-
-        System.out.println("Spiel beendet. Danke fürs Spielen!");
-        scanner.close();
-    }
-
-    static void playSingleGame(Scanner scanner, Random random) {
-        ...
-    }
-
-    static int getUserGuess(Scanner scanner, Random random) {
-        ...
-        return getWordInput(...);
-        ...
-        return getNumericInput(...);
-    }
-
-    static int getNumericInput(Scanner scanner) {
-        ...
-    }
-
-    static int getWordInput(Scanner scanner) {
-        ...
-    }
-
-    static int convertWordToNumber(String wordInput) {
-        ...
-    }
-
-    static void displayGameStatus(int guess, int zahlZuRaten, int livesLeft) {
-        ...
-    }
-
-    static boolean askToPlayAgain(Scanner scanner) {
-        ...
-    }
-}
-```
-
-### Theorie [05 / 30 Teilpunkte]
+### Theorie [05 / 15 Teilpunkte]
 * Was ist der Unterschied zwischen dem ``Rückgabeparameter`` und dem ``Eingangsparameter``?
-* Braucht jede ``Funktion`` (Methode) solche ``Parameter``? 
+* Braucht jede ``Funktion`` (Methode) eine ``return`` ``Keyword``??
+* Wenn wir ``Funktionen`` schachteln ``int result = a(b(c()));`` ist es kein Problem wenn eine der ``Funktionen`` den ``Rückgabetyp`` ``void`` hat. Stimmt diese Aussage? Begründe wieso oder wieso nicht.
 * Warum sollen wir uns mit ``Funktionen`` quälen? Was ist deren Vorteil wenn wir diese Verwenden?
 
 ---
