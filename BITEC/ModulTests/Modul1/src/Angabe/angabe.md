@@ -27,7 +27,7 @@ Notenschlüssel:
 
 ## Aufgabe 1: Arrays [35 / 100 Punkte]
 
-### Programmverständnis [10 / 25 Teilpunkte]
+### Programmverständnis [20 / 35 Teilpunkte]
 Gegeben ist folgender Code, welcher den ``Bubble Sort`` darstellt.
 
 ```java
@@ -119,7 +119,7 @@ zahlen[i+1] = zahlen[i];
 
 ---
 
-### Programmieren [10 / 25 Teilpunkte]
+### Programmieren [10 / 35 Teilpunkte]
 Schreibe folgende Antworten als Kommentare im Java-File.
 <table style="width:100%">
   <tr>
@@ -181,8 +181,8 @@ daten[0][5][0]       // 6. erzeugter Wert hat Typ...?
 
 ---
 
-## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
-### Programmverständnis [10 / 60 Teilpunkte]
+## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [50 Punkte]
+### Programmverständnis [10 / 50 Teilpunkte]
 Gegeben ist ein ``RegEx``. 
 * Suche und beschreibe die ``Operatoren`` und ``Multiziplizäten`` welche hier verwendet wurden.
 * Beschreibe was dieser darstellen soll.
@@ -192,7 +192,7 @@ Gegeben ist ein ``RegEx``.
 ```
 ---
 
-### Programmieren [35 / 60 Teilpunkte]
+### Programmieren [30 / 50 Teilpunkte]
 Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *30%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint. Jedoch gibt es hier ein paar Nachbesserungen.**
 * Es soll jedoch nicht möglich sein, wenn eine Zahl teilbar durch 10 ist und diese größer als 10 ist, jedoch nicht 100 ist, diese als Text *z.B. fünfzig* eingeben zu können. Es soll immer diese als Zahl *z.B. 50* eingegeben werden. 
 * Außerdem soll sichergestellt werden, dass nicht drei mal hintereinander eine Zahl *z.B. 54* oder ein Zahl als Text *z.B. vier-und-fünfzig* eingegeben werden muss. **Detail: Falls bei der 4. Ziehung die Zahl *z.B. füngzig* kommt, können wir nicht *fünzig* eingeben. Hier ist es erlaubt zum 4. mal hintereinander eine Zahl einzugeben.**
@@ -264,14 +264,14 @@ Spiel beendet. Danke fürs Spielen!
 
 ---
 
-### Theorie [15 / 60 Teilpunkte]
+### Theorie [10 / 50 Teilpunkte]
 * a) Was ist der Unterschied zwischen einem ``If-Ausdruck`` und einer ``If-Anweisung``?
 * b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``!(alter >= 25)`` ist?
 * c) Kann ein ``If-Ausdruck`` das gleiche Verhalten wie eine ``If-Anweisung`` haben? Erstelle ein Beispiel und unterstütze deine Antwort damit.
 ---
 
-## Aufgabe 3: Funktionen (Methoden) schreiben [30 Punkte]
-### Programmverständnis [10 / 30 Teilpunkte]
+## Aufgabe 3: Funktionen (Methoden) schreiben [15 Punkte]
+### Programmverständnis [10 / 15 Teilpunkte]
 Folgender *Code-Ausschnitt* funktionier nicht. Finde die Fehler, bessere diese aus und erkläre warum es Fehler sind.
 ```java
 public static void main(String[] args) {
@@ -297,7 +297,7 @@ static string[][] spiegelnX(String[] array) {
 
 ---
 
-### Theorie [05 / 30 Teilpunkte]
+### Theorie [05 / 15 Teilpunkte]
 * Was ist der Unterschied zwischen dem ``Rückgabeparameter`` und dem ``Eingangsparameter``?
 * Braucht jede ``Funktion`` (Methode) eine ``return`` ``Keyword``?? 
 * Wenn wir ``Funktionen`` schachteln ``int result = a(b(c()));`` ist es kein Problem wenn eine der ``Funktionen`` den ``Rückgabetyp`` ``void`` hat. Stimmt diese Aussage? Begründe wieso oder wieso nicht.
