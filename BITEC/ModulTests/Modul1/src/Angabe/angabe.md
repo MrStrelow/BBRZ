@@ -198,8 +198,8 @@ Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Einga
 * Außerdem soll sichergestellt werden, dass nicht dreimal hintereinander eine Zahl *z.B. 54* oder eine Zahl als Text *z.B. vier-und-fünfzig* eingegeben werden muss. **Detail: Falls bei der 4. Ziehung die Zahl *z.B. füngzig* kommt, können wir nicht *fünzig* eingeben. Hier ist es erlaubt zum 4. mal hintereinander eine Zahl einzugeben.**
 
 **Hinweis:** 
-* Lege zwei Variablen an ``int zaehleVorkommenEinerZahl = 0;`` und ``int zaehleVorkommenEinerZahlAlsText = 0;``. Mit diesen können wir bis z.B. 4 zählen. Das würde bedeuten wir haben 4 mal hintereinander z.B. eine Eingabe der Zahl gehabt. Wenn das der Fall ist ändern wir die Ziehung von ``erwartetZahl=true;`` auf ``erwartetZahl=false;``.
-* Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code, welcher sich online befindet als Vorlage (bei der Lösung im Probetest oder die Lösung der Übung).
+* Lege zwei Variablen an ``int zaehleVorkommenEinerZahl = 0;`` und ``int zaehleVorkommenEinerZahlAlsText = 0;``. Mit diesen können wir bis z.B. 4 zählen. Das würde bedeuten wir haben 4-mal hintereinander z.B. eine Eingabe der Zahl gehabt. Wenn das der Fall ist ändern wir die Ziehung von ``erwartetZahl=true;`` auf ``erwartetZahl=false;``.
+* Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code, welcher sich online befindet als Vorlage (bei der Lösung im Probetest - diese beinhaltet bereits *Zahlen als Text* oder die Lösung der Übung - bei der fehlen *Zahlen als Text*).
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
@@ -208,7 +208,7 @@ Weiters soll folgendes gelten:
 
 * **Userinput:**
   Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht. Verwenden Sie die Klasse `Scanner` aus dem Paket `java.util` um Eingaben aus dem Terminal einzulesen. Importieren Sie dazu `import java.util.Scanner;` und erstellen Sie ein `Scanner`-Objekt, z.B. `Scanner scanner = new Scanner(System.in);`. Mit `scanner.nextInt();` können Sie dann eine Ganzzahl einlesen.
-  **Wichtig!:** Es soll dem User möglich sein auch wenn **falsche** Eingaben getätigt wurde, diese ausbessern zu können. Fordere dazu den User solange auf etwas einzugeben bis dieses dem erwarteten Muster entspricht.
+  **Wichtig!:** Es soll dem User möglich sein auch wenn **falsche** Eingaben getätigt wurde, diese ausbessern zu können. Fordere dazu die User so lange auf etwas einzugeben bis dieses dem erwarteten Muster entspricht.
 
 * **RegEx für Erkennung der Zahlen als Text**: Es kann dieser ``Regex`` verwendet werden um z.B. ``fünf-und-dreißig`` zu erkennen.
 ```java
