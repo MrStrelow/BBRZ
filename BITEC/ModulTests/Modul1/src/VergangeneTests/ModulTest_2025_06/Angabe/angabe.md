@@ -17,7 +17,7 @@ Die Nutzung von allen anderen Dingen, muss vorher mit mir abgesprochen werden
 (z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet.
 Die Folge des Schummeln ist eine Bewertung mit 0 Punkten.
 
-* Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 10:15 schicken)
+* Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 15 nach dem Ende der Prüfung schicken)
 * Viel Erfolg! :)
 
 Notenschlüssel:

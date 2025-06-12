@@ -270,7 +270,15 @@ namespace NewCSharpStyleHamster
         // TODO: implemente me.
     }
     public class Plane;
-    public class Seedling;
+    public class Seedling
+    {
+        public Seedling(Seedling seedling)
+        {
+            // da wäre ein copy Konstruktor
+        }
+
+        public Seedling() { }
+    }
 
     public class Programm
     {
