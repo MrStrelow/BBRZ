@@ -1,13 +1,6 @@
-﻿* wieso schreiben wir meistens ``public`` bei einer ``Property`` (Eigenschaft)? Sollten wir laut ``Data-Hiding`` nicht unsere ``Felder`` vor uneingeschränkten Zugrifen beschützen? 
+﻿* a) wieso schreiben wir meistens ``public`` bei einer ``Property`` (Eigenschaft)? Sollten wir laut ``Data-Hiding`` nicht unsere ``Felder`` vor uneingeschränkten Zugrifen beschützen? 
     * ``Properties`` sind ``Methoden`` welche *private* ``Felder`` im Hintergrund generieren. Wir steuern die Sichbarkeit der ``Methoden`` mit ``... string Value { get; private set; }``. Mit ``public string Value {...}`` wird die Sichbarkeit von ``Get`` und ``Set`` gleichzeitg gesteuert. Feine Unterschiede sind hier ausgelassen worden.
-    
-* Was bedeutet der ``Nullable Operator`` *?* bei einem ``Referenzdatentyp`` und was *?* bei einem ``Wertdatentyp``?
-    * ``Referenzdatentyp``:
-    * ``Wertdatentyp``:
-
-* Ist ``int? a = 5;`` und ``int a = true ? 5 : 3;`` konzeptionell verwandt? Begründe.
-    * ``int? a = 5;`` ist der ``Nullable Operator`` das eine ist die ``
-* Wann ist es **notwendig** ``new ()`` anstatt ``var`` zu schreiben? Es scheint, dass ``var`` die flexiblere Variante ist. Schau dazu folgenden Code an und probiere diesen aus.
+* c) Wann ist es **notwendig** ``new ()`` anstatt ``var`` zu schreiben? Es scheint, dass ``var`` die flexiblere Variante ist. Schau dazu folgenden Code an und probiere diesen aus.
     * Wenn wir es bei ``Felder`` oder ``Properties`` anwenden wollen.
 
 ```csharp
