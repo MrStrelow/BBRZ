@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skrpten", "Skrpten\Skrpten.csproj", "{F072EDF2-6D2D-4A7F-917B-37D3406E416D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skripten", "Skripten\Skripten.csproj", "{F072EDF2-6D2D-4A7F-917B-37D3406E416D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1-WerteUndVerweise", "Exercise1-WerteUndVerweise\Exercise1-WerteUndVerweise.csproj", "{7CA97DD1-952E-404F-B96B-194A893E0B49}"
 EndProject

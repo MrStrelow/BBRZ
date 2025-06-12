@@ -317,14 +317,13 @@ Die seedlings im Hamster sind kopien davon, deshalb ein anderer HashCode.
 [33736294 35191196 48285313 ]
 
 ⚠️~~~~~ darüber und darunter soll beides gleich aussehn ~~~~~⚠️
-
 Die seedlings sind diese...
-[54267293 18643596 33574638 ]
+[31914638 18796293 34948909 ]
 
 🐹
 ah. _isHungry ist null.
 Die seedlings im Hamster sind kopien davon, deshalb ein anderer HashCode.
-[33736294 35191196 48285313 ]
+[46104728 12289376 43495525 ]
 ```
 
 ---
@@ -393,7 +392,9 @@ Verwende folgenden Code welcher [hier](VorlageAufgabe2.zip) zu finden ist. Das v
     * Diese soll für die ``HtmlRepresentation`` ein beliebiges *Bild* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
     * Diese soll für die ``UnicoeRepresentation`` ein beliebiges *Emoji* ihrer Wahl sein für die ``hungry`` und ``fed`` ``Representation``.
 
-**Hinweis:** Orientieren Sie sich an den bereits geschreibenen Code! Z.B. ist in ``FedBigLegHamsterVisuals`` der Code den Sie benötigen gegeben. Dieser kann kopiert und in einer **neuen** ``Klasse`` implementiert werden. Danach wird dieser leicht angepasst. Z.B. der ``Emoji`` wird ausgetauscht.
+**Hinweis:** 
+* Orientieren Sie sich an den bereits geschreibenen Code! Z.B. ist in ``FedBigLegHamsterVisuals`` der Code den Sie benötigen gegeben. Dieser kann kopiert und in einer **neuen** ``Klasse`` implementiert werden. Danach wird dieser leicht angepasst. Z.B. der ``Emoji`` wird ausgetauscht.
+* Um besser *Testen* zu können ob die ``SmokingHamster`` nach rechts oben gehen, schalte die ``Methode`` *regrowRegrowSeedlings*.
 
 ---
 
