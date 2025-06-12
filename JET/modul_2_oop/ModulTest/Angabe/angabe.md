@@ -209,7 +209,7 @@ namespace OldJavaStyleHamster
     {
         public Seedling(Seedling seedling)
         {
-            // da wäre ein copy Konstruktor
+            // Da wäre ein copy Konstruktor. Diese muss hier nicht implementiert werden!
         }
 
         public Seedling() { }
@@ -274,7 +274,7 @@ namespace NewCSharpStyleHamster
     {
         public Seedling(Seedling seedling)
         {
-            // da wäre ein copy Konstruktor
+            // Da wäre ein copy Konstruktor. Diese muss hier nicht implementiert werden!
         }
 
         public Seedling() { }
