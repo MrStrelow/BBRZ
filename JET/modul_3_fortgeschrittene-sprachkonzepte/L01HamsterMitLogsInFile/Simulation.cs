@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Serilog;
 
 namespace Hamster;
 
@@ -6,6 +7,9 @@ public class Simulation
 {
     static void Main(string[] args)
     {
+        // Logging - Config
+        Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("../../../log.txt").CreateLogger();
+
         // User Intput:
         Console.OutputEncoding = Encoding.UTF8;
 

@@ -19,5 +19,11 @@ internal sealed class OneStepMovementStrategy : IRandomMovementStrategy
         // Delegates to Plane's Position method to actually move the hamster.
         // This keeps the Plane responsible for managing positions on the grid.
         plane.Position(hamster, direction);
+
+        // TODO: logge folgendes im debug level:
+        // * den Typ des Hamsters,
+        // * wie viel schritte er sich bewegt,
+        // * und welche richtungen er verwendet.
+        // * ist er hungrig.
     }
 }
