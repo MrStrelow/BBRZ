@@ -1,4 +1,6 @@
-﻿namespace Hamster.Strategies;
+﻿using Serilog;
+
+namespace Hamster.Strategies;
 
 // SRP (Single Responsibility Principle): This class is solely responsible for the random walk movement logic.
 // LSP (Liskov Substitution Principle): Instances of RandomWalkMovement can be used wherever an IMovementStrategy is expected.
@@ -20,7 +22,7 @@ internal sealed class OneStepMovementStrategy : IRandomMovementStrategy
         // This keeps the Plane responsible for managing positions on the grid.
         plane.Position(hamster, direction);
 
-        // TODO: logge folgendes im debug level:
+        // TODO: logge folgendes im debug level, es soll in ein File geschrieben werden:
         // * den Typ des Hamsters,
         // * wie viel schritte er sich bewegt,
         // * und welche richtungen er verwendet.
