@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="4.3.0" />
+    <Folder Include="hamster\mutator\implementation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Exercise4-DurchblickImWirrWarr.csproj" />
   </ItemGroup>
 
 </Project>
