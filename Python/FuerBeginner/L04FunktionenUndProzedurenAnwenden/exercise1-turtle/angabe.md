@@ -129,7 +129,7 @@ exitonclick() # Warten, bis das Fenster per Klick geschlossen wird.
 ```
 
 ### Wo bin ich und wohin gehe ich?
-Wiederhole das vorherige Beispiel ohne Ausgabe des Umfänge, jedoch will unsere Turtle nicht verloren gehen. Diese schreibt auf den Boden nun die Koordinaten an der sie sich befindet und die Richtung in diese sie schaut. 
+Wiederhole das vorherige Beispiel ohne Ausgabe der Umfänge, jedoch will unsere Turtle nicht verloren gehen. Diese schreibt auf den Boden nun die Koordinaten an der sie sich befindet und die Richtung in diese sie schaut. 
 
 Finde mit folgenden ``Funktionen`` heraus in welche Richtung unsere Turtle schaut und an welcher Position sie sich befindet.
 * ``position()``: Gibt dir die aktuelle Position der Turtle zurück.
