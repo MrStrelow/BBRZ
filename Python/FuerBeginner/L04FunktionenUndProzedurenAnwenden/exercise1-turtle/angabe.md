@@ -36,33 +36,6 @@ speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtl
 exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenster klicken.
 ```
 
-#### Version 2 - Mit Variablen als Parameter
-```python
-from turtle import *
-
-# --- Vorbereitung # ---
-title("Übung 1.1: Verschachtelte Quadrate")
-shape("turtle")
-speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
-
-# --- Äußeres Quadrat zeichnen (z.B. 200x200) # ---
-so_weit_gehe_ich = ...
-so_viel_drehe_ich_mich = ...
-
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
-
-# --- Inneres Quadrat zeichnen (z.B. 100x100) # ---
-penup()
-neuer_ort = -so_weit_gehe_ich/...
-goto(neuer_ort, neuer_ort)
-left(so_viel_drehe_ich_mich)
-
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
-
-# --- Abschluss # ---
-exitonclick() # Warten, bis das Fenster per Klick geschlossen wird.
-```
-
 ### Was ist nun der Umfang von Haus und Garten?
 Es liegt nun aus dem vorherigen Beispiel ein Faden am Boden, jedoch haben wir vergessen diesen abzumessen. Wiederhole das Beispiel von oben und zähle nach jeder geraden Bewegung mit der Schnur mit wie lange die Linien für den Garten und Haus sind. Dadurch haben wir den Umfang bestimmt und können diesen am Schluss in der Console ausgeben. Verwende zudem zwei verschiedene Farben (<span style="color:orange;">Orange</span> für den Garten und <span style="color:purple;">Violett</span> für das Haus) um die Schnüre besser unterscheiden zu können.
 
@@ -83,6 +56,8 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 
 ```python
 # --- Vorbereitung # ---
+from turtle import *
+
 title("Übung 4.2: Verschachtelte Quadrate - Farben und Umfang")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
