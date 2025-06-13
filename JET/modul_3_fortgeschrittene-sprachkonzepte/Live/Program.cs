@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿global using Serilog;
+
+// logger 
+
+// middle ware
+
+//application.run();

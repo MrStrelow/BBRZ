@@ -13,4 +13,8 @@
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\L01ProjektWasEinzuBindenIst\L01ProjektWasEinzuBindenIst.csproj" />
+  </ItemGroup>
+
 </Project>

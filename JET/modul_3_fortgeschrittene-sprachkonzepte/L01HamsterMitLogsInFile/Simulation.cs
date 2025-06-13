@@ -7,8 +7,18 @@ public class Simulation
 {
     static void Main(string[] args)
     {
+        Log.Logger = new LoggerConfiguration().MinimumLevel.Fatal().WriteTo.File("../../../log.txt").CreateLogger();
+        // 1. package installieren - in der Package Manager Console
+        // * Install-Package Serilog
+        // * Install-Package Serilog.Sinks.Console
+        // * Install-Package Serilog.Sinks.File
+        // 2. mit using Serilog;  reinladen
+        // 3. in one-step-strategy umsetzten
+
+        // Achtung! nicht in der Developer Power Shell, da müsstet wir eine ander syntax verwenden -
+        // > nuget install Serilog -L01HamsterMitLogsInFile L01HamsterMitLogsInFile.csproj
+
         // Logging - Config
-        Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("../../../log.txt").CreateLogger();
 
         // User Intput:
         Console.OutputEncoding = Encoding.UTF8;

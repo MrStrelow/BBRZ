@@ -23,8 +23,9 @@ internal sealed class OneStepMovementStrategy : IRandomMovementStrategy
         plane.Position(hamster, direction);
 
         // TODO: logge folgendes im debug level, es soll in ein File geschrieben werden:
+        Log.Debug($"ID: {hamster.GetHashCode()} - hungrig: {hamster.IsHungry} - Richtung: {direction} - Typ: {hamster.GetType().Name}");
+        // * ID des hamsters,
         // * den Typ des Hamsters,
-        // * wie viel schritte er sich bewegt,
         // * und welche richtungen er verwendet.
         // * ist er hungrig.
     }

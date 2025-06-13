@@ -1,9 +1,12 @@
 ﻿using Serilog;
+using StringTools;
 
 public class Program
 {
     static void Main(string[] args)
     {
+
+        // EXTERNE BIBLIOTHEKEN
         Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("../../../log.txt").CreateLogger();
 
         Log.Verbose("Verbose: heitß sehr ausführlich ist es steht also hier viel text viel details");
@@ -24,6 +27,15 @@ public class Program
         Log.Fatal("Fatal");
         Log.CloseAndFlush();
 
+        // INTERNE BIBLIOTHEKEN (Projekte)
+        // Dsa untere soll nicht gehen.
+        //var anwendung = new FormatierungsLogik();
+        //anwendung.InGrossbuchstabenUmwandeln("asdf");
+        //anwendung.LeerzeichenEntfernen("asdf");
+
+        var andereAnwendung = new TextHelfer();
+        andereAnwendung.BeidesAufrufen("asdf");
+        
 
     }
 
