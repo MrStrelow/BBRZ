@@ -274,6 +274,8 @@ from turtle import *
 shape("turtle")
 # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 speed(1) 
+# Wir laden ein ein Bild mit Haus als Hintergrund
+bgpic("../images/haus.jpg")
 
 # Wir legen Variablen an welche wir später wiederverwenden können.
 laenge_garten = 314

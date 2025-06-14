@@ -1,5 +1,5 @@
 ## Funktionen und Prozeduren aufrufen mit Turtle - Ausgabe und Berechnungen
-### Aufgabe 1) - Was ist nun der Umfang von Haus und Garten?
+### Aufgabe 1) - Was ist der Umfang von Haus und Garten?
 Es liegen nun zwei Fäden nach der [Exercise 1](../../exercise1-werte_und_variablen_als_parameter/angabe.md) am Boden. Einer für den Garten und einer für das Haus. 
 * Verwende nun zwei verschiedene Farben für die Fäden. Ein mal einen <span style="color:orange;">orangen Faden</span> für den Garten und einen <span style="color:purple;">violetten Faden</span> für das Haus um die Schnüre besser unterscheiden zu können. 
 * Wir messen nun nach jeder Bewegung die Schnüre ab. Berechne den Umfang des Hauses, indem bei jedem Aufruf von ``forward(laenge_hause)`` die ``Variable`` ``umgang_haus`` um die ``laenge_haus`` erhöht wird. Gleiches gilt für den ``umfang_garten``. Wir geben am Schluss des Programmes den Umfang des Gartens und Hauses in der Console ``print``aus.
@@ -195,21 +195,13 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``color("orange")``: Die Turtle malt orange Linien am Bildschirm.
-* ``print(umfang_garten, umfang_haus)``: Mit dieser ``Prozedur`` kann eine Variable für den Umfang des Gartens und eine Variable für den Umfang des Hauses auf die Console ausgegeben werden.
+* ``write("Pos: " + str(position())``: Mit dieser ``Prozedur`` kann die Position der Turtle auf den Bildschirm gezeichnet werden.
 
 Finde mit folgenden ``Funktionen`` heraus in welche Richtung unsere Turtle schaut und an welcher Position sie sich befindet.
 * ``position()``: Gibt dir die aktuelle Position der Turtle zurück.
 * ``heading()``: Gibt dir die Richtung in die unsere Turtle schaut zurück.
 
-Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden ``Prozeduren``.
-* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
-* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
-* ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
-* ``left(90)``: Die Turtle dreht sich um 90° nach links.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
-* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``color("orange")``: Die Turtle malt orange Linien am Bildschirm.
-* ``print(umfang_garten, umfang_haus)``: Mit dieser ``Prozedur`` kann eine Variable für den Umfang des Gartens und eine Variable für den Umfang des Hauses auf die Console ausgegeben werden.
+
 
 **Hinweise:**
 <div style="text-align: left;">
