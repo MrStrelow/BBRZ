@@ -3,11 +3,11 @@
 Unsere Turtle will ihr Haus und Ihren Garten abmessen. Genauer gesagt den Umfang dieser Bestimmen. Dazu nimmt sie einen Faden, befestigt diesen am Boden und geht eine gerade Strecke. Wenn sie sich dreht und eine neue gerade Strecke abgehen will, befestigit sie wieder den Faden. Sie tut das so lange bis sie Ihren quadratischen Garten und ihr quadratisches Haus abgemessen hat. Das Haus liegt im Mittelpunkt des Garten.
 
 Zeichne nun ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden ``Prozeduren``. Den Umfang berechnen wir im nächsten Beispiel.
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``pendown()``: Gib die Turtle am Boden. Diese malt dadruch Linien wenn diese sich später bewegt.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 
 **Hinweise:**
@@ -19,20 +19,20 @@ Zeichne nun ein kleines Quadrat zentriert in einem größeren Quadrat mit folgen
 ```python
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 title("Übung 4.1: Verschachtelte Quadrate")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
-# --- Logik # ---
-# --- Wir zeichnen das äußere Quadrat. (z.B. 200x200) # ---
+# --- Logik ---
+# --- Wir zeichnen das äußere Quadrat. (z.B. 200x200) ---
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 
-# --- Inneres Quadrat zeichnen (z.B. 100x100) # ---
+# --- Inneres Quadrat zeichnen (z.B. 100x100) ---
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# --- Abschluss # ---
+# --- Abschluss ---
 exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenster klicken.
 ```
 
@@ -40,11 +40,11 @@ exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenst
 Es liegt nun aus dem vorherigen Beispiel ein Faden am Boden, jedoch haben wir vergessen diesen abzumessen. Wiederhole das Beispiel von oben und zähle nach jeder geraden Bewegung mit der Schnur mit wie lange die Linien für den Garten und Haus sind. Dadurch haben wir den Umfang bestimmt und können diesen am Schluss in der Console ausgeben. Verwende zudem zwei verschiedene Farben (<span style="color:orange;">Orange</span> für den Garten und <span style="color:purple;">Violett</span> für das Haus) um die Schnüre besser unterscheiden zu können.
 
 Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden ``Prozeduren``.
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``pendown()``: Gib die Turtle am Boden. Diese malt dadruch Linien wenn diese sich später bewegt.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``color("orange")``: Die Turtle malt orange Linien am Bildschirm.
 * ``print(umfang_garten, umfang_haus)``: Mit dieser ``Prozedur`` kann eine Variable für den Umfang des Gartens und eine Variable für den Umfang des Hauses auf die Console ausgegeben werden.
@@ -55,18 +55,18 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 </div>
 
 ```python
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 from turtle import *
 
 title("Übung 4.2: Verschachtelte Quadrate - Farben und Umfang")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
-# --- Logik # ---
+# --- Logik ---
 umfang_haus = 0   # Wir merken uns den Umfang des Hauses  in dieser Variable - wir setzten es am Anfang auf 0.
 umfang_garten = 0 # Wir merken uns den Umfang des Gartens in dieser Variable - wir setzten es am Anfang auf 0.
 
-# --- Äußeres Quadrat zeichnen (z.B. 200x200) # ---
+# --- Äußeres Quadrat zeichnen (z.B. 200x200) ---
 # Wir verwenden die orange Schnur für den Garten.
 color(...)
 
@@ -92,7 +92,7 @@ umfang_garten = ...
 # wir erhöhen die variable umfang_garten
 umfang_garten = ... 
 
-# --- Inneres Quadrat zeichnen (z.B. 100x100) # ---
+# --- Inneres Quadrat zeichnen (z.B. 100x100) ---
 # Wir verwenden die violette Schnur für das Haus.
 # Wir verwenden die orange Schnur für den Garten.
 color(...)
@@ -124,8 +124,8 @@ hideturtle()
 # Ausgabe auf der Console.
 print("Umfang des Gartens: ", umfang_garten, " - Umfang des Hauses: ", umfang_haus)
 
-# --- Abschluss # ---
-exitonclick() # Warten, bis das Fenster per Klick geschlossen wird.
+# --- Abschluss ---
+done() Schließt das Fenster nicht, wenn das Programm beendet ist.
 ```
 
 ### Wo bin ich und wohin gehe ich?
@@ -136,11 +136,11 @@ Finde mit folgenden ``Funktionen`` heraus in welche Richtung unsere Turtle schau
 * ``heading()``: Gibt dir die Richtung in die unsere Turtle schaut zurück.
 
 Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden ``Prozeduren``.
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``pendown()``: Gib die Turtle am Boden. Diese malt dadruch Linien wenn diese sich später bewegt.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``color("orange")``: Die Turtle malt orange Linien am Bildschirm.
 * ``print(umfang_garten, umfang_haus)``: Mit dieser ``Prozedur`` kann eine Variable für den Umfang des Gartens und eine Variable für den Umfang des Hauses auf die Console ausgegeben werden.
@@ -153,16 +153,16 @@ Zeichne ein kleines Quadrat zentriert in einem größeren Quadrat mit folgenden 
 ```python
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 title("Übung 4.3: Verschachtelte Quadrate - Wo bin ich und wohin gehe ich?")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
-# --- Logik # ---
+# --- Logik ---
 umfang_haus = 0   # Wir merken uns den Umfang des Hauses  in dieser Variable - wir setzten es am Anfang auf 0.
 umfang_garten = 0 # Wir merken uns den Umfang des Gartens in dieser Variable - wir setzten es am Anfang auf 0.
 
-# --- Äußeres Quadrat zeichnen (z.B. 200x200) # ---
+# --- Äußeres Quadrat zeichnen (z.B. 200x200) ---
 # Wir verwenden die orange Schnur für den Garten.
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
@@ -183,7 +183,7 @@ write("Pos: " + ... + "\n" + "Richtung: " + ...)
 write("Pos: " + ... + "\n" + "Richtung: " + ...)
 
 
-# --- Inneres Quadrat zeichnen (z.B. 100x100) # ---
+# --- Inneres Quadrat zeichnen (z.B. 100x100) ---
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Wir verwenden die violette Schnur für das Haus.
@@ -207,8 +207,8 @@ write("Pos: " + ... + "\n" + "Richtung: " + ...)
 
 hideturtle()
 
-# --- Abschluss # ---
-exitonclick() # Warten, bis das Fenster per Klick geschlossen wird.
+# --- Abschluss ---
+done() Schließt das Fenster nicht, wenn das Programm beendet ist.
 ```
 
 ### Renovierung des Hauses
@@ -218,11 +218,11 @@ Wiederhole vorheriges Programm jedoch drehe das innere Quadrat um 45 Grad. Die E
 Die Fläche des inneren Quadrats soll soll <span style="color:purple;">violett</span> gefüllt werden und die des außeren <span style="color:orange;">orange</span>.
 
 Verwende folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``pendown()``: Gib die Turtle am Boden. Diese malt dadruch Linien wenn diese sich später bewegt.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``color("purple", "purple")``: Die Turtle wird violett und malt violette Linien am Bildschirm. Dazu wird die Turtle violett ausgemalen. Rufe ``begin_fill()`` auf um den *Füllmodus* zu starten und ``end_fill()`` um diesen zu beenden.
 
@@ -235,12 +235,12 @@ Verwende folgende ``Prozeduren``:
 from turtle import *
 from math import sqrt
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 title("Übung 4.4: Renoviertes Haus")
 shape('turtle')
 speed(1)
 
-# --- Äußeres Quadrat # ---
+# --- Äußeres Quadrat ---
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Es wird die Farbe der Linien für das äußere Quadrat festgelegt.
@@ -260,7 +260,7 @@ begin_fill() # Wir starten das Ausmalen der Form. Wenn wir später end_fill() ve
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 end_fill()
-# --- Inneres gedrehtes Quadrat # ---
+# --- Inneres gedrehtes Quadrat ---
 # Die Eckpunkte des inneren Quadrats liegen auf den Mittelpunkten der äußeren Seiten.
 # Pythagoras: Hypothenuse^2 = Ankathete^2 + Gegenkathete^2
 # Wir wollen die Hypothenuse ohne Quadrat. Wir ziehen deshalb die Wurzel links und rechts vom =. 
@@ -294,6 +294,6 @@ begin_fill() # Wir starten das Ausmalen der Form. Wenn wir später end_fill() ve
 end_fill()
 hideturtle()
 
-# --- Abschluss # ---
+# --- Abschluss ---
 exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenster klicken.
 ```

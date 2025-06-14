@@ -3,8 +3,8 @@
 Die Turtle startet am Rande einer Düne. Links von ihr geht es steil nach unten und rechts von ihr ist normaler Sand. Die Turtle drückt sich auf den Boden um einen Abdruck zu machen. Damit vergisst sie nicht wo es stiel nach unten geht. Danach geht die Turtle irgendwo hin und bewegt sich dadurch auf eine zufällige Position. Wenn die x-Koordinate in der rechten Bildschirmhälfte liegt, bewege die Turtle dorthin und lass diese sich im Sand eingraben. Wenn die x-Koordinate in der linken Bildschirmhälfte liegt, bleibt unsere Turtle stehen. Sie will nicht hinunterfallen. Es soll also nichts passieren. 
 
 Verwende dazu folgende ``Funktionen``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 
@@ -23,12 +23,12 @@ Sowie folgende ``Funktionen``:
 from turtle import *
 from random import randint
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 title("Übung 5.1: Turtle in der rechten Hälfte")
 shape("turtle")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
-# --- Logik # ---
+# --- Logik ---
 # Wir generierem zufällige Koordinaten innerhalb der Fenstergröße.
 # Das Wort Zufall wird im Englischen das Wort random. 
 # Da wir zufällige Zahlen ohne Komma wollen, verwenden wir die Funktion randint.
@@ -45,7 +45,7 @@ if ... > 0:
 # Wenn die Turtle nach links gehen würde, dann mache nichts.
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# --- Abschluss # ---
+# --- Abschluss ---
 exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenster klicken.
 ```
 
@@ -53,10 +53,10 @@ exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenst
 Unsere Turtle steht am Rande des Meeres. Links von Ihr ist das Meer und rechts von ihr ist Sand. Die Turtle sich auf eine zufällige Position bewegen. Wenn die Turtle ins Meer geht, schwimmt sie. Ansonsten geht sie am Sand. Wenn die Turtle im Meer schwimmt, stelle sie als Kreis dar. Ansosnten stelle sie als Turtle, wie bisher dar. Am schluss taucht sie ab oder gräbt sich ein.
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
@@ -74,11 +74,11 @@ Sowie folgende ``Funktionen``:
 from turtle import *
 from random import randint
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 title("Übung 5.2: Anderes Symbol")
 speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 
-# --- Logik # ---
+# --- Logik ---
 # Wir generierem zufällige Koordinaten innerhalb der Fenstergröße.
 # Das Wort Zufall wird im Englischen das Wort random. 
 # Da wir zufällige Zahlen ohne Komma wollen, verwenden wir die Funktion randint.
@@ -88,6 +88,6 @@ speed(1) # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtl
 # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# --- Abschluss # ---
+# --- Abschluss ---
 exitonclick() # Das Fenster wird geschlossen, wenn wir mit der Maus in das Fenster klicken.
 ```

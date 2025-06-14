@@ -4,8 +4,8 @@ Wir legen unserer Turtle mit der Maus Seegras irgendwo am Bildschirm hin. Wir dr
 Die Turtle bewegt sich anschließend dorthin und macht einen Abdruck von sich selbst um sich zu merken wo einmal ein Seegras hingelegt worden ist. Wenn wir auf einen anderen Ort klicken, bewegt sich die Turtle auch dorthin und macht weider einen Abdruck. Dieses verhalten wiederholt sich bis wir das Fenster rechts oben beim X schließen.
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 
@@ -20,19 +20,19 @@ Sowie folgende ``Funktionen``:
 ```python
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 screen = Screen()
 screen.title("Übung 7.4: Maussteuerung")
 shape('turtle')
 speed(3)
 
-# --- Eigene Funktionen # ---
+# --- Eigene Funktionen ---
 # Diese Funktion wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt
 def bewege_turtle(x, y):
     goto(x, y) # Bewege die Turtle zu den geklickten Koordinaten
     stamp() # Wir drücken die Turtle auf den Boden und machen damit einen Abdruck.
 
-# --- Logik # ---
+# --- Logik ---
 penup()
 
 # Diese Funktion ist eine komplizierte. Wir behandeln dies nur weil es im Lehrplan steht.
@@ -40,7 +40,7 @@ penup()
 # Zudem lebt diese ``Funktion`` bei der ``Variable`` screen. Wir können dies deshalb nur aufrufen wenn wir davor screen mit einem Punkt danach schreiben.
 screen.onclick(bewege_turtle)
 
-# --- Abschluss # ---
+# --- Abschluss ---
 # Das hier ist eine Art Schleife. Wir lassen das Programm laufen und wenn ein Event passiert, dann führen wir dieses aus.
 screen.mainloop()
 ```
@@ -48,8 +48,8 @@ screen.mainloop()
 
 ### Farbige Punkte - Mehrfachverzweigung
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(...)``: TODO
 
@@ -67,14 +67,14 @@ Wenn der Benutzer klickt, erscheint ein großer Punkt (ca. 1 cm Durchmesser). Di
 ```python
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 screen = Screen()
 screen.title("Übung 7.5: Farbige Punkte - Mehrfachverzweigung")
 hideturtle()
 speed("fastest")
 penup()
 
-# --- Logik # ---
+# --- Logik ---
 DOT_DIAMETER = 80
 
 def draw_colored_dot(x, y):
@@ -93,7 +93,7 @@ def draw_colored_dot(x, y):
 # Auf Klicks lauschen
 screen.onclick(draw_colored_dot)
 
-# --- Abschluss # ---
+# --- Abschluss ---
 screen.mainloop()
 ```
 
@@ -108,7 +108,7 @@ Zeichne Steifen von oben nach unten. Wenn der Benutzer klickt, erscheint ein gro
 ```python
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 screen = Screen()
 title("Übung 7.6: Farbige Punkte - Mehrfachverzweigung")
 breite = window_width()
@@ -127,7 +127,7 @@ linie4_x = breite * 0.3
     
 penup()
 
-# --- Logik # ---
+# --- Logik ---
 groesse_des_punktes = 40
 
 def zeichne_bunten_punkt(x, y):
@@ -159,7 +159,7 @@ def zeichne_bunten_punkt(x, y):
 # Auf Klicks lauschen
 screen.onclick(zeichne_bunten_punkt)
 
-# --- Abschluss # ---
+# --- Abschluss ---
 screen.mainloop()
 ```
 
@@ -167,8 +167,8 @@ screen.mainloop()
 Wir wollen nun die Turtle mit der Tastatur steuern.
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(...)``: TODO
 
@@ -180,7 +180,7 @@ Unsere Turtle fängt an zu graben. Was sich unter dem Sand verbrigt weiß sie no
 ```python
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 bildschirm = Screen()
 bildschirm.title("Steuere die Turtle mit den Pfeiltasten")
 
@@ -191,7 +191,7 @@ held.shapesize(2)
 held.color("darkgreen")
 held.penup()
 
-# --- Logik # ---
+# --- Logik ---
 # Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
 SCHRITTWEITE = 20
 
@@ -231,7 +231,7 @@ bildschirm.onkey(gehe_links, "Left")
 bildschirm.onkey(gehe_rechts, "Right")
 
 
-# --- Abschluss # ---
+# --- Abschluss ---
 # Hält das Fenster offen und wartet auf Tastendrücke.
 bildschirm.mainloop()
 ```

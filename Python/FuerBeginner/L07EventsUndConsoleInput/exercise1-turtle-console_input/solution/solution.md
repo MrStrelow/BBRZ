@@ -3,10 +3,10 @@
 Unsere Turtle will wieder die Welt erforschen. Dazu mekrt sich unsere Turtle am Anfang wo sie gestartet ist. Das ist auf der Position *x=0* und *y=0*. Sie steht also wieder am Rande des Meeres. Links von ihr ist das Meer und rechts von ihr ist Sand. Nun wiederholt sie folgendes Verhalten **für immer**. Die Turtle bewegt sich auf **ein vom User gewählte Position** und **markiert** diese. Sie *gräbt* sich nicht mehr ein, sondern bewegt sich zu ihrer Markierung in der Mitte zurück. Wenn sie in der Mitte angekommen ist, geht sie zur nächsten **vom User gewählten** Position. Wenn die Turtle ins Meer geht, schwimmt sie. Ansonsten geht sie am Sand. Wenn die Turtle im Meer schwimmt, stelle sie als Kreis dar. Ansonsten stelle sie als Turtle, wie bisher dar. 
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
@@ -21,13 +21,13 @@ Sowie folgende ``Funktionen``:
 from turtle import *
 from random import randint
 
-# --- Vorbereitung (passiert nur einmal) # ---
+# --- Vorbereitung (passiert nur einmal) ---
 title("Übung 7.1: Wiederholte Bewegung mit Userinput - für immer")
 shape('turtle')
 speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
 penup() # Wir heben die Turtle nur einmal am Anfang auf.
 
-# --- Logik # ---
+# --- Logik ---
 # Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
 stamp() 
 penup() # Wir heben die Turtle auf, damit wir keine Linie zeichnen.
@@ -48,17 +48,17 @@ while True:
     # Wir bewegen uns zur Ausgangsposition zurück.
     goto(0, 0)
 
-# --- Abschluss # ---
+# --- Abschluss ---
 ```
 
 ### Wiederholte Bewegung mit Userinput - für *fast* immer
 Unsere Turtle will wieder die Welt erforschen. Jedoch gibt es einen Unterschied zur vorherigen Angabe. Wenn wir *-9999* eingeben, dann sagen wir der Turtle wir wollen nicht mehr Erkunden. Damit endet unser Programm.
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
@@ -73,13 +73,13 @@ Sowie folgende ``Funktionen``:
 from turtle import *
 from random import randint
 
-# --- Vorbereitung (passiert nur einmal) # ---
+# --- Vorbereitung (passiert nur einmal) ---
 title("Übung 7.2: Wiederholte Bewegung mit Userinput - für fast immer")
 shape('turtle')
 speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
 penup() # Wir heben die Turtle nur einmal am Anfang auf.
 
-# --- Logik # ---
+# --- Logik ---
 # Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
 stamp() 
 penup() # Wir heben die Turtle auf, damit wir keine Linie zeichnen.
@@ -104,17 +104,17 @@ while True:
     # Wir bewegen uns zur Ausgangsposition zurück.
     goto(0, 0)
 
-# --- Abschluss # ---
+# --- Abschluss ---
 ```
 
 ### Wiederholte Bewegung mit Userinput - für *fast* immer - angenehmere Variante
 Unsere Turtle will wieder die Welt erforschen. Jedoch ist es unagenehm zwei mal *-9999* einzugeben wenn wir abbrechen wollen. Wir versuchen nun einmal "bye" einzugeben um der Turtle zu sagen, dass wir aufhören wollen. Dazu müssen wir eine ``Variable`` verwenden welche einen *Text* halten kann. Da ist eine ``Variable`` des ``Typs`` *String*. 
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Hebe die Turtle in die Luft. Diese malt dadruch **keine** Linien wenn diese sich später bewegt.
-* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben, wobei die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
-* ``stamp()``: Drücke die Turtle (sanft genug) auf den Boden und hinterlasse einen Abdruck.
+* ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
@@ -129,13 +129,13 @@ Sowie folgende ``Funktionen``:
 from turtle import *
 from random import randint
 
-# --- Vorbereitung (passiert nur einmal) # ---
+# --- Vorbereitung (passiert nur einmal) ---
 title("Übung 7.3: Wiederholte Bewegung mit Userinput - für fast immer - angenehmere Variante")
 shape('turtle')
 speed(1) # Etwas schneller, da wir mehrere Bewegungen haben
 penup() # Wir heben die Turtle nur einmal am Anfang auf.
 
-# --- Logik # ---
+# --- Logik ---
 # Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
 stamp() 
 penup() # Wir heben die Turtle auf, damit wir keine Linie zeichnen.
@@ -167,7 +167,7 @@ while True:
     # Wir bewegen uns zur Ausgangsposition zurück.
     goto(0, 0)
 
-# --- Abschluss # ---
+# --- Abschluss ---
 ```
 
 

@@ -1,6 +1,6 @@
 from turtle import *
 
-# --- Vorbereitung # ---
+# --- Vorbereitung ---
 bildschirm = Screen()
 bildschirm.title("Steuere die Turtle mit den Pfeiltasten")
 
@@ -11,7 +11,7 @@ held.shapesize(2)
 held.color("darkgreen")
 held.penup()
 
-# --- Logik # ---
+# --- Logik ---
 # Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
 SCHRITTWEITE = 20
 
@@ -51,7 +51,7 @@ bildschirm.onkey(gehe_links, "Left")
 bildschirm.onkey(gehe_rechts, "Right")
 
 
-# --- Abschluss # ---
+# --- Abschluss ---
 # Hält das Fenster offen und wartet auf Tastendrücke.
 bildschirm.mainloop()
 
