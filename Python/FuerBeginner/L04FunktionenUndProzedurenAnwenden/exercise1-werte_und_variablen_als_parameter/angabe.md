@@ -13,6 +13,7 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
     <img style="" height="240" width="360" src="images/4.1.1.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 
@@ -22,9 +23,6 @@ shape("turtle")
 speed(1) 
 
 # --- Logik ---
-#  Die Turtle nimmt den Faden aus der Tasche und legen ihn am Boden, wenn wir uns Bewegen.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
-
 # --- 1. Wir zeichnen den quadratischen Garten ---
 # --- 1.1) Wir zeichnen eine horizontale Linie von links nach rechts ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen
@@ -88,6 +86,7 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
     <img style="" height="240" width="240" src="images/4.1.2.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 
@@ -97,12 +96,12 @@ shape("turtle")
 speed(1) 
 
 # --- Logik ---
-# --- 1. Usere Turtle geht zur Ecke des Garten welche links-unten ist. ---
+# --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
 # Die Turtle packt den Faden in die Tasche.
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle geht in die Ecke welche links-unten ist.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+goto(..., ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge die korrekten Werte ein.
 
 # Die Turtle nimmt den Faden aus der Tasche und legen ihn am Boden, wenn wir uns Bewegen.
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
@@ -110,43 +109,43 @@ speed(1)
 # --- 2. Wir zeichnen den quadratischen Garten ---
 # --- 2.1) Wir zeichnen eine horizontale Linie von links nach rechts ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+stamp()
 
 # Die Turtle bewegt sich 300 Schritte in Blickrichtung nach vorne.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge den korrekten Wert ein.
 
 # Die Turtle dreht sich um 90° nach links.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+left(90)
 
 # --- 2.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+stamp()
 
 # Die Turtle bewegt sich 300 Schritte in Blickrichtung nach vorne.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge den korrekten Wert ein.
 
 # Die Turtle dreht sich um 90° nach links.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+left(90)
 
 # --- 2.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+stamp()
 
 # Die Turtle bewegt sich 300 Schritte in Blickrichtung nach vorne.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge den korrekten Wert ein.
 
 # Die Turtle dreht sich um 90° nach links.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+left(90)
 
 # --- 1.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+stamp()
 
 # Die Turtle bewegt sich 300 Schritte in Blickrichtung nach vorne.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge den korrekten Wert ein.
 
 # Die Turtle dreht sich um 90° nach links.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+left(90)
 
 # --- Abschluss ---
 # Schließt das Fenster nicht, wenn das Programm beendet ist.
@@ -168,11 +167,11 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 
-
 <div style="text-align: left;">
     <img style="" height="240" width="240" src="images/4.1.2.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 
@@ -182,15 +181,62 @@ shape("turtle")
 speed(1) 
 
 # Wir legen Variablen an welche wir später wiederverwenden können.
-laenge_garten = ...
-winkel = ...
+laenge_garten = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Wert ein.
+winkel = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Wert ein.
 
 # --- Logik ---
-# --- 1. Usere Turtle geht zur Ecke des Garten welche links-unten ist. ---
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+# --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
+# Die Turtle packt den Faden in die Tasche.
+penup()
+
+# Die Turtle geht in die Ecke welche links-unten ist.
+ecke_links_unten_x = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+ecke_links_unten_y = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+goto(ecke_links_unten_x, ecke_links_unten_y)
+
+# Die Turtle nimmt den Faden aus der Tasche und legen ihn am Boden, wenn wir uns Bewegen.
+pendown()
 
 # --- 2. Wir zeichnen den quadratischen Garten ---
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+# --- 2.1) Wir zeichnen eine horizontale Linie von links nach rechts ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# Die Turtle dreht sich um 90° nach links.
+left(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# --- 2.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# Die Turtle dreht sich um 90° nach links.
+left(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# --- 2.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# Die Turtle dreht sich um 90° nach links.
+left(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# --- 2.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
+
+# Die Turtle dreht sich um 90° nach links.
+left(...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die Korrekte Variable ein.
 
 # --- Abschluss ---
 # Schließt das Fenster nicht, wenn das Programm beendet ist.
@@ -216,11 +262,11 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 
-**Hinweise:**
 <div style="text-align: left;">
     <img style="" height="240" width="240" src="images/4.1.3.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 
@@ -230,25 +276,93 @@ shape("turtle")
 speed(1) 
 
 # Wir legen Variablen an welche wir später wiederverwenden können.
-laenge_garten = ...
-winkel = ...
+laenge_garten = 314
+winkel = 90
 
 # --- Logik ---
 # ------------------------------------------------------------------------
-# --- 1. Usere Turtle geht zur Ecke des Garten welche links-unten ist. ---
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+# --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
+# Die Turtle packt den Faden in die Tasche.
+penup()
+
+# Die Turtle geht in die Ecke welche links-unten ist.
+ecke_garten_links_unten_x = -laenge_garten/2
+ecke_garten_links_unten_y = -laenge_garten/2
+goto(ecke_garten_links_unten_x, ecke_garten_links_unten_y)
+
+# Die Turtle nimmt den Faden aus der Tasche und legen ihn am Boden, wenn wir uns Bewegen.
+pendown()
 
 # ------------------------------------------------------------------------
 # --- 2. Wir zeichnen den quadratischen Garten ---
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+# --- 2.1) Wir zeichnen eine horizontale Linie von links nach rechts ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(laenge_garten)
+
+# Die Turtle dreht sich um 90° nach links.
+left(winkel)
+
+# --- 2.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(laenge_garten)
+
+# Die Turtle dreht sich um 90° nach links.
+left(winkel)
+
+# --- 2.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(laenge_garten)
+
+# Die Turtle dreht sich um 90° nach links.
+left(winkel)
+
+# --- 2.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
+# Die Turtle drückt den Faden auf den Boden und befestigt diesen
+stamp()
+
+# Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
+forward(laenge_garten)
+
+# Die Turtle dreht sich um 90° nach links.
+left(winkel)
 
 # ------------------------------------------------------------------------
 # --- 3. Usere Turtle geht zur Ecke des Hauses welche links-unten ist. ---
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+# Die Turtle packt den Faden in die Tasche.
+penup()
+
+# Die Turtle geht in die Ecke welche links-unten ist.
+laenge_haus = laenge_garten / 2
+ecke_haus_links_unten_x = -laenge_haus/2
+ecke_haus_links_unten_y = -laenge_haus/2
+goto(ecke_haus_links_unten_x, ecke_haus_links_unten_y)
+
+# Die Turtle nimmt den Faden aus der Tasche und legen ihn am Boden, wenn wir uns Bewegen.
+pendown()
 
 # ------------------------------------------------------------------------
 # --- 4. Wir zeichnen das quadratischen Haus ---
+# --- 4.1) Wir zeichnen eine horizontale Linie von links nach rechts ---
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+
+# --- 4.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+
+# --- 4.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+
+# --- 4.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+
 # ------------------------------------------------------------------------
 # --- Abschluss ---
 # Schließt das Fenster nicht, wenn das Programm beendet ist.

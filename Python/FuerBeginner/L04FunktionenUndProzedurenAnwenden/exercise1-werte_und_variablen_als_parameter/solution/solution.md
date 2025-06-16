@@ -13,6 +13,7 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
     <img style="" height="240" width="360" src="../images/4.1.1.gif">
 </div>
 
+**Lösung:**
 ```python
 from turtle import *
 
@@ -22,9 +23,6 @@ shape("turtle")
 speed(1) 
 
 # --- Logik ---
-#  Die Turtle nimmt den Faden aus der Tasche und legen ihn am Boden, wenn wir uns Bewegen.
-pendown()
-
 # --- 1. Wir zeichnen den quadratischen Garten ---
 # --- 1.1) Wir zeichnen eine horizontale Linie von links nach rechts ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen
@@ -88,6 +86,7 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
     <img style="" height="240" width="240" src="../images/4.1.2.gif">
 </div>
 
+**Lösung:**
 ```python
 from turtle import *
 
@@ -97,7 +96,7 @@ shape("turtle")
 speed(1) 
 
 # --- Logik ---
-# --- 1. Usere Turtle geht zur Ecke des Garten welche links-unten ist. ---
+# --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
 # Die Turtle packt den Faden in die Tasche.
 penup()
 
@@ -172,6 +171,7 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
     <img style="" height="240" width="240" src="../images/4.1.2.gif">
 </div>
 
+**Lösung:**
 ```python
 from turtle import *
 
@@ -185,7 +185,7 @@ laenge_garten = 314
 winkel = 90
 
 # --- Logik ---
-# --- 1. Usere Turtle geht zur Ecke des Garten welche links-unten ist. ---
+# --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
 # Die Turtle packt den Faden in die Tasche.
 penup()
 
@@ -262,11 +262,11 @@ Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 
-**Hinweise:**
 <div style="text-align: left;">
     <img style="" height="240" width="240" src="../images/4.1.3.gif">
 </div>
 
+**Lösung:**
 ```python
 from turtle import *
 
@@ -274,8 +274,6 @@ from turtle import *
 shape("turtle")
 # Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
 speed(1) 
-# Wir laden ein ein Bild mit Haus als Hintergrund
-bgpic("../images/haus.jpg")
 
 # Wir legen Variablen an welche wir später wiederverwenden können.
 laenge_garten = 314
@@ -283,7 +281,7 @@ winkel = 90
 
 # --- Logik ---
 # ------------------------------------------------------------------------
-# --- 1. Usere Turtle geht zur Ecke des Garten welche links-unten ist. ---
+# --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
 # Die Turtle packt den Faden in die Tasche.
 penup()
 
