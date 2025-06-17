@@ -16,7 +16,7 @@ Entscheide selbst ob hier ``Variablen`` für
 * den logischen Ausdruck der ``Bedingung`` unserer ``Verzweigung`` verwendet werden sollen.
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -86,7 +86,7 @@ if ziel_in_x > 0:
     # Setze die Geschwindigkeit auf die Landgeschwindigkeit. 
     speed(geschwindigkeit_am_land_hungrig)
 
-    # Die Turtle geht und ist als Turtle sichtbar.
+    # Die Turtle geht und ist als Arrow sichtbar.
     shape(form_am_land_hungrig) 
 else:
     # Setze die Geschwindigkeit auf die Wassergeschwindigkeit.
@@ -117,7 +117,7 @@ Verwende ``Variablen`` für:
 * die ``logischen Ausdrücke`` der ``Bedingungen`` unserer ``Mehrfachverzweigung``.
 
 Verwende dazu folgende ``Prozeduren``:
-* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -241,7 +241,7 @@ elif bewegt_sich_rueckwaerts_am_land:
     # Setze die Geschwindigkeit auf die hungrige Landgeschwindigkeit.
     speed(geschwindigkeit_am_land)
 
-    # Die Turtle geht und ist als Turtle sichtbar.
+    # Die Turtle geht und ist als Arrow sichtbar.
     shape(form_am_land_hungrig) 
     
     # Die Turtle dreht sich nach Westen um nicht geblendet zu werden.
@@ -254,7 +254,7 @@ elif bewegt_sich_vorwärts_am_land:
     # Setze die Geschwindigkeit auf die hungrige Landgeschwindigkeit.
     speed(geschwindigkeit_am_land_hungrig)
 
-    # Die Turtle geht und ist als Turtle sichtbar.
+    # Die Turtle geht und ist als Arrow sichtbar.
     shape(form_am_land_hungrig) 
 
     # Wir bewegen uns zur zufällig gewählten Position.
@@ -266,6 +266,121 @@ else:
     fehler = "DAS SOLLTE NIE PASSIEREN!"
     write(fehler)
     print(fehler)
+
+# --- Abschluss ---
+# Schließt das Fenster nicht, wenn das Programm beendet ist.
+done()
+```
+
+### Sehr Fortgeschritten und sehr Optional - Aufgabe 2.1 - Anderes Verhalten im Wasser als am Sand und im Norden und Süden (verschachteltes if und else)
+Weierlesen auf eigene Gefahr. Hier ist es das Ziel den Code ein wenig zu verstehen und nicht selbst zu implementieren. Wir bemerken damit, dass verschachtelte Verzweigungen, sehr schnell, sehr komplex werden können. Es gibt eigene Techniken um hier einen Überblick zu behalten, diese sind jedoch bei weitem nicht sinnvoll hier zu betrachten (Guard Clauses, early Exit und die Verbindung zu De'Morgans Law). 
+
+Wir wiederholen die [Aufgabe 2](#aufgabe-2---anderes-verhalten-im-wasser-als-am-sand-und-im-norden-und-süden-if-mit-elif-und-else), nur haben wir dort bemerkt, dass in der ``Mehrfachverzweigung`` doppelter Code vorkommt. Wir setzen z.B. in jedem Zweig ``goto(ziel_in_x, ziel_in_y)``. Wir können ``goto(ziel_in_x, ziel_in_y)`` aber nicht nach der ``Mehrfachverzweigung`` **einmal** aufrufen, denn wenn wir im Wasser sind, dann rufen wir **nach** ``goto(ziel_in_x, ziel_in_y)`` die ``Funktion`` ``hide()`` auf. Wenn wir es trotzdem tun würden, wäre die Folge, dass wir uns verstecken bevor wir losgehen. Das klingt nicht sinnvoll. Wir können hier jedoch probieren eine ``Verschachtelung`` von ``Verzweigungen`` zu verwenden. Wie schaffen es dadurch keinen doppelten Code zu erzeugen, jedoch ist der Preis, dass es alles schwerer nachzuvolliehen wird.
+
+**Lösung:**
+```python
+from turtle import *
+from random import randint
+
+# --- Vorbereitung ---
+# Die Variablen für die Geschwindigkeit.
+geschwindigkeit_am_land = 1
+geschwindigkeit_am_land_hungrig = 2 * geschwindigkeit_am_land
+geschwindigkeit_im_wasser = 50 * geschwindigkeit_am_land
+
+# Die Variablen für die Form.
+form_am_land = "turtle"
+form_am_land_hungrig = "arrow"
+form_im_wasser = "circle"
+
+shape(form_am_land) 
+speed(geschwindigkeit_am_land)
+
+# --- Logik ---
+# Wir generierem zufällige Koordinaten innerhalb der Fenstergröße.
+# Das Wort Zufall wird im Englischen das Wort random. 
+breite = window_width()
+hoehe = window_height()
+
+# Die Bildschrimbreite geht von z.B. 0 bis 100. Für unsre Turtle ist jedoch die Mitte dieser Breite der 0-Punkt.
+# Dadurch ändert sich 0 bis 100 zu -50 bis 50.
+# Um die Turtle zufällig zu navigieren, müssen wir eine Zahl zwischen -50 und 50 ziehen. 
+# Das gleiche gilt für die Hoehe.
+
+# Die Ganzzahldivision.
+# Diese ist unter 5 dividiert durch 2 ist 2, mit 1 Rest bekannt und wird mit Python mit // geschrieben.
+# Das 1 Rest wird hier mit // ignorieret.
+halbe_breite_ohne_komma = breite // 2 
+halbe_hoehe_ohne_komma = hoehe // 2
+
+# Da wir zufällige Zahlen ohne Komma wollen, verwenden wir die Funktion randint.
+# Diese benötigt zwei zahlen, zwischen denen sie zufällig eine Wählt. 
+# randint(3, 8) gibt eine Zahl welche 3 sein kann, 8 sein kann und alles dazwischen. Alles dazwischen ist 4, 5, 6 und 7.
+# Der Name ist eine Kombination aus Random und Integer, was Zufall und Zahl ohne Komma bedeutet.
+ziel_in_x = randint(-halbe_breite_ohne_komma, halbe_breite_ohne_komma)
+ziel_in_y = randint(-halbe_hoehe_ohne_komma, halbe_hoehe_ohne_komma)
+
+# Die Turtle nimmt den Faden aus der Tasche und legt ihn am Boden wenn sie losgeht.
+pendown()
+
+# Die Turtle drückt den Faden in den boden, fixiert diesen und macht einen Abdruck von sich selbst.
+stamp()
+
+# Wir bewegen die Turtle und passen an mit einer Mehrfachverzweigung an wie diese dargestellt wird (Kreis oder Turtle) und wie schnell diese ist. 
+im_wasser = ziel_in_x < 0
+am_land = ziel_in_x >= 0
+
+norden = ziel_in_y > 0
+sueden = ziel_in_y <= 0
+
+schnell_im_wasser = im_wasser and sueden
+langsam_im_wasser = im_wasser and norden
+
+bewegt_sich_rueckwaerts_am_land = am_land and sueden
+bewegt_sich_vorwärts_am_land = am_land and norden
+
+# Alles was für sueden und norden doppelt steht, schreiben wir auf die 1. Ebene am_land.
+if am_land:
+    # Die Turtle geht und ist als Arrow sichtbar.
+    shape(form_am_land_hungrig) 
+
+    # Es gilt in der 2. Ebene am_land and sueden, also bewegt_sich_rueckwaerts_am_land.
+    if sueden:
+        # Setze die Geschwindigkeit auf die hungrige Landgeschwindigkeit.
+        speed(geschwindigkeit_am_land)
+
+        # Die Turtle dreht sich nach Westen um nicht geblendet zu werden.
+        left(180)
+
+    # Es gilt in der 2. am_land and norden, also bewegt_sich_vorwärts_am_land.
+    if norden:
+        # Setze die Geschwindigkeit auf die hungrige Landgeschwindigkeit.
+        speed(geschwindigkeit_am_land_hungrig)
+
+# Alles was für sueden und norden doppelt steht, schreiben wir auf die 1. Ebene im_wasser.
+elif im_wasser:
+    # Die Turtle schwimmt und es ist nur der Panzer sichtbar. Quasi nur ein Kreis.
+    # Das englische Wort für Kreis ist circle.
+    shape(form_im_wasser) 
+
+    # Es gilt in der 2. im_wasser and sueden, also schnell_im_wasser.
+    if sueden: 
+        # Setze die Geschwindigkeit auf die Wassergeschwindigkeit. 
+        speed(geschwindigkeit_im_wasser)
+
+    # Es gilt in der 2. Ebene im_wasser and norden, also langsam_im_wasser.
+    if norden:
+        # Setze die Geschwindigkeit auf die hungrige Landgeschwindigkeit.
+        speed(geschwindigkeit_am_land_hungrig)
+
+# Wir können nun auch nach der Verzweigung auf die 0. Ebene zurück gehen und nur ein mal goto(ziel_in_x, ziel_in_y) aufrufen
+# Wir bewegen uns zur zufällig gewählten Position.
+goto(ziel_in_x, ziel_in_y)
+
+# Wir fragen nochmals ab ob wir im Wasser sind und verstecken die Turtle.
+if im_wasser:
+    # Am schluss taucht die Turtle im Wasser unter.
+    hideturtle()
 
 # --- Abschluss ---
 # Schließt das Fenster nicht, wenn das Programm beendet ist.
