@@ -44,7 +44,7 @@ hoehe = window_height()
 # Das gleiche gilt für die Hoehe.
 # Lege zwei Variable an die die hälfte der bildschirmbreite bzw. der bildschirmhoehe ist.
 halbe_breite_mit_komma = breite / 2 
-halbe_hoehe_mit_komma = breite / 2 
+halbe_hoehe_mit_komma = hoehe / 2 
 
 # Die Division ergibt immer eine Kommazahl (float), auch wenn wir 4 / 2 = 2.0 rechnen.
 # Wir müssen deshalb das Ergebnis in eine Zahl ohne Komma (einen Integer) umwandlen. 
@@ -132,7 +132,7 @@ hoehe = window_height()
 # Das gleiche gilt für die Hoehe.
 # Lege zwei Variable an die die hälfte der bildschirmbreite bzw. der bildschirmhoehe ist.
 halbe_breite_mit_komma = breite / 2 
-halbe_hoehe_mit_komma = breite / 2 
+halbe_hoehe_mit_komma = hoehe / 2 
 
 # Die Division ergibt immer eine Kommazahl (float), auch wenn wir 4 / 2 = 2.0 rechnen.
 # Wir müssen deshalb das Ergebnis in eine Zahl ohne Komma (einen Integer) umwandlen. 
@@ -221,7 +221,7 @@ hoehe = window_height()
 # Das gleiche gilt für die Hoehe.
 # Lege zwei Variable an die die hälfte der bildschirmbreite bzw. der bildschirmhoehe ist.
 halbe_breite_mit_komma = breite / 2 
-halbe_hoehe_mit_komma = breite / 2 
+halbe_hoehe_mit_komma = hoehe / 2 
 
 # Die Division ergibt immer eine Kommazahl (float), auch wenn wir 4 / 2 = 2.0 rechnen.
 # Wir müssen deshalb das Ergebnis in eine Zahl ohne Komma (einen Integer) umwandlen. 
@@ -247,6 +247,74 @@ ziel_in_y = randint(-halbe_hoehe_ohne_komma, halbe_hoehe_ohne_komma)
 # Die Turtle bewegt sich zu den Koordinaten, wenn wir uns zwischen 0 und einem Viertel der Breite befinden.
 # Die Turtle bewegt sich auch zu den Koordinaten, wenn wir uns größer als 0 in der Breite und größer als 0 in der Höhe befinden.
 if (0 < ziel_in_x and ziel_in_x <= breite/4) or (ziel_in_x > 0 and ziel_in_y > 0):
+    # Hier ist die Einrückung wichtig! Drücke die Tabulator Taste dazu, (links neben dem Q).
+    # Die Turtle drückt den Faden auf den Boden und machen damit einen Abdruck.
+    stamp() 
+    
+    # Die Turtle holt den Faden aus der Tasche und legt diesen auf den Boden, wenn diese losgeht.
+    pendown() 
+    
+    # Die Turtle geht in einer geraden linie zu den angegebenen Kooridinaten.
+    goto(ziel_in_x, ziel_in_y)
+
+    # Am schluss gräbt sich die Turtle ein um im Sand zu schlafen.
+    hideturtle() 
+
+# --- Abschluss ---
+# Schließt das Fenster nicht, wenn das Programm beendet ist.
+done()
+```
+
+### Aufgabe 3.1 - Variablen statt Werte in der Bedingung verwenden
+Da wir schon komplizierte ``Bedingungen`` in unserer ``Bedingten Anweisung`` haben, wollen wir diese durch ``Variablen`` benennen. Das erleichtert uns das Lesen des Codes. Ansonsten ist es hier die gleiche Angabe wie in [Aufgabe 3](#aufgabe-3---nur-in-einem-links-und-rechts-oder-nach-unten-abgegrenzten-bereich-zeichnen).
+
+Verwende nun ``Variablen`` für:
+* den logische Ausdruck *Turtle geht in den norden und nach rechts*,
+* den logische Ausdruck *Turtle geht nach rechts und nicht zu weit nach rechts* und
+* einen logischen Ausdruck die beide vorherigen zusammenfasst. Diese ist unsere ``Bedingung`` für die ``Bedingte Anweisung``.
+
+**Lösung:**
+```python
+from turtle import *
+from random import randint
+
+# --- Vorbereitung ---
+shape("turtle")
+# Wir verwenden mit dem Wert 1 eine sichtbare Geschwindigkeit der Turtle.
+speed(1)
+
+# --- Logik ---
+# Wir generierem zufällige Koordinaten innerhalb der Fenstergröße.
+# Das Wort Zufall wird im Englischen das Wort random. 
+breite = window_width()
+hoehe = window_height()
+
+# Die Bildschrimbreite geht von z.B. 0 bis 100. Für unsre Turtle ist jedoch die Mitte dieser Breite der 0-Punkt.
+# Dadurch ändert sich 0 bis 100 zu -50 bis 50.
+# Um die Turtle zufällig zu navigieren, müssen wir eine Zahl zwischen -50 und 50 ziehen. 
+# Das gleiche gilt für die Hoehe.
+
+# Die Ganzzahldivision.
+# Diese ist unter 5 dividiert durch 2 ist 2, mit 1 Rest bekannt und wird mit Python mit // geschrieben.
+# Das 1 Rest wird hier mit // ignorieret.
+halbe_breite_ohne_komma = breite // 2 
+halbe_hoehe_ohne_komma = hoehe // 2
+
+# Da wir zufällige Zahlen ohne Komma wollen, verwenden wir die Funktion randint.
+# Diese benötigt zwei zahlen, zwischen denen sie zufällig eine Wählt. 
+# randint(3, 8) gibt eine Zahl welche 3 sein kann, 8 sein kann und alles dazwischen. Alles dazwischen ist 4, 5, 6 und 7.
+# Der Name ist eine Kombination aus Random und Integer, was Zufall und Zahl ohne Komma bedeutet.
+ziel_in_x = randint(-halbe_breite_ohne_komma, halbe_breite_ohne_komma)
+ziel_in_y = randint(-halbe_hoehe_ohne_komma, halbe_hoehe_ohne_komma)
+
+# Die Turtle bewegt sich zu den Koordinaten, wenn wir uns zwischen 0 und einem Viertel der Breite befinden.
+# Die Turtle bewegt sich auch zu den Koordinaten, wenn wir uns größer als 0 in der Breite und größer als 0 in der Höhe befinden.
+gehe_nach_nicht_zu_weit_in_die_wueste = 0 < ziel_in_x and ziel_in_x <= breite/4
+gehe_nach_norden_und_weit_in_die_wueste = ziel_in_x > 0 and ziel_in_y > 0
+
+verhalten_bei_hitze = gehe_nach_nicht_zu_weit_in_die_wueste or gehe_nach_norden_und_weit_in_die_wueste
+
+if verhalten_bei_hitze:
     # Hier ist die Einrückung wichtig! Drücke die Tabulator Taste dazu, (links neben dem Q).
     # Die Turtle drückt den Faden auf den Boden und machen damit einen Abdruck.
     stamp() 

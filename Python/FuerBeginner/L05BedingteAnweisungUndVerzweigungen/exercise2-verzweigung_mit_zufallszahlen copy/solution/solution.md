@@ -28,11 +28,11 @@ Sowie folgende ``Funktionen``:
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/5.2.1-left.gif">
-    <img style="" height="240" width="240" src="images/5.2.1-right.gif">
+    <img style="" height="240" width="240" src="../images/5.2.1-left.gif">
+    <img style="" height="240" width="240" src="../images/5.2.1-right.gif">
 </div>
 
-**Vorlage:**
+**Lösung:**
 ```python
 from turtle import *
 from random import randint
@@ -131,23 +131,23 @@ Sowie folgende ``Funktionen``:
 <table>
     <tr>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="images/5.2.2-left-north.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-left-north.gif">
         </td>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="images/5.2.2-right-north.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-right-north.gif">
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="images/5.2.2-left-south.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-left-south.gif">
         </td>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="images/5.2.2-right-south.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-right-south.gif">
         </td>
     </tr>
 </table>
 
-**Vorlage:**
+**Lösung:**
 ```python
 from turtle import *
 from random import randint
