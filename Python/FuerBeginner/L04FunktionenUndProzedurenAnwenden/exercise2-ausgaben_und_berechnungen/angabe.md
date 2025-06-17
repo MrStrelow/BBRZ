@@ -24,7 +24,7 @@ Verwende folgende der bereits existierenden ``Prozeduren``:
 * ``write(str(zurueckgelegter_weg) + " Schritte gegangen.")``: Mit dieser ``Prozedur`` kann z.B. der zurückgelegte Weg der Turtle auf den Bildschirm gezeichnet werden. **Achtung!** Es kann nicht ``write(str(zurueckgelegter_weg), "Schritte gegangen.")`` verwendet werden. Diesen Luxus haben wir nur bei ``print``.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/4.2.1.gif">
+    <img style="" height="360" width="480" src="images/4.2.1.gif">
 </div>
 
 Ausgabe in der Console
@@ -32,6 +32,7 @@ Ausgabe in der Console
 Umfang Garten: 1256 ~ Umfang Haus 628.0
 ```
 
+**Vorlage:**
 ```python
 from turtle import *
 
@@ -46,15 +47,17 @@ speed(1)
 winkel = 90
 
 laenge_garten = 314
-laenge_haus = laenge_garten / 2
 
-umfang_haus = 4 * laenge_haus
-umfang_garten = 4 * laenge_garten
-zurueckgelegter_weg = 0
+# Achtung! Was ist der Typ von laenge_haus? Wir wollen ein Zahl ohne Komma, den Integer, um bei der Ausgabe keine Kommastelle zu haben.
+laenge_haus = ...(laenge_garten / 2) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+
+umfang_haus = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+umfang_garten = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+zurueckgelegter_weg = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Wert ein.
 
 # --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
 # Die Turtle verwendet eine orange Schnur für den Garten.
-color("orange")
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle packt den Faden in die Tasche.
 penup()
@@ -77,10 +80,10 @@ stamp()
 forward(laenge_garten)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
-zurueckgelegter_weg += laenge_garten
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_garten) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
@@ -93,10 +96,10 @@ stamp()
 forward(laenge_garten)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
-zurueckgelegter_weg += laenge_garten
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_garten) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 
 # Die Turtle dreht sich um 90° nach links.
@@ -110,10 +113,10 @@ stamp()
 forward(laenge_garten)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
-zurueckgelegter_weg += laenge_garten
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_garten) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
@@ -126,10 +129,10 @@ stamp()
 forward(laenge_garten)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
-zurueckgelegter_weg += laenge_garten
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_garten) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
@@ -161,10 +164,10 @@ forward(laenge_haus)
 left(winkel)
 
 # Wir zählen zu umfang_haus die laenge_haus dazu und merken es wieder in umfang_haus
-zurueckgelegter_weg += laenge_haus
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_haus) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 # --- 4.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -174,10 +177,10 @@ forward(laenge_haus)
 left(winkel)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_haus dazu und merken es wieder in zurueckgelegter_weg
-zurueckgelegter_weg += laenge_haus
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_haus) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 # --- 4.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -187,10 +190,10 @@ forward(laenge_haus)
 left(winkel)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_haus dazu und merken es wieder in zurueckgelegter_weg
-zurueckgelegter_weg += laenge_haus
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_haus) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 # --- 4.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -200,10 +203,10 @@ forward(laenge_haus)
 left(winkel)
 
 # Wir zählen zu zurueckgelegter_weg die laenge_haus dazu und merken es wieder in zurueckgelegter_weg
-zurueckgelegter_weg += laenge_haus
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(str(zurueckgelegter_weg) + " von " + str(umfang_haus) + " Schritte", align="right")
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
 
 
 # --- 5.) Wir geben den Umfang des Gartens und des Hauses auf der Console aus
@@ -239,9 +242,10 @@ Finde mit folgenden bereits existierenden ``Funktionen`` heraus in welche Richtu
 * ``heading()``: Gibt dir die Richtung in die unsere Turtle schaut zurück.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/4.2.2.gif">
+    <img style="" height="360" width="480" src="images/4.2.2.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 
@@ -282,11 +286,11 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
+
+# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # --- 2.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen.
@@ -295,11 +299,11 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
+
+# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # --- 2.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen.
@@ -308,11 +312,11 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
+
+# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # --- 2.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen.
@@ -321,11 +325,11 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
-
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
+
+# Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # ------------------------------------------------------------------------
 # --- 3. Usere Turtle geht zur Ecke des Hauses welche links-unten ist. ---
@@ -353,7 +357,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # --- 4.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -363,7 +367,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # --- 4.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -373,7 +377,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # --- 4.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -383,7 +387,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + str(position()) + "\n" + "Richtung: " + str(heading()))
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
 
 # ------------------------------------------------------------------------
 # --- Abschluss ---
@@ -412,9 +416,10 @@ Verwende folgende der bereits existierenden ``Prozeduren``:
 * ``color("purple", "purple")``: Die Turtle wird violett und malt violette Linien am Bildschirm. Dazu wird die Turtle violett ausgemalen. Rufe ``begin_fill()`` auf um den *Füllmodus* zu starten und ``end_fill()`` um diesen zu beenden.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/4.2.3.gif">
+    <img style="" height="240" width="330" src="images/4.2.3.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 from math import sqrt
@@ -432,7 +437,7 @@ laenge_garten = 314
 
 # --- 1. Usere Turtle geht in die Ecke des Gartens welche links-unten ist. ---
 # Die Turtle verwendet eine orange Schnur und einen orangen Sand für den Garten.
-color("orange", "orange") 
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Wir starten das Ausmalen des Gartens. Wenn wir später end_fill() verwenden wird die Farbe reingemalen. 
 begin_fill() 
@@ -496,7 +501,7 @@ end_fill()
 # ------------------------------------------------------------------------
 # --- 3. Usere Turtle geht zur Ecke des Hauses nun bei der Hälfte der unteren Seite ist. ---
 # Die Turtle verwendet eine violette Schnur und violette Farbe für das Haus.
-color("purple", "purple")
+# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Wir starten das Ausmalen des Hauses. Wenn wir später end_fill() verwenden wird die Farbe reingemalen. 
 begin_fill() 
@@ -517,15 +522,16 @@ pendown()
 # --- 4. Wir zeichnen das um 45° verschobene quadratische Haus ---
 # Die Eckpunkte des inneren Quadrats liegen auf den Mittelpunkten der äußeren Seiten.
 # Pythagoras: Hypothenuse^2 = Ankathete^2 + Gegenkathete^2
+ankathete = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+gegenkathete = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
 # Wir wollen die Hypothenuse ohne Quadrat. Wir ziehen deshalb die Wurzel links und rechts vom =. 
 # Hypothenuse = wurzel(Ankathete^2 + Gegenkathete^2)
 # Die Wurzel heißt auf Englisch square root (Abkürzung sqrt).
 # Diese Funktion können wir verwenden, wenn wir ganz oben from math import sqrt schreiben.
-ankathete = laenge_garten / 2
-gegenkathete = laenge_garten / 2
-
 # Quadrieren wird in Python mit dem Operator ** umgesetzt.
-laenge_haus = sqrt(ankathete**2 + gegenkathete**2) 
+hypothenuse = ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+laenge_haus = hypothenuse 
 
 # --- 4.1) Wir zeichnen die erste Linie des Hauses ---
 # Die Turtle bewegt sich 222.03 Schritte in Blickrichtung nach vorne.
@@ -565,7 +571,7 @@ done()
 ```
 
 ### Aufgabe 4) - Renovierung des Hauses... ohne Pythagoras
-Die Turtle ist nun fertig mit der renovierung des Hauses. Sie geht einen Schritt zurück und denkt nochmal über ihren Ansatz nach. Sie bemerkt nach langem Nachdenken, dass sie sich gar nicht die Länge des Hauses ausrechnen muss. Sie verwendet nun anstatt ``forward(laenge_haus)``, ``goto(ziel_x, ziel_y)``. Es ist nämlich einfacher die Eckpunkte des neuen Hauses zu bestimmen, als die Länge des Hauses. Der erste Wert von ``ziel_x`` ist ``ziel_x = laenge_garten // 2`` und der erste Wert von ``ziel_y`` ist ``ziel_y = 0``.
+Die Turtle ist nun fertig mit der renovierung des Hauses. Sie geht einen Schritt zurück und denkt nochmal über ihren Ansatz nach. Sie bemerkt nach langem Nachdenken, dass sie sich gar nicht die Länge des Hauses ausrechnen muss. Sie verwendet nun anstatt ``forward(laenge_haus)``, ``goto(ziel_x, ziel_y)``. Es ist nämlich einfacher die Eckpunkte des neuen Hauses zu bestimmen, als die Länge des Hauses. Der erste Wert von ``ziel_x`` ist ``ziel_x = laenge_garten / 2`` und der erste Wert von ``ziel_y`` ist ``ziel_y = 0``.
 
 Wiederhole die [Aufgabe 3](#aufgabe-3---renovierung-des-hauses), jedoch überlege was ``ziel_x`` und ``ziel_y`` vor jedem Aufruf von ``goto(ziel_x, ziel_y)`` sein kann.
 
@@ -585,9 +591,10 @@ Verwende folgende der bereits existierenden ``Prozeduren``:
 * ``color("purple", "purple")``: Die Turtle wird violett und malt violette Linien am Bildschirm. Dazu wird die Turtle violett ausgemalen. Rufe ``begin_fill()`` auf um den *Füllmodus* zu starten und ``end_fill()`` um diesen zu beenden.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/4.2.4.gif">
+    <img style="" height="240" width="330" src="images/4.2.4.gif">
 </div>
 
+**Vorlage:**
 ```python
 from turtle import *
 from math import sqrt
@@ -686,20 +693,20 @@ pendown()
 # ------------------------------------------------------------------------
 # --- 4. Wir zeichnen das um 45° verschobene quadratische Haus ---
 # --- 4.1) Wir zeichnen die erste Linie des Hauses ---
-# Die Turtle bewegt sich auf Position laenge_graten//2 in x und 0 in y.
-goto(laenge_garten // 2, 0)
+# Die Turtle bewegt sich auf Position ... in x und ... in y.
+goto(..., ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck bzw. Wert ein.
 
 # --- 4.2) Wir zeichnen die zweite Linie des Hauses ---
-# Die Turtle bewegt sich auf Position 0 in x und laenge_graten//2 in y.
-goto(0, laenge_garten // 2)
+# Die Turtle bewegt sich auf Position ... in x und ... in y.
+goto(..., ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck bzw. Wert ein.
 
 # --- 4.3) Wir zeichnen die dritte Linie des Hauses ---
-# Die Turtle bewegt sich auf Position -laenge_graten//2 in x und 0 in y.
-goto(-laenge_garten // 2, 0)
+# Die Turtle bewegt sich auf Position ... in x und ... in y.
+goto(..., ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck bzw. Wert ein.
 
 # --- 4.4) Wir zeichnen die vierte Linie des Hauses ---
-# Die Turtle bewegt sich auf Position 0 in x und -laenge_graten//2 in y.
-goto(0, -laenge_garten // 2)
+# Die Turtle bewegt sich auf Position ... in x und ... in y.
+goto(..., ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck bzw. Wert ein.
 
 # Das Haus wurde fertig gezeichnet. Wir malen nun das Haus an.
 end_fill()
