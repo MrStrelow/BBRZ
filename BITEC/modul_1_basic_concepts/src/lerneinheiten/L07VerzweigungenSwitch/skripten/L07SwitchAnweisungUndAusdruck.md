@@ -11,9 +11,9 @@ Diese sind:
 * ❔ Schleifen
 
 Der Grund warum wir nun eine weitere ``Verzweigung`` kennenlernen, ist rein um unseren "Wortschatz" aufzubessern. 
-An sich können Programme auch ohne ``Switch-Anweisugnen`` bzw. ``Ausdrücke`` geschreiben werden. Da ``switch`` eine speziellere ``Verzweigung`` als die ``If-Verzweigung`` ist, können wir nicht alles mit ``switch`` schreiben was mit ``if`` geht. *Speziellere* Sprachkonstrukte bedeuten aber, dass in passenden Situationen diese leichter lesbar oder effizienter vom Computer umgesetzt werden können. Allgemein ist die ``Switch-Anweisung``, sowie der ``Switch-Ausdruck``, nicht essentiell von Bedeutung in JAVA. Wir bereiten uns jedoch damit auf *mächtigere* Ausdrücke wie dem ``Pattern-Matcher`` vor. Diese werden mittels ``Switch-Ausdruck`` in C# oder Python umgesetzt. In Python wird ledeglich das Keyword *match* anstatt *switch* verwendet.
+An sich können Programme auch ohne ``Switch-Anweisugnen`` bzw. ``Ausdrücke`` geschreiben werden. Da ``switch`` eine speziellere ``Verzweigung`` als die ``Verzweigung`` ist, können wir nicht alles mit ``switch`` schreiben was mit ``if`` geht. *Speziellere* Sprachkonstrukte bedeuten aber, dass in passenden Situationen diese leichter lesbar oder effizienter vom Computer umgesetzt werden können. Allgemein ist die ``Switch-Anweisung``, sowie der ``Switch-Ausdruck``, nicht essentiell von Bedeutung in JAVA. Wir bereiten uns jedoch damit auf *mächtigere* Ausdrücke wie dem ``Pattern-Matcher`` vor. Diese werden mittels ``Switch-Ausdruck`` in C# oder Python umgesetzt. In Python wird ledeglich das Keyword *match* anstatt *switch* verwendet.
 
-Wir beginnen hier anders als bei der ``If-Verzweigung`` mit dem Variante des ``Ausdrucks``. Der Grund ist die veraltete schreibweise der *klassischen* ``Switch-Anweisung``. Wir behandeln diese kurz später, denn diese hat ein *unerwartetes* Verhalten. 
+Wir beginnen hier anders als bei der ``Verzweigung`` mit dem Variante des ``Ausdrucks``. Der Grund ist die veraltete schreibweise der *klassischen* ``Switch-Anweisung``. Wir behandeln diese kurz später, denn diese hat ein *unerwartetes* Verhalten. 
 
 ## Wie schreibe ich eine Verzweigung als Switch-Ausdruck?
 Ohne weiters diesen ``Ausdruck`` zu motivieren schauen wir uns die ``Syntax`` an anhand eines Beispiels an.
