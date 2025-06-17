@@ -131,18 +131,18 @@ Sowie folgende ``Funktionen``:
 <table>
     <tr>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="../images/5.2.2-left-north.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-upleft.gif">
         </td>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="../images/5.2.2-right-north.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-upright.gif">
         </td>
     </tr>
     <tr>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="../images/5.2.2-left-south.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-lowleft.gif">
         </td>
         <td style="border: 1px solid #ccc; padding: 5px;">
-            <img style="" height="240" width="240" src="../images/5.2.2-right-south.gif">
+            <img style="" height="240" width="240" src="../images/5.2.2-lowright.gif">
         </td>
     </tr>
 </table>

@@ -58,6 +58,9 @@ langsam_im_wasser = im_wasser and norden
 bewegt_sich_rueckwaerts_am_land = am_land and sueden
 bewegt_sich_vorwärts_am_land = am_land and norden
 
+import time
+time.sleep(3)
+
 if schnell_im_wasser:
     # Setze die Geschwindigkeit auf die Wassergeschwindigkeit. 
     speed(geschwindigkeit_im_wasser)
