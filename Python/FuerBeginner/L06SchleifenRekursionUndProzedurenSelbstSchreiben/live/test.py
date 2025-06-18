@@ -1,54 +1,54 @@
 from turtle import *
-from random import randint
 
-# --- Vorbereitung (passiert nur einmal) ---
-shape('turtle')
-speed(1)
-# --- Logik ---
-# Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
-stamp() 
+# --- Vorbereitung ---
+screen = Screen()
+
+# Erstellen unserer Helden-Turtle
+shape("turtle")
+shapesize(2)
+color("darkgreen")
 penup()
 
-while True:
-    # Führer war hier der zufällig gewählte Ort. Jetzt ist es der User, der diesen angibt.
-    # Achte auf die Typen! Kommt eine Zahl oder ein Text von der Funktion input zurück?
-    eingabe = input("Gib bitte die neue Position in x ein: ")
+# --- Logik ---
+# Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
+SCHRITTWEITE = 20
 
-    # Wir hören nun auf wenn wir "bye" bei der Variable eingabe eingeben.
-    # Wir können mit == Vergleiche anstellen. Das bedeutet ist links von == das gleiche wie rechts?
-    # Wir fragen also ist "bye" == "bye und dort würde als Antwort True rauskommen.
-    # Ersetze nun ein "bye" mit der richtigen Variable, welche beliebige Werte haben kann.
-    if eingabe == "bye":
-        break
-    else:
-        # Wenn wir nicht bye eingeben, erwarten wir eine Zahl. 
-        # Wir müssen aus dem Text eine nun eine Zahl ohne Kommastellen machen.
-        ziel_in_x = int(eingabe)
+# Wir brauchen vier separate Funktionen, eine für jede Pfeiltaste.
 
-    eingabe = input("Gib bitte die neue Position in y ein: ")
+def gehe_hoch():
+    """Setzt die Ausrichtung nach oben (90 Grad) und geht einen Schritt."""
+    setheading(90)
+    forward(SCHRITTWEITE)
 
-    # Wir hören nun auf wenn wir "bye" bei der Variable  eingabe eingeben.
-    # Wir können mit == Vergleiche anstellen. Das bedeutet ist links von == das gleiche wie rechts?
-    # Wir fragen also ist "bye" == "bye und dort würde als Antwort True rauskommen.
-    # Ersetze nun ein "bye" mit der richtigen Variable, welche beliebige Werte haben kann.
-    if eingabe == "bye":
-        break
-    else:
-        # Wenn wir nicht bye eingeben, erwarten wir eine Zahl. 
-        # Wir müssen aus dem Text eine nun eine Zahl ohne Kommastellen machen.
-        ziel_in_y = int(eingabe)
+def gehe_runter():
+    """Setzt die Ausrichtung nach unten (270 Grad) und geht einen Schritt."""
+    setheading(270)
+    forward(SCHRITTWEITE)
 
-    # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
-    if ziel_in_x > 0:
-        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
-    else:
-        shape('circle') # Form für die linke Seite auf 'circle' setzen
+def gehe_links():
+    """Setzt die Ausrichtung nach links (180 Grad) und geht einen Schritt."""
+    setheading(180)
+    forward(SCHRITTWEITE)
 
-    # Wir bewegen uns zur zufällig gewählten Position.
-    goto(ziel_in_x, ziel_in_y)
-    print("Ziel erreich!🏁 Drehe um.🔁")
-    
-    # Wir bewegen uns zur Ausgangsposition zurück.
-    goto(0, 0)
+def gehe_rechts():
+    """Setzt die Ausrichtung nach rechts (0 Grad) und geht einen Schritt."""
+    setheading(0)
+    forward(SCHRITTWEITE)
+
+
+# --- Ereignis-Verknüpfung (Event Binding) ---
+# Damit Tastendrücke erkannt werden, müssen wir zwei Dinge tun:
+# 1. Dem screen sagen, dass er "zuhören" soll.
+screen.listen()
+
+# 2. Jede Taste mit der Funktion verknüpfen, die sie auslösen soll.
+# Die Namen für die Pfeiltasten sind: "Up", "Down", "Left", "Right"
+screen.onkey(gehe_hoch, "Up")
+screen.onkey(gehe_runter, "Down")
+screen.onkey(gehe_links, "Left")
+screen.onkey(gehe_rechts, "Right")
+
 
 # --- Abschluss ---
+# Hält das Fenster offen und wartet auf Tastendrücke.
+screen.mainloop()
