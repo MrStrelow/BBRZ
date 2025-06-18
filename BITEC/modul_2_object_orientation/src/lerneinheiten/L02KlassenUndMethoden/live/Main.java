@@ -6,6 +6,8 @@ public class Main {
         Hund frido = new Hund(5, "rot");
         Hund frodo = new Hund(15, "gelb");
 
+        Besitzer hans = new Besitzer(5);
+
         // dessen Methoden aufrufen
     }
 }

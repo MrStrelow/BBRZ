@@ -22,6 +22,5 @@ public class Hund {
     Hund(int alter, String farbe) {
         _alter = alter;
         _farbe = farbe;
-
     }
 }
