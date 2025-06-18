@@ -11,10 +11,14 @@ public class Besitzer {
     // Methoden
     void spazieren() {
         // Rufe für jeden hund in hunde die folgende Zeile auf.
-        for (int i = 0; i < hunde.length; i++) {
-            if (hunde[i] != null) {
-                System.out.println(hashCode() + " spaziert mit " + hunde[i].hashCode());
-            }
+//        for (int i = 0; i < hunde.length; i++) {
+//            System.out.println(hashCode() + " spaziert mit " + hunde[i].hashCode());
+//            hunde[i].bellen();
+//        }
+
+        for (Hund hund : hunde) {
+            System.out.println(hashCode() + " spaziert mit " + hund.hashCode());
+            hund.bellen();
         }
     }
 

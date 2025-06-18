@@ -10,5 +10,6 @@ public class Main {
 
         // dessen Methoden aufrufen
         hans.spazieren();
+        hans.fuettern();
     }
 }

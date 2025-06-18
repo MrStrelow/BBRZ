@@ -15,7 +15,7 @@ public class Hund {
     }
 
     void bellen() {
-
+        
     }
 
     // Konstruktor
