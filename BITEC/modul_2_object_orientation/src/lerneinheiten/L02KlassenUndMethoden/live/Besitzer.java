@@ -10,7 +10,7 @@ public class Besitzer {
 
     // Methoden
     void spazieren() {
-
+        // Rufe für jeden hund in hunde die folgende Zeile auf.
         System.out.println(hashCode() + " spaziert mit " + hund.hashCode());
 
     }
