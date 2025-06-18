@@ -152,7 +152,7 @@ left(90)
 done() 
 ```
 
-### Aufgabe 3) - Ein letztes mal den Garten mit dem Seil kennzeichnen
+### Aufgabe 3) - Ein letztes Mal den Garten mit dem Seil kennzeichnen
 Da unsere Turtle sich noch immer nicht sicher ist ob ihr Garten wirklich *300* lang ist, schaut diese nun im Bauplan nach. Dort steht eine Länge von ``laenge_garten = 314`` Schritten und zusätzlich ``winklel = 90``. Unsere Turtle verwendet nun direkt die Information aus dem Bauplan um nicht alle Schrite welche sie bis jetzt gemacht hat, sich neu auszudenken. 
 
 **Hinweise:**
