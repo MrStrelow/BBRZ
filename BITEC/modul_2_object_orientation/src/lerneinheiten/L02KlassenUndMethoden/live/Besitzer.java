@@ -21,6 +21,8 @@ public class Besitzer {
 
     // Konstruktor
     Besitzer(int alter) {
+        // hier muss ich noch was mit hunde machen!
+
         if (alter > 18) {
             _alter = alter;
 
