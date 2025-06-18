@@ -14,6 +14,7 @@ Verwende eigens geschriebene ``Prozeduren`` welche ``Schleifen`` beinhaltet.
 from turtle import *
 
 # --- Prozeduren  ---
+# Wir erstellen selbst eine Prozedur mit dem Keyword def. Danach kommt der Name der Prozedur und in runden Klammern, die Parameter. Diese sind Variablen welche von außen reinkfließen und in der Prozedur verwendet werden können. 
 def gehe_zum_start(seitenlaenge):
     """Hebt den Stift, geht zur linken unteren Ecke und senkt den Stift wieder."""
     penup()
