@@ -1,73 +1,54 @@
 from turtle import *
 from random import randint
 
-# --- Vorbereitung ---
-# Die Variablen für die Geschwindigkeit.
-geschwindigkeit_am_land = 1
-geschwindigkeit_im_wasser = 50 * geschwindigkeit_am_land
-
-# Die Variablen für die Form.
-form_am_land = "turtle"
-form_im_wasser = "circle"
-
-shape(form_am_land) 
-speed(geschwindigkeit_am_land)
-
+# --- Vorbereitung (passiert nur einmal) ---
+shape('turtle')
+speed(1)
 # --- Logik ---
-# Die Turtle nimmt den Faden aus der Tasche und legt ihn am Boden wenn sie losgeht.
-pendown()
+# Wir drücken die Turtle auf den Boden und machen damit einen Abdruck. Dadruch merkt sie sich wo sie gestartet ist.
+stamp() 
+penup()
 
-# Die Turtle drückt den Faden in den boden, fixiert diesen und macht einen Abdruck von sich selbst.
-stamp()
+while True:
+    # Führer war hier der zufällig gewählte Ort. Jetzt ist es der User, der diesen angibt.
+    # Achte auf die Typen! Kommt eine Zahl oder ein Text von der Funktion input zurück?
+    eingabe = input("Gib bitte die neue Position in x ein: ")
 
-breite = window_width()
-hoehe = window_height()
+    # Wir hören nun auf wenn wir "bye" bei der Variable eingabe eingeben.
+    # Wir können mit == Vergleiche anstellen. Das bedeutet ist links von == das gleiche wie rechts?
+    # Wir fragen also ist "bye" == "bye und dort würde als Antwort True rauskommen.
+    # Ersetze nun ein "bye" mit der richtigen Variable, welche beliebige Werte haben kann.
+    if eingabe == "bye":
+        break
+    else:
+        # Wenn wir nicht bye eingeben, erwarten wir eine Zahl. 
+        # Wir müssen aus dem Text eine nun eine Zahl ohne Kommastellen machen.
+        ziel_in_x = int(eingabe)
 
-halbe_breite_ohne_komma = breite // 2 
-halbe_hoehe_ohne_komma = hoehe // 2
+    eingabe = input("Gib bitte die neue Position in y ein: ")
 
-# Wir erstellen eine neue Prozedur. Das wird Definition einer Funktion genannt und wird mit dem Keyword def gemacht.
-# Achtung! Wir enden mit einem Doppelpunkt, denn danach kommt eine Einrückung.
-def ich_rufe_mich_selbst_auf():
-    # Wir schreiben alles was zuerst in der While-Schleife war, in die Prozedur rein.
-    ziel_in_x = randint(-halbe_breite_ohne_komma, halbe_breite_ohne_komma)
-    ziel_in_y = randint(-halbe_hoehe_ohne_komma, halbe_hoehe_ohne_komma)
+    # Wir hören nun auf wenn wir "bye" bei der Variable  eingabe eingeben.
+    # Wir können mit == Vergleiche anstellen. Das bedeutet ist links von == das gleiche wie rechts?
+    # Wir fragen also ist "bye" == "bye und dort würde als Antwort True rauskommen.
+    # Ersetze nun ein "bye" mit der richtigen Variable, welche beliebige Werte haben kann.
+    if eingabe == "bye":
+        break
+    else:
+        # Wenn wir nicht bye eingeben, erwarten wir eine Zahl. 
+        # Wir müssen aus dem Text eine nun eine Zahl ohne Kommastellen machen.
+        ziel_in_y = int(eingabe)
 
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     if ziel_in_x > 0:
-        # Wir verwenden die Form für die rechte Seite. Diese ist 'turtle'.
-        shape(form_am_land) 
-        speed(geschwindigkeit_am_land)
+        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
     else:
-        # Wir verwenden die Form für die rechte Seite. Diese ist 'circle'.
-        shape(form_im_wasser) 
-        speed(geschwindigkeit_im_wasser)
+        shape('circle') # Form für die linke Seite auf 'circle' setzen
 
-    # Die Turtle nimmt den Faden aus der Tasche und legt ihn am Boden wenn sie losgeht.
-    pendown()
-
-    # Die Turtle bewegt sich an einen zufällig gewählten Ort.
+    # Wir bewegen uns zur zufällig gewählten Position.
     goto(ziel_in_x, ziel_in_y)
-
-    # Die Turtle markier diesen Ort mit einem roten Punkt.
-    dot(25, "red")
-
-    # Die Turtle schneidet den Faden ab und gibt die Rolle mit dem Faden wieder in die Tasche. Sie legt ihn nicht mehr auf den Boden wenn sie losgeht.
-    penup()
-
-    # Die Turtle bewegt sich zur Ausgangsposition zurück.
+    print("Ziel erreich!🏁 Drehe um.🔁")
+    
+    # Wir bewegen uns zur Ausgangsposition zurück.
     goto(0, 0)
 
-    # Wichtig! Wir müssen uns am Ende der Prozedur selbst aufrufen! 
-    # Damit ist ein Aufruf von ich_rufe_mich_selbst_auf gemeint.
-    # Wir rufen eine Prozedur ohne Parameter auf, indem wir () hinter den Namen der Prozedur schreiben.
-    ich_rufe_mich_selbst_auf()
-
-
-# Der start der Rekursion welche niemals abbrechen soll.
-# Wir haben nun ich_rufe_mich_selbst_auf erstellt (definiert), jedoch noch nicht aufgerufen. 
-# Um das zu tun schreiben wir ich_rufe_mich_selbst_auf() nochmals hin.
-ich_rufe_mich_selbst_auf()
-
 # --- Abschluss ---
-# Hier steht nichts mehr... denn wir sind für immer oben gefangen.
