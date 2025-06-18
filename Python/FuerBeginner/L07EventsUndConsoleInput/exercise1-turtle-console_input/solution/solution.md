@@ -14,7 +14,7 @@ Sowie folgende ``Funktionen``:
 * ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.1.gif">
+    <img style="" height="480" width="480" src="../images/7.1.1.gif">
 </div>
 
 **Lösung:**
@@ -68,7 +68,7 @@ Verwende dazu folgende ``Prozeduren``:
 Sowie folgende ``Funktionen``:
 * ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.2.gif">
+    <img style="" height="480" width="480" src="../images/7.1.2.gif">
 </div>
 
 **Lösung:**
@@ -104,9 +104,11 @@ while True:
 
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     if ziel_in_x > 0:
-        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        shape('turtle') 
     else:
-        shape('circle') # Form für die linke Seite auf 'circle' setzen
+        # Form für die linke Seite auf 'circle' setzen
+        shape('circle') 
 
     # Wir bewegen uns zur zufällig gewählten Position.
     goto(ziel_in_x, ziel_in_y)
@@ -133,7 +135,7 @@ Sowie folgende ``Funktionen``:
 * ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.3.gif">
+    <img style="" height="480" width="480" src="../images/7.1.3.gif">
 </div>
 
 **Lösung:**
@@ -176,7 +178,7 @@ while True:
     if eingabe == "bye":
         print("Genug erforscht. 🐢 Bis bald.👋🏻")
         break
-    
+
     else:
         # Wenn wir nicht bye eingeben, erwarten wir eine Zahl. 
         # Wir müssen aus dem Text eine nun eine Zahl ohne Kommastellen machen.
@@ -184,9 +186,11 @@ while True:
 
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     if ziel_in_x > 0:
-        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        shape('turtle') 
     else:
-        shape('circle') # Form für die linke Seite auf 'circle' setzen
+        # Form für die linke Seite auf 'circle' setzen
+        shape('circle') 
 
     # Wir bewegen uns zur zufällig gewählten Position.
     goto(ziel_in_x, ziel_in_y)

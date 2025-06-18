@@ -14,7 +14,7 @@ Sowie folgende ``Funktionen``:
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.1.gif">
+    <img style="" height="240" width="240" src="../images/7.1.1.gif">
 </div>
 
 ```python

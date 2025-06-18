@@ -14,7 +14,7 @@ Sowie folgende ``Funktionen``:
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/7.1.gif">
+    <img style="" height="480" width="480" src="images/7.1.1.gif">
 </div>
 
 ```python
@@ -68,7 +68,7 @@ Sowie folgende ``Funktionen``:
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="images/7.2.gif">
+    <img style="" height="480" width="480" src="images/7.1.2.gif">
 </div>
 
 ```python
@@ -103,9 +103,11 @@ while True:
 
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     if ziel_in_x > 0:
-        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        shape('turtle') 
     else:
-        shape('circle') # Form für die linke Seite auf 'circle' setzen
+        # Form für die linke Seite auf 'circle' setzen
+        shape('circle') 
 
     # Wir bewegen uns zur zufällig gewählten Position.
     goto(ziel_in_x, ziel_in_y)
@@ -132,7 +134,7 @@ Sowie folgende ``Funktionen``:
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.3.gif">
+    <img style="" height="480" width="480" src="images/7.1.3.gif">
 </div>
 
 ```python
@@ -159,7 +161,7 @@ while True:
     if ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
         print("Genug erforscht. 🐢 Bis bald.👋🏻")
         break
-    
+
     else:
         # Wenn wir nicht bye eingeben, erwarten wir eine Zahl. 
         # Wir müssen aus dem Text eine nun eine Zahl ohne Kommastellen machen.
@@ -182,9 +184,11 @@ while True:
 
     # Wir bewegen die Turtle und passen an wie diese dargestellt wird (Kreis oder Turtle). 
     if ziel_in_x > 0:
-        shape('turtle') # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        # Wir verwenden die Form für die rechte Seite auf 'turtle' setzen
+        shape('turtle') 
     else:
-        shape('circle') # Form für die linke Seite auf 'circle' setzen
+        # Form für die linke Seite auf 'circle' setzen
+        shape('circle') 
 
     # Wir bewegen uns zur zufällig gewählten Position.
     goto(ziel_in_x, ziel_in_y)
