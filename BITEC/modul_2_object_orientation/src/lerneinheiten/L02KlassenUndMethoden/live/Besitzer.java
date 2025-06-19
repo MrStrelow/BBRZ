@@ -27,7 +27,15 @@ public class Besitzer {
     }
 
     void fuettern() {
-        System.out.println(hashCode() + " spaziert.");
+        for (Hund hund : hunde) {
+            if (hund != null) {
+                System.out.println(hashCode() + " füttert " + hund.hashCode());
+                hund.essen();
+
+                hund.bellen();
+                hund.bellen();
+            }
+        }
     }
 
     // Konstruktor

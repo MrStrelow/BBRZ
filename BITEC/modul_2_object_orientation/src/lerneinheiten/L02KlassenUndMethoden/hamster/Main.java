@@ -11,7 +11,7 @@ public class Main {
             spielfeld.printSpielfeld();
 
             System.out.println("+++++++++++++++++++++++++++++++");
-            Thread.sleep(300);
+            Thread.sleep(1000);
         }
     }
 }

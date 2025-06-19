@@ -15,7 +15,7 @@ public class Hund {
     // --------------------------------
     // Methoden
     void essen() {
-
+        System.out.println("mompf.");
     }
 
     void bellen() {
