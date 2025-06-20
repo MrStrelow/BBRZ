@@ -11,7 +11,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``screen.onclick(meine_prozedur)``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.2.1.gif">
+    <img style="" height="240" width="240" src="../images/8.2.1.gif">
 </div>
 
 **Lösung:**
@@ -24,7 +24,9 @@ shape('turtle')
 speed(3)
 
 # --- Eigene Prozeduren ---
-# Diese Prozedur wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt
+# Diese Prozedur wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt.
+# Es wird hier die position der Mausklicks in x und y übergeben.
+# Wichtig sind die Argumente x und y. Diese müssen vorhanden sein, sonst gibt es einen Fehler.
 def bewege_turtle(x, y):
     # Bewege die Turtle zu den Koordinaten der Maus.
     goto(x, y) 
@@ -66,7 +68,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``screen.onclick(meine_prozedur)``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.2.2.1.gif">
+    <img style="" height="240" width="240" src="../images/8.2.2.1.gif">
 </div>
 
 **Lösung:**
@@ -101,7 +103,12 @@ def draw_colored_dot(x, y):
     elif x < 0 and y < 0: 
         dot(durchmesser, "yellow")
 
-    else: # Unten Rechts
+    # Wir verwenden hier else als "Rest". Hier wird alles was nicht oben in den ifs unn elifs "reinpasst" ausgeführt.
+    # Dieser "Rest" ist bei uns der Fall "grüner Punkt".
+    # Wir sollten bei komplizierteren Programmen sowas eher vermeiden und wie bisher ein else "das ist ein Fehler" ausführen.
+
+    # Unten Rechts
+    else: 
         dot(durchmesser, "green")
 
 # Auf Klicks lauschen
@@ -132,7 +139,7 @@ Verwende dazu folgende ``Prozeduren``:
 Mach auch das Fenster so groß wie den Bildschirm, sonst kann es Fehler geben.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="432" src="../images/7.2.2.2.gif">
+    <img style="" height="240" width="432" src="../images/8.2.2.2.gif">
 </div>
 
 
@@ -180,6 +187,8 @@ def zeichne_bunten_punkt_und_bewege_turtle(x, y):
     elif linie_wueste < x and x <= breite:
         dot(groesse_des_punktes, "yellow")
 
+    # Wir verwenden hier else als "Es ist was unerwartetes passiert". Hier wird wenn etwas nicht in die ifs und elifs oben reinpasst, eine Warnung ausgegeben.
+    # Wir sollten bei komplizierteren Programmen besser "else ist etwas unerwartetes" als "else ist der z.B. grüne punkt" verwenden.
     else:
         ohje = "Das sollte gar nie passieren"
         print(ohje)
@@ -208,10 +217,21 @@ Verwende dazu folgende ``Prozeduren``:
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
-* * ``screen.onkey(meine_prozedur, "Up")``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir mit der Tastatur die Nach-Oben-Pfeiltaste drücken.
+* ``screen.onkey(meine_prozedur, "Up")``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir mit der Tastatur die Nach-Oben-Pfeiltaste drücken.
+* ``setheading(90)``: Die Turtel dreht sich in die angegebene Richtung. Der Unterschied zu z.B. ``left(90)`` ist, dass hier wir uns 90° nach links in **Blickrichtung** der Turtle drehen. Mit ``setheading(90)`` schauen wir immer nach oben, egal wo die Turtel hinschaut. Es erlaubt uns also 
+    * ``setheading(0)`` uns nach rechts zu schaun, 
+    * ``setheading(90)`` uns nach oben zu schaun, 
+    * ``setheading(180)`` uns nach links zu schaun, 
+    * ``setheading(270)`` uns nach unten zu schaun, 
+    * ``setheading(360)`` uns nach rechts zu schaun,
+
+Verwende dazu folgende ``Funktionen``:
+* ``xcor()``: Gibt die x-Position der Turtle zurück. Da es eine Funktion ist kann xcor() überall verwendet werden wo eine Zahl erwartet wird.
+* ``ycor()``: Gibt die y-Position der Turtle zurück. Da es eine Funktion ist kann ycor() überall verwendet werden wo eine Zahl erwartet wird.
+
 
 <div style="text-align: left;">
-    <img style="" height="240" width="432" src="../images/7.2.3.gif">
+    <img style="" height="240" width="432" src="../images/8.2.3.gif">
 </div>
 
 
@@ -240,24 +260,36 @@ linie_wueste = breite / 2
 
 # Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
 # Wir brauchen vier separate Prozeduren, eine für jede Pfeiltaste.
-def gehe_hoch():
+def gehe_nach_oben():
     """Setzt die Ausrichtung nach oben (90 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach oben. 
     setheading(90)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
-def gehe_runter():
+def gehe_nach_unten():
     """Setzt die Ausrichtung nach unten (270 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach unten. 
     setheading(270)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
-def gehe_links():
+def gehe_nach_links():
     """Setzt die Ausrichtung nach links (180 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach links. 
     setheading(180)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
-def gehe_rechts():
+def gehe_nach_rechts():
     """Setzt die Ausrichtung nach rechts (0 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach rechts. 
     setheading(0)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
 # Wir brauchen auch die Prozedur welche für die Farben zuständig ist. Dabei ist keine Änderung notwendig.
@@ -322,10 +354,20 @@ Verwende dazu folgende ``Prozeduren``:
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
-* * ``screen.onkey(meine_prozedur, "Up")``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir mit der Tastatur die Nach-Oben-Pfeiltaste drücken.
+* ``screen.onkey(meine_prozedur, "Up")``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir mit der Tastatur die Nach-Oben-Pfeiltaste drücken.
+* ``setheading(90)``: Die Turtel dreht sich in die angegebene Richtung. Der Unterschied zu z.B. ``left(90)`` ist, dass hier wir uns 90° nach links in **Blickrichtung** der Turtle drehen. Mit ``setheading(90)`` schauen wir immer nach oben, egal wo die Turtel hinschaut. Es erlaubt uns also 
+    * ``setheading(0)`` uns nach rechts zu schaun, 
+    * ``setheading(90)`` uns nach oben zu schaun, 
+    * ``setheading(180)`` uns nach links zu schaun, 
+    * ``setheading(270)`` uns nach unten zu schaun, 
+    * ``setheading(360)`` uns nach rechts zu schaun,
+
+Verwende dazu folgende ``Funktionen``:
+* ``xcor()``: Gibt die x-Position der Turtle zurück. Da es eine Funktion ist kann xcor() überall verwendet werden wo eine Zahl erwartet wird.
+* ``ycor()``: Gibt die y-Position der Turtle zurück. Da es eine Funktion ist kann ycor() überall verwendet werden wo eine Zahl erwartet wird.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="432" src="../images/7.2.4.gif">
+    <img style="" height="240" width="432" src="../images/8.2.4.gif">
 </div>
 
 **Lösung:**
@@ -353,9 +395,12 @@ linie_wueste = breite / 2
 
 # Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
 # Wir brauchen vier separate Prozeduren, eine für jede Pfeiltaste.
-def gehe_hoch():
+def gehe_nach_oben():
     """Setzt die Ausrichtung nach oben (90 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach oben. 
     setheading(90)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
     # Wir bekommen leider nicht wie beim Maus-Event die Koordinaten von außen herein.
@@ -367,25 +412,34 @@ def gehe_hoch():
     # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
     zeichne_bunten_punkt(xcor(), ycor())
 
-def gehe_runter():
+def gehe_nach_unten():
     """Setzt die Ausrichtung nach unten (270 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach unten. 
     setheading(270)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
     # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
     zeichne_bunten_punkt(xcor(), ycor())
 
-def gehe_links():
+def gehe_nach_links():
     """Setzt die Ausrichtung nach links (180 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach links. 
     setheading(180)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
     # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
     zeichne_bunten_punkt(xcor(), ycor())
 
-def gehe_rechts():
+def gehe_nach_rechts():
     """Setzt die Ausrichtung nach rechts (0 Grad) und geht einen Schritt."""
+    # Drehe die Turtle nach rechts. 
     setheading(0)
+
+    # Gehe eine gewisse Anzahl an Schritten in diese Richtung.
     forward(40)
 
     # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().

@@ -1,12 +1,18 @@
 ## Funktionen und Prozeduren selbst schreiben mit Turtle
 ### Aufgabe 1) - ein wirklich letztes Mal den Garten mit dem Seil kennzeichnen
-Wir verwenden die [Aufgabe 3 der exercise 1 aus dem Kapitel Funktionen](../../../L04FunktionenUndProzedurenAnwenden/exercise1-werte_und_variablen_als_parameter/angabe.md#aufgabe-3---ein-letztes-mal-den-garten-mit-dem-seil-kennzeichnen) anwenden. Wir haben seitdem neue Werkzeuge kennengelernt. Wir können mit ``Schleifen`` und eigens geschriebenen ``Prozeduren`` die Aufgabe nun kürzer und lesbarer lösen.
+Wir verwenden die [Aufgabe 3 der exercise 1 aus dem Kapitel Funktionen](L04FunktionenUndProzedurenAnwenden/exercise1-werte_und_variablen_als_parameter/angabe.md#aufgabe-3---ein-letztes-mal-den-garten-mit-dem-seil-kennzeichnen) anwenden. Wir haben seitdem neue Werkzeuge kennengelernt. Wir können mit ``Schleifen`` und eigens geschriebenen ``Prozeduren`` die Aufgabe nun kürzer und lesbarer lösen.
+
+**Anmerkung:** Folgendes geht in Editor IDLE nicht! Aber in z.B. Visual Studio Code: Wenn du mit der Maus über den Namen der Funktion oder Prozedur bei einem Aufruf fährst und wartest, kommt eine Info. Der Text was hier steht, haben wir selbst geschrieben. Bei der Erstellung der Funktion oder Prozedur wirst du unten aufgeforder einen Text innerhalb von den drei Anführungszeichen ``""" Ich kommuniziere dem Aufrufer was die Funktion macht! """`` zu schreiben. Diesen sehen wir wenn wir beim Aufruf drüberfahren.
+
+<div style="text-align: left;">
+    <img style="" height="220" width="480" src="images/hover_info_docstring.gif">
+</div>
 
 **Hinweise:**
 Verwende eigens geschriebene ``Prozeduren`` welche ``Schleifen`` beinhaltet.
 
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.1.2.gif">
+    <img style="" height="240" width="240" src="images/7.1.2.gif">
 </div>
 
 **Lösung:**
@@ -69,11 +75,11 @@ done()
 ```
 
 ### Aufgabe 2) - Das Haus im Garten mit Prozeduren kennzeichnen
-Wir verwenden die [Aufgabe 4 der exercise 1 aus dem Kapitel Funktionen](../../../L04FunktionenUndProzedurenAnwenden/exercise1-werte_und_variablen_als_parameter/angabe.md#aufgabe-3---ein-letztes-mal-den-garten-mit-dem-seil-kennzeichnen) anwenden. Wir haben seitdem neue Werkzeuge kennengelernt. Wir können mit ``Schleifen`` und eigens geschriebenen ``Prozeduren`` die Aufgabe nun kürzer und lesbarer lösen.
+Wir verwenden die [Aufgabe 4 der exercise 1 aus dem Kapitel Funktionen](L04FunktionenUndProzedurenAnwenden/exercise1-werte_und_variablen_als_parameter/angabe.md#aufgabe-3---ein-letztes-mal-den-garten-mit-dem-seil-kennzeichnen) anwenden. Wir haben seitdem neue Werkzeuge kennengelernt. Wir können mit ``Schleifen`` und eigens geschriebenen ``Prozeduren`` die Aufgabe nun kürzer und lesbarer lösen.
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.1.3.gif">
+    <img style="" height="240" width="240" src="images/7.1.3.gif">
 </div>
 
 **Lösung:**
@@ -153,11 +159,11 @@ done()
 ```
 
 ### Aufgabe 3) - Das Haus im Garten mit Prozeduren und Funktionen kennzeichnen
-Wir verwenden die [Aufgabe 4 der exercise 1 aus dem Kapitel Funktionen](../../../L04FunktionenUndProzedurenAnwenden/exercise1-werte_und_variablen_als_parameter/angabe.md#aufgabe-3---ein-letztes-mal-den-garten-mit-dem-seil-kennzeichnen) anwenden. Wir haben seitdem neue Werkzeuge kennengelernt. Wir können mit ``Schleifen`` und eigens geschriebenen ``Prozeduren`` die Aufgabe nun kürzer und lesbarer lösen.
+Wir verwenden die [Aufgabe 4 der exercise 1 aus dem Kapitel Funktionen](L04FunktionenUndProzedurenAnwenden/exercise1-werte_und_variablen_als_parameter/angabe.md#aufgabe-3---ein-letztes-mal-den-garten-mit-dem-seil-kennzeichnen) anwenden. Wir haben seitdem neue Werkzeuge kennengelernt. Wir können mit ``Schleifen`` und eigens geschriebenen ``Prozeduren`` die Aufgabe nun kürzer und lesbarer lösen.
 
 **Hinweise:**
 <div style="text-align: left;">
-    <img style="" height="240" width="240" src="../images/7.1.3.gif">
+    <img style="" height="240" width="240" src="images/7.1.3.gif">
 </div>
 
 **Lösung:**
