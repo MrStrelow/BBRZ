@@ -7,17 +7,14 @@ Die Turtle bewegt sich anschließend dorthin und macht einen Abdruck von sich se
 Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
-* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
+* ``screen.onclick(meine_prozedur)``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken.
 
-Sowie folgende ``Funktionen``:
-* * ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
-
-**Lösung:**
 <div style="text-align: left;">
     <img style="" height="240" width="240" src="../images/7.2.1.gif">
 </div>
 
+**Lösung:**
 ```python
 from turtle import *
 
@@ -26,18 +23,24 @@ screen = Screen()
 shape('turtle')
 speed(3)
 
-# --- Eigene Funktionen ---
-# Diese Funktion wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt
+# --- Eigene Prozeduren ---
+# Diese Prozedur wird aufgerufen, wenn der Benutzer auf den Bildschirm klickt
 def bewege_turtle(x, y):
-    goto(x, y) # Bewege die Turtle zu den geklickten Koordinaten
-    stamp() # Wir drücken die Turtle auf den Boden und machen damit einen Abdruck.
+    # Bewege die Turtle zu den Koordinaten der Maus.
+    goto(x, y) 
+
+    # Die Turtle ist so schnell dass diese einen Abdruck am Zielort macht.
+    stamp() 
 
 # --- Logik ---
 penup()
 
-# Diese Funktion ist eine komplizierte. Wir behandeln dies nur weil es im Lehrplan steht.
-# Diese horch auf einen Klick mit der Maus. Wir nennen das ein Event. Wenn dieses Event passiert, führen wir den Code in der eigens geschriebenen Funktion bewege_turtle aus. Wir erreichen das, wenn wir den Namen der Funktion übergeben. Wir verwenden die Funktion damit als Variable. Der Aufruf der Funktion passiert dann innerhalb von onclick und ist nicht mehr für uns ersichtlich.
-# Zudem lebt diese ``Funktion`` bei der ``Variable`` screen. Wir können dies deshalb nur aufrufen wenn wir davor screen mit einem Punkt danach schreiben.
+# Diese Prozedur screen.onclick ist eine kompliziert. Sie ist ein Event und eine Methode. 
+# Wir irgnoriern aber was eine Methode ist und denken uns screen.onclick ist der name der Prozedur.
+# Die Prozedur screen.onclick horch auf einen Klick mit der Maus. Wir nennen das ein Event. 
+# Wenn dieses Event passiert, wir dürcken die Maustaste, führen wir den Code in der eigens geschriebenen Prozedur bewege_turtle aus. 
+# Um das zu tun schreiben verwenden wir den Namen der Prozedur bewege_turtle und geben diesen der Prozedur screen.onclick. 
+# Wir rufen dabei nicht bewege_turtle(3,5) mit den runden Klammern auf! Ein Event will nur den Namen der Prozedur. 
 screen.onclick(bewege_turtle)
 
 # --- Abschluss ---
@@ -46,24 +49,25 @@ screen.mainloop()
 ```
 
 
-### Aufgabe 2 - Farbige Punkte mit Mehrfachverzweigung
+### Aufgabe 2 - Ausmalen
 #### Links-oben, links-unten, rechts-oben und rechts-unten 
-Wenn der Benutzer klickt, erscheint ein großer Punkt (ca. 1 cm Durchmesser). Die Farbe des Punktes hängt vom Quadranten des Klicks ab: 
+Die Turtle will die Wüste und das Meer umdekoriern. Sie braucht aber dazu deine Hilfe wo sie beginnen soll. Zeige mit der Maus der Turtle wohin sie gehen soll. Dort angekommen färbt sie einen kleinen Ort ein. Welche Farbe sagt uns dabei foglende Bedingungen.
 * oben links ist rot, 
-* oben rechts blau,
-* unten links grün und 
-* unten rechts gelb.
+* oben rechts ist blau,
+* unten links ist gelb und 
+* unten rechts ist grün.
+Die Angaben sind von dem Haus der Turtle ausgehend.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
-* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
+* ``screen.onclick(meine_prozedur)``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken.
 
-Sowie folgende ``Funktionen``:
-* * ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
-Unsere Turtle fängt an zu graben. Was sich unter dem Sand verbrigt weiß sie noch nicht. Hilf den Ort mit der Maus zu zeigen wo sie Graben soll.
+<div style="text-align: left;">
+    <img style="" height="240" width="240" src="../images/7.2.2.1.gif">
+</div>
 
 **Lösung:**
 ```python
@@ -71,58 +75,66 @@ from turtle import *
 
 # --- Vorbereitung ---
 screen = Screen()
-hideturtle()
 speed("fastest")
+shape("turtle")
 penup()
 
 # --- Logik ---
-DOT_DIAMETER = 80
+durchmesser = 80
 
 def draw_colored_dot(x, y):
     goto(x, y)
 
-    # Farbe basierend auf dem Quadranten bestimmen.
-    # Der Quadrant legt gest ob wir uns Links-oben, links-unten, rechts-oben und rechts-unten ist.
+    # Farbe basierend auf dem Ort bestimmen.
+    # Je nachdem wir Links-oben, links-unten, rechts-oben und rechts-unten mit der Maus drücken, hinterlässt die Turtle eine andere Farbe.
+    # Der ort ist ausgehend von Ihrem Haus 0,0 zu sehen.
+
     # Oben Links
     if x < 0 and y > 0: 
-        dot(DOT_DIAMETER, "red")
+        dot(durchmesser, "red")
 
     # Oben Rechts
     elif x > 0 and y > 0: 
-        dot(DOT_DIAMETER, "blue")
+        dot(durchmesser, "blue")
 
     # Unten Links
     elif x < 0 and y < 0: 
-        dot(DOT_DIAMETER, "green")
+        dot(durchmesser, "yellow")
 
     else: # Unten Rechts
-        dot(DOT_DIAMETER, "yellow")
+        dot(durchmesser, "green")
 
 # Auf Klicks lauschen
 screen.onclick(draw_colored_dot)
+
+goto(x,y)
 
 # --- Abschluss ---
 screen.mainloop()
 ```
 
 #### Streifen
-Zeichne Steifen von oben nach unten. Wenn der Benutzer klickt, erscheint ein großer Punkt (40 Pixel an Durchmesser). Die Farbe hängt ab in welchen Steifen wir graben: 
-1. Steifen ganz links ist grün.
+Die Turtle will die Wüste und das Meer nochmals umdekoriern. Jedoch ein wenig andres. Sie braucht wieder dazu deine Hilfe wo sie beginnen soll. Zeige mit der Maus der Turtle wohin sie gehen soll. Dort angekommen färbt sie einen kleinen Ort ein. Welche Farbe sagt uns dabei foglende Bedingungen.
+1. Steifen ganz links ist orange.
 2. Steifen links ist violett.
-3. Steifen in der Mitte ist orange.
-4. Steifen rechts ist blau.
-5. Steifen ganz rechts ist rot.
+3. Steifen rechts ist blau.
+4. Steifen ganz rechts ist gelb.
+Die Angaben sind von dem Haus der Turtle ausgehend. Alle Streifen sind gleich breit und zwar ein viertel der gesamten Welt (Bildschirmbreite).
+
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
-* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
+* ``screen.onclick(meine_prozedur)``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken.
 
-Sowie folgende ``Funktionen``:
-* * ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
-Unsere Turtle fängt an zu graben. Was sich unter dem Sand verbrigt weiß sie noch nicht. Hilf den Ort mit der Maus zu zeigen wo sie Graben soll.
+Mach auch das Fenster so groß wie den Bildschirm, sonst kann es Fehler geben.
+
+<div style="text-align: left;">
+    <img style="" height="240" width="432" src="../images/7.2.2.2.gif">
+</div>
+
 
 **Lösung:**
 ```python
@@ -131,59 +143,64 @@ from turtle import *
 # --- Vorbereitung ---
 screen = Screen()
 breite = window_width()
-hideturtle()
+shape("turtle")
 speed("fastest")
 
 # Vertikale Streifen zeichnen
-# Für 5 Streifen brauchen wir 4 Trennlinien.
-# Jede Linie ist bei einem Fünftel der Breite verschoben.
-# Die Koordinaten gehen von -breite/2 bis +breite/2.
-# Positionen der Linien: -3/10, -1/10, +1/10, +3/10 der Breite
-linie1_x = -breite * 0.3
-linie2_x = -breite * 0.1
-linie3_x = breite * 0.1
-linie4_x = breite * 0.3
+# Für 4 Streifen brauchen wir 3 Trennlinien.
+# Die eine Trennlinie geht durch das Haus bei 0 in der x-Position.
+# die eine andere Trennlinie halbiert das Meer und
+# die eine andere Trennlinie halbiert die Wüste.
+linie_haus = 0
+linie_meer = -breite / 2
+linie_wueste = breite / 2
     
 penup()
 
 # --- Logik ---
-groesse_des_punktes = 40
-
-def zeichne_bunten_punkt(x, y):
+# Wir bekommen magischeweise hier x und y von außen herein. Das ist aber nur beim Maus-Event der Fall und z.B. bei einem Tastatur-Event nicht der Fall.
+def zeichne_bunten_punkt_und_bewege_turtle(x, y):
+    groesse_des_punktes = 40
     penup() 
     goto(x, y)
-
-    # Farbe basierend auf expliziter Bereichslogik bestimmen
     
-    # Streifen 1 (ganz links)
-    if x <= linie1_x:
-        dot(groesse_des_punktes, "green")
-        
-    # Streifen 2 (links)
-    elif linie1_x < x and x <= linie2_x:
-        dot(groesse_des_punktes, "violet")
-        
-    # Streifen 3 (Mitte)
-    elif linie2_x < x and x <= linie3_x:
+    # Streifen ganz links
+    if -breite < x and x <= linie_meer:
         dot(groesse_des_punktes, "orange")
         
-    # Streifen 4 (rechts)
-    elif linie3_x < x and x <= linie4_x:
+    # Streifen links
+    elif linie_meer < x and x <= linie_haus:
+        dot(groesse_des_punktes, "violet")
+        
+    # Streifen rechts
+    elif linie_haus < x and x <= linie_wueste:
         dot(groesse_des_punktes, "blue")
         
-    # Streifen 5 (ganz rechts)
-    elif linie4_x < x:
-        dot(groesse_des_punktes, "red")
+    # Streifen ganz rechts
+    elif linie_wueste < x and x <= breite:
+        dot(groesse_des_punktes, "yellow")
 
-# Auf Klicks lauschen
-screen.onclick(zeichne_bunten_punkt)
+    else:
+        ohje = "Das sollte gar nie passieren"
+        print(ohje)
+        write(ohje)
+
+
+
+# --- Ereignis-Verknüpfung ---
+# Damit Events erkannt werden, müssen wir zwei Dinge tun:
+# 1. Dem screen sagen, dass er "zuhören" soll.
+screen.listen()
+
+# 2. Eine Prozedur dem Event übergeben welche ausgeführt wird.
+screen.onclick(zeichne_bunten_punkt_und_bewege_turtle)
 
 # --- Abschluss ---
 screen.mainloop()
 ```
 
 ### Aufgabe 3 - Bewegen mit der Tastatur
-Wir wollen nun die Turtle mit der Tastatur steuern.
+Wir wollen nun nicht mehr mit der Maus der Turtle die Anweisungen schicken. Wir tun es mit der Tastatur. Wir verwenden die Pfeiltasten zum bewegen und die Leertaste um einen Ort einzufärben. Die Logik des Einfärbens ist aus der [Aufgabe 2](#aufgabe-2---ausmalen) zu übernehmen.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
@@ -191,10 +208,12 @@ Verwende dazu folgende ``Prozeduren``:
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
+* * ``screen.onkey(meine_prozedur, "Up")``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir mit der Tastatur die Nach-Oben-Pfeiltaste drücken.
 
-Sowie folgende ``Funktionen``:
-* * ``onclick(meine_funktion)``: *meine_funktion* ist eine eigens geschriebene ``Funktion`` welche ausgeführt wird, wenn wir auf den Bildschirm drücken. Sperre zudem den Bildschirm mit ``screen.onclick(None)``, damit kein Mausclick mehr akzeptiert wird.
-Unsere Turtle fängt an zu graben. Was sich unter dem Sand verbrigt weiß sie noch nicht. Hilf den Ort mit der Maus zu zeigen wo sie Graben soll
+<div style="text-align: left;">
+    <img style="" height="240" width="432" src="../images/7.2.3.gif">
+</div>
+
 
 **Lösung:**
 ```python
@@ -202,54 +221,217 @@ from turtle import *
 
 # --- Vorbereitung ---
 screen = Screen()
+breite = window_width()
 
 # Erstellen unserer Helden-Turtle
 shape("turtle")
 shapesize(2)
-color("darkgreen")
 penup()
 
 # --- Logik ---
+# Vertikale Streifen zeichnen
+# Für 4 Streifen brauchen wir 3 Trennlinien.
+# Die eine Trennlinie geht durch das Haus bei 0 in der x-Position.
+# die eine andere Trennlinie halbiert das Meer und
+# die eine andere Trennlinie halbiert die Wüste.
+linie_haus = 0
+linie_meer = -breite / 2
+linie_wueste = breite / 2
+
 # Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
-SCHRITTWEITE = 20
-
-# Wir brauchen vier separate Funktionen, eine für jede Pfeiltaste.
-
+# Wir brauchen vier separate Prozeduren, eine für jede Pfeiltaste.
 def gehe_hoch():
     """Setzt die Ausrichtung nach oben (90 Grad) und geht einen Schritt."""
     setheading(90)
-    forward(SCHRITTWEITE)
+    forward(40)
 
 def gehe_runter():
     """Setzt die Ausrichtung nach unten (270 Grad) und geht einen Schritt."""
     setheading(270)
-    forward(SCHRITTWEITE)
+    forward(40)
 
 def gehe_links():
     """Setzt die Ausrichtung nach links (180 Grad) und geht einen Schritt."""
     setheading(180)
-    forward(SCHRITTWEITE)
+    forward(40)
 
 def gehe_rechts():
     """Setzt die Ausrichtung nach rechts (0 Grad) und geht einen Schritt."""
     setheading(0)
-    forward(SCHRITTWEITE)
+    forward(40)
 
+# Wir brauchen auch die Prozedur welche für die Farben zuständig ist. Dabei ist keine Änderung notwendig.
+def zeichne_bunten_punkt():
+    groesse_des_punktes = 80
 
-# --- Ereignis-Verknüpfung (Event Binding) ---
+    # Wir bekommen leider nicht wie beim Maus-Event die Koordinaten von außen herein.
+    # Wir müssen es selbst bestimmen. Wir verwenden dazu xcor() und ycor().
+    x = xcor()
+    y = ycor()
+
+    penup() 
+    goto(x, y)
+    
+    # Streifen ganz links
+    if -breite < x and x <= linie_meer:
+        dot(groesse_des_punktes, "orange")
+        
+    # Streifen links
+    elif linie_meer < x and x <= linie_haus:
+        dot(groesse_des_punktes, "violet")
+        
+    # Streifen rechts
+    elif linie_haus < x and x <= linie_wueste:
+        dot(groesse_des_punktes, "blue")
+        
+    # Streifen ganz rechts
+    elif linie_wueste < x and x <= breite:
+        dot(groesse_des_punktes, "yellow")
+
+    else:
+        ohje = "Das sollte gar nie passieren"
+        print(ohje)
+        write(ohje)
+
+# --- Ereignis-Verknüpfung ---
 # Damit Tastendrücke erkannt werden, müssen wir zwei Dinge tun:
 # 1. Dem screen sagen, dass er "zuhören" soll.
 screen.listen()
 
-# 2. Jede Taste mit der Funktion verknüpfen, die sie auslösen soll.
+# 2. Eine Prozedur dem Event übergeben welche ausgeführt wird.
 # Die Namen für die Pfeiltasten sind: "Up", "Down", "Left", "Right"
+# Bewegen
 screen.onkey(gehe_hoch, "Up")
 screen.onkey(gehe_runter, "Down")
 screen.onkey(gehe_links, "Left")
 screen.onkey(gehe_rechts, "Right")
 
+# Zeichnen
+screen.onkey(zeichne_bunten_punkt, "space")
 
 # --- Abschluss ---
-# Hält das Fenster offen und wartet auf Tastendrücke.
+screen.mainloop()
+```
+
+### Aufgabe 4 - Bewegen mit der Tastatur, ein wenig anders.
+Wir wollen nun nicht mehr mit der Leertaste der Turtle die Anweisung einfärben schicken. Diese soll es automatisch tun wenn sie sich bewegt. Die Logik des Einfärbens und Bewegens ist aus der [Aufgabe 3](#aufgabe-3---bewegen-mit-der-tastatur) zu übernehmen.
+
+**Hinweise:**
+Verwende dazu folgende ``Prozeduren``:
+* ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
+* ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
+* ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
+* ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
+* * ``screen.onkey(meine_prozedur, "Up")``: *meine_prozedur* ist eine eigens geschriebene ``Prozedur`` welche ausgeführt wird, wenn wir mit der Tastatur die Nach-Oben-Pfeiltaste drücken.
+
+<div style="text-align: left;">
+    <img style="" height="240" width="432" src="../images/7.2.4.gif">
+</div>
+
+**Lösung:**
+```python
+from turtle import *
+
+# --- Vorbereitung ---
+screen = Screen()
+breite = window_width()
+
+# Erstellen unserer Helden-Turtle
+shape("turtle")
+shapesize(2)
+penup()
+
+# --- Logik ---
+# Vertikale Streifen zeichnen
+# Für 4 Streifen brauchen wir 3 Trennlinien.
+# Die eine Trennlinie geht durch das Haus bei 0 in der x-Position.
+# die eine andere Trennlinie halbiert das Meer und
+# die eine andere Trennlinie halbiert die Wüste.
+linie_haus = 0
+linie_meer = -breite / 2
+linie_wueste = breite / 2
+
+# Wir definieren, wie weit die Turtle bei jedem Tastendruck gehen soll.
+# Wir brauchen vier separate Prozeduren, eine für jede Pfeiltaste.
+def gehe_hoch():
+    """Setzt die Ausrichtung nach oben (90 Grad) und geht einen Schritt."""
+    setheading(90)
+    forward(40)
+
+    # Wir bekommen leider nicht wie beim Maus-Event die Koordinaten von außen herein.
+    # Wir müssen es selbst bestimmen. Wir verwenden dazu xcor() und ycor().
+    # Eine Funktion kann direkt verwendet werden um zeichne_bunten_punkt die x-Position und y-Position zu übergeben.
+    # Eine Funktion erzeugt einen Wert, wir brauchen deshalb keine extra Variable dazu.
+    # Das funktioniert nicht mit einer Prozedur! Denn diese gibt nichts zurück und erzeugt damit nichts!
+
+    # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
+    zeichne_bunten_punkt(xcor(), ycor())
+
+def gehe_runter():
+    """Setzt die Ausrichtung nach unten (270 Grad) und geht einen Schritt."""
+    setheading(270)
+    forward(40)
+
+    # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
+    zeichne_bunten_punkt(xcor(), ycor())
+
+def gehe_links():
+    """Setzt die Ausrichtung nach links (180 Grad) und geht einen Schritt."""
+    setheading(180)
+    forward(40)
+
+    # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
+    zeichne_bunten_punkt(xcor(), ycor())
+
+def gehe_rechts():
+    """Setzt die Ausrichtung nach rechts (0 Grad) und geht einen Schritt."""
+    setheading(0)
+    forward(40)
+
+    # Rufe hier das zeichnen des farbigen Punktes auf und übergebe xcor() und ycor().
+    zeichne_bunten_punkt(xcor(), ycor())
+
+# Wir brauchen auch die Prozedur welche für die Farben zuständig ist. Dabei ist keine Änderung notwendig.
+def zeichne_bunten_punkt(x, y):
+    groesse_des_punktes = 80
+
+    penup() 
+    goto(x, y)
+    
+    # Streifen ganz links
+    if -breite < x and x <= linie_meer:
+        dot(groesse_des_punktes, "orange")
+        
+    # Streifen links
+    elif linie_meer < x and x <= linie_haus:
+        dot(groesse_des_punktes, "violet")
+        
+    # Streifen rechts
+    elif linie_haus < x and x <= linie_wueste:
+        dot(groesse_des_punktes, "blue")
+        
+    # Streifen ganz rechts
+    elif linie_wueste < x and x <= breite:
+        dot(groesse_des_punktes, "yellow")
+
+    else:
+        ohje = "Das sollte gar nie passieren"
+        print(ohje)
+        write(ohje)
+
+# --- Ereignis-Verknüpfung ---
+# Damit Tastendrücke erkannt werden, müssen wir zwei Dinge tun:
+# 1. Dem screen sagen, dass er "zuhören" soll.
+screen.listen()
+
+# 2. Eine Prozedur dem Event übergeben welche ausgeführt wird.
+# Die Namen für die Pfeiltasten sind: "Up", "Down", "Left", "Right"
+# Bewegen
+screen.onkey(gehe_hoch, "Up")
+screen.onkey(gehe_runter, "Down")
+screen.onkey(gehe_links, "Left")
+screen.onkey(gehe_rechts, "Right")
+
+# --- Abschluss ---
 screen.mainloop()
 ```

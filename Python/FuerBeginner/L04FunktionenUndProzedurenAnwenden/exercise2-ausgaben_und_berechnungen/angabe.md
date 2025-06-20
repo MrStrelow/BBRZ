@@ -83,7 +83,7 @@ forward(laenge_garten)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
@@ -99,7 +99,7 @@ forward(laenge_garten)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 
 # Die Turtle dreht sich um 90° nach links.
@@ -116,7 +116,7 @@ forward(laenge_garten)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
@@ -132,7 +132,7 @@ forward(laenge_garten)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
@@ -167,7 +167,7 @@ left(winkel)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 # --- 4.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -180,7 +180,7 @@ left(winkel)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 # --- 4.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -193,7 +193,7 @@ left(winkel)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 # --- 4.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -206,7 +206,7 @@ left(winkel)
 # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion und Variable ein.
+write(... + " von " + ... + " Schritte", align="right") # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozedur und Variable ein.
 
 
 # --- 5.) Wir geben den Umfang des Gartens und des Hauses auf der Console aus
@@ -290,7 +290,7 @@ forward(laenge_garten)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # --- 2.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen.
@@ -303,7 +303,7 @@ forward(laenge_garten)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # --- 2.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen.
@@ -316,7 +316,7 @@ forward(laenge_garten)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # --- 2.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle drückt den Faden auf den Boden und befestigt diesen.
@@ -329,7 +329,7 @@ forward(laenge_garten)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # ------------------------------------------------------------------------
 # --- 3. Usere Turtle geht zur Ecke des Hauses welche links-unten ist. ---
@@ -357,7 +357,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # --- 4.2) Wir zeichnen eine vertikale Linie von unten nach oben ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -367,7 +367,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # --- 4.3) Wir zeichnen eine horizontale Linie von rechts nach links ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -377,7 +377,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # --- 4.4) Wir zeichnen eine vertikale Linie von oben nach unten ---
 # Die Turtle bewegt sich 157 Schritte in Blickrichtung nach vorne.
@@ -387,7 +387,7 @@ forward(laenge_haus)
 left(winkel)
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
-write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Funktion ein.
+write("Pos: " + ... + "\n" + "Richtung: " + ...) # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die korrekte Prozudur ein.
 
 # ------------------------------------------------------------------------
 # --- Abschluss ---
