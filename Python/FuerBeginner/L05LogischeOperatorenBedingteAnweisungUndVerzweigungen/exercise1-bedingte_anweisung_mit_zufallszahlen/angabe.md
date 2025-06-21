@@ -3,17 +3,20 @@
 Wir zoomen hinaus. Die Turtle ist in ihrem sandigen Garten, links davon das Meer, rechts davon die Wüste. Es ist zu heiß und unsere Turtle hat eine Idee. Sich im Sand eingraben und schlafen. Dazu würde sie gerne einen geeigneten Ort in der Wüste suchen. Da sie keine Ahnung hat wohin sie gehen soll, verwendet sie [geoguessr.com](https://www.geoguessr.com/maps), wählt ihr Land aus und erzeugt damit einen zufälligen Ort. Diesen gibt sie in einer Map-App ein und lässt sich dorthin navigieren. Ein Problem ist nur, dass dieser Ort auch im Meer sein kann. Falls das passiert bleibt unsere Turtle demotiviert im Haus stehen und tut nichts. Falls es in die Wüste ist, geht sie dorthin und gräbt sich ein. Bevor sie losgeht drückt diese einen Faden in den Boden um ihr am Haus wiederzufinden.
 
 Wir setzen die Logik folgendermaßen um:
+
 * Wenn die zufällige x-Koordinate in der rechten Bildschirmhälfte liegt (Wüste), bewege die Turtle dorthin und lass diese sich im Sand eingraben. 
 * Wenn die zufällige x-Koordinate in der linken Bildschirmhälfte liegt, bleibt unsere Turtle stehen.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und kann somit einen Faden befestigen.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8. Wir wollen hier die Breite und Höhe des Fensters in der sich die Turtle befindet verwenden.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -87,16 +90,19 @@ done()
 Unsere Turtle ist immer noch zu heiß. Sie will nun nicht mehr so weit nach rechts gehen. Sie erweitert ihr *demotiviert nichts tun* zusätzlich auf Ziele welche weiter rechts als die hälfte von der Wüste liegen.
 
 Wir setzen die Logik der ``Bedingten Anweisung`` folgendermaßen um:
+
 * **WENN** die x-Koordinate in der rechten Bildschirmhälfte liegt (Wüste) ``und`` und in der *vorderen Hälfte* der rechten Bildschirmhälfte (Wüste) liegt, **DANN** bewege die Turtle dorthin. Danach gräbt sich diese im Sand ein.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und kann somit einen Faden befestigen.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8. Wir wollen hier die Breite und Höhe des Fensters in der sich die Turtle befindet verwenden.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -175,16 +181,19 @@ done()
 Unsere Turtle ist immer noch zu heiß. Sie will wie zuvor nicht mehr so weit nach rechts gehen. Zusätzlich ist ihr aufgefallen, wenn sie nach Norden geht, ist es kälter. Ihr macht es dadurch es nichts mehr aus tief in die Wüste hineinzugehen, wenn sie nach norden geht.
 
 Wir setzen die Logik der ``Bedingten Anweisung`` folgendermaßen um:
+
 * **WENN** die x-Koordinate in der rechten Bildschirmhälfte liegt (Wüste) ``und`` und in der *vorderen Hälfte* der rechten Bildschirmhälfte (Wüste) liegt ``oder`` x-Koordinate in der rechten Bildschirmhälfte liegt (Wüste) ``und`` die y-Koordinate in der oberen Bildschirmhäfte liegt, **DANN** bewege die Turtle dorthin. Danach gräbt sich diese im Sand ein.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und kann somit einen Faden befestigen.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8. Wir wollen hier die Breite und Höhe des Fensters in der sich die Turtle befindet verwenden.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -269,6 +278,7 @@ done()
 Da wir schon komplizierte ``Bedingungen`` in unserer ``Bedingten Anweisung`` haben, wollen wir diese durch ``Variablen`` benennen. Das erleichtert uns das Lesen des Codes. Ansonsten ist es hier die gleiche Angabe wie in [Aufgabe 3](#aufgabe-3---nur-in-einem-links-und-rechts-oder-nach-unten-abgegrenzten-bereich-zeichnen).
 
 Verwende nun ``Variablen`` für:
+
 * der logische Ausdruck *Turtle geht in den norden und nach rechts*,
 * der logische Ausdruck *Turtle geht nach rechts und nicht zu weit nach rechts* und
 * ein logische Ausdruck die beiden vorherigen zusammenfasst. Diese ist unsere ``Bedingung`` für die ``Bedingte Anweisung``.

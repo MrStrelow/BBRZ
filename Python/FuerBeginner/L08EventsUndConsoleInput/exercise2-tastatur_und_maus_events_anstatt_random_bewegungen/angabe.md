@@ -5,6 +5,7 @@ Die Turtle bewegt sich anschließend dorthin und macht einen Abdruck von sich se
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -63,6 +64,7 @@ Die Angaben sind von dem Haus der Turtle ausgehend.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
@@ -130,6 +132,7 @@ Die Angaben sind von dem Haus der Turtle ausgehend. Alle Streifen sind gleich br
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``dot(durchmesser, "red")``: Wir malen einen Kreis am Boden in der angegebenen Farbe.
@@ -212,6 +215,7 @@ Wir wollen nun nicht mehr mit der Maus der Turtle die Anweisungen schicken. Wir 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -225,6 +229,7 @@ Verwende dazu folgende ``Prozeduren``:
     * ``setheading(360)`` uns nach rechts zu schaun, 
 
 Verwende dazu folgende ``Funktionen``:
+
 * ``xcor()``: Gibt die x-Position der Turtle zurück. Da es eine Funktion ist kann xcor() überall verwendet werden wo eine Zahl erwartet wird.
 * ``ycor()``: Gibt die y-Position der Turtle zurück. Da es eine Funktion ist kann ycor() überall verwendet werden wo eine Zahl erwartet wird.
 
@@ -349,6 +354,7 @@ Wir wollen nun nicht mehr mit der Leertaste der Turtle die Anweisung einfärben 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -362,6 +368,7 @@ Verwende dazu folgende ``Prozeduren``:
     * ``setheading(360)`` uns nach rechts zu schaun,
 
 Verwende dazu folgende ``Funktionen``:
+
 * ``xcor()``: Gibt die x-Position der Turtle zurück. Da es eine Funktion ist kann xcor() überall verwendet werden wo eine Zahl erwartet wird.
 * ``ycor()``: Gibt die y-Position der Turtle zurück. Da es eine Funktion ist kann ycor() überall verwendet werden wo eine Zahl erwartet wird.
 

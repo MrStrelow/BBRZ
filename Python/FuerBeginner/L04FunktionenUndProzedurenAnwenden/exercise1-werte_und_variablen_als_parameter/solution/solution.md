@@ -4,7 +4,8 @@ Unsere Turtle will ihren Garten kennzeichnen. Dazu nimmt sie einen Faden, befest
 
 **Hinweise:**
 Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
-* ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
+
+``.* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -74,6 +75,7 @@ Unsere Turtle hat jedoch vergessen, dass Ihr Garten eigentlich *300* Schritte la
 
 **Hinweise:**
 Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
+
 * ``forward(300)``: Die Turtle bewegt sich 300 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -159,6 +161,7 @@ Da unsere Turtle sich noch immer nicht sicher ist ob ihr Garten wirklich *300* l
 Verwende nun ``Variablen`` um nicht jedes ``forward(314)``, ``left(90)`` und ``goto(-314/2, -314/2)`` aufrufen zu müssen.
 
 Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
+
 * ``forward(laenge_garten)``: Die Turtle bewegt sich *laenge_garten* Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(winkel)``: Die Turtle dreht sich um *winkel* nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -250,10 +253,12 @@ Zeichne nun ein kleines Quadrat in der Mitte in einem größeren Quadrat mit fol
 
 **Hinweise:**
 Verwende nun ``Variablen`` für:
+
 * die Länge des Gartens und des Hauses und
 * den Winkel für die Drehung.
 
 Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
+
 * ``forward(laenge_garten)``: Die Turtle bewegt sich *laenge_garten* Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(winkel)``: Die Turtle dreht sich um *winkel* nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.

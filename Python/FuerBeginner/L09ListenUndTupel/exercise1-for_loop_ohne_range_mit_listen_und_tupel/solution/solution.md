@@ -4,6 +4,7 @@ Unsere Turtle will wieder die Welt erforschen. Wir halten uns an die Angabe aus 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
@@ -12,6 +13,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``dot(25, "red")``: Wir malen einen roten Kreis mit Durchmesser 25 am Boden.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -99,6 +101,7 @@ Unsere Turtle will wieder die Welt erforschen. Wir halten uns an die Angabe aus 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
@@ -107,6 +110,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``dot(25, "red")``: Wir malen einen roten Kreis mit Durchmesser 25 am Boden.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -199,6 +203,7 @@ Unsere Turtle will wieder die Welt erforschen. Wir halten uns an die Angabe aus 
 Verwende den Zugriffsoperator ``[]`` mit ``-1`` bei der Liste ``rucksack``. Unsere Liste können wir uns wie einen Kreis vorstellen. Hier ist ``rucksack[0]`` ist das **erste** Fach, ``rucksack[1]`` ist das **zweite** Fach, ``rucksack[-1]`` ist das **letze** Fach und ``rucksack[-2]`` ist das **vorletze** Fach.
 
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
@@ -207,6 +212,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``dot(25, "red")``: Wir malen einen roten Kreis mit Durchmesser 25 am Boden.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -295,6 +301,7 @@ Unsere Turtle will wieder die Welt erforschen. Wir halten uns an die Angabe aus 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
@@ -303,6 +310,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``dot(25, "red")``: Wir malen einen roten Kreis mit Durchmesser 25 am Boden.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -414,6 +422,7 @@ Ein Tupel schaut wie eine Liste aus nur schreiben wir es mit ``("red", "black", 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
@@ -422,6 +431,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``dot(25, "red")``: Wir malen einen roten Kreis mit Durchmesser 25 am Boden.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.

@@ -33,6 +33,7 @@ print("Hello " + ANSI_RED + "World" + ANSI_RESET + "!")
 1.  Erstellen Sie eine Python-Datei (z.B. `hallo_welt.py`), die "Hello World" auf die Konsole ausgibt.
 
 2.  Adaptieren Sie das Programm durch folgende Schritte:
+
     * Geben Sie als erste Zeile Ihren Vornamen mittels `print()` aus.
     * Geben Sie in der zweiten Zeile Ihren Nachnamen mit `print()` aus.
     * Geben Sie in einer separaten Zeile folgenden Text aus: *Heute ist Mittwoch, der 04. Oktober 2023.*

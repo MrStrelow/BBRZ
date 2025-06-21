@@ -9,6 +9,7 @@ Nachdem unsere Turtle sich im Sand abgekühlt ist sie hungrig. Sie sucht nach Bl
 
 **Hinweise:**
 Verwende ``Variablen`` für:
+
 * die Geschwindigkeit der Turtle am Wasser, am Land und hungrig am Land,
 * die Form im Garten, in der Wüste und im Wasser.
 
@@ -16,6 +17,7 @@ Entscheide selbst ob hier ``Variablen`` für
 * den logischen Ausdruck der ``Bedingung`` unserer ``Verzweigung`` verwendet werden sollen.
 
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -23,6 +25,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. 
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.
@@ -116,11 +119,13 @@ Am nächsten Tag ist die Turtle wieder hungrig und verhält sich auch im prinzip
 
 **Hinweise:**
 Verwende ``Variablen`` für:
+
 * die Geschwindigkeit der Turtle am Wasser, am Land und hungrig am Land,
 * die Form im Garten, in der Wüste und im Wasser und
 * die ``logischen Ausdrücke`` der ``Bedingungen`` unserer ``Mehrfachverzweigung``.
 
 Verwende dazu folgende ``Prozeduren``:
+
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -128,6 +133,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``shape("turtle")``, ``shape("circle")`` oder ``shape("arrow")``: Wir lassen unsere Turtle anders aussehen.
 
 Sowie folgende ``Funktionen``:
+
 * ``randint(3, 8)``: Wir ziehen eine zufällige Zahl ohne Kommastellen von z.B. 3 bis 8.
 * ``window_width()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *breite = window_width()*.
 * ``window_height()``: Gibt die breite unseres Fenstes zurück. Merke dir die Antwort mit einer ``Variable``. Das geht so *hoehe = window_height()*.

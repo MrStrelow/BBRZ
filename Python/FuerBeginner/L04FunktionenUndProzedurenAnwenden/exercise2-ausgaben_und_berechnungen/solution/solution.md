@@ -7,11 +7,13 @@ Es liegen nun zwei Fäden nach der [Exercise 1](../../exercise1-werte_und_variab
 
 **Hinweise:**
 Verwende nun ``Variablen`` für:
+
 * die Länge des Gartens und des Hauses,
 * den Winkel für die Drehung und
 * den Umfang des Gartens und des Hauses
 
 Verwende folgende der bereits existierenden ``Prozeduren``:
+
 * ``forward(laenge_garten)``: Die Turtle bewegt sich *laenge_garten* Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(winkel)``: Die Turtle dreht sich um *winkel* nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -224,10 +226,12 @@ Wiederhole die [Aufgabe 1](#aufgabe-1---was-ist-der-umfang-von-haus-und-garten),
 
 **Hinweise:**
 Verwende nun ``Variablen`` für:
+
 * die Länge des Gartens und des Hauses und
 * den Winkel für die Drehung.
 
 Verwende folgende der bereits existierenden ``Prozeduren``:
+
 * ``forward(laenge_garten)``: Die Turtle bewegt sich *laenge_garten* Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(winkel)``: Die Turtle dreht sich um *winkel* nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
@@ -405,10 +409,12 @@ Die Fläche des inneren Quadrats soll soll <span style="color:purple;">violett</
 
 **Hinweise:**
 Verwende nun ``Variablen`` für:
+
 * die Länge des Gartens und des Hauses und
 * den Winkel für die Drehung.
 
 Verwende folgende der bereits existierenden ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
@@ -578,11 +584,13 @@ Wiederhole die [Aufgabe 3](#aufgabe-3---renovierung-des-hauses), jedoch überleg
 
 **Hinweise:**
 Verwende nun ``Variablen`` für:
+
 * die Länge des Gartens und des Hauses,
 * den Winkel für die Drehung und
 * die Koordinaten der Eckpunkte des inneren Hauses.
 
 Verwende folgende der bereits existierenden ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``pendown()``: Die Turtle legt **einen** Faden am Boden ab. Diese malt dadruch Linien wenn diese sich **später** bewegt.
 * ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.

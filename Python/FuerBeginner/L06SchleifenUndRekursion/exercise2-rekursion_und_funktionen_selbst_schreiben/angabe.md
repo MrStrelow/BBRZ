@@ -3,6 +3,7 @@
 Wir wollen jedoch ein Konzept grob als Idee beschreiben. Die ``Rekursion``. Dies ist eine Schachtelung einer **eigens geschriebenen** ``Funktion`` oder ``Prozedur``. Schachtelung bedeutet hier, wir rufen in der ``Prozedur`` nochmals die gleiche ``Prozedur`` auf. Wenn wir diese ``Prozedur`` einmal aufrufen, ruft diese sich selbst immer und immer wieder auf und endet deshalb nie. Wir verzichten hier weiteres über die ``Rekursion`` zu sprechen, denn diese ist ein sehr forteschrittenes, gefährliches und deshalb selten verwendetes Konzept, welches hier nur einmal erwähnt wird. Es gibt uns aber die Change einmal selbst eine ``Funktion`` oder ``Prozedur`` zu definieren.
 
 Verwende dazu folgende eigens geschriebene``Prozeduren``:
+
 * ``def ich_rufe_mich_selbst_auf():`` Wir definieren eine ``Prozedur`` welche sich immer und immer wieder selbst aufruft.
 
 Diese Aufgabe hat die Gleiche Angabe wie [exercise 1, Aufgabe 1](../../exercise1-while_und_for_schleifen/angabe.md#aufgabe-1---wiederholte-bewegung-für-immer). 

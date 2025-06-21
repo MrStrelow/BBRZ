@@ -7,6 +7,7 @@
 
 Wir haben 4 grundlegende Werkzeuge erwähnt, welche wir brauchen um Programme schreiben zu können.
 Diese sind:
+
 * ✅ Variablen
 * ❔ Operatoren (bzw. Funktionen aufrufen)
 * ❔ Verzweigungen und Bedingte Ausdrücke
@@ -90,6 +91,7 @@ Wir merken uns:
 
 ## Verschiedene Arten von Typen
 In Python gibt es eine Reihe von eingebauten, fundamentalen Datentypen. Die wichtigsten für den Anfang sind:
+
 - **Zeichenketten**:
   - `str` (Eine Kette von Unicode-Zeichen)
 - **Zahlen**:
@@ -217,6 +219,7 @@ print(resultat_effizient)
 ```
 
 Wir merken uns:
+
 > Eine Aneinanderreihung von Zeichen wird *Zeichenkette* oder *String* genannt.
 
 > Die `Operation` `Konkatenation` beschreibt das Aneinanderhängen von Strings.

@@ -1,4 +1,5 @@
 Inhalte:
+
 * Was ist ein Programm? Wie rufe ich es auf (Terminal/IDE) und was ist ein Debugger?
 * Eine Prise: Compiler und Interpreter
 * Die 4 Bausteine eines Programms - Variablen/Operatoren/Verzweigungen/Schleifen

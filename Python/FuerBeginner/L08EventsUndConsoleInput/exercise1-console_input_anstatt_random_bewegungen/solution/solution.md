@@ -4,6 +4,7 @@ Unsere Turtle will wieder die Welt erforschen. Dazu mekrt sich unsere Turtle am 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -11,6 +12,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
+
 * ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 
 <div style="text-align: left;">
@@ -59,6 +61,7 @@ Unsere Turtle will wieder die Welt erforschen. Jedoch gibt es einen Unterschied 
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -66,6 +69,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
+
 * ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 <div style="text-align: left;">
     <img style="" height="480" width="480" src="../images/7.1.2.gif">
@@ -125,6 +129,7 @@ Unsere Turtle will wieder die Welt erforschen. Jedoch ist es unagenehm zwei mal 
 
 **Hinweise:****Lösung:**
 Verwende dazu folgende ``Prozeduren``:
+
 * ``penup()``: Die Turtle legt **keinen** Faden am Boden ab. Diese malt dadruch **keine** Linien wenn diese sich **später** bewegt.
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
@@ -132,6 +137,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. Wir können folgende Werte übergeben ``"circle"`` und ``"turtle"``. 
 
 Sowie folgende ``Funktionen``:
+
 * ``input("Gib bitte die neue Position in x ein: ")``: Das Programm wartet bis der user etwas eingegeben hat. Davor schreiben wir *"Gib bitte die neue Position in x und dann y ein: "* auf die Console damit die Benutzer:innen wissen was sie tun soll.
 
 <div style="text-align: left;">

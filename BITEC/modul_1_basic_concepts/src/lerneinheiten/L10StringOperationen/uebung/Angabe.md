@@ -138,6 +138,42 @@ Erstelle ein Java-Programm, das die Anzahl der Wörter in einem gegebenen String
 
 ---
 
+## Regex - Fehler in md-File
+Wir haben eine Liste im Markdown format geschrieben. Diese ist:
+```markdown
+Wir beginnen hiermit:
+* das ist das Erste,
+* hier das Zweite und nicht vergessen,
+* das Dritte.
+```
+Wir können annehmen der Doppelpunkt ist immer vor dem 1. Auflistungssymbol ``*``.
+Es ist nicht wichtig was das genau bedeutet, jedoch haben wir hier einen Fehler gemacht. Es sollte so aussehen.
+
+```markdown
+Wir beginnen hiermit:
+
+* das ist das Erste,
+* hier das Zweite und nicht vergessen,
+* das Dritte.
+```
+Wir stellen uns vor, dass dieser Fehler in 145 md-Files mit 2986 solchen Auflistungen der Fall ist.
+Händisch dieses Leerzeichen einfügen zu müssen wäre ein erheblicher Aufwand. In Visual Studio Code, oder über das Terminal,
+können wir alle diese Vorkommnisse mit einem RegEx suchen und Ersetzen. Wir kopieren nun einen Fehler in ein neues md-File am File System,
+(rechte Maustaste im Explorer, neues Textfile, dann die Endung von .txt auf .md ändern und dort das obige Beispiel reinkopieren).
+Schreibe dann einen Regex in das Suchfenster welches mit CTRL+F aufgeht. Tu das in einem Editor wie z.B. Visual Studio Code.
+Klappe unter der Suchleiste den Ersetz-Modus aus und füge dort ebenfalls einen RegEx ein, welcher das gefundene Muster nehmen soll, und dazwischen eine Leerzeile machen soll.
+
+Verwende dazu:
+
+* Gruppierungen ``()``
+* Multiplizitäten ``.+`` oder ``.*``
+* Bachreferences $1 spricht die 1. Gruppierung an, $2 die 2. Gruppierung usw.
+* Escape Operator ``\*`` da wir nach dem Stern ``*`` im Text suchen und nicht die Multiplizität ``*`` 
+
+TODO: Lösung suche: (.+:\n)(.*)\* ersetzen:$1\n$2*
+
+**Optional:** Lade mit dem Scanner dieses File in JAVA und setze dort den RegEx um. Wir haben jedoch noch keine File Kommunikation gemacht. Wer es Googlen/AI'en will, gerne (oder auch mich fragen 🙂).
+
 ## Passwort Generator - Teil 2
 Verwende die Angabe *Passwort Generator* aus dem [Übungsblatt der Schleifen](../../L09SchleifenFor/uebung/Angabe.md#passwort-generator)
 
