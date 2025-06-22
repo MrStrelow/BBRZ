@@ -421,9 +421,7 @@ Verwende folgende der bereits existierenden ``Prozeduren``:
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``color("purple", "purple")``: Die Turtle wird violett und malt violette Linien am Bildschirm. Dazu wird die Turtle violett ausgemalen. Rufe ``begin_fill()`` auf um den *Füllmodus* zu starten und ``end_fill()`` um diesen zu beenden.
 
-<div style="text-align: left;">
-    <img style="" height="240" width="330" src="images/4.2.3.gif">
-</div>
+![Demo](images/4.2.3.gif)
 
 **Vorlage:**
 ```python

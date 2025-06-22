@@ -8,26 +8,23 @@
 echo "Starting conversion process..."
 echo "---------------------------------"
 
-# Use 'find' with the -regex option to filter directories.
-# The regex matches any path that is inside a directory matching your pattern.
-# The -print0 and 'while read -r -d $' are a robust way to handle filenames
-# with spaces or special characters.
-find . -regextype posix-extended -regex './L0[4-9].+/.*\.md' -print0 | while IFS= read -r -d $'\0' file; do
+find . -regextype posix-extended -regex './L0[4-9].+/.*(angabe|solution)\.md' -print0 | while IFS= read -r -d $'\0' file; do
   
   # Get the directory name, filename with extension, and filename without extension
   dir_path=$(dirname "$file")
+  echo $dir_path
 
   base_name_with_ext=$(basename "$file")
   base_name_no_ext="${base_name_with_ext%.md}"
   
   # Construct the full path for the output file
-  output_file="$dir_path/$base_name_no_ext.docx"
+  output_file="$dir_path/$base_name_no_ext-from-md.docx"
 
   echo "Found:       $file"
   echo "Converting to: $output_file"
   
-  # Run the pandoc conversion
-  pandoc -s "$file" -o "$output_file" --reference-doc=easy4me-template.docx
+  # Run the pandoc conversion with the --resource-path flag added
+  pandoc -s "$file" -o "$output_file" --reference-doc=easy4me-template.docx --resource-path="$dir_path"
   
   # Check if pandoc command was successful
   if [ $? -eq 0 ]; then
