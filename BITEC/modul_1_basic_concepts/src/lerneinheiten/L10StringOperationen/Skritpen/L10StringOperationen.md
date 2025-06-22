@@ -201,7 +201,7 @@ if (startInnerhalbDesTextes && endeInnerhalbDesTextes) {
 System.out.println(result);
 ```
 
-Da wir hier genau eine ``Zuweisung`` innerhalb der ``If-Bedingung`` (welches eine ``Anweisung`` ist) haben, ist auch die Verwendung von einem ``Ausdruck`` möglich. 
+Da wir hier genau eine ``Zuweisung`` innerhalb der ``Bedingte Anweisung`` (welches eine ``Anweisung`` ist) haben, ist auch die Verwendung von einem ``Ausdruck`` möglich. 
 
 ```java
 ...

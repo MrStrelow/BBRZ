@@ -127,7 +127,7 @@ else
 variable ??= rechts;
 ```
 
-Umschreibung in eine ``If-Bedingung``:
+Umschreibung in eine ``Bedingte Anweisung``:
 ```csharp
 if (variable == null)
 {

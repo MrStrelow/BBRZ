@@ -35,7 +35,7 @@ b) Exit der Methode fehlt und **negation des Ausdrucks ist falsch**:
      Es wird dadurch möglicherweise ein gültiger Zustand erreicht, auch wenn dies nicht beabsichtigt war. 
      Anders gesagt, Guards sind die "security checks", welche wir bei Verletzung nicht passieren dürfen. 
      Passieren bedeutet hier im Code weiter zur nächsten Guard weiter gehen.
-  - Ein logisches ODER kann als ein 'untereinandergeschriebenes IF-Bedingungen' dargestellt werden. 
+  - Ein logisches ODER kann als ein 'untereinandergeschriebenes Bedingte Anweisungen' dargestellt werden. 
      Da wir, wenn A wahr ist und unsere Formel A || B || C ist, wir B und C nicht mehr überprüfen wollen, 
      brauchen wir innerhalb jeder IF Bedingung, dazu noch einen "Exit-Punkt" (return; bzw. throw new Exception();).
 

@@ -211,9 +211,9 @@ public class Program
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
-* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
+* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingte Anweisung``?
 * b) Gegeben ist eine ``If-Verzweigung`` (if mit else). Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
-* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
+* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
 ```csharp
 if (false) 
 {
@@ -230,12 +230,12 @@ vs.
 ```csharp
 if (false) 
 {
-    Console.WriteLine("If-Bedingung")
+    Console.WriteLine("Bedingte Anweisung")
 } 
 
 if (true) 
 {
-    Console.WriteLine("Auch eine IF-Bedingung")
+    Console.WriteLine("Auch eine Bedingte Anweisung")
 }
 ```
 

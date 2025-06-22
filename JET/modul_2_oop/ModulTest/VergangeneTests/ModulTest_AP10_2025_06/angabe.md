@@ -139,11 +139,11 @@ Console.Write($"ohne ?? - {_x}");
 _x ??= _x * (25 / 3) - 25;
 Console.Write($"mit ??= - {_x}");
 
-// TODO: Schreibe Logik des ??= mit einer If-Bedingung
+// TODO: Schreibe Logik des ??= mit einer Bedingte Anweisung
 Console.Write($"ohne ??= - {_x}");
 ```
 
-**Hinweis:** Eines ist eine ``If-Verzweigung`` das andere ist eine ``If-Bedingung``.
+**Hinweis:** Eines ist eine ``If-Verzweigung`` das andere ist eine ``Bedingte Anweisung``.
 ---
 
 ### Programmieren [20 / 45 Teilpunkte]

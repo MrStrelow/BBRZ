@@ -552,7 +552,7 @@ System.out.println("Korrekt! Sie haben " + trials + " Versuche benötigt.");
 
 Der Fehler war, dass wir hier eine ``Mehrfachverzweigung`` in einen ``If-Ausdruck`` umgewandelt haben. Wir haben jedoch *guess != draw* als ``Bedingung`` der ``Schleife``. Es sollte also wenn wir gewonnen *guess == draw* haben die ``Schleife`` abbrechen. Jedoch passiert das immer nur am *Anfang* des ``Blocks`` bis dieser komplett ausgeführt wird. Es wird also auch wenn wir gewinnen ausgegeben *System.out.println("Inkorrekt! - Zahl ist zu " + hint + "!");*
 
-Um diesen Fehler ausbessern zu können, müssen wir eine ``If-Bedingung`` mit ``Bedingung`` *guess != draw* einführen.
+Um diesen Fehler ausbessern zu können, müssen wir eine ``Bedingte Anweisung`` mit ``Bedingung`` *guess != draw* einführen.
 ```java
 Scanner scanner = new Scanner(System.in);
 Random random = new Random();
@@ -574,7 +574,7 @@ While (guess != draw) {
 }
 ```
 
-Es schaut aber komisch aus, denn wir haben bereits die gleiche ``Bedingung``, welche in der ``If-Bedingung`` ist
+Es schaut aber komisch aus, denn wir haben bereits die gleiche ``Bedingung``, welche in der ``Bedingte Anweisung`` ist
 in der ``While-Schleife`` geschrieben. Wir haben jedoch das Problem, dass nach der Überprüfung der ``Bedingung`` der ``Schleife`` *guess != draw* unser relevanter Input erst nach dieser Überprüfung eingelesen wird.
 
 Versuchen wir deshalb folgendes: Schieben wir den User-Input ans Ende der Schleife,

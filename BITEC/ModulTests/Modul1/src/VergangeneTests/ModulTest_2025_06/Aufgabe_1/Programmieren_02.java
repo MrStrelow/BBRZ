@@ -30,7 +30,7 @@ public class Programmieren_02 {
                 // wir starten bei j=0 und gehen wenn -j bei i < zahlen.length - 1 - j; steht, beim ersten Mal alle Zahlen durch.
                 // Danach einmal weniger, denn j wurde auf 1 erhöht. Danach zweimal weniger. usw.
                 // Da wir nach jedem Durchlauf der äußeren Schleife eine Zahl fixieren,
-                // wollen diese Zahl nicht mehr anschauen in der unteren If-Bedingung.
+                // wollen diese Zahl nicht mehr anschauen in der unteren Bedingte Anweisung.
                 if (zahlen[i] > zahlen[i + 1]) {
                     int platzhalter = zahlen[i + 1];
                     zahlen[i + 1] = zahlen[i];

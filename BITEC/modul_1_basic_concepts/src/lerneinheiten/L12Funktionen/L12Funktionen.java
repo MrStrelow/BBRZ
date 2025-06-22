@@ -50,7 +50,7 @@ public class L12Funktionen {
         // Der Wert der Variable mein meinErstesArgument,
         // wird nun übergeben und in dem Parameter meinErsterParameter gespeichert.
         // Wir sprechen also von Argumenten außerhalb der Methode und sprechen von Parametern innerhalb dieser.
-        // Dies ist jedoch ein ähnliches Detail, wie die IF-Bedingung, nur IF ist und eine IF-Verzweigung ein IF-Else ist.
+        // Dies ist jedoch ein ähnliches Detail, wie die Bedingte Anweisung, nur IF ist und eine IF-Verzweigung ein IF-Else ist.
         nameMeinerFunktion(meinErstesArgument, meinZweitesArument, meinDrittesArgument);
 
         // Mischung durch Operatoren:

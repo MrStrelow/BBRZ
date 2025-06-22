@@ -155,7 +155,7 @@ public class IOPackageFileWriterReader {
             }
 
             // Da die bereits verwendete Syntax umständlich ist, gibt es hier eine neue um Folgendes ausdrücken zu können.
-            // Wir rufen die Methode auf, verwenden das Ergebnis als Bedingung in der IF-Bedingung,
+            // Wir rufen die Methode auf, verwenden das Ergebnis als Bedingung in der Bedingte Anweisung,
             // schreiben jedoch zusätzlich das Ergebnis in die Variable "line".
             // Achtung! die Variable "line" muss jedoch zuerst deklariert/definiert sein.
             String line;

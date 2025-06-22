@@ -127,7 +127,7 @@ public class Plane
         // Wir bauen somit sehr leicht weitere Fehler ein, welche uns in den Wahnsinn treiben wenn wir 300 verschiedene Darstellungen von Hamstern haben,
         // und all diese an verschiedenen Orten abfragen um diese sich nicht zu merken.
 
-        // Um den Bug "dirty" zu beheben kommentiere die folgende If-Bedingung ein.
+        // Um den Bug "dirty" zu beheben kommentiere die folgende Bedingte Anweisung ein.
         string hamsterSymbol = _plane[hamster.Position.y, hamster.Position.x];
         bool noHamsterOnThisPosition =
                 hamsterSymbol == Hamster.FedRepresentation ||

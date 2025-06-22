@@ -269,9 +269,9 @@ Spiel beendet. Danke fürs Spielen!
 ---
 
 ### Theorie [10 / 60 Teilpunkte]
-* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``If-Bedingung``?
+* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingten Anweisung``?
 * b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
-* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``If-Bedingung`` haben? Vergleiche dazu folgenden Code.
+* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
 ```java
 if (false) {
     System.out.println("If-Zweig")
@@ -284,11 +284,11 @@ vs.
 
 ```java
 if (false) {
-    System.out.println("If-Bedingung")
+    System.out.println("Bedingte Anweisung")
 } 
 
 if (true) {
-    System.out.println("Auch eine IF-Bedingung")
+    System.out.println("Auch eine Bedingte Anweisung")
 }
 ```
 

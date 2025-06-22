@@ -79,8 +79,8 @@ public class Loesung {
 
         System.out.println();
 
-        // alternativ: Die Bedingung der If-Bedingung direkt in die Bedingung der For-Schleife geben
-        System.out.println("alternativ: Die Bedingung der If-Bedingung direkt in die Bedingung der For-Schleife geben");
+        // alternativ: Die Bedingung der Bedingte Anweisung direkt in die Bedingung der For-Schleife geben
+        System.out.println("alternativ: Die Bedingung der Bedingte Anweisung direkt in die Bedingung der For-Schleife geben");
 
         for (int i = 1; i * i <= grenze; i++) {
             System.out.println(i + "*" + i + " = " + (i * i));
