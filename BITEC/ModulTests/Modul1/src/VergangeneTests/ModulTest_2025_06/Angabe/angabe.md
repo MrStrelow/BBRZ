@@ -1,4 +1,4 @@
-# Modultest 1 - BITEC BT02/03
+# Modultest 1 - BITEC
 
 Sie haben `180 Minuten` Zeit die Aufgaben zu lösen
 * Sie können maximal 100 Punkte erreichen
@@ -102,20 +102,34 @@ Dieses Programm erzeugt, wenn die Fehler behoben wurde folgenden Output:
     <img src="output_bubbles_farben.png" alt="erwarteter output" style="width: 20%;">
 </div>
 
-1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen.
-    * Erkläre, warum es fehler sind.
-
-2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
+1) Kopiere den gegebenen Programmcode in [Aufgabe_1/01_Programmveständnis.md](../Aufgabe_1/01_Programmverstaendnis.md). Suche dort Fehler im Code, markiere diese Durch den Text ``//Fehler in dieser Zeile! Begründung: TODO`` und erkläre warum es ein Fehler ist.
+2) Beantworte außerhalb des Programmcodes in ``Aufgabe_1/01_Programmveständnis.md`` folgende Fragen:
     * Was ist die Aufgabe der äußeren For-Schleife?
     * Was ist die Aufgabe der inneren For-Schleife?
     * Was ist die Aufgabe der If-Anweisung?
     * Was ist die Aufgabe der Variable *platzhalter*?
     * Was würde passieren, wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
-
 ```java
 zahlen[i] = zahlen[i+1];
 zahlen[i+1] = zahlen[i];
 ```
+3) Wir betrachten folgende animierte Grafik:
+<table style="width:100%">
+  <tr>
+    <td style="vertical-align: top; padding-right: 10px; width: 50%;">
+      <ul>
+        <li>Ist es notwendig schwarz umrandete Zahlen mit anderen Zahlen zu vergleichen? Bergüne kurz warum oder warum nicht.</li>
+        <li>Kann eine schwarz umrandete Zahl ignoriert werden? Begründe kurz warum oder warum nicht.</li>
+        <li>Wird eine schwarz umrandete Zahl in dem oben gegebenen Code ignoriert? Begründe kurz warum oder warum nicht.</li>
+      </ul>
+    </td>
+    <td style="vertical-align: top; padding-left: 10px; width: 50%;">
+      <div style="text-align: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif" alt="GIF von Bubble Sort welches auf Wikipedia den Ablauf des Algorithmus darstellt.">
+      </div>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -167,39 +181,184 @@ Durchgang: 3
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
-1) Was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code:
-   **Achtung!** Wenn der Code einen Fehler erzeugt, ist dies anzugeben.
+Kopiere folgende Angabe nach [Aufgabe_1/03_Theorie.md](../Aufgabe_1/03_Theorie.md) und beantworte dort die folgenden Fragen.
+
+1) Finde Fehler in dem folgenden Code. Beantworte dazu ``//Fehler! Begründung: TODO`` und lösche dazu ``//n. erzeugter Wert hat Typ: TODO oder``
+2) Wenn kein Fehler in der Zeile ist, was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code. Beantworte dazu ``//n. erzeugter Wert hat Typ: TODO`` und lösche ``oder Fehler! Begründung: TODO``.
 ```java
 String[][][] daten = new String[10][5][15];
-daten[0][0]          // 1. erzeugter Wert hat Typ...?
-daten[3][1][6][5]    // 2. erzeugter Wert hat Typ...?
-daten[1][5][1]       // 3. erzeugter Wert hat Typ...?
-daten[6]             // 4. erzeugter Wert hat Typ...?
-dater[0][4][0]       // 5. erzeugter Wert hat Typ...?
-daten[0][5][0]       // 6. erzeugter Wert hat Typ...?
+daten[0][0]          // 1. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+daten[3][1][6][5]    // 2. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+daten[1][5][1]       // 3. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+daten[6]             // 4. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+dater[0][4][0]       // 5. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+daten[0][5][0]       // 6. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
 ```
+
+**Hinweise:** 
+* Falls es nicht im Kopf geht, versuche ``JAVA`` den ``Typ`` mit ``System.out.println`` ausgeben zu lassen. Recherchiere dazu im Internet.
+* Achte auf korrekte Schreibweisen der Variablen und die Größe der Indices.
 
 ---
 
 ## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [50 Punkte]
 ### Programmverständnis [10 / 50 Teilpunkte]
-Gegeben ist ein ``RegEx``.
-* Suche und beschreibe die ``Operatoren`` und ``Multiziplizäten`` welche hier verwendet wurden.
-* Beschreibe was dieser darstellen soll.
+Kopiere folgende Angabe nach [Aufgabe_2/01_Programmverständnis.md](../Aufgabe_2/01_Programmverstaendnis.md) und beantworte dort die folgenden Fragen.
 
+Gegeben ist ein ``RegEx``. 
+1) Suche und beschreibe die ``Operatoren`` und ``Multiziplizäten``welche hier verwendet wurden.
+2) Beschreibe ca. was dieser ``RegEx`` darstellen soll.
 ```rx
-^(null|eins|zehn|elf|zwölf)|(zwei|drei|vier|fünf|acht|neun|sechs|sieben)|((drei|vier|fünf|acht|neun|sech|sieb)-zehn)|(20|30|40|50|60|70|80|90)|((ein|zwei|drei|vier|fünf|acht|neun|sechs|sieben)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))|ein-hundert$
+^(ein-hundert|(20|30|40|50|60|70|80|90)|((ein|zwei|drei|vier|fünf|acht|neun|sechs|sieben)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))|((drei|vier|fünf|acht|neun|sech|sieb)-zehn)|(zwei|drei|vier|fünf|acht|neun|sechs|sieben)|(null|eins|zehn|elf|zwölf))+$
 ```
+
+**Hinweis:** Verwende z.B. einen [Regex-Online-Checker](https://regex101.com/) um die erlaubten Texte zu überprüfen.
+
 ---
 
 ### Programmieren [30 / 50 Teilpunkte]
-Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *30%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint. Jedoch gibt es hier ein paar Nachbesserungen.**
+Kopiere den folgenden Programmcode nach [Aufgabe_2/Programmieren_02.java](../Aufgabe_2/Programmieren_02.java). 
+
+```java
+package VergangeneTests.ModulTest_2025_06.Aufgabe_2;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Programmieren_02 {
+    public static void main(String[] args) {
+        // Variablen Anlegen
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        boolean playAgain = true;
+
+        // Beginne mit Logik (Kontrollstrukturen)
+        // spiele nochmals
+        while (playAgain) {
+            // Wir ziehen eine Zahl welche zufällig zwischen 0 und 100 (inklusive) ist.
+            int zahlZuRaten = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+            int leben = 5 - 1;
+            int versuche = 0;
+            int zaehleVorkommenEinerZahl = 0;
+            int zaehleVorkommenEinerZahlAlsText = 0;
+
+            System.out.println("Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!");
+
+            // Beginne mit Logik (Kontrollstrukturen)
+            // Wiederholung der Spiellogik
+            while (true) {
+                // Wie darf der User seinen Versuch eingeben? Als Zahl oder nicht - ziehe dazu mit Random eine zufällige Zahl. 
+                boolean erwartetZahl = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                // Wie erlauben eine Zahl mit 70% Wahrscheinlichkeit und eine Zahl als Text mit 30% Wahrscheinlichkeit.
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    // Wir wollen nun uns merken, dass wir eine Zahl gezogen haben. Wir setzen also die boolsche Variable erwartetZahl auf wahr.
+                    erwartetZahl = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                    // Wir erhöhen unseren Zähler, dass eine Zahl vorgekommen ist ...
+                    // TODO: Lösche dieses Kommenta und füge dort den korrekten Ausdruck ein.
+
+                    // ... und setzen unseren Zähler, dass eine Zahl als Text vorgekommen ist, auf 0 zurück.
+                    zaehleVorkommenEinerZahlAlsText = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                    // Wenn unser Zähler drei mal vorgekommen ist, dann überschreiben wir erwartetZahl mit falsch.
+                    // Wir wollen deshalb eine Zahl als Text vom User haben.
+                    if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                        erwartetZahl = false;
+                    }
+
+                } else {
+                    // Wir wollen nun uns merken, dass wir eine Zahl als Text gezogen haben. Wir setzen also die boolsche Variable erwartetZahl auf falsch.
+                    erwartetZahl = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                    // Wir erhöhen unseren Zähler, dass eine Zahl als Text vorgekommen ist ...
+                    // TODO: Lösche dieses Kommenta und füge dort den korrekten Ausdruck ein.
+
+                    // ... und setzen unseren Zähler, dass eine Zahl vorgekommen ist, auf 0 zurück.
+                    zaehleVorkommenEinerZahl = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                    // Wenn unser Zähler drei mal vorgekommen ist, dann überschreiben wir erwartetZahl mit wahr.
+                    // Wir wollen deshalb eine Zahl vom User haben.
+                    if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                        erwartetZahl = true;
+                    }
+                }
+
+                int guess;
+
+                // Userinput
+                // Wenn eine Zahl erwartet wird, dann
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.print("Gib eine Zahl ein [0-100]: ");
+
+                    // guards für falschen Userinput - das Muster für eine Zahl kann mit in hasNextInt des Scanners abgefragt werden.
+                    while (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                        System.out.print("Falscher userinput, bitte neu eingeben: ");
+                        scanner.next();
+                    }
+
+                    guess = scanner.nextInt();
+
+                // ansonsten, wird eine Zahl ausgeschrieben erwartet.
+                } else {
+                    System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
+
+                    String pattern = // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein. Dieser ist unten in der Angabe angegeben! Dieser muss nicht selbst ausgedacht werden.
+
+                    // Verwende den RegEx pattern in der Methode hasNext um falschen Userinput abzugangen.
+                    while (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                        System.out.print("Falscher userinput, bitte neu eingeben: ");
+                        scanner.next();
+                    }
+
+                    // Hier kommt nun ein String vom User aus der Console zurück.
+                    String zahlAlsString = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                    // wir sind pragmatisch. Wir lösen ALLE 100 Fälle mit einem Switch.
+                    guess = switch (zahlAlsString) {
+                        case ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+                    };
+                }
+
+                // Spiellogik: habe ich genug leben?
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
+                    break;
+                }
+
+                leben--;
+                versuche++;
+
+                // Spiellogik: wo bin ich mit meinem guess?
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("Die Zahl ist kleiner. Du hast noch " + (leben + 1) + " Leben.");
+
+                } else if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("Die Zahl ist größer. Du hast noch " + (leben + 1) + " Leben.");
+
+                } else if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("gewonnen. Die Zahl war " + zahlZuRaten + ". Es wurden " + versuche + " benötigt.");
+                    break;
+                }
+            }
+
+            // Logik um Spiel neu starten zu können
+            System.out.print("Möchtest du nochmals spielen? [+/-]: ");
+            playAgain = scanner.next().equals("+");
+        }
+
+        System.out.println("Spiel beendet. Danke fürs Spielen!");
+        scanner.close();
+    }
+}
+```
+
+Die Benutzer:in muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Die Benutzer:in hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *30%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint. Jedoch gibt es hier ein paar Nachbesserungen.**
 * Es soll jedoch nicht möglich sein, wenn eine Zahl teilbar durch 10 ist und diese größer als 10 ist, jedoch nicht 100 ist, diese als Text *z.B. fünfzig* eingeben zu können. Es soll immer diese als Zahl *z.B. 50* eingegeben werden.
 * Außerdem soll sichergestellt werden, dass nicht drei mal hintereinander eine Zahl *z.B. 54* oder ein Zahl als Text *z.B. vier-und-fünfzig* eingegeben werden muss. **Detail: Falls bei der 4. Ziehung die Zahl *z.B. füngzig* kommt, können wir nicht *fünzig* eingeben. Hier ist es erlaubt zum 4. mal hintereinander eine Zahl einzugeben.**
 
-**Hinweis:**
+**Hinweise:**
 * Lege zwei Variablen an ``int zaehleVorkommenEinerZahl = 0;`` und ``int zaehleVorkommenEinerZahlAlsText = 0;``. Mit diesen können wir bis z.B. 4 zählen. Das würde bedeuten wir haben 4 mal hintereinander z.B. eine Eingabe der Zahl gehabt. Wenn das der Fall ist ändern wir die Ziehung von ``erwartetZahl=true;`` auf ``erwartetZahl=false;``.
-* Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code, welcher sich online befindet als Vorlage (bei der Lösung im Probetest oder die Lösung der Übung).
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
@@ -224,13 +383,15 @@ String zehnerStellenAlsZahl = "20|30|40|50|60|70|80|90";
 String kombinierterRest = "(" + basisFuerZehnerStellen + ")-und-(" + zehnerStellen + ")";
 String hundert = "ein-hundert";
 
-String pattern = "^|" +
-        "(" + nichtKombinierbar + ")|" +
-        "(" + einerStellenOhneEins + ")|" +
-        "(" + dreizehnBisNeunZehn + ")|" +
-        "(" + zehnerStellenAlsZahl + ")|" +
-        "(" + kombinierterRest + ")|" +
-        hundert + "$";
+String pattern =
+        "^" +
+            hundert + "|" +
+            "(" + zehnerStellenAlsZahl + ")|" +
+            "(" + kombinierterRest + ")|" +
+            "(" + dreizehnBisNeunZehn + ")|" +
+            "(" + einerStellenOhneEins + ")|" +
+            "(" + nichtKombinierbar + ")" +
+        "$";
 ```
 
 * **Interaktion mit Benutzer:innen:**
@@ -264,30 +425,61 @@ Spiel beendet. Danke fürs Spielen!
 ---
 
 ### Theorie [10 / 50 Teilpunkte]
-* a) Was ist der Unterschied zwischen einem ``If-Ausdruck`` und einer ``If-Anweisung``?
-* b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``!(alter >= 25)`` ist?
-* c) Kann ein ``If-Ausdruck`` das gleiche Verhalten wie eine ``If-Anweisung`` haben? Erstelle ein Beispiel und unterstütze deine Antwort damit.
+1) Was ist der Unterschied zwischen einem ``If-Ausdruck`` und einer ``If-Anweisung``?
+2) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``!(alter >= 25)`` ist?
+3) Kann ein ``If-Ausdruck`` das gleiche Verhalten wie eine ``If-Anweisung`` haben? Vergleiche dazu folgenden Code.
+```java
+String antwort;
+
+if (alter > 25) {
+    antwort = "passt.";
+
+} else {
+    antwort = "passt nicht."
+}
+
+System.out.println(antwort);
+```
+
+vs.
+
+```java
+System.out.println(alter > 25 ? "passt" : "passt nicht");
+```
 ---
 
 ## Aufgabe 3: Funktionen (Methoden) schreiben [15 Punkte]
 ### Programmverständnis [10 / 15 Teilpunkte]
-Folgender *Code-Ausschnitt* funktionier nicht. Finde die Fehler, bessere diese aus und erkläre warum es Fehler sind.
+Kopiere folgende Angabe nach [Aufgabe_3/01_Programmverständnis.md](../Aufgabe_3/01_Programmverstaendnis.md) und beantworte dort die folgenden Fragen.
+
+Folgender *Code-Ausschnitt* funktionier nicht. Suche dort Fehler im Code, markiere diese Durch den Text ``//Fehler in dieser Zeile! Begründung: TODO`` und erkläre warum es ein Fehler ist.
+
 ```java
 public static void main(String[] args) {
-    String[][] muster = ...
+    String[][] muster = new String[5][5];
+    
+    // Hier wird das Muster erzeugt, es steht also im Muster was sinnvolles, nicht nur 5x5 null.
+    ...
+    
     String[][] gedrehtesMuster = drehen(spieglenX(transponieren(muster)));
 }
 
 // ein String ist ein Array von Characters - deshalb gibt es hier ein Character[][][] anstatt String[][]
 static Character[][][] transponieren(String[] array) {
-    Character[][][] result;
+    Character[][][] result = new Character[array.length][array.length][array[0].length()];
+
+    // Hier wird das Muster erzeugt, es steht also im Muster was sinnvolles, nicht nur 5x5 null.
     ...
+    
     return result;
 }
 
 static String[][] spiegelnX(String[] array) {
-    String[][] result;
+    String[][] result = new String[array.length][array.length];
+
+    // Hier wird das Muster erzeugt, es steht also im Muster was sinnvolles, nicht nur 5x5 null.
     ...
+
     return result;
 }
 ```
@@ -297,9 +489,9 @@ static String[][] spiegelnX(String[] array) {
 ---
 
 ### Theorie [05 / 15 Teilpunkte]
-* Was ist der Unterschied zwischen dem ``Rückgabeparameter`` und dem ``Eingangsparameter``?
+Kopiere folgende Angabe nach [Aufgabe_3/03_Theorie.md](../Aufgabe_3/03_Theorie.md) und beantworte dort die folgenden Fragen.
+
 * Braucht jede ``Funktion`` (Methode) eine ``return`` ``Keyword``??
 * Wenn wir ``Funktionen`` schachteln ``int result = a(b(c()));`` ist es kein Problem wenn eine der ``Funktionen`` den ``Rückgabetyp`` ``void`` hat. Stimmt diese Aussage? Begründe wieso oder wieso nicht.
-* Warum sollen wir uns mit ``Funktionen`` quälen? Was ist deren Vorteil wenn wir diese Verwenden?
 
 ---

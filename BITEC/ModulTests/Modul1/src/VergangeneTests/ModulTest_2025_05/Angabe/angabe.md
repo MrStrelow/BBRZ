@@ -306,7 +306,7 @@ public class Programmieren_02 {
 }
 ```
 
-Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.**
+Die Benutzer:in muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Die Benutzer:in hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.**
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
@@ -320,22 +320,25 @@ Weiters soll folgendes gelten:
 * **RegEx für Erkennung der Zahlen als Text**: Es kann dieser ``Regex`` verwendet werden um z.B. ``fünf-und-dreißig`` zu erkennen.
 ```java
 String nichtKombinierbar = "null|eins|zehn|elf|zwölf";
-String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
-String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
-String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
-String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
-String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
-String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
-String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
-String hundert = "ein-hundert";
+        String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
+        String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
+        String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
+        String einerStellenOhneEins = "zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+        String basisFuerZehnerStellen = "ein|" + einerStellenOhneEins;
+        String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
+        String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
+        String kombinierterRest = "(" + basisFuerZehnerStellen + ")-und-(" + zehnerStellen + ")";
+        String hundert = "ein-hundert";
 
-String pattern = "^" +
-    nichtKombinierbar + "|" +
-    basis +
-    "|(" + dreizehnBisNeunZehn + ")|" +
-    zehnerStellen +
-    "|(" + kombinierterRest + ")|" +
-    hundert + "$";
+        String pattern =
+                "^" +
+                    hundert + "|" +
+                    "(" + zehnerStellen + ")|" +
+                    "(" + kombinierterRest + ")|" +
+                    "(" + dreizehnBisNeunZehn + ")|" +
+                    "(" + einerStellenOhneEins + ")|" +
+                    "(" + nichtKombinierbar + ")" +
+                "$";
 ```
 
 * **Interaktion mit Benutzer:innen:**
@@ -371,9 +374,9 @@ Spiel beendet. Danke fürs Spielen!
 ### Theorie [10 / 60 Teilpunkte]
 Kopiere folgende Angabe nach [Aufgabe_3/01_Programmverstaendnis.md](../Aufgabe_2/03_Theorie.md) und beantworte dort die folgenden Fragen.
 
-* 1) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingten Anweisung``?
-* 2) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
-* 3) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
+1) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingten Anweisung``?
+2) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
+3) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
 ```java
 if (alter > 25) {
     System.out.println("If-Zweig")
