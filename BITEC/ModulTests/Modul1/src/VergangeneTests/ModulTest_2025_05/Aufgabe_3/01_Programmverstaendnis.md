@@ -3,11 +3,15 @@
 ...
 
 public static void main(String[] args) {
-    String[][] muster = ...
+    String[][] muster = new String[5][5];
+
+    // Hier wird das Muster erzeugt, es steht also im Muster was sinnvolles, nicht nur 5x5 null.
+    ...
+
     String[][] zweiMalGedrehtesMuster = drehen(drehen(muster));
 }
 
-static String[][] drehen(String[][] array) { // Der Rückgabetyp void wurde durch String[][] ersetzt.
+static void drehen(String[][] array) { // Der Rückgabetyp void wurde durch String[][] ersetzt.
     ...
 }
 ...

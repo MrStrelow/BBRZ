@@ -168,7 +168,7 @@ Durchgang: 3
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
-Kopiere folgende Angabe nach [Aufgabe_1/Theorie_03.md](../Aufgabe_1/03_Theorie.md) und beantworte dort die folgenden Fragen.
+Kopiere folgende Angabe nach [Aufgabe_1/03_Theorie.md](../Aufgabe_1/03_Theorie.md) und beantworte dort die folgenden Fragen.
 
 1) Finde Fehler in dem folgenden Code. Beantworte dazu ``//Fehler! Begründung: TODO`` und lösche dazu ``//n. erzeugter Wert hat Typ: TODO oder``
 2) Wenn kein Fehler in der Zeile ist, was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code. Beantworte dazu ``//n. erzeugter Wert hat Typ: TODO`` und lösche ``oder Fehler! Begründung: TODO``.
@@ -189,7 +189,7 @@ String[][][][][] daten[0][0][0][0][0] // 5. erzeugter Wert hat Typ: TODO oder Fe
 
 ## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
-Kopiere folgende Angabe nach [Aufgabe_2/Programmverständnis.md](../Aufgabe_2/01_Programmverstaendnis.md) und beantworte dort die folgenden Fragen.
+Kopiere folgende Angabe nach [Aufgabe_2/01_Programmverständnis.md](../Aufgabe_2/01_Programmverstaendnis.md) und beantworte dort die folgenden Fragen.
 
 Gegeben ist ein ``RegEx``. 
 1) Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
@@ -369,6 +369,8 @@ Spiel beendet. Danke fürs Spielen!
 ---
 
 ### Theorie [10 / 60 Teilpunkte]
+Kopiere folgende Angabe nach [Aufgabe_3/01_Programmverstaendnis.md](../Aufgabe_2/03_Theorie.md) und beantworte dort die folgenden Fragen.
+
 * 1) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingten Anweisung``?
 * 2) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
 * 3) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
@@ -396,12 +398,18 @@ if (alter <= 25) {
 
 ## Aufgabe 3: Funktionen (Methoden) schreiben [30 Punkte]
 ### Programmverständnis [10 / 30 Teilpunkte]
-Folgender *Code-Ausschnitt* funktionier nicht. Finde den Fehler, bessere diesen aus und erkläre warum es ein Fehler ist.
+Kopiere folgende Angabe nach [Aufgabe_3/01_Programmverständnis.md](../Aufgabe_3/01_Programmverstaendnis.md) und beantworte dort die folgenden Fragen.
+
+Folgender *Code-Ausschnitt* funktionier nicht. Suche dort Fehler im Code, markiere diese Durch den Text ``//Fehler in dieser Zeile! Begründung: TODO`` und erkläre warum es ein Fehler ist.
 ```java
 ...
 
 public static void main(String[] args) {
-    String[][] muster = ...
+    String[][] muster = new String[5][5];
+
+    // Hier wird das Muster erzeugt, es steht also im Muster was sinnvolles, nicht nur 5x5 null.
+    ...
+
     String[][] zweiMalGedrehtesMuster = drehen(drehen(muster));
 }
 
@@ -416,8 +424,10 @@ static void drehen(String[][] array) {
 ---
 
 ### Programmieren [20 / 30 Teilpunkte]
+Kopiere den folgenden Programmcode nach [Aufgabe_3/Programmieren_02.java](../Aufgabe_3/Programmieren_02.java). Verwende deine Lösung aus [Aufgabe_2/Pogrammieren_02.java] und füge diese in die unten angegebenen ``Funktionen`` ein. 
+
 Verwende folgende ``Funktionen`` (Methoden) um das *Zahlen Raten* Programm mit *Schnitstellen* zu versehen.
-Diese sind in der Hilfestellung unten in einem Programm zu sehen.
+Diese sind in der Hilfestellung unten in einem Programm zu sehen. 
 
 #### **Hilfestellung:**
 ```java
@@ -474,6 +484,8 @@ public class Programmieren_02 {
 ```
 
 ### Theorie [05 / 30 Teilpunkte]
+Kopiere folgende Angabe nach [Aufgabe_3/03_Theorie.md](../Aufgabe_3/03_Theorie.md) und beantworte dort die folgenden Fragen.
+
 * Was ist der Unterschied zwischen dem ``Rückgabeparameter`` und dem ``Eingangsparameter``?
 * Braucht jede ``Funktion`` (Methode) solche ``Parameter``? 
 * Warum sollen wir uns mit ``Funktionen`` quälen? Was ist deren Vorteil wenn wir diese Verwenden?
