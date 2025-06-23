@@ -13,6 +13,7 @@ public class Programmieren_02 {
         // Beginne mit Logik (Kontrollstrukturen)
         // spiele nochmals
         while (playAgain) {
+            // Wir ziehen eine Zahl welche zufällig zwischen 0 und 100 (inklusive) ist.
             int zahlZuRaten = random.nextInt(0, 101);
             int leben = 5 - 1;
             int versuche = 0;
@@ -22,7 +23,7 @@ public class Programmieren_02 {
             // Beginne mit Logik (Kontrollstrukturen)
             // Wiederholung der Spiellogik
             while (true) {
-                // Wie darf der User seinen Versuch eingeben?
+                // Wie darf der User seinen Versuch eingeben? Als Zahl oder nicht - ziehe dazu mit Random eine zufällige Zahl. 
                 boolean erwartetZahl = random.nextBoolean();
 
                 int guess;
@@ -30,22 +31,19 @@ public class Programmieren_02 {
                 // Userinput
 
                 // NEU:
-                // wenn eine Zahl erwartet wird!
-                if (erwartetZahl) {
-
-                    //alter Code
+                // Wenn eine Zahl erwartet wird!
+                if (erwartetZahl) { 
                     System.out.print("Gib eine Zahl ein [0-100]: ");
 
-                    // guards für falschen Userinput
-                    while (!scanner.hasNextInt()) {
+                    // guards für falschen Userinput - das Muster für eine Zahl kann mit in hasNextInt des Scanners abgefragt werden.
+                    while (!scanner.hasNextInt()) { 
                         System.out.print("Falscher userinput, bitte neu eingeben: ");
                         scanner.next();
                     }
 
                     guess = scanner.nextInt();
 
-                // NEU:
-                // wenn eine Zahl ausgeschrieben erwartet wird!
+                // Wenn eine Zahl ausgeschrieben erwartet wird.
                 } else {
                     System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
 
@@ -53,30 +51,34 @@ public class Programmieren_02 {
                     String ersterTeilDreizehnBisNeunZehn = "drei|vier|fünf|acht|neun";
                     String zweiterTeilDreihzehnBisNeunzehn = "sech|sieb";
                     String dreizehnBisNeunzehn = ersterTeilDreizehnBisNeunZehn + "|" + zweiterTeilDreihzehnBisNeunzehn;
-                    String basis = "ein|zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+                    String einerStellenOhneEins = "zwei|" + ersterTeilDreizehnBisNeunZehn + "|sechs|sieben";
+                    String basisFuerZehnerStellen = "ein|" + einerStellenOhneEins;
                     String dreizehnBisNeunZehn = "(" + dreizehnBisNeunzehn + ")-zehn";
                     String zehnerStellen = "zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig";
-                    String kombinierterRest = "(" + basis + ")-und-(" + zehnerStellen + ")";
+                    String zehnerStellenAlsZahl = "20|30|40|50|60|70|80|90";
+                    String kombinierterRest = "(" + basisFuerZehnerStellen + ")-und-(" + zehnerStellen + ")";
                     String hundert = "ein-hundert";
 
-                    String pattern = "^" +
-                            nichtKombinierbar + "|" +
-                            basis +
-                            "|(" + dreizehnBisNeunZehn + ")|" +
-                            zehnerStellen +
-                            "|(" + kombinierterRest + ")|" +
-                            hundert + "$";
+                    String pattern =
+                            "^" +
+                                hundert + "|" +
+                                "(" + zehnerStellen + ")|" +
+                                "(" + kombinierterRest + ")|" +
+                                "(" + dreizehnBisNeunZehn + ")|" +
+                                "(" + einerStellenOhneEins + ")|" +
+                                "(" + nichtKombinierbar + ")" +
+                            "$";
 
-                    // passen hasNextInt auf hasNext(pattern) an
+                    // Verwende den RegEx pattern in der Methode hasNext um falschen Userinput abzugangen.
                     while (!scanner.hasNext(pattern)) {
                         System.out.print("Falscher userinput, bitte neu eingeben: ");
                         scanner.next();
                     }
 
-                    // hier kommt nun ein String zurück.
+                    // Hier kommt nun ein String vom User aus der Console zurück.
                     String zahlAlsString = scanner.next();
 
-                    // wir sind pragmatisch. wir lösen es mit einem Switch.
+                    // wir sind pragmatisch. Wir lösen ALLE 100 Fälle mit einem Switch.
                     guess = switch (zahlAlsString) {
                         case "null" -> 0;
                         case "eins" -> 1;
@@ -186,7 +188,6 @@ public class Programmieren_02 {
                     };
                 }
 
-                // Hier ist der Code wieder "normal" wie in der Vorlage.
                 // Spiellogik: habe ich genug leben?
                 if (leben == 0) {
                     System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");

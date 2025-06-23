@@ -1,4 +1,4 @@
-# Modultest 1 - BITEC BT02/03
+# Modultest 1 - BITEC
 
 Sie haben `180 Minuten` Zeit die Aufgaben zu lösen
 * Sie können maximal 100 Punkte erreichen
@@ -27,7 +27,7 @@ Notenschlüssel:
 
 ## Aufgabe 1: Arrays [35 / 100 Punkte]
 
-### Programmverständnis [10 / 25 Teilpunkte]
+### Programmverständnis [15 / 25 Teilpunkte]
 Gegeben ist folgender Code, welcher den ``Bubble Sort`` darstellt.
 
 ```java
@@ -97,37 +97,31 @@ public class Programmieren_02 {
 }
 ```
 
-Dieses Programm erzeugt, wenn der Fehler behoben wurde folgenden Output:
+Dieses Programm erzeugt, wenn die Fehler behoben wurden folgenden Output:
 
 <div style="text-align: left; ">
     <img src="output_bubbles_farben.png" alt="erwarteter output" style="width: 20%;">
 </div>
 
-1) Finde die Fehler in diesem Code und bessere diesen aus und markiere diesen. 
-2) Beantworte im ``Programmcode`` mit ``Kommentaren`` folgenden Fragen:
+1) Kopiere den gegebenen Programmcode in [Aufgabe_1/01_Programmveständnis.md](../Aufgabe_1/01_Programmverstaendnis.md). Suche dort Fehler im Code, markiere diese Durch den Text ``//Fehler in dieser Zeile! Begründung: TODO`` und erkläre warum es ein Fehler ist.
+2) Beantworte außerhalb des Programmcodes in ``Aufgabe_1/01_Programmveständnis.md`` folgende Fragen:
     * Was ist die Aufgabe der äußeren For-Schleife?
     * Was ist die Aufgabe der inneren For-Schleife?
     * Was ist die Aufgabe der If-Anweisung?
     * Was ist die Aufgabe der Variable *platzhalter*?
     * Was würde passieren, wenn wir ohne *platzhalter* arbeiten würden? Also innerhalb der ``IF-Anweisung`` folgendes schreiben würden?
-
 ```java
 zahlen[i] = zahlen[i+1];
 zahlen[i+1] = zahlen[i];
 ```
-
----
-
-### Programmieren [10 / 25 Teilpunkte]
-Schreibe folgende Antworten als Kommentare im Java-File.
+3) Wir betrachten folgende animierte Grafik:
 <table style="width:100%">
   <tr>
     <td style="vertical-align: top; padding-right: 10px; width: 50%;">
-      Wir erinnern uns an folgende Grafik:
       <ul>
-        <li>Was bedeutet wenn eine Zahl schwarz umrandet wird?</li>
-        <li>Ist dieses Verhalten in unserem Code vorhanden?</li>
-        <li>Wenn nein, versuche diese Optimierung in das oben angegebene Programm einzubauen.</li>
+        <li>Ist es notwendig schwarz umrandete Zahlen mit anderen Zahlen zu vergleichen? Bergüne kurz warum oder warum nicht.</li>
+        <li>Kann eine schwarz umrandete Zahl ignoriert werden? Begründe kurz warum oder warum nicht.</li>
+        <li>Wird eine schwarz umrandete Zahl in dem oben gegebenen Code ignoriert? Begründe kurz warum oder warum nicht.</li>
       </ul>
     </td>
     <td style="vertical-align: top; padding-left: 10px; width: 50%;">
@@ -137,6 +131,15 @@ Schreibe folgende Antworten als Kommentare im Java-File.
     </td>
   </tr>
 </table>
+
+---
+
+### Programmieren [5 / 25 Teilpunkte]
+Kopiere den Programmcode aus [Programmverständnis](#programmverständnis-15--25-teilpunkte) nach [Aufgabe_1/Programmieren_02.java](../Aufgabe_1/Programmieren_02.java). 
+1) Bessere dort die Fehler aus und 
+2) verbessere den Algorithmus um folgenden Output zu erzeugen. 
+
+**Hinweise:** Denke an die schwarz umrandete Zahl um die Optimierung umzusetzen.
 
 Erwarteter Output:
 ```
@@ -162,51 +165,148 @@ Durchgang: 3
 [-86, 2, 5, 26, 53]
 ```
 
-**Bonus:** Beschreibe den Code der *colorAt* ``Methode``. Versuche zudem die Zahlen im ``Array`` *zahlen* in *Cyan* einzufärben, aber die eckigen *Klammern* und *Beistriche* nicht einzufärben (*ANSI_RESET*).
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px;">
-  [
-  <div style="color:cyan;">53</div>,
-  <div style="color:cyan;">5</div>,
-  <div style="color:cyan;">2</div>,
-  <div style="color:cyan;">26</div>,
-  <div style="color:cyan;">-86</div>
-  ]
-</div>
-
 ---
 
 ### Theorie [5 / 35 Teilpunkte]
-1) Was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code:
+Kopiere folgende Angabe nach [Aufgabe_1/Theorie_03.md](../Aufgabe_1/03_Theorie.md) und beantworte dort die folgenden Fragen.
+
+1) Finde Fehler in dem folgenden Code. Beantworte dazu ``//Fehler! Begründung: TODO`` und lösche dazu ``//n. erzeugter Wert hat Typ: TODO oder``
+2) Wenn kein Fehler in der Zeile ist, was ist der ``Typ`` des erzeugten ``Werte`` in folgendem Code. Beantworte dazu ``//n. erzeugter Wert hat Typ: TODO`` und lösche ``oder Fehler! Begründung: TODO``.
 ```java
 String[][][][][] daten = new String[10][5][15][8][2];
-daten[0][0][0][0]    // 1. erzeugter Wert hat Typ...?
-daten[3][1][6][5]    // 2. erzeugter Wert hat Typ...?
-daten[0][0][0]       // 3. erzeugter Wert hat Typ...?
-daten[0]             // 4. erzeugter Wert hat Typ...?
-daten[0][0][0][0][0] // 5. erzeugter Wert hat Typ...?
+daten[0][0][0][0]    // 1. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+daten[3][1][6][5]    // 2. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+Daten[0][0][0]       // 3. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+daten[0]             // 4. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
+String[][][][][] daten[0][0][0][0][0] // 5. erzeugter Wert hat Typ: TODO oder Fehler! Begründung: TODO
 ```
 
-**Hinweis:** Falls es nicht im Kopf geht, versuche ``JAVA`` den ``Typ`` ausgeben zu lassen. Recherchiere dazu im Internet.
+**Hinweise:** 
+* Falls es nicht im Kopf geht, versuche ``JAVA`` den ``Typ`` mit ``System.out.println`` ausgeben zu lassen. Recherchiere dazu im Internet.
+* Achte auf korrekte Schreibweisen der Variablen und die Größe der Indices.
 
 ---
 
 ## Aufgabe 2: Userinput verarbeiten - RegEx, Schleifen und Scanner [60 Punkte]
 ### Programmverständnis [10 / 60 Teilpunkte]
+Kopiere folgende Angabe nach [Aufgabe_2/Programmverständnis.md](../Aufgabe_2/01_Programmverstaendnis.md) und beantworte dort die folgenden Fragen.
+
 Gegeben ist ein ``RegEx``. 
-* Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
-* Beschreibe ca. was dieser darstellen soll.
+1) Suche und beschreibe die ``Operatoren`` welche hier verwendet wurden.
+2) Beschreibe ca. was dieser ``RegEx`` darstellen soll.
 
 ```rx
-^(ein-hundert|null|eins|zehn|elf|zwölf|ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig)|((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))$
+^ein-hundert|(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig)|((ein|zwei|drei|vier|fünf|acht|neun|sechs|sieben)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))|((drei|vier|fünf|acht|neun|sech|sieb)-zehn)|(zwei|drei|vier|fünf|acht|neun|sechs|sieben)|(null|eins|zehn|elf|zwölf)$
 ```
+
+**Hinweis:** Verwende z.B. einen [Regex-Online-Checker](https://regex101.com/) um die erlaubten Texte zu überprüfen.
 
 ---
 
 ### Programmieren [40 / 60 Teilpunkte]
-Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.**
+Kopiere den folgenden Programmcode nach [Aufgabe_2/Programmieren_02.java](../Aufgabe_2/Programmieren_02.java). 
 
-**Hinweis:** Erstelle das Programm schrittweise. Wir haben das Programm bereits programmiert, jedoch ohne die Erweiterung. Verwende dazu den Code welcher sich online befindet, als Vorlage.
-Dies Programm ist ohne die *50%* Wahrscheinlichkeit der Eingabe in der Form *fünf-und-dreißig*. Danach versuche diese Form hinzuzufügen. Denke zudem pragmatisch. Was ist der einfachste, jedoch anstrengende Weg, wenn der User eine ausgeschriebene Zahl eingibt, dies gleich dem ``Wert`` *ein-und-dreißig* ist und wir dann *31* als *Integer* zurückgeben? Wie machen wir es für alle 100 Fälle? 
+```java
+package VergangeneTests.ModulTest_2025_05.Aufgabe_2;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Programmieren_02 {
+    public static void main(String[] args) {
+        // Variablen Anlegen
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        boolean playAgain = true;
+
+        // Beginne mit Logik (Kontrollstrukturen)
+        // spiele nochmals
+        while (playAgain) {
+            // Wir ziehen eine Zahl welche zufällig zwischen 0 und 100 (inklusive) ist.
+            int zahlZuRaten = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+            int leben = 5 - 1;
+            int versuche = 0;
+
+            System.out.println("Eine Zahl zwischen 0 und 100 wurde gewählt. Rate die Zahl!");
+
+            // Beginne mit Logik (Kontrollstrukturen)
+            // Wiederholung der Spiellogik
+            while (true) {
+                // Wie darf der User seinen Versuch eingeben? Als Zahl oder nicht - ziehe dazu mit Random eine zufällige Zahl. 
+                boolean erwartetZahl = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                int guess;
+
+                // Userinput
+
+                // NEU:
+                // Wenn eine Zahl erwartet wird!
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.print("Gib eine Zahl ein [0-100]: ");
+
+                    // guards für falschen Userinput - das Muster für eine Zahl kann mit in hasNextInt des Scanners abgefragt werden.
+                    while (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                        System.out.print("Falscher userinput, bitte neu eingeben: ");
+                        scanner.next();
+                    }
+
+                    guess = scanner.nextInt();
+
+                // Wenn eine Zahl ausgeschrieben erwartet wird.
+                } else {
+                    System.out.print("Gib eine Zahl als WORT mit Bindestrichen ein [null bis ein-hundert] z.B. ein-und-sechzig: ");
+
+                    String pattern = // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein. Dieser ist unten in der Angabe angegeben! Dieser muss nicht selbst ausgedacht werden.
+
+                    // Verwende den RegEx pattern in der Methode hasNext um falschen Userinput abzugangen.
+                    while (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                        System.out.print("Falscher userinput, bitte neu eingeben: ");
+                        scanner.next();
+                    }
+
+                    // Hier kommt nun ein String vom User aus der Console zurück.
+                    String zahlAlsString = ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+
+                    // wir sind pragmatisch. Wir lösen ALLE 100 Fälle mit einem Switch.
+                    guess = switch (zahlAlsString) {
+                        case ... // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten Ausdruck ein.
+                    };
+                }
+
+                // Spiellogik: habe ich genug leben?
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("Du hast keine Leben mehr. Die Zahl war " + zahlZuRaten + ".");
+                    break;
+                }
+
+                leben--;
+                versuche++;
+
+                // Spiellogik: wo bin ich mit meinem guess?
+                if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("Die Zahl ist kleiner. Du hast noch " + (leben + 1) + " Leben.");
+
+                } else if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("Die Zahl ist größer. Du hast noch " + (leben + 1) + " Leben.");
+
+                } else if (...) { // TODO: Lösche dieses Kommentar, die drei Punkte und füge dort den korrekten logischen Ausdruck ein.
+                    System.out.println("gewonnen. Die Zahl war " + zahlZuRaten + ". Es wurden " + versuche + " benötigt.");
+                    break;
+                }
+            }
+
+            // Logik um Spiel neu starten zu können
+            System.out.print("Möchtest du nochmals spielen? [+/-]: ");
+            playAgain = scanner.next().equals("+");
+        }
+
+        System.out.println("Spiel beendet. Danke fürs Spielen!");
+        scanner.close();
+    }
+}
+```
+
+Der Benutzer muss eine geheime Zahl zwischen 0 und 100 erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage. **Der User wird zudem mit der Wahrscheinlichkeit von *50%* aufgefordert eine Zahl als Text einzugeben. Damit ist z.B. *"neun-und-fünfzig"* ist *59* gemeint.**
 
 Weiters soll folgendes gelten:
 * **Geheime Zahl:**
@@ -269,11 +369,11 @@ Spiel beendet. Danke fürs Spielen!
 ---
 
 ### Theorie [10 / 60 Teilpunkte]
-* a) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingten Anweisung``?
-* b) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
-* c) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
+* 1) Was ist der Unterschied zwischen einer ``If-Verzweigung`` und einer ``Bedingten Anweisung``?
+* 2) Denke an eine ``If-Verzweigung``. Was ist die ``logische Formel`` des ``else`` Zweigs, wenn die ``logische Formel`` für den ``if`` Zweig ``alter > 25`` ist?
+* 3) Kann eine ``If-Verzweigung`` das gleiche Verhalten wie eine ``Bedingte Anweisung`` haben? Vergleiche dazu folgenden Code.
 ```java
-if (false) {
+if (alter > 25) {
     System.out.println("If-Zweig")
 } else {
     System.out.println("Else-Zweig")
@@ -283,11 +383,11 @@ if (false) {
 vs.
 
 ```java
-if (false) {
+if (alter > 25) {
     System.out.println("Bedingte Anweisung")
 } 
 
-if (true) {
+if (alter <= 25) {
     System.out.println("Auch eine Bedingte Anweisung")
 }
 ```

@@ -188,7 +188,7 @@ Gegeben ist ein ``RegEx``.
 * Beschreibe was dieser darstellen soll.
 
 ```rx
-^((ein-hundert|null|eins|zehn|elf|zwölf|ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)|((drei|vier|fünf|sechs|sieben|acht|neun)-zehn)|((ein|zwei|drei|vier|fünf|sechs|sieben|acht|neun)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig)))+$
+^(null|eins|zehn|elf|zwölf)|(zwei|drei|vier|fünf|acht|neun|sechs|sieben)|((drei|vier|fünf|acht|neun|sech|sieb)-zehn)|(20|30|40|50|60|70|80|90)|((ein|zwei|drei|vier|fünf|acht|neun|sechs|sieben)-und-(zwanzig|dreißig|vierzig|fünfzig|sechzig|siebzig|achtzig|neunzig))|ein-hundert$
 ```
 ---
 
@@ -224,13 +224,13 @@ String zehnerStellenAlsZahl = "20|30|40|50|60|70|80|90";
 String kombinierterRest = "(" + basisFuerZehnerStellen + ")-und-(" + zehnerStellen + ")";
 String hundert = "ein-hundert";
 
-String pattern = "^" +
-        "|(" + nichtKombinierbar + ")" +
-        "|(" + einerStellenOhneEins + ")" +
-        "|(" + dreizehnBisNeunZehn + ")" +
-        "|(" + zehnerStellenAlsZahl + ")" +
-        "|(" + kombinierterRest + ")" +
-        "|" + hundert + "$";
+String pattern = "^|" +
+        "(" + nichtKombinierbar + ")|" +
+        "(" + einerStellenOhneEins + ")|" +
+        "(" + dreizehnBisNeunZehn + ")|" +
+        "(" + zehnerStellenAlsZahl + ")|" +
+        "(" + kombinierterRest + ")|" +
+        hundert + "$";
 ```
 
 * **Interaktion mit Benutzer:innen:**
@@ -285,7 +285,7 @@ static Character[][][] transponieren(String[] array) {
     return result;
 }
 
-static string[][] spiegelnX(String[] array) {
+static String[][] spiegelnX(String[] array) {
     String[][] result;
     ...
     return result;

@@ -14,6 +14,6 @@ if (alter > 25) {
 }
 ```
 vs.
-```
+```java
 String antwort = alter > 25 ? "Ok. Passt" : "Nein.";
 ```

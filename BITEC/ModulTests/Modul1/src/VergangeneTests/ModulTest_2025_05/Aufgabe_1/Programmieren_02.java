@@ -15,14 +15,7 @@ public class Programmieren_02 {
 
         for (int j = 0; j < zahlen.length - 1; j++) {
             System.out.println(colorOfInnerLoop + "Durchgang: " + j + ANSI_RESET);
-            // Frage - Was bedeutet wenn eine Zahl schwarz umrandet wird?:
-            // Die schwarz umrandete Zahl ist eine Zahl welche bereits an der richtigen Stelle ist.
-
-            // Frage - Ist dieses Verhalten in unserem Code vorhanden?
-            // Nein, denn wir vergleichen weiter die Zahlen, auch wenn diese an der richtigen Stelle sind.
-
-            // Frage - Wenn nein, versuche diese Optimierung in das oben angegebene Programm einzubauen
-            // i < zahlen.length - 1 - j;
+            
             for (int i = 0; i < zahlen.length - 1 - j; i++) {
 
                 if (zahlen[i] > zahlen[i+1]) {
