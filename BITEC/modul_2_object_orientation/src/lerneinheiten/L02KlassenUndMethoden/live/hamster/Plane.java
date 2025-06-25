@@ -53,7 +53,7 @@ public class Plane {
 
         for (int i = 0; i < numberOfHamsters; i++) {
             // * diese der Liste hinzufügen
-            _hamsters.add(new Hamster(this)); // ?????
+            _hamsters.add(new Hamster(this)); // Wir brauchen this! Ohne dem geht das nicht.
         }
 
         // * Seedlings mit zufälliger Anzahl erstellen
