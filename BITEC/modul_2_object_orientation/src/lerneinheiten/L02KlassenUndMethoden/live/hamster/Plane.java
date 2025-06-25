@@ -1,15 +1,13 @@
 package lerneinheiten.L02KlassenUndMethoden.live.hamster;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Plane {
     // Felder ("globale"-Variable)
     int _size;
     String _earthRepresentation = "🟫";
-    String[][] _plane;
+    String[][] _planeDarstellung;
 
     // Hat-Beziehungen
     ArrayList<Hamster> _hamsters = new ArrayList<>();
@@ -27,7 +25,7 @@ public class Plane {
     void print() {
         for (int zeilen = 0; zeilen < _size; zeilen++) {
             for (int spalten = 0; spalten < _size; spalten++) {
-                System.out.print(_plane[zeilen][spalten]);
+                System.out.print(_planeDarstellung[zeilen][spalten]);
             }
             System.out.println();
         }
@@ -37,12 +35,12 @@ public class Plane {
     Plane(int size) {
         // felder initialisieren
         _size = size;
-        _plane = new String[_size][_size];
+        _planeDarstellung = new String[_size][_size];
 
         // * Darstellung der Plane (String[][]) mit dem earthsymbol auf allen stellen belegen
         for (int zeilen = 0; zeilen < _size; zeilen++) {
             for (int spalten = 0; spalten < _size; spalten++) {
-                _plane[zeilen][spalten] = _earthRepresentation;
+                _planeDarstellung[zeilen][spalten] = _earthRepresentation;
             }
         }
 
@@ -66,8 +64,46 @@ public class Plane {
         }
     }
 
-    boolean AssignInitialPosition(Hamster hamster, int x, int y) {
-        return true;
+    boolean AssignInitialPosition(Hamster hamster, int xWunsch, int yWunsch) {
+        if (!TileTakenByHamster(xWunsch, yWunsch) && !TileTakenBySeedling(xWunsch, yWunsch)) {
+            _planeDarstellung[xWunsch][yWunsch] = hamster._representation;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    boolean AssignInitialPosition(Seedling seedling, int xWunsch, int yWunsch) {
+        if (!TileTakenByHamster(xWunsch, yWunsch) && !TileTakenBySeedling(xWunsch, yWunsch)) {
+            _planeDarstellung[xWunsch][yWunsch] = Seedling._representation;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    boolean TileTakenByHamster(int xWunsch, int yWunsch) {
+        // Findest du ein Problem mit den Hamstern? (gleiche Position).
+        for (Hamster hamsterAusListe : _hamsters) {
+            if (hamsterAusListe.xPosition == xWunsch && hamsterAusListe.yPosition == yWunsch) {
+                return true; // early exit: schau nicht alles in der Liste an.
+            }
+        }
+
+        return false;
+    }
+
+    boolean TileTakenBySeedling(int xWunsch, int yWunsch) {
+        // Findest du ein Problem mit den Seedlings? (gleiche Position).
+        for (Seedling seedlingAusListe : _seedlings) {
+            if (seedlingAusListe.xPosition == xWunsch && seedlingAusListe.yPosition == yWunsch) {
+                return true; // early exit: schau nicht alles in der Liste an.
+            }
+        }
+
+        return false;
     }
 }
 

@@ -23,12 +23,19 @@ public class Hamster {
         _plane = plane;
         _representation = _hungryRepresentation;
         isHungry = true;
+        int xWunsch;
+        int yWunsch;
 
         // zufällig den Hamster positionieren.
-        Random random = new Random();
-        int xWunsch = random.nextInt(0, _plane._size);
-        int yWunsch = random.nextInt(0, _plane._size);
+        do {
+            Random random = new Random();
+            xWunsch = random.nextInt(0, _plane._size);
+            yWunsch = random.nextInt(0, _plane._size);
 
-        done = _plane.AssignInitialPosition(this, xWunsch, yWunsch);
+            done = _plane.AssignInitialPosition(this, xWunsch, yWunsch);
+        } while (!done);
+
+        xPosition = xWunsch;
+        yPosition = yWunsch;
     }
 }

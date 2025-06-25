@@ -1,5 +1,7 @@
 package lerneinheiten.L02KlassenUndMethoden.live.hamster;
 
+import java.util.Random;
+
 public class Seedling {
     // Felder
     int xPosition;
@@ -13,5 +15,21 @@ public class Seedling {
     // Konstruktor
     Seedling(Plane plane) {
         _plane = plane;
+
+        boolean done;
+        int xWunsch;
+        int yWunsch;
+
+        // zufällig den Seedling positionieren.
+        do {
+            Random random = new Random();
+            xWunsch = random.nextInt(0, _plane._size);
+            yWunsch = random.nextInt(0, _plane._size);
+
+            done = _plane.AssignInitialPosition(this, xWunsch, yWunsch);
+        } while (!done);
+
+        xPosition = xWunsch;
+        yPosition = yWunsch;
     }
 }
