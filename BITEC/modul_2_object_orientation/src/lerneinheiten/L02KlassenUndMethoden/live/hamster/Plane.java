@@ -23,17 +23,33 @@ public class Plane {
 
     }
 
+    void print() {
+        for (int zeilen = 0; zeilen < _size; zeilen++) {
+            for (int spalten = 0; spalten < _size; spalten++) {
+                System.out.print(_plane[zeilen][spalten]);
+            }
+            System.out.println();
+        }
+    }
+
     // Konstruktor
     Plane(int size) {
         // felder initialisieren
         _size = size;
         _plane = new String[_size][_size];
 
-        // ein wenig logik:
         // * Darstellung der Plane (String[][]) mit dem earthsymbol auf allen stellen belegen
+        for (int zeilen = 0; zeilen < _size; zeilen++) {
+            for (int spalten = 0; spalten < _size; spalten++) {
+                _plane[zeilen][spalten] = _earthRepresentation;
+            }
+        }
+
+        // ein wenig logik:
 
         // * Hamster mit zufälliger Anzahl erstellen
         // * diese der Liste hinzufügen
+        _hamsters.add(new Hamster());
 
         // * Seedlings mit zufälliger Anzahl erstellen
         // * diese der Liste hinzufügen
