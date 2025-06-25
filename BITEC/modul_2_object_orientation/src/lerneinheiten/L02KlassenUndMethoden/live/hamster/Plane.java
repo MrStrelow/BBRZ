@@ -47,13 +47,27 @@ public class Plane {
         }
 
         // ein wenig logik:
-
         // * Hamster mit zufälliger Anzahl erstellen
-        // * diese der Liste hinzufügen
-        _hamsters.add(new Hamster());
+        Random random = new Random();
+        int numberOfHamsters = random.nextInt( 0, _size * _size);
+
+        for (int i = 0; i < numberOfHamsters; i++) {
+            // * diese der Liste hinzufügen
+            _hamsters.add(new Hamster());
+        }
 
         // * Seedlings mit zufälliger Anzahl erstellen
-        // * diese der Liste hinzufügen
+        int freiePlaetze = _size * _size - numberOfHamsters;
+        int numberOfSeedlings = random.nextInt(0, freiePlaetze);
+
+        for (int i = 0; i < numberOfSeedlings; i++) {
+            // * diese der Liste hinzufügen
+            _seedlings.add(new Seedling());
+        }
+
+        System.out.println(_size*_size);
+        System.out.println(_hamsters.size());
+        System.out.println(_seedlings.size());
     }
 }
 
