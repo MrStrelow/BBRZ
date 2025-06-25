@@ -49,7 +49,7 @@ public class Plane {
         // ein wenig logik:
         // * Hamster mit zufälliger Anzahl erstellen
         Random random = new Random();
-        int numberOfHamsters = random.nextInt( 0, _size * _size);
+        int numberOfHamsters = random.nextInt( 1, _size * _size);
 
         for (int i = 0; i < numberOfHamsters; i++) {
             // * diese der Liste hinzufügen
@@ -57,8 +57,8 @@ public class Plane {
         }
 
         // * Seedlings mit zufälliger Anzahl erstellen
-        int freiePlaetze = _size * _size - numberOfHamsters;
-        int numberOfSeedlings = random.nextInt(0, freiePlaetze);
+        int freiePlaetze = _size * _size - numberOfHamsters + 1;
+        int numberOfSeedlings = random.nextInt(1, freiePlaetze);
 
         for (int i = 0; i < numberOfSeedlings; i++) {
             // * diese der Liste hinzufügen
