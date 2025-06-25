@@ -1,4 +1,4 @@
-package lerneinheiten.L02KlassenUndMethoden.live;
+package lerneinheiten.L02KlassenUndMethoden.live.hund;
 
 public class Besitzer {
     // Felder

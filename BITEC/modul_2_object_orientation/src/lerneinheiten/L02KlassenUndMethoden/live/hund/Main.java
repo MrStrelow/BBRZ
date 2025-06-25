@@ -1,4 +1,4 @@
-package lerneinheiten.L02KlassenUndMethoden.live;
+package lerneinheiten.L02KlassenUndMethoden.live.hund;
 
 public class Main {
     public static void main(String[] args) {
