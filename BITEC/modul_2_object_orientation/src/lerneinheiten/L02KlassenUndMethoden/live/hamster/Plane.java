@@ -65,6 +65,10 @@ public class Plane {
             _seedlings.add(new Seedling(this));
         }
     }
+
+    boolean AssignInitialPosition(Hamster hamster, int x, int y) {
+        return true;
+    }
 }
 
 
