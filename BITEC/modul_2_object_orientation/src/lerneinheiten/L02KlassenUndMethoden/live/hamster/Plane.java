@@ -53,7 +53,7 @@ public class Plane {
 
         for (int i = 0; i < numberOfHamsters; i++) {
             // * diese der Liste hinzufügen
-            _hamsters.add(new Hamster());
+            _hamsters.add(new Hamster(this)); // ?????
         }
 
         // * Seedlings mit zufälliger Anzahl erstellen
@@ -62,12 +62,8 @@ public class Plane {
 
         for (int i = 0; i < numberOfSeedlings; i++) {
             // * diese der Liste hinzufügen
-            _seedlings.add(new Seedling());
+            _seedlings.add(new Seedling(this));
         }
-
-        System.out.println(_size*_size);
-        System.out.println(_hamsters.size());
-        System.out.println(_seedlings.size());
     }
 }
 
