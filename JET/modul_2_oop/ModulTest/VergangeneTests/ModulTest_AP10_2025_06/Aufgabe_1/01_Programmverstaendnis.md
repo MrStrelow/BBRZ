@@ -16,8 +16,9 @@ public int AnzahlKoffer
     {
         if (value <= 2_000)
         {
-            throw new ArgumentException("Anzahl der Koffer muss größer als 2000 sein.");
-            value = AnzahlKoffer; // FEHLER 1: Wir rufen mit value = AnzahlKoffer, anstatt AnzahlKoffer = value auf.
+            throw new ArgumentException("Anzahl der Koffer muss größer als 2000 sein."); // FEHLER 1: Es wird eine Exception geworfen, welche ein Early-Exit darstellt. Folgender Code wird nicht aufgerufen.
+            
+            value = AnzahlKoffer; // FEHLER 2: Wir rufen mit value = AnzahlKoffer, anstatt AnzahlKoffer = value auf.
             // Erklärung zu AnzahlKoffer = value: Es Fehlt das backing field, wenn wir AnzahlKoffer = value verwenden. Wir rufen damit immer wieder die set-methode auf. Da wir in der set-methode sind, gibt es eine Endlosschleife.
         }
     }
