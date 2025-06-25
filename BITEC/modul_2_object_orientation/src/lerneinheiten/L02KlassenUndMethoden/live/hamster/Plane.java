@@ -3,6 +3,7 @@ package lerneinheiten.L02KlassenUndMethoden.live.hamster;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Plane {
     // Felder ("globale"-Variable)
