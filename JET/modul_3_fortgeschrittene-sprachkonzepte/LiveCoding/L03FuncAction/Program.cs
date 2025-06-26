@@ -113,12 +113,12 @@ static bool AuthorIs(BuchDTO buch)
 
 
 //TODO: filter für genre aufrufen 
-result = Filter(bibliothek, deleteme); // TODO: lambda
+var booksFilteredForPages = Filter(bibliothek, buch => buch.Seiten >= 500); 
 //TODO: filter für author aufrufen
-result = Filter(bibliothek,  delteme); //TODO: lambda
-result = Filter(bibliothek, buch => buch.Autor == "J.R.R. Tolkien");
+var booksFilteredForGenres = Filter(bibliothek,  buch => buch.Genre == "Sci-Fi");
+var booksFilteredForAuthors = Filter(bibliothek, buch => buch.Autor == "J.R.R. Tolkien");
 
-Console.WriteLine(string.Join("\n", result));
+Console.WriteLine(string.Join("\n", booksFilteredForPages));
 Console.WriteLine("---------------------");
 
 
