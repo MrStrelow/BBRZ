@@ -113,9 +113,9 @@ static bool AuthorIs(BuchDTO buch)
 
 
 //TODO: filter für genre aufrufen 
-result = Filter(bibliothek, // TODO: lambda);
+result = Filter(bibliothek, deleteme); // TODO: lambda
 //TODO: filter für author aufrufen
-result = Filter(bibliothek, //TODO: lambda );
+result = Filter(bibliothek,  delteme); //TODO: lambda
 result = Filter(bibliothek, buch => buch.Autor == "J.R.R. Tolkien");
 
 Console.WriteLine(string.Join("\n", result));
