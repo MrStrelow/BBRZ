@@ -135,6 +135,7 @@ booksFilteredForPages = Filter(bibliothek, buch => {
 //TODO: filter für author aufrufen
 var booksFilteredForGenres = Filter(bibliothek,  buch => buch.Genre == "Sci-Fi");
 
+Console.WriteLine("Bitte gib einen Author ein: ");
 string? author = Console.ReadLine();
 var booksFilteredForAuthors = Filter(bibliothek, buch => buch.Autor == author);
 
@@ -149,8 +150,15 @@ var resultBooksFilteredForPages = bibliothek.
 var sqlLike = from buch in bibliothek where buch.Seiten >= 500 select buch;
 
 
+// Funktionaler Style
+var sumOfPagesWhereSeitenGreater500 = bibliothek.
+    Where(buch => buch.Seiten >= 500).
+    Sum(buch => buch.Seiten);
 
-Console.WriteLine(string.Join("\n", sqlLike));
+// SQL Style
+sumOfPagesWhereSeitenGreater500 = (from buch in bibliothek where buch.Seiten >= 500 select buch.Seiten).Sum(); 
+
+Console.WriteLine(string.Join("\n", sumOfPagesWhereSeitenGreater500));
 Console.WriteLine("---------------------");
 
 
