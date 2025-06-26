@@ -90,18 +90,33 @@ static List<BuchDTO> Filter(List<BuchDTO> bücher, Func<BuchDTO, bool> filterBed
 }
 
 
-static bool Greater500(BuchDTO buch)
+static bool GreaterThan(BuchDTO buch)
 {
     return buch.Seiten >= 500;
 }
 
 // TODO: genre filter erstellen
+static bool GerneIs(BuchDTO buch)
+{
+    return buch.Genre == "Sci-Fi";
+}
 
 // TODO: author filter erstellen
+static bool AuthorIs(BuchDTO buch)
+{
+    return buch.Autor == "J.R.R. Tolkien";
+}
 
-result = Filter(bibliothek, Greater500);
+// Variante 3 - Lambdas
+
+
+
+
 //TODO: filter für genre aufrufen 
+result = Filter(bibliothek, // TODO: lambda);
 //TODO: filter für author aufrufen
+result = Filter(bibliothek, //TODO: lambda );
+result = Filter(bibliothek, buch => buch.Autor == "J.R.R. Tolkien");
 
 Console.WriteLine(string.Join("\n", result));
 Console.WriteLine("---------------------");
