@@ -108,6 +108,21 @@ static bool AuthorIs(BuchDTO buch)
 }
 
 // Variante 3 - Lambdas
+//static List<BuchDTO> Filter(List<BuchDTO> bücher, Func<BuchDTO, bool> filterBedingung)
+//{
+//    var nachSciFiGefilterteBuecher = new List<BuchDTO>();
+
+//    foreach (var buch in bücher)
+//    {
+//        if (filterBedingung(buch))
+//        {
+//            nachSciFiGefilterteBuecher.Add(buch);
+//        }
+//    }
+
+//    return nachSciFiGefilterteBuecher;
+//}
+
 //TODO: filter für genre aufrufen 
 var booksFilteredForPages = Filter(bibliothek, buch => buch.Seiten >= 500); 
 
@@ -124,6 +139,18 @@ string? author = Console.ReadLine();
 var booksFilteredForAuthors = Filter(bibliothek, buch => buch.Autor == author);
 
 Console.WriteLine(string.Join("\n", booksFilteredForPages));
+Console.WriteLine("---------------------");
+
+// Variante 4 - LINQ
+var resultBooksFilteredForPages = bibliothek.
+    Where(buch => buch.Seiten >= 500).
+    Where(buch => buch.Autor == "J.R.R. Tolkien");
+
+var sqlLike = from buch in bibliothek where buch.Seiten >= 500 select buch;
+
+
+
+Console.WriteLine(string.Join("\n", sqlLike));
 Console.WriteLine("---------------------");
 
 
