@@ -108,15 +108,20 @@ static bool AuthorIs(BuchDTO buch)
 }
 
 // Variante 3 - Lambdas
-
-
-
-
 //TODO: filter für genre aufrufen 
 var booksFilteredForPages = Filter(bibliothek, buch => buch.Seiten >= 500); 
+
+// Mehrzeiliger Lambda
+booksFilteredForPages = Filter(bibliothek, buch => {
+    bool result = buch.Seiten >= 500;
+    return result;
+    }); 
+
 //TODO: filter für author aufrufen
 var booksFilteredForGenres = Filter(bibliothek,  buch => buch.Genre == "Sci-Fi");
-var booksFilteredForAuthors = Filter(bibliothek, buch => buch.Autor == "J.R.R. Tolkien");
+
+string? author = Console.ReadLine();
+var booksFilteredForAuthors = Filter(bibliothek, buch => buch.Autor == author);
 
 Console.WriteLine(string.Join("\n", booksFilteredForPages));
 Console.WriteLine("---------------------");
