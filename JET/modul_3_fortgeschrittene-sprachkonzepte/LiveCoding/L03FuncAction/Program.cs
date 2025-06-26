@@ -95,8 +95,14 @@ static bool Greater500(BuchDTO buch)
     return buch.Seiten >= 500;
 }
 
+// TODO: genre filter erstellen
+
+// TODO: author filter erstellen
+
 result = Filter(bibliothek, Greater500);
-//result = Filter(bibliothek, Greater500);
+//TODO: filter für genre aufrufen 
+//TODO: filter für author aufrufen
+
 Console.WriteLine(string.Join("\n", result));
 Console.WriteLine("---------------------");
 
