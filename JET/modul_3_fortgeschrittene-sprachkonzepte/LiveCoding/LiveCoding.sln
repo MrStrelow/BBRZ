@@ -5,11 +5,11 @@ VisualStudioVersion = 17.12.35707.178 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01TopLevelStatementsUndGlobalUsings", "L01TopLevelStatementsUndGlobalUsings.csproj", "{5B22065A-12B6-46B3-8B57-F2221E396ED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01Bibliotheken", "..\L01Bibliotheken\L01Bibliotheken.csproj", "{CDCC891E-30A1-4B4B-9253-4FFC30EAC326}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01Bibliotheken", "L01Bibliotheken\L01Bibliotheken.csproj", "{CDCC891E-30A1-4B4B-9253-4FFC30EAC326}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01ProjektWasEinzuBindenIst", "..\L01ProjektWasEinzuBindenIst\L01ProjektWasEinzuBindenIst.csproj", "{AFC3957F-4312-4191-B920-942F857C3281}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01ProjektWasEinzuBindenIst", "L01ProjektWasEinzuBindenIst\L01ProjektWasEinzuBindenIst.csproj", "{AFC3957F-4312-4191-B920-942F857C3281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01HamsterMitLogsInFile", "..\L01HamsterMitLogsInFile\L01HamsterMitLogsInFile.csproj", "{3362A3B1-44DC-4C36-BED3-338BAE784395}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01HamsterMitLogsInFile", "L01HamsterMitLogsInFile\L01HamsterMitLogsInFile.csproj", "{3362A3B1-44DC-4C36-BED3-338BAE784395}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02Serialisierung", "L02Serialisierung\L02Serialisierung.csproj", "{F3FAF83F-8BF8-4B38-A7D0-9158C089CC23}"
 EndProject

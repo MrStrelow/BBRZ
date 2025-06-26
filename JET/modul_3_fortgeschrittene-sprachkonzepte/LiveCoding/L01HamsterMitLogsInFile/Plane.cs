@@ -12,10 +12,6 @@ public class Plane
     public Dictionary<(int x, int y), Seedling> Seedlings { get; private set; } = new();
     public List<Hamster> Hamsters { get; private set; } = new();
 
-    // TODO: Sprich "Fehler" an. Verwenden wir wirklich das Image oder nur den path?
-    // Wir haben hier die Haupteigenschaft Image welche wir nicht wirklich verwenden.
-    // Neue Implementierung -> html representation. Das schaut aber gleich aus wie die unicode representation.
-    // wir sollten uns nicht mit solchen dinge aufhalten, denn diese haben keinen effekt auf die Kriterien/Ziele.
     public static IVisuals Visual { get; protected set; } = new PlaneVisuals();
 
     // Konstruktor
