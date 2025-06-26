@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01HamsterMitLogsInFile", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02Serialisierung", "L02Serialisierung\L02Serialisierung.csproj", "{F3FAF83F-8BF8-4B38-A7D0-9158C089CC23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03FuncAction", "L03FuncAction\L03FuncAction.csproj", "{F3FAF83F-8BF8-4B38-A7D0-9158C089CC23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
