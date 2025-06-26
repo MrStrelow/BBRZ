@@ -15,7 +15,9 @@ var bibliothek = new List<BuchDTO>
 Console.WriteLine(string.Join("\n", bibliothek));
 Console.WriteLine("---------------------");
 
- //TODO: baue folgende filter.
+//###################################################################
+// Variante 1
+//TODO: baue folgende filter.
 static List<BuchDTO> FiltereNachGenreSciFi(List<BuchDTO> bücher)
 {
     var nachSciFiGefilterteBuecher = new List<BuchDTO>();
@@ -62,13 +64,42 @@ static List<BuchDTO> FiltereNachMindestseiten(List<BuchDTO> bücher, int minSeit
 }
 
 // 3. Ausgabe
-var result = FiltereNachGenreSciFi(bibliothek);
+var result = FiltereNachMindestseiten(bibliothek, 500);
 
-result = FiltereNachMindestseiten(bibliothek, 500);
-result = FiltereNachAutor(bibliothek, "J.R.R. Tolkien");
+//result = FiltereNachGenreSciFi(bibliothek);
+//result = FiltereNachAutor(bibliothek, "J.R.R. Tolkien");
 
 Console.WriteLine(string.Join("\n", result));
 Console.WriteLine("---------------------");
+
+//###################################################################
+// Variante 2
+static List<BuchDTO> Filter(List<BuchDTO> bücher, Func<BuchDTO, bool> filterBedingung)
+{
+    var nachSciFiGefilterteBuecher = new List<BuchDTO>();
+
+    foreach (var buch in bücher)
+    {
+        if (filterBedingung(buch))
+        {
+            nachSciFiGefilterteBuecher.Add(buch);
+        }
+    }
+
+    return nachSciFiGefilterteBuecher;
+}
+
+
+static bool Greater500(BuchDTO buch)
+{
+    return buch.Seiten >= 500;
+}
+
+result = Filter(bibliothek, Greater500);
+//result = Filter(bibliothek, Greater500);
+Console.WriteLine(string.Join("\n", result));
+Console.WriteLine("---------------------");
+
 
 // 1. Properties anlegen.
 internal class BuchDTO()
