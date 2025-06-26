@@ -10,7 +10,23 @@
     new Buch { Titel = "1984", Autor = "George Orwell", Genre = "Dystopie", Seiten = 350 }
 };
 
+// TODO: baue folgende filter.
+static List<Buch> FiltereNachGenreSciFi(List<Buch> bücher)
+{
+   throw new NotImplementedException();
+}
 
+static List<Buch> FiltereNachAutor(List<Buch> bücher, string autor)
+{
+    throw new NotImplementedException();
+}
+
+static List<Buch> FiltereNachMindestseiten(List<Buch> bücher, int minSeiten)
+{
+    throw new NotImplementedException();
+}
+
+// 1. Properties anlegen.
 internal class Buch()
 {
     // titel
