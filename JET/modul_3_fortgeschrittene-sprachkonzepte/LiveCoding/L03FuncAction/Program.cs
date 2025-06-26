@@ -1,42 +1,93 @@
-﻿var bibliothek = new List<Buch>
+﻿using System.Collections.Generic;
+
+var bibliothek = new List<BuchDTO>
 {
-    new Buch { Titel = "Der Herr der Ringe", Autor = "J.R.R. Tolkien", Genre = "Fantasy", Seiten = 1200 },
-    new Buch { Titel = "Der Hobbit", Autor = "J.R.R. Tolkien", Genre = "Fantasy", Seiten = 350 },
-    new Buch { Titel = "Stolz und Vorurteil", Autor = "Jane Austen", Genre = "Romanze", Seiten = 400 },
-    new Buch { Titel = "Emma", Autor = "Jane Austen", Genre = "Romanze", Seiten = 500 },
-    new Buch { Titel = "Dune - Der Wüstenplanet", Autor = "Frank Herbert", Genre = "Sci-Fi", Seiten = 800 },
-    new Buch { Titel = "Per Anhalter durch die Galaxis", Autor = "Douglas Adams", Genre = "Sci-Fi", Seiten = 250 },
-    new Buch { Titel = "Foundation", Autor = "Isaac Asimov", Genre = "Sci-Fi", Seiten = 255 },
-    new Buch { Titel = "1984", Autor = "George Orwell", Genre = "Dystopie", Seiten = 350 }
+    new BuchDTO { Titel = "Der Herr der Ringe", Autor = "J.R.R. Tolkien", Genre = "Fantasy", Seiten = 1200 },
+    new BuchDTO { Titel = "Der Hobbit", Autor = "J.R.R. Tolkien", Genre = "Fantasy", Seiten = 350 },
+    new BuchDTO { Titel = "Stolz und Vorurteil", Autor = "Jane Austen", Genre = "Romanze", Seiten = 400 },
+    new BuchDTO { Titel = "Emma", Autor = "Jane Austen", Genre = "Romanze", Seiten = 500 },
+    new BuchDTO { Titel = "Dune - Der Wüstenplanet", Autor = "Frank Herbert", Genre = "Sci-Fi", Seiten = 800 },
+    new BuchDTO { Titel = "Per Anhalter durch die Galaxis", Autor = "Douglas Adams", Genre = "Sci-Fi", Seiten = 250 },
+    new BuchDTO { Titel = "Foundation", Autor = "Isaac Asimov", Genre = "Sci-Fi", Seiten = 255 },
+    new BuchDTO { Titel = "1984", Autor = "George Orwell", Genre = "Dystopie", Seiten = 350 }
 };
 
-// TODO: baue folgende filter.
-static List<Buch> FiltereNachGenreSciFi(List<Buch> bücher)
+Console.WriteLine(string.Join("\n", bibliothek));
+Console.WriteLine("---------------------");
+
+ //TODO: baue folgende filter.
+static List<BuchDTO> FiltereNachGenreSciFi(List<BuchDTO> bücher)
 {
-   throw new NotImplementedException();
+    var nachSciFiGefilterteBuecher = new List<BuchDTO>();
+
+    foreach (var buch in bücher)
+    {
+        if (buch.Genre == "Sci-Fi")
+        {
+            nachSciFiGefilterteBuecher.Add(buch);
+        }
+    }
+
+    return nachSciFiGefilterteBuecher;
 }
 
-static List<Buch> FiltereNachAutor(List<Buch> bücher, string autor)
+static List<BuchDTO> FiltereNachAutor(List<BuchDTO> bücher, string autor)
 {
-    throw new NotImplementedException();
+    var nachSciFiGefilterteBuecher = new List<BuchDTO>();
+
+    foreach (var buch in bücher)
+    {
+        if (buch.Autor == autor)
+        {
+            nachSciFiGefilterteBuecher.Add(buch);
+        }
+    }
+
+    return nachSciFiGefilterteBuecher;
 }
 
-static List<Buch> FiltereNachMindestseiten(List<Buch> bücher, int minSeiten)
+static List<BuchDTO> FiltereNachMindestseiten(List<BuchDTO> bücher, int minSeiten)
 {
-    throw new NotImplementedException();
+    var nachSciFiGefilterteBuecher = new List<BuchDTO>();
+
+    foreach (var buch in bücher)
+    {
+        if (buch.Seiten >= minSeiten)
+        {
+            nachSciFiGefilterteBuecher.Add(buch);
+        }
+    }
+
+    return nachSciFiGefilterteBuecher;
 }
+
+// 3. Ausgabe
+var result = FiltereNachGenreSciFi(bibliothek);
+
+result = FiltereNachMindestseiten(bibliothek, 500);
+result = FiltereNachAutor(bibliothek, "J.R.R. Tolkien");
+
+Console.WriteLine(string.Join("\n", result));
+Console.WriteLine("---------------------");
 
 // 1. Properties anlegen.
-internal class Buch()
+internal class BuchDTO()
 {
     // titel
+    public string Titel { get; set; }
+
     // autor
+    public string Autor { get; set; }
+
     // genre
+    public string Genre { get; set; }
+
     // seiten
+    public int Seiten { get; set; }
 
     public override string ToString()
     {
-        return $"'{Titel}' von {Autor} ({Seiten} Seiten)";
+        return $"'{Titel}' von {Autor} ({Seiten} Seiten - {Genre})";
     }
 }
 
