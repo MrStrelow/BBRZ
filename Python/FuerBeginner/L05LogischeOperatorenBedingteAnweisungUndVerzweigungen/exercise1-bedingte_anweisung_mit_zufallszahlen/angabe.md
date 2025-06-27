@@ -64,19 +64,19 @@ ziel_in_y = randint(..., ...)
 
 # Die Turtle bewegt sich nur zu den Koordinaten, wenn wir auf der rechten Bildschirmhälfte uns befinden.
 # Verwende dazu das Keyword if um die Bedingte Anweisung umzusetzen.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+    # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# Die Turtle drückt den Faden auf den Boden und machen damit einen Abdruck.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+    # Die Turtle drückt den Faden auf den Boden und machen damit einen Abdruck.
+    # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# Die Turtle holt den Faden aus der Tasche und legt diesen auf den Boden, wenn diese losgeht.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+    # Die Turtle holt den Faden aus der Tasche und legt diesen auf den Boden, wenn diese losgeht.
+    # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# Die Turtle geht in einer geraden linie zu den angegebenen Kooridinaten.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+    # Die Turtle geht in einer geraden linie zu den angegebenen Kooridinaten.
+    # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
-# Am schluss gräbt sich die Turtle ein um im Sand zu schlafen.
-# TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+    # Am schluss gräbt sich die Turtle ein um im Sand zu schlafen.
+    # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
 
 # Wenn die Turtle nach links gehen würde, dann mache nichts.
 # TODO: Lösche dieses Kommetar und schreibe hier nichts!
