@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -210,6 +211,32 @@ public class Programm
         //------------------------------------------------------------------------
         // Guard Clauses mit LINQ
 
+        var kundenInStadt = new List<Kunde>();
+
+        // Guards für viele Kunden - alt
+        foreach (var kunde in kunden)
+        {
+            if (kunde.Stadt != "Wien")
+            {
+                throw new Exception($"{kunde.Name} - Kunde nicht in Wien, sondern {kunde.Stadt}");
+            }
+        }
+
+        // Guards für viele Kunden - neu mit LINQ
+        if (kunden.Any(kunde => kunde.Stadt != "Wien"))
+        {
+            throw new Exception("Kunde nicht in Wien"); // wir wissen aber nicht welcher kunde, der ist innerhalb des Lambdas versteckt.
+        }
+
+        // Guards für viele Kunden - neu mit LINQ
+        var sollNullSein = kunden.FirstOrDefault(kunde => kunde.Stadt != "Wien");
+
+        if (sollNullSein is not null)
+        {
+            throw new Exception($"{sollNullSein.Name} - Kunde nicht in Wien, sondern {sollNullSein.Stadt}"); // wir wissen aber nicht welcher kunde, der ist innerhalb des Lambdas versteckt.
+        }
+
+        // #######################################################################
         // Übungen:
         var customers = new List<Customer>
         {
