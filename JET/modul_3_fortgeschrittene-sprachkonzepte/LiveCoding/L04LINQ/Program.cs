@@ -158,7 +158,11 @@ public class Programm
 
         Console.WriteLine(string.Join("\n", NeuesObjektVonUmssetzeMehrAls500));
 
-        // [SQL] GroupBy
+        // [SQL - Aggregationsfunktionen ohne GroupBy] - Sum, Average, Min, Max, Any, All
+        var summeAlerUmsätze = verkaeufe.Sum(verkaeufe => verkaeufe.Umsatz);
+        Console.WriteLine($"{summeAlerUmsätze:C}");
+
+        // [SQL - Aggregationsfunktionen mit GroupBy] - Sum, Average, Min, Max, Any, All
         var guppierteVerkaeufeNachStandort = verkaeufe.GroupBy(verkaeufe => verkaeufe.StandortId);
 
         foreach (var gruppe in guppierteVerkaeufeNachStandort)
@@ -171,10 +175,38 @@ public class Programm
             Console.WriteLine("++++++++++++++++");
         }
 
-        // Any, All
+        var summeDerVerkaeufeNachStandort = verkaeufe.
+            GroupBy(verkaeufe => verkaeufe.StandortId).
+            Select(gruppe => new
+            { 
+                StandortId = gruppe.Key,
+                UmsatzProStandort = gruppe.Sum(u => u.Umsatz)
+            }).
+            Select(umsaetze => new {
+                StandortId = umsaetze.StandortId,
+                UmsatzProStandort = $"{umsaetze.UmsatzProStandort:C}"
+            });
 
-        // [SQL - Aggregationsfunktionen] Sum, Average, Min, Max
+        Console.WriteLine(string.Join("\n", summeDerVerkaeufeNachStandort));
 
+
+        // [SQL Having -> ist nur ein zeilenfilter des gruppierten Aggregats] -> brauchen wir nicht. Verwenden where.
+        Console.WriteLine("#################");
+        var summeDerVerkaeufeNachStandortGroesser1000 = verkaeufe.
+            GroupBy(verkaeufe => verkaeufe.StandortId).
+            Select(gruppe => new
+            {
+                StandortId = gruppe.Key,
+                UmsatzProStandort = gruppe.Sum(u => u.Umsatz)
+            }).
+            Where(umsaetze => umsaetze.UmsatzProStandort > 1000). // Das ist unser HAVING!
+            Select(umsaetze => new
+            {
+                StandortId = umsaetze.StandortId,
+                UmsatzProStandort = $"{umsaetze.UmsatzProStandort:C}"
+            });
+
+        Console.WriteLine(string.Join("\n", summeDerVerkaeufeNachStandortGroesser1000));
         //------------------------------------------------------------------------
         // Guard Clauses mit LINQ
 
