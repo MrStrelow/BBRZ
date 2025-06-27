@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01TopLevelStatementsUndGlobalUsings", "L01TopLevelStatementsUndGlobalUsings.csproj", "{5B22065A-12B6-46B3-8B57-F2221E396ED8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01Bibliotheken", "L01Bibliotheken\L01Bibliotheken.csproj", "{CDCC891E-30A1-4B4B-9253-4FFC30EAC326}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01ProjektWasEinzuBindenIst", "L01ProjektWasEinzuBindenIst\L01ProjektWasEinzuBindenIst.csproj", "{AFC3957F-4312-4191-B920-942F857C3281}"
