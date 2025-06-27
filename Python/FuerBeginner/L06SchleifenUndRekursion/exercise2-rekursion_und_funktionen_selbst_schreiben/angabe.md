@@ -45,6 +45,11 @@ def ... # TODO: Lösche dieses Kommentar, die drei Punkte und füge dort die kor
     # Wir schreiben alles was zuerst in der While-Schleife war, in die Prozedur rein.
     # TODO: Lösche dieses Kommetar und kopiere den Programmcode aus der While Schleife der exercise 1 - Aufgabe 1 und füge ihn hier ein!
 
+    # Wichtig! Wir müssen uns am Ende der Prozedur selbst aufrufen! 
+    # Damit ist ein Aufruf von ich_rufe_mich_selbst_auf gemeint.
+    # Wir rufen eine Prozedur ohne Parameter auf, indem wir () hinter den Namen der Prozedur schreiben.
+    # TODO: Lösche dieses Kommetar und schreibe den Programmcode hier!
+
 # Der start der Rekursion welche niemals abbrechen soll.
 # Wir haben nun ich_rufe_mich_selbst_auf erstellt (definiert), jedoch noch nicht aufgerufen. 
 # Um das zu tun schreiben wir ich_rufe_mich_selbst_auf() nochmals hin.
