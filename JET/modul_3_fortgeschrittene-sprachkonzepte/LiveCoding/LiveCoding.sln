@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02Serialisierung", "L02Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L03FuncAction", "L03FuncAction\L03FuncAction.csproj", "{F56BE0DC-ACF0-40E7-9B3E-AA688ABC0C92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L04LINQ", "L04LINQ\L04LINQ.csproj", "{12297A56-C7DA-4364-8D4B-81331DC71771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F56BE0DC-ACF0-40E7-9B3E-AA688ABC0C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F56BE0DC-ACF0-40E7-9B3E-AA688ABC0C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F56BE0DC-ACF0-40E7-9B3E-AA688ABC0C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12297A56-C7DA-4364-8D4B-81331DC71771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12297A56-C7DA-4364-8D4B-81331DC71771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12297A56-C7DA-4364-8D4B-81331DC71771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12297A56-C7DA-4364-8D4B-81331DC71771}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
