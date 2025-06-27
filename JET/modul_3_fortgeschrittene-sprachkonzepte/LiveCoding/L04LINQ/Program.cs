@@ -190,7 +190,7 @@ public class Programm
         Console.WriteLine(string.Join("\n", summeDerVerkaeufeNachStandort));
 
 
-        // [SQL Having -> ist nur ein zeilenfilter des gruppierten Aggregats] -> brauchen wir nicht. Verwenden where.
+        // [SQL Having -> ist nur ein zeilenfilter, wie where, nur auf die Aggregierung, nach einem GroupBy] -> brauchen wir nicht. Verwenden where.
         Console.WriteLine("#################");
         var summeDerVerkaeufeNachStandortGroesser1000 = verkaeufe.
             GroupBy(verkaeufe => verkaeufe.StandortId).
@@ -199,7 +199,7 @@ public class Programm
                 StandortId = gruppe.Key,
                 UmsatzProStandort = gruppe.Sum(u => u.Umsatz)
             }).
-            Where(umsaetze => umsaetze.UmsatzProStandort > 1000). // Das ist unser HAVING!
+            Where(umsaetze => umsaetze.UmsatzProStandort > 1000). // Das ist unser HAVING! 
             Select(umsaetze => new
             {
                 StandortId = umsaetze.StandortId,
@@ -211,7 +211,6 @@ public class Programm
         // Guard Clauses mit LINQ
 
         // Übungen:
-        // === AUFGABE 1: Daten "einlesen" (hier: definieren) ===
         var customers = new List<Customer>
         {
             new Customer { CustomerID = 1, Name = "John Smith", City = "New York" },
@@ -234,9 +233,23 @@ public class Programm
 
         // === AUFGABE 2: Merge (SQL: JOIN) ===
         // Verbinde 'sales' und 'customers' über die 'CustomerID'. Das Ergebnis soll die Spalten aus beiden Listen enthalten.
-        
+        var data = sales.Join(customers,
+            sale => sale.CustomerID,
+            customer => customer.CustomerID,
+            (sale, customer) => new
+            {
+                sale.OrderID,
+                sale.CustomerID,
+                sale.Date,
+                sale.Amount,
+                sale.Quantity,
+                sale.Product,
+                customer.Name,
+                customer.City
+            }
+        );
 
-        //PrintResults("Aufgabe 2: Gejointe Daten (Merge)", data.Take(5));
+        PrintResults("Aufgabe 2: Gejointe Daten (Merge)", data);
 
 
         // === AUFGABE 3: Filtern (SQL: WHERE) ===
