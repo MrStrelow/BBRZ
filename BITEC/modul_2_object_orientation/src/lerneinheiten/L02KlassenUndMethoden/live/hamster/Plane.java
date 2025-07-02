@@ -140,7 +140,7 @@ public class Plane {
         // ein wenig logik:
         // * Hamster mit zufälliger Anzahl erstellen
         Random random = new Random();
-        int numberOfHamsters = random.nextInt( 1, _size * _size);
+        int numberOfHamsters = 1; // TODO: rever to this -> random.nextInt( 1, _size * _size);
 
         for (int i = 0; i < numberOfHamsters; i++) {
             // * diese der Liste hinzufügen

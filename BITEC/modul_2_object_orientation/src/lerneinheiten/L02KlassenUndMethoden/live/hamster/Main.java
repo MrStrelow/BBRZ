@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         // variable spielfeld vom Typ Plane anlegen.
         Plane spielfeld = new Plane(6);
-        spielfeld.print();
 
         while (true) {
             // hamster macht was
@@ -14,6 +13,9 @@ public class Main {
 
             // seedling macht was
             spielfeld.simulateSeedling();
+
+            // stelle jede bewegung dar wenn diese für alle Hamster abgeschlossen wurde
+            spielfeld.print();
         }
     }
 }
