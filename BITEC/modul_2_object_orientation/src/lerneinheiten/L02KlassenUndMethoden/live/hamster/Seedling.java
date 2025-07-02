@@ -26,7 +26,7 @@ public class Seedling {
             xWunsch = random.nextInt(0, _plane._size);
             yWunsch = random.nextInt(0, _plane._size);
 
-            done = _plane.AssignInitialPosition(this, xWunsch, yWunsch);
+            done = _plane.assignInitialPosition(this, xWunsch, yWunsch);
         } while (!done);
 
         xPosition = xWunsch;

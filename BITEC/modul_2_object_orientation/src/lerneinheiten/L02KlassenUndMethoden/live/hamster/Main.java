@@ -8,11 +8,11 @@ public class Main {
         Plane spielfeld = new Plane(6);
 
         while (true) {
-            // hamster macht was
+            // hamster macht was - bewegen und essen
             spielfeld.simulateHamster();
 
-            // seedling macht was
-            spielfeld.simulateSeedling();
+            // seedling macht was - wächsts nach
+//            spielfeld.simulateSeedling();
 
             // stelle jede bewegung dar, wenn diese für alle Hamster abgeschlossen wurde
             spielfeld.print();

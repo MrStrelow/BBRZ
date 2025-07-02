@@ -18,6 +18,28 @@ public class Hamster {
     Plane _plane;
     // -----------------------------
     // Methoden
+    void nahrungsVerhalten() {
+        Random random = new Random();
+
+        if (random.nextDouble() < 0.1) {
+            isHungry = true;
+            _representation = _hungryRepresentation;
+        }
+
+        boolean tileHasSeedling = _plane.tileTakenBySeedling(xPosition, yPosition);
+
+        if (tileHasSeedling) {
+            if (isHungry) {
+                _representation = _fedRepresentation;
+                isHungry = false;
+
+                Seedling seedlingAmGleichenFeld = _plane.getSeedlingOnPosition(xPosition, yPosition);
+                _plane._seedlings.remove(seedlingAmGleichenFeld);
+                // hamster speicher seedling im mund...
+            }
+        }
+    }
+
     void bewegen() {
         Random random = new Random();
         int index = random.nextInt(0, Richtung.values().length);
@@ -42,7 +64,7 @@ public class Hamster {
             xWunsch = random.nextInt(0, _plane._size);
             yWunsch = random.nextInt(0, _plane._size);
 
-            done = _plane.AssignInitialPosition(this, xWunsch, yWunsch);
+            done = _plane.assignInitialPosition(this, xWunsch, yWunsch);
         } while (!done);
 
         xPosition = xWunsch;

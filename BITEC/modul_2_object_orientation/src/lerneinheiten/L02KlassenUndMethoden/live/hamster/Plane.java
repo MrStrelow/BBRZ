@@ -20,8 +20,18 @@ public class Plane {
             hamster.bewegen();
 
             // essen
-            // TODO:
+            hamster.nahrungsVerhalten();
         }
+    }
+
+    Seedling getSeedlingOnPosition(int x, int y) {
+        for (Seedling seedlingAusListe : _seedlings) {
+            if (seedlingAusListe.xPosition == x && seedlingAusListe.yPosition == y) {
+                return seedlingAusListe;
+            }
+        }
+
+        return null;
     }
 
     void simulateSeedling() {
@@ -107,8 +117,8 @@ public class Plane {
         }
     }
 
-    boolean AssignInitialPosition(Hamster hamster, int xWunsch, int yWunsch) {
-        if (!TileTakenByHamster(xWunsch, yWunsch) && !TileTakenBySeedling(xWunsch, yWunsch)) {
+    boolean assignInitialPosition(Hamster hamster, int xWunsch, int yWunsch) {
+        if (!tileTakenByHamster(xWunsch, yWunsch) && !tileTakenBySeedling(xWunsch, yWunsch)) {
             _planeDarstellung[xWunsch][yWunsch] = hamster._representation;
 
             return true;
@@ -117,8 +127,8 @@ public class Plane {
         return false;
     }
 
-    boolean AssignInitialPosition(Seedling seedling, int xWunsch, int yWunsch) {
-        if (!TileTakenByHamster(xWunsch, yWunsch) && !TileTakenBySeedling(xWunsch, yWunsch)) {
+    boolean assignInitialPosition(Seedling seedling, int xWunsch, int yWunsch) {
+        if (!tileTakenByHamster(xWunsch, yWunsch) && !tileTakenBySeedling(xWunsch, yWunsch)) {
             _planeDarstellung[xWunsch][yWunsch] = Seedling._representation;
 
             return true;
@@ -127,7 +137,7 @@ public class Plane {
         return false;
     }
 
-    boolean TileTakenByHamster(int xWunsch, int yWunsch) {
+    boolean tileTakenByHamster(int xWunsch, int yWunsch) {
         // Findest du ein Problem mit den Hamstern? (gleiche Position).
         for (Hamster hamsterAusListe : _hamsters) {
             if (hamsterAusListe.xPosition == xWunsch && hamsterAusListe.yPosition == yWunsch) {
@@ -138,7 +148,7 @@ public class Plane {
         return false;
     }
 
-    boolean TileTakenBySeedling(int xWunsch, int yWunsch) {
+    boolean tileTakenBySeedling(int xWunsch, int yWunsch) {
         // Findest du ein Problem mit den Seedlings? (gleiche Position).
         for (Seedling seedlingAusListe : _seedlings) {
             if (seedlingAusListe.xPosition == xWunsch && seedlingAusListe.yPosition == yWunsch) {
