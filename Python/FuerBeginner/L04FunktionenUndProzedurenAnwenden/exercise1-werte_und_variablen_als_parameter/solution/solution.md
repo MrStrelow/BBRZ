@@ -5,7 +5,7 @@ Unsere Turtle will ihren Garten kennzeichnen. Dazu nimmt sie einen Faden, befest
 **Hinweise:**
 Zeichne dazu ein kleines Quadrat mit folgenden ``Prozeduren``.
 
-``.* der Turtle.
+* ``forward(200)``: Die Turtle bewegt sich 200 Schritte nach vorne. Vorne ist hier die *Blickrichtung* der Turtle.
 * ``left(90)``: Die Turtle dreht sich um 90° nach links.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
