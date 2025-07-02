@@ -33,15 +33,44 @@ public class Plane {
         // ist bewegung des hamster gültig? was heist das?
 
         // switch mit allen richtungen
-        // case oben
-        //      was mach ich in diesem case? kann ich nach oben gehen?
-        //      wenn ja, dann mach es.
-        // case unten
-        //      was mach ich in diesem case? kann ich nach unten gehen?
-        //      wenn ja, dann mach es.
-        // case ...
-        //      was mach ich in diesem case? kann ich nach ... gehen?
-        //      wenn ja, dann mach es.+
+        switch (wunschRichtung) {
+            // case oben
+            case OBEN -> {
+            //      was mach ich in diesem case? kann ich nach oben gehen?
+            //      wenn ja, dann mach es.
+                if (hamster.yPosition > 0) {
+                    hamster.yPosition--;
+                }
+
+            }
+            // case unten
+            case UNTEN -> {
+                //      was mach ich in diesem case? kann ich nach oben gehen?
+                //      wenn ja, dann mach es.
+                if (hamster.yPosition < _size) {
+                    hamster.yPosition++;
+                }
+
+            }
+            // gehe links
+            case LINKS -> {
+                //      was mach ich in diesem case? kann ich nach oben gehen?
+                //      wenn ja, dann mach es.
+                if (hamster.xPosition > 0) {
+                    hamster.xPosition--;
+                }
+            }
+            // gehe rechts
+            case RECHTS -> {
+                //      was mach ich in diesem case? kann ich nach oben gehen?
+                //      wenn ja, dann mach es.
+                if (hamster.xPosition < _size) {
+                    hamster.xPosition++;
+                }
+            }
+        }
+
+        _planeDarstellung[hamster.yPosition][hamster.xPosition] = hamster._representation;
     }
 
     void print() {
