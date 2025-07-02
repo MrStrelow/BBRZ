@@ -1,6 +1,6 @@
 ## Listen und Tupel in Turtle
 ### Aufgabe 1 - Wiederholte Bewegung 5 mal mit einer Farbe aus der Liste
-Unsere Turtle will wieder die Welt erforschen. Wir halten uns an die Angabe aus [Schleifen, exercise 1, Aufgabe 2](../../L06SchleifenUndRekursion/exercise1-while_und_for_schleifen/angabe.md#aufgabe-2---wiederholte-bewegung-5-mal). Die Turtel will jedoch bevor sie startet sich für eine Farben für die Markierungen entscheiden. Diese Farbe soll jedoch nur aus einer Dose in ihrem Rucksack kommen. Wir verwenden dazu eine ``Liste`` an Farben ``["red", "black", "yellow", "blue", "orange"]`` welche wir ``rucksack`` nennen. Die Turtle hat sich für das 4. Fach im Rucksack entschieden. Sie will also die <span style="color:blue;">blaue Farbe</span> haben.
+Unsere Turtle will wieder die Welt erforschen. Wir halten uns an die Angabe aus [Schleifen, exercise 1, Aufgabe 2](../../../L06SchleifenUndRekursion/exercise1-while_und_for_schleifen/angabe.md#aufgabe-2---wiederholte-bewegung-5-mal). Die Turtel will jedoch bevor sie startet sich für eine Farben für die Markierungen entscheiden. Diese Farbe soll jedoch nur aus einer Dose in ihrem Rucksack kommen. Wir verwenden dazu eine ``Liste`` an Farben ``["red", "black", "yellow", "blue", "orange"]`` welche wir ``rucksack`` nennen. Die Turtle hat sich für das 4. Fach im Rucksack entschieden. Sie will also die <span style="color:blue;">blaue Farbe</span> haben.
 
 **Hinweise:**
 Verwende dazu folgende ``Prozeduren``:

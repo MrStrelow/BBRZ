@@ -6,7 +6,7 @@ Verwende dazu folgende eigens geschriebene``Prozeduren``:
 
 * ``def ich_rufe_mich_selbst_auf():`` Wir definieren eine ``Prozedur`` welche sich immer und immer wieder selbst aufruft.
 
-Diese Aufgabe hat die Gleiche Angabe wie [exercise 1, Aufgabe 1](../../exercise1-while_und_for_schleifen/angabe.md#aufgabe-1---wiederholte-bewegung-für-immer). 
+Diese Aufgabe hat die Gleiche Angabe wie [exercise 1, Aufgabe 1](../exercise1-while_und_for_schleifen/angabe.md#aufgabe-1---wiederholte-bewegung-für-immer). 
 Wir sehen zudem keinen Unterschied wenn wir das Programm laufen lassen zur Lösung mit der ``While-Schleife``.
 
 **Lösung:**

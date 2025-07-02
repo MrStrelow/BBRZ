@@ -54,7 +54,7 @@ def replace_img_tags_in_docx(docx_path):
 
     # --- MODIFIED SAVE LOGIC ---
     # Create the final filename by removing '-from-md' from the original name
-    final_path = docx_path.replace('-from-md', '')
+    final_path = docx_path.replace('-from-md', '-gifs-added')
     document.save(final_path)
     print(f"-> Saved final version as '{os.path.basename(final_path)}'")
 

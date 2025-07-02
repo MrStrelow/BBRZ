@@ -1,6 +1,6 @@
 ## Funktionen und Prozeduren aufrufen mit Turtle - Ausgabe und Berechnungen
 ### Aufgabe 1) - Was ist der Umfang von Haus und Garten?
-Es liegen nun zwei Fäden nach der [Exercise 1](../../exercise1-werte_und_variablen_als_parameter/angabe.md) am Boden. Einer für den Garten und einer für das Haus. 
+Es liegen nun zwei Fäden nach der [Exercise 1](../exercise1-werte_und_variablen_als_parameter/angabe.md) am Boden. Einer für den Garten und einer für das Haus. 
 * Verwende nun zwei verschiedene Farben für die Fäden. Ein mal einen <span style="color:orange;">orangen Faden</span> für den Garten und einen <span style="color:purple;">violetten Faden</span> für das Haus um die Schnüre besser unterscheiden zu können.
 * Wir verwenden die Formel für den Umfang eines Quadrates ``U = 4 * laenge_garten [Schritte]`` um den Umfang Gartens bestimmen zu können. Verwende ``laenge_haus`` um den Umfang des Gartens bestimmen zu können. Am Schluss des Programmes wird der Umfang des Gartens und der Umfang des Hauses in der Console mit ``print`` ausgegeben.
 * Die Turtel vertraut der Formel nicht und möchte mitzählen. Sie schreibt nach jeder Bewegung auf den Boden wie viele Schritte sie bereits zurück gelegt hat. Sie merkt sich dazu in der ``Variable`` ``zurueckgelegter_weg`` wie weit sie gegangen ist. Am Ende sollte die gleiche Zahl wie ``U = 4 * laenge_garten [Schritte]`` rauskommen. 
