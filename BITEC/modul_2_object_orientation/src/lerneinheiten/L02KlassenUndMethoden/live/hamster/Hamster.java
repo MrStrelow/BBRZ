@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class Hamster {
     // Felder
+    String feldZuMerken = Plane._earthRepresentation;
     int xPosition;
     int yPosition;
     String _representation;

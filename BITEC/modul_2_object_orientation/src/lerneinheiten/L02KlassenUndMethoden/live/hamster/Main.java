@@ -3,7 +3,7 @@ package lerneinheiten.L02KlassenUndMethoden.live.hamster;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // variable spielfeld vom Typ Plane anlegen.
         Plane spielfeld = new Plane(6);
 
@@ -17,6 +17,7 @@ public class Main {
             // stelle jede bewegung dar, wenn diese für alle Hamster abgeschlossen wurde
             spielfeld.print();
             System.out.println("####################################");
+            Thread.sleep(1000);
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.Random;
 public class Plane {
     // Felder ("globale"-Variable)
     int _size;
-    String _earthRepresentation = "🟫";
+    static String _earthRepresentation = "🟫";
     String[][] _planeDarstellung;
 
     // Hat-Beziehungen
@@ -31,6 +31,8 @@ public class Plane {
     // Nimm den Wunsch EINES Hamster entgegen und überprüfe, ob diese Bewegung möglich ist.
     void bewegeHamster(Hamster hamster, Richtung wunschRichtung) {
         // ist bewegung des hamster gültig? was heist das?
+        // bitte nicht verwenden -> grafische darstellung soll nicht für zustandslogik verwendet werden.
+//        _planeDarstellung[hamster.yPosition][hamster.xPosition] = hamster.feldZuMerken;
 
         // switch mit allen richtungen
         switch (wunschRichtung) {
@@ -70,15 +72,38 @@ public class Plane {
             }
         }
 
+        // bitte nicht verwenden -> grafische darstellung soll nicht für zustandslogik verwendet werden.
+//        hamster.feldZuMerken = _planeDarstellung[hamster.yPosition][hamster.xPosition];
         _planeDarstellung[hamster.yPosition][hamster.xPosition] = hamster._representation;
     }
 
     void print() {
+        resetDarstellung();
+
         for (int zeilen = 0; zeilen < _size; zeilen++) {
             for (int spalten = 0; spalten < _size; spalten++) {
                 System.out.print(_planeDarstellung[zeilen][spalten]);
             }
             System.out.println();
+        }
+    }
+
+    void resetDarstellung() {
+        // alles ist erde
+        for (int zeilen = 0; zeilen < _size; zeilen++) {
+            for (int spalten = 0; spalten < _size; spalten++) {
+                _planeDarstellung[zeilen][spalten] = _earthRepresentation;
+            }
+        }
+
+        // male seedlings neu hin
+        for (Seedling seedling : _seedlings) {
+            _planeDarstellung[seedling.yPosition][seedling.xPosition] = Seedling._representation;
+        }
+
+        // male hamster neu hin
+        for (Hamster hamster : _hamsters) {
+            _planeDarstellung[hamster.yPosition][hamster.xPosition] = hamster._representation;
         }
     }
 
@@ -140,7 +165,7 @@ public class Plane {
         // ein wenig logik:
         // * Hamster mit zufälliger Anzahl erstellen
         Random random = new Random();
-        int numberOfHamsters = 1; // TODO: rever to this -> random.nextInt( 1, _size * _size);
+        int numberOfHamsters = 2; // TODO: rever to this -> random.nextInt( 1, _size * _size);
 
         for (int i = 0; i < numberOfHamsters; i++) {
             // * diese der Liste hinzufügen
