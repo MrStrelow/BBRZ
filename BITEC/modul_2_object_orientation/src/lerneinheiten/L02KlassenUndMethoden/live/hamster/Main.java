@@ -14,8 +14,9 @@ public class Main {
             // seedling macht was
             spielfeld.simulateSeedling();
 
-            // stelle jede bewegung dar wenn diese für alle Hamster abgeschlossen wurde
+            // stelle jede bewegung dar, wenn diese für alle Hamster abgeschlossen wurde
             spielfeld.print();
+            System.out.println("####################################");
         }
     }
 }

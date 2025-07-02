@@ -47,7 +47,7 @@ public class Plane {
             case UNTEN -> {
                 //      was mach ich in diesem case? kann ich nach oben gehen?
                 //      wenn ja, dann mach es.
-                if (hamster.yPosition < _size) {
+                if (hamster.yPosition < _size - 1) {
                     hamster.yPosition++;
                 }
 
@@ -64,7 +64,7 @@ public class Plane {
             case RECHTS -> {
                 //      was mach ich in diesem case? kann ich nach oben gehen?
                 //      wenn ja, dann mach es.
-                if (hamster.xPosition < _size) {
+                if (hamster.xPosition < _size - 1) {
                     hamster.xPosition++;
                 }
             }
