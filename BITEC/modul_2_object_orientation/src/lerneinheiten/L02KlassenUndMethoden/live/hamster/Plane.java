@@ -15,10 +15,21 @@ public class Plane {
     // -----------------------------
     // Methoden
     void simulateHamster() {
+        for (Hamster hamster : _hamsters) {
+            // bewegen
+            hamster.bewegen();
 
+            // essen
+            // TODO:
+        }
     }
 
     void simulateSeedling() {
+
+    }
+
+    // Nimm den Wunsch EINES Hamster entgegen und überprüfe, ob diese Bewegung möglich ist.
+    void bewegeHamster() {
 
     }
 

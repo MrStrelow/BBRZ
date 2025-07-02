@@ -17,6 +17,11 @@ public class Hamster {
     Plane _plane;
     // -----------------------------
     // Methoden
+    void bewegen() {
+        Random random = new Random();
+        int index = random.nextInt(???);
+    }
+
     // Konstruktor
     Hamster(Plane plane) {
         boolean done;
