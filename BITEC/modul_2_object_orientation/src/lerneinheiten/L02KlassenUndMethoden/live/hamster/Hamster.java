@@ -19,7 +19,11 @@ public class Hamster {
     // Methoden
     void bewegen() {
         Random random = new Random();
-        int index = random.nextInt(???);
+        int index = random.nextInt(0, Richtung.values().length);
+//        Richtung richtung = Richtung.OBEN;
+        Richtung richtung = Richtung.values()[index];
+
+        _plane.bewegeHamster(this, richtung);
     }
 
     // Konstruktor

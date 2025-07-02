@@ -29,8 +29,19 @@ public class Plane {
     }
 
     // Nimm den Wunsch EINES Hamster entgegen und überprüfe, ob diese Bewegung möglich ist.
-    void bewegeHamster() {
+    void bewegeHamster(Hamster hamster, Richtung wunschRichtung) {
+        // ist bewegung des hamster gültig? was heist das?
 
+        // switch mit allen richtungen
+        // case oben
+        //      was mach ich in diesem case? kann ich nach oben gehen?
+        //      wenn ja, dann mach es.
+        // case unten
+        //      was mach ich in diesem case? kann ich nach unten gehen?
+        //      wenn ja, dann mach es.
+        // case ...
+        //      was mach ich in diesem case? kann ich nach ... gehen?
+        //      wenn ja, dann mach es.+
     }
 
     void print() {

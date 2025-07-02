@@ -10,7 +10,7 @@ public class Main {
 
         while (true) {
             // hamster macht was
-            spielfeld.simulateHamster();Enum
+            spielfeld.simulateHamster();
 
             // seedling macht was
             spielfeld.simulateSeedling();
