@@ -24,7 +24,7 @@ internal class UserService
 
     }
 
-    public async Task<UserDTO> LoadUser()
+    public async Task<UserDTO> LoadUserAsync()
     {
         Console.WriteLine("Lade Benutzer... (dauert 2 Sekunden)");
         string json = await File.ReadAllTextAsync("../../../database.json");
