@@ -10,7 +10,7 @@ namespace Asynch;
 
 internal class UserService
 {
-    public async Task SaveUserAsynch(UserDTO user)
+    public async Task SaveUserAsync(UserDTO user)
     {
         Console.WriteLine("Speichere Benutzer... (dauert 2 Sekunden)");
         //string json = JsonConvert.SerializeObject(user); // {"Id":1,"Name":"Lax Luster","Email":"lax@luster.lom"}
