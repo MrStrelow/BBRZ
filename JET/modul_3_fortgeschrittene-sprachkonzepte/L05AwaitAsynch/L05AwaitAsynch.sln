@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synchron", "Synchron.csproj", "{AFCE9E4F-67F4-404C-A08F-8655D62C6850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynchAwait", "..\AsynchAwait\AsynchAwait.csproj", "{D31A4173-9030-426C-B721-3D597EB17ECE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryPattern", "RepositoryPattern\RepositoryPattern.csproj", "{73D9691E-04F1-4241-93F9-1BC00536EE29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFCE9E4F-67F4-404C-A08F-8655D62C6850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCE9E4F-67F4-404C-A08F-8655D62C6850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCE9E4F-67F4-404C-A08F-8655D62C6850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCE9E4F-67F4-404C-A08F-8655D62C6850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31A4173-9030-426C-B721-3D597EB17ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31A4173-9030-426C-B721-3D597EB17ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31A4173-9030-426C-B721-3D597EB17ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31A4173-9030-426C-B721-3D597EB17ECE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D9691E-04F1-4241-93F9-1BC00536EE29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D9691E-04F1-4241-93F9-1BC00536EE29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D9691E-04F1-4241-93F9-1BC00536EE29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D9691E-04F1-4241-93F9-1BC00536EE29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
