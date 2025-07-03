@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+namespace Synch;
+
+internal class UserService
+{
+    public void SaveUser(UserDTO user)
+    {
+        Console.WriteLine("Speichere Benutzer... (dauert 2 Sekunden)");
+        string json = JsonConvert.SerializeObject(user, Formatting.Indented);
+
+        // Simulieren wartezeit
+        Thread.Sleep(2000);
+
+        File.WriteAllText("../../../database.json", json);
+        Console.WriteLine("Benutzer erfolgreich gespeichert!");
+
+    }
+
+    public void LoadUser(UserDTO user)
+    {
+
+    }
+}
