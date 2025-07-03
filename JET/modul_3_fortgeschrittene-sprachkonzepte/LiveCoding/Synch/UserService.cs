@@ -22,8 +22,16 @@ internal class UserService
 
     }
 
-    public void LoadUser(UserDTO user)
+    public UserDTO LoadUser(UserDTO user)
     {
-        //TODO: implement me
+        Console.WriteLine("Lade Benutzer... (dauert 2 Sekunden)");
+        string json = File.ReadAllText("../../../database.json");
+        
+        // Simulieren wartezeit
+        Thread.Sleep(2000);
+
+        Console.WriteLine("Benutzer erfolgreich geladen!");
+        return JsonConvert.DeserializeObject<UserDTO>(json);
+
     }
 }
