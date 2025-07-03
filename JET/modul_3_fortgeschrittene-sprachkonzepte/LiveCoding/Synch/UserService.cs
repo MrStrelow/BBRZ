@@ -12,7 +12,8 @@ internal class UserService
     public void SaveUser(UserDTO user)
     {
         Console.WriteLine("Speichere Benutzer... (dauert 2 Sekunden)");
-        string json = JsonConvert.SerializeObject(user, Formatting.Indented);
+        //string json = JsonConvert.SerializeObject(user); // {"Id":1,"Name":"Lax Luster","Email":"lax@luster.lom"}
+        string json = JsonConvert.SerializeObject(user, Formatting.Indented); // schöner
 
         // Simulieren wartezeit
         Thread.Sleep(2000);
