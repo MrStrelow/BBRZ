@@ -22,7 +22,7 @@ internal class UserService
 
     }
 
-    public UserDTO LoadUser(UserDTO user)
+    public UserDTO LoadUser()
     {
         Console.WriteLine("Lade Benutzer... (dauert 2 Sekunden)");
         string json = File.ReadAllText("../../../database.json");
