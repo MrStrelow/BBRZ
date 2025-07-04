@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
-using System.Threading.Tasks; // Wichtiges Using!
+using System.Threading.Tasks; 
 
 namespace asynchron;
 
@@ -20,7 +20,7 @@ public class UserService
         Console.WriteLine("Benutzer erfolgreich asynchron gespeichert!");
     }
 
-    public async Task<User> LoadUserAsync()
+    public async Task<User?> LoadUserAsync()
     {
         Console.WriteLine("Lade Benutzer asynchron... (dauert 2 Sekunden)");
 

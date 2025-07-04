@@ -1,5 +1,12 @@
-{
-  "Id": 2,
-  "Name": "Nax Nuster",
-  "Email": "Nax@nuster.lom"
-}
+[
+  {
+    "Id": 1,
+    "Name": "Lax Luster",
+    "Email": "lax@luster.lom"
+  },
+  {
+    "Id": 2,
+    "Name": "Nax Nuster",
+    "Email": "Nax@nuster.lom"
+  }
+]
