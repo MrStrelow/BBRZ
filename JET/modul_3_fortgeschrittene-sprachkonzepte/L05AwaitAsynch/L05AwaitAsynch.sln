@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.1Synchron", "L05.1Synchron\L05.1Synchron.csproj", "{AFCE9E4F-67F4-404C-A08F-8655D62C6850}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.4RepositoryAlsEigenesProjekt", "L05.4RepositoryAlsEigenesProjekt\L05.4RepositoryAlsEigenesProjekt.csproj", "{77C21DAD-23E9-4976-B724-4EEBF97713C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.4ServicesUndMainAlsEigenesProjekt", "L05.4ServicesUndMain\L05.4ServicesUndMainAlsEigenesProjekt.csproj", "{F5BF3994-0265-4A9F-A10A-C9C701E6EBE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.5RepositoryPatternMitLinqImService", "L05.5RepositoryPatternMitLinqImService\L05.5RepositoryPatternMitLinqImService.csproj", "{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F5BF3994-0265-4A9F-A10A-C9C701E6EBE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5BF3994-0265-4A9F-A10A-C9C701E6EBE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5BF3994-0265-4A9F-A10A-C9C701E6EBE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

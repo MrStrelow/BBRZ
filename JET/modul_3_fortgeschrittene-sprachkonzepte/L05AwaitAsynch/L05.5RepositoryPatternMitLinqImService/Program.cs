@@ -9,7 +9,7 @@ internal class Programm
         IUserRepository userRepo = new JsonUserRepository();
         IDataRepository dataRepo = new JsonDataRepository();
 
-        IServiceProvider userService = new UserService(dataRepo, userRepo);
+        IUserService userService = new UserService(dataRepo, userRepo);
         var bigUser = await userService.FindeUserWelcherAusNewYorkIstUndAmMeistenAusgegebenHat();
         var smallUser = await userService.FindeUserWelcherAusNewYorkIstUndAmWenigstenAusgegebenHat();
 
