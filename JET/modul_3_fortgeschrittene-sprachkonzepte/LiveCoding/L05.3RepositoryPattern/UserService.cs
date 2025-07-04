@@ -18,23 +18,53 @@ internal class UserService
         _userRepo = userRepo;
     }
 
-    public async Task summeDerVerkaeufeNachStandortGroesser1000()
+    public async Task<UserDTO> FindeUserWelcherAusNewYorkIstUndAmMeistenAusgegebenHat()
     {
+        // 1 rufen repo auf um daten zu laden.
         var data = await _dataRepo.LoadJoinedData();
+        var city = "New York";
 
-        var summeDerVerkaeufeNachStandortGroesser1000 = data.
-            GroupBy(d => d.City).
+        var result = data.
+            Where(d => d.City == city).
+            GroupBy(d => d.CustomerID).
             Select(gruppe => new
             {
-                City = gruppe.Key,
-                UmsatzProCity = gruppe.Sum(u => u.)
+                UserID = gruppe.Key, // Namen verloren :(
+                Name = gruppe.First().Name, // Das ist gefährlich! Name kann verschieden sein, denn es ist nicht teil des Keys!
+                                            // Wir nehmen es hier aber an, da wir nur den Nutzen von First() in einer Gruppe zeigen wollen.
+                                            // Wir können damit ein beispielhaftes Element aus der Gruppe nehmen und mit z.B. First is es das Erste.
+                Umsatz = gruppe.Sum(d => d.Amount)
             }).
-            Where(umsaetze => umsaetze.UmsatzProStandort > 1000). // Das ist unser HAVING! 
-            Select(umsaetze => new
-            {
-                StandortId = umsaetze.StandortId,
-                UmsatzProStandort = $"{umsaetze.UmsatzProStandort:C}"
-            });
+            //Max(d => d.Umsatz); // Achtung! gib maximalen umsatz zurück -> Zahl
+            MaxBy(d => d.Umsatz); // Achtung! gibt user mit maximalen umsatz zurück -> User
 
+        var userToSave = new UserDTO { Id = result.UserID, Name = result.Name, Stadt = city };
+        await _userRepo.AddUsersAsync(new List<UserDTO> { userToSave });
+
+        return userToSave;
+    }
+
+    // IDEE: Verwende Func um als Parameter min oder max zu verwenden! Aber dazu später.
+    public async Task<UserDTO> FindeUserWelcherAusNewYorkIstUndAmWenigstensAusgegebenHat()
+    {
+        // 1 rufen repo auf um daten zu laden.
+        var data = await _dataRepo.LoadJoinedData();
+        var city = "New York";
+
+        var result = data.
+            Where(d => d.City == city).
+            GroupBy(d => d.CustomerID).
+            Select(gruppe => new
+            {
+                UserID = gruppe.Key,
+                Name = gruppe.First().Name,
+                Umsatz = gruppe.Sum(d => d.Amount)
+            }).
+            MinBy(d => d.Umsatz);
+
+        var userToSave = new UserDTO { Id = result.UserID, Name = result.Name, Stadt = city };
+        await _userRepo.AddUsersAsync(new List<UserDTO> { userToSave });
+
+        return userToSave;
     }
 }

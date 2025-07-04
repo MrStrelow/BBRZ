@@ -9,9 +9,9 @@ namespace RepositoryPattern;
 
 internal class JsonDataRepository : IDataRepository
 {
-    public async Task<IEnumerable<JoinedData>?> LoadJoinedData()
+    public async Task<IEnumerable<JoinedDataDTO>?> LoadJoinedData()
     {
         string json = await File.ReadAllTextAsync("../../../data.json");
-        return JsonConvert.DeserializeObject<List<JoinedData>>(json);
+        return JsonConvert.DeserializeObject<List<JoinedDataDTO>>(json);
     }
 }

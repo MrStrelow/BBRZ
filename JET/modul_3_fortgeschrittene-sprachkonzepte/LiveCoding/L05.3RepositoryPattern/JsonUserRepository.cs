@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,27 @@ namespace RepositoryPattern;
 
 internal class JsonUserRepository : IUserRepository
 {
-    public Task AddUsersAsync(List<UserDTO> user)
+    private string _path = "../../../database.json";
+
+    public async Task AddUsersAsync(List<UserDTO> users)
     {
-        throw new NotImplementedException(); // TODO implement me - siehe 5.2 Service
+        string json = JsonConvert.SerializeObject(users, Formatting.Indented);
+        await File.WriteAllTextAsync(_path, json);
     }
 
-    public Task<IEnumerable<UserDTO>> GetAllUsersAsync()
+    public async Task<IEnumerable<UserDTO>?> GetAllUsersAsync()
     {
-        throw new NotImplementedException(); // TODO implement me - siehe 5.2 Service
+        string json = await File.ReadAllTextAsync(_path);
+        return JsonConvert.DeserializeObject<List<UserDTO>>(json);
     }
 
-    public Task<UserDTO?> GetByUserIdAsync(int id)
+    public async Task<UserDTO?> GetByUserIdAsync(int id)
     {
-        throw new NotImplementedException(); // TODO implement me - siehe 5.2 Service
+        var users = await GetAllUsersAsync();
+
+        if (users is not null)
+            return users.First(user => user.Id == id);
+        else
+            throw new Exception(":(");
     }
 }

@@ -8,7 +8,7 @@ namespace RepositoryPattern;
 
 internal interface IUserRepository
 {
-    Task AddUsersAsync(List<UserDTO> user);
+    Task AddUsersAsync(List<UserDTO> users);
     Task<UserDTO?> GetByUserIdAsync(int id);
-    Task<IEnumerable<UserDTO>> GetAllUsersAsync(); // IEnumerable ist quasi eine Liste.
+    Task<IEnumerable<UserDTO>?> GetAllUsersAsync(); // IEnumerable ist quasi eine Liste.
 }

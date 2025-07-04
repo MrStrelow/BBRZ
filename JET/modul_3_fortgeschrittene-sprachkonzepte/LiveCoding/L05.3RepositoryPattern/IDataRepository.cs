@@ -8,5 +8,5 @@ namespace RepositoryPattern;
 
 internal interface IDataRepository
 {
-    Task<IEnumerable<JoinedData>?> LoadJoinedData();
+    Task<IEnumerable<JoinedDataDTO>?> LoadJoinedData();
 }
