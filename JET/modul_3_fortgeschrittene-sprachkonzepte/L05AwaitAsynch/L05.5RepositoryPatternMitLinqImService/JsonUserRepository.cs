@@ -9,7 +9,7 @@ namespace RepositoryPattern;
 
 internal class JsonUserRepository : IUserRepository
 {
-    private string _path = "../../../userresults.json";
+    private string _path = "../../../database.json";
 
     public async Task AddUsersAsync(List<UserDTO> users)
     {
