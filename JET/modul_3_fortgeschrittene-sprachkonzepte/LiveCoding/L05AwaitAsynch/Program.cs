@@ -9,10 +9,10 @@ internal class Programm
 
         var newUser = new UserDTO { Id = 1, Name = "Lax Luster", Email = "lax@luster.lom" };
         
-        await userService.SaveUserAsynch(newUser);
+        await userService.SaveUserAsync(newUser);
         Console.WriteLine("--- Operation abgeschlossen, lade zur Kontrolle ---");
 
-        var loadedUser = await userService.LoadUser();
+        var loadedUser = await userService.LoadUserAsync();
 
         Console.WriteLine($"Geladener Benutzer: {loadedUser.Name} ({loadedUser.Email})");
         

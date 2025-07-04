@@ -9,14 +9,13 @@ public class Program
 
         var newUser = new User { Id = 1, Name = "Max Mustermann", Email = "max@test.com" };
 
-        // Wir "erwarten" den Abschluss der Speicheroperation
+        // Wir "erwarten" den Abschluss der Speicheroperation nicht
         await userService.SaveUserAsync(newUser);
-
-        Console.WriteLine("--- Operation abgeschlossen, lade zur Kontrolle ---");
-
         // Wir "erwarten" das Ergebnis (den Benutzer) der Ladeoperation
         var loadedUser = await userService.LoadUserAsync();
 
+        // Wir sind nicht schneller hier als bei synch, aber wir sparen rechenzeit wenn wir komplett ausgelastet wären!
+        Console.WriteLine("--- Operation abgeschlossen, lade zur Kontrolle ---");
         Console.WriteLine($"Geladener Benutzer: {loadedUser.Name} ({loadedUser.Email})");
         Console.WriteLine("\nDrücke eine Taste zum Beenden.");
         Console.ReadKey();

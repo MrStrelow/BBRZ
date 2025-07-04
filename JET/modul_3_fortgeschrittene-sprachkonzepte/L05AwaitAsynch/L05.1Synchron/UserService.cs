@@ -6,7 +6,7 @@ namespace synchron;
 
 public class UserService
 {
-    private const string DatabaseFile = "database.json";
+    private const string DatabaseFile = "../../../database.json";
 
     // SYNCHRON: Speichert einen Benutzer und blockiert dabei
     public void SaveUser(User user)

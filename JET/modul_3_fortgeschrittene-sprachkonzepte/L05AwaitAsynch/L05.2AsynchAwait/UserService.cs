@@ -6,9 +6,8 @@ namespace asynchron;
 
 public class UserService
 {
-    private const string DatabaseFile = "database.json";
+    private const string DatabaseFile = "../../../database.json";
 
-    // ASYNCHRON: Speichert einen Benutzer, ohne zu blockieren
     public async Task SaveUserAsync(User user)
     {
         Console.WriteLine("Speichere Benutzer asynchron... (dauert 2 Sekunden)");
@@ -21,7 +20,6 @@ public class UserService
         Console.WriteLine("Benutzer erfolgreich asynchron gespeichert!");
     }
 
-    // ASYNCHRON: Lädt einen Benutzer, ohne zu blockieren
     public async Task<User> LoadUserAsync()
     {
         Console.WriteLine("Lade Benutzer asynchron... (dauert 2 Sekunden)");
