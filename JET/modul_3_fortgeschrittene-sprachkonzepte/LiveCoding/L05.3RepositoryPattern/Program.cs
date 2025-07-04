@@ -1,4 +1,6 @@
-﻿namespace RepositoryPattern;
+﻿using Newtonsoft.Json;
+
+namespace RepositoryPattern;
 
 internal class Programm
 {

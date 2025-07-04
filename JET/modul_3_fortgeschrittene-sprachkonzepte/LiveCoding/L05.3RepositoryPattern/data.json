@@ -1,0 +1,62 @@
+[
+  {
+    "OrderID": 1,
+    "CustomerID": 1,
+    "Date": "2023-01-15T00:00:00",
+    "Amount": 1200.0,
+    "Quantity": 1,
+    "Product": "Laptop",
+    "Name": "John Smith",
+    "City": "New York"
+  },
+  {
+    "OrderID": 2,
+    "CustomerID": 2,
+    "Date": "2023-01-20T00:00:00",
+    "Amount": 25.0,
+    "Quantity": 2,
+    "Product": "Mouse",
+    "Name": "Jane Doe",
+    "City": "Los Angeles"
+  },
+  {
+    "OrderID": 3,
+    "CustomerID": 1,
+    "Date": "2023-02-05T00:00:00",
+    "Amount": 75.0,
+    "Quantity": 1,
+    "Product": "Keyboard",
+    "Name": "John Smith",
+    "City": "New York"
+  },
+  {
+    "OrderID": 4,
+    "CustomerID": 3,
+    "Date": "2023-02-10T00:00:00",
+    "Amount": 300.0,
+    "Quantity": 1,
+    "Product": "Monitor",
+    "Name": "Peter Jones",
+    "City": "New York"
+  },
+  {
+    "OrderID": 5,
+    "CustomerID": 1,
+    "Date": "2023-03-01T00:00:00",
+    "Amount": 600.0,
+    "Quantity": 1,
+    "Product": "Webcam",
+    "Name": "John Smith",
+    "City": "New York"
+  },
+  {
+    "OrderID": 6,
+    "CustomerID": 2,
+    "Date": "2023-03-12T00:00:00",
+    "Amount": 1500.0,
+    "Quantity": null,
+    "Product": "Laptop",
+    "Name": "Jane Doe",
+    "City": "Los Angeles"
+  }
+]

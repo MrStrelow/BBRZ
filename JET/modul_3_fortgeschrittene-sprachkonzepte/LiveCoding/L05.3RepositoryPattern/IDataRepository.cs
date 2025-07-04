@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryPattern;
 
-internal class UserDTO
+internal interface IDataRepository
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
+    Task<IEnumerable<JoinedData>?> LoadJoinedData();
 }
