@@ -1,7 +1,7 @@
 ﻿using RepositoryPatternSeperate;
 
 namespace ServicesSeperate;
-class Programm
+public class Programm
 {
     public static async Task Main(string[] args)
     {
