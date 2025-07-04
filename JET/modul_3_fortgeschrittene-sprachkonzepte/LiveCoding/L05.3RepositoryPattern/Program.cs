@@ -1,25 +1,20 @@
-﻿using Asynch;
+﻿namespace RepositoryPattern;
 
 internal class Programm
 {
     static async Task Main(string[] args)
     {
-        var userService = new UserService();
+        IUserRepository userRepo = new JsonUserRepository(); 
+        //var userService = new UserService(userRepo);
 
         var newUser1 = new UserDTO { Id = 1, Name = "Lax Luster", Email = "lax@luster.lom" };
         var newUser2 = new UserDTO { Id = 2, Name = "Nax Nuster", Email = "Nax@nuster.lom" };
         
-        await userService.SaveUsersAsync(new List<UserDTO> { newUser1, newUser2 });
+        // Nur zum testen des Repos
+        await userRepo.AddUsersAsync(new List<UserDTO> { newUser1, newUser2 });
         Console.WriteLine("--- Operation abgeschlossen, lade zur Kontrolle ---");
-
-        // langsam - wir warten nach jedem lesen
-        //var loadedUser1 = await userService.LoadUserByIdAsync(1);
-        //var loadedUser2 = await userService.LoadUserByIdAsync(2);
-        // langsam ende
-
-        // schnell - gleichzeitiges lesen
-        var loadedUser1Task = userService.LoadUserByIdAsync(1);
-        var loadedUser2Task = userService.LoadUserByIdAsync(2);
+        var loadedUser1Task = userRepo.GetByUserIdAsync(1);
+        var loadedUser2Task = userRepo.GetByUserIdAsync(2);
 
         await Task.WhenAll(loadedUser1Task, loadedUser2Task); // warten auf den längsamsten task bis alle fertig sind.
         //Task.WhenAny(loadedUser1, loadedUser2); // hören auf wenn ein task fertig ist.
