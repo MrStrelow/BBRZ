@@ -12,7 +12,7 @@ public class Main {
             spielfeld.simulateHamster();
 
             // seedling macht was - wächsts nach
-//            spielfeld.simulateSeedling();
+            spielfeld.simulateSeedling();
 
             // stelle jede bewegung dar, wenn diese für alle Hamster abgeschlossen wurde
             spielfeld.print();

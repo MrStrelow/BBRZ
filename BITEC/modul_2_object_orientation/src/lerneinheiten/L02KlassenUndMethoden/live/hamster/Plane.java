@@ -35,7 +35,10 @@ public class Plane {
     }
 
     void simulateSeedling() {
-
+        // nachwachsen
+        // 1. nur auf freien felder nachwachsen lassen.
+        // 2. genug seedling sollen erzeuget werden um alle hamster zu füttern.
+        _seedlings.add(new Seedling(this));
     }
 
     // Nimm den Wunsch EINES Hamster entgegen und überprüfe, ob diese Bewegung möglich ist.
@@ -175,7 +178,7 @@ public class Plane {
         // ein wenig logik:
         // * Hamster mit zufälliger Anzahl erstellen
         Random random = new Random();
-        int numberOfHamsters = 2; // TODO: rever to this -> random.nextInt( 1, _size * _size);
+        int numberOfHamsters = random.nextInt( 1, _size * _size);
 
         for (int i = 0; i < numberOfHamsters; i++) {
             // * diese der Liste hinzufügen
