@@ -36,8 +36,9 @@ public class Plane {
 
     void simulateSeedling() {
         // nachwachsen
-        // 1. nur auf freien felder nachwachsen lassen.
-        // 2. genug seedling sollen erzeuget werden um alle hamster zu füttern.
+        // 1. genug seedling sollen erzeuget werden um alle hamster zu füttern.
+        
+
         _seedlings.add(new Seedling(this));
     }
 
