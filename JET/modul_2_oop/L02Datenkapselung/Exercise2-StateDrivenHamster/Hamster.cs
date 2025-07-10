@@ -72,7 +72,7 @@ public class Hamster
             }
             else
             {
-                PutInMouth();
+                StoreInMouth();
             }
         }
         else
@@ -102,10 +102,10 @@ public class Hamster
         Representation = _fedRepresentation;
     }
 
-    public void PutInMouth()
+    public void StoreInMouth()
     {
-        var samen = plane.GetSeedlingOn(Position);
-        mouth.Add(samen);
+        var seedling = plane.GetSeedlingOn(Position);
+        mouth.Add(seedling);
         plane.HamsterIsStoringSeedlings(this);
     }
 

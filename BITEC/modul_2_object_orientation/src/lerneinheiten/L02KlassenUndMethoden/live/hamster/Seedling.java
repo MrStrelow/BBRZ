@@ -13,6 +13,10 @@ public class Seedling {
     // -----------------------------
     // Methoden
     // Konstruktor
+
+    /***
+     Wir positionieren einen Seedling auf einem freien Platz.
+     */
     Seedling(Plane plane) {
         _plane = plane;
 
@@ -23,8 +27,8 @@ public class Seedling {
         // zufällig den Seedling positionieren.
         do {
             Random random = new Random();
-            xWunsch = random.nextInt(0, _plane._size);
-            yWunsch = random.nextInt(0, _plane._size);
+            xWunsch = random.nextInt(0, _plane.getSize());
+            yWunsch = random.nextInt(0, _plane.getSize());
 
             done = _plane.assignInitialPosition(this, xWunsch, yWunsch);
         } while (!done);

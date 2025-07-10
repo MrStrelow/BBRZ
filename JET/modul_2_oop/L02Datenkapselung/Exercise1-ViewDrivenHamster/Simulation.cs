@@ -29,7 +29,7 @@ public class Simulation
         Console.Clear();
         Console.CursorVisible = false;
 
-        // Erstelle das Feld und simuliere Hamster und Samen dort drinnen.
+        // Erstelle das Feld und simuliere Hamster und Seedling dort drinnen.
         Plane spielfeld = new Plane(sizeOfPlane);
 
         while (true) {

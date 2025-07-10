@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.4ServicesUndMainAlsEige
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.5RepositoryPatternMitLinqImService", "L05.5RepositoryPatternMitLinqImService\L05.5RepositoryPatternMitLinqImService.csproj", "{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.6RepositoryUndUnitOfWork", "L05.6RepositoryUndUnitOfWork\L05.6RepositoryUndUnitOfWork.csproj", "{DF5A1AA7-33AB-4C86-950F-C5724B37D49A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise-Fruehstuecksrestaurant", "exercise-Fruehstuecksrestaurant\exercise-Fruehstuecksrestaurant.csproj", "{D5DAE7FE-33EE-43A4-9EC9-4A139E850D6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{249EC34F-ADBD-4177-A2F0-C80F9DF01DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5A1AA7-33AB-4C86-950F-C5724B37D49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5A1AA7-33AB-4C86-950F-C5724B37D49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5A1AA7-33AB-4C86-950F-C5724B37D49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5A1AA7-33AB-4C86-950F-C5724B37D49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5DAE7FE-33EE-43A4-9EC9-4A139E850D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5DAE7FE-33EE-43A4-9EC9-4A139E850D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5DAE7FE-33EE-43A4-9EC9-4A139E850D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5DAE7FE-33EE-43A4-9EC9-4A139E850D6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

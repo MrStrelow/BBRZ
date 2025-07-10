@@ -34,7 +34,7 @@ public class ForesightedNutritionBehaviour : NutritionBehaviour
                 }
                 else
                 {
-                    PutInMouthList(hamster, seedling, plane);
+                    StoreInMouthList(hamster, seedling, plane);
                 }
             }
         }

@@ -49,12 +49,12 @@ public class NervousNutritionBehaviour : NutritionBehaviour
                         }
                         else
                         {
-                            PutInMouthList(hamster, seedling, plane);
+                            StoreInMouthList(hamster, seedling, plane);
                         }
                     }
                     else
                     {
-                        PutInMouthList(hamster, seedling, plane);
+                        StoreInMouthList(hamster, seedling, plane);
                     }
                 }
             }

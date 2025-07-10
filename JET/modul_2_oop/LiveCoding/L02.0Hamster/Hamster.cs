@@ -72,7 +72,7 @@ public class Hamster
             }
             else
             {
-                PutInMouthList();
+                StoreInMouthList();
             }
         }
         else
@@ -91,7 +91,7 @@ public class Hamster
         _plane.HamsterIsEatingSeedlings(this);
     }
 
-    private void PutInMouthList()
+    private void StoreInMouthList()
     {
         var Seedlingling = _plane.GetSeedlinglingOn(Position);
         mouth.Add(Seedlingling);

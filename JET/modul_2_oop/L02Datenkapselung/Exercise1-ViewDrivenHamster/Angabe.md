@@ -26,7 +26,7 @@ Verwende dazu folgende `Klassen`:
 * **Simulation**: Dient als Startpunkt der `Main` Methode und erstellt die `Plane`. Weiters kann hier jeder `Hamster` welcher von der `Plane` verwaltet wird, hier gesteuer werden. Damit ist gemeint, dass z.B. die Methode welche `Hunger` zufällig erzeugt oder die `Bewegung` durchführt, hier aufgerufen werden. Weiters kann die `Plane` hier dargestellt werden. Verwende `System.Sleep(500)` um jede Bewegung der `Hamster` zeitlich zu verzögern.
 * **Plane**: Dient als `Verwaltung` und `Darstellung` der `Earth` Felder, sowie den `Hamstern` und `Seedlings`. Die `Plane` ist zwei dimensional im Terminal darzustellen. `Earth` Felder sind nicht entfernbar, diese dienen als Basis Felder der `Plane`. `Hamster` und `Seedlings` können sich auf diesen befinden. Da die `Earth` Felder keine Eigenschaften haben, müssen wir diese nicht als eigene Klasse modellieren. Die Klasse `Plane` verwaltet `Seedlings` und `Hamster` in einer `Collection` freier Wahl. Bedeutet, wie viele `Hamster` und `Seedling` in einer `Plane` existieren. Wenn ein `Hamster` ein `Seedling` `frisst` oder `"speichert"` (im Mund), wird dieser `Seedling` aus der Seedling `Collection` entfernt.
 * **Seedling**: Dient als Verwaltung eines `Seedlings`. Damit ist seine `Darstellung` auf der `Plane` und dessen `Position` gemeint. Weiteres Verhalten ist nicht vorgesehen.
-* **Hamster**: Dient als Verwaltung eines `Hamsters`. Damit ist seine `Darstellung` auf der `Plane`, dessen `Position` und `Verhalten` gemeint. Mit `Verhalten` ist `bewegen`, `Seedling essen wenn er/sie hungrig ist` und `Seedling speichern wenn diese/r nicht hungrig ist`. Verwende zum `speichern` der Seedlings im Mund des Hamsters eine `Collection` freier Wahl. Die Anzahl der zu speichernden `Samen` ist im `Hamster` begrenzt. 
+* **Hamster**: Dient als Verwaltung eines `Hamsters`. Damit ist seine `Darstellung` auf der `Plane`, dessen `Position` und `Verhalten` gemeint. Mit `Verhalten` ist `bewegen`, `Seedling essen wenn er/sie hungrig ist` und `Seedling speichern wenn diese/r nicht hungrig ist`. Verwende zum `speichern` der Seedlings im Mund des Hamsters eine `Collection` freier Wahl. Die Anzahl der zu speichernden `Seedling` ist im `Hamster` begrenzt. 
 
 ### Möglicher Ablauf:
 Verwende die unter [Zuständigkeiten](#zustandigkeiten) und [Starthilfe](#starthilfe) definierten Code-Skelette.
@@ -186,7 +186,7 @@ public class Plane
     {
         // Erstelle das 2D array basierend auf dem Parameter size
         // belege das Feld mit dem Symbol für die Erde
-        // wir brauchen Samen - erzeuge eine zufällige Anzahl an Samen
+        // wir brauchen Seedling - erzeuge eine zufällige Anzahl an Seedling
         // wir brauchen Hamster - erzeuge eine zufällige Anzahl an Hamster 
         // (pass auf dass nicht zu viele Hamster erzeugt werden!)
     }
@@ -292,17 +292,17 @@ public class Hamster
     {
         // werde zufällig hungrig und passe die Darstellung je nach dem an.
         
-        // Ist ein Samen unter mir (hamster) ?
+        // Ist ein Seedling unter mir (hamster) ?
         // - Wenn ja, 
         //    - habe ich hunger?
         //      - wenn ja, 
-        //         - iss den samen.
+        //         - iss den seedling.
         //      - wenn nein,
-        //         - sammle den Samen im Mund
+        //         - sammle den Seedling im Mund
         // - Wenn nein,
-        //    - habe ich hunger und hab ich einen Samen im Mund?
+        //    - habe ich hunger und hab ich einen Seedling im Mund?
         //      - wenn ja,
-        //        - iss den samen aus dem Mund.
+        //        - iss den seedling aus dem Mund.
         //      - wenn nein,
         //        - Hamster bleibt hungrig.
     }
@@ -313,7 +313,7 @@ public class Hamster
         // hamster wird nicht mehr hungrig.
         Eat();
 
-        // hamster entfernt den Samen aus dem Mund
+        // hamster entfernt den Seedling aus dem Mund
         ...
     }
 
@@ -322,7 +322,7 @@ public class Hamster
         // hamster wird nicht mehr hungrig.
         Eat();
 
-        // hamster sagt dem spielfeld, der samen ist weg
+        // hamster sagt dem spielfeld, der seedling ist weg
         ...
     }
 
@@ -332,13 +332,13 @@ public class Hamster
         // die darstellung wird von hungrig auf normal geändert.
     }
 
-    public void PutInMouth()
+    public void StoreInMouth()
     {
-        // hamster steckt samen auf seiner Position in den Mund (Collection).
-        //  - hole dazu von der Plane einen Samen auf der Position des Hamsters.
+        // hamster steckt seedling auf seiner Position in den Mund (Collection).
+        //  - hole dazu von der Plane einen Seedling auf der Position des Hamsters.
         //  - und füge den dem Mund hinzu.
 
-        // hamster sagt dem spielfeld, der Samen gegessen wurde. Das Spielfeld kümmert sich nun darum diesen zu entfernen.
+        // hamster sagt dem spielfeld, der Seedling gegessen wurde. Das Spielfeld kümmert sich nun darum diesen zu entfernen.
     }
 
     // Wir überschreiben die Methode ToString, damit wir eine einfachere Ausgabe Darstellung von den Objekten der Klasse Hamster haben

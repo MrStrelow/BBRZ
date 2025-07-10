@@ -17,7 +17,7 @@ public abstract class NutritionBehaviour
         plane.HamsterIsEatingSeedlings(seedling); // Plane handles removal of seedling
     }
 
-    protected void PutInMouthList(Hamster hamster, Seedling seedling, Plane plane)
+    protected void StoreInMouthList(Hamster hamster, Seedling seedling, Plane plane)
     {
         hamster.Mouth.Add(seedling);
         plane.HamsterIsStoringSeedlings(seedling); // Plane handles removal of seedling from world

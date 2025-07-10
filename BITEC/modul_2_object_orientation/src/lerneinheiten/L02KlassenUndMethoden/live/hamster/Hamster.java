@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Hamster {
     // Felder
-    String feldZuMerken = Plane._earthRepresentation;
+    String feldZuMerken = Plane.getEarthRepresentation();
     int xPosition;
     int yPosition;
     String _representation;
@@ -34,7 +34,7 @@ public class Hamster {
                 isHungry = false;
 
                 Seedling seedlingAmGleichenFeld = _plane.getSeedlingOnPosition(xPosition, yPosition);
-                _plane._seedlings.remove(seedlingAmGleichenFeld);
+                _plane.getSeedlings().remove(seedlingAmGleichenFeld);
                 // hamster speicher seedling im mund...
             }
         }
@@ -61,8 +61,8 @@ public class Hamster {
         // zufällig den Hamster positionieren.
         do {
             Random random = new Random();
-            xWunsch = random.nextInt(0, _plane._size);
-            yWunsch = random.nextInt(0, _plane._size);
+            xWunsch = random.nextInt(0, _plane.getSize());
+            yWunsch = random.nextInt(0, _plane.getSize());
 
             done = _plane.assignInitialPosition(this, xWunsch, yWunsch);
         } while (!done);

@@ -5,16 +5,18 @@ import java.util.Random;
 
 public class Plane {
     // Felder ("globale"-Variable)
-    int _size;
-    static String _earthRepresentation = "🟫";
-    String[][] _planeDarstellung;
+    private final int _size;
+    // lesezugriff
+
+    private static String _earthRepresentation = "🟫";
+    private String[][] _planeDarstellung;
 
     // Hat-Beziehungen
-    ArrayList<Hamster> _hamsters = new ArrayList<>();
-    ArrayList<Seedling> _seedlings = new ArrayList<>();
+    private ArrayList<Hamster> _hamsters = new ArrayList<>();
+    private ArrayList<Seedling> _seedlings = new ArrayList<>();
     // -----------------------------
     // Methoden
-    void simulateHamster() {
+    public void simulateHamster() {
         for (Hamster hamster : _hamsters) {
             // bewegen
             hamster.bewegen();
@@ -24,7 +26,7 @@ public class Plane {
         }
     }
 
-    Seedling getSeedlingOnPosition(int x, int y) {
+    public Seedling getSeedlingOnPosition(int x, int y) {
         for (Seedling seedlingAusListe : _seedlings) {
             if (seedlingAusListe.xPosition == x && seedlingAusListe.yPosition == y) {
                 return seedlingAusListe;
@@ -34,16 +36,21 @@ public class Plane {
         return null;
     }
 
-    void simulateSeedling() {
+    /***
+     da kann ich beschreiben was meine methode macht.
+     */
+    public void simulateSeedling() {
         // nachwachsen
         // 1. genug seedling sollen erzeuget werden um alle hamster zu füttern.
+        int freieFelder = _size * _size - _hamsters.size() - _seedlings.size();
 
-
-        _seedlings.add(new Seedling(this));
+        for (int i = 0; i < freieFelder; i++) {
+            _seedlings.add(new Seedling(this));
+        }
     }
 
     // Nimm den Wunsch EINES Hamster entgegen und überprüfe, ob diese Bewegung möglich ist.
-    void bewegeHamster(Hamster hamster, Richtung wunschRichtung) {
+    public void bewegeHamster(Hamster hamster, Richtung wunschRichtung) {
         // ist bewegung des hamster gültig? was heist das?
         // bitte nicht verwenden -> grafische darstellung soll nicht für zustandslogik verwendet werden.
 //        _planeDarstellung[hamster.yPosition][hamster.xPosition] = hamster.feldZuMerken;
@@ -91,7 +98,7 @@ public class Plane {
         _planeDarstellung[hamster.yPosition][hamster.xPosition] = hamster._representation;
     }
 
-    void print() {
+    public void print() {
         resetDarstellung();
 
         for (int zeilen = 0; zeilen < _size; zeilen++) {
@@ -102,7 +109,7 @@ public class Plane {
         }
     }
 
-    void resetDarstellung() {
+    public void resetDarstellung() {
         // alles ist erde
         for (int zeilen = 0; zeilen < _size; zeilen++) {
             for (int spalten = 0; spalten < _size; spalten++) {
@@ -121,7 +128,7 @@ public class Plane {
         }
     }
 
-    boolean assignInitialPosition(Hamster hamster, int xWunsch, int yWunsch) {
+    public boolean assignInitialPosition(Hamster hamster, int xWunsch, int yWunsch) {
         if (!tileTakenByHamster(xWunsch, yWunsch) && !tileTakenBySeedling(xWunsch, yWunsch)) {
             _planeDarstellung[xWunsch][yWunsch] = hamster._representation;
 
@@ -131,7 +138,7 @@ public class Plane {
         return false;
     }
 
-    boolean assignInitialPosition(Seedling seedling, int xWunsch, int yWunsch) {
+    public boolean assignInitialPosition(Seedling seedling, int xWunsch, int yWunsch) {
         if (!tileTakenByHamster(xWunsch, yWunsch) && !tileTakenBySeedling(xWunsch, yWunsch)) {
             _planeDarstellung[xWunsch][yWunsch] = Seedling._representation;
 
@@ -141,7 +148,7 @@ public class Plane {
         return false;
     }
 
-    boolean tileTakenByHamster(int xWunsch, int yWunsch) {
+    private boolean tileTakenByHamster(int xWunsch, int yWunsch) {
         // Findest du ein Problem mit den Hamstern? (gleiche Position).
         for (Hamster hamsterAusListe : _hamsters) {
             if (hamsterAusListe.xPosition == xWunsch && hamsterAusListe.yPosition == yWunsch) {
@@ -152,7 +159,8 @@ public class Plane {
         return false;
     }
 
-    boolean tileTakenBySeedling(int xWunsch, int yWunsch) {
+    // TODO: private machen und für den hamster eine neue methode in der Plane schreiben
+    public boolean tileTakenBySeedling(int xWunsch, int yWunsch) {
         // Findest du ein Problem mit den Seedlings? (gleiche Position).
         for (Seedling seedlingAusListe : _seedlings) {
             if (seedlingAusListe.xPosition == xWunsch && seedlingAusListe.yPosition == yWunsch) {
@@ -164,7 +172,7 @@ public class Plane {
     }
 
     // Konstruktor
-    Plane(int size) {
+    public Plane(int size) {
         // felder initialisieren
         _size = size;
         _planeDarstellung = new String[_size][_size];
@@ -194,6 +202,36 @@ public class Plane {
             // * diese der Liste hinzufügen
             _seedlings.add(new Seedling(this));
         }
+    }
+
+    // Get-Set Methoden
+    public int getSize() {
+        return _size;
+    }
+
+    // schreibzugriff
+//    public void setSize(int size) {
+//        if (size < 0) {
+//            System.out.println("Fehler! hat nicht funktionier da negativ.");
+//            return;
+//        }
+//        _size = size;
+//    }
+
+    public static String getEarthRepresentation() {
+        return _earthRepresentation;
+    }
+
+    public String[][] getPlaneDarstellung() {
+        return _planeDarstellung;
+    }
+
+    public ArrayList<Hamster> getHamsters() {
+        return _hamsters;
+    }
+
+    public ArrayList<Seedling> getSeedlings() {
+        return _seedlings;
     }
 }
 

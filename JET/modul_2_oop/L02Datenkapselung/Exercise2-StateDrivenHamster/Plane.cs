@@ -29,7 +29,7 @@ public class Plane
             }
         }
 
-        // Samen
+        // Seedling
         int numberOfSeedlings = random.Next(1, size * size);
         for (int i = 0; i < numberOfSeedlings; i++)
         {

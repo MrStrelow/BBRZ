@@ -1,4 +1,4 @@
-package lerneinheiten.L02KlassenUndMethoden.grundlagen;
+package lerneinheiten.L02KlassenUndMethoden.einfuehrendes_beispiel;
 
 public class Hund {
     /*
