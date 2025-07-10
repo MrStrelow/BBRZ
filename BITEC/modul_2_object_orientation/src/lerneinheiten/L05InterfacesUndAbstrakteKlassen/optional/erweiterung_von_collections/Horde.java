@@ -1,4 +1,4 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.erweiterung_von_collections;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.optional.erweiterung_von_collections;
 
 import java.util.Collection;
 import java.util.Iterator;

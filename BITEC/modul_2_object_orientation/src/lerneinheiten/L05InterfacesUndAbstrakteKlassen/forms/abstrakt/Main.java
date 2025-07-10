@@ -9,7 +9,7 @@ import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.forms.abstrakt.impl
 
 public class Main {
     public static void main(String[] args) {
-        Dreieck triangle = new Dreieck(5, 5, "~", "#", BOT_LEFT);
+        Dreieck triangle = new Dreieck(5, 5, "⬜", "🔹", BOT_LEFT);
 //        Dreieck triangle = new Dreieck(5, 5, "~", "#");
         System.out.println(triangle);
 

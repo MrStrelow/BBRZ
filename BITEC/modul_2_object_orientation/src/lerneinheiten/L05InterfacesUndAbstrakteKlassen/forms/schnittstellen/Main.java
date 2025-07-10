@@ -15,7 +15,6 @@ public class Main {
 
         System.out.println(new Dreieck(triangle, TOP_LEFT));
         System.out.println(new Dreieck(triangle, TOP_RIGHT));
-        
         System.out.println(new Dreieck(triangle, BOT_RIGHT));
 
 //        Form diamant = new Diamant(triangle.getHoehe() * 2, triangle.getBreite() * 2, triangle.getBackground(), triangle.getFiller());

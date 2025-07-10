@@ -1,4 +1,4 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.zahlen;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.optional.zahlen;
 
 /*
     Wir betrachten hier abstrakte lerneinheiten.L02KlassenUndMethoden.Klassen und Interfaces und wie wir <ist> Beziehungen mit diesen umsetzen.

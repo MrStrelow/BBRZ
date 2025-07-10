@@ -1,4 +1,4 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.erweiterung_von_collections;
+package lerneinheiten.L05InterfacesUndAbstrakteKlassen.optional.erweiterung_von_collections;
 
 public class Schaefer extends Hund {
     public Schaefer(String name, int age) {
