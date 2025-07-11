@@ -4,6 +4,11 @@ using Restauraunt.Services.Exceptions;
 
 namespace Restauraunt.Services;
 
+public interface IDishService
+{
+    Task<Dish> PrepareDishAsync(int dishId);
+}
+
 internal class DishService
 {
     private readonly IDishRepository _dishRespitory = new JsonDishRespitory();
