@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restauraunt.Entities;
+namespace Restauraunt.Services.Exceptions;
 
-internal class StockEntitiy
+public class DishNotFoundException : Exception
 {
+    public
 }
+

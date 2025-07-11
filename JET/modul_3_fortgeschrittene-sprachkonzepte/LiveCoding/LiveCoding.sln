@@ -17,9 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L04LINQ", "L04LINQ\L04LINQ.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.2AwaitAsynch", "L05AwaitAsynch\L05.2AwaitAsynch.csproj", "{2EAFC33E-F9A8-4ACD-BAEC-3655A65DB92E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.1Synch", "Synch\L05.1Synch.csproj", "{5A2BC8AD-A329-4450-B3CA-4520DC844839}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.1Synch", "L05.1Synch\L05.1Synch.csproj", "{5A2BC8AD-A329-4450-B3CA-4520DC844839}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.3RepositoryPattern", "L05.3RepositoryPattern\L05.3RepositoryPattern.csproj", "{F7AAB1F4-7756-4152-8A10-81521F279CC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L05.7Restauraunt", "L05.7Restauraunt\L05.7Restauraunt.csproj", "{F7AAB1F4-7756-4152-8A10-81521F279CC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
