@@ -20,6 +20,7 @@ public class Program
         var dishService = new DishService();
         var menuService = new MenuService(dishService);
         var customerService = new CustomerService(menuService);
+
         var analyticsService = new AnalyticsService();
 
         await SeedDatabaseAsync();
@@ -43,7 +44,6 @@ public class Program
                 }
                 catch (OrderProcessingException ex)
                 {
-                    // Log the entire exception chain with structured logging
                     Log.Error(ex, "Fehler bei der Auftragsverarbeitung für Tisch {TableNumber}.", order.TableNumber);
                 }
                 catch (Exception ex)
