@@ -2,8 +2,9 @@
 
 public class Program
 {
-    // Die Main-Methode wird ebenfalls asynchron!
-    public static async Task Main(string[] args)
+    // Die Main-Methode wird ebenfalls asynchron.
+    // Oder mit Top-Level Statements! Dann können wir class und static async Task main entfernen.
+    public static async Task Main(string[] args) 
     {
         var userService = new UserService();
 
