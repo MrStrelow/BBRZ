@@ -488,10 +488,10 @@ screen.listen()
 # 2. Eine Prozedur dem Event übergeben welche ausgeführt wird.
 # Die Namen für die Pfeiltasten sind: "Up", "Down", "Left", "Right"
 # Bewegen
-screen.onkey(gehe_hoch, "Up")
-screen.onkey(gehe_runter, "Down")
-screen.onkey(gehe_links, "Left")
-screen.onkey(gehe_rechts, "Right")
+screen.onkey(gehe_nach_oben, "Up")
+screen.onkey(gehe_nach_unten, "Down")
+screen.onkey(gehe_nach_links, "Left")
+screen.onkey(gehe_nach_rechts, "Right")
 
 # --- Abschluss ---
 screen.mainloop()
