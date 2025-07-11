@@ -1,47 +1,54 @@
-﻿// File: Services/DishService.cs
+﻿using Serilog;
 using MorgenstundRestaurant.Entities;
+using MorgenstundRestaurant.Exceptions;
 using MorgenstundRestaurant.Repositories;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MorgenstundRestaurant.Services;
-
-public interface IDishService
+namespace MorgenstundRestaurant.Services
 {
-    Task<Dish> PrepareDishAsync(int dishId);
-}
-
-public class DishService : IDishService
-{
-    private readonly IDishRepository _dishRepository;
-    private readonly IStockRepository _stockRepository;
-
-    public DishService()
+    public interface IDishService
     {
-        _dishRepository = new DishRepository();
-        _stockRepository = new StockRepository();
+        Task<Dish> PrepareDishAsync(int dishId);
     }
 
-    public async Task<Dish> PrepareDishAsync(int dishId)
+    public class DishService : IDishService
     {
-        var dish = await _dishRepository.GetByIdAsync(dishId) ?? throw new ArgumentException($"Gericht mit ID {dishId} nicht gefunden.");
+        private readonly IDishRepository _dishRepository;
+        private readonly IStockRepository _stockRepository;
 
-        Console.WriteLine($"  -> Beginne Zubereitung für: {dish.Name}");
-        var stockItems = (await _stockRepository.GetAllAsync()).ToList();
-
-        foreach (var ingredientName in dish.Ingredients)
+        public DishService()
         {
-            var stockItem = stockItems.FirstOrDefault(s => s.Name.Equals(ingredientName, StringComparison.OrdinalIgnoreCase)) ?? throw new InvalidOperationException($"Zutat '{ingredientName}' nicht im Lager!");
-            if (stockItem.Quantity <= 0) throw new InvalidOperationException($"Nicht genug von Zutat '{ingredientName}'!");
-
-            stockItem.Quantity--;
+            _dishRepository = new DishRepository();
+            _stockRepository = new StockRepository();
         }
 
-        await Task.Delay(50 + dish.PreparationSteps.Count * 50); // Simuliert die Zubereitungszeit
-        await _stockRepository.SaveAllAsync(stockItems);
+        public async Task<Dish> PrepareDishAsync(int dishId)
+        {
+            var dish = await _dishRepository.GetByIdAsync(dishId)
+                ?? throw new DishNotFoundException($"Gericht mit ID {dishId} konnte nicht gefunden werden.");
 
-        Console.WriteLine($"  <- Gericht '{dish.Name}' ist fertig.");
-        return dish;
+            Log.ForContext<DishService>().Information("Beginne Zubereitung für: {DishName}", dish.Name);
+            var stockItems = (await _stockRepository.GetAllAsync()).ToList();
+
+            foreach (var ingredientName in dish.Ingredients)
+            {
+                var stockItem = stockItems.FirstOrDefault(s => s.Name.Equals(ingredientName, StringComparison.OrdinalIgnoreCase));
+
+                if (stockItem == null || stockItem.Quantity <= 0)
+                {
+                    throw new OutOfStockException($"Nicht genug von Zutat '{ingredientName}' für das Gericht '{dish.Name}' im Lager!");
+                }
+
+                stockItem.Quantity--;
+            }
+
+            await Task.Delay(50 + dish.PreparationSteps.Count * 50);
+            await _stockRepository.SaveAllAsync(stockItems);
+
+            Log.Information("Gericht '{DishName}' ist fertig.", dish.Name);
+            return dish;
+        }
     }
 }

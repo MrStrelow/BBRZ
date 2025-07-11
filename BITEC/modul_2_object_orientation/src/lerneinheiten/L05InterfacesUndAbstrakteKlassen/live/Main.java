@@ -1,13 +1,12 @@
 package lerneinheiten.L05InterfacesUndAbstrakteKlassen.live;
 
-import java.util.ArrayList;
-import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.Direction.*;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen.Dreieck;
+import lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen.Form;
+import static lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen.Direction.*;
 
 public class Main {
     public static void main(String[] args) {
-        Dreieck form = new Dreieck();
-        System.out.println(form);
-//        Dreieck triangle = new Dreieck(7, 7, "🌱", "👀", BOT_LEFT);
+        Dreieck triangle = new Dreieck(7, 7, "🌱", "👀", BOT_LEFT);
 
 //        Diamant diamiant = new Diamant(triangle);
 //        Diamant diamant = new Diamant(10, 10, "⬜", "👀");

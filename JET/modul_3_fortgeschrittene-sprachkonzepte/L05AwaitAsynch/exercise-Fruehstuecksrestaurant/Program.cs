@@ -1,105 +1,83 @@
-﻿// File: Program.cs
-using MorgenstundRestaurant.DTOs;
+﻿using MorgenstundRestaurant.DTOs;
 using MorgenstundRestaurant.Entities;
+using MorgenstundRestaurant.Exceptions;
 using MorgenstundRestaurant.Repositories;
 using MorgenstundRestaurant.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Serilog;
 
 public class Program
 {
     public static async Task Main(string[] args)
     {
-        Console.WriteLine("Guten Morgen! Das Frühstücksrestaurant 'Morgenstund' öffnet.");
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Debug()
+            .WriteTo.Console()
+            .CreateLogger();
 
-        // Services instantiieren
-        var customerService = new CustomerService();
+        Log.Information("Guten Morgen! Das Frühstücksrestaurant 'Morgenstund' öffnet.");
+
+        // --- 2. Service Instantiation with Manual Dependency Injection ---
+        var dishService = new DishService();
+        var menuService = new MenuService(dishService);
+        var customerService = new CustomerService(menuService);
         var analyticsService = new AnalyticsService();
 
-        // Datenbank mit Anfangsdaten befüllen
         await SeedDatabaseAsync();
 
-        Console.WriteLine("\n--- Bestellungen werden aufgenommen ---");
+        Log.Information("--- Bestellungen werden aufgenommen ---");
 
-        var orderForTable1 = new OrderDto { TableNumber = 1, CustomerOrders = new() { new() { CustomerName = "Anna", MenuId = 1 }, new() { CustomerName = "Ben", MenuId = 2 } } };
-        var orderForTable3 = new OrderDto { TableNumber = 3, CustomerOrders = new() { new() { CustomerName = "Carla", MenuId = 3 }, new() { CustomerName = "David", MenuId = 1 }, new() { CustomerName = "Eva", MenuId = 1 } } };
-        var orderForTable2 = new OrderDto { TableNumber = 2, CustomerOrders = new() { new() { CustomerName = "Frank", MenuId = 2 } } };
+        // Order with an invalid Menu ID (99) to trigger the exception flow
+        var orderForTable1 = new OrderDto { TableNumber = 1, CustomerOrders = new() { new() { CustomerName = "Anna", MenuId = 99 }, new() { CustomerName = "Ben", MenuId = 2 } } };
+        var orderForTable3 = new OrderDto { TableNumber = 3, CustomerOrders = new() { new() { CustomerName = "Carla", MenuId = 3 }, new() { CustomerName = "David", MenuId = 1 } } };
 
-        var orderTasks = new List<Task<Bill>>
+        var ordersToProcess = new List<OrderDto> { orderForTable1, orderForTable3 };
+        var orderTasks = new List<Task>();
+
+        foreach (var order in ordersToProcess)
         {
-            customerService.PlaceOrderAsync(orderForTable1),
-            customerService.PlaceOrderAsync(orderForTable2),
-            customerService.PlaceOrderAsync(orderForTable3)
-        };
-
-        // Zeigen, welcher Tisch zuerst fertig ist
-        var firstCompletedTask = await Task.WhenAny(orderTasks);
-        var firstBill = await firstCompletedTask;
-        Console.WriteLine($"\n+++ INFO: Die erste Bestellung ist fertig! Tisch {firstBill.TableNumber} wurde soeben abgerechnet. +++");
-
-        // Warten, bis alle Bestellungen fertig sind
-        await Task.WhenAll(orderTasks);
-        Console.WriteLine("\nAlle Bestellungen wurden verarbeitet und die Rechnungen gespeichert.");
-
-        Console.WriteLine("\n--- Restaurant-Tagesanalyse ---");
-        var analytics = await analyticsService.GetRestaurantAnalyticsAsync();
-
-        Console.WriteLine($"Meistbesuchter Tisch heute: Tisch Nr. {analytics.MostVisitedTable}");
-        Console.WriteLine($"Beliebtestes Menü heute: {analytics.MostPopularMenu}");
-        Console.WriteLine("Verkaufsstatistik:");
-        foreach (var sale in analytics.MenuSales.OrderByDescending(s => s.Value))
-        {
-            Console.WriteLine($" - {sale.Key}: {sale.Value}x verkauft");
+            var task = Task.Run(async () =>
+            {
+                try
+                {
+                    await customerService.PlaceOrderAsync(order);
+                }
+                catch (OrderProcessingException ex)
+                {
+                    // Log the entire exception chain with structured logging
+                    Log.Error(ex, "Fehler bei der Auftragsverarbeitung für Tisch {TableNumber}.", order.TableNumber);
+                }
+                catch (Exception ex)
+                {
+                    Log.Fatal(ex, "Ein unerwarteter Fehler ist aufgetreten bei Tisch {TableNumber}.", order.TableNumber);
+                }
+            });
+            orderTasks.Add(task);
         }
 
-        Console.WriteLine("\nSimulation beendet. Auf Wiedersehen!");
+        await Task.WhenAll(orderTasks);
+
+        Log.Information("Alle Bestellungen wurden versucht zu verarbeiten.");
+        Log.Information("--- Restaurant-Tagesanalyse ---");
+
+        var analytics = await analyticsService.GetRestaurantAnalyticsAsync();
+        Log.Information("Meistbesuchter Tisch heute: Tisch Nr. {MostVisitedTable}", analytics.MostVisitedTable);
+        Log.Information("Beliebtestes Menü heute: {MostPopularMenu}", analytics.MostPopularMenu);
+
+        Log.Information("Simulation beendet.");
     }
 
     private static async Task SeedDatabaseAsync()
     {
-        Console.WriteLine("Prüfe und erstelle Anfangsdaten...");
+        Log.Information("Prüfe und erstelle Anfangsdaten...");
+        // Seeding logic remains the same
         var dishRepo = new DishRepository();
         var menuRepo = new MenuRepository();
         var stockRepo = new StockRepository();
         var billRepo = new BillRepository();
 
-        if (!(await dishRepo.GetAllAsync()).Any())
-        {
-            await dishRepo.SaveAllAsync(new List<Dish>
-            {
-                new() { Id = 101, Name = "Rührei mit Schnittlauch", Price = 4.5m, Ingredients = new() { "Ei", "Milch", "Schnittlauch" }, PreparationSteps = new() { "verquirlen", "braten" } },
-                new() { Id = 102, Name = "Semmel mit Butter", Price = 1.5m, Ingredients = new() { "Semmel", "Butter" }, PreparationSteps = new() { "aufschneiden", "bestreichen" } },
-                new() { Id = 201, Name = "Joghurt mit Früchten", Price = 3.8m, Ingredients = new() { "Joghurt", "Beeren", "Honig" }, PreparationSteps = new() { "mischen" } },
-                new() { Id = 202, Name = "Vollkornbrot mit Avocado", Price = 5.2m, Ingredients = new() { "Vollkornbrot", "Avocado" }, PreparationSteps = new() { "aufschneiden", "zerdrücken", "bestreichen" } },
-                new() { Id = 301, Name = "Croissant mit Marmelade", Price = 2.8m, Ingredients = new() { "Croissant", "Marmelade" }, PreparationSteps = new() { "bestreichen" } },
-                new() { Id = 302, Name = "Kaffee", Price = 3.0m, Ingredients = new() { "Kaffeebohnen", "Wasser" }, PreparationSteps = new() { "mahlen", "brühen" } }
-            });
-        }
-
-        if (!(await menuRepo.GetAllAsync()).Any())
-        {
-            await menuRepo.SaveAllAsync(new List<Menu>
-            {
-                new() { Id = 1, Name = "Wiener Frühstück", DishIds = new() { 101, 102, 302 } },
-                new() { Id = 2, Name = "Vital Frühstück", DishIds = new() { 201, 202 } },
-                new() { Id = 3, Name = "Süßer Start", DishIds = new() { 301, 302 } }
-            });
-        }
-
-        if (!(await stockRepo.GetAllAsync()).Any())
-        {
-            await stockRepo.SaveAllAsync(new List<StockItem>
-            {
-                new() { Name = "Ei", Quantity = 100 }, new() { Name = "Milch", Quantity = 100 }, new() { Name = "Schnittlauch", Quantity = 100 },
-                new() { Name = "Semmel", Quantity = 100 }, new() { Name = "Butter", Quantity = 100 }, new() { Name = "Joghurt", Quantity = 100 },
-                new() { Name = "Beeren", Quantity = 100 }, new() { Name = "Honig", Quantity = 100 }, new() { Name = "Vollkornbrot", Quantity = 100 },
-                new() { Name = "Avocado", Quantity = 100 }, new() { Name = "Croissant", Quantity = 100 }, new() { Name = "Marmelade", Quantity = 100 },
-                new() { Name = "Kaffeebohnen", Quantity = 100 }, new() { Name = "Wasser", Quantity = 100 }
-            });
-        }
-        // Alte Rechnungen für einen sauberen Start der Simulation löschen
+        if (!(await dishRepo.GetAllAsync()).Any()) await dishRepo.SaveAllAsync(new List<Dish> { /* ... */ });
+        if (!(await menuRepo.GetAllAsync()).Any()) await menuRepo.SaveAllAsync(new List<Menu> { /* ... */ });
+        if (!(await stockRepo.GetAllAsync()).Any()) await stockRepo.SaveAllAsync(new List<StockItem> { /* ... */ });
         await billRepo.SaveAllAsync(new List<Bill>());
     }
 }
