@@ -1,3 +1,4 @@
+# ------------------------------ For Schleife ------------------------------
 # for für wenn ich wieß wie oft ich mich wiederhole
 # for-each schleife im "zählschleifen style"
 print("Version 1")
@@ -51,6 +52,7 @@ for zaehler, fach in enumerate(teilnehmerlist_zum_drucken):
     if zaehler % 2 == 0:
         print(fach, " - ", zaehler)
 
+# ------------------------------ While Schleife ------------------------------
 # while wenn ich es nicht weiß, wie oft ich mich wiederhole
 eingabe = ""
 
@@ -59,7 +61,7 @@ while eingabe != "yössas":
 
 print(eingabe + " wurde eingegeben. Danke.")
 
-# --------------- Rekursion ---------------
+# ------------------------------ Rekursion ------------------------------
 def wiederhole_mich_5_mal(wiederholungen):
     print(wiederholungen-1)
 
