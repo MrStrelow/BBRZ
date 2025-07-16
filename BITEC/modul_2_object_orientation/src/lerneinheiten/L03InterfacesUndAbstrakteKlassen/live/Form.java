@@ -1,14 +1,14 @@
 package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live;
 
-import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Direction;
+import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Orientation;
 
 public abstract class Form {
     // Feld
-    protected String[][] darstellung;
-    protected int hoehe;
-    protected int breite;
-    protected String background;
-    protected String foreground;
+    protected String[][] _darstellung;
+    protected int _hoehe;
+    protected int _breite;
+    protected String _background;
+    protected String _foreground;
 
     // Hat-Beziehung
     // Methoden
@@ -24,9 +24,9 @@ public abstract class Form {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for (int zeilen = 0; zeilen < breite; zeilen++) {
-            for (int spalten = 0; spalten < hoehe; spalten++) {
-                sb.append(darstellung[zeilen][spalten]);
+        for (int zeilen = 0; zeilen < _breite; zeilen++) {
+            for (int spalten = 0; spalten < _hoehe; spalten++) {
+                sb.append(_darstellung[zeilen][spalten]);
             }
             sb.append("\n");
         }
@@ -35,38 +35,38 @@ public abstract class Form {
     }
 
     public Form spiegelnY() {
-        String[][] copy = new String[hoehe][breite];
+        String[][] copy = new String[_hoehe][_breite];
 
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                copy[i][j] = darstellung[i][breite - 1 - j];
+        for (int i = 0; i < _hoehe; i++) {
+            for (int j = 0; j < _breite; j++) {
+                copy[i][j] = _darstellung[i][_breite - 1 - j];
             }
         }
 
-        darstellung = copy;
+        _darstellung = copy;
 
         return this;
     }
 
     public Form spiegelnX() {
-        String[][] copy = new String[hoehe][breite];
+        String[][] copy = new String[_hoehe][_breite];
 
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                copy[i][j] = darstellung[hoehe - 1 - i][j];
+        for (int i = 0; i < _hoehe; i++) {
+            for (int j = 0; j < _breite; j++) {
+                copy[i][j] = _darstellung[_hoehe - 1 - i][j];
             }
         }
 
-        darstellung = copy;
+        _darstellung = copy;
 
         return this;
     }
 
     public Form fillCanvas(String symbol) {
 
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                darstellung[i][j] = symbol;
+        for (int i = 0; i < _hoehe; i++) {
+            for (int j = 0; j < _breite; j++) {
+                _darstellung[i][j] = symbol;
             }
         }
 
@@ -77,43 +77,80 @@ public abstract class Form {
         return spiegelnX().transponieren();
     }
 
-    protected Form transponieren() {
-        String[][] flipped = new String[breite][hoehe];
-        int tmp = hoehe;
-        this.hoehe = breite;
-        this.breite = tmp;
+    private Form transponieren() {
+        String[][] flipped = new String[_breite][_hoehe];
+        int tmp = _hoehe;
+        this._hoehe = _breite;
+        this._breite = tmp;
 
-        for (int i = 0; i < hoehe; i++) {
-            for (int j = 0; j < breite; j++) {
-                flipped[i][j] = darstellung[j][i];
+        for (int i = 0; i < _hoehe; i++) {
+            for (int j = 0; j < _breite; j++) {
+                flipped[i][j] = _darstellung[j][i];
             }
         }
 
-        this.darstellung = flipped;
+        this._darstellung = flipped;
 
         return this;
     }
 
-    protected Form attach(Form toBeAttached, Direction orientation) {
-
+    public Form attach(Form toBeAttached, Orientation orientation) {
+        return switch (orientation) {
+            case NORTH -> attachNorth(toBeAttached);
+            case EAST -> attachEast(toBeAttached);
+            case WEST -> attachWest(toBeAttached);
+            case SOUTH -> attachSouth(toBeAttached);
+        };
     }
 
     private Form attachNorth(Form north) {
-
+        return north.attachSouth(this);
     }
 
     private Form attachEast(Form east) {
-
-    }
-
-    private Form attachSouth(Form south) {
-
+        return east.attachWest(this);
     }
 
     private Form attachWest(Form west) {
+        // drehe zuerst mich selbst
+        Form me = drehen();
 
+        // drehe das was ich im Westen hinzufügen will
+        Form westGedreht = west.drehen();
+
+        // füge im Süden hinzu, da wir alles um 90° nach rechts gedreht haben. Westen ist also Süden.
+        Form imSuedenAngefuegt = me.attachSouth(westGedreht);
+
+        return imSuedenAngefuegt.drehen().drehen().drehen();
+    }
+
+    private Form attachSouth(Form south) {
+        String[][] combined = new String[_hoehe + south._hoehe][_breite];
+
+        // gehe meine darstellung ab und kopiere inhalt in combined an gleicher Stelle.
+        for (int i = 0; i < _hoehe; i++) {
+            for (int j = 0; j < _breite; j++) {
+                combined[i][j] = _darstellung[i][j];
+            }
+        }
+
+        // gehe die andere darstellung ab welche im Süden von mir sein soll und kopiere inhalt in combined an gleicher Stelle.
+        for (int i = 0; i < south._hoehe; i++) {
+            for (int j = 0; j < south._breite; j++) {
+                combined[i + _hoehe][j] = south._darstellung[i][j];
+            }
+        }
+
+        // ehhhh. wir wollen eigentlich eine neuer form machen.
+        _darstellung = combined;
+        _hoehe = combined.length;
+        _breite = combined[0].length;
+
+        return this;
     }
 
     // Konstruktor
+
+
     // Get- Set-Methoden
 }

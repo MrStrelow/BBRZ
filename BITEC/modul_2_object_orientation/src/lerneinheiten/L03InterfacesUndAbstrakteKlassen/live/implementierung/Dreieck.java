@@ -1,31 +1,47 @@
 package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung;
 
 import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.Form;
-import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Direction;
 
 public class Dreieck extends Form {
 
     // Feld
-    private Direction orientation;
+    private Direction _direction;
+
     // Hat-Beziehung
     // Methode
     public Form generateForm() {
-        for (int zeilen = 0; zeilen < breite; zeilen++) {
-            for (int spalten = 0; spalten < hoehe; spalten++) {
+        for (int zeilen = 0; zeilen < _breite; zeilen++) {
+            for (int spalten = 0; spalten < _hoehe; spalten++) {
                 if (spalten <= zeilen) {
-                    darstellung[zeilen][spalten] = foreground;
+                    _darstellung[zeilen][spalten] = _foreground;
+                } else {
+                    _darstellung[zeilen][spalten] = _background;
                 }
             }
         }
 
-        switch (orientation) {
-            case BOT_LEFT -> spiegelnX();
-            case BOT_RIGHT -> spiegelnY();
+        switch (_direction) {
+            case BOT_LEFT -> spiegelnY();
+            case BOT_RIGHT -> spiegelnX();
             case TOP_RIGHT -> spiegelnX().spiegelnY();
         }
 
         return this;
     }
     // Konstruktor
+    public Dreieck(
+            int hoehe, int breite, String background,
+            String foreground, Direction direction
+    ) {
+        _hoehe = hoehe;
+        _breite = breite;
+        _darstellung = new String[hoehe][breite];
+        _background = background;
+        _foreground = foreground;
+        _direction = direction;
+
+        generateForm();
+    }
+
     // Get- Set-Methoden
 }
