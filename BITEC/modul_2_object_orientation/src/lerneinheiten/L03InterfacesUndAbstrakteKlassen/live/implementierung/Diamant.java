@@ -1,4 +1,6 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen;
+package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung;
+
+import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.Form;
 
 public class Diamant extends Form {
     // Feld

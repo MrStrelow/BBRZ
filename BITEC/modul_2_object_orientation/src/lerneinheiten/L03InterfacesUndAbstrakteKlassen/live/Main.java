@@ -1,4 +1,4 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.live;
+package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live;
 
 public class Main {
     public static void main(String[] args) {
