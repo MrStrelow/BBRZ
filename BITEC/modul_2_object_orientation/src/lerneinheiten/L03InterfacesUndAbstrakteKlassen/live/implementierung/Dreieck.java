@@ -1,6 +1,6 @@
 package lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen;
 
-import lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen.Form;
+import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.Form;
 
 public class Dreieck extends Form {
 

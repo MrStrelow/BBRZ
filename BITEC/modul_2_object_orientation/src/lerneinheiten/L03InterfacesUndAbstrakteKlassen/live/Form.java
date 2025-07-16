@@ -1,4 +1,4 @@
-package lerneinheiten.L05InterfacesUndAbstrakteKlassen.live.klassen;
+package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live;
 
 public abstract class Form {
     // Feld
