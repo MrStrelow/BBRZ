@@ -24,8 +24,8 @@ public abstract class Form {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for (int zeilen = 0; zeilen < _breite; zeilen++) {
-            for (int spalten = 0; spalten < _hoehe; spalten++) {
+        for (int zeilen = 0; zeilen < _hoehe; zeilen++) {
+            for (int spalten = 0; spalten < _breite; spalten++) {
                 sb.append(_darstellung[zeilen][spalten]);
             }
             sb.append("\n");
@@ -107,11 +107,11 @@ public abstract class Form {
         return north.attachSouth(this);
     }
 
-    private Form attachEast(Form east) {
-        return east.attachWest(this);
+    private Form attachWest(Form east) {
+        return east.attachEast(this);
     }
 
-    private Form attachWest(Form west) {
+    private Form attachEast(Form west) {
         // drehe zuerst mich selbst
         Form me = drehen();
 

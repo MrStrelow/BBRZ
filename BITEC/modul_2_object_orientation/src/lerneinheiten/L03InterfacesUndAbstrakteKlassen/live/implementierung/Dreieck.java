@@ -21,9 +21,9 @@ public class Dreieck extends Form {
         }
 
         switch (_direction) {
-            case BOT_LEFT -> spiegelnY();
             case BOT_RIGHT -> spiegelnX();
-            case TOP_RIGHT -> spiegelnX().spiegelnY();
+            case TOP_LEFT -> spiegelnY();
+            case BOT_LEFT -> spiegelnX().spiegelnY();
         }
 
         return this;
