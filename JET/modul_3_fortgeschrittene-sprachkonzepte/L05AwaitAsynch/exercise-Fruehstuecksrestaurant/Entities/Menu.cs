@@ -4,9 +4,6 @@ using System.Text.Json.Serialization;
 
 namespace MorgenstundRestaurant.Entities;
 
-/// <summary>
-/// Repräsentiert ein Frühstücksmenü, das aus mehreren Gerichten besteht.
-/// </summary>
 public class Menu
 {
     public int Id { get; set; }

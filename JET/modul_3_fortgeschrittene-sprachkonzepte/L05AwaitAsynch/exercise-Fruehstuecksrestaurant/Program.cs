@@ -24,10 +24,10 @@ await SeedDatabaseAsync();
 Log.Information("--- Bestellungen werden aufgenommen ---");
 
 // Order with an invalid Menu ID (99) to trigger the exception flow
-var orderForTable1 = new OrderDto { TableNumber = 1, CustomerOrders = new() { new() { CustomerName = "Anna", MenuId = 99 }, new() { CustomerName = "Ben", MenuId = 2 } } };
-var orderForTable3 = new OrderDto { TableNumber = 3, CustomerOrders = new() { new() { CustomerName = "Carla", MenuId = 3 }, new() { CustomerName = "David", MenuId = 1 } } };
+var orderForTable1 = new TableOrderDto { TableNumber = 1, CustomerOrders = new() { new() { CustomerName = "Anna", MenuId = 99 }, new() { CustomerName = "Ben", MenuId = 2 } } };
+var orderForTable3 = new TableOrderDto { TableNumber = 3, CustomerOrders = new() { new() { CustomerName = "Carla", MenuId = 3 }, new() { CustomerName = "David", MenuId = 1 } } };
 
-var ordersToProcess = new List<OrderDto> { orderForTable1, orderForTable3 };
+var ordersToProcess = new List<TableOrderDto> { orderForTable1, orderForTable3 };
 var orderTasks = new List<Task>();
 
 foreach (var order in ordersToProcess)

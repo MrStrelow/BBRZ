@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
+﻿namespace MorgenstundRestaurant.DTOs;
 
-namespace MorgenstundRestaurant.DTOs;
-
-/// <summary>
-/// DTO zum Aufgeben einer Bestellung für einen ganzen Tisch.
-/// </summary>
 public class OrderDto
 {
-    public int TableNumber { get; set; }
-    public List<CustomerOrderDto> CustomerOrders { get; set; } = new();
+    public string CustomerName { get; set; } = string.Empty;
+    public int MenuId { get; set; }
 }

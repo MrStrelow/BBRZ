@@ -8,7 +8,7 @@ namespace MorgenstundRestaurant.Services
 {
     public interface ICustomerService
     {
-        Task<Bill> PlaceOrderAsync(OrderDto order);
+        Task<Bill> PlaceOrderAsync(TableOrderDto order);
     }
 
     public class CustomerService : ICustomerService
@@ -23,7 +23,7 @@ namespace MorgenstundRestaurant.Services
             _menuService = menuService;
         }
 
-        public async Task<Bill> PlaceOrderAsync(OrderDto order)
+        public async Task<Bill> PlaceOrderAsync(TableOrderDto order)
         {
             if (order.CustomerOrders.Count > MaxCustomersPerTable)
                 throw new InvalidOperationException($"Tisch {order.TableNumber} ist überbucht.");

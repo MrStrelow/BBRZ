@@ -2,9 +2,6 @@
 
 namespace MorgenstundRestaurant.Entities;
 
-/// <summary>
-/// Repräsentiert ein einzelnes Gericht, das Teil eines Menüs sein kann.
-/// </summary>
 public class Dish
 {
     public int Id { get; set; }

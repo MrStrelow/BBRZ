@@ -3,9 +3,6 @@ using System.Linq;
 
 namespace MorgenstundRestaurant.DTOs;
 
-/// <summary>
-/// DTO zur Darstellung der Restaurant-Analyse.
-/// </summary>
 public class RestaurantAnalyticsDto
 {
     public int MostVisitedTable { get; set; }

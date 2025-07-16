@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 namespace MorgenstundRestaurant.Entities;
 
-/// <summary>
-/// Repräsentiert eine Rechnung für die Bestellung eines Tisches.
-/// </summary>
 public class Bill
 {
     public Guid Id { get; set; } = Guid.NewGuid();
