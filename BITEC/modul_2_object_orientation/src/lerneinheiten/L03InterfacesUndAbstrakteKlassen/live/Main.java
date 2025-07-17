@@ -1,10 +1,10 @@
 package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live;
 
+import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Diamant;
 import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Dreieck;
-import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Orientation;
+import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Form;
 
 import static lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Direction.*;
-import static lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Orientation.SOUTH;
 import static lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Orientation.WEST;
 
 public class Main {
@@ -21,10 +21,11 @@ public class Main {
         Dreieck topLeft = new Dreieck(7, 7, "⬜", "🌱", TOP_LEFT);
         System.out.println(topLeft);
 
-        System.out.println(topRight.attach(topLeft, WEST));
+        Form komischeForm = topRight.attach(topLeft, WEST);
+        System.out.println(komischeForm);
 
 //        Diamant diamiant = new Diamant(triangle);
-//        Diamant diamant = new Diamant(10, 10, "⬜", "👀");
+        Diamant diamant = new Diamant(10, 10, "⬜", "🌱");
 //
 //        ArrayList<Form> box = new ArrayList<>();
 //        box.add(diamiant);

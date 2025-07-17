@@ -1,7 +1,5 @@
 package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung;
 
-import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.Form;
-
 public class Dreieck extends Form {
 
     // Feld
@@ -28,6 +26,7 @@ public class Dreieck extends Form {
 
         return this;
     }
+
     // Konstruktor
     public Dreieck(
             int hoehe, int breite, String background,

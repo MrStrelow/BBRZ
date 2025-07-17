@@ -1,7 +1,5 @@
 package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung;
 
-import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.Form;
-
 public class Arrow extends Form {
     // Feld
     // Hat-Beziehung

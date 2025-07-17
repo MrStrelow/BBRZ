@@ -1,6 +1,4 @@
-package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live;
-
-import lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung.Orientation;
+package lerneinheiten.L03InterfacesUndAbstrakteKlassen.live.implementierung;
 
 public abstract class Form {
     // Feld
