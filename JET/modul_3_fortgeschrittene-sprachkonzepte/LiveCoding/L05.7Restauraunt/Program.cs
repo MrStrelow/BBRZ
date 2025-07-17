@@ -16,8 +16,9 @@ public class Programm
 
         // 2. Services initialisieren
         var dishService = new DishService();
-        var menueService = new MenuService(dishService);
-        var billService = new BillService(menueService);
+        await dishService.PrepareDishAsync(1);
+        //var menueService = new MenuService(dishService);
+        //var billService = new BillService(menueService);
 
         var analyticsService = new AnalyticsService();
 

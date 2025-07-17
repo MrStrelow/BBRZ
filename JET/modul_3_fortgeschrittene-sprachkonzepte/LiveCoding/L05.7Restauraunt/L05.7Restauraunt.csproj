@@ -8,4 +8,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="dishes.json" />
+    <Compile Include="menus.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="serilog" Version="4.3.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+  </ItemGroup>
+
 </Project>

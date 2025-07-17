@@ -1,0 +1,58 @@
+﻿[
+    {
+        "Name": "Ei",
+        "Quantity": 100
+    },
+    {
+        "Name": "Milch",
+        "Quantity": 100
+    },
+    {
+        "Name": "Schnittlauch",
+        "Quantity": 100
+    },
+    {
+        "Name": "Semmel",
+        "Quantity": 100
+    },
+    {
+        "Name": "Butter",
+        "Quantity": 100
+    },
+    {
+        "Name": "Joghurt",
+        "Quantity": 100
+    },
+    {
+        "Name": "Beeren",
+        "Quantity": 100
+    },
+    {
+        "Name": "Honig",
+        "Quantity": 100
+    },
+    {
+        "Name": "Vollkornbrot",
+        "Quantity": 100
+    },
+    {
+        "Name": "Avocado",
+        "Quantity": 100
+    },
+    {
+        "Name": "Croissant",
+        "Quantity": 100
+    },
+    {
+        "Name": "Marmelade",
+        "Quantity": 100
+    },
+    {
+        "Name": "Kaffeebohnen",
+        "Quantity": 100
+    },
+    {
+        "Name": "Wasser",
+        "Quantity": 100
+    }
+]
