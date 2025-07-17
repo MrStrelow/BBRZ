@@ -32,7 +32,8 @@ public class Diamant extends Form {
 //        Form right = left.spiegelnY();
         Form right = _topRight.attach(_topLeft, SOUTH);
 
-        Form meinDiamant = left.attach(right, EAST);
+        String[][] meinDiamantDarstellung = left.attach(right, EAST)._darstellung;
+
         _darstellung = meinDiamant._darstellung;
 
         return
