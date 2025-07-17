@@ -32,24 +32,11 @@ var orderTasks = new List<Task>();
 
 foreach (var order in ordersToProcess)
 {
-    var task = Task.Run(async () =>
-    {
-        try
-        {
-            await customerService.PlaceOrderAsync(order);
-        }
-        catch (OrderProcessingException ex)
-        {
-            Log.Error(ex, "Fehler bei der Auftragsverarbeitung für Tisch {TableNumber}.", order.TableNumber);
-        }
-        catch (Exception ex)
-        {
-            Log.Fatal(ex, "Ein unerwarteter Fehler ist aufgetreten bei Tisch {TableNumber}.", order.TableNumber);
-        }
-    });
-    orderTasks.Add(task);
+    var orderTask = ProcessOrderAsync(order);
+    orderTasks.Add(orderTask);
 }
 
+// Asynchronously wait for all the started tasks to complete.
 await Task.WhenAll(orderTasks);
 
 Log.Information("Alle Bestellungen wurden versucht zu verarbeiten.");
@@ -62,7 +49,7 @@ Log.Information("Beliebtestes Menü heute: {MostPopularMenu}", analytics.MostPop
 Log.Information("Simulation beendet.");
    
 
-static async Task SeedDatabaseAsync()
+async Task SeedDatabaseAsync()
 {
     Log.Information("Prüfe und erstelle Anfangsdaten...");
     // Seeding logic remains the same
@@ -75,4 +62,21 @@ static async Task SeedDatabaseAsync()
     if (!(await menuRepo.GetAllAsync()).Any()) await menuRepo.SaveAllAsync(new List<Menu> { /* ... */ });
     if (!(await stockRepo.GetAllAsync()).Any()) await stockRepo.SaveAllAsync(new List<StockItem> { /* ... */ });
     await billRepo.SaveAllAsync(new List<Bill>());
+}
+
+// It's good practice to have the try/catch logic in its own method.
+async Task ProcessOrderAsync(TableOrderDto order)
+{
+    try
+    {
+        await customerService.PlaceOrderAsync(order);
+    }
+    catch (OrderProcessingException ex)
+    {
+        Log.Error(ex, "Fehler bei der Auftragsverarbeitung für Tisch {TableNumber}.", order.TableNumber);
+    }
+    catch (Exception ex)
+    {
+        Log.Fatal(ex, "Ein unerwarteter Fehler ist aufgetreten bei Tisch {TableNumber}.", order.TableNumber);
+    }
 }
