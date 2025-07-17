@@ -9,7 +9,7 @@ public interface IDishService
     Task<Dish> PrepareDishAsync(int dishId);
 }
 
-internal class DishService
+internal class DishService : IDishService
 {
     private readonly IDishRepository _dishRespitory = new JsonDishRespitory();
     private readonly IStockRepository _stockRepository = new JsonStockRespitory();

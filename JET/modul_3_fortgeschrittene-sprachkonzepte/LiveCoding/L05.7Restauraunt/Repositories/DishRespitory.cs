@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Restauraunt.Entities;
 
@@ -19,18 +20,32 @@ public interface IDishRepository
 
 internal class JsonDishRespitory : IDishRepository
 {
-    public Task<IEnumerable<Dish>> GetAllAsync()
+    private readonly SemaphoreSlim _lock = new(1, 1);
+    private readonly JsonSerializerOptions _options = new() { WriteIndented = true }
+
+    public async Task<IEnumerable<Dish>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Dish?> GetByIdAsync(int id)
+    public async Task<Dish?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync("../../../dishes.json");
+        return JsonSerializer.Deserialize<List<Dish>>(json, _options)?.FirstOrDefault(dish => dish.Id == id);
     }
 
-    public Task SaveAllAsync(IEnumerable<Dish> dishes)
+    public async Task SaveAllAsync(IEnumerable<Dish> dishes)
     {
-        throw new NotImplementedException();
+        var json = JsonSerializer.Serialize(dishes, _options);
+
+        await _lock.WaitAsync();
+        try
+        {
+            await File.WriteAllTextAsync("../../../dishes.json", json);
+        }
+        finally
+        {
+            _lock.Release();
+        }
     }
 }

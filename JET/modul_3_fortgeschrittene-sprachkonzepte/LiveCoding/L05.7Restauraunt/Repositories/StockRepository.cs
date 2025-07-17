@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Restauraunt.Entities;
 
@@ -19,9 +20,13 @@ public interface IStockRepository
 
 internal class JsonStockRespitory : IStockRepository
 {
-    public Task<IEnumerable<StockEntity>> GetAllAsync()
+    private readonly SemaphoreSlim _lock = new(1, 1);
+    private readonly JsonSerializerOptions _options = new() { WriteIndented = true }
+
+    public async Task<IEnumerable<StockEntity>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var json = await File.ReadAllTextAsync("../../../stock.json");
+        return JsonSerializer.Deserialize<List<StockEntity>>(json, _options) ?? new List<StockEntity>();
     }
 
     public Task<StockEntity?> GetByIdAsync(int id)
@@ -29,8 +34,18 @@ internal class JsonStockRespitory : IStockRepository
         throw new NotImplementedException();
     }
 
-    public Task SaveAllAsync(IEnumerable<StockEntity> stocks)
+    public async Task SaveAllAsync(IEnumerable<StockEntity> stocks)
     {
-        throw new NotImplementedException();
+        var json = JsonSerializer.Serialize(stocks, _options);
+
+        await _lock.WaitAsync();
+        try
+        {
+            await File.WriteAllTextAsync("../../../stock.json", json);
+        }
+        finally
+        {
+            _lock.Release();
+        }
     }
 }
