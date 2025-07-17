@@ -9,8 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="dishes.json" />
-    <Compile Include="menus.json" />
+    <Compile Remove="DTOs\**" />
+    <EmbeddedResource Remove="DTOs\**" />
+    <None Remove="DTOs\**" />
   </ItemGroup>
 
   <ItemGroup>

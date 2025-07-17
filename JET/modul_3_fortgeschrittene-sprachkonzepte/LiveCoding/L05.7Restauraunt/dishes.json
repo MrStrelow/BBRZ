@@ -1,7 +1,7 @@
-﻿[
+[
   {
     "Id": 101,
-    "Name": "Rührei mit Schnittlauch",
+    "Name": "R\u00FChrei mit Schnittlauch",
     "Ingredients": [
       "Ei",
       "Milch",
@@ -28,7 +28,7 @@
   },
   {
     "Id": 201,
-    "Name": "Joghurt mit Früchten",
+    "Name": "Joghurt mit Fr\u00FCchten",
     "Ingredients": [
       "Joghurt",
       "Beeren",
@@ -48,7 +48,7 @@
     ],
     "PreparationSteps": [
       "aufschneiden",
-      "zerdrücken",
+      "zerdr\u00FCcken",
       "bestreichen"
     ],
     "Price": 5.2
@@ -74,87 +74,7 @@
     ],
     "PreparationSteps": [
       "mahlen",
-      "brühen"
-    ],
-    "Price": 3.0
-  }
-][
-  {
-    "Id": 101,
-    "Name": "Rührei mit Schnittlauch",
-    "Ingredients": [
-      "Ei",
-      "Milch",
-      "Schnittlauch"
-    ],
-    "PreparationSteps": [
-      "verquirlen",
-      "braten"
-    ],
-    "Price": 4.5
-  },
-  {
-    "Id": 102,
-    "Name": "Semmel mit Butter",
-    "Ingredients": [
-      "Semmel",
-      "Butter"
-    ],
-    "PreparationSteps": [
-      "aufschneiden",
-      "bestreichen"
-    ],
-    "Price": 1.5
-  },
-  {
-    "Id": 201,
-    "Name": "Joghurt mit Früchten",
-    "Ingredients": [
-      "Joghurt",
-      "Beeren",
-      "Honig"
-    ],
-    "PreparationSteps": [
-      "mischen"
-    ],
-    "Price": 3.8
-  },
-  {
-    "Id": 202,
-    "Name": "Vollkornbrot mit Avocado",
-    "Ingredients": [
-      "Vollkornbrot",
-      "Avocado"
-    ],
-    "PreparationSteps": [
-      "aufschneiden",
-      "zerdrücken",
-      "bestreichen"
-    ],
-    "Price": 5.2
-  },
-  {
-    "Id": 301,
-    "Name": "Croissant mit Marmelade",
-    "Ingredients": [
-      "Croissant",
-      "Marmelade"
-    ],
-    "PreparationSteps": [
-      "bestreichen"
-    ],
-    "Price": 2.8
-  },
-  {
-    "Id": 302,
-    "Name": "Kaffee",
-    "Ingredients": [
-      "Kaffeebohnen",
-      "Wasser"
-    ],
-    "PreparationSteps": [
-      "mahlen",
-      "brühen"
+      "br\u00FChen"
     ],
     "Price": 3.0
   }

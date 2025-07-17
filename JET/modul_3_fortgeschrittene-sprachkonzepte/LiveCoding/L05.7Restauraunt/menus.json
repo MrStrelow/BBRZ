@@ -1,7 +1,7 @@
-﻿[
+[
   {
     "Id": 1,
-    "Name": "Wiener Frühstück",
+    "Name": "Wiener Fr\u00FChst\u00FCck",
     "DishIds": [
       101,
       102,
@@ -10,7 +10,7 @@
   },
   {
     "Id": 2,
-    "Name": "Vital Frühstück",
+    "Name": "Vital Fr\u00FChst\u00FCck",
     "DishIds": [
       201,
       202
@@ -18,33 +18,7 @@
   },
   {
     "Id": 3,
-    "Name": "Süßer Start",
-    "DishIds": [
-      301,
-      302
-    ]
-  }
-][
-  {
-    "Id": 1,
-    "Name": "Wiener Frühstück",
-    "DishIds": [
-      101,
-      102,
-      302
-    ]
-  },
-  {
-    "Id": 2,
-    "Name": "Vital Frühstück",
-    "DishIds": [
-      201,
-      202
-    ]
-  },
-  {
-    "Id": 3,
-    "Name": "Süßer Start",
+    "Name": "S\u00FC\u00DFer Start",
     "DishIds": [
       301,
       302

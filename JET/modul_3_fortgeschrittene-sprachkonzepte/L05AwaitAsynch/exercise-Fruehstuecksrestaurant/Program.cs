@@ -32,11 +32,9 @@ var orderTasks = new List<Task>();
 
 foreach (var order in ordersToProcess)
 {
-    var orderTask = ProcessOrderAsync(order);
-    orderTasks.Add(orderTask);
+    orderTasks.Add(ProcessOrderAsync(order));
 }
 
-// Asynchronously wait for all the started tasks to complete.
 await Task.WhenAll(orderTasks);
 
 Log.Information("Alle Bestellungen wurden versucht zu verarbeiten.");
@@ -52,7 +50,6 @@ Log.Information("Simulation beendet.");
 async Task SeedDatabaseAsync()
 {
     Log.Information("Prüfe und erstelle Anfangsdaten...");
-    // Seeding logic remains the same
     var dishRepo = new DishRepository();
     var menuRepo = new MenuRepository();
     var stockRepo = new StockRepository();
@@ -64,12 +61,12 @@ async Task SeedDatabaseAsync()
     await billRepo.SaveAllAsync(new List<Bill>());
 }
 
-// It's good practice to have the try/catch logic in its own method.
-async Task ProcessOrderAsync(TableOrderDto order)
+
+async Task<Bill?> ProcessOrderAsync(TableOrderDto order)
 {
     try
     {
-        await customerService.PlaceOrderAsync(order);
+        return await customerService.PlaceOrderAsync(order);
     }
     catch (OrderProcessingException ex)
     {
@@ -79,4 +76,6 @@ async Task ProcessOrderAsync(TableOrderDto order)
     {
         Log.Fatal(ex, "Ein unerwarteter Fehler ist aufgetreten bei Tisch {TableNumber}.", order.TableNumber);
     }
+
+    return null;
 }

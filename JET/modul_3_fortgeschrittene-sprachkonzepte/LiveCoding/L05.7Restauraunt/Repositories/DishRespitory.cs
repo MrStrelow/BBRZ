@@ -21,7 +21,7 @@ public interface IDishRepository
 internal class JsonDishRespitory : IDishRepository
 {
     private readonly SemaphoreSlim _lock = new(1, 1);
-    private readonly JsonSerializerOptions _options = new() { WriteIndented = true }
+    private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
 
     public async Task<IEnumerable<Dish>> GetAllAsync()
     {

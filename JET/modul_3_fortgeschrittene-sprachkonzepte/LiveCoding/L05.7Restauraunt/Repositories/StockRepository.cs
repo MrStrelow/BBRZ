@@ -21,7 +21,7 @@ public interface IStockRepository
 internal class JsonStockRespitory : IStockRepository
 {
     private readonly SemaphoreSlim _lock = new(1, 1);
-    private readonly JsonSerializerOptions _options = new() { WriteIndented = true }
+    private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
 
     public async Task<IEnumerable<StockEntity>> GetAllAsync()
     {
