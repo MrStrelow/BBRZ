@@ -20,23 +20,28 @@ public class Diamant extends Form {
         _foreground = foreground;
 
         _darstellung = new String[_hoehe][_breite];
+
+        generateForm();
     }
 
     public Form generateForm() {
-        _topLeft = new Dreieck(_hoehe/2, _breite/2, _foreground, _background, TOP_LEFT);
-        _topRight = new Dreieck(_hoehe/2, _breite/2, _foreground, _background, TOP_RIGHT);
-        _botLeft = new Dreieck(_hoehe/2, _breite/2, _foreground, _background, BOT_LEFT);
-        _botRight = new Dreieck(_hoehe/2, _breite/2, _foreground, _background, BOT_RIGHT);
+        _topLeft = new Dreieck(_hoehe/2, _breite/2, _background, _foreground, TOP_LEFT);
+        _topRight = new Dreieck(_hoehe/2, _breite/2, _background, _foreground, TOP_RIGHT);
+        _botLeft = new Dreieck(_hoehe/2, _breite/2, _background, _foreground, BOT_LEFT);
+        _botRight = new Dreieck(_hoehe/2, _breite/2, _background, _foreground, BOT_RIGHT);
 
         Form left = _topLeft.attach(_botLeft, SOUTH);
 //        Form right = left.spiegelnY();
-        Form right = _topRight.attach(_topLeft, SOUTH);
+        Form right = _topRight.attach(_botRight, SOUTH);
 
-        String[][] meinDiamantDarstellung = left.attach(right, EAST)._darstellung;
+        // mit variable
+//        String[][] meinDiamantDarstellung = left.attach(right, EAST)._darstellung;
+//        _darstellung = meinDiamantDarstellung;
 
-        _darstellung = meinDiamant._darstellung;
+        // ohne variable
+        _darstellung = left.attach(right, EAST)._darstellung;
 
-        return
+        return this;
     }
 
     // Get- Set-Methoden
