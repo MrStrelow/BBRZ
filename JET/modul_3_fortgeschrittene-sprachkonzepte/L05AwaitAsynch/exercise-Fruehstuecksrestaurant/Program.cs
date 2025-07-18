@@ -19,15 +19,16 @@ var customerService = new CustomerService(menuService);
 
 var analyticsService = new AnalyticsService();
 
-await SeedDatabaseAsync();
-
 Log.Information("--- Bestellungen werden aufgenommen ---");
 
-// Order with an invalid Menu ID (99) to trigger the exception flow
+// falsche bestellung! Menü 99 gibt es nicht.
 var orderForTable1 = new TableOrderDto { TableNumber = 1, CustomerOrders = new() { new() { CustomerName = "Anna", MenuId = 99 }, new() { CustomerName = "Ben", MenuId = 2 } } };
-var orderForTable3 = new TableOrderDto { TableNumber = 3, CustomerOrders = new() { new() { CustomerName = "Carla", MenuId = 3 }, new() { CustomerName = "David", MenuId = 1 } } };
+var orderForTable3 = new TableOrderDto { TableNumber = 3, CustomerOrders = new() { new() { CustomerName = "Carla", MenuId = 3 }, new() { CustomerName = "David", MenuId = 3 } } };
+var orderForTable6 = new TableOrderDto { TableNumber = 6, CustomerOrders = new() { new() { CustomerName = "Gwen", MenuId = 1 }, new() { CustomerName = "Jen", MenuId = 1 } } };
+var anotherOrderForTable6 = new TableOrderDto { TableNumber = 6, CustomerOrders = new() { new() { CustomerName = "Qwer", MenuId = 2 }, new() { CustomerName = "Asdf", MenuId = 2 } } };
+var yetAnotherOrderForTable6 = new TableOrderDto { TableNumber = 6, CustomerOrders = new() { new() { CustomerName = "Set", MenuId = 1 }, new() { CustomerName = "Let", MenuId = 2 } } };
 
-var ordersToProcess = new List<TableOrderDto> { orderForTable1, orderForTable3 };
+var ordersToProcess = new List<TableOrderDto> { orderForTable1, orderForTable3, orderForTable6, anotherOrderForTable6, yetAnotherOrderForTable6 };
 var orderTasks = new List<Task>();
 
 foreach (var order in ordersToProcess)
@@ -41,25 +42,10 @@ Log.Information("Alle Bestellungen wurden versucht zu verarbeiten.");
 Log.Information("--- Restaurant-Tagesanalyse ---");
 
 var analytics = await analyticsService.GetRestaurantAnalyticsAsync();
-Log.Information("Meistbesuchter Tisch heute: Tisch Nr. {MostVisitedTable}", analytics.MostVisitedTable);
-Log.Information("Beliebtestes Menü heute: {MostPopularMenu}", analytics.MostPopularMenu);
+Log.Information("Meistbesuchter Tisch SEIT ERÖFFNUNG: Tisch Nr. {MostVisitedTable}", analytics.MostVisitedTable);
+Log.Information("Beliebtestes Menü SEIT ERÖFFNUNG: {MostPopularMenu}", analytics.MostPopularMenu);
 
 Log.Information("Simulation beendet.");
-   
-
-async Task SeedDatabaseAsync()
-{
-    Log.Information("Prüfe und erstelle Anfangsdaten...");
-    var dishRepo = new DishRepository();
-    var menuRepo = new MenuRepository();
-    var stockRepo = new StockRepository();
-    var billRepo = new BillRepository();
-
-    if (!(await dishRepo.GetAllAsync()).Any()) await dishRepo.SaveAllAsync(new List<Dish> { /* ... */ });
-    if (!(await menuRepo.GetAllAsync()).Any()) await menuRepo.SaveAllAsync(new List<Menu> { /* ... */ });
-    if (!(await stockRepo.GetAllAsync()).Any()) await stockRepo.SaveAllAsync(new List<StockItem> { /* ... */ });
-    await billRepo.SaveAllAsync(new List<Bill>());
-}
 
 
 async Task<Bill?> ProcessOrderAsync(TableOrderDto order)
