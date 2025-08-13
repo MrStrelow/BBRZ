@@ -1,18 +1,18 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-var todos = new Dictionary<int, string>();
-todos.TryAdd(1, "einkaufen");
-todos.TryAdd(2, "pumpi");
-todos.TryAdd(3, "modul 2 test schreiben");
-todos.TryAdd(4, "modul 3 test schreiben");
+var todos = new Dictionary<int, Todo>();
+todos.TryAdd(1, new Todo("einkaufen"));
+todos.TryAdd(2, new Todo("pumpi"));
+todos.TryAdd(3, new Todo("modul 2 test schreiben"));
+todos.TryAdd(4, new Todo("modul 3 test schreiben"));
 
 // Lege Endpoints fest - Welche http requests erkenne ich?
 // CRUD
 
 // Create
 app.MapPost("/todos", (Todo newTodo) => {
-    todos.Add(newTodo);
+    todos.Add(todos.Keys.Max() + 1, newTodo);
 });
 
 // Read
