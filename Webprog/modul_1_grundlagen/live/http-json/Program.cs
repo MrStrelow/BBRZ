@@ -11,15 +11,31 @@ todos.TryAdd(4, "modul 3 test schreiben");
 // CRUD
 
 // Create
-app.MapPost("/", () => "Hello World!");
+app.MapPost("/todos", (Todo newTodo) => {
+    todos.Add(newTodo);
+});
 
 // Read
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/todos", () => todos.OrderBy(t => t.Key));
+
+app.MapGet(
+    "/todos/{id}", 
+    (int id) => todos.TryGetValue(id, out var result) ? 
+        Results.Ok(result) : 
+        Results.NotFound($"Kein todo mit ID: {id} gefunden") 
+    );
+
 
 // Update
-app.MapPut("/", () => "Hello World!");
+app.MapPut("/todos", () => "Hello World!");
 
 // Delete
-app.MapDelete("/", () => "Hello World!");
+app.MapDelete("/todos", () => "Hello World!");
 
 app.Run();
+
+//  records sind unveränderbar - immutable
+public record Todo(string Title);
+// public class Todo {
+//     public string Title { get; set; }
+// }
