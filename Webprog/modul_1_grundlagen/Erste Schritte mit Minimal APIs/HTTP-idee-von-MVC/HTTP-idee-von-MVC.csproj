@@ -4,7 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>HTTP_HTML</RootNamespace>
+    <RootNamespace>HTTP_HTML_statisch</RootNamespace>
   </PropertyGroup>
 
 </Project>

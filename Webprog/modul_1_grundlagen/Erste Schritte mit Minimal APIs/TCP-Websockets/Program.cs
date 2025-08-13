@@ -1,4 +1,7 @@
 // Ein einfacher Datenspeicher (fürs Beispiel, später wäre das eine Datenbank)
+
+// verwende https://piehost.com/websocket-tester um an einen websocket daten zu senden.
+
 using System.Collections.Concurrent;
 
 var builder = WebApplication.CreateBuilder(args);

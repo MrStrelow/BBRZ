@@ -178,11 +178,7 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos, HttpContext 
                 })
                 .then(response => {
                     if (response.ok) {
-                        // window.location.reload();
-                        const itemToRemove = document.getElementById(`todo-${id}`);
-                        if (itemToRemove) {
-                            itemToRemove.remove();  
-                        }
+                        window.location.reload();
                     } else {
                         alert('Fehler beim Löschen der Aufgabe.');
                     }

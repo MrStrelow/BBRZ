@@ -27,14 +27,43 @@ app.UseHttpsRedirection();
 
 // --- HIER SIND UNSERE HTTP-ENDPUNKTE ---
 
-// GET: Alle To-Dos abrufen
-app.MapGet("/todos", () => todos.OrderBy(t => t.Key));
-
 // GET: Ein spezifisches To-Do anhand seiner ID abrufen
 app.MapGet("/todos/{id}", (int id) =>
     todos.TryGetValue(id, out var todo)
         ? Results.Ok(todo)
         : Results.NotFound($"Kein To-Do mit ID {id} gefunden."));
+
+//// GET: Alle To-Dos abrufen
+//app.MapGet("/todos", () => todos.OrderBy(t => t.Key));
+// wir tauschen das mit den unteren code aus. dieser hat keine parameter, der untere schon!
+// beides gleichzeitig führt zu einem fehler!
+
+// GET /todos -> Gibt alle To-Dos zurück
+// GET /todos?sort=desc -> Gibt alle To-Dos absteigend sortiert zurück
+// GET /todos?limit=5 -> Gibt nur die ersten 5 To-Dos zurück
+app.MapGet("/todos", (string? sort, int? limit) => {
+    // 'sort' und 'limit' sind hier die Query-Parameter.
+    // Sie werden automatisch aus der URL (z.B. /todos?sort=desc) ausgelesen.
+
+    IEnumerable<KeyValuePair<int, string>> result = todos;
+
+    // TODO: es ist wichtig ?sort=desc und nicht ?sort="desc" einzugeben!
+    if (sort == "desc")
+    {
+        result = result.OrderByDescending(t => t.Key);
+    }
+    else
+    {
+        result = result.OrderBy(t => t.Key);
+    }
+
+    if (limit.HasValue)
+    {
+        result = result.Take(limit.Value);
+    }
+
+    return Results.Ok(result);
+});
 
 // POST: Ein neues To-Do erstellen
 app.MapPost("/todos", (Todo newTodo) => {
