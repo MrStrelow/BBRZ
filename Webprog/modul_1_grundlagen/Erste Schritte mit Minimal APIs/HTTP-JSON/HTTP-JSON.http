@@ -1,0 +1,46 @@
+﻿# Die Variable @baseUrl wird automatisch von Visual Studio mit der Start-URL Ihrer API befüllt.
+@baseUrl = http://localhost:5031
+
+# Setzen Sie hier eine ID, die Sie für die einzelnen Anfragen testen möchten.
+@id = 2
+
+###
+# GET: Alle To-Dos abrufen
+# Sendet eine GET-Anfrage an den /todos Endpunkt.
+GET {{baseUrl}}/todos
+Accept: application/json
+
+###
+# GET: Ein einzelnes To-Do abrufen
+# Ruft das To-Do mit der oben definierten @id ab.
+GET {{baseUrl}}/todos/{{id}}
+Accept: application/json
+
+###
+# POST: Ein neues To-Do erstellen
+# Sendet ein neues To-Do an den Server.
+POST {{baseUrl}}/todos
+Content-Type: application/json
+
+{
+  "title": "API mit .http-Datei testen"
+}
+
+###
+# PUT: Ein bestehendes To-Do aktualisieren
+# Ändert den Text des To-Dos mit der oben definierten @id.
+PUT {{baseUrl}}/todos/{{id}}
+Content-Type: application/json
+
+{
+  "title": "Fitnessstudio-Besuch planen"
+}
+
+###
+# DELETE: Ein To-Do löschen
+# Löscht das To-Do mit der oben definierten @id.
+# Die Syntax wurde von {id} zu {{id}} korrigiert.
+DELETE {{baseUrl}}/todos/{{id}}
+Accept: application/json
+
+###
