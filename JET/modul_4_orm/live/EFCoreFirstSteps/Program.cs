@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// über LINQ!
+
+// NEUES GERICHT HINZUFÜGEN (Create)
+
+// ALLE GERICHTE AUSLESEN UND ANZEIGEN (Read)
+
+// EIN GERICHT AKTUALISIEREN (Update)
+
+// EIN GERICHT LÖSCHEN (Delete
+ Console.WriteLine("Hello, EF Core!");

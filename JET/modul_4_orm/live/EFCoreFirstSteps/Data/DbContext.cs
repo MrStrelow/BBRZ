@@ -13,6 +13,6 @@ public class MyDbContext : DbContext
         //optionsBuilder.UseSqlServer(@"Server=C432-LT-A7A3\SQLEXPRESS;Database=restaurant;Trusted_Connection=True;Trust Server Certificate=True");
         
         // Für login direkt auf dem sql server
-        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Initial Catalog=fruehstueckdb;User ID=sa;Password=qwertz011235;Trust Server Certificate=True");
+        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=restaurant;User ID=sa;Password=qwertz011235;Trust Server Certificate=True");
     }
 }
