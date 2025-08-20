@@ -1,7 +1,8 @@
 ﻿using Fruehstuecksrestaurant.Data;
 using Fruehstuecksrestaurant.Models;
+using System;
+using System.Linq;
 
-// DbContext instanziieren
 using (var context = new ApplicationDbContext())
 {
     // NEUES GERICHT HINZUFÜGEN
@@ -12,7 +13,6 @@ using (var context = new ApplicationDbContext())
         Description = "Mit Ahornsirup und Früchten",
         Price = 7.50
     });
-
     context.SaveChanges();
     Console.WriteLine("Gericht hinzugefügt!");
     Console.WriteLine();
@@ -39,14 +39,14 @@ using (var context = new ApplicationDbContext())
 
 
     // EIN GERICHT LÖSCHEN
-    //Console.WriteLine("Lösche Pancakes...");
-    //var pancakeToDelete = context.Dishes.FirstOrDefault(d => d.Name == "Pancakes");
-    //if (pancakeToDelete != null)
-    //{
-    //    context.Dishes.Remove(pancakeToDelete);
-    //    context.SaveChanges();
-    //    Console.WriteLine("Gericht gelöscht!");
-    //}
+    Console.WriteLine("Lösche Pancakes...");
+    var pancakeToDelete = context.Dishes.FirstOrDefault(d => d.Name == "Pancakes");
+    if (pancakeToDelete != null)
+    {
+        context.Dishes.Remove(pancakeToDelete);
+        context.SaveChanges();
+        Console.WriteLine("Gericht gelöscht!");
+    }
 }
 
 Console.WriteLine("Drücke eine beliebige Taste zum Beenden.");

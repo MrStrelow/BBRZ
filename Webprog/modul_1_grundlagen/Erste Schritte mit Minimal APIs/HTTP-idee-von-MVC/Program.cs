@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
 using System.Text;
-using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 
 // Ein einfacher Datenspeicher (fürs Beispiel, später wäre das eine Datenbank)
@@ -10,21 +9,13 @@ todos.TryAdd(2, "Fitnessstudio");
 todos.TryAdd(3, ".NET lernen");
 
 var builder = WebApplication.CreateBuilder(args);
-
-// 1. Anti-Forgery-Dienste zum Service-Container hinzufügen
-builder.Services.AddAntiforgery();
-
 var app = builder.Build();
-
-// 2. Anti-Forgery-Middleware zur Pipeline hinzufügen.
-app.UseAntiforgery();
-
 
 // --- HTTP-ENDPUNKTE, DIE HTML ZURÜCKGEBEN ---
 
 // GET: Die Hauptseite mit allen To-Dos als HTML-Seite abrufen
-app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) => {
-    string htmlContent = GenerateHtml(todos, context, antiforgery);
+app.MapGet("/", () => {
+    string htmlContent = GenerateHtml(todos);
     return Results.Content(htmlContent, "text/html", Encoding.UTF8);
 });
 
@@ -58,7 +49,7 @@ app.MapGet("/todos/{id}", (int id) => {
 
 
 // POST: Ein neues To-Do aus dem HTML-Formular erstellen
-app.MapPost("/todos", (HttpContext context, IAntiforgery antiforgery, [FromForm] string title) => {
+app.MapPost("/todos", ([FromForm] string title) => {
     if (!string.IsNullOrWhiteSpace(title))
     {
         var newId = todos.IsEmpty ? 1 : todos.Keys.Max() + 1;
@@ -68,11 +59,13 @@ app.MapPost("/todos", (HttpContext context, IAntiforgery antiforgery, [FromForm]
     // HINWEIS: Für Debugging-Zwecke wird die Seite neu generiert statt umgeleitet.
     // In einer echten Anwendung ist das Post-Redirect-Get Muster (Results.Redirect("/"))
     // die bessere Vorgehensweise, um das erneute Senden von Formularen beim Neuladen zu verhindern.
-    string htmlContent = GenerateHtml(todos, context, antiforgery);
+    // Vergleiche! Was passiert wenn wir hier mit einem HTML antworten?
+    string htmlContent = GenerateHtml(todos);
     return Results.Content(htmlContent, "text/html", Encoding.UTF8);
-});
+    //return Results.Redirect("/");
+}).DisableAntiforgery();
 
-// DELETE: Ein To-Do löschen. Reagiert nun auf die korrekte HTTP-Methode.
+// DELETE: Ein To-Do löschen.
 app.MapDelete("/todos/delete/{id}", (int id) => {
     if (todos.TryRemove(id, out _))
     {
@@ -90,11 +83,8 @@ app.Run();
 
 // --- HILFSFUNKTION ZUR HTML-GENERIERUNG ---
 
-string GenerateHtml(ConcurrentDictionary<int, string> currentTodos, HttpContext httpContext, IAntiforgery antiforgery)
+string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
 {
-    // Ein Anti-Forgery-Token für diese Anfrage generieren.
-    var token = antiforgery.GetAndStoreTokens(httpContext);
-
     var htmlBuilder = new StringBuilder();
 
     // HTML-Grundgerüst
@@ -104,8 +94,6 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos, HttpContext 
     htmlBuilder.Append("<meta charset='UTF-8'>");
     htmlBuilder.Append("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
     htmlBuilder.Append("<title>Meine To-Do Liste</title>");
-    // Das Token wird in einem Meta-Tag gespeichert, damit JavaScript darauf zugreifen kann.
-    htmlBuilder.Append($"<meta name='{token.HeaderName}' content='{token.RequestToken}'>");
     htmlBuilder.Append(@"
         <style>
             body { font-family: sans-serif; background-color: #f4f4f9; color: #333; max-width: 800px; margin: 2rem auto; padding: 1rem; }
@@ -135,10 +123,8 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos, HttpContext 
     {
         foreach (var todo in currentTodos.OrderBy(t => t.Key))
         {
-            // Jedes Listenelement bekommt eine eindeutige ID
             htmlBuilder.Append($"<li id='todo-{todo.Key}'>");
             htmlBuilder.Append($"<a href='/todos/{todo.Key}'>{todo.Value}</a>");
-            // Der Button ruft nun eine JavaScript-Funktion auf, statt ein Formular abzusenden.
             htmlBuilder.Append($"<div class='actions'><button type='button' class='delete' onclick='deleteTodo({todo.Key})'>Delete</button></div>");
             htmlBuilder.Append("</li>");
         }
@@ -148,13 +134,12 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos, HttpContext 
     // Formular zum Hinzufügen neuer To-Dos
     htmlBuilder.Append("<h2>Neue Aufgabe hinzufügen</h2>");
     htmlBuilder.Append("<form action='/todos' method='post'>");
-    // Das versteckte Token-Feld wird für das POST-Formular weiterhin benötigt.
-    htmlBuilder.Append($"<input name='{token.FormFieldName}' type='hidden' value='{token.RequestToken}' />");
+    // Das Token-Feld wurde hier entfernt
     htmlBuilder.Append("<input type='text' name='title' placeholder='Was muss getan werden?' required />");
     htmlBuilder.Append("<input type='submit' value='Hinzufügen' />");
     htmlBuilder.Append("</form>");
 
-    // JavaScript zum Senden des DELETE-Requests inkl. Anti-Forgery-Token
+    // Vereinfachtes JavaScript ohne Anti-Forgery-Header
     htmlBuilder.Append(@"
         <script>
             function deleteTodo(id) {
@@ -162,22 +147,12 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos, HttpContext 
                     return;
                 }
 
-                const meta = document.querySelector('meta[name^=""RequestVerificationToken""]');
-                if (!meta) {
-                    alert('Sicherheits-Token nicht gefunden. Bitte laden Sie die Seite neu.');
-                    return;
-                }
-                const tokenHeaderName = meta.getAttribute('name');
-                const tokenValue = meta.getAttribute('content');
-
                 fetch(`/todos/delete/${id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        [tokenHeaderName]: tokenValue
-                    }
+                    method: 'DELETE'
                 })
                 .then(response => {
                     if (response.ok) {
+                        // Seite neu laden, um die aktualisierte Liste anzuzeigen
                         window.location.reload();
                     } else {
                         alert('Fehler beim Löschen der Aufgabe.');

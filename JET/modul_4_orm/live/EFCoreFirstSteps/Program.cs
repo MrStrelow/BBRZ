@@ -11,6 +11,8 @@ datenbank.Dishes.Add(
     }
 );
 
+
+
 datenbank.SaveChanges();
 
 // ALLE GERICHTE AUSLESEN UND ANZEIGEN (Read)

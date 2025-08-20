@@ -10,5 +10,5 @@ public class Ingredient
     public string Unit { get; set; } // z.B. "g", "ml", "Stück"
 
     // Navigationseigenschaft, damit wir sehen können, in welchen Gerichten diese Zutat verwendet wird.
-    public ICollection<MoreDish> MoreDishes { get; set; } = new List<MoreDish>();
+    public ICollection<Dish> MoreDishes { get; set; } = new List<Dish>();
 }

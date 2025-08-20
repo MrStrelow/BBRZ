@@ -1,7 +1,7 @@
 ﻿namespace FruehstuecksrestaurantMore.Models;
 
 // Diese Klasse repräsentiert ein komplexeres Gericht.
-public class MoreDish
+public class Dish
 {
     public int Id { get; set; }
     public string Name { get; set; }

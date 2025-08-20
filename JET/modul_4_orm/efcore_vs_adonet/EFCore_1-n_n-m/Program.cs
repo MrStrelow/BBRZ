@@ -14,7 +14,7 @@ using (var context = new ApplicationDbContext())
     var flour = context.Ingredients.FirstOrDefault(i => i.Name == "Mehl") ?? new Ingredient { Name = "Mehl", Unit = "g" };
 
     // Erstelle ein neues komplexes Gericht
-    var scrambledEggs = new MoreDish
+    var scrambledEggs = new Dish
     {
         Name = "Rührei Deluxe",
         Description = "Cremiges Rührei mit frischen Kräutern.",
@@ -28,7 +28,7 @@ using (var context = new ApplicationDbContext())
     };
 
     // Füge das neue Gericht zum Context hinzu. EF Core kümmert sich um alle verbundenen Entitäten.
-    context.MoreDishes.Add(scrambledEggs);
+    context.Dishes.Add(scrambledEggs);
     context.SaveChanges(); // Speichert alles in einer Transaktion!
 
     Console.WriteLine("Rührei Deluxe wurde zur Datenbank hinzugefügt!");
@@ -38,7 +38,7 @@ using (var context = new ApplicationDbContext())
     Console.WriteLine("--- Lese komplexes Gericht aus ---");
 
     // Lese das Gericht aus der Datenbank und lade explizit die verbundenen Daten.
-    var dishFromDb = context.MoreDishes
+    var dishFromDb = context.Dishes
                             .Include(d => d.Ingredients) // Lade die Zutaten
                             .Include(d => d.PreparationSteps) // Lade die Zubereitungsschritte
                             .FirstOrDefault(d => d.Name == "Rührei Deluxe");

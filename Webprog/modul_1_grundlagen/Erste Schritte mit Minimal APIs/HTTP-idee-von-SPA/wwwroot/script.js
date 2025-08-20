@@ -33,14 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
     async function editTodo(todo) {
         const newTitle = prompt('Neuen Titel eingeben:', todo.title);
         if (newTitle && newTitle.trim() !== '') {
+            console.log(todo.id)
             const response = await fetch(`/api/todos/${todo.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id: todo.id, title: newTitle.trim() })
             });
-
+            
             if (response.ok) {
-                document.getElementById(`todo-title-${id}`).textContent = newTitle.trim();
+                document.getElementById(`todo-title-${todo.id}`).textContent = newTitle.trim();
             } else {
                 alert('Fehler beim Bearbeiten.');
             }
