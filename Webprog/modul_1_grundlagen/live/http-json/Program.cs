@@ -11,17 +11,18 @@ todos.TryAdd(4, new Todo("modul 3 test schreiben"));
 // CRUD
 
 // Create
-app.MapPost("/todos", (Todo newTodo) => {
-    todos.Add(todos.Keys.Max() + 1, newTodo);
-});
+app.MapPost(
+    "/todos",
+    (Todo newTodo) => todos.TryAdd(todos.Keys.Max() + 1, newTodo)
+);
 
 // Read
 app.MapGet("/todos", () => todos.OrderBy(t => t.Key));
 
 app.MapGet(
-    "/todos/{id}", 
-    (int id) => todos.TryGetValue(id, out var result) ? 
-        Results.Ok(result) : 
+    "/todos/{id}",
+    (int id) => todos.TryGetValue(id, out var result) ?
+        Results.Ok(result) :
         Results.NotFound($"Kein todo mit ID: {id} gefunden") 
     );
 

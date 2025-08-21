@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreFirstSteps.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20250814093949_MyFirstEntity")]
-    partial class MyFirstEntity
+    [Migration("20250821094424_CreateTableDishes")]
+    partial class CreateTableDishes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

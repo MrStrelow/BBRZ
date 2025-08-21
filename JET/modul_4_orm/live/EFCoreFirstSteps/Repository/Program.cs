@@ -11,7 +11,14 @@ datenbank.Dishes.Add(
     }
 );
 
-
+datenbank.Dishes.Add(
+    new Dish()
+    {
+        Name = "Dofu",
+        Description = "joa ned halt",
+        Price = 100.36
+    }
+);
 
 datenbank.SaveChanges();
 
@@ -19,5 +26,5 @@ datenbank.SaveChanges();
 
 // EIN GERICHT AKTUALISIEREN (Update)
 
-// EIN GERICHT LÖSCHEN (Delete
+// EIN GERICHT LÖSCHEN (Delete)
 Console.WriteLine("Hello, EF Core!");

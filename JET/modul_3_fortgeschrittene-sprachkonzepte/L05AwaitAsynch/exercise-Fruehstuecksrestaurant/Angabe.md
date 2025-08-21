@@ -1,8 +1,4 @@
-﻿Absolut! Hier ist die Angabe für die letzte, vereinfachte Version des Projekts als reines Markdown-Dokument.
-
-***
-
-# Frühstücksrestaurant
+﻿# Frühstücksrestaurant
 
 **Kernkonzepte:**
 * **Service- und Repository-Pattern** in einer einfachen Ausprägung.

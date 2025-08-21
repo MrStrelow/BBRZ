@@ -5,7 +5,7 @@
 namespace EFCoreFirstSteps.Migrations
 {
     /// <inheritdoc />
-    public partial class MyFirstEntity : Migration
+    public partial class CreateTableDishes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

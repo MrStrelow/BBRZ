@@ -2,6 +2,7 @@
 
 POST {{baseurl}}/todos
 Content-Type: application/json
+
 {
-  "Title" : "uhm das ist nur ein test für den POST-Request."
+  "Title" : "uhm das ist nur ein test für den POST-Request - aber ein wenig ander!"
 }
