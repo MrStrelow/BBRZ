@@ -20,7 +20,12 @@ app.MapPost(
 
 // Read
 app.MapGet(
-    "/todos", // /todos?sort=desc&limit=3
+    // die anfrage (query)
+    // /todos?sort=desc&limit=3 oder
+    // /todos?sort=desc oder
+    // /todos?limit=3
+    // soll in diesem endpoint funktioniern
+    "/todos", 
     (string? sort, int? limit) => { // wichtig: ? nicht vergessen
         Console.WriteLine(sort); // wenn sort nicht null ist und sort = asc, dann antwort aufsteigend sortieren, wenn desc absteigend.
         Console.WriteLine(limit); // wenn limit nicht null ist, dann limitiere antwort auf limit viele todos.
