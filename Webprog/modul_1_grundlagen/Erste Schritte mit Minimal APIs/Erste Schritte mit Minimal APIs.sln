@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP-idee-von-SPA", "HTTP-i
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP-idee-von-MVC", "HTTP-idee-von-MVC\HTTP-idee-von-MVC.csproj", "{CD8A9DDC-4C43-4132-A424-32740821BA35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstueck", "exercise1-fruehstueck\exercise1-fruehstueck.csproj", "{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CD8A9DDC-4C43-4132-A424-32740821BA35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD8A9DDC-4C43-4132-A424-32740821BA35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD8A9DDC-4C43-4132-A424-32740821BA35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
