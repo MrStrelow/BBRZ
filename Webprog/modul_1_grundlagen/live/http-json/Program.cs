@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
@@ -17,7 +19,15 @@ app.MapPost(
 );
 
 // Read
-app.MapGet("/todos", () => todos.OrderBy(t => t.Key));
+app.MapGet(
+    "/todos", // /todos?sort=desc&limit=3
+    (string? sort, int? limit) => { // wichtig: ? nicht vergessen
+        Console.WriteLine(sort); // wenn sort nicht null ist und sort = asc, dann antwort aufsteigend sortieren, wenn desc absteigend.
+        Console.WriteLine(limit); // wenn limit nicht null ist, dann limitiere antwort auf limit viele todos.
+        
+        return todos;
+    }
+);
 
 app.MapGet(
     "/todos/{id}",
