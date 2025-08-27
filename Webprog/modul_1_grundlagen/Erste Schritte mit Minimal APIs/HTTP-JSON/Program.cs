@@ -45,24 +45,31 @@ app.MapGet("/todos", (string? sort, int? limit) => {
     // 'sort' und 'limit' sind hier die Query-Parameter.
     // Sie werden automatisch aus der URL (z.B. /todos?sort=desc) ausgelesen.
 
-    IEnumerable<KeyValuePair<int, string>> result = todos;
+    // Guard Clause für einen ungültigen Sortier-Parameter (optional, aber robust)
+    if (sort != null && sort.ToLowerInvariant() != "asc" && sort.ToLowerInvariant() != "desc")
+    {
+        return Results.BadRequest("Ungültiger 'sort'-Parameter. Nur 'asc' oder 'desc' sind erlaubt.");
+    }
 
-    // TODO: es ist wichtig ?sort=desc und nicht ?sort="desc" einzugeben!
-    if (sort == "desc")
+    // Guard Clause für ein ungültiges Limit (optional, aber robust)
+    if (limit.HasValue && limit.Value <= 0)
     {
-        result = result.OrderByDescending(t => t.Key);
+        return Results.BadRequest("Der 'limit'-Parameter muss größer als 0 sein.");
     }
-    else
-    {
-        result = result.OrderBy(t => t.Key);
-    }
+
+    // Die Logik bleibt dieselbe wie oben, aber die Eingaben sind nun validiert.
+    IEnumerable<KeyValuePair<int, string>> query = todos;
+
+    query = sort?.ToLowerInvariant() == "desc"
+        ? query.OrderByDescending(t => t.Key)
+        : query.OrderBy(t => t.Key);
 
     if (limit.HasValue)
     {
-        result = result.Take(limit.Value);
+        query = query.Take(limit.Value);
     }
 
-    return Results.Ok(result);
+    return Results.Ok(query);
 });
 
 // POST: Ein neues To-Do erstellen
