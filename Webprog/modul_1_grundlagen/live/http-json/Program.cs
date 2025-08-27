@@ -28,27 +28,26 @@ app.MapGet(
     // soll in diesem endpoint funktioniern
     "/todos", 
     (string? sort, int? limit) => { // wichtig: ? nicht vergessen
-        if (limit.HasValue)
-        {
-            var result = todos.Take(limit.Value);
-            return Results.Ok(result);
-        }
-
+        IEnumerable<KeyValuePair<int, Todo>> result = todos;
+        
         if (sort != null)
         {
             if (sort == "desc")
             {
-                var result = todos.OrderByDescending( t => t.Key );
-                return Results.Ok(result);
+                result = result.OrderByDescending( t => t.Key );
             } 
             else if (sort == "asc")
             {
-                var result = todos.OrderBy(t => t.Key);
-                return Results.Ok(result);
+                result = result.OrderBy(t => t.Key);
             }
         }
 
-        return Results.BadRequest();
+        if (limit.HasValue)
+        {
+            result = result.Take(limit.Value);
+        }
+
+        return Results.Ok(result);
 
         // wenn sort nicht null ist und sort = asc, dann antwort aufsteigend sortieren, wenn desc absteigend.
         // wenn limit nicht null ist, dann limitiere antwort auf limit viele todos.
