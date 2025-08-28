@@ -161,9 +161,9 @@ public bool beinhaltet(List<Kunden> kunden, string filterart, int? älterAls = n
 ```
 ---
 
-## Aufgabe 2: Async, n-Layers und Repositories [45 Punkte]
+## Aufgabe 2: Async, n-Layers und Repositories [55 Punkte]
 
-### Programmieren [25 / 45 Teilpunkte]
+### Programmieren [40 / 55 Teilpunkte]
 Verwende folgende Vorlage und vervollständige das Programm in den Ebenen:
 * Repositories
 * Services
@@ -173,3 +173,8 @@ Verwende folgende Vorlage und vervollständige das Programm in den Ebenen:
 Die grobe implementierung ist in den Interfaces vorgegeben.
 
 ---
+
+### Theorie [15 / 55 Teilpunkte]
+* Was ist ein ``DTO`` und was eine ``Entitiy``? Wo unterscheiden diese sich?
+* ``Hat`` eine ``Service`` Klasse eher ein ``Repository`` oder hat ein ``Repository`` eher einen ``Service``?
+* ``Methoden`` mit dem Schlüsselwort ``async`` werden immer ``parallel`` und nie ``sequenziel`` ausgeführt.
