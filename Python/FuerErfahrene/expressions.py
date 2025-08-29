@@ -25,4 +25,9 @@
 
 # Expression (Comprehension)
 dimension = 3
-print([ "🔷" for _ in range(dimension) ])
+
+row = [ "🔷" for _ in range(dimension) ]
+field = [row for _ in range(dimension) ]
+print(field)
+
+
