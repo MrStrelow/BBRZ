@@ -25,47 +25,53 @@ Notenschlüssel:
 
 ---
 
-## Aufgabe 1: LINQ und Func, Action - Delegates, Lambda [40 / 100 Punkte]
-### Programmverständnis [10 / 40 Teilpunkte]
+## Aufgabe 1: LINQ und Func, Action - Delegates, Lambda [50 / 100 Punkte]
+### Programmverständnis [10 / 50 Teilpunkte]
+Gegeben ist folgender Code welcher ``LINQ`` Ausdrücke verwendet. 
 
-Was ist korrekt oder falsch an folgenden ``LINQ`` Ausdrücken?
 ```csharp
-List<Person> personen = new List<> 
-{ 
-    new Person { Name = "Hans", Alter = , Groesse = 1, Lieblingsessen = "Strudel" }, 
-    new Person { Name = "Lans", Alter = , Groesse = 2, Lieblingsessen = "Nudeln" }, 
-    new Person { Name = "Gans", Alter = , Groesse = 3, Lieblingsessen = "Pudel" }, 
-    new Person { Name = "Rans", Alter = , Groesse = 4, Lieblingsessen = "Tofu" }, 
-    new Person { Name = "Tans", Alter = , Groesse = 5, Lieblingsessen = "Brokoli" }, 
-    new Person { Name = "Fans", Alter = , Groesse = 6, Lieblingsessen = "Tofu" } 
-}
+var personen = new List<Person>
+{
+    new Person(Name: "Hans", Alter: 18, Groesse: 1, LieblingsEssen: "Strudel"),
+    new Person(Name: "Lans", Alter: 19, Groesse: 2, LieblingsEssen: "Nudeln"),
+    new Person(Name: "Gans", Alter: 20, Groesse: 3, LieblingsEssen: "Pudel"),
+    new Person(Name: "Mans", Alter: 21, Groesse: 4, LieblingsEssen: "Tofu"),
+    new Person(Name: "Tans", Alter: 22, Groesse: 5, LieblingsEssen: "Brokoli"),
+    new Person(Name: "Fans", Alter: 23, Groesse: 6, LieblingsEssen: "Tofu")
+};
 
-var gans = personen.Filter( person => person.Name == "Gans" );
+// LINQ Beginn
+var gans = personen.Filter(person => person.Name == "Gans");
 
-var nachAlterSortiert = personen.OrderBy(alter);
+var nachAlterSortiert = personen.OrderBy(person.Alter);
 
 var strudelFans = personen
-    .Where(p => p.LieblingsEssen == "Strudel")
-    .Select(p => p.Name);
+    .Select(person => person.Name).
+    .Where(person => person.LieblingsEssen == "Strudel");
 
-Person essenMitDuplikateSortiertNachAlter = personen.Select(p => { p.Lieblingsese, p.Alter}).OrderBy( p => p.Alter);
+Person essenMitDuplikateSortiertNachAlter = personen.Select(p => new { p.LieblingsEssen, p.Alter}).OrderBy(p => p.Groesse);
 
 int grenze = ... // TODO selber einfügen.
 bool sindAlleGross = personen.All(p => p.Groesse > grenze);
 
 var nachEssenGruppiert = personen.GroupBy(p => p.LieblingsEssen);
 
-var ersteJungePerson = personen.FirstOrDefault(p => p.Alter < 30);
+var größtePersonWelcheJuengerAls30Ist = personen.OrderBy(p => p.Groesse).FirstOrDefault(p => p.Alter < 30);
 
 double durchschnittsgroesse = personen.Average(p => p.Groesse);
 
 int alterDerAeltestenPerson = personen.Max(p => p.Alter);
+// LINQ ENDE
 
-public record Person(string Name, int Alter, double Groesse, string LieblingsEssen); 
+public record Person(string Name, int Alter, double Groesse, string LieblingsEssen);
 ```
 
-### Theorie [10 / 60 Teilpunkte]
-* Soll ``Func<T, V>`` oder ``Action<T>`` in folgendem Code als ``Typ`` des ``Parameters`` *filterBedingung* verwendet werden? Begründe warum.
+Was ist korrekt oder falsch an folgenden ``LINQ`` Ausdrücken?
+* Finde die Fehler in diesem Code und markiere diese. 
+* Erkläre wieso diese Fehler zu einem nicht gültigen bzw. konzeptionell falschen ``LINQ``Ausdruck führen.
+
+### Theorie [10 / 40 Teilpunkte]
+* Ist der ``Typ`` des ``Parameters`` *filterBedingung* hier ``Func<Buch, bool>`` oder ``Action<Buch>``? Erinnere dich, dass diese beiden ``Typen`` verwendet werden können um eine ``Methode`` als ``Variable`` speichern zu können. Die ``Typparameter`` sind ``Func<ParameterDerMethode, RückgabeDerMethode>`` und ``Action<ParameterDerMethode>`` in folgendem Code als ``Typ`` des  verwendet werden? Begründe warum.
 
 ```csharp
 static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
