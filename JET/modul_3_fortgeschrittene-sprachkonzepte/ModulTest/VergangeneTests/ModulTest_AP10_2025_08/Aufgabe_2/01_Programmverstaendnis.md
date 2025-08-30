@@ -4,8 +4,8 @@ async Task CalculateStuff()
 {
     for(int i = 0; i < 100; i++) 
     {
-        Console.WriteLine($"Ich bin von Task: {Task.CurrentId ?? -1} welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
         await Task.Delay(1);
+        Console.WriteLine($"Ich bin von Task: {Task.CurrentId ?? -1} welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
     }
 }
 
@@ -20,16 +20,16 @@ await Task.WhenAll(tasks);
 
 Wird folgender Code ``gleichzeitg`` (concurrent) oder ``hintereinander`` (sequential) ausgeführt?
 ```csharp
-async Task CalculateStuff() 
+async Task CalculateStuff(int id)
 {
-    for(int i = 0; i < 100; i++) 
+    for (int i = 0; i < 100; i++)
     {
-        Console.WriteLine($"Ich bin von Task: {Task.CurrentId ?? -1} welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
         await Task.Delay(1);
+        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
     }
 }
 
-await CalculateStuff();
-await CalculateStuff();
+await CalculateStuff(1);
+await CalculateStuff(2);
 ```
 **Anwort**: ``Hintereinander``. Denn wir starten mit ``await CalculateStuff()`` die 1. Aufruf der ``Methode`` und warten durch ``await`` bis diese fertig ist. Danach erst die 2.

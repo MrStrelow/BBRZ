@@ -193,17 +193,17 @@ public record Kunde(string Name, int Alter, double Punkte);
 ### Programmverständnis [10 / 55 Teilpunkte]
 Wird folgender Code ``gleichzeitg`` (concurrent) oder ``hintereinander`` (sequential) ausgeführt?
 ```csharp
-async Task CalculateStuff() 
+async Task CalculateStuff(int id)
 {
-    for(int i = 0; i < 100; i++) 
+    for (int i = 0; i < 100; i++)
     {
-        Console.WriteLine($"Ich bin von Task: {Task.CurrentId ?? -1} welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
         await Task.Delay(1);
+        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
     }
 }
 
-Task firstTask = CalculateStuff();
-Task secondTask = CalculateStuff();
+Task firstTask = CalculateStuff(1);
+Task secondTask = CalculateStuff(2);
 
 var tasks = new List<Task> { firstTask, secondTask };
 await Task.WhenAll(tasks);
@@ -211,17 +211,17 @@ await Task.WhenAll(tasks);
 
 Wird folgender Code ``gleichzeitg`` (concurrent) oder ``hintereinander`` (sequential) ausgeführt?
 ```csharp
-async Task CalculateStuff() 
+async Task CalculateStuff(int id)
 {
-    for(int i = 0; i < 100; i++) 
+    for (int i = 0; i < 100; i++)
     {
-        Console.WriteLine($"Ich bin von Task: {Task.CurrentId ?? -1} welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
         await Task.Delay(1);
+        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
     }
 }
 
-await CalculateStuff();
-await CalculateStuff();
+await CalculateStuff(1);
+await CalculateStuff(2);
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
