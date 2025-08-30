@@ -28,7 +28,7 @@ var analyticsService = new AnalyticsService(rechnungRepository, reservierungRepo
 Log.Information("--- Reservierungen werden erstellt ---");
 
 var reservierungsWunsch1 = new ReservierungsWunschDto { KundenId = 1, FahrradId = 2, ReservierungsDatum = DateTime.Now.AddDays(2) };
-var reservierungsWunsch2 = new ReservierungsWunschDto { KundenId = 1, FahrradId = 3, ReservierungsDatum = DateTime.Now.AddDays(3) }; // Max reserviert viel
+var reservierungsWunsch2 = new ReservierungsWunschDto { KundenId = 1, FahrradId = 3, ReservierungsDatum = DateTime.Now.AddDays(3) };
 var reservierungsWunsch3 = new ReservierungsWunschDto { KundenId = 2, FahrradId = 1, ReservierungsDatum = DateTime.Now.AddDays(2) };
 
 await reservierungService.ErstelleReservierungAsync(reservierungsWunsch1);
