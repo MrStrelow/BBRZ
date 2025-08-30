@@ -103,7 +103,7 @@ Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
     * den *Namen* der ``Methode`` und
     * einen oder mehrere ``Parameter``.
 
-Ein Beispiel dafür ist ``double berechneKürzesteDistanz(Graph g)``
+Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
 
 Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
 
@@ -113,7 +113,7 @@ Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss?
     * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
     * ``Methoden``
 
-Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.berechneUmsatz();``.
+Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.BerechneUmsatz();``.
 
 Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
 
@@ -128,7 +128,7 @@ Schreibe folgenden ``iterativen`` Code in mehrere ``LINQ`` Ausdrücke mit ``Lamb
 > * Suche nach der ``LINQ`` ``Methode`` welche hier verwendet werden kann im Internet. Verwende dazu folgende query ***.net c# linq wenn eine person älter ist als x gib true zurück --ai***. Falls keine sinnvollen resultate zurückkommen, entferne das --ai.
 
 ```csharp
-bool beinhaltet(List<Kunde> kunden, string filterart, int? älterAls = null, int? grenzePunkte = null)
+bool Beinhaltet(List<Kunde> kunden, string filterart, int? älterAls = null, int? grenzePunkte = null)
 {
     bool ret = false;
 
@@ -169,8 +169,8 @@ var kunden = new List<Kunde> {
     new Kunde(Name: "Madrea", Alter: 65, Punkte: 500),
 };
 
-var istAelterAlsX = beinhaltet(kunden, filterart: "istAelterAlsX", älterAls: 18);
-var mehrPunkteAlsX = beinhaltet(kunden, filterart: "mehrPunkteAlsX", grenzePunkte: 300);
+var istAelterAlsX = Beinhaltet(kunden, filterart: "istAelterAlsX", älterAls: 18);
+var mehrPunkteAlsX = Beinhaltet(kunden, filterart: "mehrPunkteAlsX", grenzePunkte: 300);
 
 Console.WriteLine("~~~ ITERATIVE ~~~");
 Console.WriteLine(istAelterAlsX);
@@ -188,10 +188,34 @@ public record Kunde(string Name, int Alter, double Punkte);
 ```
 ---
 
-## Aufgabe 2: Async, n-Layers und Repositories [55 Punkte]
+## Aufgabe 2: Tasks mit Async/Await und Entities, DTOs, Services sowie Repositories [55 Punkte]
 
 ### Programmverständnis [10 / 55 Teilpunkte]
+Wird folgender Code ``gleichzeitg`` (concurrent) oder ``hintereinander`` (sequential) ausgeführt?
 ```csharp
+void CalculateStuff(int id) {
+    for(int i = 0; i < 1000; i++) {
+        Console.WriteLine($"Ich gestartet von id: {id} und berechne i = {i}");
+    }
+}
+
+Task firstTask = Task.Run(() => CalculateStuff(1));
+Task secondTask = Task.Run(() => CalculateStuff(2));
+
+var tasks = new List<Task> { firstTask, secondTask };
+await Task.WhenAll(tasks);
+```
+
+Wird folgender Code ``gleichzeitg`` (concurrent) oder ``hintereinander`` (sequential) ausgeführt?
+```csharp
+void async CalculateStuff() {
+    for(int i = 0; i < 1000; i++) {
+        Console.Write($"ich bin von Task: {} und berechne i = {i}");
+    }
+}
+
+await CalculateStuff();
+await CalculateStuff();
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
@@ -206,6 +230,12 @@ Die grobe implementierung ist in den Interfaces vorgegeben.
 ---
 
 ### Theorie [10 / 55 Teilpunkte]
-* Was ist ein ``DTO`` und was eine ``Entitiy``? Wo unterscheiden diese sich?
-* ``Hat`` eine ``Service`` Klasse eher ein ``Repository`` oder hat ein ``Repository`` eher einen ``Service``?
-* ``Methoden`` mit dem Schlüsselwort ``async`` werden immer ``parallel`` und nie ``sequenziel`` ausgeführt.
+* Soll ein ``Repository`` von einem ``Service`` aufgerufen werden können?
+
+* Ein ``DTO`` wird vom verwendet ``Service`` verwendet um mit einer externen Schnittstelle (anderes Programm welches mit dem service unter http kommuniziert) zu kommunizieren.
+
+* Im ``Repository`` wird die *Datenbank* und *I/O* Logik einer ``Entity`` Zentralisiert. Es ist dort möglich ``CRUD`` und kompliziertere Abfragen durchzuführen.
+
+* Eine ``Methode ``*A* welche eine andere ``Methode`` *B* mit ``await`` aufruf hat zur Folge, dass *A* als ``async`` gekennzeichnet werden muss.
+
+* Wir verwenden ``Task.WhenAll(myTasks)`` und ``Task.WhenAny(myTasks)`` um nicht nur ``asynchron`` sondern auch ``gleichzeitg`` (concurrent) Code ausühren zu können.

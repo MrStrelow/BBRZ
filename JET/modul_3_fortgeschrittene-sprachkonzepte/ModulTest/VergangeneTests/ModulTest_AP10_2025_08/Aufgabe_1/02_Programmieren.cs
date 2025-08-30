@@ -1,4 +1,4 @@
-﻿bool beinhaltet(List<Kunde> kunden, string filterart, int? älterAls = null, int? grenzePunkte = null)
+﻿bool Beinhaltet(List<Kunde> kunden, string filterart, int? älterAls = null, int? grenzePunkte = null)
 {
     bool ret = false;
 
@@ -39,8 +39,8 @@ var kunden = new List<Kunde> {
     new Kunde(Name: "Madrea", Alter: 65, Punkte: 500),
 };
 
-var istAelterAlsX = beinhaltet(kunden, filterart: "istAelterAlsX", älterAls: 18);
-var mehrPunkteAlsX = beinhaltet(kunden, filterart: "mehrPunkteAlsX", grenzePunkte: 300);
+var istAelterAlsX = Beinhaltet(kunden, filterart: "istAelterAlsX", älterAls: 18);
+var mehrPunkteAlsX = Beinhaltet(kunden, filterart: "mehrPunkteAlsX", grenzePunkte: 300);
 
 Console.WriteLine("~~~ ITERATIVE ~~~");
 Console.WriteLine(istAelterAlsX);

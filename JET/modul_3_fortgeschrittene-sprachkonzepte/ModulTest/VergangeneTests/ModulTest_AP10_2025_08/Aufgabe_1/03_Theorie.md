@@ -33,7 +33,7 @@ Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
     * den *Namen* der ``Methode`` und
     * einen oder mehrere ``Parameter``.
 
-Ein Beispiel dafür ist ``double berechneKürzesteDistanz(Graph g)``
+Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
 
 Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
 
@@ -43,7 +43,7 @@ Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss?
     * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
     * ``Methoden``
 
-Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.berechneUmsatz();``.
+Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.BerechneUmsatz();``.
 
 Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
 
