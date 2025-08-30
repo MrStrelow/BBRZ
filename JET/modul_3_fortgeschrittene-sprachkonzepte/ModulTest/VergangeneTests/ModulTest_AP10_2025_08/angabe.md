@@ -186,6 +186,16 @@ Console.WriteLine(mehrPunkteAlsX_LINQ);
 
 public record Kunde(string Name, int Alter, double Punkte);
 ```
+**Erwarteter Output:**
+```
+~~~ ITERATIVE ~~~
+True
+True
+~~~ LINQ ~~~
+True
+True
+```
+
 ---
 
 ## Aufgabe 2: Tasks mit Async/Await und Entities, DTOs, Services sowie Repositories [55 Punkte]
@@ -225,13 +235,54 @@ await CalculateStuff(2);
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
-Verwende folgende Vorlage und vervollständige das Programm in den Ebenen:
-* Repositories
-* Services
-* Entities
-* DTO
+Verwende die Vorlage (*Vorlage_02_Programmieren.zip*) und vervollständige das Programm in den angegebenen Ebenen durch eine ``Reservierung``:
+* Repositories: *ReservierungsRepository*
+* Services: *AnalyticsService*, *ReservierungsService*
 
-Die grobe implementierung ist in den Interfaces vorgegeben.
+>**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage.
+
+**Erwarteter Output:**
+```
+[00:09:22 INF] Willkommen beim Fahrradverleih 'Fahrrad-Blitz'!
+[00:09:22 INF] --- Reservierungen werden erstellt ---
+[00:09:23 INF] Erstelle Reservierung für Kunde Max Mustermann für Fahrrad Mountainbike Pro am 09/02/2025 00:09:22
+[00:09:23 INF] Reservierung erfolgreich erstellt.
+[00:09:23 INF] Erstelle Reservierung für Kunde Max Mustermann für Fahrrad E-Bike Comfort am 09/03/2025 00:09:22
+[00:09:23 INF] Reservierung erfolgreich erstellt.
+[00:09:23 INF] Erstelle Reservierung für Kunde Lisa Lauter für Fahrrad Citybike Standard am 09/02/2025 00:09:22
+[00:09:23 INF] Reservierung erfolgreich erstellt.
+[00:09:23 INF] --- Mietanfragen werden entgegengenommen ---
+[00:09:23 INF] Anfrage von Kunde Anna Alt (ID: 3) wird bearbeitet...
+[00:09:23 INF] Anfrage von Kunde Lisa Lauter (ID: 2) wird bearbeitet...
+[00:09:23 INF] Anfrage von Kunde Max Mustermann (ID: 1) wird bearbeitet...
+[00:09:23 ERR] Ungültige Operation bei der Anfrage von Kunde 99.
+System.InvalidOperationException: Kunde mit ID 99 nicht gefunden.
+   at Fahrradverleih.Services.KundenService.MieteFahrradAsync(KundenWunschDto wunsch) in C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_3_fortgeschrittene-sprachkonzepte\ModulTest\VergangeneTests\ModulTest_AP10_2025_08\Aufgabe_2\Services\KundenService.cs:line 33
+   at Program.<>c__DisplayClass0_0.<<<Main>$>g__BearbeiteAnfrageAsync|0>d.MoveNext() in C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_3_fortgeschrittene-sprachkonzepte\ModulTest\VergangeneTests\ModulTest_AP10_2025_08\Aufgabe_2\02_Programmieren.cs:line 71
+[00:09:23 ERR] Fehler bei der Bearbeitung der Anfrage von Kunde 3.
+Fahrradverleih.Exceptions.AusleihvorgangException: Ausleihvorgang für Kunde Anna Alt konnte nicht abgeschlossen werden.
+ ---> Fahrradverleih.Exceptions.FahrradNichtVerfuegbarException: Fahrrad mit ID 99 konnte nicht gefunden werden.
+   at Fahrradverleih.Services.FahrradService.BereitstellenAsync(Int32 fahrradId) in C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_3_fortgeschrittene-sprachkonzepte\ModulTest\VergangeneTests\ModulTest_AP10_2025_08\Aufgabe_2\Services\BestellService.cs:line 25
+   at Fahrradverleih.Services.KundenService.MieteFahrradAsync(KundenWunschDto wunsch) in C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_3_fortgeschrittene-sprachkonzepte\ModulTest\VergangeneTests\ModulTest_AP10_2025_08\Aufgabe_2\Services\KundenService.cs:line 44
+   --- End of inner exception stack trace ---
+   at Fahrradverleih.Services.KundenService.MieteFahrradAsync(KundenWunschDto wunsch) in C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_3_fortgeschrittene-sprachkonzepte\ModulTest\VergangeneTests\ModulTest_AP10_2025_08\Aufgabe_2\Services\KundenService.cs:line 59
+   at Program.<>c__DisplayClass0_0.<<<Main>$>g__BearbeiteAnfrageAsync|0>d.MoveNext() in C:\Users\c4321116\Documents\GitHub\BBRZ\JET\modul_3_fortgeschrittene-sprachkonzepte\ModulTest\VergangeneTests\ModulTest_AP10_2025_08\Aufgabe_2\02_Programmieren.cs:line 71
+[00:09:23 INF] Fahrrad wird bereitgestellt: E-Bike Comfort
+[00:09:23 INF] Fahrrad wird bereitgestellt: Citybike Standard
+[00:09:23 INF] Fahrrad wird bereitgestellt: Mountainbike Pro
+[00:09:23 INF] Fahrrad 'Mountainbike Pro' ist bereit.
+[00:09:23 INF] Fahrrad 'E-Bike Comfort' ist bereit.
+[00:09:23 INF] Fahrrad 'Citybike Standard' ist bereit.
+[00:09:23 INF] Rechnung für Kunde Max Mustermann erstellt. Betrag: 25.50
+[00:09:23 INF] Rechnung für Kunde Lisa Lauter erstellt. Betrag: 22.75
+[00:09:23 INF] Alle Anfragen wurden versucht zu verarbeiten.
+[00:09:23 INF] --- Tagesanalyse des Verleihs ---
+[00:09:23 INF] Starte Verleih-Analyse...
+[00:09:23 INF] Analyse abgeschlossen.
+[00:09:23 INF] Beliebtestes Fahrrad SEIT ERÖFFNUNG: Fahrrad Nr. 1
+[00:09:23 INF] Kunde mit den meisten Reservierungen: Kunde Nr. 1
+[00:09:23 INF] Simulation beendet.
+```
 
 ---
 

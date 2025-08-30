@@ -15,13 +15,13 @@ namespace Fahrradverleih.Repositories
         Task AddAsync(Reservierung reservierung);
     }
 
-    public class ReservierungRepository : IReservierungsRepository
+    public class ReservierungsRepository : IReservierungsRepository
     {
         private readonly string _filePath;
         private static readonly SemaphoreSlim _fileLock = new(1, 1);
         private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
 
-        public ReservierungRepository()
+        public ReservierungsRepository()
         {
             var dataDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
             Directory.CreateDirectory(dataDirectory);
