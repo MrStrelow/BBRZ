@@ -26,6 +26,8 @@
 # Expression (Comprehension)
 dimension = 3
 
+field = [[ "🔷" for _ in range(dimension) ] for _ in range(dimension) ]
+
 row = [ "🔷" for _ in range(dimension) ]
 field = [row for _ in range(dimension) ]
 print(field)

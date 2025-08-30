@@ -25,8 +25,9 @@ Notenschlüssel:
 
 ---
 
-## Aufgabe 1: LINQ und Func, Action - Delegates, Lambda [50 / 100 Punkte]
-### Programmverständnis [10 / 50 Teilpunkte]
+## Aufgabe 1: LINQ und Func, Action - Delegates, Lambda [45 / 100 Punkte]
+
+### Programmverständnis [10 / 45 Teilpunkte]
 Gegeben ist folgender Code welcher ``LINQ`` Ausdrücke verwendet. 
 
 ```csharp
@@ -70,8 +71,10 @@ Was ist korrekt oder falsch an folgenden ``LINQ`` Ausdrücken?
 * Finde die Fehler in diesem Code und markiere diese. 
 * Erkläre wieso diese Fehler zu einem nicht gültigen bzw. konzeptionell falschen ``LINQ``Ausdruck führen.
 
-### Theorie [10 / 40 Teilpunkte]
-* Ist der ``Typ`` des ``Parameters`` *filterBedingung* hier ``Func<Buch, bool>`` oder ``Action<Buch>``? Erinnere dich, dass diese beiden ``Typen`` verwendet werden können um eine ``Methode`` als ``Variable`` speichern zu können. Die ``Typparameter`` sind ``Func<ParameterDerMethode, RückgabeDerMethode>`` und ``Action<ParameterDerMethode>`` in folgendem Code als ``Typ`` des  verwendet werden? Begründe warum.
+### Theorie [10 / 45 Teilpunkte]
+1) Begründe warum der ``Typ`` des ``Parameters`` *filterBedingung* hier ``Func<Buch, bool>`` oder ``Action<Buch>`` ist? Ersetze dazu den ``...`` mit ``Func<Buch, bool>`` oder ``Action<Buch>``.
+
+>**Hinweis**: Diese ``Typen`` können verwendet werden, um eine ``Methode`` als ``Variable`` zu speichern. Die ``Typparameter`` sind dabei ``Func<ParameterDerMethode, RückgabeDerMethode>`` und ``Action<ParameterDerMethode>``.
 
 ```csharp
 static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
@@ -89,87 +92,109 @@ static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
     return gefilterteListe;
 }
 ```
-* Markiere in folgendem Code wo der Lambda Ausdruck beginnt und endet. 
+
+2) Markiere in folgendem Code den *Beginn* und das *Ende* des ``Lambda`` Ausdrucks. 
 ```csharp
-myList.Where( t => t.Age >= 18 );
+Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
 ```
 
-* Eine ``Methode`` mit ``Rückgabe`` besitzt eine ``Methodensignatur``, eine ``Rückgabewert``/``Rückgabetyp`` und ``Parameter``. Was fehlt bei folgendem ``Code`` welcher einen ``Lambda Ausdrück`` beinhaltet, was bei einer ``Methode`` vorhandnen sein muss? 
-```csharp
-myList.Where( t => t.Age >= 18 );
-```
+3) Eine ``Methode`` mit ``Rückgabe`` besitzt eine ``Methodensignatur``. Diese beinhaltet:
+    * einen ``Rückgabewert``/``Rückgabetyp``
+    * den *Namen* der ``Methode`` und
+    * einen oder mehrere ``Parameter``.
 
-* Was ist ein ``Anyonymes Objekt`` und wie wird es bei ``LINQ`` Ausdrücken verwendet?
+Ein Beispiel dafür ist ``double berechneKürzesteDistanz(Graph g)``
 
-* Bevorzugt der folgende Code die Verwendung eine ``LINQ`` Ausdrucks oder ein iteratives Konstrukt (for, while, if, ...)?
-```csharp
-public bool beinhaltet(List<Kunden> kunden, string filterart, int? grenzePunkte) {
-    bool ret = false;
+Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
 
-    if (string filterart == "istälterals18") {
-        for (Kunde kunde in kunden) {
-            if (kunde.Alter > 18)
-            {
-                ret = true;
-                break;
-            }
-        }
-    } 
-    else if(string filterart == "istpunkteals50" && grenzePunkte.hasValue) 
-    {
-        for (Kunde kunde in kunden) {
-            if (kunde.Alter > 18)
-            {
-                ret = true;
-                break;
-            }
-        }
-    } 
-    else 
-    {
-        Console.WriteLine("Ünbekannter Filterart angegeben");
-    }
-}
-```
+Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
+
+4) Ein ``Objekt`` hat als ``Typ`` eine ``Klasse``. Durch dessen ``Klasse`` besitzt das ``Objekt`` ``Mitglieder``. Diese beinhalten:
+    * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
+    * ``Methoden``
+
+Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.berechneUmsatz();``.
+
+Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
+
+**Hinweis:** Ein *Anonymes Objekt* wird auch *Anonymer Typ* genannt.
 
 ### Programmieren [25 / 45 Teilpunkte]
 
-Schreibe folgenden iterativen Code in einen ``LINQ`` ausdruck mit ``Lambda`` Ausdrücken um. Es gibt keine weiteren Einschränkungen. 
+Schreibe folgenden ``iterativen`` Code in mehrere ``LINQ`` Ausdrücke mit ``Lambda`` Ausdrücken um. 
+
+> **Hinweise:** 
+> * Es befindet sich in der Angabe eine Vorlage für den ``LINQ`` code.
+> * Suche nach der ``LINQ`` ``Methode`` welche hier verwendet werden kann im Internet. Verwende dazu folgende query ***.net c# linq wenn eine person älter ist als x gib true zurück --ai***. Falls keine sinnvollen resultate zurückkommen, entferne das --ai.
 
 ```csharp
-public bool beinhaltet(List<Kunden> kunden, string filterart, int? älterAls = null, int? grenzePunkte = null) {
+bool beinhaltet(List<Kunde> kunden, string filterart, int? älterAls = null, int? grenzePunkte = null)
+{
     bool ret = false;
 
-    if (string filterart == "istälteralsX" && älterAls.hasValue) {
-        for (Kunde kunde in kunden) {
+    if (filterart == "istAelterAlsX" && älterAls.HasValue) {
+        foreach (Kunde kunde in kunden)
+        {
             if (kunde.Alter > älterAls)
             {
                 ret = true;
                 break;
             }
         }
-    } 
-    else if(string filterart == "istpunktealsX" && grenzePunkte.hasValue) 
+    }
+    else if (filterart == "mehrPunkteAlsX" && grenzePunkte.HasValue) 
     {
-        for (Kunde kunde in kunden) {
+        foreach (Kunde kunde in kunden)
+        {
             if (kunde.Punkte > grenzePunkte)
             {
                 ret = true;
                 break;
             }
         }
-    } 
-    else 
+    }
+    else
     {
         Console.WriteLine("Ünbekannter Filterart angegeben");
     }
+
+    return ret;
 }
+
+var kunden = new List<Kunde> {
+    new Kunde(Name: "Andrea", Alter: 25, Punkte: 100),
+    new Kunde(Name: "Landrea", Alter: 35, Punkte: 200),
+    new Kunde(Name: "Valrea", Alter: 45, Punkte: 300),
+    new Kunde(Name: "Balrea", Alter: 55, Punkte: 400),
+    new Kunde(Name: "Madrea", Alter: 65, Punkte: 500),
+};
+
+var istAelterAlsX = beinhaltet(kunden, filterart: "istAelterAlsX", älterAls: 18);
+var mehrPunkteAlsX = beinhaltet(kunden, filterart: "mehrPunkteAlsX", grenzePunkte: 300);
+
+Console.WriteLine("~~~ ITERATIVE ~~~");
+Console.WriteLine(istAelterAlsX);
+Console.WriteLine(mehrPunkteAlsX);
+
+// TODO: Hier direkt LINQ ausdrücke schreiben, ohne diese in eine Methode zu geben. 
+var istAelterAlsX_LINQ = ... // LINQ ausdruck hier.
+var mehrPunkteAlsX_LINQ = ... // LINQ ausdruck hier.
+
+Console.WriteLine("~~~ LINQ ~~~");
+Console.WriteLine(istAelterAlsX_LINQ);
+Console.WriteLine(mehrPunkteAlsX_LINQ);
+
+public record Kunde(string Name, int Alter, double Punkte);
 ```
 ---
 
 ## Aufgabe 2: Async, n-Layers und Repositories [55 Punkte]
 
-### Programmieren [40 / 55 Teilpunkte]
+### Programmverständnis [10 / 55 Teilpunkte]
+```csharp
+```
+
+### Programmieren [35 / 55 Teilpunkte]
 Verwende folgende Vorlage und vervollständige das Programm in den Ebenen:
 * Repositories
 * Services
@@ -180,7 +205,7 @@ Die grobe implementierung ist in den Interfaces vorgegeben.
 
 ---
 
-### Theorie [15 / 55 Teilpunkte]
+### Theorie [10 / 55 Teilpunkte]
 * Was ist ein ``DTO`` und was eine ``Entitiy``? Wo unterscheiden diese sich?
 * ``Hat`` eine ``Service`` Klasse eher ein ``Repository`` oder hat ein ``Repository`` eher einen ``Service``?
 * ``Methoden`` mit dem Schlüsselwort ``async`` werden immer ``parallel`` und nie ``sequenziel`` ausgeführt.
