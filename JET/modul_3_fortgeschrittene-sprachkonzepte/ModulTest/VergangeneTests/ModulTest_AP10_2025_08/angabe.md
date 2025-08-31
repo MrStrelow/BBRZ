@@ -107,8 +107,6 @@ Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
 
 Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
 
-Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
-
 4) Ein ``Objekt`` hat als ``Typ`` eine ``Klasse``. Durch dessen ``Klasse`` besitzt das ``Objekt`` ``Mitglieder``. Diese beinhalten:
     * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
     * ``Methoden``
@@ -207,8 +205,8 @@ async Task CalculateStuff(int id)
 {
     for (int i = 0; i < 100; i++)
     {
-        await Task.Delay(1);
-        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
+        await Task.Delay(1); //simuliert einen externen Methodenaufruf, z.B. eines http-requests.
+        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden ist und berechne i = {i}");
     }
 }
 
@@ -225,8 +223,8 @@ async Task CalculateStuff(int id)
 {
     for (int i = 0; i < 100; i++)
     {
-        await Task.Delay(1);
-        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden und berechne i = {i}");
+        await Task.Delay(1); //simuliert einen externen Methodenaufruf, z.B. eines http-requests.
+        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden ist und berechne i = {i}");
     }
 }
 
