@@ -287,7 +287,7 @@ Fahrradverleih.Exceptions.AusleihvorgangException: Ausleihvorgang für Kunde Ann
 ### Theorie [10 / 55 Teilpunkte]
 * Soll ein ``Repository`` von einem ``Service`` aufgerufen werden können?
 
-* Ein ``DTO`` wird von ``Services`` verwendet dum mit einer externen Schnittstelle (anderes Programm welches mit dem service unter http kommuniziert) zu kommunizieren.
+* Ein ``DTO`` wird von ``Services`` verwendet um mit einer externen Schnittstelle (anderes Programm welches mit dem service unter http kommuniziert) zu kommunizieren.
 
 * Im ``Repository`` wird die *Datenbank* und *I/O* Logik einer ``Entity`` Zentralisiert. Es ist dort möglich ``CRUD`` und kompliziertere Abfragen durchzuführen.
 
