@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -22,8 +23,13 @@ todos.TryAdd(4, new Todo("modul 3 test schreiben"));
 // Create
 app.MapPost(
     "/todos",
-    (Todo newTodo) => todos.TryAdd(todos.Keys.Max() + 1, newTodo)
-);
+    ( [FromForm] string title) =>
+    {
+        todos.TryAdd(todos.Keys.Max() + 1, new Todo(title));
+        string html = GenerateHtml(todos);
+        return Results.Content(html, "text/html", Encoding.UTF8);
+    }
+).DisableAntiforgery();
 
 // Read
 app.MapGet(
