@@ -25,9 +25,15 @@ app.MapPost(
     "/todos",
     ( [FromForm] string title) =>
     {
-        todos.TryAdd(todos.Keys.Max() + 1, new Todo(title));
-        string html = GenerateHtml(todos);
-        return Results.Content(html, "text/html", Encoding.UTF8);
+        if (todos.TryAdd(todos.Keys.Max() + 1, new Todo(title)))
+        {
+            string html = GenerateHtml(todos);
+            return Results.Content(html, "text/html", Encoding.UTF8);
+        }
+        else
+        {
+            return Results.Problem();
+        }
     }
 ).DisableAntiforgery();
 
