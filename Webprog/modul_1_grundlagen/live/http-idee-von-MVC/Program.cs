@@ -9,11 +9,11 @@ var app = builder.Build();
 
 
 // Das ist das Model.
-var todos = new Dictionary<int, Todo>();
+var todos = new ConcurrentDictionary<int, Todo>();
 todos.TryAdd(1, new Todo("einkaufen"));
 todos.TryAdd(2, new Todo("pumpi"));
 todos.TryAdd(3, new Todo("modul 2 test schreiben"));
-todos.TryAdd(4, new Todo("modul 3 test schreiben"))
+todos.TryAdd(4, new Todo("modul 3 test schreiben"));
 
 // Das ist der Controller - http endpoints und verwenden von Objekten aus Model und View.
 // Lege Endpoints fest - Welche http requests erkenne ich?
@@ -74,7 +74,20 @@ app.MapGet(
 app.MapPut("/todos", () => "Hello World!");
 
 // Delete
-app.MapDelete("/todos", () => "Hello World!");
+app.MapDelete(
+    "/todos/{id}",
+    (int id) => {
+        if (todos.TryRemove(id, out _))
+        {
+            return Results.Ok();
+        }
+        else
+        {
+            return Results.NotFound();
+        }
+        // alternative! damit wir nicht einen zusätzlichen get request brauchen, denn in javascript wird die seite refreshed, also ein get request.
+        //return GenerateHtml(new ConcurrentDictionary<int, Todo>(todos));
+    });
 
 app.Run();
 
@@ -143,7 +156,7 @@ string GenerateHtml(ConcurrentDictionary<int, Todo> currentTodos)
                     return;
                 }
 
-                fetch(`/todos/delete/${id}`, {
+                fetch(`/todos/${id}`, {
                     method: 'DELETE'
                 })
                 .then(response => {
