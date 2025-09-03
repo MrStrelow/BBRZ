@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
@@ -12,9 +13,7 @@ var todos = new Dictionary<int, Todo>();
 todos.TryAdd(1, new Todo("einkaufen"));
 todos.TryAdd(2, new Todo("pumpi"));
 todos.TryAdd(3, new Todo("modul 2 test schreiben"));
-todos.TryAdd(4, new Todo("modul 3 test schreiben"));
-
-
+todos.TryAdd(4, new Todo("modul 3 test schreiben"))
 
 // Das ist der Controller - http endpoints und verwenden von Objekten aus Model und View.
 // Lege Endpoints fest - Welche http requests erkenne ich?
@@ -55,7 +54,7 @@ app.MapGet(
         }
 
         // das ist neu!
-        var html = GenerateHtml(result);
+        var html = GenerateHtml(new ConcurrentDictionary<int, Todo>(result));
         return Results.Content(html, "text/html", Encoding.UTF8);
 
         // wenn sort nicht null ist und sort = asc, dann antwort aufsteigend sortieren, wenn desc absteigend.
@@ -80,7 +79,7 @@ app.MapDelete("/todos", () => "Hello World!");
 app.Run();
 
 
-string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
+string GenerateHtml(ConcurrentDictionary<int, Todo> currentTodos)
 {
     var htmlBuilder = new StringBuilder();
 
@@ -121,7 +120,7 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
         foreach (var todo in currentTodos.OrderBy(t => t.Key))
         {
             htmlBuilder.Append($"<li id='todo-{todo.Key}'>");
-            htmlBuilder.Append($"<a href='/todos/{todo.Key}'>{todo.Value}</a>");
+            htmlBuilder.Append($"<a href='/todos/{todo.Key}'>{todo.Value.Title}</a>");
             htmlBuilder.Append($"<div class='actions'><button type='button' class='delete' onclick='deleteTodo({todo.Key})'>Delete</button></div>");
             htmlBuilder.Append("</li>");
         }
