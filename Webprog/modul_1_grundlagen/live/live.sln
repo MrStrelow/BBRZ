@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "live", "http-json/http-json.csproj", "{EB721210-1D10-4E8C-AE73-4DF62951F3F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-json", "http-json\http-json.csproj", "{EB721210-1D10-4E8C-AE73-4DF62951F3F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-idee-von-MVC", "http-idee-von-MVC\http-idee-von-MVC.csproj", "{AA988492-D10F-4265-9AB5-A723FB2A1675}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EB721210-1D10-4E8C-AE73-4DF62951F3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB721210-1D10-4E8C-AE73-4DF62951F3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB721210-1D10-4E8C-AE73-4DF62951F3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
