@@ -233,7 +233,7 @@ await CalculateStuff(2);
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
-Verwende die Vorlage (*Vorlage_02_Programmieren.zip*) und vervollständige das Programm in den angegebenen Ebenen durch eine ``Reservierung``:
+Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_02-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch eine ``Reservierung``:
 * Repositories: *ReservierungsRepository*
 * Services: *AnalyticsService*, *ReservierungsService*
 

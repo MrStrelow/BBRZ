@@ -17,13 +17,13 @@ Log.Information("Willkommen beim Fahrradverleih 'Fahrrad-Blitz'!");
 
 var kundeRepository = new KundeRepository();
 var fahrradRepository = new FahrradRepository();
-var rechnungRepository = new RechnungRepository();
-var reservierungRepository = new ReservierungsRepository();
+var rechnungsRepository = new RechnungRepository();
+var reservierungsRepository = new ReservierungsRepository();
 
 var fahrradService = new FahrradService(fahrradRepository);
-var kundenService = new KundenService(fahrradService, rechnungRepository, kundeRepository);
-var reservierungService = new ReservierungsService(kundeRepository, fahrradRepository, reservierungRepository);
-var analyticsService = new AnalyticsService(rechnungRepository, reservierungRepository);
+var kundenService = new KundenService(fahrradService, rechnungsRepository, kundeRepository);
+var reservierungService = new ReservierungsService(kundeRepository, fahrradRepository, reservierungsRepository);
+var analyticsService = new AnalyticsService(rechnungsRepository, reservierungsRepository);
 
 Log.Information("--- Reservierungen werden erstellt ---");
 
