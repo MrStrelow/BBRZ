@@ -237,7 +237,7 @@ Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe
 * Repositories: *ReservierungsRepository*
 * Services: *AnalyticsService*, *ReservierungsService*
 
->**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage.
+>**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage. Die Startklasse ist nicht zu ändern! Alles wo ein TODO: steht ist anzupassen.
 
 **Erwarteter Output:**
 ```
