@@ -31,9 +31,13 @@ var reservierungsWunsch1 = new ReservierungsWunschDto { KundenId = 1, FahrradId 
 var reservierungsWunsch2 = new ReservierungsWunschDto { KundenId = 1, FahrradId = 3, ReservierungsDatum = DateTime.Now.AddDays(3) };
 var reservierungsWunsch3 = new ReservierungsWunschDto { KundenId = 2, FahrradId = 1, ReservierungsDatum = DateTime.Now.AddDays(2) };
 
-await reservierungService.ErstelleReservierungAsync(reservierungsWunsch1);
-await reservierungService.ErstelleReservierungAsync(reservierungsWunsch2);
-await reservierungService.ErstelleReservierungAsync(reservierungsWunsch3);
+Task<Reservierung> reservierung1 = reservierungService.ErstelleReservierungAsync(reservierungsWunsch1);
+Task<Reservierung> reservierung2 = reservierungService.ErstelleReservierungAsync(reservierungsWunsch2);
+Task<Reservierung> reservierung3 = reservierungService.ErstelleReservierungAsync(reservierungsWunsch3);
+
+var reservierungen = new List<Task<Reservierung>> { reservierung1, reservierung2, reservierung3 };
+
+await Task.WhenAll(reservierungen);
 
 Log.Information("--- Mietanfragen werden entgegengenommen ---");
 // Wir stellen uns vor die DTOs werden serialisiert und über das internet zu dem service gesendet. 
