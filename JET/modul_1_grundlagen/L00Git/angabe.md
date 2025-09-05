@@ -259,12 +259,13 @@ Jetzt erzeugen wir einen absichtlichen Konflikt.
     git push
     ```
 
-4.  **UserB:** Füge die Performance-Optimierung hinzu. Ändere die innere Schleife `for (int j = 0; j < n - 1; j++)` zu `for (int j = 0; j < n - 1 - i; j++)`.
+4.  **UserB:** Füge die Performance-Optimierung hinzu. Ändere die innere Schleife `for (int j = 0; j < n - 1; j++)` zu `for (int j = 0; j < n - 1 - i; j++)` und ändere die Zeile `int[] zahlen = { 5, 1, 4, 2, 8 };` zu `int[] zahlen = { 100, 30, 180, 10, 990 };`.
+
 5.  **UserB:** Committe die Änderung (noch nicht pushen!).
 
     ```bash
     git add BubbleSort.cs
-    git commit -m "Perf: Optimiere innere Schleife von Bubble Sort"
+    git commit -m "Perf: Optimiere innere Schleife von Bubble Sort und ändere Zahlen welche zu sortieren sind"
     ```
 
 6.  **UserB:** Versuche nun, die Änderungen von UserA zu holen.
