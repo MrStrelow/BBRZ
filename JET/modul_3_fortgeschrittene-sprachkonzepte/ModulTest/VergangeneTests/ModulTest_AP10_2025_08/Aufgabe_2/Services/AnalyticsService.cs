@@ -43,7 +43,7 @@ public class AnalyticsService : IAnalyticsService
         // TODO: berechne den Kunden mit den Meisten Reservierungen. 
         // Hinweis:
         // * gruppiere nach Kunden id,
-        // * danach sortiere absteigend,
+        // * danach sortiere absteigend mittels g => g.Count(),
         // * selektiere von der gruppe den Schlüssel (g => g.Key) und
         // * nimm den ersten wert dieser liste (first)
         var kundeMitMeistenReservierungen = reservierungen

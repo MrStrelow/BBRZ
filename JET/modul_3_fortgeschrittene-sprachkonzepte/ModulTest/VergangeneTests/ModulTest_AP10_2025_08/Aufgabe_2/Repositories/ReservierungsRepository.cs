@@ -53,7 +53,7 @@ namespace Fahrradverleih.Repositories
             // * Versuche (Try) die Methode
             //      * ReadFromFileAsync aufzurufen, speicher das Ergebnis und fürge den Parameter reservierung hinzu,
             //      * danach rufe WriteToFileAsync auf.
-            // * anschließendd gib, egal was passiert (finally), den Lock wieder frei,
+            // * anschließend gib, egal was passiert (finally), den Lock wieder frei.
             await _fileLock.WaitAsync();
             try
             {
