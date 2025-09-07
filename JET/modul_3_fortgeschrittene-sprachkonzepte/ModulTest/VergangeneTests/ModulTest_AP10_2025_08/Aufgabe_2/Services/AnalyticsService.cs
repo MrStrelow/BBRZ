@@ -40,6 +40,12 @@ public class AnalyticsService : IAnalyticsService
             .Select(g => g.Key)
             .FirstOrDefault();
 
+        // TODO: berechne den Kunden mit den Meisten Reservierungen. 
+        // Hinweis:
+        // * gruppiere nach Kunden id,
+        // * danach sortiere absteigend,
+        // * selektiere von der gruppe den Schlüssel (g => g.Key) und
+        // * nimm den ersten wert dieser liste (first)
         var kundeMitMeistenReservierungen = reservierungen
             .GroupBy(r => r.Kunde.Id) 
             .OrderByDescending(g => g.Count())

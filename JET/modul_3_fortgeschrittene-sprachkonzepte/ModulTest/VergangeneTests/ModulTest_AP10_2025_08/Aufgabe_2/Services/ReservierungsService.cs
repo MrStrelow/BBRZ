@@ -15,10 +15,12 @@ namespace Fahrradverleih.Services
 
     public class ReservierungsService : IReservierungsService
     {
+        // TODO: Erstelle die benötigten Felder und Eigenschaften.
         private readonly IKundeRepository _kundeRepository;
         private readonly IFahrradRepository _fahrradRepository;
         private readonly IReservierungsRepository _reservierungRepository;
 
+        // TODO: Implementiere den Konstruktor.
         public ReservierungsService(IKundeRepository kundeRepository, IFahrradRepository fahrradRepository, IReservierungsRepository reservierungRepository)
         {
             _kundeRepository = kundeRepository;
@@ -28,6 +30,8 @@ namespace Fahrradverleih.Services
 
         public async Task<Reservierung> ErstelleReservierungAsync(ReservierungsWunschDto wunsch)
         {
+            // TODO: Implementiere die Erstellung einer Reservierung:
+            // * rufe dazu _kundeRepository.GetByIdAsync, sowie _fahrradRepository.GetByIdAsync auf.
             var kunde = await _kundeRepository.GetByIdAsync(wunsch.KundenId)
                 ?? throw new InvalidOperationException($"Kunde mit ID {wunsch.KundenId} nicht gefunden.");
 
@@ -37,6 +41,7 @@ namespace Fahrradverleih.Services
             Log.Information("Erstelle Reservierung für Kunde {KundenName} für Fahrrad {FahrradModell} am {ReservierungsDatum}",
                 kunde.Name, fahrrad.Modell, wunsch.ReservierungsDatum);
 
+            // * Erstelle ein Objekt reservierung, welches Kunde, Fahrrad und das ReservierungsDatum (kommt aus dem Parameter wunsch)
             var reservierung = new Reservierung
             {
                 Kunde = kunde, 
@@ -44,6 +49,7 @@ namespace Fahrradverleih.Services
                 ReservierungsDatum = wunsch.ReservierungsDatum
             };
 
+            // * Füge diese Reservierung dem _reservierungRepository mit AddAsync hinzu.
             await _reservierungRepository.AddAsync(reservierung);
             Log.Information("Reservierung erfolgreich erstellt.");
             return reservierung;

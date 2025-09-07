@@ -17,10 +17,12 @@ namespace Fahrradverleih.Repositories
 
     public class ReservierungsRepository : IReservierungsRepository
     {
+        // TODO: Erstelle die benötigten Felder und Eigenschaften.
         private readonly string _filePath;
         private static readonly SemaphoreSlim _fileLock = new(1, 1);
         private readonly JsonSerializerOptions _options = new() { WriteIndented = true };
 
+        // TODO: Implementiere den Konstruktor.
         public ReservierungsRepository()
         {
             var dataDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
@@ -30,6 +32,9 @@ namespace Fahrradverleih.Repositories
 
         public async Task<IEnumerable<Reservierung>> GetAllAsync()
         {
+            // TODO: Implementiere:
+            // * ein Lock für File während dem Lesen, welches gleichzeige Zugriffe verhindert.
+            // * Versuche (Try) die Methode ReadFromFileAsync aufzurufen und gib anschließen, egal was passiert (finally), den Lock wieder frei.
             await _fileLock.WaitAsync();
             try
             {
@@ -43,6 +48,12 @@ namespace Fahrradverleih.Repositories
 
         public async Task AddAsync(Reservierung reservierung)
         {
+            // TODO: Implementiere:
+            // * ein Lock für File während dem Schreiben, welches gleichzeige Zugriffe verhindert.
+            // * Versuche (Try) die Methode
+            //      * ReadFromFileAsync aufzurufen, speicher das Ergebnis und fürge den Parameter reservierung hinzu,
+            //      * danach rufe WriteToFileAsync auf.
+            // * anschließendd gib, egal was passiert (finally), den Lock wieder frei,
             await _fileLock.WaitAsync();
             try
             {
@@ -58,6 +69,9 @@ namespace Fahrradverleih.Repositories
 
         private async Task<List<Reservierung>> ReadFromFileAsync()
         {
+            // TODO: Implementiere:
+            // * Die Deserialisierung der Liste von Reservierungen, welche aus einem JSON stammt.
+            // * Verwende dazu File.ReadAllTextAsync und JsonSerializer.Deserialize.
             if (!File.Exists(_filePath)) return new List<Reservierung>();
             var json = await File.ReadAllTextAsync(_filePath);
             if (string.IsNullOrWhiteSpace(json)) return new List<Reservierung>();
@@ -66,6 +80,9 @@ namespace Fahrradverleih.Repositories
 
         private async Task WriteToFileAsync(IEnumerable<Reservierung> reservierungen)
         {
+            // TODO: Implementiere:
+            // * Die Serialisierung der Liste von Reservierungen als JSON, welche als Parameter übergeben wird.
+            // * Verwende dazu JsonSerializer.Serialize und File.WriteAllTextAsync.
             var json = JsonSerializer.Serialize(reservierungen, _options);
             await File.WriteAllTextAsync(_filePath, json);
         }
