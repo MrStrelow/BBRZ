@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP-idee-von-MVC", "HTTP-i
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstueck", "exercise1-fruehstueck\exercise1-fruehstueck.csproj", "{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{CD0AC35C-C970-4581-AE96-718B7FB005FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0AC35C-C970-4581-AE96-718B7FB005FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0AC35C-C970-4581-AE96-718B7FB005FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0AC35C-C970-4581-AE96-718B7FB005FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0AC35C-C970-4581-AE96-718B7FB005FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
