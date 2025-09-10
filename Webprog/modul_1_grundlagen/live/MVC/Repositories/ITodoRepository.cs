@@ -5,7 +5,7 @@ namespace MVCTodoApp.Repositories;
 public interface ITodoRepository
 {
     // C.R.U.D.
-
+    
     // Create:
     void Add(Todo todo);
 
