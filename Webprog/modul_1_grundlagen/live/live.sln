@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-json", "http-json\http
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-idee-von-MVC", "http-idee-von-MVC\http-idee-von-MVC.csproj", "{AA988492-D10F-4265-9AB5-A723FB2A1675}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{12F3002B-86C2-46C5-9CA8-AC97797607E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA988492-D10F-4265-9AB5-A723FB2A1675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
