@@ -1,0 +1,20 @@
+﻿@model MvcTodoApp.Models.Todo
+@{
+    ViewData["Title"] = "To-Do Detail";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Aufgabe</h4>
+    <hr />
+    <dl>
+        <dt>ID:</dt>
+        <dd>@Model.Id</dd>
+        <dt>Titel:</dt>
+        <dd>@Model.Title</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Zurück zur Liste</a>
+</div>
