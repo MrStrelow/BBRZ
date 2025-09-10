@@ -5,7 +5,7 @@ namespace MVCTodoApp.Repositories;
 
 public class TodoRepositoryInMemory : ITodoRepository
 {
-    ConcurrentDictionary<int, Todo> _todos = new (
+    private static readonly ConcurrentDictionary<int, Todo> _todos = new (
         new[]
         {
             new KeyValuePair<int, Todo>(1, new Todo { Id = 1, Title = "Einkaufen gehen" }),
@@ -13,28 +13,27 @@ public class TodoRepositoryInMemory : ITodoRepository
             new KeyValuePair<int, Todo>(3, new Todo { Id = 3, Title = ".Net lernen" })
         }
     );
-//    todos.TryAdd(1, new Todo("einkaufen"));
-//todos.TryAdd(2, new Todo("pumpi"));
-//todos.TryAdd(3, new Todo("modul 2 test schreiben"));
-//todos.TryAdd(4, new Todo("modul 3 test schreiben"));
 
     public void Add(Todo todo)
     {
-        throw new NotImplementedException();
+        var newId = _todos.IsEmpty ? 1 : _todos.Keys.Max() + 1;
+        todo.Id = newId;
+        _todos.TryAdd(key: newId, value: todo);
     }
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        _todos.TryRemove(id, out _);
     }
 
     public IEnumerable<Todo> GetAll()
     {
-        throw new NotImplementedException();
+        return _todos.Values.OrderBy(todo => todo.Id);
     }
 
     public Todo GetById(int id)
     {
-        throw new NotImplementedException();
+        _todos.TryGetValue(id, out var todo);
+        return todo;
     }
 }

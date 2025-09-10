@@ -1,31 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
 using MVCTodoApp.Models;
+using MVCTodoApp.Repositories;
 using System.Diagnostics;
 
 namespace MVCTodoApp.Controllers;
 
 public class TodoController : Controller
 {
-    private readonly ITodoRepository todoRepository;
+    private readonly ITodoRepository _todoRepository;
 
     public TodoController(ITodoRepository todoRepository)
     {
         _todoRepository = todoRepository;
     }
 
+    // Endpoints - Http - Methoden
+    // Get-Methode für /TODO... aber wir definieren hier nicht das genaue routing.
+    [HttpGet]
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        var todos = _todoRepository.GetAll();
+        return View(todos);
     }
 }
