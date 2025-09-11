@@ -34,11 +34,11 @@ Gegeben ist folgender Code welcher ``LINQ`` Ausdrücke verwendet.
 var sensoren = new List<Sensor>
 {
     new Sensor(Ort: "Wien", InBetriebSeit: 18, NächsteWartung: 1, AktuelleMessung: 26),
-    new Sensor(Ort: "Innsbruck", InBetriebSeit: 19, InBetriebSeit: 2, AktuelleMessung: 29),
-    new Sensor(Ort: "Graz", InBetriebSeit: 20, InBetriebSeit: 3, AktuelleMessung: 32),
-    new Sensor(Ort: "Innsbruck", InBetriebSeit: 21, InBetriebSeit: 4, AktuelleMessung: -125124),
-    new Sensor(Ort: "Wien", InBetriebSeit: 22, InBetriebSeit: 5, AktuelleMessung: -8744156),
-    new Sensor(Ort: "Wien", InBetriebSeit: 23, InBetriebSeit: 6, AktuelleMessung: 25)
+    new Sensor(Ort: "Innsbruck", InBetriebSeit: 19, NächsteWartung: 2, AktuelleMessung: 29),
+    new Sensor(Ort: "Graz", InBetriebSeit: 20, NächsteWartung: 3, AktuelleMessung: 32),
+    new Sensor(Ort: "Innsbruck", InBetriebSeit: 21, NächsteWartung: 4, AktuelleMessung: -125124),
+    new Sensor(Ort: "Wien", InBetriebSeit: 22, NächsteWartung: 5, AktuelleMessung: -8744156),
+    new Sensor(Ort: "Wien", InBetriebSeit: 23, NächsteWartung: 6, AktuelleMessung: 25)
 };
 
 // 1) Berechne höchste AktulleMessung aus Wien
