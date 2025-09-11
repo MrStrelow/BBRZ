@@ -46,22 +46,12 @@ var gans = personen.Filter(person => person.Name == "Gans");
 
 var nachAlterSortiert = personen.OrderBy(person.Alter);
 
-var strudelFans = personen
-    .Select(person => person.Name).
-    .Where(person => person.LieblingsEssen == "Strudel");
-
-Person essenMitDuplikateSortiertNachAlter = personen.Select(p => new { p.LieblingsEssen, p.Alter}).OrderBy(p => p.Groesse);
-
-int grenze = ... // TODO selber einfügen.
+int grenze = 3 
 bool sindAlleGross = personen.All(p => p.Groesse > grenze);
 
 var nachEssenGruppiert = personen.GroupBy(p => p.LieblingsEssen);
 
 var größtePersonWelcheJuengerAls30Ist = personen.OrderBy(p => p.Groesse).FirstOrDefault(p => p.Alter < 30);
-
-double durchschnittsgroesse = personen.Average(p => p.Groesse);
-
-int alterDerAeltestenPerson = personen.Max(p => p.Alter);
 // LINQ ENDE
 
 public record Person(string Name, int Alter, double Groesse, string LieblingsEssen);
@@ -97,25 +87,6 @@ static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
 ```csharp
 Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
 ```
-
-3) Eine ``Methode`` mit ``Rückgabe`` besitzt eine ``Methodensignatur``. Diese beinhaltet:
-    * einen ``Rückgabewert``/``Rückgabetyp``
-    * den *Namen* der ``Methode`` und
-    * einen oder mehrere ``Parameter``.
-
-Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
-
-Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
-
-4) Ein ``Objekt`` hat als ``Typ`` eine ``Klasse``. Durch dessen ``Klasse`` besitzt das ``Objekt`` ``Mitglieder``. Diese beinhalten:
-    * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
-    * ``Methoden``
-
-Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.BerechneUmsatz();``.
-
-Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
-
-**Hinweis:** Ein *Anonymes Objekt* wird auch *Anonymer Typ* genannt.
 
 ### Programmieren [25 / 45 Teilpunkte]
 
@@ -210,30 +181,12 @@ async Task CalculateStuff(int id)
     }
 }
 
-Task firstTask = CalculateStuff(1);
-Task secondTask = CalculateStuff(2);
-
-var tasks = new List<Task> { firstTask, secondTask };
-await Task.WhenAll(tasks);
-```
-
-Wird folgender Code ``gleichzeitg`` (concurrent) oder ``hintereinander`` (sequential) ausgeführt?
-```csharp
-async Task CalculateStuff(int id)
-{
-    for (int i = 0; i < 100; i++)
-    {
-        await Task.Delay(1); //simuliert einen externen Methodenaufruf, z.B. eines http-requests.
-        Console.WriteLine($"Ich bin die Methode mit id: {id}, welche auf Thread: {Thread.CurrentThread.ManagedThreadId} gestartet worden ist und berechne i = {i}");
-    }
-}
-
 await CalculateStuff(1);
 await CalculateStuff(2);
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
-Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](/Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch eine ``Reservierung``:
+Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch eine ``Reservierung``:
 * Repositories: *ReservierungsRepository*
 * Services: *AnalyticsService*, *ReservierungsService*
 

@@ -8,17 +8,9 @@
 // Nähere Infos dazu sind in der Datei "AufbauDotNet.md" zu finden. Diese kann mit einem "markdown" reader
 // gelesen werden.
 // Möglich mit VS Code -> öffnen -> CTRL + SHIFT + v
+// oder in github lesen.
 
-// Wie die Programme aufgebaut sind und ein praktisches Beispiel dazu ist hier dierekt im Code als
-// Kommentare beschrieben.
-
-
-// Wir wollen hier einen Generator für geometrische 2D-ASCII-Formen schreiben.
-// Diese lassen Beispielsweise rechtwiklige Dreiecke, Rauten, Quadrate, usw. erzeugen.
-// Mit diesen Beispiel werden wir die Basis Elemente (und auch später die Objektorientieren Elemente) 
-// von C# erkunden.
-
-// Jedoch beginnen wir hier zuerst mit folgendem Beispiel zum aufwärmen:
+// Wir beginnen mit folgendem Beispiel:
 // Bubble - Sort:
 // Wir wollen diesen Sortieralgorithmus anwenden um Integerzahlen zu sortieren:
 // Diese ist folgendermaßen aufgebaut:
