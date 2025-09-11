@@ -216,28 +216,29 @@ await Task.WhenAll(tasks);
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
-Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_3_fortgeschrittene-sprachkonzepte/ModulTest/Angabe/Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch einen ``Zug``:
+Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch einen ``Zug``:
 * Repositories: *ZugRepository*
 * Services: *AnalyticsService*, *ZugService*
+
+Die Klassen sind bereits erstellt und die dort stehenden TODOs sind zu implementieren.
 
 >**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage. Die Startklasse ist nicht zu ändern! Alles wo ein TODO: steht ist anzupassen.
 
 **Erwarteter Output:**
 ```
-[07:50:48 INF] --- Ticketverkaufs-System startet ---
-[07:50:48 INF] --- Ticketverkäufe werden simuliert ---
-[07:50:48 INF] Busticket wird für Anna Schmidt vorbereitet.
-[07:50:48 INF] Ticket für Anna Schmidt für 2.40? erfolgreich erstellt.
-[07:50:48 INF] Busticket wird für Ben Meier vorbereitet.
-[07:50:48 INF] Ticket für Ben Meier für 2.40? erfolgreich erstellt.
-[07:50:48 INF] Busticket wird für Anna Schmidt vorbereitet.
-[07:50:48 INF] Ticket für Anna Schmidt für 2.40? erfolgreich erstellt.
-[07:50:49 INF] Zugticket wird für Clara Huber vorbereitet.
-[07:50:49 INF] Ticket für Clara Huber für 59.90? erfolgreich erstellt.
-[07:50:49 INF] --- Analyse wird durchgeführt ---
-[07:50:49 INF] Starte Analyse: Kunde mit den meisten Tickets...
-[07:50:49 INF] Der Kunde mit den meisten Tickets ist: Anna Schmidt (ID: 1)
-[07:50:49 INF] --- System wird beendet ---
+[11:57:55 INF] --- Ticketverkaufs-System startet ---
+[11:57:55 INF] --- Ticketverkäufe werden simuliert ---
+[11:57:55 INF] Busticket für Linie 48A an Anna Schmidt für 2.40? verkauft.
+[11:57:55 INF] Busticket für Linie 13A an Ben Meier für 2.40? verkauft.
+[11:57:55 INF] Busticket für Linie 13A an Anna Schmidt für 2.40? verkauft.
+[11:57:55 INF] Zugticket für Zug RJX 765 (Wien Hbf -> Salzburg Hbf) an Clara Huber für 59.90? verkauft.
+[11:57:55 INF] Zugticket für Zug RJX 765 (Wien Hbf -> Salzburg Hbf) an Anna Schmidt für 59.90? verkauft.
+[11:57:55 INF] Zugticket für Zug ICE 28 (Wien Hbf -> München Hbf) an Anna Schmidt für 89.90? verkauft.
+[11:57:55 INF] --- Analyse wird durchgeführt ---
+[11:57:55 INF] Starte Analyse: Kunde mit den meisten Tickets...
+[11:57:55 INF] Kunde mit den meisten Tickets: Anna Schmidt (ID: 1)
+[11:57:55 INF] Beliebteste Zugstrecke: Wien Hbf -> Salzburg Hbf
+[11:57:55 INF] --- System wird beendet ---
 ```
 
 ---
