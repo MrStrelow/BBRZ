@@ -216,7 +216,7 @@ await Task.WhenAll(tasks);
 ```
 
 ### Programmieren [35 / 55 Teilpunkte]
-Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](/Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch einen ``Zug``:
+Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](https://github.com/MrStrelow/BBRZ/blob/main/JET/modul_3_fortgeschrittene-sprachkonzepte/ModulTest/Angabe/Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch einen ``Zug``:
 * Repositories: *ZugRepository*
 * Services: *AnalyticsService*, *ZugService*
 
