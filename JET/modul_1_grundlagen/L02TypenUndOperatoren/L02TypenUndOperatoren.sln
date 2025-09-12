@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1-LogischeFormelnFu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2-Auswertungsreihenfolge", "Exercise2-Auswertungsreihenfolge\Exercise2-Auswertungsreihenfolge.csproj", "{A059A15C-4746-439E-9946-E3FBF4169EA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise4-UserinputUndArrays", "Exercise4-UserinputUndArrays\Exercise4-UserinputUndArrays.csproj", "{C3F946E5-7323-4327-8721-250DE25B3F9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A059A15C-4746-439E-9946-E3FBF4169EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A059A15C-4746-439E-9946-E3FBF4169EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A059A15C-4746-439E-9946-E3FBF4169EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
