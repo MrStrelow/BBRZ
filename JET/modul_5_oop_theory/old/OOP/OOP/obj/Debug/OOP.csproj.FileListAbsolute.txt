@@ -1,7 +1,0 @@
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\bin\Debug\OOP.exe.config
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\bin\Debug\OOP.exe
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\bin\Debug\OOP.pdb
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\obj\Debug\OOP.csproj.AssemblyReference.cache
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\obj\Debug\OOP.csproj.CoreCompileInputs.cache
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\obj\Debug\OOP.exe
-C:\Users\c4321116\Documents\GitHub\BBRZ\OOP\OOP\obj\Debug\OOP.pdb

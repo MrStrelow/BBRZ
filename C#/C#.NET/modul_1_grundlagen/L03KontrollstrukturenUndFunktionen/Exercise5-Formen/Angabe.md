@@ -1,43 +1,46 @@
-# Welche `Konzepte` der Programmiersprache üben wir hier?
+Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Schleifen
 * Verzweigungen
-* Listen
+* 2D-Arrays (Multidimensional Arrays)
 * User-Input
 * Operatoren
-* Funktionen (Listen als Argument in Funktionen - Call By Reference/Value)
-* Strings manipulieren (Ersetzen von gleichen Symbolen in einem String)
-* List Comprehention in mehr Dimensionen
+* Methoden (Arrays als Argument in Methoden - Call By Reference/Value)
+* StringBuilder (Ersetzen von allen gleichen Symbolen in einem String)
 
-# Welche `Denkweisen` üben wir hier?
-* Wie lösen wir `kleinere Teile` eines `großen Problems` und `kombinieren` diese?
-* Wie gehe ich mit einer mathematischen Funktion im Programmieren um (lineare Funktion, Steigung)?
+Welche ``Denkwweisen`` üben wir hier?
+* Wie löse wir ``kleinere Teile`` eines ``großen Problems`` und ``kombiniere`` diese?
+* Wie gehe ich mit einer Mathematischen Funktion im Programmieren um (lineare Funktion, Steigung)?
 
-# Bei Unklarheiten hier nachlesen:
-* [Wie verwende ich Funktionen?](../L04.1Funktionen.md)
-* [Was ist der Scope?](../L04.2Scope.md)
----
+Bei Unklarheiten hier nachlesen:
+* [welche Kontrollstrukturen soll ich verwenden?](../Skripten/L03.1Kontrollstrukturen.md)
 
 ## 4. Aus Dreiecken 📐 werden Diamanten 💠
-Generiere `Formen`, welche vom `User gewählt` werden, sowie die benötigten Parameter der Formen.
+Generiere ``Formen``, welche vom ``User gewählt`` werden, sowie die benötigten Parameter der Formen. 
 
-Verwende dazu folgende Funktionen, welche sich alle in einer Datei befinden:
-* `def draw_triangle(field, symbol):` zeichnet die [Basisform](#basisform) in ein 2D-Array (Liste von Listen).
-* `def mirror_x(field):` spiegelt ein 2D-Array um die x-Achse.
-* `def mirror_y(field):` spiegelt ein 2D-Array um die y-Achse.
+Verwende dazu folgende Methoden welche alle in einer `ausführbaren Klasse` sich befinden (Klasse mit einer `Main` Methode):
+* ``static string[,] DrawTriangle(string[,] field, string symbol)``: zeichnet die [Basisform](#basisform) in ein 2d-Array.
+* ``static string[,] MirrorX(string[,] field)``: spiegle ein 2d-Array um die x-Achse.
+* ``static string[,] MirrorY(string[,] field)``: spiegle ein 2d-Array um die y-Achse.
 
-Versuche mit `mirror_y`, `mirror_x` und `draw_triangle` alle 4 Fälle der [Diamanten](#zusammengesetzte-formen) darzustellen.  
+Versuche mit `MirrorY`, `MirrorX` und `DrawTriangle` alle 4 Fälle Teile des [Diamanten](#zusammengesetzte-formen) darzustellen.
 Verwende nun:
-* `def combine_form(container, part, position):` um die 4 Teile des Diamanten zusammenzufügen.
+* static string[,] CombineForm(String[,] container, String[,] part, Position position): um die 4 Teile des Diamanten zusammenzufügen.
 
-Für spätere Aufgaben wie [Steigung der Formen](#steigung-der-formen) und [Muster der Formen](#muster-der-formen) sind folgende Funktionen hilfreich:
-* `def transpose(field):` vertauscht Zeilen und Spalten eines 2D-Arrays.
-* `def rotate(field):` verwendet `transpose(mirror_x(field))` für die Rotation.
-* `def draw_pattern(field, n, fill_form, new_fill_form):` ersetzt jedes `n-te` Element in einer Zeile oder Spalte mit einem neuen Symbol. Für spaltenweises Zeichnen drehe vorher das Feld mit `rotate`, führe dann `draw_pattern` aus und drehe es zurück.
+Für spätere Aufgaben, wie [Steigung der Formen](#steigung-der-formen) und [Muster der Formen](#muster-der-formen) sind folgende Methoden hilfreich:
+* ``static string[,] Transpose(string[,] field)``: hier vertausche zeilen und spalten eines 2d-Arrays.
 
-Hilfsfunktionen:
-* `def print_field(field):` gibt ein 2D-Array aus, sodass die erste Dimension die `y-Achse` und die zweite Dimension die `x-Achse` darstellt.
-* `def fill_canvas(field, symbol):` befüllt ein 2D-Array komplett mit einem Symbol.
-* `def copy_field(field):` kopiert das Eingabefeld in ein neues 2D-Array und gibt es zurück. (Hinweis: Denk an [Call by Value vs. Reference](../../../../C#/C#.NET/modul_1_grundlagen/L03KontrollstrukturenUndFunktionen/Skripten/L03.2CallByValueOrReference.md)).
+* ``static string[,] Rotate(string[,] field)``: verwende `Transpose(MirrorX(field));` um das umzusetzten.
+
+* ``static string[,] DrawPattern(string[,] field, int n, string fillForm, string newFillForm)``: Diese Methode zeichnet jede `nte` Zeile ein neues Symbol in die gesamte Zeile. Für spaltenweises zeichnen verwende vorher die Methode `drehen` und führe danach `DrawPattern` aus. Danach drehe es wieder zurück (also so oft, bis es wieder gleich wie am Anfang ist).
+
+* ``static string[,] DrawTriangle(string[,] field, string symbol, double slope)``: hier erzeuge ein neues 2d-Array. Die größe ist durch die Steigung `slope` auszurechnen. Danach zeichne die linie ein welche durch $y=k*x$ gegeben ist. Fülle alles was links von dem symbol der line ist mit diesem aus.
+
+Hilfsmethoden:
+* ``static void Print(string[,] field)``: Gibt ein 2d-Array aus. Es soll die 1. Dimension in der `y Achse` und die 2. Dimension in der `x Achse` der Konsole sichbar sein (also nicht alles in eine Zeile schreiben).
+
+* ``static string[,] FillCanvas(string[,] field, string symbol)``: Befüllt ein 2d-Array komplett mit einem Symbol.
+* ``static string[,] Copy(string[,] field)``: Kopiert den Parameter field in ein neues 2d-Array und gibt es zurück. Das ist nicht zwingend notwendig, jedoch denke an [call by value vs reference](../Skripten/L03.2CallByValueOrReference.md)
+
 
 Zuerst gibt der User an, welche Form generiert wird. Die Eingabe des Users soll der Name der Form sein. Diese sind:
 * Dreieck (rechtwinklig, gleichschenklig)
@@ -150,7 +153,6 @@ Jede 4. Zeile
 ◽◽◽🔷🔷🔷🔷🔷🔷◽◽◽
 ◽◽◽◽🔷🔷🔷🔷◽◽◽◽
 ◽◽◽◽◽🔷🔷◽◽◽◽◽
-
 ```
 
 ``` 
