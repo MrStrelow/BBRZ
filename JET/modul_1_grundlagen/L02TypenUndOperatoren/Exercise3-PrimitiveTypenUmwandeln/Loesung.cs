@@ -28,39 +28,47 @@ class MyConverter
     // Zahl zu Zahl: Int zu Double
     public double ConvertIntToDouble(int number)
     {
-        return (double)number;
+        return (double) number;
     }
 
     // Zahl zu Zahl: Double zu Int
     public int ConvertDoubleToInt(double number)
     {
-        return (int)number;
+        return (int) number;
     }
 
     // String zu Zahl: String zu Int
     public int ParseStringToInt(string str)
     {
-        if (int.TryParse(str, out int result))
-        {
-            return result;
-        }
-        else
-        {
-            throw new FormatException("Ungültige Zahl");
-        }
+        // Gefählriche Variante - Programm bricht ab:
+        return int.Parse(str);
+
+        // Variante mit Try Methode ohne Try catch block.    
+        //if (int.TryParse(str, out int result))
+        //{
+        //    return result;
+        //}
+        //else
+        //{
+        //    throw new FormatException("Ungültige Zahl");
+        //}
     }
 
     // String zu Zahl: String zu Double
     public double ParseStringToDouble(string str)
     {
-        if (double.TryParse(str, out double result))
-        {
-            return result;
-        }
-        else
-        {
-            throw new FormatException("Ungültige Zahl");
-        }
+        // Gefählriche Variante - Programm bricht ab:
+        return double.Parse(str);
+
+        // Variante mit Try Methode ohne Try catch block.    
+        //if (double.TryParse(str, out double result))
+        //{
+        //    return result;
+        //}
+        //else
+        //{
+        //    throw new FormatException("Ungültige Zahl");
+        //}
     }
 
     // Zahl zu String: Int zu String

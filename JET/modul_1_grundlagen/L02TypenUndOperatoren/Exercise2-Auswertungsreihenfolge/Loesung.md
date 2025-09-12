@@ -5,7 +5,7 @@ Ein Benutzer erhält Zugriff, wenn er entweder **Admin ist** oder **sich zwische
 
 ```csharp
 bool isAdmin = false;
-bool currentHour = 18;
+int currentHour = 18;
 bool ipAllowed = true;
 
 bool access = isAdmin || (currentHour >= 8 && currentHour <= 18 && ipAllowed);
