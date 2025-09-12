@@ -7,7 +7,7 @@ public class Program
 
         // Zahl zu Zahl Umwandlung
         Console.WriteLine(converter.ConvertIntToDouble(10));  // Ausgabe: 10.0
-        Console.WriteLine(converter.ConvertDoubleToInt(10.5));  // Ausgabe: 10
+        Console.WriteLine(converter.ConvertDoubleToInt(10.5));  // Ausgabe: 11 (Achtung: Convert rundet kaufmännisch!)
 
         // String zu Zahl Umwandlung
         Console.WriteLine(converter.ParseStringToInt("123"));  // Ausgabe: 123
@@ -28,22 +28,25 @@ class MyConverter
     // Zahl zu Zahl: Int zu Double
     public double ConvertIntToDouble(int number)
     {
-        return (double) number;
+        // return (double) number;
+        return Convert.ToDouble(number);
     }
 
     // Zahl zu Zahl: Double zu Int
     public int ConvertDoubleToInt(double number)
     {
-        return (int) number;
+        // return (int) number; // Schneidet Nachkommastellen ab
+        return Convert.ToInt32(number); // Rundet kaufmännisch
     }
 
     // String zu Zahl: String zu Int
     public int ParseStringToInt(string str)
     {
         // Gefählriche Variante - Programm bricht ab:
-        return int.Parse(str);
+        // return int.Parse(str);
+        return Convert.ToInt32(str);
 
-        // Variante mit Try Methode ohne Try catch block.    
+        // Variante mit Try Methode ohne Try catch block.     
         //if (int.TryParse(str, out int result))
         //{
         //    return result;
@@ -58,9 +61,10 @@ class MyConverter
     public double ParseStringToDouble(string str)
     {
         // Gefählriche Variante - Programm bricht ab:
-        return double.Parse(str);
+        // return double.Parse(str);
+        return Convert.ToDouble(str);
 
-        // Variante mit Try Methode ohne Try catch block.    
+        // Variante mit Try Methode ohne Try catch block.     
         //if (double.TryParse(str, out double result))
         //{
         //    return result;
@@ -74,13 +78,15 @@ class MyConverter
     // Zahl zu String: Int zu String
     public string ConvertIntToString(int number)
     {
-        return number.ToString();
+        // return number.ToString();
+        return Convert.ToString(number);
     }
 
     // Zahl zu String: Double zu String
     public string ConvertDoubleToString(double number)
     {
-        return number.ToString();
+        // return number.ToString();
+        return Convert.ToString(number);
     }
 
     // Zusätzliche Umwandlungen mit der Convert-Klasse
