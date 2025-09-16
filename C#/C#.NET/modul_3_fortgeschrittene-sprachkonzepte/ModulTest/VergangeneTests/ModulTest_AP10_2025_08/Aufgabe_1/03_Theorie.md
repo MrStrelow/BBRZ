@@ -21,34 +21,19 @@ static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
 
 **Antwort:** Da hier die ``Methode`` *filterBedingung* in einer ``Bedingten Anweisung`` *if* verwendet wird, müssen wir hier einen ``Wert`` *bool* erzeugen. Das bedeutet, die ``Methode`` welche ich aufrufe braucht einen ``Rückgabewert``. Es ist deshalb der ``Typ`` *Func<Buch, bool>* zu verwenden.
 
-2) Markiere in folgendem Code den *Beginn* und das *Ende* des ``Lambda`` Ausdrucks. 
+2) Erkläre den Unterschied zwischen folgenden ``Ausdrücken``:
 ```csharp
 Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
 ```
+vs.
 
-**Antwort:** Er beginnt bei dem ``Parameter`` *t* und endet nach dem ``Ausdruck`` *t.Punkte >= 180*.
+```csharp
+public static bool HatGenugPunkte(Kunde k)
+{
+    return k.Punkte >= 180;
+}
 
-3) Eine ``Methode`` mit ``Rückgabe`` besitzt eine ``Methodensignatur``. Diese beinhaltet:
-    * einen ``Rückgabewert``/``Rückgabetyp``
-    * den *Namen* der ``Methode`` und
-    * einen oder mehrere ``Parameter``.
+Console.WriteLine(string.Join(" ~ ", kunden.Where(HatGenugPunkte));
+```
 
-Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
-
-Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
-
-**Antwort:** Der *Name* der ``Methode``. Ein ``Lambda`` Ausdruck ist eine Art eine ``Anonyme Methode`` darzustellen. Wenn wir das Wort ``Anonym`` verwenden, fehlt immer *etwas* was beim Normalen vorhanden ist..
-
-4) Ein ``Objekt`` hat als ``Typ`` eine ``Klasse``. Durch dessen ``Klasse`` besitzt das ``Objekt`` ``Mitglieder``. Diese beinhalten:
-    * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
-    * ``Methoden``
-
-Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.BerechneUmsatz();``.
-
-Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
-
-**Hinweis:** Ein *Anonymes Objekt* wird auch *Anonymer Typ* genannt.
-
-**Antwort:** 
-* Der *Typ* des ``Objekts`` und die *Methoden* des ``Objekts``. Wenn wir das Wort ``Anonym`` verwenden, fehlt immer *etwas* was beim Normalen vorhanden ist.
-* Bei einem ``LINQ`` Ausdruck welcher eine ``Select`` ``Methode`` verwendet.
+**Antwort:** Es wird im 1. Codesnippet eine ``anonyme Methode``, welche als ``Lambda`` Ausdruck umgesetzt wird, und im 2. Codesnippet eine "normale" ``Methode`` verwendet. Die Ergebnisse des Programms sind die gleichen.

@@ -1,46 +1,36 @@
-﻿using Serilog;
-using StringTools;
-
-public class Program
+﻿
+var sensoren = new List<Sensor>
 {
-    static void Main(string[] args)
-    {
+    new Sensor(Ort: "Wien", InBetriebSeit: 18, NächsteWartung: 1, AktuelleMessung: 26),
+    new Sensor(Ort: "Innsbruck", InBetriebSeit: 19, NächsteWartung: 2, AktuelleMessung: 29),
+    new Sensor(Ort: "Graz", InBetriebSeit: 20, NächsteWartung: 3, AktuelleMessung: 32),
+    new Sensor(Ort: "Innsbruck", InBetriebSeit: 21, NächsteWartung: 4, AktuelleMessung: -125124),
+    new Sensor(Ort: "Wien", InBetriebSeit: 22, NächsteWartung: 5, AktuelleMessung: -8744156),
+    new Sensor(Ort: "Wien", InBetriebSeit: 23, NächsteWartung: 6, AktuelleMessung: 25)
+};
 
-        // EXTERNE BIBLIOTHEKEN
-        Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().WriteTo.File("../../../log.txt").CreateLogger();
+// 1) Berechne höchste AktulleMessung aus Wien
+var sensorInWien = sensoren.Where(sensor => sensor.Ort == "Wien" && sensor.AktuelleMessung >= -50).Max(sensor => sensor.AktuelleMessung);
 
-        Log.Verbose("Verbose: heitß sehr ausführlich ist es steht also hier viel text viel details");
-        Log.Debug("Debug: hier sind informationen fürs debugging. sehr viele also.");
-        Log.Information("Information");
-        Log.Warning("Warning");
+// 2) Sensoren aufsteigend sortiert, jedoch nur Ort und AktuelleMessung wird angezeigt
+var messungMitOrt = sensoren.OrderBy(s => s.InBetriebSeit).Select(s => new { s.Ort, s.AktuelleMessung });
 
-        try
+// 3) Durchschnittliche aktuelle Messung der Temperatur pro Ort
+var durchschnittProOrt = sensoren
+    .Where(s => s.AktuelleMessung > -50)
+    .GroupBy(s => s.Ort)
+    .Select(gruppe =>
+        new
         {
-            test();
+            Ort = gruppe.Key,
+            DurchschnittlicheMessung = gruppe.Average(sensor => sensor.AktuelleMessung)
         }
-        catch (Exception ex)
-        {
-            Log.Error($"Message: {ex.Message}\nStackTrace: {ex.StackTrace}");
-        }
+    );
 
-        Log.Error("Error");
-        Log.Fatal("Fatal");
-        Log.CloseAndFlush();
-
-        // INTERNE BIBLIOTHEKEN (Projekte)
-        // Dsa untere soll nicht gehen.
-        //var anwendung = new FormatierungsLogik();
-        //anwendung.InGrossbuchstabenUmwandeln("asdf");
-        //anwendung.LeerzeichenEntfernen("asdf");
-
-        var andereAnwendung = new TextHelfer();
-        andereAnwendung.BeidesAufrufen("asdf");
-        
-
-    }
-
-    static void test()
-    {
-        throw new Exception("Fehler ist aufgetreten - sehr hilfreich 🙂");
-    }
+Console.WriteLine("Durchschnittliche aktuelle Messung der Temperatur pro Ort:");
+foreach (var ergebnis in durchschnittProOrt)
+{
+    Console.WriteLine($"- {ergebnis.Ort}: {Math.Round(ergebnis.DurchschnittlicheMessung, 2)}");
 }
+
+public record Sensor(string Ort, int InBetriebSeit, int NächsteWartung, int AktuelleMessung);

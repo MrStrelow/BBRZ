@@ -41,18 +41,18 @@ var personen = new List<Person>
     new Person(Name: "Fans", Alter: 23, Groesse: 6, LieblingsEssen: "Tofu")
 };
 
-// LINQ Beginn
+// 1)
 var gans = personen.Filter(person => person.Name == "Gans");
 
-var nachAlterSortiert = personen.OrderBy(person.Alter);
-
+// 2)
 int grenze = 3 
 bool sindAlleGross = personen.All(p => p.Groesse > grenze);
 
-var nachEssenGruppiert = personen.GroupBy(p => p.LieblingsEssen);
+// 3)
+var nachAlterSortiert = personen.OrderBy(person.Alter);
 
-var größtePersonWelcheJuengerAls30Ist = personen.OrderBy(p => p.Groesse).FirstOrDefault(p => p.Alter < 30);
-// LINQ ENDE
+// 4)
+var nachEssenGruppiert = personen.GroupBy(p => p.LieblingsEssen);
 
 public record Person(string Name, int Alter, double Groesse, string LieblingsEssen);
 ```
@@ -60,33 +60,6 @@ public record Person(string Name, int Alter, double Groesse, string LieblingsEss
 Was ist korrekt oder falsch an folgenden ``LINQ`` Ausdrücken?
 * Finde die Fehler in diesem Code und markiere diese. 
 * Erkläre wieso diese Fehler zu einem nicht gültigen bzw. konzeptionell falschen ``LINQ``Ausdruck führen.
-
-### Theorie [10 / 45 Teilpunkte]
-1) Begründe warum der ``Typ`` des ``Parameters`` *filterBedingung* hier ``Func<Buch, bool>`` oder ``Action<Buch>`` ist? Ersetze dazu den ``...`` mit ``Func<Buch, bool>`` oder ``Action<Buch>``.
-
->**Hinweis**: Diese ``Typen`` können verwendet werden, um eine ``Methode`` als ``Variable`` zu speichern. Die ``Typparameter`` sind dabei ``Func<ParameterDerMethode, RückgabeDerMethode>`` und ``Action<ParameterDerMethode>``.
-
-```csharp
-static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
-{
-    var gefilterteListe = new List<Buch>();
-
-    foreach (var buch in bücher)
-    {
-        if (filterBedingung(buch))
-        {
-            gefilterteListe.Add(buch);
-        }
-    }
-
-    return gefilterteListe;
-}
-```
-
-2) Markiere in folgendem Code den *Beginn* und das *Ende* des ``Lambda`` Ausdrucks. 
-```csharp
-Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
-```
 
 ### Programmieren [25 / 45 Teilpunkte]
 
@@ -165,6 +138,43 @@ True
 True
 ```
 
+### Theorie [10 / 45 Teilpunkte]
+1) Begründe warum der ``Typ`` des ``Parameters`` *filterBedingung* hier ``Func<Buch, bool>`` oder ``Action<Buch>`` ist? Ersetze dazu den ``...`` mit ``Func<Buch, bool>`` oder ``Action<Buch>``.
+
+>**Hinweis**: Diese ``Typen`` können verwendet werden, um eine ``Methode`` als ``Variable`` zu speichern. Die ``Typparameter`` sind dabei ``Func<ParameterDerMethode, RückgabeDerMethode>`` und ``Action<ParameterDerMethode>``.
+
+```csharp
+static List<Buch> FiltereBücher(List<Buch> bücher, ... filterBedingung)
+{
+    var gefilterteListe = new List<Buch>();
+
+    foreach (var buch in bücher)
+    {
+        if (filterBedingung(buch))
+        {
+            gefilterteListe.Add(buch);
+        }
+    }
+
+    return gefilterteListe;
+}
+```
+
+2) Erkläre den Unterschied zwischen folgenden ``Ausdrücken``:
+```csharp
+Console.WriteLine(string.Join(" ~ ", kunden.Where(t => t.Punkte >= 180)));
+```
+vs.
+
+```csharp
+public static bool HatGenugPunkte(Kunde k)
+{
+    return k.Punkte >= 180;
+}
+
+Console.WriteLine(string.Join(" ~ ", kunden.Where(HatGenugPunkte));
+```
+
 ---
 
 ## Aufgabe 2: Tasks mit Async/Await und Entities, DTOs, Services sowie Repositories [55 Punkte]
@@ -238,12 +248,12 @@ Fahrradverleih.Exceptions.AusleihvorgangException: Ausleihvorgang für Kunde Ann
 ---
 
 ### Theorie [10 / 55 Teilpunkte]
-* Soll ein ``Repository`` von einem ``Service`` aufgerufen werden können?
+1) Soll ein ``Repository`` von einem ``Service`` aufgerufen werden können?
 
-* Ein ``DTO`` wird von ``Services`` verwendet um mit einer externen Schnittstelle (anderes Programm welches mit dem service unter http kommuniziert) zu kommunizieren.
+2) Ein ``DTO`` wird von ``Services`` verwendet um mit einer externen Schnittstelle (anderes Programm welches mit dem service unter http kommuniziert) zu kommunizieren.
 
-* Im ``Repository`` wird die *Datenbank* und *I/O* Logik einer ``Entity`` Zentralisiert. Es ist dort möglich ``CRUD`` und kompliziertere Abfragen durchzuführen.
+3) Im ``Repository`` wird die *Datenbank* und *I/O* Logik einer ``Entity`` Zentralisiert. Es ist dort möglich ``CRUD`` und kompliziertere Abfragen durchzuführen.
 
-* Eine ``Methode ``*A* welche eine andere ``Methode`` *B* mit ``await`` aufruf hat zur Folge, dass *A* als ``async`` gekennzeichnet werden muss.
+4) Eine ``Methode ``*A* welche eine andere ``Methode`` *B* mit ``await`` aufruf hat zur Folge, dass *A* als ``async`` gekennzeichnet werden muss.
 
-* Wir verwenden ``Task.WhenAll(myTasks)`` und ``Task.WhenAny(myTasks)`` um nicht nur ``asynchron`` sondern auch ``gleichzeitg`` (concurrent) Code ausühren zu können.
+5) Wir verwenden ``Task.WhenAll(myTasks)`` und ``Task.WhenAny(myTasks)`` um nicht nur ``asynchron`` sondern auch ``gleichzeitg`` (concurrent) Code ausühren zu können.

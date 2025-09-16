@@ -72,26 +72,6 @@ Sind folgende ``LINQ`` Ausdrücke korrekt oder falsch? Falls diese korrekt sind,
 * Finde die Fehler in diesem Code und markiere diese. 
 * Erkläre wieso diese Fehler zu einem nicht gültigen bzw. konzeptionell falschen ``LINQ``Ausdruck führen.
 
-### Theorie [10 / 45 Teilpunkte]
-1) Eine ``Methode`` mit ``Rückgabe`` besitzt eine ``Methodensignatur``. Diese beinhaltet:
-    * einen ``Rückgabewert``/``Rückgabetyp``
-    * den *Namen* der ``Methode`` und
-    * einen oder mehrere ``Parameter``.
-
-Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
-
-Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
-
-2) Ein ``Objekt`` hat als ``Typ`` eine ``Klasse``. Durch dessen ``Klasse`` besitzt das ``Objekt`` ``Mitglieder``. Diese beinhalten:
-    * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
-    * ``Methoden``
-
-Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.BerechneUmsatz();``.
-
-Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
-
-**Hinweis:** Ein *Anonymes Objekt* wird auch *Anonymer Typ* genannt.
-
 ### Programmieren [25 / 45 Teilpunkte]
 
 Schreibe folgenden ``iterativen`` Code in mehrere ``LINQ`` Ausdrücke mit ``Lambda`` Ausdrücken um. 
@@ -191,6 +171,26 @@ Kunde { Name = Landrea, Alter = 35, Punkte = 200 }
 Kunde { Name = Madrea, Alter = 65, Punkte = 500 }
 Kunde { Name = Landrea, Alter = 35, Punkte = 200 }
 ```
+
+### Theorie [10 / 45 Teilpunkte]
+1) Eine ``Methode`` mit ``Rückgabe`` besitzt eine ``Methodensignatur``. Diese beinhaltet:
+    * einen ``Rückgabewert``/``Rückgabetyp``
+    * den *Namen* der ``Methode`` und
+    * einen oder mehrere ``Parameter``.
+
+Ein Beispiel dafür ist ``double BerechneKuerzesteDistanz(Graph g)``
+
+Was besitzt ein ``Lambda`` Ausdruck nicht, was eine ``Methode`` haben muss? 
+
+2) Ein ``Objekt`` hat als ``Typ`` eine ``Klasse``. Durch dessen ``Klasse`` besitzt das ``Objekt`` ``Mitglieder``. Diese beinhalten:
+    * ``Felder (Fields)``/``Eigenschaften (Properties)`` und
+    * ``Methoden``
+
+Ein Beispiel dafür ist ``new Kunde { Name = "Manuela", Alter = 36}.BerechneUmsatz();``.
+
+Was besitzt ein ``Anonymes Objekt`` nicht, was ein ``Objekt`` haben muss? Wie kann ein ``Anonymes Objekt`` bei einem ``LINQ`` Ausdruck verwendet werden?
+
+**Hinweis:** Ein *Anonymes Objekt* wird auch *Anonymer Typ* genannt.
 
 ---
 
