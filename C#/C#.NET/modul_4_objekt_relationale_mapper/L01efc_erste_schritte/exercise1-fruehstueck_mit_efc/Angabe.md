@@ -1,6 +1,6 @@
 ﻿# Übung: Umstellung des "Morgenstund" Restaurants auf EF Core
 
-**Ziel:** Das bestehende Projekt, das Daten in JSON-Dateien speichert, wird so umgebaut, dass es eine SQL-Server-Datenbank mit Entity Framework Core verwendet. Du wirst den gesamten Prozess von der Modellerstellung bis zur Ausführung der Anwendungslogik gegen die Datenbank durchlaufen.
+**Ziel:** Das [bestehende Projekt](../../../modul_3_fortgeschrittene-sprachkonzepte/LiveCoding/L05.7Restauraunt), das Daten in JSON-Dateien speichert, wird so umgebaut, dass es eine SQL-Server-Datenbank mit Entity Framework Core verwendet. Du wirst den gesamten Prozess von der Modellerstellung bis zur Ausführung der Anwendungslogik gegen die Datenbank durchlaufen.
 
 ---
 
