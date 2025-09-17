@@ -8,7 +8,7 @@
 		<li>
 			<a asp-controller="Todo" asp-action="Details" asp-route-id="@todo.Id">@todo.Title</a>
 			<div>
-				<button>Delete</button>
+                <button onclick="deleteTodo(@todo.Id)">Delete</button>
 			</div>
 		</li>
 	}
