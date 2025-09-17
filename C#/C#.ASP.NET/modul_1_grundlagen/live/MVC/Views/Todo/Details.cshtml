@@ -1,0 +1,16 @@
+﻿@model List<MVCTodoApp.Models.Todo>;
+@{
+}
+
+<div>
+	<dl>
+		<dt>ID: </dt>
+		<dd>@Model.Id</dd>
+		<dt>Titel:</dt>
+		<dd>@Model.Title</dd>
+	</dl>
+</div>
+
+<div>
+	<a asp-action="Index"></a>
+</div>

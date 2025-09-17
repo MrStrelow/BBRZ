@@ -6,10 +6,31 @@
 	@foreach (var todo in Model)
 	{
 		<li>
-			<a>@todo.Title</a>
+			<a asp-controller="Todo" asp-action="Details" asp-route-id="@todo.Id">@todo.Title</a>
 			<div>
 				<button>Delete</button>
 			</div>
 		</li>
 	}
 </ul>
+
+@section Scripts {
+    <script>
+        function deleteTodo(id) {
+            if (confirm('Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?')) {
+                fetch(`/Todo/Delete/${id}`, {
+                    method: 'DELETE',
+                }).then(response => {
+                    if (response.ok) {
+                        const todoElement = document.getElementById(`todo-${id}`);
+                        if (todoElement) {
+                            todoElement.remove();
+                        }
+                    } else {
+                        alert('Fehler beim Löschen der Aufgabe.');
+                    }
+                }).catch(error => console.error('Fehler beim Löschen:', error));
+            }
+        }
+    </script>
+}

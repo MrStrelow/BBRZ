@@ -20,6 +20,12 @@ public class TodoController : Controller
     public IActionResult Index()
     {
         var todos = _todoRepository.GetAll();
-        return View(todos);
+        return View(todos.ToList());
+    }
+
+    public IActionResult Details()
+    {
+        // rufe das repository auf mit GetById
+        // nimm dieses todo und gib es der View.
     }
 }
