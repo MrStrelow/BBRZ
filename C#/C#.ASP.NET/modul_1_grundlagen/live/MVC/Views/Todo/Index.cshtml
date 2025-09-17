@@ -1,0 +1,15 @@
+﻿@model List<MVCTodoApp.Models.Todo>;
+@{
+}
+
+<ul>
+	@foreach (var todo in Model)
+	{
+		<li>
+			<a>@todo.Title</a>
+			<div>
+				<button>Delete</button>
+			</div>
+		</li>
+	}
+</ul>

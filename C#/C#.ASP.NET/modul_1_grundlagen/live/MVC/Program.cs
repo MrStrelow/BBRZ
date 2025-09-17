@@ -8,17 +8,11 @@ builder.Services.AddSingleton<ITodoRepository, TodoRepositoryInMemory>(); // new
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
-
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Todo}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
