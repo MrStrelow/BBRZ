@@ -14,6 +14,8 @@ int fehler = 0;
 // 3. HAUPTLOGIK (Top-Level Statements)
 // =================================================================================
 
+Console.OutputEncoding = Encoding.UTF8;
+
 // Schleife zur Eingabe des zu erratenden Wortes
 do
 {
