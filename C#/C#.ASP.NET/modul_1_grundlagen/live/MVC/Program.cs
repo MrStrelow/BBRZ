@@ -13,9 +13,6 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
-app.UseRouting();
-
-app.UseAuthorization();
 
 app.MapStaticAssets();
 

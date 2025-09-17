@@ -1,0 +1,53 @@
+﻿@model MvcTodoApp.Models.Todo
+
+@{
+    ViewData["Title"] = "Details & Bearbeiten";
+}
+
+<h1>Details für "@Model.Title"</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Todo bearbeiten</h4>
+        <hr />
+        <form asp-action="Edit" asp-route-id="@Model.Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="IsDone" />
+            <input type="hidden" asp-for="IsArchived" />
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Änderungen speichern</button>
+                <a asp-action="Index" class="btn btn-secondary">Zurück zur Liste</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h4>Alle Properties</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Id)</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.IsDone)</dt>
+            <dd class="col-sm-8">@Model.IsDone</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.IsArchived)</dt>
+            <dd class="col-sm-8">@Model.IsArchived</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.CreatedAt)</dt>
+            <dd class="col-sm-8">@Model.CreatedAt.ToString("g")</dd>
+        </dl>
+    </div>
+</div>

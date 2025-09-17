@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MvcTodoApp.Models.Todo>
+
+@{
+    ViewData["Title"] = "Archivierte Todos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Index" class="btn btn-primary">Zurück zur aktiven Liste</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Archiviert am</th>
+            <th>Aktion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.CreatedAt.ToShortDateString()</td>
+                <td>
+                    <form asp-action="Unarchive" asp-route-id="@item.Id" method="post">
+                        <button type="submit" class="btn btn-sm btn-warning">Wieder aktivieren</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

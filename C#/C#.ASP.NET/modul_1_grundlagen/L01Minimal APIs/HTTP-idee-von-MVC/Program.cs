@@ -1,93 +1,114 @@
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
-
-// Ein einfacher Datenspeicher (fürs Beispiel, später wäre das eine Datenbank)
-var todos = new ConcurrentDictionary<int, string>();
-todos.TryAdd(1, "Einkaufen gehen");
-todos.TryAdd(2, "Fitnessstudio");
-todos.TryAdd(3, ".NET lernen");
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// --- HTTP-ENDPUNKTE, DIE HTML ZURÜCKGEBEN ---
 
-// GET: Die Hauptseite mit allen To-Dos als HTML-Seite abrufen
-app.MapGet("/", () => {
-    string htmlContent = GenerateHtml(todos);
-    return Results.Content(htmlContent, "text/html", Encoding.UTF8);
-});
+// Das ist das Model.
+var todos = new ConcurrentDictionary<int, Todo>();
+todos.TryAdd(1, new Todo("einkaufen"));
+todos.TryAdd(2, new Todo("pumpi"));
+todos.TryAdd(3, new Todo("modul 2 test schreiben"));
+todos.TryAdd(4, new Todo("modul 3 test schreiben"));
 
-// GET-Endpunkt, um ein einzelnes To-Do anzuzeigen
-app.MapGet("/todos/{id}", (int id) => {
-    if (todos.TryGetValue(id, out var todo))
+// Das ist der Controller - http endpoints und verwenden von Objekten aus Model und View.
+// Lege Endpoints fest - Welche http requests erkenne ich?
+// CRUD
+
+// Create
+app.MapPost(
+    "/todos",
+    ( [FromForm] string title) =>
     {
-        // Einfache HTML-Seite für das einzelne To-Do zurückgeben
-        var html = $@"
-            <!DOCTYPE html>
-            <html lang='de'>
-            <head><title>Detail</title>
-                <style>
-                    body {{ font-family: sans-serif; background-color: #f4f4f9; color: #333; max-width: 800px; margin: 2rem auto; padding: 1rem; }}
-                    h1 {{ color: #4a4a4a; }}
-                    a {{ color: #007bff; }}
-                </style>
-            </head>
-            <body>
-                <h1>To-Do Detail</h1>
-                <p><strong>ID:</strong> {id}</p>
-                <p><strong>Aufgabe:</strong> {todo}</p>
-                <a href='/'>Zurück zur Liste</a>
-            </body>
-            </html>";
+        if (todos.TryAdd(todos.Keys.Max() + 1, new Todo(title)))
+        {
+            string html = GenerateHtml(todos);
+            return Results.Content(html, "text/html", Encoding.UTF8);
+        }
+        else
+        {
+            return Results.Problem();
+        }
+    }
+).DisableAntiforgery();
+
+// Read
+app.MapGet(
+    // die anfrage (query)
+    // /todos?sort=desc&limit=3 oder
+    // /todos?sort=desc oder
+    // /todos?limit=3
+    // soll in diesem endpoint funktioniern
+    "/todos", 
+    (string? sort, int? limit) => { // wichtig: ? nicht vergessen
+        IEnumerable<KeyValuePair<int, Todo>> result = todos;
+        
+        if (sort != null)
+        {
+            if (sort == "desc")
+            {
+                result = result.OrderByDescending( t => t.Key );
+            } 
+            else if (sort == "asc")
+            {
+                result = result.OrderBy(t => t.Key);
+            }
+        }
+
+        if (limit.HasValue)
+        {
+            result = result.Take(limit.Value);
+        }
+
+        // das ist neu!
+        var html = GenerateHtml(new ConcurrentDictionary<int, Todo>(result));
         return Results.Content(html, "text/html", Encoding.UTF8);
+
+        // wenn sort nicht null ist und sort = asc, dann antwort aufsteigend sortieren, wenn desc absteigend.
+        // wenn limit nicht null ist, dann limitiere antwort auf limit viele todos.
     }
+);
 
-    return Results.NotFound("Kein To-Do mit dieser ID gefunden.");
-});
-
-
-// POST: Ein neues To-Do aus dem HTML-Formular erstellen
-app.MapPost("/todos", ([FromForm] string title) => {
-    if (!string.IsNullOrWhiteSpace(title))
-    {
-        var newId = todos.IsEmpty ? 1 : todos.Keys.Max() + 1;
-        todos.TryAdd(newId, title);
-    }
-
-    // HINWEIS: Für Debugging-Zwecke wird die Seite neu generiert statt umgeleitet.
-    // In einer echten Anwendung ist das Post-Redirect-Get Muster (Results.Redirect("/"))
-    // die bessere Vorgehensweise, um das erneute Senden von Formularen beim Neuladen zu verhindern.
-    // Vergleiche! Was passiert wenn wir hier mit einem HTML antworten?
-    string htmlContent = GenerateHtml(todos);
-    return Results.Content(htmlContent, "text/html", Encoding.UTF8);
-    //return Results.Redirect("/");
-}).DisableAntiforgery();
-
-// DELETE: Ein To-Do löschen.
-app.MapDelete("/todos/delete/{id}", (int id) => {
-    if (todos.TryRemove(id, out _))
-    {
-        // API-konforme Antwort für JavaScript: Erfolg ohne Inhalt.
-        return Results.Ok();
-    }
-    return Results.NotFound();
-});
+app.MapGet(
+    "/todos/{id}",
+    (int id) => todos.TryGetValue(id, out var result) ?
+        Results.Ok(result) :
+        Results.NotFound($"Kein todo mit ID: {id} gefunden") 
+    );
 
 
-// --- ENDE DER ENDPUNKTE ---
+// Update
+app.MapPut("/todos", () => "Hello World!");
+
+// Delete
+app.MapDelete(
+    "/todos/{id}",
+    (int id) => {
+        if (todos.TryRemove(id, out _))
+        {
+            return Results.Ok();
+            // alternative! damit wir nicht einen zusÃ¤tzlichen get request brauchen, 
+            // denn in javascript wird die seite refreshed, also ein get request gesendet.
+            //return GenerateHtml(new ConcurrentDictionary<int, Todo>(todos));
+        }
+        else
+        {
+            return Results.NotFound();
+        }
+    });
 
 app.Run();
 
 
-// --- HILFSFUNKTION ZUR HTML-GENERIERUNG ---
-
-string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
+string GenerateHtml(ConcurrentDictionary<int, Todo> currentTodos)
 {
     var htmlBuilder = new StringBuilder();
 
-    // HTML-Grundgerüst
     htmlBuilder.Append("<!DOCTYPE html>");
     htmlBuilder.Append("<html lang='de'>");
     htmlBuilder.Append("<head>");
@@ -113,7 +134,6 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
 
     htmlBuilder.Append("<h1>Meine To-Do Liste</h1>");
 
-    // Liste der To-Dos generieren
     htmlBuilder.Append("<ul>");
     if (currentTodos.IsEmpty)
     {
@@ -124,30 +144,30 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
         foreach (var todo in currentTodos.OrderBy(t => t.Key))
         {
             htmlBuilder.Append($"<li id='todo-{todo.Key}'>");
-            htmlBuilder.Append($"<a href='/todos/{todo.Key}'>{todo.Value}</a>");
+            htmlBuilder.Append($"<a href='/todos/{todo.Key}'>{todo.Value.Title}</a>");
             htmlBuilder.Append($"<div class='actions'><button type='button' class='delete' onclick='deleteTodo({todo.Key})'>Delete</button></div>");
             htmlBuilder.Append("</li>");
         }
     }
     htmlBuilder.Append("</ul>");
 
-    // Formular zum Hinzufügen neuer To-Dos
-    htmlBuilder.Append("<h2>Neue Aufgabe hinzufügen</h2>");
+    // Http post request ohne javascript mit form.
+    htmlBuilder.Append("<h2>Neue Aufgabe hinzufÃ¼gen</h2>");
     htmlBuilder.Append("<form action='/todos' method='post'>");
-    // Das Token-Feld wurde hier entfernt
+
     htmlBuilder.Append("<input type='text' name='title' placeholder='Was muss getan werden?' required />");
-    htmlBuilder.Append("<input type='submit' value='Hinzufügen' />");
+    htmlBuilder.Append("<input type='submit' value='HinzufÃ¼gen' />");
     htmlBuilder.Append("</form>");
 
-    // Vereinfachtes JavaScript ohne Anti-Forgery-Header
+    // JavaScript - fÃ¼r delete http methode
     htmlBuilder.Append(@"
         <script>
             function deleteTodo(id) {
-                if (!confirm('Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?')) {
+                if (!confirm('Sind Sie sicher, dass Sie diese Aufgabe lï¿½schen mï¿½chten?')) {
                     return;
                 }
 
-                fetch(`/todos/delete/${id}`, {
+                fetch(`/todos/${id}`, {
                     method: 'DELETE'
                 })
                 .then(response => {
@@ -155,7 +175,7 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
                         // Seite neu laden, um die aktualisierte Liste anzuzeigen
                         window.location.reload();
                     } else {
-                        alert('Fehler beim Löschen der Aufgabe.');
+                        alert('Fehler beim LÃ¶schen der Aufgabe.');
                     }
                 })
                 .catch(error => console.error('Fehler:', error));
@@ -168,3 +188,9 @@ string GenerateHtml(ConcurrentDictionary<int, string> currentTodos)
 
     return htmlBuilder.ToString();
 }
+
+//  records sind unverÃ¤nderbar - immutable
+public record Todo(string Title);
+// public class Todo {
+//     public string Title { get; init; }
+// }
