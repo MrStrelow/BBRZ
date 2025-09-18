@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreFirstSteps", "EFCoreFirstSteps\EFCoreFirstSteps.csproj", "{A25F31D5-C1D4-450B-8E31-EC1D7D926B07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beziehungen", "Beziehungen\Beziehungen.csproj", "{7ED3BD7C-1DA5-42E6-8E1A-157D93B183E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A25F31D5-C1D4-450B-8E31-EC1D7D926B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A25F31D5-C1D4-450B-8E31-EC1D7D926B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A25F31D5-C1D4-450B-8E31-EC1D7D926B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A25F31D5-C1D4-450B-8E31-EC1D7D926B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED3BD7C-1DA5-42E6-8E1A-157D93B183E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED3BD7C-1DA5-42E6-8E1A-157D93B183E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED3BD7C-1DA5-42E6-8E1A-157D93B183E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED3BD7C-1DA5-42E6-8E1A-157D93B183E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
