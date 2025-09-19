@@ -167,16 +167,15 @@ namespace Exercise.ue2
             if (Age <= 18)
                 throw new InvalidOperationException("❗User must be older than 18.");
 
-
             // Weitere Bedingungen je nach Altersgruppe: User
             if (Age < 65 && string.IsNullOrEmpty(Email))
                 throw new InvalidOperationException("❗User email is missing.");
 
-            if (Age < 65 && string.IsNullOrEmpty(Email))
+            if (Age >= 65 && string.IsNullOrEmpty(Email))
                 throw new InvalidOperationException("❗Senior user email is missing.");
 
             // Weitere Bedingungen je nach Altersgruppe: Senior
-            if (Age >= 65 && SubscriptionEnd <= DateTime.Now)
+            if (Age < 65 && SubscriptionEnd <= DateTime.Now)
                 throw new InvalidOperationException("❗User's subscription has expired.");
 
             if (Age >= 65 && SubscriptionEnd <= DateTime.Now)
@@ -393,16 +392,14 @@ namespace Exercise.ue3
                 throw new InvalidOperationException("❗ Die Zertifizierung des Bergführers ist abgelaufen.");
 
             if (BergRoute.IstGefährlich && TourCount < 50)
-            {
                 throw new InvalidOperationException("❗ Bergführer hat zu wenig Erfahrung für diese Route.");
-            }
+
+            if (BergRoute.IstGefährlich && TourCount < 50)
+                throw new InvalidOperationException("❗ Bergführer hat zu wenig Erfahrung für diese Route.");
                 
             // ✅Gewünschte Zustände
             if (BergRoute.IstGefährlich)
             {
-                if (TourCount < 50)
-                    throw new InvalidOperationException("❗ Bergführer hat zu wenig Erfahrung für diese Route.");
-
                 if (TourCount > 200)
                 {
                     Console.WriteLine("✅ Bergführer hat mehr als 200 Touren. Dieser Guide darf die Route alleine führen.");
