@@ -5,6 +5,7 @@ namespace Beziehungen.Data;
 public class MyDbContext : DbContext
 {
     // erstelle ein DBSet von Dishes als Eigenschaft
+
     // erstelle ein DBSet von Ingredients als Eigenschaft
     // erstelle ein DBSet von Preperationsteps als Eigenschaft
 
