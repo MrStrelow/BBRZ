@@ -13,7 +13,7 @@
 ## Files
 * new file: CTRL + n 
 * solutions explorerCTRL + ALT + L
-* close tab/file: CTRL + w
+* close tab/file: CTRL + w oder CTRL + F4
 * go to next open file: CTRL  + TAB
 * go to previous open file: CTRL + SHIFT + TAB
 
@@ -22,4 +22,4 @@
 * for Loop  ~ for
 * whle loop ~ while
 * Constructor ~ ctor
-* for(var a in A) ~ f
+* for(var a in A) ~ foreach
