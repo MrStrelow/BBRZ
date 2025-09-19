@@ -48,6 +48,8 @@ public class Program
 {
     public static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
+        
         User user = new User("Alice", 25, true);
         ProcessUserNestedIf(user);
         ProcessUserGuardClause(user);
@@ -162,6 +164,8 @@ public class Program
 {
     public static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
+
         User user1 = new User
         {
             IsActive = true,
