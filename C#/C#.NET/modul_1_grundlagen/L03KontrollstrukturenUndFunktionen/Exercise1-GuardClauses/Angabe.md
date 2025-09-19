@@ -11,7 +11,11 @@ Bei Unklarheiten hier nachlesen:
 * [Was sind gaurd clauses und de morgan's law?](../Skripten/L03.4GuardClauses.md)
 * [exceptions: der 1. Absatz um eine Exception werfen zu können ist notwendig.](../../../modul_3_fortgeschrittene-sprachkonzepte/L00Exceptions/Skripten/L00Exceptions.md)
 
-## Schreibe verschachtelte Ifs in eine Guard Clause um.
+## Projektstruktur
+Erstelle für jede der folgenden ``Aufgaben`` jeweils ein ``Projekt``.
+In einem Projekt kann nur eine ausfürhbare Klasse sein. Also nur ein ``Main-Methode`` oder ein ``Top-Level Statement`` sein.
+
+# Schreibe verschachtelte Ifs in eine Guard Clause um.
 
 Wir üben folgende Konzepte der Programmiersprache:
 * verschachtelte IF-Verzweigungen
@@ -21,7 +25,7 @@ Welche ``Denkweisen`` üben wir hier?
 * logische Ausdrücke in if-else umwandeln
 * Boolesche Algebra
 
-### 1. Ein gewünschter Zustand
+### Aufgabe 1. - Ein gewünschter Zustand
 Implementiere eine 2. Methode ``ProcessUserGuardClause`` und teste ob diese gleich der ``ProcessUserNestedIf`` ist.
 
 ```csharp
@@ -79,11 +83,9 @@ public class Program
         throw new NotImplementedException("TODO: Guard Clause Implementierung der Methode: ProcessUserNestedIf");
     }
 }
-
-
 ```
 
-### 2. Mehrere gwünschte Zustände
+### Aufgabe 2. - Mehrere gwünschte Zustände
 Hier eine kompliziertere Abfrage. Diese hat *mehrere* ``gewünschte Zustände``.
 Verwende hier die gleichen Exceptions wie unten im Code.
 
@@ -174,7 +176,7 @@ public class Program
 }
 ```
 
-### 3. Mehrere komplexere gewünschte Zustände
+### Aufgabe 3. - Mehrere komplexere gewünschte Zustände
 ```csharp
 using System.Text;
 
