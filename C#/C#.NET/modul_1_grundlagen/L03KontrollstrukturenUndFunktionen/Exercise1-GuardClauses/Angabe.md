@@ -12,8 +12,10 @@ Bei Unklarheiten hier nachlesen:
 * [exceptions: der 1. Absatz um eine Exception werfen zu können ist notwendig.](../../../modul_3_fortgeschrittene-sprachkonzepte/L00Exceptions/Skripten/L00Exceptions.md)
 
 ## Projektstruktur
-Erstelle für jede der folgenden ``Aufgaben`` jeweils ein ``Projekt``.
-In einem Projekt kann nur eine ausfürhbare Klasse sein. Also nur ein ``Main-Methode`` oder ein ``Top-Level Statement`` sein.
+Erstelle für jede der folgenden ``Aufgaben`` jeweils ein ``Projekt``, welche sich alle in einer ``Solution`` (Projektmappe) befinden.
+In einem Projekt kann nur *eine* ausfürhbare ``Klasse`` sein. Also nur ein ``Main-Methode`` oder ein ``Top-Level Statement``.
+
+>Für VS: Erstelle dazu eine ``Solution``(Projektmappe) und in dieser ``Solution`` (Projektmappe), füge mit *Rechtsclick auf die Solution (![alt text](image.png)) -> Add (Hinzufügen) -> new Project (neues Projekt) mit Namen Aufgabe 1* ein neues ``Projekt`` in der bestehenden ``Solution`` ein. Wiederhole für Aufgabe 2 und 3.
 
 # Schreibe verschachtelte Ifs in eine Guard Clause um.
 
