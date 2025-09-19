@@ -49,7 +49,7 @@ public class Program
     public static void Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
-        
+
         User user = new User("Alice", 25, true);
         ProcessUserNestedIf(user);
         ProcessUserGuardClause(user);
@@ -57,7 +57,7 @@ public class Program
 
     public static void ProcessUserNestedIf(User user)
     {
-        if (user != null)
+        if (user is not null)
         {
             if (user.IsRegistered)
             {
