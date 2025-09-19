@@ -17,8 +17,7 @@ In einem Projekt kann nur *eine* ausfürhbare ``Klasse`` sein. Also nur ein ``Ma
 
 >Für VS: Erstelle dazu eine ``Solution``(Projektmappe) und in dieser ``Solution`` (Projektmappe), füge mit *Rechtsclick auf die Solution (![alt text](image.png)) -> Add (Hinzufügen) -> new Project (neues Projekt) mit Namen Aufgabe 1* ein neues ``Projekt`` in der bestehenden ``Solution`` ein. Wiederhole für Aufgabe 2 und 3.
 
-# Schreibe verschachtelte Ifs in eine Guard Clause um.
-
+## Schreibe verschachtelte Ifs in eine Guard Clause um.
 Wir üben folgende Konzepte der Programmiersprache:
 * verschachtelte IF-Verzweigungen
 * Exceptions
@@ -81,7 +80,7 @@ public class Program
     }
 
     public static void ProcessUserGuardClause(User user) {
-        //TODO:
+        //TODO: Hier deine Guard Clause Logik einfügen.
         throw new NotImplementedException("TODO: Guard Clause Implementierung der Methode: ProcessUserNestedIf");
     }
 }
@@ -152,6 +151,11 @@ public class User
             throw new InvalidOperationException("❗User is not active.");
         }
     }
+
+    public static void ProcessUserGuardClause() {
+        //TODO: Hier deine Guard Clause Logik einfügen.
+        throw new NotImplementedException("TODO: Guard Clause Implementierung der Methode: ProcessUser");
+    }
 }
 
 public class Program
@@ -169,6 +173,7 @@ public class Program
         try
         {
             user1.ProcessUser();
+            user1.ProcessUserGuardClause();
         }
         catch (InvalidOperationException ex)
         {
