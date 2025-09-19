@@ -35,20 +35,6 @@ Zu verwendende folgende ``Funktionen``:
 
 ## Hilfestellung
 Folgendes Programm stellt den Programmstart dar. Die oben erwähnten ``Funktionen`` sowie ``Variablen``/``Objekte`` sind darüber zu implementieren.
-```python
-os.system('cls' if os.name == 'nt' else 'clear') # löschen alles was noch von der alten console übrig ist.
-board = create_board()
-
-# Setze die Figuren auf das Spielfeld
-for player, pos in player_positions.items():
-    board[pos["y"]][pos["x"]] = players_darstellung[player]
-
-draw_board(board)
-
-while True:
-    for player in player_positions.keys():
-        move_piece(player)
-```
 
 Weiters ist der Zenrale Ablauf hier skizziert:
 
