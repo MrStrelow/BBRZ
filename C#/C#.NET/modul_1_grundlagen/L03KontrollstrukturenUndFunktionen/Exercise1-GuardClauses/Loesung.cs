@@ -242,27 +242,27 @@ namespace Exercise.ue2
         {
             // Guard Clauses für allgemeine Prüfungen
             if (!IsActive)
-                throw new InvalidOperationException("User is not active.");
+                throw new InvalidOperationException("❗User is not active.");
 
             if (Age <= 18)
-                throw new InvalidOperationException("User must be older than 18.");
+                throw new InvalidOperationException("❗User must be older than 18.");
 
             // Wir ignorieren hier die Senior vs. User Ausgabe beim Werfen der Exception.
             if (string.IsNullOrEmpty(Email))
-                throw new InvalidOperationException("User email is missing.");
+                throw new InvalidOperationException("❗User email is missing.");
 
             // Wir ignorieren hier die Senior vs. User Ausgabe beim Werfen der Exception.
             if (SubscriptionEnd <= DateTime.Now)
-                throw new InvalidOperationException("User's subscription has expired.");
+                throw new InvalidOperationException("❗User's subscription has expired.");
 
             // Weitere Bedingungen je nach Altersgruppe
             if (Age < 65)
             {
-                Console.WriteLine("User is active, adult, has a valid email, and an active subscription.");
+                Console.WriteLine("✅User is active, adult, has a valid email, and an active subscription.");
             }
             else
             {
-                Console.WriteLine("User is active, a senior, has a valid email, and an active subscription.");
+                Console.WriteLine("✅User is active, a senior, has a valid email, and an active subscription.");
             }
         }
 
