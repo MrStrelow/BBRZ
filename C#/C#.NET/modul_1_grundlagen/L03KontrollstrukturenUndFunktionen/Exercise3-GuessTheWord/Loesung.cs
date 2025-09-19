@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 
+// =================================================================================
 // 1. KONSTANTEN UND VARIABLEN
+// =================================================================================
+
 const int LAENGE_DES_WORTES = 3;
 const int MAX_FEHLER = 6;
 string zuErratendesWort = "";
-List<char> bereitsGerateneBuchstaben = new List<char>();
+string bereitsGerateneBuchstaben = "";
 int fehler = 0;
 
 // =================================================================================
-// 3. HAUPTLOGIK (Top-Level Statements)
+// 2. HAUPTLOGIK (Top-Level Statements)
 // =================================================================================
 
 Console.OutputEncoding = Encoding.UTF8;
 
-// Schleife zur Eingabe des zu erratenden Wortes
+// Zuständigkeit: Schleife zur Eingabe des zu erratenden Wortes
 do
 {
     Console.Write($"Wähle das Wort mit {LAENGE_DES_WORTES} Buchstaben (Eingabe wird versteckt): ");
@@ -26,8 +26,10 @@ do
     ConsoleKeyInfo key;
     do
     {
-        key = Console.ReadKey(true);
-        // Ignoriere Steuerzeichen, außer Enter
+        key = Console.ReadKey(true); 
+        // Es kann auch normal Console.Read verwendet werden. Siehe Java Kurs.
+        // Dann brauchen wir die do While nicht und wir sehen das ausgegebene wort nicht.
+        
         if (!char.IsControl(key.KeyChar))
         {
             passwort += key.KeyChar;
@@ -44,7 +46,7 @@ do
     }
 } while (zuErratendesWort.Length != LAENGE_DES_WORTES);
 
-// Konsole leeren, um das eingegebene Wort zu verstecken
+// Konsole clearen, um das eingegebene Wort zu verstecken
 Console.Clear();
 
 // Das zu erratende Wort mit Unterstrichen initialisieren
@@ -62,7 +64,7 @@ while (fehler < MAX_FEHLER && !angezeigtesWortBuilder.ToString().Equals(zuErrate
     zeichneEisbecher(fehler);
 
     Console.Write("Rate einen Buchstaben: ");
-    string eingabe = Console.ReadLine()?.ToLower() ?? "";
+    string eingabe = Console.ReadLine().ToLower();
 
     if (eingabe.Length != 1 || !char.IsLetter(eingabe[0]))
     {
@@ -82,7 +84,7 @@ while (fehler < MAX_FEHLER && !angezeigtesWortBuilder.ToString().Equals(zuErrate
         continue;
     }
 
-    bereitsGerateneBuchstaben.Add(geratenerBuchstabe);
+    bereitsGerateneBuchstaben += geratenerBuchstabe;
     bool treffer = false;
 
     // Überprüfen, ob der Buchstabe im Wort vorkommt und ggf. die Unterstriche ersetzen
@@ -123,7 +125,7 @@ else
 
 
 // =================================================================================
-// 2. ZEICHNUNGSMETHODEN
+// 3. ZEICHNUNGSMETHODEN
 // =================================================================================
 
 static void zeichneHangman(int fehler)
@@ -167,40 +169,40 @@ static void zeichneEisbecher(int fehlversuche)
     string becher = fehlversuche switch
     {
         0 => """
-              🔴
-             🟢🟤
-            🟢🟠🐻‍❄️
-            """,
+                  🔴
+                 🟢🟤
+                🟢🟠🐻‍❄️
+                """,
         1 => """
-             
-             🟢🟤
-            🟢🟠🐻‍❄️
-            """,
+                
+                 🟢🟤
+                🟢🟠🐻‍❄️
+                """,
         2 => """
-             
-             🟢
-            🟢🟠🐻‍❄️
-            """,
+                
+                 🟢
+                🟢🟠🐻‍❄️
+                """,
         3 => """
-             
-             
-            🟢🟠🐻‍❄️
-            """,
+                
+                
+                🟢🟠🐻‍❄️
+                """,
         4 => """
-             
-             
-              🟠🐻‍❄️
-            """,
+                
+                
+                 🟠🐻‍❄️
+                """,
         5 => """
-             
-             
-                🐻‍❄️
-            """,
+                
+                
+                   🐻‍❄️
+                """,
         _ => """
-             
-             
-            
-            """,
+                
+                
+                
+                """,
     };
 
     Console.WriteLine(becher);

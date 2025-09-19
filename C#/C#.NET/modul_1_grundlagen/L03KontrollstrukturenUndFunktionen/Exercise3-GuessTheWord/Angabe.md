@@ -17,18 +17,111 @@ Optional: Führe das Programm im Terminal/Console aus und implementiere, dass da
 
 *Hinweis: Verwende folgenden Ort für die Darstellung des Problems (siehe Lösung):*
 ```
-void ZeichneHangman(int fehler) {
-    // switch ausdruck mit fehlerfällen oder 
-    // kompakter if ausdrücke (siehe Lösung) 
+using System.Text;
+
+// =================================================================================
+// 1. KONSTANTEN UND VARIABLEN
+// =================================================================================
+
+const int LAENGE_DES_WORTES = 3;
+const int MAX_FEHLER = 6;
+string zuErratendesWort = "";
+string bereitsGerateneBuchstaben = "";
+int fehler = 0;
+
+// =================================================================================
+// 2. HAUPTLOGIK (Top-Level Statements)
+// =================================================================================
+
+Console.OutputEncoding = Encoding.UTF8;
+// TODO: hier die Logik implementieren.
+
+// =================================================================================
+// 2. ZEICHNUNGSMETHODEN
+// =================================================================================
+
+static void zeichneHangman(int fehler)
+{
+    Console.WriteLine("  ____ ");
+    Console.WriteLine(" |    |");
+    Console.WriteLine(" |    " + (fehler >= 1 ? "O" : ""));
+    Console.Write(" |   ");
+
+    if (fehler == 2) Console.Write("|");
+    else if (fehler == 3) Console.Write("/|");
+    else if (fehler >= 4) Console.Write("/|\\");
+
+    Console.WriteLine();
+    Console.Write(" |    ");
+
+    if (fehler == 5) Console.Write("/");
+    else if (fehler >= 6) Console.Write("/ \\");
+
+    Console.WriteLine();
+    Console.WriteLine("_|___ ");
 }
 
-static void ZeichneSharkFin(int fehlversuche) {
-    // switch ausdruck mit den fehlerfällen
+static void zeichneSharkFin(int fehlversuche)
+{
+    string bild = fehlversuche switch
+    {
+        0 => "🦈🌊🌊🌊🌊🌊🏄🏻",
+        1 => "🌊🦈🌊🌊🌊🌊🏄🏻",
+        2 => "🌊🌊🦈🌊🌊🌊🏄🏻",
+        3 => "🌊🌊🌊🦈🌊🌊🏄🏻",
+        4 => "🌊🌊🌊🌊🦈🌊🏄🏻",
+        5 => "🌊🌊🌊🌊🌊🦈🏄🏻",
+        _ => "🌊🌊🌊🌊🌊🌊🤕", // 6 oder mehr
+    };
+    Console.WriteLine(bild);
 }
 
-static void ZeichneEisbecher(int fehlversuche) {
-    // switch ausdruck mit den fehlerfällen
-}  
+static void zeichneEisbecher(int fehlversuche)
+{
+    string becher = fehlversuche switch
+    {
+        0 => """
+              🔴
+             🟢🟤
+            🟢🟠🐻‍❄️
+            """,
+        1 => """
+             
+             🟢🟤
+            🟢🟠🐻‍❄️
+            """,
+        2 => """
+             
+             🟢
+            🟢🟠🐻‍❄️
+            """,
+        3 => """
+             
+             
+            🟢🟠🐻‍❄️
+            """,
+        4 => """
+             
+             
+              🟠🐻‍❄️
+            """,
+        5 => """
+             
+             
+                🐻‍❄️
+            """,
+        _ => """
+             
+             
+            
+            """,
+    };
+
+    Console.WriteLine(becher);
+    Console.WriteLine("\\ /\\ /");
+    Console.WriteLine(" \\. /");
+    Console.WriteLine("  \\/");
+}
 ```
 
 #### Darstellung - Hangman
