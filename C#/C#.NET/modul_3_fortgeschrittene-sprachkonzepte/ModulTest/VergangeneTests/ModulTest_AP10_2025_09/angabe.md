@@ -251,4 +251,4 @@ Schreiben Sie ihre Meinung zu folgenden Aussagen:
 
 * Wir verwenden das ``Keyword`` ``await``, um auf das Ergebnis einer ``asynchronen`` ``Methode`` zu Warten.
 
-* Wenn zwei ``Methoden`` welche mit ``async`` gekennzeichnet sind, hintereinander aufgerufen werden, werden diese ``gleichzeit`` ausgeführt. 
+* Wenn zwei ``Methoden`` welche mit ``async`` gekennzeichnet sind, hintereinander mit ``await`` aufgerufen werden, werden diese ``gleichzeit`` ausgeführt. 
