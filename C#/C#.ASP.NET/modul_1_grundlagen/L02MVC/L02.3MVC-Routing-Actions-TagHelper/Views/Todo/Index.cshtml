@@ -15,9 +15,26 @@
     </div>
     <div class="col-auto">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="sortDesc" value="desc" id="sortDesc" @(ViewBag.SortBy == "desc" ? "checked" : "")>
+            <input class="form-check-input"
+                   type="radio"
+                   name="sortBy"
+                   value="asc"
+                   id="sortAsc"
+                   @(ViewBag.SortBy == "asc" ? "checked" : "")>
+            <label class="form-check-label" for="sortAsc">
+                Aufsteigend
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input"
+                   type="radio"
+                   name="sortBy"
+                   value="desc"
+                   id="sortDesc"
+                   @(ViewBag.SortBy == "desc" ? "checked" : "")>
             <label class="form-check-label" for="sortDesc">
-                absteigend sortieren.
+                Absteigend
             </label>
         </div>
     </div>
@@ -73,10 +90,14 @@
                             @(item.IsDone ? "Reaktivieren" : "Erledigt")
                         </button>
                     </form>
+
                     <form asp-action="Archive" asp-route-id="@item.Id" method="post" style="display:inline;">
                         <button type="submit" class="btn btn-sm btn-info">Archivieren</button>
                     </form>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Löschen</a>
+
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger">Löschen</button>
+                    </form>
                 </td>
             </tr>
         }

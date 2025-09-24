@@ -1,25 +1,26 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using MVCTodoApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// TODO: dependency injection des db contexts.
+builder.Services.AddDbContext<TodoDbContext>(); 
+//options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoContext") ??
+        //throw new InvalidOperationException("Connection string 'TodoContext' not found."));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
-app.UseRouting();
-
-app.UseAuthorization();
+// TOOD: einfügen der dummy daten mithilfe einer SeedData (eigens erstellt) Klasse.
 
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Todo}/{action=Index}");
 
 
 app.Run();

@@ -4,12 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>exercise1_fruehstuecksrestaurant</RootNamespace>
+    <RootNamespace>L02._4MVC_ViewBag_ViewModel</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
 
 </Project>
