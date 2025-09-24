@@ -100,7 +100,7 @@ public class TodoController : Controller
             return NotFound();
 
         // Den Status umkehren und updaten.
-        var a = await _context.Todos.Remove(todo);
+        _context.Todos.Remove(todo);
         var updatedTodo = todo with { IsDone = !todo.IsDone };
         _context.Todos.Update(updatedTodo); // TODO: mit den teilnehmer:innen den ereugen SQL code anschauen.
 

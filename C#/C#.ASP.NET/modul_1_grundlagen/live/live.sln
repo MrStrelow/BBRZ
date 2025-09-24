@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-idee-von-MVC", "http-i
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{12F3002B-86C2-46C5-9CA8-AC97797607E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_async_und_keine_repositories", "MVC_async_und_keine_repositories\MVC_async_und_keine_repositories.csproj", "{AD2C2782-0F32-47A6-97B2-42D078D3323C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12F3002B-86C2-46C5-9CA8-AC97797607E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2C2782-0F32-47A6-97B2-42D078D3323C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2C2782-0F32-47A6-97B2-42D078D3323C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2C2782-0F32-47A6-97B2-42D078D3323C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2C2782-0F32-47A6-97B2-42D078D3323C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,9 +23,9 @@ public class TodoController : Controller
         return View(todos.ToList());
     }
 
-    public IActionResult Details()
-    {
-        // rufe das repository auf mit GetById
-        // nimm dieses todo und gib es der View.
-    }
+    //public IActionResult Details()
+    //{
+    //    // rufe das repository auf mit GetById
+    //    // nimm dieses todo und gib es der View.
+    //}
 }
