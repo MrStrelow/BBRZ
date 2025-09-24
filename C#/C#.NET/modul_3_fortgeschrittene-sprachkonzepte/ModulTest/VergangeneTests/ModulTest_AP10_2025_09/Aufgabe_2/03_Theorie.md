@@ -9,4 +9,4 @@
 * **Antwort:** Ja. Wir bekommen ein ``Promise``, dass sich das Programm meldet, sobald die Berechnung der ``asynchronen`` ``Methode`` fertig ist. Währenddessen kann der Computer andere Rechenaufgaben absolvieren. **Wichtig!** Das Programm wartet jedoch und rechnet nicht ``gleichzeitg`` an anderen Problemen weiter.
 
 * Wenn zwei ``Methoden`` welche mit ``async`` gekennzeichnet sind, hintereinander mit ``await`` aufgerufen werden, werden diese ``gleichzeit`` ausgeführt. 
-* **Antwort:** Nein. da wir auf das Ergebnis warten und unser Programm nicht ``gleichzeitg`` was anderes berechnet. Wir müssen hier ``Task.WhenAll`` oder die Methode ohne ``await`` aufrufen und die Rückgabe eines ``Tasks`` behandeln.
+* **Antwort:** Nein. da wir auf das Ergebnis warten und unser Programm nicht ``gleichzeitg`` was anderes berechnet. Wir müssen hier ``Task.WhenAll`` oder die Methode ohne ``await`` aufrufen und die Rückgabe eines ``Tasks`` behandeln, wenn wir ``gleichzeitg`` aufrufe umsetzen wollen. Zudem ist es wichtig ``Locks`` auf kritische Operationen wie *Schreibzugriffe* zu setzten. Diese stellen sicher, dass wir keine ```Race Conditions`` auftreten.

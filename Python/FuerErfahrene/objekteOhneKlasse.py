@@ -1,5 +1,5 @@
 # Person
-# Dictionary
+# Dictionary - Objekt ohne Klasse
 
 person = { 
     # Schlüssel : Wert,
@@ -39,7 +39,7 @@ pers = Person(
     nachname = "Banana",
     alter = 30, 
     ist_aktiv = False, 
-    kombinierter_name = lambda: pers["vorname"] + " " + pers["nachname"] + " " + str(pers["ist_aktiv"])
+    kombinierter_name = lambda: pers.vorname + " " + pers.nachname + " " + str(pers.ist_aktiv)
 )
 
 pers_anders = Person(
@@ -47,7 +47,7 @@ pers_anders = Person(
     nachname = "Banana",
     alter = 30, 
     ist_aktiv = False, 
-    kombinierter_name = lambda: pers_anders["vorname"] + " " + pers_anders["nachname"] + " " + str(pers_anders["ist_aktiv"])
+    kombinierter_name = lambda: pers_anders.vorname + " " + pers_anders.nachname + " " + str(pers_anders.ist_aktiv)
 )
 
 print(pers_anders)

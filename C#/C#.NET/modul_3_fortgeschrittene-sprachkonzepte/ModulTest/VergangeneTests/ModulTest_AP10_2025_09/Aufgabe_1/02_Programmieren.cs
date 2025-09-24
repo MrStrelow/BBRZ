@@ -59,7 +59,7 @@ var kunden = new List<Kunde> {
     new Kunde(Name: "Landrea", Alter: 35, Punkte: 200),
     new Kunde(Name: "Valrea", Alter: 45, Punkte: 300),
     new Kunde(Name: "Balrea", Alter: 55, Punkte: 400),
-    new Kunde(Name: "Madrea", Alter: 65, Punkte: 500),
+    new Kunde(Name: "Madrea", Alter: 65, Punkte: 500)
 };
 
 var istAelterAlsX = Beinhaltet(kunden, filterart: "ältesterSinnvollerKunde", mindestAlter: 18);

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.1MVC-mit-Repository-und-Records", "L02.1MVC-mit-Repository-und-Records/L02.1MVC-mit-Repository-und-Records.csproj", "{ADF22975-1FD2-4760-8193-63D877FD92A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.1MVC-dependency_injection_des_repositories_und_records_als_model", "L02.1MVC-dependency_injection_des_repositories_und_records_als_model\L02.1MVC-dependency_injection_des_repositories_und_records_als_model.csproj", "{ADF22975-1FD2-4760-8193-63D877FD92A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.2MVC-Routing-Actions-TagHelper", "L02.2MVC-Routing-Actions-TagHelper/L02.2MVC-Routing-Actions-TagHelper.csproj", "{68174125-5EAC-40CC-B5C1-544ED96DA207}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.3MVC-Routing-Actions-TagHelper", "L02.3MVC-Routing-Actions-TagHelper\L02.3MVC-Routing-Actions-TagHelper.csproj", "{68174125-5EAC-40CC-B5C1-544ED96DA207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.2MVC-depencendy_incjection_des_dbcontexts_und_async", "L02.2MVC-depencendy_incjection_des_dbcontexts_und_async\L02.2MVC-depencendy_incjection_des_dbcontexts_und_async.csproj", "{4DD38904-7CB1-4420-9FEC-6FD8A16BC1AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{68174125-5EAC-40CC-B5C1-544ED96DA207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68174125-5EAC-40CC-B5C1-544ED96DA207}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68174125-5EAC-40CC-B5C1-544ED96DA207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD38904-7CB1-4420-9FEC-6FD8A16BC1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD38904-7CB1-4420-9FEC-6FD8A16BC1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD38904-7CB1-4420-9FEC-6FD8A16BC1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD38904-7CB1-4420-9FEC-6FD8A16BC1AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
