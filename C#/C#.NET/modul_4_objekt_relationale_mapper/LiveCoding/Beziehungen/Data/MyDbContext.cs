@@ -14,8 +14,16 @@ public class MyDbContext : DbContext
     // erstelle ein DBSet von Preperationsteps als Eigenschaft
     DbSet<PreparationStep> PreparationSteps { get; set; }
 
+    //TODO: hier die neuen modelle einfügen.
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=beziehungen_live;User ID=sa;Password=qwertz011235;Trust Server Certificate=True");
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MyDbContext).Assembly);
     }
 }
