@@ -32,5 +32,3 @@ public class DishConfiguration : IEntityTypeConfiguration<Dish>
             .WithMany(i => i.MoreDishes);
     }
 }
-    }
-}

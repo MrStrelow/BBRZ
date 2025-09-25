@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01.0AdoNet", "L01.0AdoNet\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01.2efc-include-mehrere-tabellen", "L01.2efc_mehrere_tabellen\L01.2efc-include-mehrere-tabellen.csproj", "{5E6800EA-C8D4-42F9-990A-3985AD85F873}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstueck_mit_efc", "exercise1-fruehstueck_mit_efc\exercise1-fruehstueck_mit_efc.csproj", "{12F8BBE8-77C1-0025-4205-CCA7B646C0C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstueck", "exercise1-fruehstueck\exercise1-fruehstueck.csproj", "{9C89AAE3-C397-40B0-858F-265DA71FAAB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{5E6800EA-C8D4-42F9-990A-3985AD85F873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E6800EA-C8D4-42F9-990A-3985AD85F873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E6800EA-C8D4-42F9-990A-3985AD85F873}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12F8BBE8-77C1-0025-4205-CCA7B646C0C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12F8BBE8-77C1-0025-4205-CCA7B646C0C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12F8BBE8-77C1-0025-4205-CCA7B646C0C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12F8BBE8-77C1-0025-4205-CCA7B646C0C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C89AAE3-C397-40B0-858F-265DA71FAAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C89AAE3-C397-40B0-858F-265DA71FAAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C89AAE3-C397-40B0-858F-265DA71FAAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C89AAE3-C397-40B0-858F-265DA71FAAB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
