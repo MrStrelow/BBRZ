@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FruehstuecksrestaurantMore.Models;
+namespace Beziehungen.Model;
 
-public class Customer
+public class Table
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public List<Visit> Visits { get; set; }
 }

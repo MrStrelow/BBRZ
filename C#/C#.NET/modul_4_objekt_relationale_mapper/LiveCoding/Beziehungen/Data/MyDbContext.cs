@@ -1,13 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Beziehungen.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Beziehungen.Data;
 
 public class MyDbContext : DbContext
 {
     // erstelle ein DBSet von Dishes als Eigenschaft
+    DbSet<Dish> Dishes { get; set; }
 
     // erstelle ein DBSet von Ingredients als Eigenschaft
+    DbSet<Ingredient> Ingredients { get; set; } 
+
     // erstelle ein DBSet von Preperationsteps als Eigenschaft
+    DbSet<PreparationStep> PreparationSteps { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
