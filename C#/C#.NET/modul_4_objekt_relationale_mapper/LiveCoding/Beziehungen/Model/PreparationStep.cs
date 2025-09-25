@@ -12,6 +12,6 @@ public class PreparationStep
     public int StepNumber { get; set; }
     public string Instruction { get; set; }
 
-    // -> bidirektionale Beziehung zu einem Dish, denn ein Dish hat mehrere PreperationSteps
-    public Dish MyDish { get; set; } 
+    // -> n:m Beziehung einem Dish, denn ein Dish hat mehrere PreperationSteps, ein PreperationStep kann in mehreren Dishes sein.
+    public List<Dish> Dishes { get; set; } 
 }

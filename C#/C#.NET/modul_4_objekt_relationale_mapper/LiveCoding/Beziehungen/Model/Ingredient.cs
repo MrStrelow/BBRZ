@@ -11,6 +11,5 @@ public class Ingredient
     public string Name { get; set; }
     public string Unit { get; set; }
 
-    // -> hier ist die n zu m Beziehung zu Dishes.
-    public List<Dish> Dishes { get; set; } = new List<Dish>();
+    public Dish Dishes { get; set; }
 }
