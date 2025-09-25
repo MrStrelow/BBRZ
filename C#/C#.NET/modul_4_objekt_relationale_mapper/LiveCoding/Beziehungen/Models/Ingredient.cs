@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beziehungen.Model;
-
-public class Customer
+namespace Beziehungen.Models;
+public class Ingredient
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public List<Visit> Visits { get; set; }
+    public string Unit { get; set; }
+
+    public Dish Dishes { get; set; }
 }

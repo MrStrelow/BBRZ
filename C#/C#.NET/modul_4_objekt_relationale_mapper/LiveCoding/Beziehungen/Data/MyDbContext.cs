@@ -1,4 +1,4 @@
-﻿using Beziehungen.Model;
+﻿using Beziehungen.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Beziehungen.Data;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beziehungen.Model;
+namespace Beziehungen.Models;
 
 public class Table
 {
