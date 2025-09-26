@@ -10,6 +10,7 @@ Verwendet diese Links um ``Repositories`` für die Abgaben der ``Exercises`` im 
     * Exercise3-PrimitiveTypenUmwandeln: [Repository](https://classroom.github.com/a/Wh7rztM3) - [Angabe](L02TypenUndOperatoren/Exercise3-PrimitiveTypenUmwandeln/Angabe.md)
     * Exercise4-UserinputUndArrays: [Repository](https://classroom.github.com/a/IvoEhIpF) - [Angabe](L02TypenUndOperatoren/Exercise4-UserinputUndArrays/Angabe.md)
 * **L03KontrollstrukturenUndFunktionen**:
+    * Exercise0-CallByValue_vs_CallByReference: [Repository](https://classroom.github.com/a/AB5bI15a) - [Angabe](L03KontrollstrukturenUndFunktionen/Exercise0-CallByValue_CallByReference/Angabe.md)
     * Exercise1-GuardClauses: [Repository](https://classroom.github.com/a/9_-dCK_O) - [Angabe](L03KontrollstrukturenUndFunktionen/Exercise1-GuardClauses/Angabe.md)
     * Exercise2-ZahlenRaten: [Repository](https://classroom.github.com/a/pXrYoFXa) - [Angabe](L03KontrollstrukturenUndFunktionen/Exercise2-ZahlenRaten/Angabe.md)
     * Exercise3-GuessTheWord: [Repository](https://classroom.github.com/a/NQS52d35) - [Angabe](L03KontrollstrukturenUndFunktionen/Exercise3-GuessTheWord/Angabe.md)
