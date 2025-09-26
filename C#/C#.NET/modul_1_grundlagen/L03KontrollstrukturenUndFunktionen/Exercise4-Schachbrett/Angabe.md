@@ -115,7 +115,7 @@ Wähle die Figur... [x y]: 15 15
 
 ---
 
-### **Schritt 2: 💀**: flach vs. steil
+### **Schritt 2: 💀**: flach vs. steil, oberhalb vs. unterhalb und rechts vs. links
 
 Wir Testen nun $8=2^3$ Fälle des Ziels: 
 * oberhalb des Spielers vs. unterhalb des Spielers, 
