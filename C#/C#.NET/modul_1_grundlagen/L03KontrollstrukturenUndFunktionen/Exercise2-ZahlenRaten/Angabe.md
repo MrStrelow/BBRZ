@@ -21,7 +21,14 @@ Weiters soll folgendes gelten:
     Verwenden Sie dazu die Klasse `Random` aus dem Namespace `System`. Normalerweise ist dieser Namespace standardmäßig verfügbar. Erstellen Sie ein Objekt dieser Klasse, z.B. `Random random = new Random();`, und verwenden Sie die Methode `Next()`, um eine Zufallszahl zu generieren: `int geheimeZahl = random.Next(0, 101);` (dies generiert eine Zahl von 0 bis 100, da der obere Grenzwert exklusiv ist).
 
 * **Userinput:**
-    Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht. Verwenden Sie `Console.ReadLine()`, um die Eingabe des Benutzers als Text (String) zu lesen. Anschließend muss dieser String in eine Ganzzahl umgewandelt werden, z.B. mit `int.Parse()` oder besser `int.TryParse()` für eine robustere Fehlerbehandlung. Beispiel: `string eingabeString = Console.ReadLine(); int gerateneZahl = int.Parse(eingabeString);`.
+    Ein:e Benutzer:in wird in jeder Runde aufgefordert, eine Zahl einzugeben. Die Eingabe muss überprüft werden, ob sie der geheimen Zahl entspricht. Verwenden Sie `Console.ReadLine()`, um die Eingabe des Benutzers als Text (String) zu lesen. Anschließend muss dieser String in eine Ganzzahl umgewandelt werden. Verwende dazu `int.TryParse()` für eine robustere Fehlerbehandlung. Beispiel: 
+    ```csharp
+    int guess;
+    while (!int.TryParse(Console.ReadLine(), out guess))
+    {
+        Console.WriteLine("Bitte eine gültige Zahl eingeben! Gib eine Zahl ein [0-100]: ");
+    }
+    ```
 
 * **Interaktion mit Benutzer:innen:**
     Wenn die Eingabe zu hoch ist, gibt das Programm die Nachricht *"Die Zahl ist zu hoch!"* aus.

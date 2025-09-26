@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FruehstuecksrestaurantMore.Data.Configurations;
+namespace Beziehungen.Data.Configurations;
 
 public class IngredientConfiguration : IEntityTypeConfiguration<Ingredient>
 {

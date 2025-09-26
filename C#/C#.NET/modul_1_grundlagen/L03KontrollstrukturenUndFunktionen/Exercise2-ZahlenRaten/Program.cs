@@ -46,10 +46,10 @@ class NumberGuessingGame
             while (leben > 0)
             {
                 Console.Write("Gib eine Zahl ein [0-100]: ");
-                if (!int.TryParse(Console.ReadLine(), out int guess))
+                int guess;
+                while (!int.TryParse(Console.ReadLine(), out guess))
                 {
-                    Console.WriteLine("Bitte eine gültige Zahl eingeben!");
-                    continue;
+                    Console.WriteLine("Bitte eine gültige Zahl eingeben! Gib eine Zahl ein [0-100]: ");
                 }
 
                 leben--;
