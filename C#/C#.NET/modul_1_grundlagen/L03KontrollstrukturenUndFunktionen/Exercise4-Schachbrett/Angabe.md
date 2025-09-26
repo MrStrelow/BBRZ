@@ -12,24 +12,32 @@ Bei Unklarheiten hier nachlesen:
 * [welche Kontrollstrukturen soll ich verwenden?](../Skripten/L03.1Kontrollstrukturen.md)
 
 ## Schachbrett und Linien.
-* Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `Console.ReadLine` und wandle diesen String in eine Zahl um. Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. Die 16-bit (4-hexbit) Uni-Codes für schwarze ⬛ und weiße ⬜ Symbole sind `\u21B1` und `\u21B2`. Falls diese nicht schön ausgefüllt dargestellt werden (die verwendete Font im Terminal unterstützt diese Symbole nicht als "emoji") verwende die 24-bit (5-hexbit) emojis 🟩 `\u1F7E9` und 🟦 `\u1F7E6`. (windows + . öffnet dir einen preview einiger Emojis auf Windows. Füge diese dann in den Code ``blackSquare = "⬛"`` ein)
-* Der User soll nun 2 Paare von `y` und `x` Koordinaten wählen, welche miteinander verbunden werden sollen. Markiere die Start- und Endpunkte mit einem 🟡 und ❌. Verwende für die Verbindung dieser Punkte den Zusammenhang $y=k\cdot x+d$ und $\frac{\Delta y}{\Delta x}=k$. Verwende für jede Zelle, welche als Teil der Linie von den oben genannten Zusammenhängen ausgewählt wird, das Symbol 🔸.
+* Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `Console.ReadLine` und wandle diesen String in eine Zahl um. Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. Die 16-bit (4-hexbit) Uni-Codes für schwarze ⬛ und weiße ⬜ Symbole sind `\u21B1` und `\u21B2`. Falls diese nicht schön ausgefüllt dargestellt werden (die verwendete Font im Terminal unterstützt diese Symbole nicht als "emoji") verwende die 24-bit (5-hexbit) emojis 🔲 `\u1F532` und 🔳 `\u1F533`. (windows + . öffnet dir einen preview einiger Emojis auf Windows. Füge diese dann in den Code ``blackSquare = "⬛"`` ein)
+* Der User soll nun 2 Paare von `y` und `x` Koordinaten wählen, welche miteinander verbunden werden sollen. Markiere die Start- und Endpunkte mit einem 🟡 und ❌. Verwende für die Verbindung dieser Punkte den Zusammenhang $y=k\cdot x+d$ und $\frac{\Delta y}{\Delta x}=k$. Verwende für jede Zelle, welche als Teil der Linie von den oben genannten Zusammenhängen ausgewählt wird, das Symbol 🔹.
 
-Der Zusammenhang ist bildlich hier dargestellt:
+Der Zusammenhang zwischen wie wir eine Linie zwischen Zwei Punkten und welche Felder im ``Multidimensionalen Array`` ansprechen ist bildlich hier dargestellt:
 
 ![alt text](figures/steigungsdreieck.png)
 
 Beginne mit folgenden Fall:
-* **Aufgabe 1: 🙂** Start 0 0 zu 3 5: hier ist die längere Seite die horizontale Seite (x). Bedeutet wir wollen diese mit einer Schleife abtasten. Die Koordinaten der längeren (y) Richtung wird dann verwendet um die Koordinaten der kürzeren (x) Richtung auszurechnen ($y=k\cdot x+d$)
+* **Schritt 1: 🙂** Hier ist die längere Seite die horizontale Seite (x). Bedeutet wir wollen diese mit einer Schleife abtasten. Die Koordinaten der längeren (y) Richtung wird dann verwendet um die Koordinaten der kürzeren (x) Richtung auszurechnen ($y=k\cdot x+d$)
 
     **Testfälle:**
-    - 0 5 und 7 7
+    ```
+    0 5 und 7 7
+    // Was passiert wenn wir den näcshten Fall eingeben?
+    5 0 und 7 7 
+    ```
 
-* **Aufgabe 2: 🙂** Stelle sicher, dass horizontalere und vertikale Linien funktionieren.
-    **Testfälle:**
-    - 0 5 und 7 7
-    - 5 0 und 7 7
-    
+* **Aufgabe 2: 😐** Hier soll der Code auch funktionieren wenn die vertikale Seite (y) die längere ist. Momentan
+    **Testfälle:** 
+    ```
+    0 5 und 7 7
+    5 0 und 7 7
+    // Was passiert wenn wir den näcshten Fall eingeben?
+    5 0 und 7 7
+    ```
+
 - 5 0 und 7 7
 - 5 7 und 7 0
 - 0 7 und 7 5

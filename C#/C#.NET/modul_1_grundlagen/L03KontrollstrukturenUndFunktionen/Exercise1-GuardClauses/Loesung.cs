@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Exercise.ue1 {
+namespace Aufgabe1 {
     public class User
     {
         public string Name { get; set; }
@@ -90,7 +90,7 @@ namespace Exercise.ue1 {
     }
 }
 
-namespace Exercise.ue2
+namespace Aufgabe2
 {
     public class User
     {
@@ -295,7 +295,7 @@ namespace Exercise.ue2
     }
 }
 
-namespace Exercise.ue3
+namespace Aufgabe3
 {
     using System.Text;
 
@@ -457,8 +457,8 @@ public class Program
     {
         Console.OutputEncoding = Encoding.UTF8;
 
-        Exercise.ue1.Program.CallUe1();
-        Exercise.ue2.User.CallUe2();
-        Exercise.ue3.Bergführer.CallUe3();
+        Aufgabe1.Program.CallUe1();
+        Aufgabe2.User.CallUe2();
+        Aufgabe3.Bergführer.CallUe3();
     }
 }

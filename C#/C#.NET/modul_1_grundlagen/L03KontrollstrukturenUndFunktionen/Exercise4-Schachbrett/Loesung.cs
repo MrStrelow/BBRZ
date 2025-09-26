@@ -1,612 +1,474 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 
-namespace 
+// ################################### Main - Auswahl der Schritte ###################################
+Console.OutputEncoding = Encoding.UTF8;
+
+//Schritt1();
+//Schritt2();
+//Schritt3();
+Schritt3_kurz();
+
+// Funktionen für einzelne Schritte aus der Angabe 
+// ################################### Schritt 1 ###################################
+// Im Schritt 1 funktioniert:
+// - 0 5 und 7 7
+
+// Anmerkung:
+// Wir haben zwar nicht alle Fälle hier abgedeckt, es entstehen also Bugs und Fehler,
+// aber die Logik ist prinzipiell implementiert! Es beinhaltet die essenziellen Teile fürs Verständnis.
+
+// folgendes funktioniert noch nicht:
+// - Was passiet wenn wir ein groesseres Delta y als Delta x haben? (Teste: 5 0 und 7 7)
+// - Was wenn wir einen Zug von rechts lach links machen? (Teste: 7 7 und 5 0)
+// - Was wenn wir einen Zug von unten nach oben machen? (Teste: 7 7 und 5 0)
+// - Was ist wenn wir einen geraden Zug machen? Eine Richtung hat dadurch keine Steigung. (0 7 und 0 0 und 0 7 und 5 7)
+
+// In all diesen Fällen haben wir zwar pinzipiell die richtige Logik, jedoch ändern sich Kleinigkeiten.
+// Versuche über diese Fälle nachzudenken indem du die oben genannten Tests ausführst und dir den Output/Fehler anschaust. 
+// Verwende dazu auch den DebugModus.
+
+void Schritt1()
 {
-    public class Exercise
+    bool zufrieden;
+    int dimension = HandleUserInputOfSetup();
+
+    Console.Clear();
+
+    // multidimensionales array anlegen.
+    string whiteSquare = "🔲";
+    string blackSquare = "🔳";
+    string startSymbol = "🟡";
+    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔹";
+
+    string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
+
+    do
     {
-        public static void Main(string[] args)
+        int[] positions = HandleUserInputDuringGame(); 
+        // Wem das nicht gefällt, bitte Tuple anschauen. Wir machen es in Modul 2. Dann geht es in einer Zeile.
+        int xStart = positions[0];
+        int yStart = positions[1];
+        int xDest  = positions[2];
+        int yDest  = positions[3];
+
+        field[yStart, xStart] = startSymbol;
+        field[yDest, xDest] = destSymbol;
+
+        int deltaX = xDest - xStart;
+        int deltaY = yDest - yStart;
+        double steigung;
+
+        // TODO: BEGINN der Logik - implementiere hier!
+        steigung = Math.Abs(((double)deltaY) / deltaX);
+
+        for (int x = 1; x < deltaX; x++)
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            bool zufrieden;
-            string promptForUser = "Größe des Spielfields eingeben: ";
-
-            // user input -> System.Read
-            Console.WriteLine(promptForUser);
-
-            int dimension;
-            while (!int.TryParse(Console.ReadLine(), out dimension))
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Input is not an integer. Please try again.");
-                Console.ResetColor();
-
-                Console.Write(promptForUser);
-            }
-
-            Console.Clear();
-
-            // multidimensionales array anlegen.
-            string[,] field = new string[dimension, dimension];
-
-            // 1Achtung! Nicht alle Emojis (16-32 Bit) haben in einem char platz (16 Bit) -
-            // manche sind zwei uni codes welche ein string versteht, aber ein char nicht.
-            // string blackSquare = '\u2B1B'.ToString(); // wir können aber weiße und schwarze kästchen mit 16bit chars verwenden.
-            // Strings sind jeodch angenehmer.
-            // string whiteSquare = "\u2B1C";
-
-            string whiteSquare = "⬜";
-            string blackSquare = "⬛";
-
-            // Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
-            for (int i = 0; i < dimension; i++)
-            {
-                for (int j = 0; j < dimension; j++)
-                {
-                    //if ((j + i) % 2 == 0)
-                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 == 1 && i % 2 == 1))
-                        field[i, j] = whiteSquare;
-                    else
-                        field[i, j] = blackSquare;
-                }
-            }
-
-            do
-            {
-                // Userinput - Wir verzichten hier auf Fehlerbehandlungen.
-                Console.Write("Wähle die Figur... [x y]: ");
-                string[] userinput = Console.ReadLine().Split(" ");
-
-                int xStart = int.Parse(userinput[0]);
-                int yStart = int.Parse(userinput[1]);
-
-                Console.Write("... und wähle das Ziel [x y]: ");
-                userinput = Console.ReadLine().Split(" ");
-
-                int xZiel = int.Parse(userinput[0]);
-                int yZiel = int.Parse(userinput[1]);
-
-                field[yStart, xStart] = "🟡";
-                field[yZiel, xZiel] = "❌";
-
-                int deltaX = xZiel - xStart;
-                int deltaY = yZiel - yStart;
-                double steigung;
-                int longerDelta;
-                int shorterDelta;
-                int startLonger;
-                int startShorter;
-                bool longerIsX;
-
-                // Variante 1: Wir haben zwar nicht alle Fälle hier abgedeckt, es entstehen also Bugs und Fehler,
-                // aber die Logik ist prinzipiell implementiert!
-                // Die Variante 1 beinhaltet die essenziellen Teile fürs Verständnis.
-                // Kommentiere diese aus, wenn die Version 2 bzw. 3 verwendet werden soll.
-
-                // Die erwänten Fälle sind folgende:
-                // - Was passiet wenn wir ein groesseres Delta y als Delta x haben? (Teste: 5 0 und 7 7)
-                // - Was wenn wir einen Zug von rechts lach links machen? (Teste: 7 7 und 5 0)
-                // - Was wenn wir einen Zug von unten nach oben machen? (Teste: 7 7 und 5 0)
-                // - Was ist wenn wir einen geraden Zug machen? Eine Richtung hat dadurch keine Steigung. (0 7 und 0 0 und 0 7 und 5 7)
-
-                // In all diesen Fällen haben wir zwar pinzipiell die richtige Logik, jedoch ändern sich Kleinigkeiten.
-                // Versuche über diese Fälle nachzudenken indem du die oben genannten Tests ausführst und dir den Output/Fehler anschaust. 
-                // Verwende dazu auch den DebugModus.
-
-                // In der Variante 1 funktioniert:
-                // - 0 5 und 7 7
-                // aber nicht:
-                // - 5 0 und 7 7
-                // - 5 7 und 7 0
-                // - 0 7 und 7 5
-                // - 7 7 und 0 5
-                // - 7 7 und 5 0
-                // - 5 7 und 0 7
-                // - 0 7 und 5 7
-                // - 0 5 und 7 7
-                // - 0 0 und 0 7
-                // - 0 7 und 0 0
-
-                Console.WriteLine("++++++++++++++ version 1 ++++++++++++++");
-                steigung = Math.Abs(((double)deltaY) / deltaX);
-
-                for (int x = 1; x < deltaX; x++)
-                {
-                    int y = Convert.ToInt32(Math.Round(steigung * x));
-                    field[yStart + y, xStart + x] = ".";
-                }
-
-                // ausgabe
-                for (int i = 0; i < dimension; i++)
-                {
-                    for (int j = 0; j < dimension; j++)
-                    {
-                        Console.Write(field[i, j]);
-                    }
-                    Console.WriteLine();
-                }
-
-                Console.WriteLine("weiter? [true/false]");
-                zufrieden = bool.Parse(Console.ReadLine());
-
-            } while (zufrieden);
+            int y = Convert.ToInt32(Math.Round(steigung * x));
+            field[yStart + y, xStart + x] = lineSymbol;
         }
-    }
+
+        // ENDE der Logik
+
+        Print(field, dimension);
+        zufrieden = HandleUserInputForRepeatingTheGame();
+
+    } while (zufrieden);
 }
 
-namespace variante2
+// ################################### Schritt 2 ###################################
+// Im Schritt 2 funktioniert:
+// - 0 5 und 7 7
+// - 5 0 und 7 7
+void Schritt2()
 {
-    public class Exercise
+    bool zufrieden;
+    int dimension = HandleUserInputOfSetup();
+
+    Console.Clear();
+
+    // multidimensionales array anlegen.
+    string whiteSquare = "🔲";
+    string blackSquare = "🔳";
+    string startSymbol = "🟡";
+    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔹";
+
+    string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
+
+    do
     {
-        public static void Main(string[] args)
+        int[] positions = HandleUserInputDuringGame();
+        // Wem das nicht gefällt, bitte Tuple anschauen. Wir machen es in Modul 2. Dann geht es in einer Zeile.
+        int xStart = positions[0];
+        int yStart = positions[1];
+        int xDest = positions[2];
+        int yDest = positions[3];
+
+        field[yStart, xStart] = startSymbol;
+        field[yDest, xDest] = destSymbol;
+
+        int deltaX = xDest - xStart;
+        int deltaY = yDest - yStart;
+        double steigung;
+
+        int longerDelta;
+        int shorterDelta;
+        int startLonger;
+        int startShorter;
+        bool longerIsX;
+
+        // TODO: BEGINN der Logik - implementiere hier!
+        // Was ist die Längere Seite? Merke die diese und drehen deltaY / deltaX um.
+        if (Math.Abs(deltaX) > Math.Abs(deltaY))
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            bool zufrieden;
-            string promptForUser = "Größe des Spielfields eingeben: ";
-
-            // user input
-            Console.WriteLine(promptForUser);
-
-            int dimension;
-            while (!int.TryParse(Console.ReadLine(), out dimension))
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Input is not an integer. Please try again.");
-                Console.ResetColor();
-
-                Console.Write(promptForUser);
-            }
-
-            Console.Clear();
-
-            // multidimensionales array anlegen.
-            string[,] field = new string[dimension, dimension];
-
-            // 1Achtung! Nicht alle Emojis (16-32 Bit) haben in einem char platz (16 Bit) -
-            // manche sind zwei uni codes welche ein string versteht, aber ein char nicht.
-            // string blackSquare = '\u2B1B'.ToString(); // wir können aber weiße und schwarze kästchen mit 16bit chars verwenden.
-            // Strings sind jeodch angenehmer.
-            // string whiteSquare = "\u2B1C";
-
-            string whiteSquare = "⬜";
-            string blackSquare = "⬛";
-
-            // Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
-            for (int i = 0; i < dimension; i++)
-            {
-                for (int j = 0; j < dimension; j++)
-                {
-                    //if ((j + i) % 2 == 0)
-                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 == 1 && i % 2 == 1))
-                        field[i, j] = whiteSquare;
-                    else
-                        field[i, j] = blackSquare;
-                }
-            }
-
-            do
-            {
-                // Userinput - Wir verzichten hier auf Fehlerbehandlungen.
-                Console.Write("Wähle die Figur... [x y]: ");
-                string[] userinput = Console.ReadLine().Split(" ");
-
-                int xStart = int.Parse(userinput[0]);
-                int yStart = int.Parse(userinput[1]);
-
-                Console.Write("... und wähle das Ziel [x y]: ");
-                userinput = Console.ReadLine().Split(" ");
-
-                int xZiel = int.Parse(userinput[0]);
-                int yZiel = int.Parse(userinput[1]);
-
-                field[yStart, xStart] = "🟡";
-                field[yZiel, xZiel] = "❌";
-
-                int deltaX = xZiel - xStart;
-                int deltaY = yZiel - yStart;
-                double steigung;
-                int longerDelta;
-                int shorterDelta;
-                int startLonger;
-                int startShorter;
-                bool longerIsX;
-
-                Console.WriteLine("++++++++++++++ Version 2 ++++++++++++++");
-
-                // In der Variante 2 funktioniert:
-                // - 0 5 und 7 7
-                // - 5 0 und 7 7
-                // aber nicht:
-                // - 5 7 und 7 0
-                // - 0 7 und 7 5
-                // - 7 7 und 0 5
-                // - 7 7 und 5 0
-                // - 5 7 und 0 7
-                // - 0 7 und 5 7
-                // - 0 5 und 7 7
-                // - 0 0 und 0 7
-                // - 0 7 und 0 0
-
-                if (Math.Abs(deltaX) > Math.Abs(deltaY))
-                {
-                   steigung = ((double)deltaY) / deltaX;
-                   longerDelta = deltaX;
-                   longerIsX = true;
-                }
-                else
-                {
-                   steigung = ((double)deltaX) / deltaY;
-                   longerDelta = deltaY;
-                   longerIsX = false;
-                }
-
-                for (int i = 1; i < Math.Abs(longerDelta); i++)
-                {
-                   int neuePositionX;
-                   int neuePositionY;
-
-                   if (longerIsX)
-                   {
-                       neuePositionY = (int)Math.Round(yStart + i * steigung);
-                       neuePositionX = xStart + i;
-                   }
-                   else
-                   {
-                       neuePositionY = yStart + i;
-                       neuePositionX = (int)Math.Round(xStart + i * steigung);
-                   }
-
-                   field[neuePositionY, neuePositionX] = ".";
-                }
-
-                // ausgabe
-                for (int i = 0; i < dimension; i++)
-                {
-                   for (int j = 0; j < dimension; j++)
-                   {
-                       Console.Write(field[i, j]);
-                   }
-                   Console.WriteLine();
-                }
-
-                Console.WriteLine("weiter? [true/false]");
-                zufrieden = bool.Parse(Console.ReadLine());
-
-            } while (zufrieden);
+            steigung = ((double)deltaY) / deltaX;
+            longerDelta = deltaX;
+            longerIsX = true;
         }
-    }
+        else
+        {
+            steigung = ((double)deltaX) / deltaY;
+            longerDelta = deltaY;
+            longerIsX = false;
+        }
+
+        // Wie zuvor, aber wir gehen nun die längere Seite ab.
+        for (int i = 1; i < Math.Abs(longerDelta); i++)
+        {
+            int neuePositionX;
+            int neuePositionY;
+
+            // Es gibt zwei Fälle: wenn y länger ist.
+            if (longerIsX)
+            {
+                neuePositionY = (int)Math.Round(yStart + i * steigung);
+                neuePositionX = xStart + i;
+            }
+            // Es gibt zwei Fälle: wenn x länger ist.
+            else
+            {
+                neuePositionY = yStart + i;
+                neuePositionX = (int)Math.Round(xStart + i * steigung);
+            }
+
+            field[neuePositionY, neuePositionX] = lineSymbol;
+        }
+
+        // ENDE der Logik
+
+        Print(field, dimension);
+        zufrieden = HandleUserInputForRepeatingTheGame();
+
+    } while (zufrieden);
 }
 
+// ################################### Schritt 3 ###################################
+// Im Schritt 3 funktioniert:
+// - 0 5 und 7 7
+// - 5 0 und 7 7
+// - 5 7 und 7 0
+// - 0 7 und 7 5
+// - 7 7 und 0 5
+// - 7 7 und 5 0
+// - 5 7 und 0 7
+// - 0 7 und 5 7
+// - 0 5 und 7 7
+// - 0 0 und 0 7
+// - 0 7 und 0 0
 
-namespace Variante3
+void Schritt3()
 {
-    public class Exercise
+    bool zufrieden;
+    int dimension = HandleUserInputOfSetup();
+
+    Console.Clear();
+
+    // multidimensionales array anlegen.
+    string whiteSquare = "🔲";
+    string blackSquare = "🔳";
+    string startSymbol = "🟡";
+    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔹";
+
+    string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
+
+    do
     {
-        public static void Main(string[] args)
+        int[] positions = HandleUserInputDuringGame();
+        // Wem das nicht gefällt, bitte Tuple anschauen. Wir machen es in Modul 2. Dann geht es in einer Zeile.
+        int xStart = positions[0];
+        int yStart = positions[1];
+        int xDest = positions[2];
+        int yDest = positions[3];
+
+        field[yStart, xStart] = startSymbol;
+        field[yDest, xDest] = destSymbol;
+
+        int deltaX = xDest - xStart;
+        int deltaY = yDest - yStart;
+        double steigung;
+
+        int longerDelta;
+        int shorterDelta;
+        int startLonger;
+        int startShorter;
+        bool longerIsX;
+
+        // TODO: BEGINN der Logik - implementiere hier!
+        if (Math.Abs(deltaX) > Math.Abs(deltaY))
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            bool zufrieden;
-            string promptForUser = "Größe des Spielfields eingeben: ";
+            longerDelta = deltaX;
+            shorterDelta = deltaY;
+            startLonger = xStart;
+            startShorter = yStart;
+            longerIsX = true;
 
-            // user input -> System.Read
-            Console.WriteLine(promptForUser);
-
-            int dimension;
-            while (!int.TryParse(Console.ReadLine(), out dimension))
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Input is not an integer. Please try again.");
-                Console.ResetColor();
-
-                Console.Write(promptForUser);
-            }
-
-            Console.Clear();
-
-            // multidimensionales array anlegen.
-            string[,] field = new string[dimension, dimension];
-
-            // 1Achtung! Nicht alle Emojis (16-32 Bit) haben in einem char platz (16 Bit) -
-            // manche sind zwei uni codes welche ein string versteht, aber ein char nicht.
-            // string blackSquare = '\u2B1B'.ToString(); // wir können aber weiße und schwarze kästchen mit 16bit chars verwenden.
-            // Strings sind jeodch angenehmer.
-            // string whiteSquare = "\u2B1C";
-
-            string whiteSquare = "⬜";
-            string blackSquare = "⬛";
-
-            // Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
-            for (int i = 0; i < dimension; i++)
-            {
-                for (int j = 0; j < dimension; j++)
-                {
-                    //if ((j + i) % 2 == 0)
-                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 == 1 && i % 2 == 1))
-                        field[i, j] = whiteSquare;
-                    else
-                        field[i, j] = blackSquare;
-                }
-            }
-
-            do
-            {
-                // Userinput - Wir verzichten hier auf Fehlerbehandlungen.
-                Console.Write("Wähle die Figur... [x y]: ");
-                string[] userinput = Console.ReadLine().Split(" ");
-
-                int xStart = int.Parse(userinput[0]);
-                int yStart = int.Parse(userinput[1]);
-
-                Console.Write("... und wähle das Ziel [x y]: ");
-                userinput = Console.ReadLine().Split(" ");
-
-                int xZiel = int.Parse(userinput[0]);
-                int yZiel = int.Parse(userinput[1]);
-
-                field[yStart, xStart] = "🟡";
-                field[yZiel, xZiel] = "❌";
-
-                int deltaX = xZiel - xStart;
-                int deltaY = yZiel - yStart;
-                double steigung;
-                int longerDelta;
-                int shorterDelta;
-                int startLonger;
-                int startShorter;
-                bool longerIsX;
-
-                // In dieser Variante sind alle Fälle abgedeckt.
-                // Wir sehen hier einige "technische" anpassungen.
-                // - wir drehen manchmal das Vorzeichen der Steigung um
-                // - wir gehen mit der For-Loop in verschiedene Richtungen, je nachdem wie die Start und Endpunkte liegen.
-
-                // Wir können nun Versuchen "smartere" Lösungsansätze zu finden.
-                // Anreize dafür sind:
-                // - Wir können uns Code sparen wenn wir vorher das Problem und "herrichten". Das beduetet,
-                //      - ob wir beginnen vom Start zum Ziel zu zeichnen, oder vom Ziel zum Start ist eigentlich egal.
-                //      - ob wir von [0 0] zu [7 7] fahren ist das gleiche wie [0 7] zu [7 0], wenn das Spielfeld vorher 90° nach links gedreht wird.
-
-                // Tests:
-                // - 0 5 und 7 7
-                // - 5 0 und 7 7
-                // - 5 7 und 7 0
-                // - 0 7 und 7 5
-                // - 7 7 und 0 5
-                // - 7 7 und 5 0
-                // - 5 7 und 0 7
-                // - 0 7 und 5 7
-                // - 0 5 und 7 7
-                // - 0 0 und 0 7
-                // - 0 7 und 0 0
-
-                Console.WriteLine("++++++++++++++ Version 3 ++++++++++++++");
-
-                if (Math.Abs(deltaX) > Math.Abs(deltaY))
-                {
-                    longerDelta = deltaX;
-                    shorterDelta = deltaY;
-                    startLonger = xStart;
-                    startShorter = yStart;
-                    longerIsX = true;
-
-                }
-                else
-                {
-                    longerDelta = deltaY;
-                    shorterDelta = deltaX;
-                    startLonger = yStart;
-                    startShorter = xStart;
-                    longerIsX = false;
-                }
-
-                for (int i = 1; i < Math.Abs(longerDelta); i++)
-                {
-                    int indexForShorter;
-                    int indexForLonger;
-
-                    if (shorterDelta < 0 && longerDelta < 0)
-                    {
-                        indexForLonger = startLonger - i;
-                        steigung = -((double)shorterDelta) / longerDelta;
-
-                    }
-                    else if (shorterDelta < 0 && longerDelta > 0)
-                    {
-                        indexForLonger = startLonger + i;
-                        steigung = ((double)shorterDelta) / longerDelta;
-
-                    }
-                    else if (shorterDelta > 0 && longerDelta < 0)
-                    {
-                        indexForLonger = startLonger - i;
-                        steigung = -((double)shorterDelta) / longerDelta;
-
-                    }
-                    else if (shorterDelta > 0 && longerDelta > 0)
-                    {
-                        indexForLonger = startLonger + i;
-                        steigung = ((double)shorterDelta) / longerDelta;
-
-                    }
-                    else if (shorterDelta == 0 && longerDelta > 0)
-                    {
-                        indexForLonger = startLonger + i;
-                        steigung = ((double)shorterDelta) / longerDelta;
-
-                    }
-                    else if (shorterDelta == 0 && longerDelta < 0)
-                    {
-                        indexForLonger = startLonger - i;
-                        steigung = ((double)shorterDelta) / longerDelta;
-
-                    }
-                    else
-                    {
-                        indexForLonger = -1;
-                        steigung = Double.MaxValue;
-                    }
-
-                    indexForShorter = (int)Math.Round(startShorter + i * steigung);
-
-                    if (longerIsX)
-                    {
-                        field[indexForShorter, indexForLonger] = "🔸";
-                    }
-                    else
-                    {
-                        field[indexForLonger, indexForShorter] = "🔸";
-                    }
-                }
-
-                // ausgabe
-                for (int i = 0; i < dimension; i++)
-                {
-                    for (int j = 0; j < dimension; j++)
-                    {
-                        Console.Write(field[i, j]);
-                    }
-                    Console.WriteLine();
-                }
-
-                Console.WriteLine("weiter? [true/false]");
-                zufrieden = bool.Parse(Console.ReadLine());
-
-            } while (zufrieden);
         }
-    }
+        else
+        {
+            longerDelta = deltaY;
+            shorterDelta = deltaX;
+            startLonger = yStart;
+            startShorter = xStart;
+            longerIsX = false;
+        }
+
+        for (int i = 1; i < Math.Abs(longerDelta); i++)
+        {
+            int indexForShorter;
+            int indexForLonger;
+
+            if (shorterDelta < 0 && longerDelta < 0)
+            {
+                indexForLonger = startLonger - i;
+                steigung = -((double)shorterDelta) / longerDelta;
+
+            }
+            else if (shorterDelta < 0 && longerDelta > 0)
+            {
+                indexForLonger = startLonger + i;
+                steigung = ((double)shorterDelta) / longerDelta;
+
+            }
+            else if (shorterDelta > 0 && longerDelta < 0)
+            {
+                indexForLonger = startLonger - i;
+                steigung = -((double)shorterDelta) / longerDelta;
+
+            }
+            else if (shorterDelta > 0 && longerDelta > 0)
+            {
+                indexForLonger = startLonger + i;
+                steigung = ((double)shorterDelta) / longerDelta;
+
+            }
+            else if (shorterDelta == 0 && longerDelta > 0)
+            {
+                indexForLonger = startLonger + i;
+                steigung = ((double)shorterDelta) / longerDelta;
+
+            }
+            else if (shorterDelta == 0 && longerDelta < 0)
+            {
+                indexForLonger = startLonger - i;
+                steigung = ((double)shorterDelta) / longerDelta;
+
+            }
+            else
+            {
+                indexForLonger = -1;
+                steigung = Double.MaxValue;
+            }
+
+            indexForShorter = (int)Math.Round(startShorter + i * steigung);
+
+            if (longerIsX)
+            {
+                field[indexForShorter, indexForLonger] = lineSymbol;
+            }
+            else
+            {
+                field[indexForLonger, indexForShorter] = lineSymbol;
+            }
+        }
+
+        // ENDE der Logik
+
+        Print(field, dimension);
+        zufrieden = HandleUserInputForRepeatingTheGame();
+
+    } while (zufrieden);
 }
 
-namespace Variante4
+// ################################### Schritt 3 - kurz ###################################
+// Im Schritt 3 - kurz funktioniert:
+// - 0 5 und 7 7
+// - 5 0 und 7 7
+// - 5 7 und 7 0
+// - 0 7 und 7 5
+// - 7 7 und 0 5
+// - 7 7 und 5 0
+// - 5 7 und 0 7
+// - 0 7 und 5 7
+// - 0 5 und 7 7
+// - 0 0 und 0 7
+// - 0 7 und 0 0
+
+void Schritt3_kurz()
 {
-    public class Exercise
+    bool zufrieden;
+    int dimension = HandleUserInputOfSetup();
+
+    Console.Clear();
+
+    // multidimensionales array anlegen.
+    string whiteSquare = "🔲";
+    string blackSquare = "🔳";
+    string startSymbol = "🟡";
+    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔹";
+
+    string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
+
+    do
     {
-        public static void Main(string[] args)
+        int[] positions = HandleUserInputDuringGame();
+        // Wem das nicht gefällt, bitte Tuple anschauen. Wir machen es in Modul 2. Dann geht es in einer Zeile.
+        int xStart = positions[0];
+        int yStart = positions[1];
+        int xDest = positions[2];
+        int yDest = positions[3];
+
+        field[yStart, xStart] = startSymbol;
+        field[yDest, xDest] = destSymbol;
+
+        int deltaX = xDest - xStart;
+        int deltaY = yDest - yStart;
+
+        int longerDelta;
+
+        // TODO: BEGINN der Logik - implementiere hier!
+        longerDelta = Math.Max(Math.Abs(deltaX), Math.Abs(deltaY));
+        double steigungVerkehrt = (double)deltaX / longerDelta;
+        double steigung = (double)deltaY / longerDelta;
+
+        for (int i = 1; i < longerDelta; i++)
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            bool zufrieden;
-            string promptForUser = "Größe des Spielfields eingeben: ";
-
-            // user input -> System.Read
-            Console.WriteLine(promptForUser);
-
-            int dimension;
-            while (!int.TryParse(Console.ReadLine(), out dimension))
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Input is not an integer. Please try again.");
-                Console.ResetColor();
-
-                Console.Write(promptForUser);
-            }
-
-            Console.Clear();
-
-            // multidimensionales array anlegen.
-            string[,] field = new string[dimension, dimension];
-
-            // 1Achtung! Nicht alle Emojis (16-32 Bit) haben in einem char platz (16 Bit) -
-            // manche sind zwei uni codes welche ein string versteht, aber ein char nicht.
-            // string blackSquare = '\u2B1B'.ToString(); // wir können aber weiße und schwarze kästchen mit 16bit chars verwenden.
-            // Strings sind jeodch angenehmer.
-            // string whiteSquare = "\u2B1C";
-
-            string whiteSquare = "⬜";
-            string blackSquare = "⬛";
-
-            // Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
-            for (int i = 0; i < dimension; i++)
-            {
-                for (int j = 0; j < dimension; j++)
-                {
-                    //if ((j + i) % 2 == 0)
-                    if ((j % 2 == 0 && i % 2 == 0) || (j % 2 == 1 && i % 2 == 1))
-                        field[i, j] = whiteSquare;
-                    else
-                        field[i, j] = blackSquare;
-                }
-            }
-
-            do
-            {
-                // Userinput - Wir verzichten hier auf Fehlerbehandlungen.
-                Console.Write("Wähle die Figur... [x y]: ");
-                string[] userinput = Console.ReadLine().Split(" ");
-
-                int xStart = int.Parse(userinput[0]);
-                int yStart = int.Parse(userinput[1]);
-
-                Console.Write("... und wähle das Ziel [x y]: ");
-                userinput = Console.ReadLine().Split(" ");
-
-                int xZiel = int.Parse(userinput[0]);
-                int yZiel = int.Parse(userinput[1]);
-
-                field[yStart, xStart] = "🟡";
-                field[yZiel, xZiel] = "❌";
-
-                int deltaX = xZiel - xStart;
-                int deltaY = yZiel - yStart;
-                double steigung;
-                int longerDelta;
-                int shorterDelta;
-                int startLonger;
-                int startShorter;
-                bool longerIsX;
-
-                // In dieser Variante sind alle Fälle abgedeckt.
-                // Wir sehen hier einige "technische" anpassungen.
-                // - wir drehen manchmal das Vorzeichen der Steigung um
-                // - wir gehen mit der For-Loop in verschiedene Richtungen, je nachdem wie die Start und Endpunkte liegen.
-
-                // Wir können nun Versuchen "smartere" Lösungsansätze zu finden.
-                // Anreize dafür sind:
-                // - Wir können uns Code sparen wenn wir vorher das Problem und "herrichten". Das beduetet,
-                //      - ob wir beginnen vom Start zum Ziel zu zeichnen, oder vom Ziel zum Start ist eigentlich egal.
-                //      - ob wir von [0 0] zu [7 7] fahren ist das gleiche wie [0 7] zu [7 0], wenn das Spielfeld vorher 90° nach links gedreht wird.
-
-                Console.WriteLine("++++++++++++++ Version 4 ++++++++++++++");
-                // Tests:
-                // - 0 5 und 7 7
-                // - 5 0 und 7 7
-                // - 5 7 und 7 0
-                // - 0 7 und 7 5
-                // - 7 7 und 0 5
-                // - 7 7 und 5 0
-                // - 5 7 und 0 7
-                // - 0 7 und 5 7
-                // - 0 5 und 7 7
-                // - 0 0 und 0 7
-                // - 0 7 und 0 0
-
-                longerDelta = Math.Max(Math.Abs(deltaX), Math.Abs(deltaY));
-                double stepX = (double)deltaX / longerDelta;
-                double stepY = (double)deltaY / longerDelta;
-
-                for (int i = 1; i < longerDelta; i++)
-                {
-                    int x = xStart + (int)Math.Round(i * stepX);
-                    int y = yStart + (int)Math.Round(i * stepY);
-                    field[y, x] = "🔸";
-                }
-
-                // ausgabe
-                for (int i = 0; i < dimension; i++)
-                {
-                    for (int j = 0; j < dimension; j++)
-                    {
-                        Console.Write(field[i, j]);
-                    }
-                    Console.WriteLine();
-                }
-
-                Console.WriteLine("weiter? [true/false]");
-                zufrieden = bool.Parse(Console.ReadLine());
-
-            } while (zufrieden);
+            int x = xStart + (int)Math.Round(i * steigungVerkehrt);
+            int y = yStart + (int)Math.Round(i * steigung);
+            field[y, x] = "🔸";
         }
+
+        // ENDE der Logik
+
+        Print(field, dimension);
+        zufrieden = HandleUserInputForRepeatingTheGame();
+
+    } while (zufrieden);
+}
+
+// #################### Hilfsfunktionen ####################
+int HandleUserInputOfSetup()
+{
+    string prompt = "Größe des Spielfields eingeben:";
+    Console.Write($"{prompt} ");
+
+    int dimension;
+    string userinput = Console.ReadLine();
+    while (!int.TryParse(userinput, out dimension))
+    {
+        PrepareConsoleFormatAndPrintErrorPrompt("Bitte eine positive Zahl ohne Komma eingeben.", userinput);
+        Console.Write($"{prompt} ");
+        userinput = Console.ReadLine();
+    }
+
+    return dimension;
+}
+
+int[] HandleUserInputDuringGame()
+{
+    int[] startPos = HandleUserInputOfBoardPositions("Wähle die Figur... [x y]:");
+    int[] endPos = HandleUserInputOfBoardPositions("... und wähle das Ziel [x y]:");
+    return [startPos[0], startPos[1], endPos[0], endPos[1]];
+}
+
+int[] HandleUserInputOfBoardPositions(string prompt)
+{
+    int x, y; // Abgekürzte Schreibeweise, anstatt zwei Zeilen für Definition zu verwenden.
+
+    Console.Write($"{prompt} ");
+    string[] userinput = Console.ReadLine().Split(" ");
+
+    while (!(userinput.Length == 2 &&
+        int.TryParse(userinput[0], out x) &&
+        int.TryParse(userinput[1], out y)))
+    {
+        PrepareConsoleFormatAndPrintErrorPrompt("Bitte geben Sie ZWEI ganze Zahlen, getrennt durch ein Leerzeichen, ein.", string.Join(" ", userinput));
+        Console.Write($"{prompt} ");
+        userinput = Console.ReadLine().Split(" ");
+    }
+
+    return [x, y];
+}
+
+bool HandleUserInputForRepeatingTheGame()
+{
+    string prompt = "weiter? [true/false]:";
+    Console.Write($"{prompt} ");
+    bool choice;
+    string userinput = Console.ReadLine();
+
+    while (!bool.TryParse(userinput, out choice))
+    {
+        PrepareConsoleFormatAndPrintErrorPrompt("Bitte geben Sie das Wort true oder false ein.", userinput);
+        Console.Write($"{prompt} ");
+        userinput = Console.ReadLine();
+    }
+
+    return choice;
+}
+
+void PrepareConsoleFormatAndPrintErrorPrompt(string prompt, string erronousInput) {
+    Console.Clear();
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"Ungültige Eingabe: { string.Join(" ", erronousInput)} - {prompt}");
+    Console.ResetColor();
+}
+
+string[,] GenerateSchessBoard(int dimension, string whiteSquare, string blackSquare)
+{
+    string[,] field = new string[dimension, dimension];
+    // Erstelle ein Schachbrettmuster beliebiger Größe welche vom User bestimmt wird.
+    for (int i = 0; i < dimension; i++)
+    {
+        for (int j = 0; j < dimension; j++)
+        {
+            if ((j + i) % 2 == 0)
+            {
+                field[i, j] = whiteSquare;
+            }
+            else
+            {
+                field[i, j] = blackSquare;
+            }
+        }
+    }
+
+    return field;
+}
+
+void Print(string[,] field, int dimension)
+{
+    for (int i = 0; i < dimension; i++)
+    {
+        for (int j = 0; j < dimension; j++)
+        {
+            Console.Write(field[i, j]);
+        }
+        Console.WriteLine();
     }
 }
