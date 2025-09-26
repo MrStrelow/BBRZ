@@ -8,27 +8,9 @@ Console.OutputEncoding = Encoding.UTF8;
 //Schritt1();
 Schritt2();
 //Schritt3();
-//Schritt3_kurz();
 
 // Funktionen für einzelne Schritte aus der Angabe 
 // ################################### Schritt 1 ###################################
-// Im Schritt 1 funktioniert:
-// - 0 5 und 7 7
-
-// Anmerkung:
-// Wir haben zwar nicht alle Fälle hier abgedeckt, es entstehen also Bugs und Fehler,
-// aber die Logik ist prinzipiell implementiert! Es beinhaltet die essenziellen Teile fürs Verständnis.
-
-// folgendes funktioniert noch nicht:
-// - Was passiet wenn wir ein groesseres Delta y als Delta x haben? (Teste: 5 0 und 7 7)
-// - Was wenn wir einen Zug von rechts lach links machen? (Teste: 7 7 und 5 0)
-// - Was wenn wir einen Zug von unten nach oben machen? (Teste: 7 7 und 5 0)
-// - Was ist wenn wir einen geraden Zug machen? Eine Richtung hat dadurch keine Steigung. (0 7 und 0 0 und 0 7 und 5 7)
-
-// In all diesen Fällen haben wir zwar pinzipiell die richtige Logik, jedoch ändern sich Kleinigkeiten.
-// Versuche über diese Fälle nachzudenken indem du die oben genannten Tests ausführst und dir den Output/Fehler anschaust. 
-// Verwende dazu auch den DebugModus.
-
 void Schritt1()
 {
     bool zufrieden;
@@ -79,9 +61,6 @@ void Schritt1()
 }
 
 // ################################### Schritt 2 ###################################
-// Im Schritt 2 funktioniert:
-// - 0 5 und 7 7
-// - 5 0 und 7 7
 void Schritt2()
 {
     bool zufrieden;
@@ -114,182 +93,79 @@ void Schritt2()
         int deltaY = yDest - yStart;
         double steigung;
 
-        int longerDelta;
-        bool longerIsX;
-
         // TODO: BEGINN der Logik - implementiere hier!
-        // Was ist die Längere Seite? Merke die diese und drehen deltaY / deltaX um.
-        if (Math.Abs(deltaX) > Math.Abs(deltaY))
+        // 1) Bestimme die Schleifenlänge - flach vs. steil
+        int loopLength = Math.Max(Math.Abs(deltaX), Math.Abs(deltaY));
+        int currentX, currentY;
+
+        // 2.) Eine einzige Schleife, die für jeden Schritt der Linie einmal durchläuft.
+        for (int i = 1; i < loopLength; i++)
         {
-            steigung = ((double)deltaY) / deltaX;
-            longerDelta = deltaX;
-            longerIsX = true;
-        }
-        else
-        {
-            steigung = ((double)deltaX) / deltaY;
-            longerDelta = deltaY;
-            longerIsX = false;
-        }
+            // 3. In JEDEM Schritt wird geprüft, welcher der 8 Fälle zutrifft, um die aktuellen Koordinaten zu berechnen.
 
-        // Wie zuvor, aber wir gehen nun die längere Seite ab.
-        for (int i = 1; i < Math.Abs(longerDelta); i++)
-        {
-            int neuePositionX;
-            int neuePositionY;
-
-            // Es gibt zwei Fälle: wenn y länger ist.
-            if (longerIsX)
+            // Fall 1: Rechts, Unten, Flach
+            if (deltaX > 0 && deltaY >= 0 && Math.Abs(deltaX) >= Math.Abs(deltaY))
             {
-                neuePositionY = yStart + Convert.ToInt32(Math.Round(i * steigung));
-                neuePositionX = xStart + i;
+                steigung = (double)deltaY / deltaX;
+                currentX = xStart + i;
+                currentY = (int)Math.Round(yStart + i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-            // Es gibt zwei Fälle: wenn x länger ist.
-            else
+            // Fall 2: Rechts, Unten, Steil
+            else if (deltaX > 0 && deltaY > 0 && Math.Abs(deltaX) < Math.Abs(deltaY))
             {
-                neuePositionY = yStart + i;
-                neuePositionX = (int)Math.Round(xStart + i * steigung);
+                steigung = (double)deltaX / deltaY;
+                currentY = yStart + i;
+                currentX = (int)Math.Round(xStart + i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-
-            field[neuePositionY, neuePositionX] = lineSymbol;
-            //Print(field, dimension);
-        }
-
-        // ENDE der Logik
-
-        Print(field, dimension);
-        zufrieden = HandleUserInputForRepeatingTheGame();
-
-    } while (zufrieden);
-}
-
-// ################################### Schritt 3 ###################################
-// Im Schritt 3 funktioniert:
-// - 0 5 und 7 7
-// - 5 0 und 7 7
-// - 5 7 und 7 0
-// - 0 7 und 7 5
-// - 7 7 und 0 5
-// - 7 7 und 5 0
-// - 5 7 und 0 7
-// - 0 7 und 5 7
-// - 0 5 und 7 7
-// - 0 0 und 0 7
-// - 0 7 und 0 0
-
-void Schritt3()
-{
-    bool zufrieden;
-    int dimension = HandleUserInputOfSetup();
-
-    Console.Clear();
-
-    // multidimensionales array anlegen.
-    string whiteSquare = "🔲";
-    string blackSquare = "🔳";
-    string startSymbol = "🏌🏻";
-    string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
-    string lineSymbol = "🔸";
-
-    string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
-
-    do
-    {
-        int[] positions = HandleUserInputDuringGame();
-        // Wem das nicht gefällt, bitte Tuple anschauen. Wir machen es in Modul 2. Dann geht es in einer Zeile.
-        int xStart = positions[0];
-        int yStart = positions[1];
-        int xDest = positions[2];
-        int yDest = positions[3];
-
-        field[yStart, xStart] = startSymbol;
-        field[yDest, xDest] = destSymbol;
-
-        int deltaX = xDest - xStart;
-        int deltaY = yDest - yStart;
-        double steigung;
-
-        int longerDelta;
-        int shorterDelta;
-        int startLonger;
-        int startShorter;
-        bool longerIsX;
-
-        // TODO: BEGINN der Logik - implementiere hier!
-        if (Math.Abs(deltaX) > Math.Abs(deltaY))
-        {
-            longerDelta = deltaX;
-            shorterDelta = deltaY;
-            startLonger = xStart;
-            startShorter = yStart;
-            longerIsX = true;
-
-        }
-        else
-        {
-            longerDelta = deltaY;
-            shorterDelta = deltaX;
-            startLonger = yStart;
-            startShorter = xStart;
-            longerIsX = false;
-        }
-
-        for (int i = 1; i < Math.Abs(longerDelta); i++)
-        {
-            int indexForShorter;
-            int indexForLonger;
-
-            if (shorterDelta < 0 && longerDelta < 0)
+            // Fall 3: Links, Unten, Steil
+            else if (deltaX <= 0 && deltaY > 0 && Math.Abs(deltaX) <= Math.Abs(deltaY))
             {
-                indexForLonger = startLonger - i;
-                steigung = -((double)shorterDelta) / longerDelta;
-
+                steigung = (double)deltaX / deltaY;
+                currentY = yStart + i;
+                currentX = (int)Math.Round(xStart + i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-            else if (shorterDelta < 0 && longerDelta > 0)
+            // Fall 4: Links, Unten, Flach
+            else if (deltaX < 0 && deltaY >= 0 && Math.Abs(deltaX) > Math.Abs(deltaY))
             {
-                indexForLonger = startLonger + i;
-                steigung = ((double)shorterDelta) / longerDelta;
-
+                steigung = (double)deltaY / deltaX;
+                currentX = xStart - i;
+                currentY = (int)Math.Round(yStart - i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-            else if (shorterDelta > 0 && longerDelta < 0)
+            // Fall 5: Links, Oben, Flach
+            else if (deltaX < 0 && deltaY <= 0 && Math.Abs(deltaX) >= Math.Abs(deltaY))
             {
-                indexForLonger = startLonger - i;
-                steigung = -((double)shorterDelta) / longerDelta;
-
+                steigung = (double)deltaY / deltaX;
+                currentX = xStart - i;
+                currentY = (int)Math.Round(yStart - i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-            else if (shorterDelta > 0 && longerDelta > 0)
+            // Fall 6: Links, Oben, Steil
+            else if (deltaX < 0 && deltaY < 0 && Math.Abs(deltaX) < Math.Abs(deltaY))
             {
-                indexForLonger = startLonger + i;
-                steigung = ((double)shorterDelta) / longerDelta;
-
+                steigung = (double)deltaX / deltaY;
+                currentY = yStart - i;
+                currentX = (int)Math.Round(xStart - i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-            else if (shorterDelta == 0 && longerDelta > 0)
+            // Fall 7: Rechts, Oben, Steil
+            else if (deltaX >= 0 && deltaY < 0 && Math.Abs(deltaX) <= Math.Abs(deltaY))
             {
-                indexForLonger = startLonger + i;
-                steigung = ((double)shorterDelta) / longerDelta;
-
+                steigung = (double)deltaX / deltaY;
+                currentY = yStart - i;
+                currentX = (int)Math.Round(xStart - i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
-            else if (shorterDelta == 0 && longerDelta < 0)
+            // Fall 8: Rechts, Oben, Flach
+            else if (deltaX > 0 && deltaY < 0 && Math.Abs(deltaX) > Math.Abs(deltaY))
             {
-                indexForLonger = startLonger - i;
-                steigung = ((double)shorterDelta) / longerDelta;
-
-            }
-            else
-            {
-                indexForLonger = -1;
-                steigung = Double.MaxValue;
-            }
-
-            indexForShorter = (int)Math.Round(startShorter + i * steigung);
-
-            if (longerIsX)
-            {
-                field[indexForShorter, indexForLonger] = lineSymbol;
-            }
-            else
-            {
-                field[indexForLonger, indexForShorter] = lineSymbol;
+                steigung = (double)deltaY / deltaX;
+                currentX = xStart + i;
+                currentY = (int)Math.Round(yStart + i * steigung);
+                field[currentY, currentX] = lineSymbol;
             }
         }
 
@@ -302,20 +178,7 @@ void Schritt3()
 }
 
 // ################################### Schritt 3 - kurz ###################################
-// Im Schritt 3 - kurz funktioniert:
-// - 0 5 und 7 7
-// - 5 0 und 7 7
-// - 5 7 und 7 0
-// - 0 7 und 7 5
-// - 7 7 und 0 5
-// - 7 7 und 5 0
-// - 5 7 und 0 7
-// - 0 7 und 5 7
-// - 0 5 und 7 7
-// - 0 0 und 0 7
-// - 0 7 und 0 0
-
-void Schritt3_kurz()
+void Schritt3()
 {
     bool zufrieden;
     int dimension = HandleUserInputOfSetup();
