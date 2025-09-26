@@ -5,11 +5,10 @@ using System.Text;
 
 // ################################### Main - Auswahl der Schritte ###################################
 Console.OutputEncoding = Encoding.UTF8;
-
 //Schritt1();
-//Schritt2();
+Schritt2();
 //Schritt3();
-Schritt3_kurz();
+//Schritt3_kurz();
 
 // Funktionen für einzelne Schritte aus der Angabe 
 // ################################### Schritt 1 ###################################
@@ -40,9 +39,9 @@ void Schritt1()
     // multidimensionales array anlegen.
     string whiteSquare = "🔲";
     string blackSquare = "🔳";
-    string startSymbol = "🟡";
-    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
-    string lineSymbol = "🔹";
+    string startSymbol = "🏌🏻";
+    string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔸";
 
     string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
 
@@ -65,10 +64,10 @@ void Schritt1()
         // TODO: BEGINN der Logik - implementiere hier!
         steigung = Math.Abs(((double)deltaY) / deltaX);
 
-        for (int x = 1; x < deltaX; x++)
+        for (int x = xStart + 1; x < deltaX; x++)
         {
-            int y = Convert.ToInt32(Math.Round(steigung * x));
-            field[yStart + y, xStart + x] = lineSymbol;
+            int y = yStart + Convert.ToInt32(Math.Round(steigung * x));
+            field[y, x] = lineSymbol;
         }
 
         // ENDE der Logik
@@ -93,9 +92,9 @@ void Schritt2()
     // multidimensionales array anlegen.
     string whiteSquare = "🔲";
     string blackSquare = "🔳";
-    string startSymbol = "🟡";
-    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
-    string lineSymbol = "🔹";
+    string startSymbol = "🏌🏻";
+    string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔸";
 
     string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
 
@@ -156,6 +155,7 @@ void Schritt2()
             }
 
             field[neuePositionY, neuePositionX] = lineSymbol;
+            //Print(field, dimension);
         }
 
         // ENDE der Logik
@@ -190,9 +190,9 @@ void Schritt3()
     // multidimensionales array anlegen.
     string whiteSquare = "🔲";
     string blackSquare = "🔳";
-    string startSymbol = "🟡";
-    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
-    string lineSymbol = "🔹";
+    string startSymbol = "🏌🏻";
+    string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔸";
 
     string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
 
@@ -328,9 +328,9 @@ void Schritt3_kurz()
     // multidimensionales array anlegen.
     string whiteSquare = "🔲";
     string blackSquare = "🔳";
-    string startSymbol = "🟡";
-    string destSymbol = "❌"; // dest ist die abküzrung für destination -> das Ziel.
-    string lineSymbol = "🔹";
+    string startSymbol = "🏌🏻";
+    string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
+    string lineSymbol = "🔸";
 
     string[,] field = GenerateSchessBoard(dimension, whiteSquare, blackSquare);
 
