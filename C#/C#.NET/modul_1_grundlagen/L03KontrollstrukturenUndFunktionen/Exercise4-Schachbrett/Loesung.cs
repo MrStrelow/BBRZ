@@ -64,10 +64,10 @@ void Schritt1()
         // TODO: BEGINN der Logik - implementiere hier!
         steigung = Math.Abs(((double)deltaY) / deltaX);
 
-        for (int x = xStart + 1; x < deltaX; x++)
+        for (int x = 1; x < deltaX; x++)
         {
-            int y = yStart + Convert.ToInt32(Math.Round(steigung * x));
-            field[y, x] = lineSymbol;
+            int y = Convert.ToInt32(Math.Round(steigung * x));
+            field[yStart + y, xStart + x] = lineSymbol;
         }
 
         // ENDE der Logik
@@ -115,9 +115,6 @@ void Schritt2()
         double steigung;
 
         int longerDelta;
-        int shorterDelta;
-        int startLonger;
-        int startShorter;
         bool longerIsX;
 
         // TODO: BEGINN der Logik - implementiere hier!
@@ -144,7 +141,7 @@ void Schritt2()
             // Es gibt zwei Fälle: wenn y länger ist.
             if (longerIsX)
             {
-                neuePositionY = (int)Math.Round(yStart + i * steigung);
+                neuePositionY = yStart + Convert.ToInt32(Math.Round(i * steigung));
                 neuePositionX = xStart + i;
             }
             // Es gibt zwei Fälle: wenn x länger ist.
