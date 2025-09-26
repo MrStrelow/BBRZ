@@ -13,9 +13,9 @@ geratenen Buchstaben.
 Beispielwörter mit 3 Buchstaben: Bau, Hut, Arm, Tag, Eis, Zoo, See
 Beispielwörter mit 4 Buchstaben: Haus, Bahn, Tier, Buch, Fest
 
-Optional: Führe das Programm im Terminal/Console aus und implementiere, dass das eingegebene Wort "verschwindet". Wir überschreiben die Zeile wo es ausgegeben wird. Verwende dazu die Konsolenbefehle
+Optional: Führe das Programm im Terminal/Console aus und implementiere, dass das eingegebene Wort "verschwindet". Wir verwenden dazu ``Console.ReadKey(true)`` um die Eingabe des Users zu verstecken. Danach geben wir z.B. ``"*"`` aus. Das muss pro Tastendruck und damit *char* passieren.
 
-*Hinweis: Verwende folgenden Ort für die Darstellung des Problems (siehe Lösung):*
+* Verwende folgende Vorlage. Dort ist die Darstellung des Spiels bereits implementiert.*
 ```
 using System.Text;
 
