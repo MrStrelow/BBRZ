@@ -42,7 +42,68 @@ namespace Aufgabe1
     }
 }
 
-namespace Aufgabe2_1
+namespace Aufgabe2
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("--- Value Style ---");
+            ArraySideEffectExampleValueStyle();
+            Console.WriteLine("--- Reference Style ---");
+            ArraySideEffectExampleReferenceStyle();
+        }
+
+        static void ArraySideEffectExampleValueStyle()
+        {
+            int[] numbers = { 10, 20, 30 };
+            Console.WriteLine("Array vor dem Aufruf: " + string.Join(", ", numbers));
+
+            ModifyArrayValueStyleStyle(numbers);
+
+            Console.WriteLine("Array nach dem Aufruf: " + string.Join(", ", numbers));
+        }
+
+        static void ArraySideEffectExampleReferenceStyle()
+        {
+            int[] numbers = { 10, 20, 30 };
+            Console.WriteLine("Array vor dem Aufruf: " + string.Join(", ", numbers));
+
+            ModifyArrayReferenceStyle(numbers);
+
+            Console.WriteLine("Array nach dem Aufruf: " + string.Join(", ", numbers));
+        }
+
+        static void ModifyArrayValueStyle(int[] arr)
+        {
+            // Kopiere arr in ein neues Array mit namen kopie.
+            int[] kopie = new int[arr.Length];  
+            for (int i = 0; i < arr.Length; i++)
+            {
+                kopie[i] = arr[i];
+            }
+
+            // Diese Änderung wirkt sich auf das Original-Array aus,
+            // da 'arr' auf dasselbe Objekt im Speicher zeigt wie 'numbers'.
+            if (kopie.Length > 0)
+            {
+                kopie[0] = 99;
+            }
+        }
+
+        static void ModifyArrayReferenceStyle(int[] arr)
+        {
+            // Diese Änderung wirkt sich auf das Original-Array aus,
+            // da 'arr' auf dasselbe Objekt im Speicher zeigt wie 'numbers'.
+            if (arr.Length > 0)
+            {
+                arr[0] = 99;
+            }
+        }
+    }
+}
+
+namespace Aufgabe3
 {
     class Program
     {
@@ -121,7 +182,7 @@ namespace Aufgabe2_1
         }
     }
 
-    namespace Aufgabe2_2
+    namespace Aufgabe4
     {
         public enum Richtung
         {
@@ -154,67 +215,6 @@ namespace Aufgabe2_1
                 }
 
                 Console.WriteLine($"Wir können wieder {richtung} verwenden, da es außerhalb der If-Verzweigung definiert wurde.");
-            }
-        }
-    }
-
-    namespace Aufgabe3
-    {
-        class Program
-        {
-            static void Main()
-            {
-                Console.WriteLine("--- Value Style ---");
-                ArraySideEffectExampleValueStyle();
-                Console.WriteLine("--- Reference Style ---");
-                ArraySideEffectExampleReferenceStyle();
-            }
-
-            static void ArraySideEffectExampleValueStyle()
-            {
-                int[] numbers = { 10, 20, 30 };
-                Console.WriteLine("Array vor dem Aufruf: " + string.Join(", ", numbers));
-
-                ModifyArrayValueStyleStyle(numbers);
-
-                Console.WriteLine("Array nach dem Aufruf: " + string.Join(", ", numbers));
-            }
-
-            static void ArraySideEffectExampleReferenceStyle()
-            {
-                int[] numbers = { 10, 20, 30 };
-                Console.WriteLine("Array vor dem Aufruf: " + string.Join(", ", numbers));
-
-                ModifyArrayReferenceStyle(numbers);
-
-                Console.WriteLine("Array nach dem Aufruf: " + string.Join(", ", numbers));
-            }
-
-            static void ModifyArrayValueStyle(int[] arr)
-            {
-                // Kopiere arr in ein neues Array mit namen kopie.
-                int[] kopie = new int[arr.Length];  
-                for (int i = 0; i < arr.Length; i++)
-                {
-                    kopie[i] = arr[i];
-                }
-
-                // Diese Änderung wirkt sich auf das Original-Array aus,
-                // da 'arr' auf dasselbe Objekt im Speicher zeigt wie 'numbers'.
-                if (kopie.Length > 0)
-                {
-                    kopie[0] = 99;
-                }
-            }
-
-            static void ModifyArrayReferenceStyle(int[] arr)
-            {
-                // Diese Änderung wirkt sich auf das Original-Array aus,
-                // da 'arr' auf dasselbe Objekt im Speicher zeigt wie 'numbers'.
-                if (arr.Length > 0)
-                {
-                    arr[0] = 99;
-                }
             }
         }
     }
