@@ -68,7 +68,7 @@ while (fehler < MAX_FEHLER && !angezeigtesWortBuilder.ToString().Equals(zuErrate
 
     if (eingabe.Length != 1 || !char.IsLetter(eingabe[0]))
     {
-        Console.WriteLine("Bitte gib genau einen Buchstaben ein.");
+        Console.WriteLine("Bitte gib genau einen Buchstaben ein - Drücke eine Tast um fortzufahren.");
         Console.ReadKey(); // Warten auf Tastendruck, damit der Spieler die Meldung lesen kann
         Console.Clear();
         continue;
@@ -78,7 +78,7 @@ while (fehler < MAX_FEHLER && !angezeigtesWortBuilder.ToString().Equals(zuErrate
 
     if (bereitsGerateneBuchstaben.Contains(geratenerBuchstabe))
     {
-        Console.WriteLine("Diesen Buchstaben hast du bereits geraten.");
+        Console.WriteLine("Diesen Buchstaben hast du bereits geraten - Drücke eine Tast um fortzufahren.");
         Console.ReadKey();
         Console.Clear();
         continue;
