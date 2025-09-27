@@ -1,4 +1,16 @@
-﻿## Guess the Word
+﻿Welche ``Konzepte`` der Programmiersprache üben wir hier?
+* Schleifen
+* Verzweigungen
+* User-Input
+* Operatoren (besonders logische)
+
+Welche ``Denkweisen`` üben wir hier?
+* Wie steuere ich eine ``Schleife`` mit ``logischen Bedingungen``?
+
+Bei Unklarheiten hier nachlesen:
+* [welche Kontrollstrukturen soll ich verwenden?](../Skripten/L03.1Kontrollstrukturen.md)
+
+## Guess the Word - level: 😵‍💫
 Entwickeln Sie das Spiel "Hangman". Das Spiel sollte folgende Funktionen haben:
 * Fragen Sie den Benutzer nach einem Wort mit 3 Buchstaben. Die Zahl 3 soll in der Konstante Länge gespeichert werden und somit einfach veränderbar sein.
 * Ist das Wort zu lang oder leer, soll eine Fehlermeldung ausgegeben werden und erneut angefragt werden.

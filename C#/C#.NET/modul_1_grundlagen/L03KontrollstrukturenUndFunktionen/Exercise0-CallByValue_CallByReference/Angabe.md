@@ -23,7 +23,7 @@ In einem Projekt kann nur *eine* ausführbare ``Klasse`` sein. Also nur ein ``Ma
 
 * ``Arrays`` sind ``Referenztypen``. Wenn ein ``Array`` an eine ``Methode`` übergeben wird (**ohne ``keyword`` ``ref``**), wird die ``Referenz`` auf das ``Array`` übergeben. Was das genau bedeutet sehen wir in späteren Modulen. Änderungen an den Elementen des ``Arrays`` innerhalb der ``Methode`` sind daher auch außerhalb sichtbar. Dies nennt man einen ``Seiteneffekt``. Auch schon in den vorherigen Übungen ist mit dem ``Keyword`` ``out`` ein ``Seiteneffekt`` verwendet worden.
 
-### Aufgabe 1: int und ref int als Parameter einer Methode
+### Aufgabe 1 - level: 🤗 - int und ref int als Parameter einer Methode
 Schreibe zwei ``Methode`` *Altern*, welche beide zwei ``Parameter`` *aktuellesAlter* und *zaehleHinzu* haben. Der Unterschied ist jedoch eine ``Methode`` verwendet ``Call By Value`` die andere ``Call By Reference``.
 Merke in Kommentaren an, was die Konsequenz der Übergabe der ``Variable`` *alter* als ``Argument`` unter Verwendung von ``Call By Value`` und ``Call By Reference`` ist.
 Verwende dazu folgende Vorlage:
@@ -60,7 +60,7 @@ class Program
 ```
 ---
 
-### Aufgabe 2: Arrays und Seiteneffekte
+### Aufgabe - level: 🤗 - Arrays und Seiteneffekte
 Erstelle ein ``Array`` von ``int`` und rufe die ``Methode`` *ModifyArray* auf.
 ```csharp
 class Program
@@ -123,7 +123,7 @@ class Program
 **Kurze Wiederholung**:
 Die *TryParse*-Methode ist ein klassisches Beispiel für die Verwendung von `out`-Parametern. `out` ist ähnlich wie `ref`, da es eine Variable by reference übergibt. Der Hauptunterschied ist, dass eine `out`-Variable nicht initialisiert sein muss, bevor sie übergeben wird. Das passiert gleichzeitg. Innerhalb von *TryPase* wird dann der ``Wert`` der ``Variable`` welche mit *out* gekennzeichnet wird belegt.
 
-### Aufgabe 3 *TryParse* und ``Variablen`` des ``Typs`` *int*
+### Aufgabe 3 - level: 🙂 -  *TryParse* und ``Variablen`` des ``Typs`` *int*
 Verwende die *TryParse* ``Methode`` um folgende Aufgabe zu lösen. Beachte die ``Kommentare`` und den ``Scope`` (den Block, also die ``{}``) der ``Variablen``.
 
 ```csharp
@@ -204,7 +204,7 @@ class Program
     }
 ```
 
-### Aufgabe 4 - *TryParse* und ``Variablen`` des ``Typs`` *Enum*
+### Aufgabe 4  - level: 🙂 - *TryParse* und ``Variablen`` des ``Typs`` *Enum*
 Versuche nun mit ``Enum`` anstatt von int zu arbeiten.
 
 ```csharp

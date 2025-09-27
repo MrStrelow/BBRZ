@@ -10,7 +10,7 @@ Welche ``Denkweisen`` üben wir hier?
 Bei Unklarheiten hier nachlesen:
 * [welche Kontrollstrukturen soll ich verwenden?](../Skripten/L03.1Kontrollstrukturen.md)
 
-## Zahlen raten
+## Zahlen raten - level: 🤔
 
 Der Benutzer muss eine geheime Zahl zwischen 0 und 100 am Terminal erraten. Nach jeder Eingabe gibt das Programm Hinweise, ob die Zahl zu hoch oder zu klein ist. Der Benutzer hat 5 Leben. Wenn die Leben aufgebraucht sind, endet das Spiel mit einer Niederlage.
 

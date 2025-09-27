@@ -26,7 +26,7 @@ Welche ``Denkweisen`` üben wir hier?
 * logische Ausdrücke in if-else umwandeln
 * Boolesche Algebra
 
-### Aufgabe 1 - Ein gewünschter Zustand
+### Aufgabe 1 - level: 🙂 - Ein gewünschter Zustand
 Implementiere eine 2. Methode ``ProcessUserGuardClause`` und teste ob diese gleich der ``ProcessUserNestedIf`` ist.
 
 ```csharp
@@ -88,7 +88,7 @@ public class Program
 }
 ```
 
-### Aufgabe 2 - Mehrere gwünschte Zustände
+### Aufgabe 2 - level: 🤔 - Mehrere gwünschte Zustände
 Hier eine kompliziertere Abfrage. Diese hat *mehrere* ``gewünschte Zustände``.
 Verwende hier die gleichen Exceptions wie unten im Code.
 
@@ -187,7 +187,7 @@ public class Program
 }
 ```
 
-### Aufgabe 3 - Mehrere komplexere gewünschte Zustände
+### Aufgabe 3 - level: 😵‍💫 - Mehrere komplexere gewünschte Zustände
 ```csharp
 using System.Text;
 
