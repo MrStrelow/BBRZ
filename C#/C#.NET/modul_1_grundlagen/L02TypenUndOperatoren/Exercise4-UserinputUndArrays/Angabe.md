@@ -3,7 +3,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Umgang mit vordefinierten methoden zur Umwandlung von Variablen
 * Userinput auf der Console
 
-Welche ``Denkwweisen`` üben wir hier?
+Welche ``Denkweisen`` üben wir hier?
 * Umgang mit Mathematischen Formeln
 
 Bei Unklarheiten hier nachlesen:

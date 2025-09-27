@@ -2,6 +2,9 @@
 
 public class FormenMitFunktionen
 {
+    // TODO: es fehlt die Usereingabe und dessen Fehlerbehandlung in der Lösung
+    //  - diese ist natürlich noch vom Vortragenden zu implementieren 😬
+    // Da diese aber in den vorherigen Beispielen schon implementiert ist, ist es nicht tragisch wenn diese noch fehlt.
     public static void Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
@@ -12,7 +15,7 @@ public class FormenMitFunktionen
 
         field = FillCanvas(field, fillBackgorund);
         string[,] triangle = DrawTriangle(field, fillForm);
-        
+
         string[,] diamond = DrawDiamond(triangle);
         Print(diamond);
         Console.WriteLine();

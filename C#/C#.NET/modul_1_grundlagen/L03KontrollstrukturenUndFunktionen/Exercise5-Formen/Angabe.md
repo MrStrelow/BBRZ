@@ -7,44 +7,45 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Methoden (Arrays als Argument in Methoden - Call By Reference/Value)
 * StringBuilder (Ersetzen von allen gleichen Symbolen in einem String)
 
-Welche ``Denkwweisen`` üben wir hier?
+Welche ``Denkweisen`` üben wir hier?
 * Wie löse wir ``kleinere Teile`` eines ``großen Problems`` und ``kombiniere`` diese?
 * Wie gehe ich mit einer Mathematischen Funktion im Programmieren um (lineare Funktion, Steigung)?
 
 Bei Unklarheiten hier nachlesen:
 * [welche Kontrollstrukturen soll ich verwenden?](../Skripten/L03.1Kontrollstrukturen.md)
 
-## 4. Aus Dreiecken 📐 werden Diamanten 💠
-Generiere ``Formen``, welche vom ``User gewählt`` werden, sowie die benötigten Parameter der Formen. 
+# Aus Dreiecken 📐 werden Diamanten 💠
+**Anmerkungen:** 
+* Es existiert eine Vorlage welche die Punkte 3) aus der [Übersicht](#übersicht) bereits implementiert hat. Verwende diese und versuche diese zu grob verstehen!
+* >Die **Aufgabe ist** konzeptionell mit [Schritt 1](#schritt-1---level----erster-versuch) **abgeschlossen**. Die weiteren Schritte sind für besonders detailverliebte Teilnehmer:innen, welche dieses Beispiel besonders motiviert.
 
-Verwende dazu folgende Methoden welche alle in einer `ausführbaren Klasse` sich befinden (Klasse mit einer `Main` Methode):
-* ``static string[,] DrawTriangle(string[,] field, string symbol)``: zeichnet die [Basisform](#basisform) in ein 2d-Array.
-* ``static string[,] MirrorX(string[,] field)``: spiegle ein 2d-Array um die x-Achse.
-* ``static string[,] MirrorY(string[,] field)``: spiegle ein 2d-Array um die y-Achse.
+Wir unterteilen diese Aufgabe wieder in Schritte
 
-Versuche mit `MirrorY`, `MirrorX` und `DrawTriangle` alle 4 Fälle Teile des [Diamanten](#zusammengesetzte-formen) darzustellen.
-Verwende nun:
-* static string[,] CombineForm(String[,] container, String[,] part, Position position): um die 4 Teile des Diamanten zusammenzufügen.
+## Übersicht
+1) Generiere ``Formen``, welche vom ``User gewählt`` werden, sowie die benötigten Parameter der Formen. Verwende dazu folgende Methoden welche alle in einer `ausführbaren Klasse` sich befinden (Klasse mit einer `Main` Methode oder einem ``Top-Level Statement``):
+  * ``string[,] DrawTriangle(string[,] field, string symbol)``: zeichnet die [Basisform](#basisform) in ein 2d-Array.
+  * ``string[,] MirrorX(string[,] field)``: spiegle ein 2d-Array um die x-Achse.
+  * ``string[,] MirrorY(string[,] field)``: spiegle ein 2d-Array um die y-Achse. Versuche mit `MirrorY`, `MirrorX` und `DrawTriangle` alle 4 Fälle Teile des [Diamanten](#zusammengesetzte-formen) darzustellen. Verwende nun, ``string[,] CombineForm(String[,] container, String[,] part, Position position)`` um die 4 Teile des Diamanten zusammenzufügen.
 
-Für spätere Aufgaben, wie [Steigung der Formen](#steigung-der-formen) und [Muster der Formen](#muster-der-formen) sind folgende Methoden hilfreich:
-* ``static string[,] Transpose(string[,] field)``: hier vertausche zeilen und spalten eines 2d-Arrays.
+2) Für spätere Aufgaben, wie [Steigung der Formen](#steigung-der-formen) und [Muster der Formen](#muster-der-formen) sind folgende Methoden hilfreich:
+* ``string[,] Transpose(string[,] field)``: hier vertausche zeilen und spalten eines 2d-Arrays.
 
-* ``static string[,] Rotate(string[,] field)``: verwende `Transpose(MirrorX(field));` um das umzusetzten.
+* ``string[,] Rotate(string[,] field)``: verwende `Transpose(MirrorX(field));` um das umzusetzten.
 
-* ``static string[,] DrawPattern(string[,] field, int n, string fillForm, string newFillForm)``: Diese Methode zeichnet jede `nte` Zeile ein neues Symbol in die gesamte Zeile. Für spaltenweises zeichnen verwende vorher die Methode `drehen` und führe danach `DrawPattern` aus. Danach drehe es wieder zurück (also so oft, bis es wieder gleich wie am Anfang ist).
+* ``string[,] DrawPattern(string[,] field, int n, string fillForm, string newFillForm)``: Diese Methode zeichnet jede `nte` Zeile ein neues Symbol in die gesamte Zeile. Für spaltenweises zeichnen verwende vorher die Methode `drehen` und führe danach `DrawPattern` aus. Danach drehe es wieder zurück (also so oft, bis es wieder gleich wie am Anfang ist).
 
-* ``static string[,] DrawTriangle(string[,] field, string symbol, double slope)``: hier erzeuge ein neues 2d-Array. Die größe ist durch die Steigung `slope` auszurechnen. Danach zeichne die linie ein welche durch $y=k*x$ gegeben ist. Fülle alles was links von dem symbol der line ist mit diesem aus.
+* ``string[,] DrawTriangle(string[,] field, string symbol, double slope)``: hier erzeuge ein neues 2d-Array. Die größe ist durch die Steigung `slope` auszurechnen. Danach zeichne die linie ein welche durch $y=k*x$ gegeben ist. Fülle alles was links von dem symbol der line ist mit diesem aus.
 
-Hilfsmethoden:
-* ``static void Print(string[,] field)``: Gibt ein 2d-Array aus. Es soll die 1. Dimension in der `y Achse` und die 2. Dimension in der `x Achse` der Konsole sichbar sein (also nicht alles in eine Zeile schreiben).
+3) Hilfsmethoden:
+* ``void Print(string[,] field)``: Gibt ein 2d-Array aus. Es soll die 1. Dimension in der `y Achse` und die 2. Dimension in der `x Achse` der Konsole sichbar sein (also nicht alles in eine Zeile schreiben).
 
-* ``static string[,] FillCanvas(string[,] field, string symbol)``: Befüllt ein 2d-Array komplett mit einem Symbol.
-* ``static string[,] Copy(string[,] field)``: Kopiert den Parameter field in ein neues 2d-Array und gibt es zurück. Das ist nicht zwingend notwendig, jedoch denke an [call by value vs reference](../Skripten/L03.2CallByValueOrReference.md)
+* ``string[,] FillCanvas(string[,] field, string symbol)``: Befüllt ein 2d-Array komplett mit einem Symbol.
+* ``string[,] Copy(string[,] field)``: Kopiert den Parameter field in ein neues 2d-Array und gibt es zurück. Das ist nicht zwingend notwendig, jedoch denke an ``Arrays`` und deren [call by reference](../Skripten/L03.2CallByValueOrReference.md)-Eigenschaft!
 
-
+## Schritt 1 - level: 🤔 - Dreieck und Diamant
 Zuerst gibt der User an, welche Form generiert wird. Die Eingabe des Users soll der Name der Form sein. Diese sind:
-* Dreieck (rechtwinklig, gleichschenklig)
-* Raute (Diamant)
+* Dreieck
+* Diamant
 
 `Weitere Spezifikationen` nach der Wahl der Form folgen danach:
 * **Für die Form `Dreieck`:**
@@ -121,7 +122,7 @@ Zuerst gibt der User an, welche Form generiert wird. Die Eingabe des Users soll 
 ◽◽◽◽◽🔷🔷◽◽◽◽◽
 ```
 
-### Muster der Formen 
+## Schritt 2 - level: 😵‍💫 - Muster in den Formen
 Es soll dem User möglich sein, ein "Muster" für die Formen angeben zu können. Das bedeutet der User soll, z.B. "jede 2. Zeile" die gezeichneten Symbole mit ``🔸`` ausgetauschen können. Es kann aber auch jede 3., 4. oder sonstige ``Zeile`` oder ``Spalte`` ausgetauscht werden sein. ``Hinweis``: Löse zuerst das Problem für die Zeilen. Danach überlege wie kannst du den Code für das Austauschen der Zeilen für die Spalten verwenden? Welche Methoden haben wir bereits geschrieben?
 ``` 
 Jede 2. Zeile
@@ -171,10 +172,10 @@ Jede 3. Spalte
 ◽◽◽◽◽🔷🔸◽◽◽◽◽
 ```
 
-### Steigung der Formen
+## Schritt 3 - level: 💀💀 - Steigung der Formen
 Hier soll durch die Eingabe der ``Steigung`` gesteuert werden wie "spitz" das generierte Muster ist.
 
-#### Ein Beispiel
+### Ein Beispiel
 * Steigung $1$ bedeutet dass $\frac{\Delta y}{\Delta x}=k=1$. ``y`` bedeutet hier die vertikale (Zeilen) und ``x`` die horizontale (Spalten). Lösen Sie zuerst das Problem mit Steigung kleiner als $1$ und danach größer als $1$. 
 * ``Achtung!`` Da die Anzahl der Zeilen (y Achse) vom User fixiert ist, müssen solange die Schritte in x gegangen werden, bis diese Anzahl an Zeilen erreicht ist!
 * Wählen Sie frei ob sie, wenn die Steigung nicht genau dargestellt werden kann floor, ceiling oder round verwenden. Dies beeinflusst das generierte Muster, sie sind jedoch alle richtig. Es wird ``ceiling`` empfohlen, da hier am wenigsten auf ``Randbedingungen`` aufgepasst werden muss.

@@ -12,15 +12,16 @@ Bei Unklarheiten hier nachlesen:
 * [welche Kontrollstrukturen soll ich verwenden?](../Skripten/L03.1Kontrollstrukturen.md)
 
 # Schachbrett und Linien.
+**Anmerkungen:** 
+* Es existiert eine Vorlage welche die Punkte 2) und 3) aus der [Übersicht](#übersicht) bereits implementiert hat. Verwende diese und versuche diese zu grob verstehen!
+* >Die **Aufgabe ist** konzeptionell mit [Schritt 1](#schritt-1---level----erster-versuch) **abgeschlossen**. Die weiteren Schritte sind für besonders detailverliebte Teilnehmer:innen, welche dieses Beispiel besonders motiviert.
 
 ## Übersicht
 1) Der User soll 2 Paare von `y` und `x` Koordinaten wählen, welche miteinander verbunden werden sollen. Markiere die Start- und Endpunkte mit den Symbolen 🏌🏻 und ⛳. Verwende für die Verbindung dieser Punkte den Zusammenhang $y=k\cdot x+d$ und $\frac{\Delta y}{\Delta x}=k$. Verwende für jede Zelle, welche vom Programm als Teil der Linie ausgewählt wird, das Symbol ``🔸``.
 2) Erstelle ein Schachbrett mit den Dimensionen welche der User eingibt. Verwende dazu `Console.ReadLine` und wandle diesen String in eine Zahl um. Verwende *TryParse* mit eine ``While-Schleife`` um falsche Inputs abzufangen. Ein Schachbrett soll als 2D-Array auf der Console dargestellt werden. 
 3) Es soll möglich sein **mehrere** Linien im gleichen ``2D-Array`` zu zeichnen. Frage den User mit ``weiter? [true/false]: `` ob diese:r eine weitere Linie einzeichnen will.
 
-**Anmerkungen:** 
-* **Es existiert eine Vorlage welche die Punkte 2) und 3) aus der [Übersicht](#übersicht) bereits implementiert hat. Verwende diese und versuche diese zu grob verstehen!**
-* >**``Die Aufgabe ist konzeptionell mit Schritt 1 abgeschlossen. Die weiteren Schritte sind für besonders detailverliebte Teilnehmer:innen, welche dieses Beispiel besonders motiviert.``**
+**Anmerkung:**
 * Die 16-bit (4-hexbit) Uni-Codes für schwarze ⬛ und weiße ⬜ Symbole sind `\u21B1` und `\u21B2`. Falls diese nicht schön ausgefüllt dargestellt werden (die verwendete Font im Terminal unterstützt diese Symbole nicht als "emoji") verwende die 24-bit (5-hexbit) emojis 🔲 `\u1F532` und 🔳 `\u1F533`. (*``windows-taste + .``* öffnet dir einen preview einiger Emojis auf Windows. Füge diese dann in den Code ``string blackSquare = "⬛"`` ein)
 
 Der Zusammenhang zwischen wie wir eine Linie zwischen Zwei Punkten und welche Felder im ``2D-Array`` ansprechen ist bildlich hier dargestellt:

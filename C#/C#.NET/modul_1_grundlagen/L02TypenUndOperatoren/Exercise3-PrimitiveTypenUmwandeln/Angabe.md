@@ -2,7 +2,7 @@ Welche ``Konzepte`` der Programmiersprache üben wir hier?
 * Umgang mit vordefinierten methoden zur Umwandlung von Variablen
 * type-casting
 
-Welche ``Denkwweisen`` üben wir hier?
+Welche ``Denkweisen`` üben wir hier?
 * keine
 
 Bei Unklarheiten hier nachlesen:
