@@ -4,6 +4,8 @@ In .NET wird jede Variable entweder als **Werttyp** oder als **Referenztyp** kla
 
 **Anmerkung:** Wir gehen auch nicht auf Details von Referenzen ein, ebenso wenig wie auf Pointer und arbeiten mit einem vereinfachten, technisch nicht korrekten Konzept. Eine Analogie wäre das gelehrte Bohr'sche Modell von Atomen in Schulen vs. Quantenmechanik. Für besonders Interessierte, [hier](TODO) eine **optionale** hardwarenähere und korrektere Betrachtung von Refernzen, Values und Pointer für besonders Interessierte.
 
+---
+
 * **Werttypen (Value Types)**: Speichern ihre Daten direkt an ihrem Speicherort. Wenn eine Werttyp-Variable einer anderen zugewiesen wird, wird der **Wert kopiert**. Sie leben in der Regel auf dem **Stack**, einem schnellen Speicherbereich für lokale Variablen und Methodenaufrufe. Beispiele: `int`, `double`, `bool`, `char`, `struct`, `enum`.
 
 * **Referenztypen (Reference Types)**: Speichern nicht die Daten selbst, sondern eine **Referenz (einen Zeiger)** auf den Speicherort der Daten. Die eigentlichen Daten (das Objekt) liegen auf dem **Heap**, einem größeren, aber unorganisierten Speicherbereich. Wenn eine Referenztyp-Variable einer anderen zugewiesen wird, wird nur die **Referenz kopiert**, nicht das Objekt selbst. Beide Variablen zeigen danach auf dasselbe Objekt. Beispiele: `class`, `string`, `object`, `array`, `delegate`. Achtung! string hat ein spezielles Verhalten welches, manchmal das **Verhalten** eines ``Wertdatentyps`` hat und manchmal eines ``Referenzdatentyps`` hat. 
@@ -23,8 +25,6 @@ Increment(myValue);
 ```
 
 * **Referenzdatensemantik**: Wenn ein Referenztyp übergeben wird, wird die **Referenz kopiert**. Beide Referenzen (die originale und die im Parameter) zeigen auf **dasselbe Objekt** auf dem Heap. Änderungen am Objekt über den Parameter sind daher auch außerhalb der Methode sichtbar. 
-
-**Anmerkung für besonders Interessierte:** Wir betrachten ein unvollständiges Bild. Wir gehen nicht auf Call by Value of a Reference ein vs. Call by Reference. Wir gehen auch nicht auf Pointer ein. Wir betrachten hier Call by reference als eine Kopie der Referenz, nicht die Referenz selbst, der Verständlichkeit halber. Da Referenzen auch im Speicher liegen, wäre es auch möglich diesen Ort anzugeben (Wir tun das mit dem Keyword ref, auch für referenzdaten). Der standard fall ohne ref für uns ist, jedoch ein neuer Ort, mit der Kopie der Referenz angelegt. Das stellt sicher, dass wir nicht direkt mit der Referenz arbeiten. Pointers gehen weiter und erlauben berechnungen mit den SPeicheradressen selbst. Referenzen, sind nicht die speicheradressen selbst, diese sind eine Abstraktion der Speicheadressen. Zusätzlich wird bei Referenzen sichergestellt, dass keine problematischen Bereiche im Speicher angelegt werden und keine für hacker offensichtlichen exploits verwendet werden. Referenzen sind sich der Garbage collection bewusst, also smarter und arbeiten mit der C# Umgebung zusammen.
 
 ```csharp
 class MyData { public int Value { get; set; } }
