@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Compile Include="L00.1Eingangs_und_Ausgangsparameter_von_Funktionen.md" />
-    <Compile Include="L00.3Properties.md" />
   </ItemGroup>
 
 </Project>
