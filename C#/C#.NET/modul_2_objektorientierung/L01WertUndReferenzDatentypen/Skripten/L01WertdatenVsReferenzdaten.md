@@ -193,7 +193,7 @@ Seit C# 8 gibt es auch Nullable-Referenztypen. Hier ist das `?` (z.B. `string?`)
 ### Warum in Web-Programmierung & EF Core?
 
 * **Web-APIs (z.B. JSON)**: Ein Client sendet möglicherweise ein JSON-Objekt, in dem ein Feld fehlt. Beim Deserialisieren in ein C#-Objekt wird dieses Feld `null`. Wenn das zugehörige Property ein `int?` ist, funktioniert das. Wäre es ein `int`, würde es zu einem Fehler kommen.
-* **Entity Framework Core (Datenbanken)**: Eine Spalte in einer Datenbanktabelle kann als `NULL` deklariert sein (z.B. `Geburtstag DATE NULL`). EF Core mappt dies automatisch auf ein Nullable-Property in der C#-Entitätsklasse, z.B. `public DateTime? Geburtstag { get; set; }`.
+* **Entity Framework Core (Datenbanken)**: Eine Spalte in einer Datenbanktabelle kann als `NULL` deklariert sein (z.B. `INT seriennummer NULL`). EF Core mappt dies automatisch auf ein Nullable-Property in der C#-Entitätsklasse, z.B. `public int? Seriennummer { get; set; }`.
 
 ---
 
@@ -240,9 +240,67 @@ Console.WriteLine(recordC); // Gibt PersonRecord { FirstName = Jane, LastName = 
 
 ---
 
-## static vs. non-static bei Strings und Speicher
+## static vs. non-static Variablen
 
+Statische Variablen gehören zur Klasse selbst, nicht zu einer einzelnen Instanz.
+
+* **Existenz:** Sie existieren genau einmal pro Anwendung, sobald das Programm die Klasse "kennt". Es ist egal, ob Sie 0, 1 oder 1.000 Objekte dieser Klasse erstellen.
+* **Speicher:** Es gibt nur **eine einzige Kopie** dieser Variable im Speicher, die von allen Instanzen geteilt wird.
+* **Zugriff:** Sie werden direkt über den Klassennamen aufgerufen (z.B. `Auto.anzahlProduzierterAutos`). Man braucht kein Objekt dafür.
+
+**Beispiel:**
+
+```csharp
+public class Auto
+{
+    // Non-Static / Instanzvariable
+    public string farbe;
+
+    // Static Variable
+    // Diese eine Variable wird von allen Auto-Objekten geteilt.
+    public static int anzahlProduzierterAutos = 0;
+
+    public Auto(string farbe)
+    {
+        this.farbe = farbe;
+        
+        // Jedes Mal, wenn ein neues Auto erstellt wird (der Konstruktor aufgerufen wird),
+        // erhöhen wir den EINEN zentralen Zähler.
+        Auto.anzahlProduzierterAutos++;
+    }
+}
+
+public class Programm
+{
+    public static void Main()
+    {
+        // Zugriff auf die statische Variable, OBWOHL es noch kein Auto-Objekt gibt.
+        Console.WriteLine($"Bisher produzierte Autos: {Auto.anzahlProduzierterAutos}"); // Gibt 0 aus
+
+        Auto meinBmw = new Auto("Blau");
+        Auto deinVw = new Auto("Rot");
+        
+        // Der Zähler wurde zweimal erhöht.
+        Console.WriteLine($"Jetzt produzierte Autos: {Auto.anzahlProduzierterAutos}"); // Gibt 2 aus
+    }
+}
+```
+
+### Wann verwende ich was?
+* **Verwende `non-static` (Standardfall):**
+    Für alle Daten, die ein individuelles Objekt ausmachen. Wenn Sie sich fragen: "Hat jedes Objekt seinen eigenen, einzigartigen Wert für diese Eigenschaft?", dann ist es non-static. Dies trifft auf über 95% aller Variablen zu.
+
+* **Verwende `static` (Sonderfall):**
+    * **Zähler:** Wie im Beispiel `anzahlProduzierterAutos`, um zu verfolgen, wie viele Objekte erstellt wurden.
+    * **Konstanten oder feste Werte:** `public static readonly double PI = 3.14159;`. Da Pi immer gleich ist, braucht nicht jedes Objekt eine eigene Kopie.
+    * **Geteilte Ressourcen oder Konfiguration:** Ein `static` Feld kann eine Datenbankverbindung oder einen Konfigurationswert halten, auf den alle Instanzen zugreifen müssen.
+    * **Utility-Funktionen:** Statische Methoden (die oft mit statischen Variablen arbeiten) benötigen kein Objekt, um aufgerufen zu werden (z.B. `Math.Max(5, 10)`).
+
+
+### static vs. non-static bei Strings und Speicher
 Dieses Beispiel analysiert den Speicherverbrauch basierend darauf, wie ein `string`-Feld in einer Klasse deklariert wird, wenn Millionen von Instanzen erstellt werden. `string` ist ein besonderer Referenztyp, da er unveränderlich ist und der Compiler eine Technik namens **String Interning** anwendet.
+
+Das wesentliche was wir hier sehen sollen ist, ``static string darstellung = "🐹";`` relaubt uns die Vermeidung von vielen eigenen *string* (``Referenz``) ``Variablen``, die doppelt im Speicher liegen ``string darstellung = new string("🐹");``. Zusätzlich ist es bei *string* aber so, wenn die Symbole dem Compiler bereits bekannt sind, also ``string darstellung = "🐹";``, dass wir ``String Interning`` verwenden. Quasi ein Pool an Strings der für uns das ```Flyweight Pattern`` implementiert (dazu später). Das bedeutet wir schreiben nichts doppelt in den Speicher, auch ohne ``static``. Für allgemeine Objekte gilt das nicht! Ist nur eine Ausnahme für *strings*.
 
 ```csharp
 using System.Diagnostics;
@@ -255,7 +313,7 @@ public class Programm
     {
         // Version 1: Ein einziges statisches Feld für alle Hamster.
         // Geringster Speicherverbrauch. Nur ein String-Objekt existiert.
-        // static string darstellung_static = "🐹";
+        static string darstellung_static = "🐹";
 
         // Version 2: Instanzfeld mit einem Literal.
         // Der Compiler "interned" den String "🐹". Alle Instanzen teilen sich
@@ -309,18 +367,59 @@ public class Programm
 
 ---
 
-## Flyweight Pattern
+### Flyweight Pattern
 
-### Das Problem
+#### Das Problem
+Stellen wir uns vor, wir haben Millionen von Objekten (z.B. `Hamster`), die eine Eigenschaft haben (z.B. `Darstellung`), welche aber nur eine kleine, feste Anzahl von Zuständen annehmen kann (z.B. ``"🐹", "🧱", "🌍"``). Wenn wir für jeden Hamster ein neues `Darstellung`-Objekt erstellen, verschwenden wir enorm viel Speicher, da wir tausendfach identische Daten duplizieren. Der Unterschied zum vorherigen Problem ist, dass wir nicht eine fixe Darstellung haben, sondern eien Auswahl an mehreren haben. 
 
-Stellen wir uns vor, wir haben Millionen von Objekten (z.B. `Hamster`), die eine Eigenschaft haben (z.B. `Darstellung`), welche aber nur eine kleine, feste Anzahl von Zuständen annehmen kann (z.B. "🐹", "🧱", "🌍"). Wenn wir für jeden Hamster ein neues `Darstellung`-Objekt erstellen, verschwenden wir enorm viel Speicher, da wir tausendfach identische Daten duplizieren.
+**Wichtig!** Um das ``String Interning`` zu umgehen schreiben wir nicht ``string Normal = "🐹";``, sondern ``HamsterDarstellung Normal = new("🐹");``. Das simuliert *strings* aus der Datenbank, oder welche neu von den Benutzern über eine website/console eingegeben werden.
 
-### Die Lösung: Flyweight
+#### Version 1 - einfach static verwenden für bekannte Darstellung
+Zuerst jedoch hier eine Lösung welche einfach ``static`` verwendet. Das können wir tun, wenn wir wissen welche Symbole der Hamster haben wird (z.B. ``"🐹", "🧱", "🌍"``).
 
-Das **Flyweight Pattern** löst dieses Problem, indem es die gemeinsamen, unveränderlichen Daten (den *intrinsischen Zustand*) in "Flyweight"-Objekten auslagert. Eine **Factory** stellt sicher, dass für jeden einzigartigen Zustand **nur eine einzige Instanz** des Flyweight-Objekts existiert. Die individuellen Objekte (die `Hamster`) speichern dann nur noch eine Referenz auf das passende, geteilte Flyweight-Objekt.
+```csharp
+// Die Klasse, die die geteilten, unveränderlichen Zustände enthält.
+public class HamsterDarstellung
+{
+    public string Symbol { get; }
+
+    // Privater Konstruktor, damit niemand neue Instanzen erstellen kann.
+    private HamsterDarstellung(string symbol) { Symbol = symbol; }
+
+    // Die vordefinierten, gemeinsam genutzten Instanzen.
+    public static readonly HamsterDarstellung Normal = new("🐹");
+    public static readonly HamsterDarstellung Hungrig = new("🍔");
+    public static readonly HamsterDarstellung Muede = new("😴");
+    public static readonly HamsterDarstellung Verliebt = new("❤️");
+}
+
+// Die Hamster-Klasse (der "Context")
+public class Hamster
+{
+    // Die Instanzvariable, die auf eine der statischen Instanzen verweist.
+    public HamsterDarstellung Darstellung { get; set; }
+}
+
+public class StaticExample
+{
+    public static void Main()
+    {
+        // Erstellen von Hamstern und Zuweisen der geteilten Zustände.
+        var hamster1 = new Hamster { Darstellung = HamsterDarstellung.Normal };
+        var hamster2 = new Hamster { Darstellung = HamsterDarstellung.Hungrig };
+        var hamster3 = new Hamster { Darstellung = HamsterDarstellung.Normal }; // Verwendet dasselbe Objekt wie hamster1
+
+        // Speicher wird gespart, weil nur die 4 statischen Objekte + 3 Hamster-Objekte existieren.
+        // Die Referenz von hamster1.Darstellung und hamster3.Darstellung ist identisch.
+        Console.WriteLine(object.ReferenceEquals(hamster1.Darstellung, hamster3.Darstellung)); // Gibt "True" aus
+    }
+}
+```
+
+### Version 2: das wirkliche Flyweight Pattern für unbekannte Darstellungen
+Das **Flyweight Pattern** löst das Problem wenn wir nicht wissen welche Symbole ein Hamster haben wird, jedoch diesen nich 1000 mal speichern wollen. Wir schafen das indem es die gemeinsamen, unveränderlichen Daten (den *intrinsischen Zustand*) in "Flyweight"-Objekten auslagert. Eine **Factory** stellt sicher, dass für jeden einzigartigen Zustand **nur eine einzige Instanz** des Flyweight-Objekts existiert. Die individuellen Objekte (die `Hamster`) speichern dann nur noch eine Referenz auf das passende, geteilte Flyweight-Objekt.
 
 **Implementierung basierend auf dem Beispiel:**
-
 Wir erstellen eine `DarstellungFactory`, die uns Flyweight-Objekte für unsere Hamster-Darstellungen liefert.
 
 ```csharp
@@ -375,8 +474,8 @@ public class FlyweightExample
         var factory = new DarstellungFactory();
         var hamsters = new List<Hamster>();
 
-        // Erstelle viele Hamster, aber mit nur wenigen verschiedenen Darstellungen.
-        string[] symbols = { "🐹", "🧱", "🌍" };
+        // Erstelle viele Hamster, wir simulieren hier unbekannte symbole aus der Datenbank.
+        string[] symbols = { "🐹", "🧱", "🌍" }; // wichitg wir wissen nicht das es nur die 3 sein können! Wir wollen aber nicht 1000 Symbole händisch vom user eingeben lassen.
         var random = new Random();
 
         for (int i = 0; i < 10; i++)
