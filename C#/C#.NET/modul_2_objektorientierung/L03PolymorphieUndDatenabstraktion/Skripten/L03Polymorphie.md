@@ -88,7 +88,51 @@ public class Programm
 
 ### Was wenn kein Virtual ist?
 
-TODO
+```csharp
+// Obertyp (Base Type)
+public class Tier
+{
+    public string Name { get; set; }
+
+    // KEIN 'virtual'
+    public void GibLaut()
+    {
+        Console.WriteLine("Ein unbestimmtes Tiergeräusch.");
+    }
+}
+
+// Untertyp (Derived Type)
+public class Hund : Tier
+{
+    // KEIN 'override'. Dies ist eine NEUE, unabhängige Methode,
+    // die die Methode der Basisklasse nur "versteckt" (hides).
+    // Der Compiler gibt hier oft eine Warnung aus.
+    public void GibLaut()
+    {
+        Console.WriteLine("Wuff!");
+    }
+}
+
+public class Programm
+{
+    public static void Main()
+    {
+        // Szenario 1: Variable ist vom Typ Hund
+        Hund bello = new Hund();
+        bello.GibLaut(); // Gibt "Wuff!" aus. (Hier ist der Typ zur Compile-Zeit klar)
+
+        // Szenario 2: Polymorphismus
+        Tier meinTier = new Hund(); // Ein Hund-Objekt in einer Tier-Variable
+
+        // HIER ist der entscheidende Unterschied:
+        // Weil 'GibLaut' in Tier nicht 'virtual' ist, wird die Methode
+        // des deklarierten Typs der Variable ('Tier') aufgerufen.
+        meinTier.GibLaut(); // Gibt "Ein unbestimmtes Tiergeräusch." aus!
+
+        Hund meinHund = new Hund(); // Ein Hund-Objekt in einer Hund-Variable
+        meinTier.GibLaut(); // Gibt "Ein unbestimmtes Tiergeräusch." aus!
+    }
+}```
 
 ---
 
