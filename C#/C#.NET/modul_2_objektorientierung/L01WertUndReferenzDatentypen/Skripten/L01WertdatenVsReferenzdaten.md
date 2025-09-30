@@ -1,44 +1,43 @@
-# Wert- und Referenztypen in C#
+## Wert- und Referenzdaten - ein erster Eindruck
 
-## Wert- und Referenzdaten (Value vs. Reference Types)
+In .NET wird jede Variable entweder als **Werttyp** oder als **Referenztyp** klassifiziert. Der Hauptunterschied liegt darin, **wie das Verhalten bei einer Methodenübergabe stattfindet**. Darauf liegt unser Fokus. Es ist **nicht** eindeutig **wo die Daten gespeichert werden**. Der Compiler entscheidet autonom über den Ort der Variablen im Speicher (Heap, Stack, Register, ...). Es gibt jedoch ein paar Daumenregeln, welche wir uns anschauen werden. 
 
-In .NET wird jede Variable entweder als **Werttyp** oder als **Referenztyp** klassifiziert. Der Hauptunterschied liegt darin, **wo und wie ihre Daten gespeichert werden**.
+**Anmerkung:** Wir gehen auch nicht auf Details von Referenzen ein, ebenso wenig wie auf Pointer und arbeiten mit einem vereinfachten, technisch nicht korrekten Konzept. Eine Analogie wäre das gelehrte Bohr'sche Modell von Atomen in Schulen vs. Quantenmechanik. Für besonders Interessierte, [hier](TODO) eine **optionale** hardwarenähere und korrektere Betrachtung von Refernzen, Values und Pointer für besonders Interessierte.
 
 * **Werttypen (Value Types)**: Speichern ihre Daten direkt an ihrem Speicherort. Wenn eine Werttyp-Variable einer anderen zugewiesen wird, wird der **Wert kopiert**. Sie leben in der Regel auf dem **Stack**, einem schnellen Speicherbereich für lokale Variablen und Methodenaufrufe. Beispiele: `int`, `double`, `bool`, `char`, `struct`, `enum`.
 
-* **Referenztypen (Reference Types)**: Speichern nicht die Daten selbst, sondern eine **Referenz (einen Zeiger)** auf den Speicherort der Daten. Die eigentlichen Daten (das Objekt) liegen auf dem **Heap**, einem größeren, aber langsameren Speicherbereich. Wenn eine Referenztyp-Variable einer anderen zugewiesen wird, wird nur die **Referenz kopiert**, nicht das Objekt selbst. Beide Variablen zeigen danach auf dasselbe Objekt. Beispiele: `class`, `string`, `object`, `array`, `delegate`.
+* **Referenztypen (Reference Types)**: Speichern nicht die Daten selbst, sondern eine **Referenz (einen Zeiger)** auf den Speicherort der Daten. Die eigentlichen Daten (das Objekt) liegen auf dem **Heap**, einem größeren, aber unorganisierten Speicherbereich. Wenn eine Referenztyp-Variable einer anderen zugewiesen wird, wird nur die **Referenz kopiert**, nicht das Objekt selbst. Beide Variablen zeigen danach auf dasselbe Objekt. Beispiele: `class`, `string`, `object`, `array`, `delegate`. Achtung! string hat ein spezielles Verhalten welches, manchmal das **Verhalten** eines ``Wertdatentyps`` hat und manchmal eines ``Referenzdatentyps`` hat. 
 
 ### Übergabe an Methoden
-
-Dieses Konzept ist entscheidend für das Verständnis, wie Methoden mit Daten arbeiten.
-
 * **Wertdatensemantik**: Wenn ein Werttyp an eine Methode übergeben wird, wird eine **Kopie** des Wertes erstellt und an den Methodenparameter übergeben. Änderungen am Parameter innerhalb der Methode haben **keine Auswirkungen** auf die ursprüngliche Variable außerhalb der Methode.
 
-    ```csharp
-    void Increment(int number)
-    {
-        number = number + 1; // Ändert nur die lokale Kopie
-    }
+```csharp
+void Increment(int number)
+{
+    number = number + 1; // Ändert nur die lokale Kopie
+}
 
-    int myValue = 5;
-    Increment(myValue);
-    // myValue ist immer noch 5!
-    ```
+int myValue = 5;
+Increment(myValue);
+// myValue ist immer noch 5!
+```
 
-* **Referenzdatensemantik**: Wenn ein Referenztyp übergeben wird, wird die **Referenz kopiert**. Beide Referenzen (die originale und die im Parameter) zeigen auf **dasselbe Objekt** auf dem Heap. Änderungen am Objekt über den Parameter sind daher auch außerhalb der Methode sichtbar.
+* **Referenzdatensemantik**: Wenn ein Referenztyp übergeben wird, wird die **Referenz kopiert**. Beide Referenzen (die originale und die im Parameter) zeigen auf **dasselbe Objekt** auf dem Heap. Änderungen am Objekt über den Parameter sind daher auch außerhalb der Methode sichtbar. 
 
-    ```csharp
-    class MyData { public int Value { get; set; } }
+**Anmerkung für besonders Interessierte:** Wir betrachten ein unvollständiges Bild. Wir gehen nicht auf Call by Value of a Reference ein vs. Call by Reference. Wir gehen auch nicht auf Pointer ein. Wir betrachten hier Call by reference als eine Kopie der Referenz, nicht die Referenz selbst, der Verständlichkeit halber. Da Referenzen auch im Speicher liegen, wäre es auch möglich diesen Ort anzugeben (Wir tun das mit dem Keyword ref, auch für referenzdaten). Der standard fall ohne ref für uns ist, jedoch ein neuer Ort, mit der Kopie der Referenz angelegt. Das stellt sicher, dass wir nicht direkt mit der Referenz arbeiten. Pointers gehen weiter und erlauben berechnungen mit den SPeicheradressen selbst. Referenzen, sind nicht die speicheradressen selbst, diese sind eine Abstraktion der Speicheadressen. Zusätzlich wird bei Referenzen sichergestellt, dass keine problematischen Bereiche im Speicher angelegt werden und keine für hacker offensichtlichen exploits verwendet werden. Referenzen sind sich der Garbage collection bewusst, also smarter und arbeiten mit der C# Umgebung zusammen.
 
-    void ChangeValue(MyData data)
-    {
-        data.Value = 99; // Ändert das Objekt, auf das beide Referenzen zeigen
-    }
+```csharp
+class MyData { public int Value { get; set; } }
 
-    var myData = new MyData { Value = 5 };
-    ChangeValue(myData);
-    // myData.Value ist jetzt 99!
-    ```
+void ChangeValue(MyData data)
+{
+    data.Value = 99; // Ändert das Objekt, auf das beide Referenzen zeigen
+}
+
+var myData = new MyData { Value = 5 };
+ChangeValue(myData);
+// myData.Value ist jetzt 99!
+```
 
 ### Die Schlüsselwörter `ref` und `out`
 
