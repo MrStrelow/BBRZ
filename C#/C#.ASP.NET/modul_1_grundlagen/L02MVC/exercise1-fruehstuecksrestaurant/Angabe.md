@@ -54,6 +54,25 @@ Die Services sind von [dieser](https://github.com/MrStrelow/BBRZ/tree/main/C%23/
 ![er-not-loaded](restaurant.dark.transp.png)
 ![er-not-loaded](restaurant.bright.transp.png)
 
+**Anmerkung:** Wir gehen hier von einem *Katalog* (Klasse) von *Ingredients*, *Dishes*, *Menus*, etc. aus. Also alles was unterhalb von der ``Entity`` *Order* steht. Wir tracken (noch) nicht einzelne *Ingredients* wie in einem Warenwirtschaftssystem. Der Unterschied ist also
+
+| id (PK) | zutat  |
+|:--------|:-------|
+| 1       | lauch  |
+| 2       | zwiebel| 
+| 3       | salz   |
+* **Jedes** Gericht verwendet die Zutat *lauch* mit id 2.
+
+vs.
+
+| id (PK) | zutat | lieferung  |
+|:--------|:------|:-----------|
+| 1       | lauch | 10.03.2017 |
+| 2       | lauch | 10.03.2017 |
+| 3       | lauch  | 11.03.2017 |
+* **Ein** Gericht verwendte die Zutat *lauch* mit id 1, ein anderes Gericht verwendet diese nicht mehr, da sie "gegessen" wurde. Es kann nun die der *lauch* mit id 2 verwendet werden.
+* Die Tabelle verstößt gegen die "3." Normalform, jedoch kompakter für die Darstellung des Unterschieds. 
+
 * **Entities**: Klassen wie `Bill`, `Customer`, `Menu`, und `Dish` repräsentieren die Datenmodelle. Diese werden von EF Core als Tabellen in der Datenbank abgebildet. Die Beziehungen sind *optional* mit *IEntityTypeConfiguration* zu spezifizieren.
 * **ApplicationDbContext**: Eine von `DbContext` abgeleitete Klasse, die als Brücke zwischen den Models und der Datenbank dient. Sie enthält `DbSet<>`-Eigenschaften für jede Entität.
 
