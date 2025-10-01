@@ -52,6 +52,7 @@ Die Services sind von [dieser](https://github.com/MrStrelow/BBRZ/tree/main/C%23/
 
 ### 1. Models und EF Core DbContext
 ![er-not-loaded](restaurant.dark.transp.png)
+![er-not-loaded](restaurant.bright.transp.png)
 
 * **Entities**: Klassen wie `Bill`, `Customer`, `Menu`, und `Dish` repräsentieren die Datenmodelle. Diese werden von EF Core als Tabellen in der Datenbank abgebildet. Die Beziehungen sind *optional* mit *IEntityTypeConfiguration* zu spezifizieren.
 * **ApplicationDbContext**: Eine von `DbContext` abgeleitete Klasse, die als Brücke zwischen den Models und der Datenbank dient. Sie enthält `DbSet<>`-Eigenschaften für jede Entität.
