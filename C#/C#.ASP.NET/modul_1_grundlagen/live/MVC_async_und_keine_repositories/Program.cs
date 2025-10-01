@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MvcTodoApp.Data;
+using MvcTodoApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,13 @@ builder.Services.AddDbContext<TodoDbContext>();
 
 var app = builder.Build();
 
-// TOOD: einfügen der dummy daten mithilfe einer SeedData (eigens erstellt) Klasse.
+// Einfügen der dummy daten mithilfe einer (eigens erstellten) SeedData Klasse.
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.Initialize(services);
+}
+
 
 app.MapStaticAssets();
 
