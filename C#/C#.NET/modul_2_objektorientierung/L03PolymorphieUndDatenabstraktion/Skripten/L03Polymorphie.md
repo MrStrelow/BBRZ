@@ -2,7 +2,7 @@
 
 ## 1. Polymorphismus (Vielseitigkeit)
 
-Polymorphismus bedeutet **"Vielgestaltigkeit"**. In der Programmierung bezieht sich dies auf die Fähigkeit einer Variable, eines Objekts oder einer Methode, je nach Kontext unterschiedliche Formen oder Verhaltensweisen anzunehmen. Wir konzentrieren uns hier auf den **dynamischen Polymorphismus**, der durch Vererbung ermöglicht wird.
+Polymorphismus bedeutet **"Vielgestaltigkeit"**. In der Programmierung bezieht sich dies auf die Fähigkeit einer Variable, eines Objekts oder einer Methode, je nach Kontext unterschiedliche Formen oder Verhaltensweisen anzunehmen. Wir konzentrieren uns hier auf den **dynamischen Polymorphismus** (zur Laufzeit bekannt), der durch Vererbung und dem ``override`` von ``Methoden`` ermöglicht wird. Wir gehen *noch* nicht auf **statischen Polymorphismus** (zur Compilezeit), welcher *Methodenüberlagerung* (gleicher Name, andere Parameter) und *Generizität* behandelt. 
 
 ### Die "Ist-eine"-Beziehung und Vererbung
 

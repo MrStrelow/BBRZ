@@ -8,7 +8,8 @@ public class PreparationStepConfiguration : IEntityTypeConfiguration<Preparation
 {
     public void Configure(EntityTypeBuilder<PreparationStep> builder)
     {
-        builder.HasKey(p => p.PreparationStepId);
+        builder.HasKey(p => p.Id);
         builder.Property(p => p.Description).IsRequired();
-    }
+        builder.Property(p => p.StepOrder).HasColumnType("tinyint").IsRequired(); // 256 zustände
+     }
 }

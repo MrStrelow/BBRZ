@@ -75,6 +75,7 @@ vs.
 
 * **Entities**: Klassen wie `Bill`, `Customer`, `Menu`, und `Dish` repräsentieren die Datenmodelle. Diese werden von EF Core als Tabellen in der Datenbank abgebildet. Die Beziehungen sind *optional* mit *IEntityTypeConfiguration* zu spezifizieren.
 * **ApplicationDbContext**: Eine von `DbContext` abgeleitete Klasse, die als Brücke zwischen den Models und der Datenbank dient. Sie enthält `DbSet<>`-Eigenschaften für jede Entität.
+* **SeedData**: Erstelle eine Klasse *SeedData* zur initialen Befüllung der Daten. Diese verwendet TODO
 
 Wir legen die *Entities* in den *Models* Ordner und den *ApplicationDbContext* in den *Data* Ordner.
 

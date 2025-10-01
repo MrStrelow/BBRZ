@@ -2,14 +2,12 @@
 
 public class Order
 {
-    public int OrderId { get; set; }
+    public int Id { get; set; }
     public DateTime OrderTime { get; set; }
 
-    public int VisitId { get; set; }
+    public int VisitId { get; set; } // foreign key!
     public Visit? Visit { get; set; }
 
     public ICollection<Dish> Dishes { get; set; } = new List<Dish>();
-
-    public int MenuId { get; set; }
-    public ICollection<Menu> Menues { get; set; } = new List<Menu>();
+    public ICollection<Menu> Menus { get; set; } = new List<Menu>();
 }

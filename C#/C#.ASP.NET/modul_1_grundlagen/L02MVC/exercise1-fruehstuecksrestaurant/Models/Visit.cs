@@ -2,9 +2,14 @@
 
 public class Visit
 {
-    public int VisitId { get; set; }
-    public DateTime VisitTime { get; set; }
-
+    public int Id { get; set; }
+    public DateTime EntryTime { get; set; }
+    // während des aufenthalts ist das ende noch nicht bekannt.
+    // Wir gehen davon aus, dass durch eine maske der besuch eingetragen wird,
+    // und nicht im nachhinein erst eingetragen wird. 
+    // Deshalb, DateTime? ExitTime und DateTime EntryTime
+    // (in der config noch mehr dazu)
+    public DateTime? ExitTime { get; set; } 
     public int TableId { get; set; }
     public Table? Table { get; set; }
 

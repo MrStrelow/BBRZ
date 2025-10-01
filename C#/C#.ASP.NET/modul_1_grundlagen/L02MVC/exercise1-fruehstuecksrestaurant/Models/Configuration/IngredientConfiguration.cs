@@ -8,7 +8,8 @@ public class IngredientConfiguration : IEntityTypeConfiguration<Ingredient>
 {
     public void Configure(EntityTypeBuilder<Ingredient> builder)
     {
-        builder.HasKey(i => i.IngredientId);
+        builder.HasKey(i => i.Id);
         builder.Property(i => i.Name).IsRequired().HasMaxLength(100);
+        // n-m bereits in dish definiert.
     }
 }

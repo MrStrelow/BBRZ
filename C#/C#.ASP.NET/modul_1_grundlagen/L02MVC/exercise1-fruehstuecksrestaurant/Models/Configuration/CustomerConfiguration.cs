@@ -8,6 +8,8 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
 {
     public void Configure(EntityTypeBuilder<Customer> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(c => c.Id);
+        builder.Property(c => c.Name).IsRequired().HasMaxLength(150);
+        // n-m bereits in Visit definiert.
     }
 }
