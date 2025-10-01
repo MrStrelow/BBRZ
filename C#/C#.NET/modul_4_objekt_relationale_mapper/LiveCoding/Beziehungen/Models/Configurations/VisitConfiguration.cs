@@ -10,7 +10,7 @@ public class VisitConfiguration : IEntityTypeConfiguration<Visit>
     {
         builder.HasKey(v => v.Id);
 
-        builder.Property(v => v.TimeOfVisit)
+        builder.Property(v => v.TimeOfVisit) 
             .HasDefaultValueSql("GETDATE()");
         // .HasDefaultValue(DateTime.Now) // nimmt den Zeitpunkt des SQL scripts, nicht wenn ein neues Objekt erzeugt wird.
 

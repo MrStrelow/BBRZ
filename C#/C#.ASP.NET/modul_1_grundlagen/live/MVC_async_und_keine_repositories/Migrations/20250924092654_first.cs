@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace MVC_async_und_keine_repositories.Migrations
+namespace MvcTodoApp.Migrations
 {
     /// <inheritdoc />
     public partial class first : Migration

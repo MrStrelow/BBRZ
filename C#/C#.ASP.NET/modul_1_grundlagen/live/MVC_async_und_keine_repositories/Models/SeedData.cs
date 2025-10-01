@@ -5,7 +5,7 @@ using MvcTodoApp.Models;
 using System;
 using System.Linq;
 
-namespace MvcMovie.Models;
+namespace MvcTodoApp.Models;
 
 public static class SeedData
 {
@@ -21,13 +21,13 @@ public static class SeedData
             {
                 return;   // DB has already been seeded
             }
+            new Todo();
 
             // seed DB with the following data
             context.Todos.AddRange(
-                new Todo { Title = "ASP.NET Core lernen", IsDone = false, CreatedAt = DateTime.Now.AddDays(-10) },
-                new Todo { Title = "Einkaufen gehen", Description = "Milch, Brot, Eier", IsDone = true, CreatedAt = DateTime.Now.AddDays(-5) },
-                new Todo { Title = "Projektmeeting vorbereiten", IsDone = false, CreatedAt = DateTime.Now.AddDays(-2) },
-                new Todo { Title = "Altes Projekt archivieren", IsDone = true, IsArchived = true, CreatedAt = DateTime.Now.AddDays(-30) }
+                new Todo { Title = "Einkaufen gehen" },
+                new Todo { Title = "Fitnessstudio" },
+                new Todo { Title = ".NET lernen" }
             );
 
             context.SaveChanges();

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using MVCTodoApp.Data;
+using MvcTodoApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

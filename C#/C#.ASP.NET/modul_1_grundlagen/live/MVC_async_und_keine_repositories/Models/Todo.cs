@@ -1,6 +1,6 @@
-﻿namespace MVCTodoApp.Models;
+﻿namespace MvcTodoApp.Models;
 
-public class Todo
+public record Todo
 {
     public int Id { get; set; }
     public string Title { get; set; }

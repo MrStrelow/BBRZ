@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using MVCTodoApp.Models;
+using MvcTodoApp.Models;
 
 
-namespace MVCTodoApp.Data;
+namespace MvcTodoApp.Data;
 public class TodoDbContext : DbContext
 {
     // DbSets für die neuen Entitäten
     public DbSet<Todo> Todos { get; set; }
+
+    public TodoDbContext(DbContextOptions<TodoDbContext> options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

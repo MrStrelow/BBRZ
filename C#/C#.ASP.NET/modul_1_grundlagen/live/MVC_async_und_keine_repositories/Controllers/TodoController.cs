@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MVCTodoApp.Data;
+using MvcTodoApp.Data;
 
 namespace MVCTodoApp.Controllers;
 

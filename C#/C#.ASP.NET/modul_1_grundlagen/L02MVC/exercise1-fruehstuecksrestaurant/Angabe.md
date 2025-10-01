@@ -12,19 +12,53 @@ Die Anwendung ermöglicht es, über eine Weboberfläche Bestellungen für versch
 
 * **ASP.NET Core MVC**: Die Anwendungsarchitektur folgt dem MVC-Muster mit Controllern, Views und Models.
 * **Entity Framework Core (EF Core)**: Die Daten (Rechnungen, Menüs etc.) werden nicht mehr in JSON-Dateien, sondern in einer relationalen Datenbank mithilfe von EF Core gespeichert.
-* **Asynchrone Controller-Actions**: Alle datenbankintensiven Operationen werden **async** ausgeführt, um die Anwendung reaktionsfähig zu halten.
+* **Asynchrone Controller-Actions**: Alle Operationen werden **async** ausgeführt, um die Anwendung reaktionsfähig zu halten.
 * **Razor Views mit Tag Helpern**: Die HTML-Oberfläche wird mithilfe von Razor-Views und **Tag Helpern** erstellt, was zu sauberem und besser wartbarem Code führt.
-* **ViewBag**: Zur Übergabe von dynamischen Daten (z. B. Titel oder Statusmeldungen) vom Controller an die View wird das **ViewBag**-Objekt verwendet.
+* **ViewBag**: Zur Übergabe von Daten ohne Model (z. B. Titel oder Statusmeldungen) vom Controller an die View wird das **ViewBag**-Objekt verwendet.
 
 ## Architektur der Anwendung
 
-### 1. Models und EF Core DbContext
+### Übersicht der Dateien
+Die Services sind von [dieser](https://github.com/MrStrelow/BBRZ/tree/main/C%23/C%23.ASP.NET/modul_1_grundlagen/L01Minimal%20APIs/exercise1-fruehstueck/Services) Übung zu übernehmen und auf die neuen Models mit EF-Core anzupassen.
+```
+/FruehstuecksBestellungMVC
+|-- /Controllers
+|   |-- FruehstueckController.cs
+|-- /Data
+|   |-- ApplicationDbContext.cs
+|-- /Migrations
+|-- /Models
+|   |-- Bill.cs
+|   |-- Customer.cs
+|   |-- Dish.cs
+|   |-- Menu.cs
+|   |-- PreperationStep.cs
+|   |-- Ingredient.cs
+|   |-- SeedData.cs
+|   |-- Table.cs
+|   |-- Visit.cs
+|-- /Services
+|   |-- CustomerService.cs
+|-- /Views
+|   |-- /Fruehstueck
+|   |   |-- Index.cshtml
+|   |-- /Shared
+|       |-- _Layout.cshtml
+|       |-- _ValidationScriptsPartial.cshtml
+|-- appsettings.json
+|-- Program.cs
+|-- FruehstuecksBestellungMVC.csproj
+```
 
-* **Entities**: Klassen wie `Bill`, `Customer`, `Menu`, und `Dish` repräsentieren die Datenmodelle. Diese werden von EF Core als Tabellen in der Datenbank abgebildet.
+### 1. Models und EF Core DbContext
+![er-not-loaded](restaurant.dark.transp.png)
+
+* **Entities**: Klassen wie `Bill`, `Customer`, `Menu`, und `Dish` repräsentieren die Datenmodelle. Diese werden von EF Core als Tabellen in der Datenbank abgebildet. Die Beziehungen sind *optional* mit *IEntityTypeConfiguration* zu spezifizieren.
 * **ApplicationDbContext**: Eine von `DbContext` abgeleitete Klasse, die als Brücke zwischen den Models und der Datenbank dient. Sie enthält `DbSet<>`-Eigenschaften für jede Entität.
 
-### 2. Controller (`FruehstueckController.cs`)
+Wir legen die *Entities* in den *Models* Ordner und den *ApplicationDbContext* in den *Data* Ordner.
 
+### 2. Controller (`FruehstueckController.cs`)
 Der `FruehstueckController` ist der zentrale Einstiegspunkt und enthält die Logik zur Verarbeitung von Benutzeranfragen. Er definiert zwei zentrale **Actions**:
 
 * #### `GET /Fruehstueck/Index`
@@ -39,10 +73,9 @@ Der `FruehstueckController` ist der zentrale Einstiegspunkt und enthält die Log
 * #### `POST /Fruehstueck/Bestellen`
     * **Funktion**: Diese Action verarbeitet die Formulardaten, die beim Aufgeben einer neuen Bestellung gesendet werden.
     * **Ablauf (asynchron)**:
-        1.  Die Action wird als `public async Task<IActionResult> Bestellen(TableOrderViewModel model)` deklariert und nimmt ein ViewModel mit den Formulardaten entgegen.
-        2.  Die übermittelten Daten (Tischnummer, Kundenname, Menü-ID) werden validiert.
-        3.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser erstellt eine neue Rechnung und speichert sie asynchron in der Datenbank: `await _context.SaveChangesAsync()`.
-        4.  Nach erfolgreicher Verarbeitung wird der Benutzer wieder auf die `Index`-Action umgeleitet, wo die neue Rechnung in der Liste erscheint.
+        1.  Die Action wird als `public async Task<IActionResult> Bestellen(Order order)` deklariert und nimmt ein Model mit den Formulardaten entgegen (wir haben ViewModels noch nicht besprochen).
+        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser erstellt eine neue Rechnung, einen Visit, weist einen Tisch zu, gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank: `await _context.SaveChangesAsync()`. Der CustomerService verwendet andere Services nach bedarf.
+        3.  Nach erfolgreicher Verarbeitung wird der Benutzer wieder auf die `Index`-Action umgeleitet, wo die neue Rechnung in der Liste erscheint.
 
 ### 3. Views (`Index.cshtml`)
 
@@ -50,63 +83,31 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
 
 * **Bestellformular**:
     * Das Formular wird mit dem **Form Tag Helper** erstellt, was die Verknüpfung zum Controller vereinfacht:
-        /```html
+        ```html
         <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
-        /```
-    * **Label und Input Tag Helper**: Eingabefelder werden mit dem Model verknüpft, was die Handhabung von Werten und die Validierung erleichtert.
-        /```html
-        <label asp-for="TableNumber"></label>
-        <input asp-for="TableNumber" class="form-control" />
-        /```
+        ```
 
 * **Rechnungsübersicht**:
     * Die Liste der Rechnungen, die vom Controller übergeben wurde, wird in einer Schleife durchlaufen und übersichtlich dargestellt.
     * Die Anzeige ist bedingt: Wenn keine Rechnungen vorhanden sind, wird eine entsprechende Meldung angezeigt.
 
-## Übersicht der Dateien
-Die Services sind von [dieser](https://github.com/MrStrelow/BBRZ/tree/main/C%23/C%23.ASP.NET/modul_1_grundlagen/L01Minimal%20APIs/exercise1-fruehstueck/Services) Übung zu übernehmen.
-```
-/FruehstuecksBestellungMVC
-|-- /Controllers
-|   |-- FruehstueckController.cs
-|-- /Data
-|   |-- ApplicationDbContext.cs
-|-- /Migrations
-|-- /Models
-|   |-- Bill.cs
-|   |-- Customer.cs
-|   |-- Dish.cs
-|   |-- Menu.cs
-|-- /Services
-|   |-- CustomerService.cs
-|   |-- DishService.cs
-|   |-- MenuService.cs
-|-- /Views
-|   |-- /Fruehstueck
-|   |   |-- Index.cshtml
-|   |-- /Shared
-|       |-- _Layout.cshtml
-|       |-- _ValidationScriptsPartial.cshtml
-|-- appsettings.json
-|-- Program.cs
-|-- FruehstuecksBestellungMVC.csproj
-```
+* **Übersicht UserInterface**:
+![UI sollte dargestellt werden](UI.png)
 
 ## Starten der Anwendung
-
 1.  **Datenbank-Migration erstellen**: Da EF Core verwendet wird, muss zunächst eine Migration erstellt werden, um das Datenbankschema zu generieren.
-    /```bash
+    ```bash
     dotnet ef migrations add InitialCreate
-    /```
+    ```
 
 2.  **Datenbank aktualisieren**: Die Migration wird auf die Datenbank angewendet.
-    /```bash
+    ```bash
     dotnet ef database update
-    /```
+    ```
 
 3.  **Anwendung ausführen**:
-    /```bash
+    ```bash
     dotnet run
-    /```
+    ```
 
 Öffnen Sie anschließend einen Webbrowser und navigieren Sie zu der im Terminal angezeigten URL (z.B. `http://localhost:5000`).
