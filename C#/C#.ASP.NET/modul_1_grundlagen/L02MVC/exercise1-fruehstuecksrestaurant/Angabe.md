@@ -156,34 +156,47 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
         }
     }
     ```
-    * Verwende aufklappbare menüs für die Rechnung welche über ``data-bs-toggle="collapse"``, etc. von *bootstrap* zu verwenden sind.
-    ```html
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@bill.Id">
-        <strong>Rechnung #@bill.Id</strong> &nbsp;- Tisch @bill.Visit.Table.TableNumber - @bill.Visit.Customers.FirstOrDefault()?.Name - Betrag: @bill.TotalAmount.ToString("C")
-    </button>
-    ...
-    <div id="collapse-@bill.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+    * Der CSS-Style des Dokuments ist nicht der Fokus. Es kann ohne gearbeitet werden. Jedoch ist in jedem Projekt ``bootstrap`` und ``jquery`` vorhanden, deshalb (Verwende dein Wissen aus WebDesign - Herr Schinagl und Frau Prinzinger grüßen 🙂):
+        * Verwende aufklappbare menüs für die Rechnung welche über ``data-bs-toggle="collapse"``, etc. von *bootstrap* zu verwenden sind.
+        ```html
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@bill.Id">
+            <strong>Rechnung #@bill.Id</strong> &nbsp;- Tisch @bill.Visit.Table.TableNumber - @bill.Visit.Customers.FirstOrDefault()?.Name - Betrag: @bill.TotalAmount.ToString("C")
+        </button>
         ...
-    </div>
-    ```
+        <div id="collapse-@bill.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+            ...
+        </div>
+        ```
 
 * **Übersicht UserInterface**:
 ![UI sollte dargestellt werden](UI.png)
 
 ## Starten der Anwendung
 1.  **Datenbank-Migration erstellen**: Da EF Core verwendet wird, muss zunächst eine Migration erstellt werden, um das Datenbankschema zu generieren.
+    In der Developer-Power-Shell
     ```bash
     dotnet ef migrations add InitialCreate
     ```
+    oder in der Package-Manager-Console
+    ```bash
+    Add-Migration InitialCreate
+    ```
 
 2.  **Datenbank aktualisieren**: Die Migration wird auf die Datenbank angewendet.
+    In der Developer-Power-Shell
     ```bash
     dotnet ef database update
     ```
+    oder in der Package-Manager-Console
+    ```bash
+    Update-Database
+    ```
 
 3.  **Anwendung ausführen**:
+    In der Developer-Power-Shell und in der Package-Manager-Console
     ```bash
     dotnet run
     ```
+    oder über das Interface von Visual Studio.
 
 Öffnen Sie anschließend einen Webbrowser und navigieren Sie zu der im Terminal angezeigten URL (z.B. `http://localhost:5000`).
