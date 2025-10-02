@@ -75,27 +75,35 @@ vs.
 
 * **Entities**: Klassen wie `Bill`, `Customer`, `Menu`, und `Dish` repräsentieren die Datenmodelle. Diese werden von EF Core als Tabellen in der Datenbank abgebildet. Die Beziehungen sind *optional* mit *IEntityTypeConfiguration* zu spezifizieren.
 * **ApplicationDbContext**: Eine von `DbContext` abgeleitete Klasse, die als Brücke zwischen den Models und der Datenbank dient. Sie enthält `DbSet<>`-Eigenschaften für jede Entität.
-* **SeedData**: Erstelle eine Klasse *SeedData* zur initialen Befüllung der Daten. Diese verwendet TODO
+* **SeedData**: Erstelle eine Klasse *SeedData* zur initialen Befüllung der Daten. **Diese Klasse können sie von der [Lösung](Models/SeedData.cs) entnehmen**.
 
 Wir legen die *Entities* in den *Models* Ordner und den *ApplicationDbContext* in den *Data* Ordner.
 
 ### 2. Controller (`FruehstueckController.cs`)
-Der `FruehstueckController` ist der zentrale Einstiegspunkt und enthält die Logik zur Verarbeitung von Benutzeranfragen. Er definiert zwei zentrale **Actions**:
+Der `FruehstueckController` ist der zentrale Einstiegspunkt und enthält die Logik zur Verarbeitung von Benutzeranfragen. Wir erlauben den *Controller* mit der Datenbank über den *DbContext* zu sprechen und erlauben es den Controller für *größere Aufgaben* mit einem *Service* zu sprechen.
+
+Der Controller definiert zwei zentrale **Actions**:
 
 * #### `GET /Fruehstueck/Index`
     * **Funktion**: Dies ist die Haupt-Action, die die Startseite der Anwendung lädt und darstellt.
     * **Ablauf (asynchron)**:
-        1.  Die Action wird als `public async Task<IActionResult> Index()` deklariert.
-        2.  Mithilfe von EF Core werden alle bisherigen Rechnungen asynchron aus der Datenbank geladen: `await _context.Bills.ToListAsync()`.
-        3.  Die Liste der Rechnungen wird an die View übergeben.
-        4.  Zusätzlich wird ein Titel über das **ViewBag** gesetzt: `ViewBag.Title = "Frühstücksbestellung";`.
-    * **Rückgabe**: Die Action gibt ein `ViewResult` zurück, das die `Index.cshtml`-Seite rendert.
+        1.  Die Action wird als `[HttpGet] public async Task<IActionResult> Index()` deklariert.
+        2.  Mithilfe von EF Core werden 
+            * alle bisherigen Bills asynchron aus der Datenbank geladen: `await _context.Bills.ToListAsync()`.
+            * alle ``Customer``, ``Table``, ``Menu`` und ``Dish`` aus der Datenbank geholt um diese in der ``View`` anzuzeigen. 
+        3.  Die Liste der Bills wird an die View in Kombination mit den Listen der ``Customer``, ``Table``, ``Menu`` und ``Dish`` übergeben. Verwende dazu ein *Tuple* ``var model = (menus, dishes, bills, customers, tables);``. Verwende anschließend ``return View("Index", model);``. Wir verwenden noch kein ViewModel und keine InputModels. Diese lernen wir später kennen.
+        4.  Zusätzlich wird ein Titel über das **ViewBag** gesetzt: `ViewBag.Title = "Frühstücksbestellung";`. Wir lernen erst später Fehlerbehandlung mit *ViewModel/ModelState* oder eigener *Error-Page* kennen. Gehe nicht auf Ausnahmezustände ein und ignoriere die Usability des Users (🥲).
+    * **Rückgabe**: Die Action gibt den Typ `ViewResult` zurück, das die `Index.cshtml`-Seite rendert. Eine Variable dieses Typs wird mit der Methode ``View(model)`` erstellt.
 
 * #### `POST /Fruehstueck/Bestellen`
     * **Funktion**: Diese Action verarbeitet die Formulardaten, die beim Aufgeben einer neuen Bestellung gesendet werden.
     * **Ablauf (asynchron)**:
-        1.  Die Action wird als `public async Task<IActionResult> Bestellen(Order order)` deklariert und nimmt ein Model mit den Formulardaten entgegen (wir haben ViewModels noch nicht besprochen).
-        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser erstellt eine neue Rechnung, einen Visit, weist einen Tisch zu, gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank: `await _context.SaveChangesAsync()`. Der CustomerService verwendet andere Services nach bedarf.
+        1.  Die Action wird als `[HttpPost][ValidateAntiForgeryToken] public async Task<IActionResult> Bestellen(int customerId, int tableId, List<int> selectedMenuIds, List<int> selectedDishIds)` deklariert und nimmt ein Model mit den Formulardaten entgegen (wir verwenden noch keine InputModels/DTOs, einfach die ids-übergeben die die View kennt).
+        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser erstellt eine neue Rechnung, einen Visit, weist einen Tisch zu, gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank. Verwende dazu:
+            * implementiere die angegebene Logik und dass die Rechnungssumme die summe aller bestellten ``Menus`` und ``Dishes`` ist.
+            * ``await _context.SaveChangesAsync()` um die Änderungen zu speichern.
+            * ein *try* mit *catch* welches im *try* den Service aufruft und in der Datenbank den neuen Visit speichert. Ebenso verwende ``await transaction.CommitAsync();``
+            * im *catch* verwende eine allgemeine Exception des Typs ``Exception`` und führe ``await transaction.RollbackAsync();`` und anschließend ``throw;`` aus. 
         3.  Nach erfolgreicher Verarbeitung wird der Benutzer wieder auf die `Index`-Action umgeleitet, wo die neue Rechnung in der Liste erscheint.
 
 ### 3. Views (`Index.cshtml`)
