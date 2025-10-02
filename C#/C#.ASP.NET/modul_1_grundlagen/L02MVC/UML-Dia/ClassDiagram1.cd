@@ -1,2 +1,127 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FruehstuecksBestellungMVC.Models.Dish">
+    <Position X="1.5" Y="5.5" Width="1.5" />
+    <AssociationLine Name="Ingredients" Type="FruehstuecksBestellungMVC.Models.Ingredient">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.702" Y="1.132" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="PreparationSteps" Type="FruehstuecksBestellungMVC.Models.PreparationStep">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.323" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAECAAAAARIAAAAAAAAAACQAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dish.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+      <Property Name="Menus" />
+      <Property Name="Ingredients" />
+      <Property Name="PreparationSteps" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Bill">
+    <Position X="6" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQAAQAAQAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bill.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Visit" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Customer">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Visits" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Ingredient">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <AssociationLine Name="Dishes" Type="FruehstuecksBestellungMVC.Models.Dish">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.04" Y="0.19" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ingredient.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Dishes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Menu">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAQAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+      <Property Name="Dishes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Order">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAQBAAAAQAAEQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Visit" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Dishes" />
+      <Property Name="Menus" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.PreparationStep">
+    <Position X="2.5" Y="8.75" Width="1.5" />
+    <AssociationLine Name="Dishes" Type="FruehstuecksBestellungMVC.Models.Dish">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.02" Y="1.343" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAQAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PreparationStep.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Dishes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Table">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAQgAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Table.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Visits" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FruehstuecksBestellungMVC.Models.Visit">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAIAIAAAAAAAAAAAAQAQAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Visit.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Table" />
+      <Property Name="Bill" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+      <Property Name="Customers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
