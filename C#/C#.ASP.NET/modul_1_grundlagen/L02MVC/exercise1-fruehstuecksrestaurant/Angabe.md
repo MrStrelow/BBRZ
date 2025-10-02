@@ -156,7 +156,16 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
         }
     }
     ```
-    * Verwende 
+    * Verwende aufklappbare menüs für die Rechnung welche über ``data-bs-toggle="collapse"``, etc. von *bootstrap* zu verwenden sind.
+    ```html
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@bill.Id">
+        <strong>Rechnung #@bill.Id</strong> &nbsp;- Tisch @bill.Visit.Table.TableNumber - @bill.Visit.Customers.FirstOrDefault()?.Name - Betrag: @bill.TotalAmount.ToString("C")
+    </button>
+    ...
+    <div id="collapse-@bill.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+        ...
+    </div>
+    ```
 
 * **Übersicht UserInterface**:
 ![UI sollte dargestellt werden](UI.png)
