@@ -103,7 +103,7 @@ Der Controller definiert zwei zentrale **Actions**:
         1.  Die Action wird als `[HttpPost][ValidateAntiForgeryToken] public async Task<IActionResult> Bestellen(int customerId, int tableId, List<int> selectedMenuIds, List<int> selectedDishIds)` deklariert und nimmt ein Model mit den Formulardaten entgegen (wir verwenden noch keine InputModels/DTOs, einfach die ids-übergeben die die View kennt).
         2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser erstellt eine neue Rechnung, einen Visit, weist einen Tisch zu, gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank. Verwende dazu:
             * implementiere die angegebene Logik und dass die Rechnungssumme die summe aller bestellten ``Menus`` und ``Dishes`` ist.
-            * ``await _context.SaveChangesAsync()` um die Änderungen zu speichern.
+            * ``await _context.SaveChangesAsync()`` um die Änderungen zu speichern.
             * ein *try* mit *catch* welches im *try* den Service aufruft und in der Datenbank den neuen Visit speichert. Ebenso verwende ``await transaction.CommitAsync();``
             * im *catch* verwende eine allgemeine Exception des Typs ``Exception`` und führe ``await transaction.RollbackAsync();`` und anschließend ``throw;`` aus. 
         3.  Nach erfolgreicher Verarbeitung wird der Benutzer wieder auf die `Index`-Action umgeleitet, wo die neue Rechnung in der Liste erscheint.
@@ -119,16 +119,27 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
         ...
         ...
         ...
+        <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
         @Html.AntiForgeryToken() @*wir schicken das mit. was auch immer es ist. Wir besprechen es später.*@
         <div class="row">
+            ... html code für Customer ...
             <div class="col-md-6 mb-3">
                 <label for="customerId" class="form-label">Kunde</label>
                 <select name="customerId" class="form-select" asp-items="Model.Customers"></select>
             </div>
+            ... html code für Tables ...
             <div class="col-md-6 mb-3">
                 <label for="tableId" class="form-label">Tisch Nr.</label>
                 <select name="tableId" class="form-select" asp-items="Model.Tables"></select>
             </div>
+        </div>
+        <div>
+            <div class="row">
+                ... html code für Menus ...
+            </div>  
+            <div class="row">
+                ... html code für Dishes ...
+            </div>  
         </div>
         ```
 
