@@ -124,27 +124,30 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
         @model (List<Menu> Menus, List<Dish> Dishes, List<Bill> Bills, SelectList Customers, SelectList Tables);
         ...
         <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
-        @Html.AntiForgeryToken() @*wir schicken das mit. was auch immer es ist. Wir besprechen es später.*@
-        <div class="row">
-            ... html code für Customer ...
-            <div class="col-md-6 mb-3">
-                <label for="customerId" class="form-label">Kunde</label>
-                <select name="customerId" class="form-select" asp-items="Model.Customers"></select>
-            </div>
-            ... html code für Tables ...
-            <div class="col-md-6 mb-3">
-                <label for="tableId" class="form-label">Tisch Nr.</label>
-                <select name="tableId" class="form-select" asp-items="Model.Tables"></select>
-            </div>
-        </div>
-        <div>
+            @Html.AntiForgeryToken() @*wir schicken das mit. was auch immer es ist. Wir besprechen es später.*@
             <div class="row">
-                ... html code für Menus ...
-            </div>  
-            <div class="row">
-                ... html code für Dishes ...
-            </div>  
-        </div>
+                ... html code für Customer ...
+                <div class="col-md-6 mb-3">
+                    <label for="customerId" class="form-label">Kunde</label>
+                    <select name="customerId" class="form-select" asp-items="Model.Customers"></select>
+                </div>
+                ... html code für Tables ...
+                <div class="col-md-6 mb-3">
+                    <label for="tableId" class="form-label">Tisch Nr.</label>
+                    <select name="tableId" class="form-select" asp-items="Model.Tables"></select>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    ... html code für Menus ...
+                </div>  
+                <div class="row">
+                    ... html code für Dishes ...
+                </div>  
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Bestellung aufgeben</button>
+        </form>
         ```
 
 * **Rechnungsübersicht**:
