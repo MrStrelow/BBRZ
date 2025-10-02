@@ -1,9 +1,7 @@
-﻿@model IEnumerable<Bill>
+﻿@model (List<Menu> Menus, List<Dish> Dishes, List<Bill> Bills, SelectList Customers, SelectList Tables);
 
 @{
     ViewData["Title"] = ViewBag.Title;
-    var menus = ViewBag.Menus as List<Menu> ?? new List<Menu>();
-    var dishes = ViewBag.Dishes as List<Dish> ?? new List<Dish>();
 }
 
 <h1 class="mb-4">@ViewData["Title"]</h1>
@@ -15,11 +13,11 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="customerId" class="form-label">Kunde</label>
-                <select name="customerId" class="form-select" asp-items="ViewBag.Customers"></select>
+                <select name="customerId" class="form-select" asp-items="Model.Customers"></select>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="tableId" class="form-label">Tisch Nr.</label>
-                <select name="tableId" class="form-select" asp-items="ViewBag.Tables"></select>
+                <select name="tableId" class="form-select" asp-items="Model.Tables"></select>
             </div>
         </div>
 
@@ -27,7 +25,7 @@
             <div class="col-md-6 mb-3">
                 <label class="form-label">Menüs auswählen</label>
                 <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
-                    @foreach (var menu in menus)
+                    @foreach (var menu in Model.Menus)
                     {
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="selectedMenuIds" value="@menu.Id" id="menu-@menu.Id">
@@ -41,7 +39,7 @@
             <div class="col-md-6 mb-3">
                 <label class="form-label">Einzelne Gerichte (A la carte)</label>
                 <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
-                    @foreach (var dish in dishes)
+                    @foreach (var dish in Model.Dishes)
                     {
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="selectedDishIds" value="@dish.Id" id="dish-@dish.Id">
@@ -60,10 +58,10 @@
 
 <div class="list-section">
     <h2 class="mb-3">Bisherige Rechnungen</h2>
-    @if (Model.Any())
+    @if (Model.Bills.Any())
     {
         <div class="accordion" id="billsAccordion">
-            @foreach (var bill in Model)
+            @foreach (var bill in Model.Bills)
             {
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading-@bill.Id">

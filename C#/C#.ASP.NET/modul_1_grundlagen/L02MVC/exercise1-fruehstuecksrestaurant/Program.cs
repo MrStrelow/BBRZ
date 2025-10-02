@@ -22,7 +22,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
-        SeedData.Initialize(services);
+        await SeedData.Initialize(services);
     }
     catch (Exception ex)
     {

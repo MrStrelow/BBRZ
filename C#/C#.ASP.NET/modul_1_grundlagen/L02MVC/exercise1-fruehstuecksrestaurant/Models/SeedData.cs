@@ -12,15 +12,14 @@ namespace FruehstuecksBestellungMVC.Data
             using (var context = new ApplicationDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
-                // Beenden, wenn bereits Daten vorhanden sind (hier anhand der Tische geprüft)
-                if (await context.Tables.AnyAsync())
-                {
-                    return;
-                }
-
                 // =================================================================
                 // 1. Unabhängige Entitäten erstellen (Ingredients, PreparationStep, Tables)
                 // =================================================================
+
+                if (await context.Customers.AnyAsync())
+                {
+                    return; // DB wurde bereits befüllt
+                }
 
                 // -- 2 Customers --
                 var customers = new Customer[]

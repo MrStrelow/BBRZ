@@ -1,4 +1,5 @@
 ﻿using FruehstuecksBestellungMVC.Data;
+using FruehstuecksBestellungMVC.Models;
 using FruehstuecksBestellungMVC.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,13 +18,21 @@ public class FruehstueckController : Controller
         _customerService = customerService;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
         ViewBag.Title = "Frühstücksbestellung";
-        ViewBag.Customers = new SelectList(await _context.Customers.ToListAsync(), "Id", "Name");
-        ViewBag.Tables = new SelectList(await _context.Tables.ToListAsync(), "Id", "TableNumber");
-        ViewBag.Menus = await _context.Menus.ToListAsync();
-        ViewBag.Dishes = await _context.Dishes.ToListAsync(); // Für a la carte
+        // Schlecht gekapselt: Besser eigens in dem ViewModel/ModelState oder eigener error page. Exceptions werden auch eigens behandelt.
+        // Da wir aber keine Fehler anzeigen, lassen wir es ganz weg. Spätere Übungen.
+        //ViewBag.ErrorMessage = "Bestellung ungültig. Bitte wählen Sie einen Kunden, Tisch und mindestens ein Menü oder Gericht.";
+
+        // Wir erlauben den Controller mit der Datenbank zu sprechen.
+        var menus = await _context.Menus.ToListAsync();
+        var dishes = await _context.Dishes.ToListAsync();
+
+        // SelectList macht es leichter mit HTML-Dropdown-Menü (<select>) zu arbeiten.
+        var customers = new SelectList(await _context.Customers.ToListAsync(), "Id", "Name");
+        var tables = new SelectList(await _context.Tables.ToListAsync(), "Id", "TableNumber");
 
         var bills = await _context.Bills
             .Include(b => b.Visit).ThenInclude(v => v.Table)
@@ -33,28 +42,23 @@ public class FruehstueckController : Controller
             .OrderByDescending(b => b.BillDate)
             .ToListAsync();
 
-        return View(bills);
+        // Schlecht gekapselt: Besser wir bauen eine ViewModel! Wir lernen aber erst kennen was das ist.
+        var model = (menus, dishes, bills, customers, tables);
+        return View("Index", model);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Bestellen(int customerId, int tableId, List<int> selectedMenuIds, List<int> selectedDishIds)
     {
-        if (ModelState.IsValid && (selectedMenuIds.Any() || selectedDishIds.Any()))
-        {
-            await _customerService.CreateOrderAsync(customerId, tableId, selectedMenuIds, selectedDishIds);
-            return RedirectToAction(nameof(Index));
-        }
-
-        // Bei Fehler: Seite neu laden mit Fehlermeldung
+        // Wir verzichten auf Guards und Sicherheitsabfragen, sowie Fehlerzustände.
+        // Im Fehlerfall crasht das Programm - weitere Übungen behandlen das.
         ViewBag.Title = "Frühstücksbestellung";
-        ViewBag.Customers = new SelectList(await _context.Customers.ToListAsync(), "Id", "Name", customerId);
-        ViewBag.Tables = new SelectList(await _context.Tables.ToListAsync(), "Id", "TableNumber", tableId);
-        ViewBag.Menus = await _context.Menus.ToListAsync();
-        ViewBag.Dishes = await _context.Dishes.ToListAsync();
-        ViewBag.ErrorMessage = "Bestellung ungültig. Bitte wählen Sie einen Kunden, Tisch und mindestens ein Menü oder Gericht.";
-
-        var bills = await _context.Bills.ToListAsync();
-        return View("Index", bills);
+        
+        // Wir erlauben es den Controller für größere Aufgaben mit einem Service zu sprechen.
+        // Wir erlauben aber auch den Controller für kleinere Aufgaben direkt mit dem Repository/DbContext zu sprechen.
+        // schlecht gekapselt: So viele ids, besser wir haben hier ein Objekt wie ein DTO oder ViewModel!
+        await _customerService.CreateOrderAsync(customerId, tableId, selectedMenuIds, selectedDishIds);
+        return RedirectToAction(nameof(Index));
     }
 }
