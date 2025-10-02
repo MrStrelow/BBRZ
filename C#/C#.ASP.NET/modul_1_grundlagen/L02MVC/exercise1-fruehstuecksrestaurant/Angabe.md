@@ -113,11 +113,15 @@ Der Controller definiert zwei zentrale **Actions**:
 Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helper**, um HTML-Elemente serverseitig zu generieren.
 
 * **Bestellformular**:
-    * Das Formular wird mit dem **Form Tag Helper** erstellt, was die Verknüpfung zum Controller vereinfacht:
+    * Das Formular wird mit dem **Form Tag Helper** erstellt, was die Verknüpfung zum Controller vereinfacht. Die Verknpüfung ist wir erstellen ein ``div`` mit:
+        * einem ``div`` welches zwei ``select`` (dropdown auswahl) für customer und tables besitzt, 
+        * einem ``div`` welches zwei ``input`` mit ``type="checkbox"`` für menus und dishes besitzt.
+        * All diese ``tags`` und ein ``button`` wird in einen ``form`` tag gegeben. Bedeutet wir senden es mit der ``Http-Methode`` *post* (durch ``<form ... method="post">...</form>``) an den Server. Der Button ist für das endgültige Senden zuständig ``<form ... method="post"> ... <button type="submit">Bestellung aufgeben</button></form>``.
+       
+       Nochmal zusammenhängend als unvollständiger Code hier:
+
         ```html
         @model (List<Menu> Menus, List<Dish> Dishes, List<Bill> Bills, SelectList Customers, SelectList Tables);
-        ...
-        ...
         ...
         <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
         @Html.AntiForgeryToken() @*wir schicken das mit. was auch immer es ist. Wir besprechen es später.*@
