@@ -134,24 +134,29 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
     * Die Liste der Rechnungen, die vom Controller übergeben wurde, wird in einer Schleife durchlaufen und übersichtlich dargestellt.
     * Die Anzeige ist bedingt: Wenn keine Rechnungen vorhanden sind, wird eine entsprechende Meldung angezeigt.
     * Verwende dazu:
-    ```
-    @foreach (var bill in Model.Bills)
+    ```csharp
+    @if (Model.Bills.Any())
     {
-    ... html code ...
-        @foreach (var order in bill.Visit.Orders)
-        {
-            foreach (var menu in order.Menus)
-            {
-                <li>@menu.Name (Menü)</li>
-            }
-            foreach (var dish in order.Dishes)
-            {
-                <li>@dish.Name (Gericht)</li>
-            }
-        }
         ... html code ...
+        @foreach (var bill in Model.Bills)
+        {
+        ... html code ...
+            @foreach (var order in bill.Visit.Orders)
+            {
+                foreach (var menu in order.Menus)
+                {
+                    <li>@menu.Name (Menü)</li>
+                }
+                foreach (var dish in order.Dishes)
+                {
+                    <li>@dish.Name (Gericht)</li>
+                }
+            }
+            ... html code ...
+        }
     }
     ```
+    * Verwende 
 
 * **Übersicht UserInterface**:
 ![UI sollte dargestellt werden](UI.png)
