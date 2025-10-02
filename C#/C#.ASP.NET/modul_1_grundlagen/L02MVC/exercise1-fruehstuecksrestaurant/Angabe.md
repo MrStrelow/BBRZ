@@ -51,9 +51,11 @@ Die Services sind von [dieser](https://github.com/MrStrelow/BBRZ/tree/main/C%23/
 ```
 
 ### 1. Models und EF Core DbContext
+* darkmode - transparent
 ![er-not-loaded](restaurant.dark.transp.png)
+* brightmode - transparent
 ![er-not-loaded](restaurant.bright.transp.png)
-![er-not-loaded](restaurant.properties.transp.png)
+* Properties nicht transparent:
 ![er-not-loaded](restaurant.properties.png)
 
 **Anmerkung:** Wir gehen hier von einem *Katalog* (Klasse) von *Ingredients*, *Dishes*, *Menus*, etc. aus. Also alles was unterhalb von der ``Entity`` *Order* steht. Wir tracken (noch) nicht einzelne *Ingredients* wie in einem Warenwirtschaftssystem. Der Unterschied ist also
