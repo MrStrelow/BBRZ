@@ -2,13 +2,11 @@
 
 **Hinweis zur Controller-Struktur**: In diesem Projekt wird bewusst nur ein einziger Controller (`FruehstueckController`) für die Verwaltung aller Datenmodelle verwendet. Aufgrund des begrenzten Funktionsumfangs wäre die Aufteilung in separate Controller für jedes Model nicht zweckmäßig und würde die Struktur unnötig verkomplizieren.
 
-## Projektübersicht
+## Übersicht
 
-Dieses Projekt ist eine Webanwendung, die auf dem **ASP.NET Core MVC**-Framework basiert und die Funktionalität eines einfachen Bestellsystems für ein Frühstücksrestaurant abbildet. Im Gegensatz zur schlanken Minimal API-Variante wird hier der traditionelle und strukturierte **MVC-Ansatz (Model-View-Controller)** verwendet, um eine klare Trennung der Verantwortlichkeiten zu gewährleisten.
+Dieses Projekt ist eine Webanwendung, die auf dem **ASP.NET Core MVC**-Framework basiert und die Funktionalität eines einfachen Bestellsystems für ein Frühstücksrestaurant abbildet. Die Anwendung ermöglicht es, über eine Weboberfläche Bestellungen für verschiedene Tische aufzugeben und eine laufend aktualisierte Liste aller bisherigen Rechnungen einzusehen.
 
-Die Anwendung ermöglicht es, über eine Weboberfläche Bestellungen für verschiedene Tische aufzugeben und eine laufend aktualisierte Liste aller bisherigen Rechnungen einzusehen. Dabei werden moderne .NET-Technologien wie **Entity Framework Core** für die Datenbankanbindung und **asynchrone Programmierung** für eine performante Ausführung genutzt.
-
-## Kerntechnologien und Anforderungen
+## Anforderungen
 
 * **ASP.NET Core MVC**: Die Anwendungsarchitektur folgt dem MVC-Muster mit Controllern, Views und Models.
 * **Entity Framework Core (EF Core)**: Die Daten (Rechnungen, Menüs etc.) werden nicht mehr in JSON-Dateien, sondern in einer relationalen Datenbank mithilfe von EF Core gespeichert.
@@ -19,7 +17,6 @@ Die Anwendung ermöglicht es, über eine Weboberfläche Bestellungen für versch
 ## Architektur der Anwendung
 
 ### Übersicht der Dateien
-Die Services sind von [dieser](https://github.com/MrStrelow/BBRZ/tree/main/C%23/C%23.ASP.NET/modul_1_grundlagen/L01Minimal%20APIs/exercise1-fruehstueck/Services) Übung zu übernehmen und auf die neuen Models mit EF-Core anzupassen.
 ```
 /FruehstuecksBestellungMVC
 |-- /Controllers
