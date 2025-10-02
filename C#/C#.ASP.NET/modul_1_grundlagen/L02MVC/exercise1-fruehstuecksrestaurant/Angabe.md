@@ -113,12 +113,45 @@ Die Benutzeroberfläche wird in einer Razor-View definiert und nutzt **Tag Helpe
 * **Bestellformular**:
     * Das Formular wird mit dem **Form Tag Helper** erstellt, was die Verknüpfung zum Controller vereinfacht:
         ```html
-        <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
+        @model (List<Menu> Menus, List<Dish> Dishes, List<Bill> Bills, SelectList Customers, SelectList Tables);
+        ...
+        ...
+        ...
+        @Html.AntiForgeryToken() @*wir schicken das mit. was auch immer es ist. Wir besprechen es später.*@
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="customerId" class="form-label">Kunde</label>
+                <select name="customerId" class="form-select" asp-items="Model.Customers"></select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="tableId" class="form-label">Tisch Nr.</label>
+                <select name="tableId" class="form-select" asp-items="Model.Tables"></select>
+            </div>
+        </div>
         ```
 
 * **Rechnungsübersicht**:
     * Die Liste der Rechnungen, die vom Controller übergeben wurde, wird in einer Schleife durchlaufen und übersichtlich dargestellt.
     * Die Anzeige ist bedingt: Wenn keine Rechnungen vorhanden sind, wird eine entsprechende Meldung angezeigt.
+    * Verwende dazu:
+    ```
+    @foreach (var bill in Model.Bills)
+    {
+    ... html code ...
+        @foreach (var order in bill.Visit.Orders)
+        {
+            foreach (var menu in order.Menus)
+            {
+                <li>@menu.Name (Menü)</li>
+            }
+            foreach (var dish in order.Dishes)
+            {
+                <li>@dish.Name (Gericht)</li>
+            }
+        }
+        ... html code ...
+    }
+    ```
 
 * **Übersicht UserInterface**:
 ![UI sollte dargestellt werden](UI.png)

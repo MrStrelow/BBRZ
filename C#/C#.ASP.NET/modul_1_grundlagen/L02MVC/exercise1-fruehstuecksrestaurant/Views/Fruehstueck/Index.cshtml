@@ -9,7 +9,7 @@
 <div class="form-section mb-5">
     <h2 class="mb-3">Neue Bestellung aufgeben</h2>
     <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
-        @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken() @*wir schicken das mit. was auch immer es ist. Wir besprechen es später.*@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="customerId" class="form-label">Kunde</label>
