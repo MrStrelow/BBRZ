@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.3MVC-Routing-Actions-Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.2MVC-depencendy_incjection_des_dbcontexts_und_async", "L02.2MVC-depencendy_incjection_des_dbcontexts_und_async\L02.2MVC-depencendy_incjection_des_dbcontexts_und_async.csproj", "{4DD38904-7CB1-4420-9FEC-6FD8A16BC1AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstuecksrestaurant", "exercise1-fruehstuecksrestaurant\exercise1-fruehstuecksrestaurant.csproj", "{9BD789D0-B509-4F55-BF81-AFF8F7E698A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstuecksrestaurant-ohne-validation", "exercise1-fruehstuecksrestaurant-ohne-validation\exercise1-fruehstuecksrestaurant-ohne-validation.csproj", "{9BD789D0-B509-4F55-BF81-AFF8F7E698A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02.4MVC-ViewBag_ViewModel_serverside_validation", "L02.4MVC-ViewBag_ViewModel\L02.4MVC-ViewBag_ViewModel_serverside_validation.csproj", "{5F88FEAC-660B-4F99-8AAB-46339BBB5C7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise2-fruehstuecksrestaurant-mit-validation", "exercise2-fruehstuecksrestaurant-mit-validation\exercise2-fruehstuecksrestaurant-mit-validation.csproj", "{A0107ECA-ED8E-4AEB-9E53-7F5DB98316B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{5F88FEAC-660B-4F99-8AAB-46339BBB5C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F88FEAC-660B-4F99-8AAB-46339BBB5C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F88FEAC-660B-4F99-8AAB-46339BBB5C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0107ECA-ED8E-4AEB-9E53-7F5DB98316B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0107ECA-ED8E-4AEB-9E53-7F5DB98316B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0107ECA-ED8E-4AEB-9E53-7F5DB98316B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0107ECA-ED8E-4AEB-9E53-7F5DB98316B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

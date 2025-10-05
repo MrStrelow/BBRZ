@@ -11,7 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP-idee-von-SPA", "HTTP-i
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP-idee-von-MVC", "HTTP-idee-von-MVC\HTTP-idee-von-MVC.csproj", "{CD8A9DDC-4C43-4132-A424-32740821BA35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstueck", "exercise1-fruehstueck\exercise1-fruehstueck.csproj", "{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise3-fruehstueck_mit_mvc_ordnern", "exercise3-fruehstueck_mit_mvc_ordnern\exercise3-fruehstueck_mit_mvc_ordnern.csproj", "{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise2-fruehstueck_finde_den_fehler", "exercise2-fruehstueck_finde_den_fehler\exercise2-fruehstueck_finde_den_fehler.csproj", "{D7C11692-BB3F-42B9-A739-02B16A54BA7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise1-fruehstueck_mit_minimal_api", "exercise1-fruehstueck_mit_minimal_api\exercise1-fruehstueck_mit_minimal_api.csproj", "{20CE91B4-B2E3-4298-8E9B-E9352F00846D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CFAFA44-1E8E-4009-ACA1-8A81E5F443D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7C11692-BB3F-42B9-A739-02B16A54BA7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C11692-BB3F-42B9-A739-02B16A54BA7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C11692-BB3F-42B9-A739-02B16A54BA7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C11692-BB3F-42B9-A739-02B16A54BA7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CE91B4-B2E3-4298-8E9B-E9352F00846D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CE91B4-B2E3-4298-8E9B-E9352F00846D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CE91B4-B2E3-4298-8E9B-E9352F00846D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CE91B4-B2E3-4298-8E9B-E9352F00846D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
