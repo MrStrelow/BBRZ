@@ -92,7 +92,7 @@ Verwende dazu diese Vorlage;
             _app = app;
         }
 
-        // http-methode: GET mit Ressource /Index/Restaurant
+        // http-methode: GET mit Ressource /Restaurant/Index
         // Generiert und liefert die Haupt-HTML-Seite mit dem Formular und der Rechnungsliste.
         public void RegisterIndexGet()
         {
@@ -102,7 +102,7 @@ Verwende dazu diese Vorlage;
             );
         }
 
-        // POST /Index/Restaurant
+        // POST /Restaurant/Index
         // Verarbeitet die Formulardaten und erstellt eine neue Bestellung.
         public void RegisterIndexPost()
         {

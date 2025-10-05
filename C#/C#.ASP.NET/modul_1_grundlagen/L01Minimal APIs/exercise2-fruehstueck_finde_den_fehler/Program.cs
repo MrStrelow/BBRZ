@@ -8,10 +8,10 @@ var app = builder.Build();
 // Initialisiert unserer Dictionary mit Testdaten beim Start.
 RestaurantDbContext.Initialize();
 
-// http-methode: GET mit Ressource /Index/Restaurant
+// http-methode: GET mit Ressource /Restaurant/Index
 // Generiert und liefert die Haupt-HTML-Seite mit dem Formular und der Rechnungsliste.
 app.MapGet(
-    "/Index/Restaurant", 
+    "/Restaurant/Index", 
     () =>
     {
         // Wir übergeben der View, Models.
@@ -29,7 +29,7 @@ app.MapGet(
 );
 
 
-// POST /Index/Restaurant
+// POST /Restaurant/Index
 // Verarbeitet die Formulardaten und erstellt eine neue Bestellung.
 
 // HIER IST DER FEHLER!
@@ -37,7 +37,7 @@ app.MapGet(
 // Anmerkung: Wenn wir ohne FromForm arbeiten wollen, würde der Code so aussehen.
 // Wir müssen händisch aus dem RequestBody die Daten auslesen:
 //app.MapPost(
-//    "/Index/Restaurant",
+//    "/Restaurant/Index",
 //    await (HttpContext context) =>
 //    {
 //      var form = await context.Request.ReadFormAsync();
@@ -56,7 +56,7 @@ app.MapGet(
 // [FromForm] List<int> selectedMenuIds und [FromForm] List<int> selectedDishIds
 // immer null.
 app.MapPost(
-    "/Index/Restaurant",
+    "/Restaurant/Index",
     async (HttpContext context) =>
     {
         // Wir schauen uns den request body des http-post an.
@@ -116,7 +116,7 @@ app.MapPost(
         RestaurantDbContext.Orders.Add(order);
         RestaurantDbContext.Bills.Add(bill);
 
-        return Results.Redirect("/Index/Restaurant");
+        return Results.Redirect("/Restaurant/Index");
     }
 ).DisableAntiforgery();
 
@@ -154,7 +154,7 @@ string View(
     // Bestellformular-Sektion
     sb.AppendLine("    <div class=\"form-section mb-5\">");
     sb.AppendLine("        <h2 class=\"mb-3\">Neue Bestellung aufgeben</h2>");
-    sb.AppendLine("        <form action=\"/Index/Restaurant\" method=\"post\">");
+    sb.AppendLine("        <form action=\"/Restaurant/Index\" method=\"post\">");
 
     // -- Dropdowns für Kunden und Tische --
     sb.AppendLine("            <div class=\"row\">");

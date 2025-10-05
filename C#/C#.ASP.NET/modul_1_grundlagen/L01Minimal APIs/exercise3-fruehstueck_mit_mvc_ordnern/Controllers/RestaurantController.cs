@@ -9,12 +9,12 @@ public class RestaurantController
         _app = app;
     }
 
-    // http-methode: GET mit Ressource /Index/Restaurant
+    // http-methode: GET mit Ressource /Restaurant/Index
     // Generiert und liefert die Haupt-HTML-Seite mit dem Formular und der Rechnungsliste.
     public void RegisterIndexGet()
     {
         _app.MapGet(
-            "/Index/Restaurant", 
+            "/Restaurant/Index", 
             () =>
             {
                 var view = new View.Restaurant.Index(
@@ -31,12 +31,12 @@ public class RestaurantController
         );
     }
 
-    // POST /Index/Restaurant
+    // POST /Restaurant/Index
     // Verarbeitet die Formulardaten und erstellt eine neue Bestellung.
     public void RegisterIndexPost()
     {
         _app.MapPost(
-            "/Index/Restaurant",
+            "/Restaurant/Index",
             async (HttpContext context) =>
             {
                 // Wir schauen uns den request body des http-post an.
@@ -96,7 +96,7 @@ public class RestaurantController
                 RestaurantDbContext.Orders.Add(order);
                 RestaurantDbContext.Bills.Add(bill);
 
-                return Results.Redirect("/Index/Restaurant");
+                return Results.Redirect("/Restaurant/Index");
             }
         ).DisableAntiforgery();
     }

@@ -8,7 +8,7 @@ Betrachte die gleiche Angabe wie aus [Exercise 1](../exercise1-fruehstueck_mit_m
 Verwende das Inspect Tool des Browsers. 
 1) Bei Firefox und Chrome Rechtsklick auf die Webseite und dann "Inspect" wählen - alternativ CTRL-shift-i oder CTRL-shift-j, dort dann auf den Network Tab gehen und die Requests anschauen.
 2) Starte dann den Server mit dem **nicht ausgefüllten grünne dreieck** in VS, damit wir **nicht** den Debug modus verwenden. 
-3) gib in die URL-Leiste ``localhost:*deinPort*/Index/Restaurant`` ein.
+3) gib in die URL-Leiste ``localhost:*deinPort*/Restaurant/Index`` ein.
 4) füll das Formular aus und sende es zum Server.
 
 Wie schaut der ``http-get`` und ``http-post`` Request aus (den raw-request, nicht als json-dargestell!)? Kopiere dazu den ``Request-Body`` in die Abgabe und schau die ``Status-Codes`` im ``Response-Header`` an. Was geht schief, ``http-get`` oder ``http-post``? 
@@ -31,10 +31,10 @@ var app = builder.Build();
 // Initialisiert unserer Dictionary mit Testdaten beim Start.
 RestaurantDbContext.Initialize();
 
-// http-methode: GET mit Ressource /Index/Restaurant
+// http-methode: GET mit Ressource /Restaurant/Index
 // Generiert und liefert die Haupt-HTML-Seite mit dem Formular und der Rechnungsliste.
 app.MapGet(
-    "/Index/Restaurant", 
+    "/Restaurant/Index", 
     () =>
     {
         // Wir übergeben der View, Models.
@@ -52,12 +52,12 @@ app.MapGet(
 );
 
 
-// POST /Index/Restaurant
+// POST /Restaurant/Index
 // Verarbeitet die Formulardaten und erstellt eine neue Bestellung.
 
 // Anmerkung: Es ist einfacher mit dem Attribut [FromForm] und [FromQuery] zu arbeiten! Wer will schon händisch aus dem RequestBody die Daten auslesen:
 //app.MapPost(
-//    "/Index/Restaurant",
+//    "/Restaurant/Index",
 //    await (HttpContext context) =>
 //    {
 //      var form = await context.Request.ReadFormAsync();
@@ -72,7 +72,7 @@ app.MapGet(
 
 // Das wird AUTOMATISCH für uns gemacht wenn wir folgendes machen.
 app.MapPost(
-    "/Index/Restaurant",
+    "/Restaurant/Index",
     (
         [FromForm] int customerId,
         [FromForm] int tableId,
@@ -128,7 +128,7 @@ app.MapPost(
         RestaurantDbContext.Orders.Add(order);
         RestaurantDbContext.Bills.Add(bill);
 
-        return Results.Redirect("/Index/Restaurant");
+        return Results.Redirect("/Restaurant/Index");
     }
 ).DisableAntiforgery();
 
@@ -166,7 +166,7 @@ string View(
     // Bestellformular-Sektion
     sb.AppendLine("    <div class=\"form-section mb-5\">");
     sb.AppendLine("        <h2 class=\"mb-3\">Neue Bestellung aufgeben</h2>");
-    sb.AppendLine("        <form action=\"/Index/Restaurant\" method=\"post\">");
+    sb.AppendLine("        <form action=\"/Restaurant/Index\" method=\"post\">");
 
     // -- Dropdowns für Kunden und Tische --
     sb.AppendLine("            <div class=\"row\">");

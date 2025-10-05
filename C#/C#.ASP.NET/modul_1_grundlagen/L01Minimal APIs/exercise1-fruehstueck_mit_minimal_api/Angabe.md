@@ -50,7 +50,7 @@ vs.
 ### 2. Endpunkte (`Program.cs`)
 Die `Program.cs` ist der zentrale Einstiegspunkt und enthält die Logik zur Verarbeitung von Benutzeranfragen. Wir definieren zwei zentrale **Endpunkte**:
 
-* #### `GET /Index/Restaurant`
+* #### `GET /Restaurant/Index`
     * **Funktion**: Dies ist der Haupt-Endpunkt, der die Startseite der Anwendung mit dem Bestellformular und der Rechnungsliste generiert und zurückgibt.
     * **Ablauf**:
         1.  Der Endpunkt wird mit `app.MapGet("/", ...)` deklariert.
@@ -59,7 +59,7 @@ Die `Program.cs` ist der zentrale Einstiegspunkt und enthält die Logik zur Vera
         4.  Die Daten werden in Schleifen durchlaufen, um dynamisch HTML-Elemente zu generieren (z.B. `<option>`-Tags für die Dropdowns oder `<li>`-Tags für die Rechnungsliste).
         5.  Der fertige HTML-String aus dem `StringBuilder` wird als `ContentResult` mit dem `Content-Type` "text/html" an den Browser gesendet.
 
-* #### `POST /Index/Restaurant`
+* #### `POST /Restaurant/Index`
     * **Funktion**: Dieser Endpunkt verarbeitet die Formulardaten, die beim Aufgeben einer neuen Bestellung gesendet werden.
     * **Ablauf (asynchron)**:
         1.  Der Endpunkt wird mit `app.MapPost("/", ...)` deklariert. Er nimmt den `HttpContext` als Parameter entgegen, um auf die Formulardaten zugreifen zu können.
@@ -70,7 +70,7 @@ Die `Program.cs` ist der zentrale Einstiegspunkt und enthält die Logik zur Vera
             * Erstelle eine neue *Order* und füge sie der *Dictionary* hinzu.
             * Berechne die Summe der bestellten *Menüs* und *Dishes*.
             * Erstelle eine neue *Bill* und füge sie dem *Dictionary* hinzu.
-        4. Verwende ``Results.Redirect("/Index/Restaurant");`` um *quasi* einen GET-Request auf */Index/Restaurant* zu erstellen. Das lässt erlaubt uns die ursprüngliche Seite zu sehen, jedoch mit den neu angegebenen Daten.
+        4. Verwende ``Results.Redirect("/Restaurant/Index");`` um *quasi* einen GET-Request auf */Restaurant/Index* zu erstellen. Das lässt erlaubt uns die ursprüngliche Seite zu sehen, jedoch mit den neu angegebenen Daten.
 
 ### 3. HTML-Generierung mit `StringBuilder`
 
@@ -147,10 +147,10 @@ var app = builder.Build();
 // Initialisiert unserer Dictionary mit Testdaten beim Start.
 RestaurantDbContext.Initialize();
 
-// http-methode: GET mit Ressource /Index/Restaurant
+// http-methode: GET mit Ressource /Restaurant/Index
 // Generiert und liefert die Haupt-HTML-Seite mit dem Formular und der Rechnungsliste.
 app.MapGet(
-    "/Index/Restaurant", 
+    "/Restaurant/Index", 
     () =>
     {
         // Wir übergeben der View, Models.
@@ -168,10 +168,10 @@ app.MapGet(
 );
 
 
-// POST /Index/Restaurant
+// POST /Restaurant/Index
 // Verarbeitet die Formulardaten und erstellt eine neue Bestellung.
 app.MapPost(
-    "/Index/Restaurant",
+    "/Restaurant/Index",
     async (HttpContext context) =>
     {
         // Wir schauen uns den request body des http-post an.
@@ -192,7 +192,7 @@ app.MapPost(
         // Neue Entitäten in der In-Memory-dbContext "speichern"
         // TODO
 
-        return Results.Redirect("/Index/Restaurant");
+        return Results.Redirect("/Restaurant/Index");
     }
 ).DisableAntiforgery();
 

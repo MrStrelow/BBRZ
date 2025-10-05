@@ -1,0 +1,50 @@
+### Annahme: Ihre Anwendung läuft auf http://localhost:5000
+@baseUrl = http://localhost:5115
+
+# -----------------------------------------------------------------
+# Invalider Request 1: Verletzung der Geschäftslogik
+# Grund: Es wurde KEIN Menü und KEIN Gericht ausgewählt.
+# Erwartung: Der Server sollte mit dem Statuscode 200 OK antworten,
+#            aber der HTML-Body sollte die Fehlermeldung
+#            "Es muss mindestens ein Menü oder ein Gericht ausgewählt werden." enthalten.
+###
+POST {{baseUrl}}/Fruehstueck/Bestellen
+Content-Type: application/x-www-form-urlencoded
+
+customerId=1&tableId=2
+
+# -----------------------------------------------------------------
+# Invalider Request 2: Verletzung der Geschäftslogik
+# Grund: Es wurde kein Kunde ausgewählt (customerId=0 ist ungültig).
+# Erwartung: Der Server sollte mit dem Statuscode 200 OK antworten,
+#            aber der HTML-Body sollte die Fehlermeldung
+#            "Bitte wählen Sie einen Kunden aus." enthalten.
+###
+POST {{baseUrl}}/Fruehstueck/Bestellen
+Content-Type: application/x-www-form-urlencoded
+
+customerId=0&tableId=2&selectedMenuIds=1
+
+# -----------------------------------------------------------------
+# Invalider Request 3: Fehler beim Model Binding
+# Grund: Der Wert für 'customerId' ist keine gültige Zahl.
+# Erwartung: Der Server sollte mit dem Statuscode 200 OK antworten,
+#            aber der HTML-Body sollte eine Standard-Fehlermeldung
+#            des Frameworks enthalten, z.B. "The value 'abc' is not valid.".
+###
+POST {{baseUrl}}/Fruehstueck/Bestellen
+Content-Type: application/x-www-form-urlencoded
+
+customerId=abc&tableId=2&selectedMenuIds=1
+
+# -----------------------------------------------------------------
+# Korrekter Request: Eine vollständige und gültige Bestellung
+# Grund: Alle Validierungsregeln werden erfüllt.
+# Erwartung: Der Server sollte mit dem Statuscode 302 Found antworten
+#            (der Redirect zur Index-Seite). Der 'Location'-Header in der
+#            Antwort sollte auf die Index-Seite verweisen.
+###
+POST {{baseUrl}}/Fruehstueck/Bestellen
+Content-Type: application/x-www-form-urlencoded
+
+customerId=1&tableId=2&selectedMenuIds=1&selectedDishIds=5
