@@ -1,4 +1,4 @@
-# Angabe: Frühstücksrestaurant Webanwendung (MVC-Variante mit Serverseitiger Validierung)
+# Erste Schritte bei der Serverseitigen Validierung
 
 Wir gehen von der [Exercise 1](../exercise1-fruehstuecksrestaurant-ohne-validation/Angabe.md) aus und verwenden die [Lösung](../exercise1-fruehstuecksrestaurant-ohne-validation/) dieser.
 
