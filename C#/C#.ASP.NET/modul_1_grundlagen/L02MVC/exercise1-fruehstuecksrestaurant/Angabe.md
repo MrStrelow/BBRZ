@@ -100,8 +100,13 @@ Der Controller definiert zwei zentrale **Actions**:
     * **Funktion**: Diese Action verarbeitet die Formulardaten, die beim Aufgeben einer neuen Bestellung gesendet werden.
     * **Ablauf (asynchron)**:
         1.  Die Action wird als `[HttpPost][ValidateAntiForgeryToken] public async Task<IActionResult> Bestellen(int customerId, int tableId, List<int> selectedMenuIds, List<int> selectedDishIds)` deklariert und nimmt ein Model mit den Formulardaten entgegen (wir verwenden noch keine InputModels/DTOs, einfach die ids-übergeben die die View kennt).
-        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser erstellt eine neue Rechnung, einen Visit, weist einen Tisch zu, gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank. Verwende dazu:
-            * implementiere die angegebene Logik und dass die Rechnungssumme die summe aller bestellten ``Menus`` und ``Dishes`` ist.
+        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser :
+            * erstellt eine neue Rechnung, 
+            * erstellt einen neuen Visit, 
+            * weist einen vom User gewählten Tisch zu, 
+            * gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank. 
+        Verwende dazu:
+            * implementiere die angegebene Logik und dass die Rechnungssumme die Summe aller bestellten ``Menus`` und ``Dishes`` ist.
             * ``await _context.SaveChangesAsync()`` um die Änderungen zu speichern.
             * ein *try* mit *catch* welches im *try* den Service aufruft und in der Datenbank den neuen Visit speichert. Ebenso verwende ``await transaction.CommitAsync();``
             * im *catch* verwende eine allgemeine Exception des Typs ``Exception`` und führe ``await transaction.RollbackAsync();`` und anschließend ``throw;`` aus. 

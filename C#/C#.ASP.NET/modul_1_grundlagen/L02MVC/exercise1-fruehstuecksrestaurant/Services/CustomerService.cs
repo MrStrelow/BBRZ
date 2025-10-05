@@ -23,33 +23,26 @@ public class CustomerService
         var dishes = dishIds.Any() ? await _context.Dishes.Where(d => dishIds.Contains(d.Id)).ToListAsync() : new List<Dish>();
 
 
-        if (customer == null || table == null || (!menus.Any() && !dishes.Any()))
-        {
-            return; // Ungültige Eingabe
-        }
+        if (customer is null || table is null || (!menus.Any() && !dishes.Any()))
+            return; // Ungültige Eingabe - guard ohne Exception.
 
-        using var transaction = await _context.Database.BeginTransactionAsync();
-        try
-        {
-            var visit = new Visit { EntryTime = DateTime.UtcNow, Table = table, Customers = { customer } };
-            _context.Visits.Add(visit);
+        var visit = new Visit { EntryTime = DateTime.UtcNow, Table = table, Customers = { customer } };
+        _context.Visits.Add(visit);
 
-            var order = new Order { OrderTime = DateTime.UtcNow, Visit = visit, Menus = menus, Dishes = dishes };
-            _context.Orders.Add(order);
+        var order = new Order { OrderTime = DateTime.UtcNow, Visit = visit, Menus = menus, Dishes = dishes };
+        _context.Orders.Add(order);
 
-            // Berechne den Gesamtbetrag aus Menüs und einzelnen Gerichten
-            decimal totalAmount = menus.Sum(m => m.Price) + dishes.Sum(d => d.Price);
+        // Berechne den Gesamtbetrag aus Menüs und einzelnen Gerichten
+        decimal totalAmount = menus.Sum(m => m.Price) + dishes.Sum(d => d.Price);
 
-            var bill = new Bill { TotalAmount = totalAmount, BillDate = DateTime.UtcNow, Visit = visit };
-            _context.Bills.Add(bill);
+        var bill = new Bill { TotalAmount = totalAmount, BillDate = DateTime.UtcNow, Visit = visit };
+        _context.Bills.Add(bill);
 
-            await _context.SaveChangesAsync();
-            await transaction.CommitAsync();
-        }
-        catch (Exception)
-        {
-            await transaction.RollbackAsync();
-            throw;
-        }
+        await _context.SaveChangesAsync();
+
+        // wir werden später, wen nwir mehrere SaveChanges und exceptions verwenden, auch uns mit 
+        // * _context.Database.BeginTransactionAsync() und
+        // * await transaction.CommitAsync(); sowie await transaction.RollbackAsync();
+        // beschäftigen. Da wir nur ein await _context.SaveChangesAsync(); haben ist es hier ncht notwendig.
     }
 }
