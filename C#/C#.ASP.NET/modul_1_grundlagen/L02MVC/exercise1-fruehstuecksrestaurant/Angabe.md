@@ -100,16 +100,17 @@ Der Controller definiert zwei zentrale **Actions**:
     * **Funktion**: Diese Action verarbeitet die Formulardaten, die beim Aufgeben einer neuen Bestellung gesendet werden.
     * **Ablauf (asynchron)**:
         1.  Die Action wird als `[HttpPost][ValidateAntiForgeryToken] public async Task<IActionResult> Bestellen(int customerId, int tableId, List<int> selectedMenuIds, List<int> selectedDishIds)` deklariert und nimmt ein Model mit den Formulardaten entgegen (wir verwenden noch keine InputModels/DTOs, einfach die ids-übergeben die die View kennt).
-        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Dieser :
-            * erstellt eine neue Rechnung, 
-            * erstellt einen neuen Visit, 
-            * weist einen vom User gewählten Tisch zu, 
-            * gibt die gewünschten Orders auf und speichert sie asynchron in der Datenbank. 
+        2.  Der `CustomerService` wird aufgerufen, um die Bestellung zu verarbeiten. Erstelle eine ``Methode`` *CreateOrderAsync* welche ``int customerId, int tableId, List<int> menuIds, List<int> dishIds`` als Parameter hat. Diese implementiert folgende Schritte:
+            * finde den gewählten *User* in der Datenbank,
+            * finde den gewählten *Table* in der Datenbank,
+            * finde die vom *User* gewünschten *Menüs* in der Datenbank,
+            * finde das vom *User* gewünschten *Dishes* in der Datenbank,
+            * erstelle einen neuen *Visit* und füge diesen der Datenbank hinzu, 
+            * erstelle eine neue *Order* und füge diese der Datenbank hinzu, 
+            * berechne die summe der bestellten *Menüs* und *Dishes*,
+            * erstelle eine neue *Bill* und füge diese der Datenbank hinzu.
         Verwende dazu:
-            * implementiere die angegebene Logik und dass die Rechnungssumme die Summe aller bestellten ``Menus`` und ``Dishes`` ist.
             * ``await _context.SaveChangesAsync()`` um die Änderungen zu speichern.
-            * ein *try* mit *catch* welches im *try* den Service aufruft und in der Datenbank den neuen Visit speichert. Ebenso verwende ``await transaction.CommitAsync();``
-            * im *catch* verwende eine allgemeine Exception des Typs ``Exception`` und führe ``await transaction.RollbackAsync();`` und anschließend ``throw;`` aus. 
         3.  Nach erfolgreicher Verarbeitung wird der Benutzer wieder auf die `Index`-Action umgeleitet, wo die neue Rechnung in der Liste erscheint.
 
 ### 3. Views (`Index.cshtml`)
