@@ -361,8 +361,8 @@ public class Programm
 ## Aufgabe 2: Interfaces, abstract Classes und S.O.L.I.D [45 Punkte]
 ### Programmverständnis [20 / 45 Teilpunkte]
 Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind hier zwei Klassendiagramme gegeben, eines stellt eine **sauberere** bezogen auf ``S.O.L.I.D`` dar, die andere eine **schlechtere** Lösung.
-* Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``The Dependency Inversion Principle``, welches das *D* in ``S.O.L.I.D`` ist, besser abgebildet ist.
-* Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``The Dependency Inversion Principle``, welches das *D* in ``S.O.L.I.D`` ist, besser abgebildet ist.
+* Begründe wieso ein ``Hamster`` im **oberen** Klassendiagramm bezogen auf ``The Dependency Inversion Principle``, welches das *Dd* in ``S.O.L.I.D`` ist, besser abgebildet ist.
+* Begründe wieso ein ``Plane`` im **oberen** Klassendiagramm bezogen auf ``The Dependency Inversion Principle``, welches das *Dd* in ``S.O.L.I.D`` ist, besser abgebildet ist.
 
 **Hinweis!** 
 * Falls das Bild zu klein ist können Sie mit Rechtsklick dieses in einem Neuen Fenster öffnen.
