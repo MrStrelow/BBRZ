@@ -379,7 +379,7 @@ Gehe auf folgende Fragen zu dem im Klassendiagramm angegebenen Inhalten. Es sind
 ---
 
 ### Programmieren [25 / 45 Teilpunkte]
-Verwende folgenden Code welcher [hier](VorlageAufgabe2.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``SmokingHamster`` ist.
+Verwende folgenden Code welcher [hier](Aufgabe_2/VorlageAufgabe2.zip) zu finden ist. Das vorhandene Zip-file ist ein Projekt welches in z.B. VisualStudio aufgemacht werden kann. **Erweitere** diesen code mit einem neuer ``Hamster`` **, welcher ein ``SmokingHamster`` ist.
 * anderes ``INutritionBehaviour`` mit Namen ``SmokingNutritionBehaviour``:
     * Diese werden mit einer chance von *80%* pro Spielzug *hungrig*.
     * Wenn dieser Hunger hat, soll es eine 50/50 chance geben, dass dieser einen ``Seedling`` aufsammelt und nicht isst.
