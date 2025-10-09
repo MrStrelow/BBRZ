@@ -379,6 +379,20 @@ Verwende folgenden Code welcher [hier](Aufgabe_2/VorlageAufgabe2.zip) zu finden 
 
 **Hinweis:** Orientieren Sie sich an den bereits geschreibenen Code! Z.B. ist in ``FedBigLegHamsterVisuals`` der Code den Sie benötigen gegeben. Dieser kann kopiert und in einer **neuen** ``Klasse`` implementiert werden. Danach wird dieser leicht angepasst. Z.B. der ``Emoji`` wird ausgetauscht.
 
+Erwarteter Output:
+```
+🙉🟫🟫👿🟫🌱🌱🙉🌱🟫
+🌱🙉🟫🌱🟫🌱🌱🌱🌱🟫
+🌱🟫🌱🌱👿🐰🌱🌱🌱🙉
+🌱🟫🌱🐰🌱🌱🌱🌱🌱🌱
+🟫🟫🟫🌱🌱🟫🌱🌱🌱🐰
+🟫🙉🐰🌱🟫🌱🌱🌱🌱🌱
+🌱🌱🟫🌱🟫🟫🌱🙉🟫🟫
+🙉🌱🟫🌱🙉🟫🟫🌱🌱🌱
+🌱🌱🌱🟫🌱🌱🌱🌱🌱🌱
+🌱🌱🌱🌱🐰🌱🟫🙉🐰🌱
+```
+
 ---
 
 ## static vs. non-static und Referenz vs. Wertdaten [10 Punkte]

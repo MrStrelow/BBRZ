@@ -396,6 +396,20 @@ Verwende folgenden Code welcher [hier](Aufgabe_2/VorlageAufgabe2.zip) zu finden 
 * Orientieren Sie sich an den bereits geschreibenen Code! Z.B. ist in ``FedBigLegHamsterVisuals`` der Code den Sie benötigen gegeben. Dieser kann kopiert und in einer **neuen** ``Klasse`` implementiert werden. Danach wird dieser leicht angepasst. Z.B. der ``Emoji`` wird ausgetauscht.
 * Um besser *Testen* zu können ob die ``SmokingHamster`` nach rechts oben gehen, schalte die ``Methode`` *regrowRegrowSeedlings*.
 
+Erwarteter Output:
+```
+🌱🌱🌱🌱🌱🌱🌱🐰🌱🚬
+🌱🌱🌱🌱🌱🌱🟫🌱🌱🌱
+🌱🌱🌱🌱🌱🌱🌱🐹🌱🌱
+🌱🌱🌱🐹🌱🌱🌱🌱🌱🌱
+🌱🌱🐹🟫🟫🌱🟫🐹🌱👿
+🌱🟫👿👿🐹🌱🌱🌱🟫🌱
+🟫🐹🐹🌱🌱🌱🌱🌱🌱🐹
+🌱🌱🐰🌱🌱🌱🌱🟫🌱🌱
+🌱🌱🌱🌱🐰🌱🌱🐹🐰🌱
+🌱🌱🐹🌱🌱🟫🌱🌱🌱🌱
+```
+
 ---
 
 ## Aufgabe 3: static vs. non-static und Referenz vs. Wertdaten [10 Punkte]
