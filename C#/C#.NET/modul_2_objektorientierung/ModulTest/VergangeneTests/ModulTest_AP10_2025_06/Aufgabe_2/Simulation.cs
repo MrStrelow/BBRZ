@@ -30,7 +30,7 @@ public class Simulation
 
         // Start der Simulation:
         Plane plane = new Plane(sizeOfPlane);
-        var renderers = new List<IRenderer> { new ConsoleRenderer(plane), new HtmlRenderer(plane) };
+        var renderers = new List<IRenderer> { new ConsoleRenderer(plane) }; //, new HtmlRenderer(plane) };
 
         while (true)
         {

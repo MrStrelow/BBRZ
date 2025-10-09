@@ -19,19 +19,19 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
         // gewünschte Zustände
         var smokingHamster = (SmokingHamster) mutator.MutatedHamster;
 
+        // bin ich hungrig?
+        if (_random.NextDouble() < 0.80)
+        {
+            mutator.SetHungryState();
+            mutator.SetHungryVisual();
+        }
+
         if (plane.TryGetSeedling(smokingHamster.Position, out Seedling? seedling))
         {
             if (seedling is not null)
             {
-                if (!smokingHamster.BehaviourPermanentlyAltered)
+                if (!smokingHamster.HadEmptyMouthOnce)
                 {
-                    // bin ich hungrig?
-                    if (_random.NextDouble() < 0.8)
-                    {
-                        mutator.SetHungryState();
-                        mutator.SetHungryVisual();
-                    }
-
                     if (smokingHamster.IsHungry)
                     {
                         // 50/50 chance
@@ -55,7 +55,7 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
         else
         {
             if (!smokingHamster.Mouth.Any() && smokingHamster.IsHungry)
-                smokingHamster.BehaviourPermanentlyAltered = true;
+                smokingHamster.HadEmptyMouthOnce = true;
             // kürzer - statt if und darin eine zuweisung eines boolean true.
             //smokingHamster.BehaviourPermanentlyAltered = !hamster.Mouth.Any();
 

@@ -9,7 +9,7 @@ public sealed class ConsoleRenderer : IRenderer
     private IRepresentation[,] _planeVisualRepresentations;
 
     // Properties
-    public int TimeToSleepMs { get; set; } = 150;
+    public int TimeToSleepMs { get; set; } = 100;
 
     public ConsoleRenderer(Plane plane)
     { 
