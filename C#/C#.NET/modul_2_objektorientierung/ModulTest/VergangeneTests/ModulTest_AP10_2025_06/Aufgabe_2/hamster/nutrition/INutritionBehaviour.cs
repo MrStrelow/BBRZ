@@ -1,12 +1,7 @@
 ﻿namespace Hamster.Strategies;
 
-// ISP (Interface Segregation Principle): This abstract class is small (one abstract method) and focused on nutrition.
-// Clients (like Hamster) only need to know about performing nutrition, not other unrelated actions.
 public abstract class NutritionBehaviour
 {
-    // SRP (Single Responsibility Principle): This interface's sole responsibility is to define the contract for nutrition behavior.
-    // OCP (Open/Closed Principle): New nutrition algorithms can be added by creating new classes that implement this interface,
-    // without modifying existing code that uses INutritionBehaviour.
     protected readonly Random _random = new Random();
 
     public abstract void Execute(IHamsterMutator mutator, Plane plane);
@@ -14,13 +9,13 @@ public abstract class NutritionBehaviour
     protected void EatSeedlingFromTile(IHamsterMutator mutator, Seedling seedling, Plane plane)
     {
         Eat(mutator);
-        plane.HamsterIsEatingSeedlings(seedling); // Plane handles removal of seedling
+        plane.HamsterIsEatingSeedlings(seedling); 
     }
 
     protected void StoreInMouthList(Hamster hamster, Seedling seedling, Plane plane)
     {
         hamster.Mouth.Add(seedling);
-        plane.HamsterIsStoringSeedlings(seedling); // Plane handles removal of seedling from world
+        plane.HamsterIsStoringSeedlings(seedling);
     }
 
     protected void EatSeedlingFromMouth(IHamsterMutator mutator)

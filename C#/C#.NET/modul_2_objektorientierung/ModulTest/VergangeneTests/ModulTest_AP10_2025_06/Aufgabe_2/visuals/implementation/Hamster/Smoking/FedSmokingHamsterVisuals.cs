@@ -8,5 +8,5 @@ public class FedSmokingHamsterVisuals : IVisuals
 {
     // TODO: wir machen das in zukunft lazy - bedeutet erst wenn wir z.B. eine image representation brauchen, dann wird diese erzeugt.
     public HtmlRepresentation HtmlRepresentation { get; init; } = new ("resources/NervousHamster_fed.png", 50);
-    public UnicodeRepresentation UnicodeRepresentation { get; init; } = new ("🚬");
+    public UnicodeRepresentation UnicodeRepresentation { get; init; } = new ("🚭");
 }

@@ -19,7 +19,9 @@ public class SmokingHamster : Hamster
 
     public override void Move()
     {
-        MyMovementStragegy = !Mouth.Any() && BehaviourPermanentlyAltered ? new SmokingMovementStrategy() : new OneStepMovementStrategy();
-        MyMovementStragegy.Execute(this, MyPlane);
+        MyMovementStragegy = BehaviourPermanentlyAltered ? new SmokingMovementStrategy() : new OneStepMovementStrategy();
+        base.Move(); // ruft die Move methode aus der Basis-Klasse Hamster auf. Wir sind gerade im SmokingHamster.
+        // oder direkt aufrufen.
+        // MyMovementStragegy.Execute(this, MyPlane);
     }
 }

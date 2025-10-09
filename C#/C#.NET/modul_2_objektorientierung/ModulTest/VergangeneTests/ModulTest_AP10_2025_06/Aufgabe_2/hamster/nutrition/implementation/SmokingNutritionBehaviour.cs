@@ -12,22 +12,19 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
 
     public override void Execute(IHamsterMutator mutator, Plane plane)
     {
-        // Guard Clauses -  defensive: but we could rely on compilers null checks and the resulting warnings.
+        // Guard Clauses
         if (mutator?.MutatedHamster is null) throw new ArgumentNullException(nameof(mutator.MutatedHamster));
         if (plane is null) throw new ArgumentNullException(nameof(plane));
 
         // gewünschte Zustände
         var smokingHamster = (SmokingHamster) mutator.MutatedHamster;
 
-        if (plane.TryGetSeedling(smokingHamster.Position, out Seedling? seedling)) // Ensure Seedling is nullable if TryGetSeedling can return false without out
+        if (plane.TryGetSeedling(smokingHamster.Position, out Seedling? seedling))
         {
-            if (seedling is not null) // Double check, as out param might be default if false
+            if (seedling is not null)
             {
                 if (!smokingHamster.BehaviourPermanentlyAltered)
                 {
-                    // drehe ich durch?
-                    smokingHamster.BehaviourPermanentlyAltered = !smokingHamster.Mouth.Any();
-
                     // bin ich hungrig?
                     if (_random.NextDouble() < 0.8)
                     {
@@ -53,6 +50,18 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
                     }
 
                 }
+            }
+        }
+        else
+        {
+            if (!smokingHamster.Mouth.Any() && smokingHamster.IsHungry)
+                smokingHamster.BehaviourPermanentlyAltered = true;
+            // kürzer - statt if und darin eine zuweisung eines boolean true.
+            //smokingHamster.BehaviourPermanentlyAltered = !hamster.Mouth.Any();
+
+            if (smokingHamster.IsHungry && smokingHamster.Mouth.Any())
+            {
+                EatSeedlingFromMouth(mutator);
             }
         }
     }

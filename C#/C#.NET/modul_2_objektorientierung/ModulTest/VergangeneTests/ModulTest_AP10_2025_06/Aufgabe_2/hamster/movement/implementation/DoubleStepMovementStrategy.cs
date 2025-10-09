@@ -1,12 +1,9 @@
 ﻿namespace Hamster.Strategies;
 
-// SRP (Single Responsibility Principle): This class is solely responsible for the double-step movement logic.
-// LSP (Liskov Substitution Principle): Instances of DoubleStepMovement can be used wherever an IMovementStrategy is expected.
 internal sealed class DoubleStepMovementStrategy : IRandomMovementStrategy
 {
     public Random _random { get; set; } = new Random();
 
-    // SRP: The PlanMove method encapsulates the specific algorithm for random double-step movement.
     public void Execute(Hamster hamster, Plane plane)
     {
         // Guard Clauses
@@ -21,7 +18,6 @@ internal sealed class DoubleStepMovementStrategy : IRandomMovementStrategy
 
         var directions = new List<Direction>() { firstDirection, secondDirection };
 
-        // Delegates to Plane's Position method to actually move the hamster.
         plane.Position(hamster, directions);
     }
 }
