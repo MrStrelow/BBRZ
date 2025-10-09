@@ -11,13 +11,15 @@ public class SmokingHamster : Hamster
     public override IVisuals FedVisual { get; protected set; } = new FedSmokingHamsterVisuals();
     public bool HadEmptyMouthOnce { get; private set; }
 
+    public bool BehaviourPermanentlyAltered { get; set; } = false;
+
     public SmokingHamster(Plane plane) : base(plane)
     {
     }
 
     public override void Move()
     {
-        MyMovementStragegy = !Mouth.Any() ? new SmokingMovementStrategy() : new OneStepMovementStrategy();
+        MyMovementStragegy = !Mouth.Any() && BehaviourPermanentlyAltered ? new SmokingMovementStrategy() : new OneStepMovementStrategy();
         MyMovementStragegy.Execute(this, MyPlane);
     }
 }

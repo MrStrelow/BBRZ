@@ -8,7 +8,6 @@ namespace Hamster.Strategies;
 
 public class SmokingNutritionBehaviour : NutritionBehaviour
 {
-    private bool _behaviourPermanentlyAltered = false;
     private readonly Random _random = new Random();
 
     public override void Execute(IHamsterMutator mutator, Plane plane)
@@ -18,16 +17,16 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
         if (plane is null) throw new ArgumentNullException(nameof(plane));
 
         // gewünschte Zustände
-        var hamster = mutator.MutatedHamster;
+        var smokingHamster = (SmokingHamster) mutator.MutatedHamster;
 
-        if (plane.TryGetSeedling(hamster.Position, out Seedling? seedling)) // Ensure Seedling is nullable if TryGetSeedling can return false without out
+        if (plane.TryGetSeedling(smokingHamster.Position, out Seedling? seedling)) // Ensure Seedling is nullable if TryGetSeedling can return false without out
         {
             if (seedling is not null) // Double check, as out param might be default if false
             {
-                if (!_behaviourPermanentlyAltered)
+                if (!smokingHamster.BehaviourPermanentlyAltered)
                 {
                     // drehe ich durch?
-                    _behaviourPermanentlyAltered = !hamster.Mouth.Any();
+                    smokingHamster.BehaviourPermanentlyAltered = !smokingHamster.Mouth.Any();
 
                     // bin ich hungrig?
                     if (_random.NextDouble() < 0.8)
@@ -36,7 +35,7 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
                         mutator.SetHungryVisual();
                     }
 
-                    if (hamster.IsHungry)
+                    if (smokingHamster.IsHungry)
                     {
                         // 50/50 chance
                         if (_random.NextDouble() < 0.5)
@@ -45,20 +44,16 @@ public class SmokingNutritionBehaviour : NutritionBehaviour
                         }
                         else
                         {
-                            StoreInMouthList(hamster, seedling, plane);
+                            StoreInMouthList(smokingHamster, seedling, plane);
                         }
                     }
                     else
                     {
-                        StoreInMouthList(hamster, seedling, plane);
+                        StoreInMouthList(smokingHamster, seedling, plane);
                     }
+
                 }
             }
         }
-    }
-
-    public void UpdateOnEmptyMouth(Hamster hamster)
-    {
-        _behaviourPermanentlyAltered = true;
     }
 }
