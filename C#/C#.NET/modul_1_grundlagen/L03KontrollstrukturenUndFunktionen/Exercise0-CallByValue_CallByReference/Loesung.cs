@@ -133,6 +133,8 @@ namespace Aufgabe3
                 //Console.WriteLine($"Geht das? {alterAlsInt}"); 
                 Console.WriteLine($"Parse fehlgeschlagen.");
             }
+
+            // Kommentiere die nächste Zeile aus!
             //Console.WriteLine($"Geht das? {alterAlsInt}");
         }
 
@@ -159,11 +161,12 @@ namespace Aufgabe3
             Console.WriteLine("Bitte gib dein Alter ein: ");
             string alterAlsString = Console.ReadLine();
 
-            while (int.TryParse(alterAlsString, out int alterAlsInt))
+            while (!int.TryParse(alterAlsString, out int alterAlsInt))
             {
-                Console.WriteLine($"Parse erfolgreich: {alterAlsInt}");
+                Console.WriteLine($"Parse NICHT erfolgreich: {alterAlsInt}");
             }
 
+            // Kommentiere die nächste Zeile aus!
             //Console.WriteLine($"Geht das? {alterAlsInt}");
         }
 
@@ -175,7 +178,7 @@ namespace Aufgabe3
             int alterAlsInt;
             while (!int.TryParse(alterAlsString, out alterAlsInt))
             {
-                Console.WriteLine($"Parse erfolgreich: {alterAlsInt}");
+                Console.WriteLine($"Parse NICHT erfolgreich: {alterAlsInt}");
             }
 
             Console.WriteLine($"Ah, der Scope der Variable {alterAlsInt}, ist nun in der gesamten Methode.");

@@ -78,7 +78,7 @@ class Program
         int[] numbers = { 10, 20, 30 };
         Console.WriteLine("Array vor dem Aufruf: " + string.Join(", ", numbers)); 
 
-        ModifyArrayValueStyleStyle(numbers);
+        ModifyArrayValueStyle(numbers);
 
         Console.WriteLine("Array nach dem Aufruf: " + string.Join(", ", numbers)); 
     }
@@ -155,6 +155,8 @@ class Program
             //Console.WriteLine($"Geht das? {alterAlsInt}"); 
             Console.WriteLine($"Parse fehlgeschlagen.");
         }
+
+        // Kommentiere die nächste Zeile aus!
         //Console.WriteLine($"Geht das? {alterAlsInt}");
     }
 
@@ -183,10 +185,11 @@ class Program
 
         while (...)
         {
-            Console.WriteLine($"Parse erfolgreich: {alterAlsInt}");
+            Console.WriteLine($"Parse NICHT erfolgreich: {alterAlsInt}");
         }
 
-        //Console.WriteLine($"Geht das? {alterAlsInt}");
+        // Kommentiere die nächste Zeile aus!
+        // Console.WriteLine($"Geht das? {alterAlsInt}"); 
     }
 
     static void TryParseIntExampleWhileMitVerwendungDerVariableAußerhalbDerWhile()
@@ -197,7 +200,7 @@ class Program
         int alterAlsInt;
         while (...)
         {
-            Console.WriteLine($"Parse erfolgreich: {alterAlsInt}");
+            Console.WriteLine($"Parse NICHT erfolgreich: {alterAlsInt}");
         }
 
         Console.WriteLine($"Ah, der Scope der Variable {alterAlsInt}, ist nun in der gesamten Methode.");
