@@ -60,7 +60,7 @@ class Program
 ```
 ---
 
-### Aufgabe - level: 🤗 - Arrays und Seiteneffekte
+### Aufgabe 2 - level: 🤗 - Arrays und Seiteneffekte
 Erstelle ein ``Array`` von ``int`` und rufe die ``Methode`` *ModifyArray* auf.
 ```csharp
 class Program
@@ -108,7 +108,7 @@ class Program
 
     static void ModifyArrayReferenceStyle(int[] arr)
     {
-        // Ändere ein Element des Arrays, jedoch kopiere zuerst alle elemente des Parameters arr.
+        // Ändere ein Element des Arrays arr direkt, ohne eine Kopie zu machen.
         if (arr.Length > 0)
         {
             ...
