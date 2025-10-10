@@ -62,6 +62,7 @@ class Program
 
 ### Aufgabe 2 - level: 🤗 - Arrays und Seiteneffekte
 Erstelle ein ``Array`` von ``int`` und rufe die ``Methode`` *ModifyArray* auf.
+Erstelle dort einemal eine Kopie des arrays und dann verändere dieses. Danach ändere das array direkt. 
 ```csharp
 class Program
 {
