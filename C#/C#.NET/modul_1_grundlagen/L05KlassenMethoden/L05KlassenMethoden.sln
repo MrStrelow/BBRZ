@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skripten", "Skripten\Skripten.csproj", "{BB765DC2-E0AB-4324-B56B-2C0362726D04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2-HundeUndBesitzerMitExceptions", "Exercise2-HundeUndBesitzerMitExceptions\Exercise2-HundeUndBesitzerMitExceptions.csproj", "{BB765DC2-E0AB-4324-B56B-2C0362726D04}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise1-HundeUndBesitzer", "Exercise1-HundeUndBesitzer\Exercise1-HundeUndBesitzer.csproj", "{3338CB8E-86F2-4532-AE87-D2E888E56457}"
 EndProject
 Global
