@@ -35,10 +35,10 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 
 | Exercise | Repository | Angabe |
 | :--- | :--- | :--- |
-| Exercise1-PacketeEinlagern | [Repository]() | [Angabe](L04Collections/Exercise1-PacketeEinlagern/Angabe.md) |
-| Exercise2-TicTacToe | [Repository]() | [Angabe](L04Collections/Exercise2-TicTacToe/Angabe.md) |
-| Exercise3-ProdukteImLager | [Repository]() | [Angabe](L04Collections/Exercise3-ProdukteImLager/Angabe.md) |
-| Exercise4-EigeneListenImplementieren | [Repository]() | [Angabe](L04Collections/Exercise4-EigeneListenImplementieren/Angabe.md) |
+| Exercise1-PacketeEinlagern | [Repository](https://classroom.github.com/a/46IF0HCl) | [Angabe](L04Collections/Exercise1-PacketeEinlagern/Angabe.md) |
+| Exercise2-TicTacToe | [Repository](https://classroom.github.com/a/CBkAYKAb) | [Angabe](L04Collections/Exercise2-TicTacToe/Angabe.md) |
+| Exercise3-ProdukteImLager | [Repository](https://classroom.github.com/a/ejF2kxzG) | [Angabe](L04Collections/Exercise3-ProdukteImLager/Angabe.md) |
+| Exercise4-EigeneListenImplementieren | [Repository](https://classroom.github.com/a/zJnlB7yW) | [Angabe](L04Collections/Exercise4-EigeneListenImplementieren/Angabe.md) |
 
 
 ### **L05KlassenMethoden**
@@ -46,6 +46,7 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 | Exercise | Repository | Angabe |
 | :--- | :--- | :--- |
 | Exercise1-HundeUndBesitzer | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) |
+| Exercise2-HundeUndBesitzerMitExceptions | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) |
 
 
 Wenn eine Übung angenommen wurde, ist dieses Repository für euch [hier](https://github.com/MyComputingAdventures) ersichtlich.

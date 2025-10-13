@@ -1,4 +1,18 @@
-﻿## Pakete einlagern
+﻿Welche ``Konzepte`` der Programmiersprache üben wir hier?
+* Schleifen
+* Guard-Clauses
+* Dictionaries
+* User-Input
+* Operatoren
+* Methoden
+
+Welche ``Denkweisen`` üben wir hier?
+* Wie kann ich schnelle Lesezugriffe umsetzen?
+
+Bei Unklarheiten hier nachlesen:
+* [Was sind Dictionaries und Listen?](../Skripten/L04.1ListenUndDictionaries.md)
+
+## Pakete einlagern
 Das Programm basiert auf zwei ``Dictionaries`` (lager und produkte) und einer Variable für die Kapazität. Die Kapazität schränkt das lager nicht direkt ein, sondern lässt ein hinzufügen zu diesen einfach nicht mehr zu.
 
 * **`produkte` (Dictionary):** Ein Nachschlagewerk, das alphanumerische Produkt-IDs (SKUs) auf ihre grafische Darstellung (Emoji) abbildet. Dieses Dictionary ist zu Beginn des Programms fest definiert.
