@@ -1,52 +1,53 @@
 Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Modul 1 zu erzeugen. Diese ``Repositories`` sind für euch alleine (oder für euere Gruppe) und ihr könnt dort nichts von anderen Kolleg:innen kaputt machen. Nur für euch selbst.
 
 ### **L00Git**
-| Exercise | Repository | Angabe |
-| Ist nicht auf Github Classroom und soll mit eine:r Kolleg:in aus der Klasse |  | [Angabe](L00Git/angabe.md) |
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| Ist nicht auf Github Classroom und soll mit eine:r Kolleg:in aus der Klasse gelöst werden |  |[Angabe](L00Git/angabe.md) | Ende Woche 1 |
 
 ### **L01MyFirstDotNetProject**
 
-| Exercise | Repository | Angabe |
-| :--- | :--- | :--- |
-| Starter Assignment - BubbleSort | [Repository](https://classroom.github.com/a/mmR_Rtq3) | [Angabe](L01MyFirstDotNetProject/angabe.md) |
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| Starter Assignment - BubbleSort | [Repository](https://classroom.github.com/a/mmR_Rtq3) | [Angabe](L01MyFirstDotNetProject/angabe.md) | Ende Woche 2 |
 
 ### **L02TypenUndOperatoren**
 
-| Exercise | Repository | Angabe |
-| :--- | :--- | :--- |
-| Exercise1-MusterUndDessenLogischeFormeln | [Repository](https://classroom.github.com/a/ZmKXqm8r) | [Angabe](L02TypenUndOperatoren/Exercise1-MusterUndDessenLogischeFormeln/Angabe.md) |
-| Exercise2-Auswertungsreihenfolge | [Repository](https://classroom.github.com/a/5j4AvRNo) | [Angabe](L02TypenUndOperatoren/Exercise2-Auswertungsreihenfolge/Angabe.md) |
-| Exercise3-PrimitiveTypenUmwandeln | [Repository](https://classroom.github.com/a/Wh7rztM3) | [Angabe](L02TypenUndOperatoren/Exercise3-PrimitiveTypenUmwandeln/Angabe.md) |
-| Exercise4-UserinputUndArrays | [Repository](https://classroom.github.com/a/IvoEhIpF) | [Angabe](L02TypenUndOperatoren/Exercise4-UserinputUndArrays/Angabe.md) |
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| Exercise1-MusterUndDessenLogischeFormeln | [Repository](https://classroom.github.com/a/ZmKXqm8r) | [Angabe](L02TypenUndOperatoren/Exercise1-MusterUndDessenLogischeFormeln/Angabe.md) | Ende Woche 2 |
+| Exercise2-Auswertungsreihenfolge | [Repository](https://classroom.github.com/a/5j4AvRNo) | [Angabe](L02TypenUndOperatoren/Exercise2-Auswertungsreihenfolge/Angabe.md) | Ende Woche 2 |
+| Exercise3-PrimitiveTypenUmwandeln | [Repository](https://classroom.github.com/a/Wh7rztM3) | [Angabe](L02TypenUndOperatoren/Exercise3-PrimitiveTypenUmwandeln/Angabe.md) | Ende Woche 3  |
+| Exercise4-UserinputUndArrays | [Repository](https://classroom.github.com/a/IvoEhIpF) | [Angabe](L02TypenUndOperatoren/Exercise4-UserinputUndArrays/Angabe.md) | Ende Woche 3  |
 
 ### **L03KontrollstrukturenUndFunktionen**
 
-| Exercise | Repository | Angabe |
-| :--- | :--- | :--- |
-| Exercise0-CallByValue\_vs\_CallByReference | [Repository](https://classroom.github.com/a/AB5bI15a) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise0-CallByValue_CallByReference/Angabe.md) |
-| Exercise1-GuardClauses | [Repository](https://classroom.github.com/a/9_-dCK_O) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise1-GuardClauses/Angabe.md) |
-| Exercise2-ZahlenRaten | [Repository](https://classroom.github.com/a/pXrYoFXa) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise2-ZahlenRaten/Angabe.md) |
-| Exercise3-GuessTheWord | [Repository](https://classroom.github.com/a/NQS52d35) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise3-GuessTheWord/Angabe.md) |
-| Exercise4-Schachbrett | [Repository](https://classroom.github.com/a/0k1nOA0D) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise4-Schachbrett/Angabe.md) |
-| Exercise5-Formen | [Repository](https://classroom.github.com/a/Y_hQFn3S) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise5-Formen/Angabe.md) |
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| Exercise0-CallByValue\_vs\_CallByReference | [Repository](https://classroom.github.com/a/AB5bI15a) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise0-CallByValue_CallByReference/Angabe.md) | Ende Woche 3 |
+| Exercise1-GuardClauses | [Repository](https://classroom.github.com/a/9_-dCK_O) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise1-GuardClauses/Angabe.md) | Ende Woche 4 |
+| Exercise2-ZahlenRaten | [Repository](https://classroom.github.com/a/pXrYoFXa) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise2-ZahlenRaten/Angabe.md) |  Ende Woche 4 |
+| Exercise3-GuessTheWord | [Repository](https://classroom.github.com/a/NQS52d35) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise3-GuessTheWord/Angabe.md) | Ende Woche 5  |
+| Exercise4-Schachbrett | [Repository](https://classroom.github.com/a/0k1nOA0D) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise4-Schachbrett/Angabe.md) | Ende Woche 5 |
+| Exercise5-Formen | [Repository](https://classroom.github.com/a/Y_hQFn3S) | [Angabe](L03KontrollstrukturenUndFunktionen/Exercise5-Formen/Angabe.md) | Ende Woche 6 |
 
 
 ### **L04Collections**
 
-| Exercise | Repository | Angabe |
-| :--- | :--- | :--- |
-| Exercise1-PacketeEinlagern | [Repository](https://classroom.github.com/a/46IF0HCl) | [Angabe](L04Collections/Exercise1-PacketeEinlagern/Angabe.md) |
-| Exercise2-TicTacToe | [Repository](https://classroom.github.com/a/CBkAYKAb) | [Angabe](L04Collections/Exercise2-TicTacToe/Angabe.md) |
-| Exercise3-ProdukteImLager | [Repository](https://classroom.github.com/a/ejF2kxzG) | [Angabe](L04Collections/Exercise3-ProdukteImLager/Angabe.md) |
-| Exercise4-EigeneListenImplementieren | [Repository](https://classroom.github.com/a/zJnlB7yW) | [Angabe](L04Collections/Exercise4-EigeneListenImplementieren/Angabe.md) |
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| Exercise1-PacketeEinlagern | [Repository](https://classroom.github.com/a/46IF0HCl) | [Angabe](L04Collections/Exercise1-PacketeEinlagern/Angabe.md) | Ende Woche 7 |
+| Exercise2-TicTacToe | [Repository](https://classroom.github.com/a/CBkAYKAb) | [Angabe](L04Collections/Exercise2-TicTacToe/Angabe.md) | Ende Woche 8  |
+| Exercise3-ProdukteImLager | [Repository](https://classroom.github.com/a/ejF2kxzG) | [Angabe](L04Collections/Exercise3-ProdukteImLager/Angabe.md) | Ende Woche 9 |
+| Exercise4-EigeneListenImplementieren | [Repository](https://classroom.github.com/a/zJnlB7yW) | [Angabe](L04Collections/Exercise4-EigeneListenImplementieren/Angabe.md) | OPTIONAL  |
 
 
 ### **L05KlassenMethoden**
 
-| Exercise | Repository | Angabe |
-| :--- | :--- | :--- |
-| Exercise1-HundeUndBesitzer | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) |
-| Exercise2-HundeUndBesitzerMitExceptions | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) |
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| Exercise1-HundeUndBesitzer | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) | Ende Woche 10 |
+| Exercise2-HundeUndBesitzerMitExceptions | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) | Ende Woche 11 |
 
 
 Wenn eine Übung angenommen wurde, ist dieses Repository für euch [hier](https://github.com/MyComputingAdventures) ersichtlich.
