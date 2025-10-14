@@ -55,18 +55,17 @@ public class Mensch
     public bool DetectLoveTriangle()
     {
         bool triangle = _myLoveInterest._myLoveInterest._myLoveInterest == this;
-        bool selfLove = _myLoveInterest != this;
+        bool selfLove = _myLoveInterest == this;
 
         return triangle && !selfLove;
     }
 
     private bool DetectLoveTriangleOfSize(int n)
     {
-        if (_myLoveInterest != this) 
+        if (_myLoveInterest == this) 
             return false; 
 
         Mensch next = this;
-
         for (int i = 0; i < n; i++)
         {
             next = next._myLoveInterest;
@@ -76,17 +75,19 @@ public class Mensch
         return next == this;
     }
 
-    public (bool found, int foundAtSize) DetectLoveTriangleUntilSize(int n)
+    public int DetectLoveTriangleUntilSize(int n)
     {
-        for (int i = 0; i < n; i++)
+        int foundUntil = -1;
+        
+        for (int i = 1; i <= n; i++)
         {
             if(DetectLoveTriangleOfSize(i))
             {
-                return (true, i);
+                foundUntil = i;
             }
         }
 
-        return (false, -1);
+        return foundUntil;
     }
 
     public bool DetectMutualLove()
@@ -141,8 +142,13 @@ public class Mensch
         this._myLoveInterest = loveInterest;
     }
 
-    public virtual string GetDarstellung()
+    public string GetDarstellung()
     {
         return _darstellung;
+    }
+
+    public void SetDarstellung(string darstellung)
+    {
+        _darstellung = darstellung;
     }
 }

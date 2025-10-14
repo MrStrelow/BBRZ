@@ -126,7 +126,7 @@ public class Hund
 
     public void SetBesitzer(HundeBesitzer besitzer)
     {
-        if (_besitzer is null)
+        if (besitzer is null)
         {
             Console.WriteLine($"Parameter besitzer von SetBesitzer in Hund ist null.");
             return;
@@ -192,14 +192,24 @@ public class Hund
         _health = health;
     }
 
-    public virtual string GetDarstellung()
+    public string GetDarstellung()
     {
         return _darstellung;
     }
 
-    public virtual string GetLautBeimBellen()
+    public void SetDarstellung(string darstellung)
+    {
+        _darstellung = darstellung;
+    }
+
+    public string GetLautBeimBellen()
     {
         return _lautBeimBellen;
+    }
+
+    public void SetLautBeimBellen(string lautBeimBellen)
+    {
+        _lautBeimBellen = lautBeimBellen;
     }
 
 }

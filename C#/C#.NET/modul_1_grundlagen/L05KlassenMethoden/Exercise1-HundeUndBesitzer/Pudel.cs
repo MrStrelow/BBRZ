@@ -4,8 +4,6 @@ public class Pudel : Hund // Ist-Beziehungen
 {
     // private Felder
     private double _fluff;
-    private string _darstellung = "🐩";
-    private string _lautBeimBellen = "⬆️Ieek⬆️";
 
     // Konstruktor
     public Pudel(
@@ -14,6 +12,8 @@ public class Pudel : Hund // Ist-Beziehungen
         : base(name, alter, geschlecht, health, chipped)
     {
         _fluff = fluff;
+        SetDarstellung("🐩");
+        SetLautBeimBellen("⬆️Ieek⬆️");
     }
 
     public Pudel(
@@ -65,15 +65,5 @@ public class Pudel : Hund // Ist-Beziehungen
     public void SetFluff(double fluff)
     {
         _fluff = fluff;
-    }
-
-    public override string GetDarstellung()
-    { 
-        return _darstellung;
-    }
-
-    public override string GetLautBeimBellen()
-    {
-        return _lautBeimBellen;
     }
 }

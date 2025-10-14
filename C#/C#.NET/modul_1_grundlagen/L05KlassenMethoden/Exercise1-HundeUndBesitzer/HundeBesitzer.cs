@@ -5,7 +5,6 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
     // private Felder
     private bool _hatHundeFuehrerschein;
     private int _capacity;
-    private string _darstellung = "☺️";
 
     // Hat-Beziehungen
     private Hund[] hunde;
@@ -21,6 +20,7 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
         hunde = new Hund[capacity];
         _hatHundeFuehrerschein = hatHundeFuehrerschein;
         _capacity = capacity;
+        SetDarstellung("😁");
     }
 
     // 2. Konstruktor
@@ -183,11 +183,6 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
         }
 
         return -1;
-    }
-
-    public override string GetDarstellung()
-    {
-        return _darstellung;
     }
 }
 

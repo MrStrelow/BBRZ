@@ -3,11 +3,8 @@
 public class SchaeferHund : Hund // Ist-Beziehungen
 {
     // private Felder
-    private string _darstellung = "🐕‍🦺";
-    private string _lautBeimBellen = "⬇️Wuff⬇️";
-
-    public int _capacity;
-    public Hund[] _behueteteHunde;
+    private int _capacity;
+    private Hund[] _behueteteHunde;
 
     // Konstruktoren:
     public SchaeferHund(
@@ -23,6 +20,8 @@ public class SchaeferHund : Hund // Ist-Beziehungen
 
         _capacity = capacity;
         _behueteteHunde = behuetendeHunde;
+        SetDarstellung("🐕‍🦺");
+        SetLautBeimBellen("⬆️Wuff⬆️");
     }
 
     public SchaeferHund(
@@ -118,10 +117,6 @@ public class SchaeferHund : Hund // Ist-Beziehungen
         return _capacity;
     }
 
-    public void SetCapacity(int capacity)
-    {
-        _capacity = capacity;
-    }
 
     // Private Hilfsmethoden
     private int HabePlatz()
@@ -137,13 +132,8 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     }
 
     // Get-und-Set-Methoden
-    public override string GetDarstellung()
+    public void SetCapacity(int capacity)
     {
-        return _darstellung;
-    }
-
-    public override string GetLautBeimBellen()
-    {
-        return _lautBeimBellen;
+        _capacity = capacity;
     }
 }
