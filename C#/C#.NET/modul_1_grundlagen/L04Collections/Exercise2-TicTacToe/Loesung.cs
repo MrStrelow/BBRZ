@@ -1,17 +1,16 @@
-﻿// StandardGame.cs
-
-using System.Text;
+﻿using System.Text;
 
 // Top - Level Statement
 Console.OutputEncoding = Encoding.UTF8;
 
+Console.WriteLine("############### Standard TickTackToe wird ausgeführt ###############");
 StandardGame standard = new StandardGame();
-//standard.Starten();
+standard.Starten();
 
+Console.WriteLine("############### Jagged TickTackToe wird ausgeführt ###############");
 JaggedGame jagged = new JaggedGame();
 jagged.Starten();
 
-// Klassen und Namespaces für Übungen
 // ########################################## Übung 1 ##########################################
 enum Status
 {
@@ -43,36 +42,38 @@ public class StandardGame
 
     public void Starten()
     {
-        Status spielStatus; 
-            
-        do
+        Status spielStatus = Status.IMGANGE;
+
+        while (spielStatus == Status.IMGANGE)
         {
             Console.Clear();
             Console.WriteLine("--- Standard Tic-Tac-Toe (3x3) ---");
-            SpielbrettAusgeben();
 
             int auswahl = -1;
             bool guardsUeberstanden = false;
 
+            Console.Clear();
+            SpielbrettAusgeben();
+
             while (!guardsUeberstanden)
             {
-                // ❌ ungewünschte Zustände
-                // 1) User gibt keine Zahl ein.
                 Console.WriteLine($"\nSpieler {aktuellerSpieler} ist am Zug.");
                 Console.Write("Wähle ein freies Feld (1-9): ");
+
                 string userEingabe = Console.ReadLine();
 
-                while (!int.TryParse(userEingabe, out auswahl))
+                // ❌ ungewünschte Zustände
+                // 1) User gibt keine Zahl ein.
+                if (!int.TryParse(userEingabe, out auswahl))
                 {
                     Console.WriteLine($"Ungültige Eingabe - {userEingabe} - Zahl zwischen 1 und 9 eingeben.");
-                    Console.Write("Wähle ein freies Feld (1-9): ");
-                    userEingabe = Console.ReadLine();
+                    continue;
                 }
 
                 // 2) User gibt Zahlen außerhalb von 1 und 9 ein
                 if (!(1 <= auswahl && auswahl <= 9))
                 {
-                    Console.WriteLine("Ungültige Eingabe!");
+                    Console.WriteLine($"Ungültige Eingabe - {auswahl} - außerhalb von 1 und 9");
                     continue;
                 }
 
@@ -83,7 +84,7 @@ public class StandardGame
                 // 3) Feld ist bereits belegt
                 if (brett[zeile, spalte] == SpielerEins || brett[zeile, spalte] == SpielerZwei)
                 {
-                    Console.WriteLine("Dieses Feld ist bereits belegt!");
+                    Console.WriteLine($"Ungültige Eingabe - {auswahl} - Dieses Feld ist bereits belegt!");
                     continue;
                 }
 
@@ -108,7 +109,7 @@ public class StandardGame
                 aktuellerSpieler = (aktuellerSpieler == SpielerEins) ? SpielerZwei : SpielerEins;
             }
 
-        } while (spielStatus == Status.IMGANGE);
+        }
 
         Console.Clear();
         Console.WriteLine("🏁 Spiel beendet! 🏁");
@@ -122,6 +123,9 @@ public class StandardGame
         {
             Console.WriteLine("\n🤝 Unentschieden! 🤝");
         }
+
+        Console.WriteLine("--- Drücke eine beliegibe Taste um mit der Jagged Version weiterzumachen. ---");
+        Console.ReadLine();
     }
 
     private void SpielbrettAusgeben()
@@ -173,7 +177,7 @@ public class JaggedGame
 {
     private string SpielerEins = "🔴";
     private string SpielerZwei = "🔵";
-    private string LeerFeld = "🟦";
+    private string LeerFeld = "🔲";
     private int SiegAnzahl = 3;
 
     // Jagged Array
@@ -186,38 +190,42 @@ public class JaggedGame
     public void Starten()
     {
         FeldInitialisieren(); // Zuerst das Feld vom Benutzer erstellen lassen
-        Status spielStatus;
+        Status spielStatus = Status.IMGANGE;
 
-        do
+        while (spielStatus == Status.IMGANGE)
         {
             Console.Clear();
             Console.WriteLine("--- Variables Tic-Tac-Toe (Jagged Array) ---");
             SpielbrettAusgeben();
 
-            int zeile = -1, spalte = -1;
+            int zeile = -1;
+            int spalte = -1;
             bool guardsUeberstanden = false;
 
             while (!guardsUeberstanden)
             {
                 Console.WriteLine($"\nSpieler {aktuellerSpieler} ist am Zug.");
                 Console.Write("Gib Zeile und Spalte ein (z.B. '1 2'): ");
-                string[] input = Console.ReadLine().Split(' ');
+                string[] input = Console.ReadLine().Split(new[] { ' ' }, 2);
 
                 if (input.Length != 2 || !int.TryParse(input[0], out zeile) || !int.TryParse(input[1], out spalte))
                 {
                     Console.WriteLine("Ungültige Eingabe! Bitte im Format 'Zeile Spalte' eingeben.");
                     continue;
                 }
+
                 if (zeile < 1 || zeile > brett.Length || spalte < 1 || spalte > brett[zeile - 1].Length)
                 {
                     Console.WriteLine("Eingabe außerhalb des Spielfelds!");
                     continue;
                 }
+
                 if (brett[zeile - 1][spalte - 1] != LeerFeld)
                 {
                     Console.WriteLine("Dieses Feld ist bereits belegt!");
                     continue;
                 }
+
                 guardsUeberstanden = true;
             }
 
@@ -238,7 +246,7 @@ public class JaggedGame
                 aktuellerSpieler = (aktuellerSpieler == SpielerEins) ? SpielerZwei : SpielerEins;
             }
 
-        } while (spielStatus == Status.IMGANGE);
+        }
 
         Console.Clear();
         Console.WriteLine("🏁 Spiel beendet! 🏁");
@@ -334,6 +342,7 @@ public class JaggedGame
                             break; // Die Linie ist unterbrochen, keine weitere Prüfung nötig
                         }
                     }
+
                     if (gewonnen) return true; // Annahme wurde nicht widerlegt -> Sieg!
                 }
 

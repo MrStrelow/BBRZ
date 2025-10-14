@@ -37,8 +37,8 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 | Exercise | Repository | Angabe | Abgabefrist |
 | :--- | :--- | :--- | :--- |
 | Exercise1-PacketeEinlagern | [Repository](https://classroom.github.com/a/46IF0HCl) | [Angabe](L04Collections/Exercise1-PacketeEinlagern/Angabe.md) | Ende Woche 7 |
-| Exercise2-TicTacToe | [Repository](https://classroom.github.com/a/CBkAYKAb) | [Angabe](L04Collections/Exercise2-TicTacToe/Angabe.md) | Ende Woche 8  |
-| Exercise3-ProdukteImLager | [Repository](https://classroom.github.com/a/ejF2kxzG) | [Angabe](L04Collections/Exercise3-ProdukteImLager/Angabe.md) | Ende Woche 9 |
+| Exercise2-TicTacToe | [Repository](https://classroom.github.com/a/CBkAYKAb) | [Angabe](L04Collections/Exercise2-TicTacToe/Angabe.md) | Ende Woche 7  |
+| Exercise3-ProdukteImLager | [Repository](https://classroom.github.com/a/ejF2kxzG) | [Angabe](L04Collections/Exercise3-ProdukteImLager/Angabe.md) | Ende Woche 8 |
 | Exercise4-EigeneListenImplementieren | [Repository](https://classroom.github.com/a/zJnlB7yW) | [Angabe](L04Collections/Exercise4-EigeneListenImplementieren/Angabe.md) | OPTIONAL  |
 
 
@@ -46,8 +46,22 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 
 | Exercise | Repository | Angabe | Abgabefrist |
 | :--- | :--- | :--- | :--- |
-| Exercise1-HundeUndBesitzer | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) | Ende Woche 10 |
-| Exercise2-HundeUndBesitzerMitExceptions | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) | Ende Woche 11 |
+| Exercise1-HundeUndBesitzer | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) | Ende Woche 09 |
+| Exercise2-HundeUndBesitzerMitExceptions | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) | Ende Woche 10 |
 
+### **Alte Prüfungen zum Üben**
+
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+| 2025_01 | [Repository](https://classroom.github.com/a/qxEnOxp8) | [Angabe](ModulTest/VergangeneTests/ModulTest_AP09_2025_01/angabe.md) | Ende Woche 11 |
+| 2025_02 | [Repository](https://classroom.github.com/a/UVNV_qHq) | [Angabe](ModulTest/VergangeneTests/ModulTest_AP09_2025_02/angabe.md) | Ende Woche 11 |
+| 2025_03 | [Repository](https://classroom.github.com/a/G3ieV1W5) | [Angabe](ModulTest/VergangeneTests/ModulTest_AP10_2025_03/angabe.md) | Ende Woche 11 |
+| 2025_04 | [Repository](https://classroom.github.com/a/vY3iyADo) | [Angabe](ModulTest/VergangeneTests/ModulTest_AP10_2025_04/angabe.md) | Ende Woche 11 |
+
+### **Modul Test**
+
+| Exercise | Repository | Angabe | Abgabefrist |
+| :--- | :--- | :--- | :--- |
+|  | [Repository](https://classroom.github.com/a/2TLObwqa) | [Angabe](ModulTest/Angabe/) | Ende Woche 12 |
 
 Wenn eine Übung angenommen wurde, ist dieses Repository für euch [hier](https://github.com/MyComputingAdventures) ersichtlich.
