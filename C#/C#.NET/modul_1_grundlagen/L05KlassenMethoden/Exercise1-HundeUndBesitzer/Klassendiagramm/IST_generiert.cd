@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Hunde.Mensch">
+    <Position X="10.5" Y="0.5" Width="2.5" />
+    <AssociationLine Name="_myLoveInterest" Type="Hunde.Mensch" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12" Y="0.5" />
+        <Point X="12" Y="0.125" />
+        <Point X="13.375" Y="0.125" />
+        <Point X="13.375" Y="1.375" />
+        <Point X="13" Y="1.375" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.896" Y="0.956" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAIAACAAAAgBQEAAAAIAAAAAAAIEhQAGUAREAABAA=</HashCode>
+      <FileName>Mensch.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_myLoveInterest" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Hunde.SchaeferHund">
+    <Position X="3" Y="8.5" Width="2.25" />
+    <AssociationLine Name="_behueteteHunde" Type="Hunde.Hund" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.25" Y="8.5" />
+        <Point X="3.25" Y="6.75" />
+        <Point X="4.5" Y="6.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAggAAAAAAQAAQAAEEAAQgAABAAAiACAAA=</HashCode>
+      <FileName>Schaefer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_behueteteHunde" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Hunde.Pudel">
+    <Position X="5.75" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAEAkAAAAAAAAQAAAAAAAQgAEAAAAAAAAAA=</HashCode>
+      <FileName>Pudel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hunde.HundeBesitzer">
+    <Position X="10.5" Y="6.25" Width="2.5" />
+    <AssociationLine Name="hunde" Type="Hunde.Hund" FixedFromPoint="true">
+      <Path>
+        <Point X="10.5" Y="6.938" />
+        <Point X="6.5" Y="6.938" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.178" Y="-0.24" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEMAAAQCgAEAAAAAAQAAAxAgAAAEAgAAAAAAAAAAAA=</HashCode>
+      <FileName>HundeBesitzer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="hunde" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Hunde.Hund">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <AssociationLine Name="_spielFreund" Type="Hunde.Hund" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.209" Y="0.5" />
+        <Point X="5.209" Y="0.125" />
+        <Point X="4.125" Y="0.125" />
+        <Point X="4.125" Y="1.047" />
+        <Point X="4.5" Y="1.047" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.622" Y="0.658" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_besitzer" Type="Hunde.HundeBesitzer" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="6.5" />
+        <Point X="10.5" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAKAAQCAWAwAAEAAoAIAAAAACAJQkQEAUAQqAABAA=</HashCode>
+      <FileName>Hund.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_spielFreund" />
+      <Field Name="_besitzer" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="Hunde.Essen">
+    <Position X="8" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAABAAAAAAAAAAAAAAEAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Essen.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

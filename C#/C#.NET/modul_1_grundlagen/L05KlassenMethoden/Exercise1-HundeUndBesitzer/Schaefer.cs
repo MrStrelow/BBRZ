@@ -2,9 +2,12 @@
 
 public class SchaeferHund : Hund // Ist-Beziehungen
 {
-    // Eigenschaften (wir haben hier keine Felder):
-    public int Capacity { get; private set; }
-    public Hund[] BehueteteHunde { get; private set; }
+    // private Felder
+    private string _darstellung = "🐕‍🦺";
+    private string _lautBeimBellen = "⬇️Wuff⬇️";
+
+    public int _capacity;
+    public Hund[] _behueteteHunde;
 
     // Konstruktoren:
     public SchaeferHund(
@@ -18,8 +21,8 @@ public class SchaeferHund : Hund // Ist-Beziehungen
             return;
         }
 
-        Capacity = capacity;
-        BehueteteHunde = behuetendeHunde;
+        _capacity = capacity;
+        _behueteteHunde = behuetendeHunde;
     }
 
     public SchaeferHund(
@@ -28,8 +31,8 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     ) 
         : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
     {
-        this.SetBesitzer(besitzer);
-        this.SetSpielFreund(spielFreund);
+        SetBesitzer(besitzer);
+        SetSpielFreund(spielFreund);
     }
 
     public SchaeferHund(
@@ -38,7 +41,7 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     ) 
         : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
     {
-        this.SetBesitzer(besitzer);
+        SetBesitzer(besitzer);
     }
 
     public SchaeferHund(
@@ -47,7 +50,7 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     ) 
         : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
     {
-        this.SetSpielFreund(spielFreund);
+        SetSpielFreund(spielFreund);
     }
 
     public SchaeferHund(
@@ -56,22 +59,22 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     ) 
         : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
     {
-        this.SetSpielFreund(spielFreund);
-        this.SetBesitzer(besitzer);
+        SetSpielFreund(spielFreund);
+        SetBesitzer(besitzer);
     }
 
     // Methoden
     public void Hueten()
     {
-        foreach (Hund behueteterHund in BehueteteHunde)
+        foreach (Hund behueteterHund in _behueteteHunde)
         {
-            Console.WriteLine($"Ich: {this.GetName()} behüte {behueteterHund.GetName()}");
+            Console.WriteLine($"Ich: {this} behüte {behueteterHund}");
         }
     }
 
     public bool HuetetBereitsHund(Hund hund)
     {
-        foreach (Hund behueteterHund in BehueteteHunde)
+        foreach (Hund behueteterHund in _behueteteHunde)
         {
             if (behueteterHund is not null && behueteterHund.Equals(hund))
             {
@@ -88,23 +91,23 @@ public class SchaeferHund : Hund // Ist-Beziehungen
             int platz = HabePlatz();
             if (platz >= 0)
             {
-                BehueteteHunde[platz] = hund;
+                _behueteteHunde[platz] = hund;
             }
             else
             {
-                Console.WriteLine("Bin voll :(");
+                Console.WriteLine($"{this} ist am limit seiner Hütfähigkeit-{_capacity}-.");
             }
         }
     }
 
     public void VerstoesseHund(Hund hund)
     {
-        for (int i = 0; i < BehueteteHunde.Length; i++)
+        for (int i = 0; i < _behueteteHunde.Length; i++)
         {
-            //if (BehueteteHunde[i] != null && BehueteteHunde[i].Equals(hund))
-            if (BehueteteHunde[i] is not null && BehueteteHunde[i].Equals(hund))
+            //if (BehueteteHunde[i] != null && BehueteteHunde[i].Equals(hund)) // macht das gleiche
+            if (_behueteteHunde[i] is not null && _behueteteHunde[i].Equals(hund))
             {
-                BehueteteHunde[i] = null;
+                _behueteteHunde[i] = null;
                 break;
             }
         }
@@ -112,20 +115,20 @@ public class SchaeferHund : Hund // Ist-Beziehungen
 
     public int GetCapacity()
     {
-        return Capacity;
+        return _capacity;
     }
 
     public void SetCapacity(int capacity)
     {
-        Capacity = capacity;
+        _capacity = capacity;
     }
 
     // Private Hilfsmethoden
     private int HabePlatz()
     {
-        for (int i = 0; i < BehueteteHunde.Length; i++)
+        for (int i = 0; i < _behueteteHunde.Length; i++)
         {
-            if (BehueteteHunde[i] is null)
+            if (_behueteteHunde[i] is null)
             {
                 return i;
             }
@@ -133,7 +136,14 @@ public class SchaeferHund : Hund // Ist-Beziehungen
         return -1;
     }
 
-
     // Get-und-Set-Methoden
-    // ... gibt es nicht, da hier Properties (Eigenschaften) verwendet werden!
+    public override string GetDarstellung()
+    {
+        return _darstellung;
+    }
+
+    public override string GetLautBeimBellen()
+    {
+        return _lautBeimBellen;
+    }
 }

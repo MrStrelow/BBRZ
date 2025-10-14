@@ -1,26 +1,29 @@
-﻿namespace Hunde;
+﻿using System.Xml.Linq;
+
+namespace Hunde;
 
 public class Mensch
 {
     // private Felder
-    private string name;
-    private int alter;
-    private double happiness;
+    private string _name;
+    private int _alter;
+    private double _happiness;
+    private string _darstellung = "😐";
 
     // hat-Beziehungen:
-    private Mensch myLoveInterest;
+    private Mensch _myLoveInterest;
 
     // Konstruktor
     public Mensch(string name, double happiness, int alter)
     {
-        this.name = name;
-        this.happiness = happiness;
-        this.alter = alter;
+        this._name = name;
+        this._happiness = happiness;
+        this._alter = alter;
     }
 
     public Mensch(string name, double happiness, int alter, Mensch loveInterest) : this(name, happiness, alter)
     {
-        this.myLoveInterest = loveInterest;
+        this._myLoveInterest = loveInterest;
     }
 
     //Methoden
@@ -37,7 +40,7 @@ public class Mensch
 
         if (capacity <= hunde.Length)
         {
-            Console.WriteLine("Fehler! Wir haben zu viele Hunde als wir betreuen können.");
+            Console.WriteLine($"Fehler! Wir haben zu viele -{capacity}- Hunde als wir betreuen können.");
             return null;
         }
 
@@ -51,22 +54,22 @@ public class Mensch
 
     public bool DetectLoveTriangle()
     {
-        bool triangle = myLoveInterest.myLoveInterest.myLoveInterest == this;
-        bool selfLove = myLoveInterest != this;
+        bool triangle = _myLoveInterest._myLoveInterest._myLoveInterest == this;
+        bool selfLove = _myLoveInterest != this;
 
         return triangle && !selfLove;
     }
 
     private bool DetectLoveTriangleOfSize(int n)
     {
-        if (myLoveInterest != this) 
+        if (_myLoveInterest != this) 
             return false; 
 
         Mensch next = this;
 
         for (int i = 0; i < n; i++)
         {
-            next = next.myLoveInterest;
+            next = next._myLoveInterest;
             
         }
 
@@ -75,15 +78,12 @@ public class Mensch
 
     public (bool found, int foundAtSize) DetectLoveTriangleUntilSize(int n)
     {
-
-
         for (int i = 0; i < n; i++)
         {
             if(DetectLoveTriangleOfSize(i))
             {
                 return (true, i);
             }
-            
         }
 
         return (false, -1);
@@ -91,47 +91,58 @@ public class Mensch
 
     public bool DetectMutualLove()
     {
-        return this == myLoveInterest.myLoveInterest;
+        return this == _myLoveInterest._myLoveInterest;
+    }
+
+    // überschriebene Methoden
+    public override string ToString()
+    {
+        return $"{_name}:{_alter}:{_darstellung}";
     }
 
     // Get-und-Set-Methoden
     public string GetName()
     {
-        return name;
+        return _name;
     }
 
     public void SetName(string name)
     {
-        this.name = name;
+        this._name = name;
     }
 
     public double GetHappiness()
     {
-        return happiness;
+        return _happiness;
     }
 
     public void SetHappiness(double happiness)
     {
-        this.happiness = happiness;
+        this._happiness = happiness;
     }
 
     public int GetAlter()
     {
-        return alter;
+        return _alter;
     }
 
     public void SetAlter(int alter)
     {
-        this.alter = alter;
+        this._alter = alter;
     }
 
     public Mensch GetLoveInterest()
     {
-        return myLoveInterest;
+        return _myLoveInterest;
     }
 
     public void SetLoveInterest(Mensch loveInterest)
     {
-        this.myLoveInterest = loveInterest;
+        this._myLoveInterest = loveInterest;
+    }
+
+    public virtual string GetDarstellung()
+    {
+        return _darstellung;
     }
 }
