@@ -18,7 +18,7 @@ Halte dich an folgendes ``Klassendiagramm`` welches [IST](Klassendiagramm/IST_ge
 
 ![IST](Klassendiagramm/IST_generiert.png)
 
-Dieses ist aus der Lösung generiert und stellt alle Methoden und Felder dar, welche zu implementieren sind. Die Konstruktoren werden jedoch nicht einzeln angezeigt. In der Angabe wird erwähnt welche ``Parameter`` die jeweiligen ``Konstruktoren`` haben sollen. Verwende zudem die Vorlage von *Program.cs*. Diese zeigt Fehler an, falls einer der Konstruktoren vergessen wurde. Die ausprogrammierte *Program.cs* ist [hier](#das-ferige-programcs) oder in der [Lösung](Program.cs) zu finden.
+Dieses ist aus der Lösung generiert und stellt alle Methoden und Felder dar, welche zu implementieren sind. Die Konstruktoren werden jedoch nicht einzeln angezeigt. In der Angabe wird erwähnt welche ``Parameter`` die jeweiligen ``Konstruktoren`` haben sollen. Verwende zudem *Program.cs* aus der [Lösung](Program.cs). Diese zeigt Fehler an, falls ``Konstruktoren``, oder andere ``Methoden`` vergessen wurden. Die ausprogrammierte *Program.cs* ist in der [hier in der Lösung](Program.cs) zu finden.
 
 **Anmerkung:** 
 1) Die ``ToString`` sowie ``Get-`` und ``Set-Methoden`` sind nicht in folgenden Auflistungen enthalten. Außnhamen sind jene ``Set-Methoden`` welche komplizierteres Verhalten haben (``Guard-Clauses`` , ``bidriektionale`` Beziehungen sicherstellen, etc.). 
@@ -81,3 +81,137 @@ Vergleiche [IST](Klassendiagramm/IST_generiert.png) mit ![SOLL](Klassendiagramm/
 | 🤗 `Winseln()` | Simuliert das Winseln *Console.WriteLine(".winsel.")*. Zudem wird die Health des *Pudels* um 1 verringert. |
 
 ---
+
+## Erwarteter Output:
+Die in der [Lösung](Program.cs) angegebenen ``Main-Klasse`` *Program.cs* führt mit der Lösung zu folgendem Ergebnis.
+```
+--- Vorbereitungen: Objekte erstellen ---
+
+--- Test 1: Reziproke SpielFreund-Beziehung (Hund.SetSpielFreund) ---
+ist frido.GetSpielFreund() null? True
+Gilbert's Spielfreund: Frido:2:🐶
+Frido's Spielfreund: Gilbert:1:🐶
+
+--- Test 2: HundeBesitzer Aktionen (Kaufen, Fuettern) ---
+Der Hund Frido:2:🐶 wurde von Karo:25:😁 erworben.
+Zuweisung verboten! Frido:2:🐶 ist bereits besessen 👻.
+Der Hund Gilbert:1:🐶 wurde von Karo:25:😁 erworben.
+Zuweisung verboten! Gilbert:1:🐶 ist bereits besessen 👻.
+Frido:2:🐶 frisst Fleisch
+Gilbert:1:🐶 frisst Fleisch
+Mein Spielfreund: Frido:2:🐶 spielt mit mir!: Gilbert:1:🐶 unter der strengen aufsicht von: Karo:25:😁
+Mein Spielfreund: Gilbert:1:🐶 spielt mit mir!: Frido:2:🐶 unter der strengen aufsicht von: Karo:25:😁
+
+--- Test 3: Mensch -> HundeBesitzer (Upcasting/Method Redefinition) ---
+Vor Umwandlung - Typ: Hunde.Mensch - Hash: 27252167 - Darstellung Walo:51:😐
+Der Hund InitialHund:1:🐶 wurde von Walo:51:😁 erworben.
+Zuweisung verboten! InitialHund:1:🐶 ist bereits besessen 👻.
+Nach Umwandlung - Typ: Hunde.HundeBesitzer - Hash: 43942917 - Darstellung Walo:51:😁
+Darstellung (Redefiniert): 😁
+HatNieHunde Darstellung: Raldira:55:😐
+
+==============================================
+--- ERWEITERTE TESTS FÜR ALLE KLASSENMETHODEN ---
+==============================================
+
+--- A. Mensch.cs Tests ---
+A.1: Julia und Tom haben Mutual Love: True
+Der Hund Bello:3:🐶 wurde von Julia:30:😁 erworben.
+Zuweisung verboten! Bello:3:🐶 ist bereits besessen 👻.
+Der Hund Lana:4:🐶 wurde von Julia:30:😁 erworben.
+Zuweisung verboten! Lana:4:🐶 ist bereits besessen 👻.
+Der Hund Max:1:🐶 wurde von Julia:30:😁 erworben.
+Zuweisung verboten! Max:1:🐶 ist bereits besessen 👻.
+A.2: Lisa ist jetzt HundeBesitzer (Julia) und hat 3 Hunde gekauft.
+A.3: Fehler! Wir haben zu viele -2- Hunde als wir betreuen können.
+A.3: Lisa versucht 3 Hunde mit Kapazität 2 zu kaufen (sollte null sein): True
+A.4: Tom's Happiness aktualisiert: 0.95
+A.4: Julia's Love Interest: Tom
+A.4: Julia's ToString(): Julia:30:😐
+
+--- B. Hund.cs Tests ---
+Zuweisung verboten! Luna:2:🐩 ist bereits besessen 👻.
+B.1: Luna's Besitzer: Karo
+B.1: Rex's Spielfreund: Hansi
+B.2: Rex Kopie erstellt: Rex. Gechippt? False. Hat sie einen Besitzer? False
+Rex:4:🐶 bellt!
+B.3: Rex bellt (Geräusch): Geräusch eines Hundes.
+B.3: Rex Laut: Wauwau
+Mein Spielfreund: Hansi:3:🐶 spielt mit mir!: Luna:2:🐩 unter der strengen aufsicht von: Karo:25:😁
+B.5: Luna ist bei Hansi: True
+Luna ist von Karo:25:😁 weggelaufen...
+Parameter besitzer von SetBesitzer in Hund ist null.
+B.5: Luna ist bei Hansi nach Weglaufen: False
+B.5: Luna hat keinen Besitzer mehr: False
+B.6a: Tobi
+B.6b: Otto
+B.7: Rex Health: 25
+B.7: Rex Geschlecht: w
+
+--- C. HundeBesitzer.cs Tests ---
+Zuweisung verboten! Dackel:3:🐶 ist bereits besessen 👻.
+C.1: Marie's Name aus Mensch übernommen: Tina
+C.1: Marie besitzt den Dackel: True
+C.1: Marie's Darstellung (Redefiniert): 👩‍🦰
+Zuweisung verboten! H1:1:🐶 ist bereits besessen 👻.
+Zuweisung verboten! H2:2:🐶 ist bereits besessen 👻.
+C.2a: Karl
+C.2b: Erika
+Zuweisung verboten! H2:2:🐶 ist bereits besessen 👻.
+C.2: Max's Besitzer (Erika): Erika
+Zuweisung verboten! L1:1:🐶 ist bereits besessen 👻.
+Zuweisung verboten! L2:1:🐶 ist bereits besessen 👻.
+Hundebesitzer Small:30:😁 hat seine seine Kapazität-2- an Hunden überschritten.
+C.3: 2
+Ich: Tina:28:👩‍🦰 geh mit...
+Dackel:3:🐶
+ gassi.
+Dackel:3:🐶 frisst Trockenfutter
+Zuweisung verboten! Lili:2:🐩 ist bereits besessen 👻.
+Zuweisung verboten! Normal:1:🐶 ist bereits besessen 👻.
+C.6: Lili Health und Fluff - Vorher: Health 10 - Fluff 5 ...
+C.6: Lili Health und Fluff - Nachher: Health 20 - Fluff 10 ...
+C.6: Normal Health - Vorher: Health 11 ...
+C.6: Normal Health - Nachher: Health 12 ...
+Parameter besitzer von SetBesitzer in Hund ist null.
+Der Hund Lili:2:🐩 wurde von Otto:35:😁 erworben.
+Zuweisung verboten! Lili:2:🐩 ist bereits besessen 👻.
+Der Hund Lili:2:🐩 wurde von Tina:28:👩‍🦰 verkauft und von Otto:35:😁 erworben.
+C.7: Lili's neuer Besitzer: Otto
+C.7: Tina besitzt Lili: False
+C.7: Otto besitzt Lili: True
+Der Hund Streuner:4:🐶 wurde von Otto:35:😁 gefunden.
+Zuweisung verboten! Streuner:4:🐶 ist bereits besessen 👻.
+C.8: Otto
+C.8: Streuner's Besitzer: Otto
+C.8: Otto besitzt Streuner: True
+
+--- D. SchaeferHund.cs Tests ---
+Ich: Sally:3:🐕‍🦺 behüte
+Ich: Sally:3:🐕‍🦺 behüte
+D.2: Bello hütet Frido: False
+D.2: Bello hütet Fremd: True
+D.3: Bello hütet Fremd nach Add: True
+Sally:3:🐕‍🦺 ist am limit seiner Hütfähigkeit-2-.
+Sally:3:🐕‍🦺 ist am limit seiner Hütfähigkeit-2-.
+D.5: Bello hütet Gilbert nach Verstoesse: True
+D.6: Bello neue Kapazität: 5
+D.7: Bello Darstellung (Redefiniert): 🐕‍🦺
+D.7: Bello Laut (Redefiniert): WUFF!
+
+--- E. Pudel.cs Tests ---
+E.1: Winseln
+.winsel.
+E.1: Fiffi Health: Vorher 12, Nachher 11 (Winseln -1)
+E.2: Fiffi Fluff: 12
+E.3: Fiffi Darstellung (Redefiniert): 🐩
+E.3: Fiffi Laut (Redefiniert): ieek
+
+--- F. Relationships (Love) Tests ---
+F.2: Love Triangle Größe 3: True
+F.3: Love Triangle bis Größe 5 gefunden: True, bis größe: 3 gefunden.
+F.3: Love Triangle bis Größe 2 gefunden: False, bis größe: -1 gefunden.
+F.3: Love Triangle bis Größe 3 gefunden: True, bis größe: 3 gefunden.
+
+--- Tests beendet ---
+```
