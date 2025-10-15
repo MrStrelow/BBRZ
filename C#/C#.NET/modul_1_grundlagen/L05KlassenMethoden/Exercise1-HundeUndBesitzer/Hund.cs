@@ -33,7 +33,6 @@ public class Hund
             name, alter, geschlecht, health, chipped
         )
     {
-        _besitzer = besitzer;
         _besitzer.AddHund(this);
     }
 
@@ -53,8 +52,7 @@ public class Hund
             name, alter, geschlecht, health, chipped
         )
     {
-        _spielFreund = spielFreund;
-        _spielFreund.SetSpielFreund(this);
+        spielFreund.SetSpielFreund(this);
     }
 
     public Hund(
@@ -64,9 +62,6 @@ public class Hund
             name, alter, geschlecht, health, chipped
         )
     {
-        _besitzer = besitzer;
-        _spielFreund = spielFreund;
-
         _besitzer.AddHund(this);
         _spielFreund.SetSpielFreund(this);
     }
@@ -94,7 +89,6 @@ public class Hund
     {
         Console.WriteLine($"{_name} ist von {_besitzer} weggelaufen...");
         _besitzer.Aussetzen(this);
-        _besitzer = null;
     }
 
     // überschriebene Methoden
@@ -106,12 +100,22 @@ public class Hund
     // Get-und-Set-Methoden
     public void SetSpielFreund(Hund spielFreund)
     {
-        _spielFreund = spielFreund;
-
-        if (spielFreund._spielFreund != this)
+        // ❌ unerwünschte Zustände
+        if (spielFreund == null)
         {
-            spielFreund.SetSpielFreund(this);
+            Console.WriteLine("Der Spielfreund darf nicht null sein.");
+            return;
         }
+
+        if (spielFreund == this)
+        { 
+            Console.WriteLine("Der Spielfreund darf nicht das Objekt selbst sein.");
+            return;
+        }
+
+        // ✅ gewünschte Zustände
+        _spielFreund = spielFreund;
+        spielFreund._spielFreund = this;
     }
 
     public Hund GetSpielFreund()
@@ -126,6 +130,7 @@ public class Hund
 
     public void SetBesitzer(HundeBesitzer besitzer)
     {
+        // ❌ unerwünschte Zustände
         if (besitzer is null)
         {
             Console.WriteLine($"Parameter besitzer von SetBesitzer in Hund ist null.");
@@ -138,6 +143,7 @@ public class Hund
             return;
         }
 
+        // ✅ gewünschte Zustände
         _besitzer = besitzer;
         besitzer.AddHund(this);
     }

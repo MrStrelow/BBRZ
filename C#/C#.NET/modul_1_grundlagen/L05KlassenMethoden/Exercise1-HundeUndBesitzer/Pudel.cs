@@ -8,8 +8,10 @@ public class Pudel : Hund // Ist-Beziehungen
     // Konstruktor
     public Pudel(
         string name, int alter, string geschlecht, 
-        double health, bool chipped, double fluff) 
-        : base(name, alter, geschlecht, health, chipped)
+        double health, bool chipped, double fluff
+    ) : base(
+            name, alter, geschlecht, health, chipped
+        )
     {
         _fluff = fluff;
         SetDarstellung("🐩");

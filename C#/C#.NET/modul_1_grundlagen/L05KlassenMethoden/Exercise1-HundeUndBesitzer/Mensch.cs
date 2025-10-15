@@ -38,12 +38,14 @@ public class Mensch
     {
         HundeBesitzer einGanzNeuerMensch = new HundeBesitzer(this, hatHundeFuehrerschein, capacity);
 
+        // ❌ unerwünschte Zustände
         if (capacity <= hunde.Length)
         {
             Console.WriteLine($"Fehler! Wir haben zu viele -{capacity}- Hunde als wir betreuen können.");
             return null;
         }
 
+        // ✅ gewünschte Zustände
         foreach (Hund hund in hunde)
         {
             einGanzNeuerMensch.Kaufen(hund);
@@ -54,6 +56,26 @@ public class Mensch
 
     public bool DetectLoveTriangle()
     {
+        // ❌ unerwünschte Zustände
+        if(_myLoveInterest == null) 
+        {
+            Console.WriteLine("_myLoveInterest ist in DetectLoveTriangle null.");
+            return false;
+        }
+
+        if (_myLoveInterest._myLoveInterest == null)
+        {
+            Console.WriteLine("_myLoveInterest._myLoveInterest ist in DetectLoveTriangle null.");
+            return false;
+        }
+
+        if (_myLoveInterest._myLoveInterest._myLoveInterest == null)
+        {
+            Console.WriteLine("_myLoveInterest._myLoveInterest._myLoveInterest ist in DetectLoveTriangle null.");
+            return false;
+        }
+
+        // ✅ gewünschte Zustände
         bool triangle = _myLoveInterest._myLoveInterest._myLoveInterest == this;
         bool selfLove = _myLoveInterest == this;
 
@@ -62,9 +84,14 @@ public class Mensch
 
     private bool DetectLoveTriangleOfSize(int n)
     {
-        if (_myLoveInterest == this) 
-            return false; 
+        // ❌ unerwünschte Zustände
+        if (_myLoveInterest == null)
+            return false;
 
+        if (_myLoveInterest == this) 
+            return false;
+
+        // ✅ gewünschte Zustände
         Mensch next = this;
         for (int i = 0; i < n; i++)
         {

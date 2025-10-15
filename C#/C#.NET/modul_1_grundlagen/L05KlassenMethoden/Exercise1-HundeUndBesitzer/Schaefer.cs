@@ -10,12 +10,14 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     public SchaeferHund(
         string name, int alter, string geschlecht, double health, 
         bool chipped,int capacity, Hund[] behuetendeHunde
-    ) 
-        : base(name, alter, geschlecht, health, chipped)
+    ) : base(
+            name, alter, geschlecht, health, chipped
+        )
     {
         if (capacity < behuetendeHunde.Length)
         {
-            return;
+            Console.WriteLine("Capacity passt nicht mit behuetendeHunde zuammen. _capacity auf länge von _behuetendeHunde gesetzt.");
+            capacity = behuetendeHunde.Length;
         }
 
         _capacity = capacity;
@@ -27,8 +29,9 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     public SchaeferHund(
         string name, int alter, string geschlecht, double health, bool chipped,
         int capacity, Hund[] behuetendeHunde, HundeBesitzer besitzer, Hund spielFreund
-    ) 
-        : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
+    ) : this(
+            name, alter, geschlecht, health, chipped, capacity, behuetendeHunde
+        )
     {
         SetBesitzer(besitzer);
         SetSpielFreund(spielFreund);
@@ -37,8 +40,9 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     public SchaeferHund(
         string name, int alter, string geschlecht, double health, bool chipped,
         int capacity, Hund[] behuetendeHunde, HundeBesitzer besitzer
-    ) 
-        : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
+    ) : this(
+            name, alter, geschlecht, health, chipped, capacity, behuetendeHunde
+        )
     {
         SetBesitzer(besitzer);
     }
@@ -46,8 +50,9 @@ public class SchaeferHund : Hund // Ist-Beziehungen
     public SchaeferHund(
         string name, int alter, string geschlecht, double health, bool chipped,
         int capacity, Hund[] behuetendeHunde, Hund spielFreund
-    ) 
-        : this(name, alter, geschlecht, health, chipped, capacity, behuetendeHunde)
+    ) : this(
+            name, alter, geschlecht, health, chipped, capacity, behuetendeHunde
+        )
     {
         SetSpielFreund(spielFreund);
     }
@@ -71,55 +76,50 @@ public class SchaeferHund : Hund // Ist-Beziehungen
         }
     }
 
-    public bool HuetetBereitsHund(Hund hund)
-    {
-        foreach (Hund behueteterHund in _behueteteHunde)
-        {
-            if (behueteterHund is not null && behueteterHund.Equals(hund))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void AddZuBehuetendeHunde(Hund hund)
     {
-        if (hund is not null && !HuetetBereitsHund(hund))
+        // ❌ unerwünschte Zustände
+        if (hund is null)
         {
-            int platz = HabePlatz();
-            if (platz >= 0)
-            {
-                _behueteteHunde[platz] = hund;
-            }
-            else
-            {
-                Console.WriteLine($"{this} ist am limit seiner Hütfähigkeit-{_capacity}-.");
-            }
+            Console.WriteLine($"Parameter hund ist null bei AddZuBehuetendeHunde.");
+            return;
         }
+
+        if (HuetetBereitsHund(hund))
+        {
+            Console.WriteLine($"Hund-{hund}- wird bereits von {this} behütet.");
+            return;
+        }
+
+        int platz = WoHabeIchPlatz();
+        if (platz < 0)
+        {
+            Console.WriteLine($"{this} ist am limit seiner Hütfähigkeit-{_capacity}-.");
+            return;
+        }
+
+        // ✅ gewünschte Zustände
+        _behueteteHunde[platz] = hund;
     }
 
     public void VerstoesseHund(Hund hund)
     {
         for (int i = 0; i < _behueteteHunde.Length; i++)
         {
-            //if (BehueteteHunde[i] != null && BehueteteHunde[i].Equals(hund)) // macht das gleiche
-            if (_behueteteHunde[i] is not null && _behueteteHunde[i].Equals(hund))
+            //if (BehueteteHunde[i] != null und die Bedingung BehueteteHunde[i].Equals(hund)) macht jetzt noch das gleiche.
+            if (_behueteteHunde[i] is not null)
             {
-                _behueteteHunde[i] = null;
-                break;
+                if (_behueteteHunde[i] == hund)
+                {
+                    _behueteteHunde[i] = null;
+                    break;
+                }
             }
         }
     }
 
-    public int GetCapacity()
-    {
-        return _capacity;
-    }
-
-
     // Private Hilfsmethoden
-    private int HabePlatz()
+    private int WoHabeIchPlatz()
     {
         for (int i = 0; i < _behueteteHunde.Length; i++)
         {
@@ -131,7 +131,25 @@ public class SchaeferHund : Hund // Ist-Beziehungen
         return -1;
     }
 
+    // Die Hilfsmethode ist public, da wir in der Main Methode diese fürs Testen verwenden.
+    // Solle später dann private werden.
+    public bool HuetetBereitsHund(Hund hund)
+    {
+        foreach (Hund behueteterHund in _behueteteHunde)
+        {
+            if (behueteterHund is not null && behueteterHund == hund)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Get-und-Set-Methoden
+    public int GetCapacity()
+    {
+        return _capacity;
+    }
     public void SetCapacity(int capacity)
     {
         _capacity = capacity;

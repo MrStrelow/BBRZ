@@ -7,7 +7,7 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
     private int _capacity;
 
     // Hat-Beziehungen
-    private Hund[] hunde;
+    private Hund[] _hunde;
 
     // Konstruktoren
     // 1. Konstruktor
@@ -17,7 +17,7 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
     ) : base (name, happiness, age) // aufruf des konstruktors des Menschen -> das ist die Basisklasse.
     {
         // setzen der felder aus den parametern des konstruktors.
-        hunde = new Hund[capacity];
+        _hunde = new Hund[capacity];
         _hatHundeFuehrerschein = hatHundeFuehrerschein;
         _capacity = capacity;
         SetDarstellung("😁");
@@ -32,7 +32,10 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
             istBaldHundebesitzer.GetAlter(), hatHundeFuehrerschein, capacity
         )
     {
-        // keine weiteren aufrufe notwendig, da es bereits in einem anderen Konstruktor definiert ist.
+        for (int i = 0; i < hunde.Length; i++)
+        {
+            _hunde[i] = hunde[i];
+        }
     }
 
     // 3. Konstruktor
@@ -50,7 +53,7 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
     {
         Console.WriteLine($"Ich: {this} geh mit...");
 
-        foreach (Hund hund in hunde)
+        foreach (Hund hund in _hunde)
         {
             if (hund is not null)
             {
@@ -63,7 +66,7 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
 
     public void Fuettern(Essen essen)
     {
-        foreach (var hund in hunde)
+        foreach (var hund in _hunde)
         {
             if (hund is not null)
             {
@@ -74,7 +77,7 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
 
     public void Buersten()
     {
-        foreach (var hund in hunde)
+        foreach (var hund in _hunde)
         {
             if (hund is Pudel pudel)
             {
@@ -90,11 +93,19 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
 
     public void Aussetzen(Hund hund)
     {
-        for (int i = 0; i < hunde.Length; i++)
+        // ❌ unerwünschte Zustände
+        if (!BesitztHund(hund))
         {
-            if (hunde[i] is not null && hunde[i].Equals(hund))
+            Console.WriteLine($"Hund: {hund} kann nicht ausgesetzt werden, da dieser nicht von {this} besitzt wird.");
+            return;
+        }
+
+        // ✅ gewünschte Zustände
+        for (int i = 0; i < _hunde.Length; i++)
+        {
+            if (_hunde[i] is not null && _hunde[i] == hund)
             {
-                hunde[i] = null;
+                _hunde[i] = null;
             }
         }
 
@@ -103,32 +114,44 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
 
     public void Finden(Hund neuerHund)
     {
-        Console.WriteLine($"Der Hund {neuerHund} wurde von {this} erworben.");
-        neuerHund.SetBesitzer(this);
-    }
-
-    public void Kaufen(Hund neuerHund)
-    {
+        // ❌ unerwünschte Zustände
         if (neuerHund is SchaeferHund neuerSchaeferHund && !_hatHundeFuehrerschein)
         {
             Console.WriteLine($"Fehler! Es wird für einen {neuerSchaeferHund.GetType()} ein Hundeführerschein benötigt.");
             return;
         }
 
+        // ✅ gewünschte Zustände
+        Console.WriteLine($"Der Hund {neuerHund} wurde von {this} gefunden.");
+        neuerHund.SetBesitzer(this);
+    }
+
+    public void Kaufen(Hund neuerHund)
+    {
+        // ❌ unerwünschte Zustände
+        if (neuerHund is SchaeferHund neuerSchaeferHund && !_hatHundeFuehrerschein)
+        {
+            Console.WriteLine($"Fehler! Es wird für einen {neuerSchaeferHund.GetType()} ein Hundeführerschein benötigt.");
+            return;
+        }
+
+        // ✅ gewünschte Zustände
         Console.WriteLine($"Der Hund {neuerHund} wurde von {this} erworben.");
         neuerHund.SetBesitzer(this);
     }
 
     public void Verkaufen(Hund hund, HundeBesitzer neuerBesitzer)
     {
-        Aussetzen(hund); // Wir haben das suchen und entfenrnen aus der liste schon in Aussetzen implementiert. Ob das eine gute idee ist, werden wir in Modul 2 bzw. Modul 5 besprechen.
+        // ❔ unwünschte Zustände werden in den aufgerufenen Methoden bereits abgefragt.
+        Aussetzen(hund); 
+        neuerBesitzer.Kaufen(hund); // ohne dem entfernen des hundes zuerst aus der liste ist ein hinzufügen zu einem anderen Besitzer nicht möglich.
         Console.WriteLine($"Der Hund {hund} wurde von {this} verkauft und von {neuerBesitzer} erworben.");
     }
 
     // Get-und-Set-Methoden
     public Hund[] GetHunde()
     {
-        return hunde;
+        return _hunde;
     }
 
     public void AddHund(Hund hund)
@@ -155,13 +178,14 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
         }
 
         // ✅ gewünschte Zustände
-        hunde[position] = hund;
+        _hunde[position] = hund;
+        hund.SetBesitzer(this);
     }
 
     // Hilfsmethoden
     public bool BesitztHund(Hund hund)
     {
-        foreach (var h in hunde)
+        foreach (var h in _hunde)
         {
             if (h == hund)
             {
@@ -174,9 +198,9 @@ public class HundeBesitzer : Mensch // Ist-Beziehungen
 
     private int WoHabeIchPlatz()
     {
-        for (int i = 0; i < hunde.Length; i++)
+        for (int i = 0; i < _hunde.Length; i++)
         {
-            if (hunde[i] is null)
+            if (_hunde[i] is null)
             {
                 return i;
             }
