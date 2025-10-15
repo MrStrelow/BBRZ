@@ -25,7 +25,10 @@ Dieses ist aus der Lösung generiert und stellt alle Methoden und Felder dar, we
 2) Beim Implmentieren der Klasse führe lafuend das Programm aus! Ansonsten ist es schwer zu erkennen wo Fehler gemacht wurden.
 
 ### UML-Klassendiagramm
-Vergleiche [IST](Klassendiagramm/IST_generiert.png) mit ![SOLL](Klassendiagramm/SOLL.bright.png) und beantworte folgende Fragen.
+Vergleiche [IST](Klassendiagramm/IST_generiert.png) mit [SOLL](Klassendiagramm/SOLL.bright.png). Folgendes Diagramm in der Angabe ist [SOLL](Klassendiagramm/SOLL.bright.png).
+
+![SOLL](Klassendiagramm/SOLL.bright.png) und beantworte folgende Fragen.
+
 * Wie sind die ```Kardinalitäten`` in beiden Diagrammen dargestellt? 
 * Warum sind in einem Diagramm viel weniger ``Methoden`` vorhanden als im anderen?
 
