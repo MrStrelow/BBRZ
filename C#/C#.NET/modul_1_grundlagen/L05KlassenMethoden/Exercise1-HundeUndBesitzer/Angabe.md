@@ -30,7 +30,8 @@ Vergleiche [IST](Klassendiagramm/IST_generiert.png) mit [SOLL](Klassendiagramm/S
 ![SOLL](Klassendiagramm/SOLL.bright.png) und beantworte folgende Fragen.
 
 * Wie sind die ```Kardinalitäten`` in beiden Diagrammen dargestellt? 
-* Warum sind in einem Diagramm viel weniger ``Methoden`` vorhanden als im anderen?
+* Sind alle Beziehungen in [SOLL](Klassendiagramm/SOLL.bright.png) so abgebildet wie in [IST](Klassendiagramm/IST_generiert.png)?
+* Warum sind in [SOLL](Klassendiagramm/IST_generiert.png) viel weniger ``Methoden`` vorhanden als in [IST](Klassendiagramm/IST_generiert.png)?
 
 ### Klasse: Mensch.cs
 
@@ -38,16 +39,16 @@ Vergleiche [IST](Klassendiagramm/IST_generiert.png) mit [SOLL](Klassendiagramm/S
 | :--- | :--- |
 | 🤗 `Mensch(...)` | Überladene Konstruktoren zur Initialisierung aller Felder, inklusive optionalem `_myLoveInterest`. Wir benötigen folgende Konstruktoren: **``1)``** *public Mensch(string name, double happiness, int alter)* und **``2)``** *Mensch(string name, double happiness, int alter, Mensch loveInterest) : this(name, happiness, alter)*. Nutzt `this()` um bereits bestehende Konstruktoren zu verwenden. Das geht nur bei ``Konstruktoren`` und nicht bei *normalen* ``Methoden``|
 | 🤔 `WirdEinHundeBesitzer()` | Ermöglicht die **Konvertierung** zu einem `HundeBesitzer`. Erstellt ein **neues** ``Objekt`` *HundeBesitzer* aus dem aktuellen ``Objekt`` *Mensch*. Danach kauft diese:r einen ersten *Hund* und gibt das **neue** ``Objekt`` vom ``Typ`` *HundeBesitzer* zurück. Es wird ein ``Kopierkonstruktor`` von *HundeBesitzer* verwendet. |
-| 🤔 `MehrereHundeKaufen()` | Kauft ein ``Array`` von Hunden. **Guard Clause**: Prüft, ob die Kapazität (`capacity`) groß genug für alle Hunde ist. |
-| 🙂 `DetectMutualLove()` | Prüft die bidirektionale Love-Interest-Beziehung: `this == _myLoveInterest._myLoveInterest`. |
-| 🤔 `DetectLoveTriangle()` | Prüft, ob ein Dreiecksverhältnis der Größe 3 vorliegt (`A.love.love.love == A`). |
-| 💀 `DetectLoveTriangleUntilSize()` | Sucht iterativ nach Love Triangles bis zur Größe `n`. |
+| 🤔 `MehrereHundeKaufen()` | Kauft ein ``Array`` von Hunden. **Guard Clause**: Prüft, ob die Kapazität (*capacity*) groß genug für alle Hunde ist. |
+| 🙂 `DetectMutualLove()` | Prüft die bidirektionale Love-Interest-Beziehung: `this == _myLoveInterest._myLoveInterest`. **Guard Clause**: Prüft, ob *_myLoveInterest* ``null`` ist und *_myLoveInterest._myLoveInterest* ``null`` ist. |
+| 🤔 `DetectLoveTriangle()` | Prüft, ob ein Dreiecksverhältnis der Größe 3 vorliegt (`A._myLoveInterest._myLoveInterest._myLoveInterest == A`) **Guard Clause**: Prüft, ob *_myLoveInterest* ``null`` ist, *_myLoveInterest._myLoveInterest* ``null`` ist und *_myLoveInterest._myLoveInteres._myLoveInterest* ``null`` ist. |
+| 💀 `DetectLoveTriangleUntilSize()` | Sucht iterativ nach Love Triangles bis zur Größe `n`. **Guard Clause**: Prüft in jedem Schritt, ob *_myLoveInterest* ``null`` ist. In der Lösung ist es so einfach gehalten wie möglich.|
 | 🙂 `ToString()` | **override**: Überschreibe die ``Methode`` *ToString* und schreibe dort *public override string ToString() { return $"{_name}:{_alter}:{_darstellung}" }*. Drücke auf das in VS links stehende *blaue o*. Zu welcher Klasse kommst du? Diese ``Klasse`` ist der ``Basetype`` der ``Klasse`` *Hund* (obwohl wir gar keine ``Ist-Beziehung`` angegeben haben!). |
 
 ### Klasse: Hund.cs
 | Methode / Konstruktor | Hintergrund & Implementierung |
 | :--- | :--- |
-| 🙂 `Hund(...)` | Es werden folgende ``Konstruktoren`` benötigt: **``1)``** ``Copy-Konstruktor`` *Hund(Hund toCopy)*: Erstellt eine neue `Hund`-Instanz mit denselben Werten (ohne `_besitzer` und `_spielFreund`), **``2)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped)*, **``3)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped, HundeBesitzer besitzer) : this(name, alter, geschlecht, health, chipped)*, **``4)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped, Hund spielFreund) : this(name, alter, geschlecht, health, chipped)* und **``5)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped, HundeBesitzer besitzer, Hund spielFreund) : this(name, alter, geschlecht, health, chipped)* |
+| 🙂 `Hund(...)` | Es werden folgende ``Konstruktoren`` benötigt: **``1)``** ``Copy-Konstruktor`` *Hund(Hund toCopy)*: Erstellt eine neue `Hund`-Instanz mit denselben Werten (ohne *_besitzer* und *_spielFreund*), **``2)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped)*, **``3)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped, HundeBesitzer besitzer) : this(name, alter, geschlecht, health, chipped)*, **``4)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped, Hund spielFreund) : this(name, alter, geschlecht, health, chipped)* und **``5)``** *public Hund(string name, int alter, string geschlecht, double health, bool chipped, HundeBesitzer besitzer, Hund spielFreund) : this(name, alter, geschlecht, health, chipped)* |
 | 🤗 `Fressen(Essen essen)` | Gibt auf die ``Console`` aus welcher *Hund* welches *Essen* gefressen wird. |
 | 🤗 `Spielen()` | Gibt auf die ``Console`` das ``Feld`` *_spielFreund*, *das eigene ``Objekt``* und den *_besitzer* aus. |
 | 🤗 `Bellen()` | Gibt auf die ``Console`` das ``Feld`` *_lautBeimBellen* aus. |
