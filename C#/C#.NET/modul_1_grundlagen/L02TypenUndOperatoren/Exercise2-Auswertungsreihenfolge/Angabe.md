@@ -70,7 +70,7 @@ bool isWhite = (x % 2 == 0 && y % 2 == 0) || (x % 2 == 1 && y % 2 == 1)
 ---
 
 ### Sensorabweichung  
-Ein System überwacht **5 Sensoren** (`s1`, `s2`, `s3`, `s4`, `s5`). Ein Alarm soll ausgelöst werden, wenn **zwischen 2 und 4 Sensoren** um mehr als **10% vom Mittelwert aller 5 Sensoren** (`s1, s2, s3, s4, s5`) abweichen.  
+Ein System überwacht **5 Sensoren** (`s1`, `s2`, `s3`, `s4`, `s5`). Ein Alarm soll ausgelöst werden, wenn **mindestens 2 Sensoren** um mehr als **10% vom Mittelwert aller 5 Sensoren** (`s1, s2, s3, s4, s5`) abweichen.  
 
 Der Ausdruck dafür lautet:  
 
@@ -81,7 +81,7 @@ int s3 = -4968;
 int s4 = 15;
 int s5 = 15;
 
-double m = (s1 + s2 + s3 + s4 + s5) / 4.0;
+double m = (s1 + s2 + s3 + s4 + s5) / 5.0;
 
 int c = (s1 < 0.9 * m || s1 > 1.1 * m ? 1 : 0) +
         (s2 < 0.9 * m || s2 > 1.1 * m ? 1 : 0) +
@@ -89,12 +89,30 @@ int c = (s1 < 0.9 * m || s1 > 1.1 * m ? 1 : 0) +
         (s4 < 0.9 * m || s4 > 1.1 * m ? 1 : 0) +
         (s5 < 0.9 * m || s5 > 1.1 * m ? 1 : 0);
 
-bool alarm = (2 <= c && c <= 4);
+bool alarm = 2 <= c;
 ```
 
 * Schreib das Programm um und gib den Variablen sinnvolle Namen.
 * Ist hier ein If-Ausdruck oder eine If-Anweisung sinnvoller?
-* Sind die ``Werte`` der ``Vaiablen`` *s1* bis *s5* bedenklich? Versuche gefühlsmäßig zu erraten ob der *alarm* ausgelößt wird oder nicht.
-* Was passiert wenn alle 5 sensoren um mehr als 10% abweichen? Ist ein solches Verhalten gewünscht?
-* Gib die Auswertungsreihenfolge an und begründe wieso diese gewählt wurde.
-* Was hat *alarm* für einen ``Wert``? Erzeuge ``Werte`` entlang der ``Auswertungsreihenfolge`` wenn ein ``Operator`` die benachbarten ``Werte`` bzw. ``Variablen`` verarbeitet.    
+* Wie viele Alarme werden ausgelößt? Sind die ``Werte`` der ``Vaiablen`` *s1* bis *s5* bedenklich? Versuche gefühlsmäßig zu erraten ob der *alarm* ausgelößt wird oder nicht.
+* * Gib die Auswertungsreihenfolge an und begründe wieso diese gewählt wurde. Erzeuge ``Werte`` entlang der ``Auswertungsreihenfolge`` wenn ein ``Operator`` die benachbarten ``Werte`` bzw. ``Variablen`` verarbeitet.
+* Was hat *alarm* für einen ``Wert``?
+* Vergleiche es mit folgendem Programm:
+```
+int s1 = 15;
+int s2 = 16;
+int s3 = -4968;
+int s4 = 15;
+int s5 = 15;
+
+// Hier ist was anders
+double m = (s1 + s2 + s3 + s4 + s5) / 5.0;
+
+int c = (s1 < 0.9 * m || s1 > 1.1 * m ? 1 : 0) +
+        (s2 < 0.9 * m || s2 > 1.1 * m ? 1 : 0) +
+        (s3 < 0.9 * m || s3 > 1.1 * m ? 1 : 0) +
+        (s4 < 0.9 * m || s4 > 1.1 * m ? 1 : 0) +
+        (s5 < 0.9 * m || s5 > 1.1 * m ? 1 : 0);
+
+bool alarm = 2 <= c;
+```

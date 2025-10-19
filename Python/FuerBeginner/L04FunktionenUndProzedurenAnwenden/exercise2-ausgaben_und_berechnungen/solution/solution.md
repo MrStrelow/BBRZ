@@ -82,7 +82,7 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
+# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es uns in zurueckgelegter_weg.
 zurueckgelegter_weg += laenge_garten
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
@@ -98,7 +98,7 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
+# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es uns in zurueckgelegter_weg.
 zurueckgelegter_weg += laenge_garten
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
@@ -115,7 +115,7 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
+# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es uns in zurueckgelegter_weg.
 zurueckgelegter_weg += laenge_garten
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
@@ -131,7 +131,7 @@ stamp()
 # Die Turtle bewegt sich 314 Schritte in Blickrichtung nach vorne.
 forward(laenge_garten)
 
-# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es wieder in zurueckgelegter_weg.
+# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es uns in zurueckgelegter_weg.
 zurueckgelegter_weg += laenge_garten
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
@@ -166,7 +166,7 @@ forward(laenge_haus)
 # Die Turtle dreht sich um 90° nach links.
 left(winkel)
 
-# Wir zählen zu umfang_haus die laenge_haus dazu und merken es wieder in umfang_haus.
+# Wir zählen zu zurueckgelegter_weg die laenge_garten dazu und merken es un in zurueckgelegter_weg.
 zurueckgelegter_weg += laenge_haus
 
 # Die Turtle schreibt auf den Boden wie weit sie bereits gegangen ist.
