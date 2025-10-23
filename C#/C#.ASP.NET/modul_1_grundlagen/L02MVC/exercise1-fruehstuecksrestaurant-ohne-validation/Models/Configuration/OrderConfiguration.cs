@@ -19,8 +19,8 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
         // 1-n zu Visit
         // bereits in visit configuriert
 
-        // n-m zu Order
-        builder.HasMany(o => o.Dishes)
+        // n-m zu Menus
+        builder.HasMany(o => o.Menus)
            .WithMany(d => d.Orders);
 
         // n-m zu Dish
