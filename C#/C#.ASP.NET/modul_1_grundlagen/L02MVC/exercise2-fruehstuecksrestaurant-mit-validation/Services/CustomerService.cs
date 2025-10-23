@@ -18,13 +18,9 @@ public class CustomerService
         var customer = await _context.Customers.FindAsync(customerId);
         var table = await _context.Tables.FindAsync(tableId);
 
-        // Vermeide leere Listen, um EF Core Abfragen mit leeren `IN` Klauseln zu verhindern
         var menus = menuIds.Any() ? await _context.Menus.Where(m => menuIds.Contains(m.Id)).ToListAsync() : new List<Menu>();
         var dishes = dishIds.Any() ? await _context.Dishes.Where(d => dishIds.Contains(d.Id)).ToListAsync() : new List<Dish>();
 
-        // Nicht der fokus dieser Übung, dieser ist einen funktionierenden "Pfad" durchs Programm zu bauen.
-        // Aber als Erinnerung dass wir eine serverseitige validierung in Zukunft brauchen.
-        // Kann einfach weggelassen werden.
         if (customer is null || table is null || (!menus.Any() && !dishes.Any()))
             return; // Ungültige Eingabe - guard ohne Exception.
 
