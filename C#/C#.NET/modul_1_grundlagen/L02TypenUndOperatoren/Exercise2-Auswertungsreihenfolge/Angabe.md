@@ -14,6 +14,7 @@ Bei Unklarheiten hier nachlesen:
 
 ### Hilfestellung
 Verwende folgende Regel für die Bestimmung der Auswertungsreihenfolge.
+>0. Setze eine Klammer-auf ganz *links* und eine Klammer-zu ganz *rechts* um den ``Ausdruck``.
 >1. Verwende die linkeste ``Variable`` oder ``Wert`` und betrachte dessen ``Operator``. Betrachte nun die ``Werte`` links und rechts dieses ``Operators``.
 >2. Wenn einer der beiden ``Werte`` des ``Operators`` eine ``Klammer`` besitzt, gehe in diese ``Klammer`` hinein und starte bei der linkesten ``Operation``.
 >    1. Wiederhole bis **3.** passiert.
