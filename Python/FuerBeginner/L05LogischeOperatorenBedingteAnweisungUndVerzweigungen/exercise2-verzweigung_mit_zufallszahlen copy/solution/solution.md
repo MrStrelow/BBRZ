@@ -22,7 +22,7 @@ Verwende dazu folgende ``Prozeduren``:
 * ``goto(-100, 200)``: Die Turtle bewegt sich in einer *geraden Linie* zu der angegebenen *Position*. Die *Position* wird in *x* und *y* *Koordinaten* abegeben. Hier ist die Mitte des Fensters *x = 0* und *y = 0* ist.
 * ``hideturtle()``: Die Turtle gräbt sich ein und versteckt sich.
 * ``stamp()``: Die Turtle drückt sich auf den Boden und hinterlässt einen Abdruck.
-* ``shape("turtle")`` oder ``shape("circle")``: Wir lassen unsere Turtle anders aussehen. 
+* ``shape("turtle")``, ``shape("circle")`` oder ``shape("arrow")``: Wir lassen unsere Turtle anders aussehen. 
 
 Sowie folgende ``Funktionen``:
 
@@ -111,7 +111,7 @@ done()
 ```
 
 ### Aufgabe 2 - Anderes Verhalten im Wasser als am Sand und im Norden und Süden (if mit elif und else)
-Am nächsten Tag ist die Turtle wieder hungrig und verhält sich auch im prinzip gleich. Jedoch hat die beim vorherigen Tag gemerkt, dass für den sie zu schnell ist. Dort sind scharfe Steine und bilden ein Riff. Sie muss hier genau so langsam wie in der Wüste nach essen suchen. Auch ist es so grell am Land im Süden, denn die Turtle geht genau auf den Sonnenaufgang zu. Sie dreht sich deshalb nach Westen und geht quasi rückwärts an ihr Ziel. Dadurch ist sie genau so schnell wie wenn sie sich ohne Hunger fortbewegen würde.
+Am nächsten Tag ist die Turtle wieder hungrig und verhält sich auch im prinzip gleich. Jedoch hat die beim vorherigen Tag gemerkt, dass der nördliche Teil des Wassers gefährlich ist. Dort sind scharfe Steine und bilden ein Riff. Sie muss hier genau so langsam wie in der Wüste nach essen suchen. Auch ist es so grell am Land im Süden, denn die Turtle geht genau auf den Sonnenaufgang zu. Sie dreht sich deshalb nach Westen und geht quasi rückwärts an ihr Ziel. Dadurch ist sie genau so schnell wie wenn sie sich ohne Hunger fortbewegen würde.
 
 **Hinweise:**
 Verwende ``Variablen`` für:
