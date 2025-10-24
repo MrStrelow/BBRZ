@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise2-Auswertungsreihen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise4-UserinputUndArrays", "Exercise4-UserinputUndArrays\Exercise4-UserinputUndArrays.csproj", "{C3F946E5-7323-4327-8721-250DE25B3F9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise5-StringUndStringBuilder", "Exercise5-StringUndStringBuilder\Exercise5-StringUndStringBuilder.csproj", "{CBA735BA-0B07-4C03-9B13-DED6FFE6F190}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3F946E5-7323-4327-8721-250DE25B3F9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBA735BA-0B07-4C03-9B13-DED6FFE6F190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA735BA-0B07-4C03-9B13-DED6FFE6F190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA735BA-0B07-4C03-9B13-DED6FFE6F190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA735BA-0B07-4C03-9B13-DED6FFE6F190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

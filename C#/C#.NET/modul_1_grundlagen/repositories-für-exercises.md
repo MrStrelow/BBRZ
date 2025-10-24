@@ -19,6 +19,7 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 | Exercise2-Auswertungsreihenfolge | [Repository](https://classroom.github.com/a/5j4AvRNo) | [Angabe](L02TypenUndOperatoren/Exercise2-Auswertungsreihenfolge/Angabe.md) |  Woche 2 |
 | Exercise3-PrimitiveTypenUmwandeln | [Repository](https://classroom.github.com/a/Wh7rztM3) | [Angabe](L02TypenUndOperatoren/Exercise3-PrimitiveTypenUmwandeln/Angabe.md) |  Woche 3  |
 | Exercise4-UserinputUndArrays | [Repository](https://classroom.github.com/a/IvoEhIpF) | [Angabe](L02TypenUndOperatoren/Exercise4-UserinputUndArrays/Angabe.md) |  Woche 3  |
+| Exercise5-UserinputUndArrays | [Repository](https://classroom.github.com/a/l-ZsrJDz) | [Angabe](L02TypenUndOperatoren/Exercise5-StringUndStringBuilder/Angabe.md) |  Woche 3  |
 
 ### **L03KontrollstrukturenUndFunktionen**
 
