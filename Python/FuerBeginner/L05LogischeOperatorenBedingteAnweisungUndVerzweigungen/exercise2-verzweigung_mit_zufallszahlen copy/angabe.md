@@ -115,7 +115,7 @@ done()
 ```
 
 ### Aufgabe 2 - Anderes Verhalten im Wasser als am Sand und im Norden und Süden (if mit elif und else)
-Am nächsten Tag ist die Turtle wieder hungrig und verhält sich auch im prinzip gleich. Jedoch hat die beim vorherigen Tag gemerkt, dass der nördliche Teil des Wassers gefährlich ist. Dort sind scharfe Steine und bilden ein Riff. Sie muss hier genau so langsam wie in der Wüste nach essen suchen. Auch ist es so grell am Land im Süden, denn die Turtle geht genau auf den Sonnenaufgang zu. Sie dreht sich deshalb nach Westen und geht quasi rückwärts an ihr Ziel. Dadurch ist sie genau so schnell wie wenn sie sich ohne Hunger fortbewegen würde.
+Am nächsten Tag ist die Turtle wieder hungrig und verhält sich auch im prinzip gleich. Jedoch hat die beim vorherigen Tag gemerkt, dass der nördliche Teil des Wassers gefährlich ist. Dort sind scharfe Steine und bilden ein Riff. Sie muss hier genau so langsam wie in der Wüste nach essen suchen. Auch blendet es am Land im Süden, denn die Turtle geht genau auf den Sonnenaufgang zu. Sie dreht sich deshalb nach Westen und geht quasi rückwärts an ihr Ziel. Dadurch ist sie genau so schnell wie wenn sie sich ohne Hunger fortbewegen würde.
 
 **Hinweise:**
 Verwende ``Variablen`` für:
