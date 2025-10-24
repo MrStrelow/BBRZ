@@ -82,37 +82,22 @@ int s4 = 15;
 int s5 = 15;
 
 double m = (s1 + s2 + s3 + s4 + s5) / 5.0;
+Console.WriteLine($"Die durchschnittliche Temperatur ist: {m}");
 
 int c = (s1 < 0.9 * m || s1 > 1.1 * m ? 1 : 0) +
         (s2 < 0.9 * m || s2 > 1.1 * m ? 1 : 0) +
         (s3 < 0.9 * m || s3 > 1.1 * m ? 1 : 0) +
         (s4 < 0.9 * m || s4 > 1.1 * m ? 1 : 0) +
         (s5 < 0.9 * m || s5 > 1.1 * m ? 1 : 0);
+Console.WriteLine($"Anzahl abweichender Sensoren: {c}");
 
-bool alarm = 2 <= c;
+bool a = 2 <= c;
+Console.WriteLine($"Alarm? - {a}");
 ```
 
-* Schreib das Programm um und gib den Variablen sinnvolle Namen.
-* Ist hier ein If-Ausdruck oder eine If-Anweisung sinnvoller?
-* Wie viele Alarme werden ausgelößt? Sind die ``Werte`` der ``Vaiablen`` *s1* bis *s5* bedenklich? Versuche gefühlsmäßig zu erraten ob der *alarm* ausgelößt wird oder nicht.
-* * Gib die Auswertungsreihenfolge an und begründe wieso diese gewählt wurde. Erzeuge ``Werte`` entlang der ``Auswertungsreihenfolge`` wenn ein ``Operator`` die benachbarten ``Werte`` bzw. ``Variablen`` verarbeitet.
-* Was hat *alarm* für einen ``Wert``?
-* Vergleiche es mit folgendem Programm:
-```
-int s1 = 15;
-int s2 = 16;
-int s3 = -4968;
-int s4 = 15;
-int s5 = 15;
-
-// Hier ist was anders
-double m = (s1 + s2 + s3 + s4 + s5) / 5.0;
-
-int c = (s1 < 0.9 * m || s1 > 1.1 * m ? 1 : 0) +
-        (s2 < 0.9 * m || s2 > 1.1 * m ? 1 : 0) +
-        (s3 < 0.9 * m || s3 > 1.1 * m ? 1 : 0) +
-        (s4 < 0.9 * m || s4 > 1.1 * m ? 1 : 0) +
-        (s5 < 0.9 * m || s5 > 1.1 * m ? 1 : 0);
-
-bool alarm = 2 <= c;
-```
+1) Gib die Auswertungsreihenfolge an. Erzeuge ``Werte`` entlang der ``Auswertungsreihenfolge`` wenn ein ``Operator`` die benachbarten ``Werte`` bzw. ``Variablen`` verarbeitet.
+2) Wird ein Alarm ausgelöst? Wie viele Sensoren sin außerhalb der Toleranz? Vergleiche dein Ergebnis mit dem des Programms.
+3) *Sind die Sensorwerte bedenklich? Soll ein Alarm überhaupt ausgelöst werden, wenn ein Sensor eine große Abweichung hat? Wir wollten doch sicher sein, dass erst wenn zwei Sensoren stark abweichen, ein Alarm ausgelöst wird.
+4) Schreib das Programm um und gib den ``Variablen`` sinnvolle Namen.
+5) Ist hier ein ``If-Ausdruck`` oder eine ``If-Anweisung`` sinnvoller? 
+6) Gib die ``Variablen`` in ein ``Array`` und arbeite mit einer ``If-Anweisung`` innerhalb einer ``Schleife`` um doppelten Code zu vermeiden. Überdenke die Antwort auf 2., was ist lesbarer? 

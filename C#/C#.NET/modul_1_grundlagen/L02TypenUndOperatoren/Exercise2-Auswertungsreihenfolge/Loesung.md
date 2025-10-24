@@ -124,78 +124,202 @@ int s3 = -4968;
 int s4 = 15;
 int s5 = 15;
 
-double m = (s1 + s2 + s3 + s4 + s5) / 4.0; // Fehler im Originalcode: Sollte durch 5.0 geteilt werden.
+double m = (s1 + s2 + s3 + s4 + s5) / 5.0;
+Console.WriteLine($"Die durchschnittliche Temperatur ist: {m}");
 
 int c = (s1 < 0.9 * m || s1 > 1.1 * m ? 1 : 0) +
         (s2 < 0.9 * m || s2 > 1.1 * m ? 1 : 0) +
         (s3 < 0.9 * m || s3 > 1.1 * m ? 1 : 0) +
         (s4 < 0.9 * m || s4 > 1.1 * m ? 1 : 0) +
         (s5 < 0.9 * m || s5 > 1.1 * m ? 1 : 0);
+Console.WriteLine($"Anzahl abweichender Sensoren: {c}");
 
-bool alarm = (2 <= c && c <= 4);
+bool a = 2 <= c;
+Console.WriteLine($"Alarm? - {a}");
 ```
 
-### Antworten auf die Zusatzfragen
+1) **Gib die Auswertungsreihenfolge an. Erzeuge ``Werte`` entlang der ``Auswertungsreihenfolge`` wenn ein ``Operator`` die benachbarten ``Werte`` bzw. ``Variablen`` verarbeitet.**
 
-* **Programm mit sinnvollen Namen umschreiben:**
+    * **Schritt 1.**- ``Werte`` der ``Variablen`` berechnen und einsetzen 
+        * **Mittelwert `m` berechnen:**
+            * Zuerst wird die Summe in der Klammer berechnet:
+                `m = (15 + 16 + (-4968) + 15 + 15) / 5.0`
+            * `m = (-4907) / 5.0`
+            * Das Ergebnis ist: `m = -981.4`
+
+        * **Einsetzen:** 
+            * Wir ersetzen alle Variablen (`s1` bis `s5` und `m`) durch ihre ``Werte``.
+
+            ```csharp
+            int c = (15 < 0.9 * -981.4 || 15 > 1.1 * -981.4 ? 1 : 0) +
+                    (16 < 0.9 * -981.4 || 16 > 1.1 * -981.4 ? 1 : 0) +
+                    (-4968 < 0.9 * -981.4 || -4968 > 1.1 * -981.4 ? 1 : 0) +
+                    (15 < 0.9 * -981.4 || 15 > 1.1 * -981.4 ? 1 : 0) +
+                    (15 < 0.9 * -981.4 || 15 > 1.1 * -981.4 ? 1 : 0);
+            ```
+
+    2) Ausführugnsreihenfolge:
+    * ``Klammern`` binden stärker als alles andere, ``arithmetische Operatoren`` binden stärker als ``vergleichs Operatorn``, diese binden stärker als ``logische Operatoren``, diese binden stärker als der ``ternäre Operator`` (``If-Ausdruck``). 
+    * ``Mutiplikation`` bindet stärker als ``Addition``.
+    
+    1) Beginne links, es öffnet sicheine Klammer - Betrachte **benachbarte Operatoren** innerhalb einer Klammer solange bis **eindeutig ein stärkster übrig bleibt**. Das heißt links und rechts vom stärksten Operator sind schwächerer. ``Vergleichoperator`` *<* und ``logischer Operator`` *||* binden schwächer als ``arithmetischer Operator`` _*_: *0.9 * -981.4* ist *-883.26*.
+        ```csharp 
+        int c = (15 < 0.9 * -981.4 || 15 > 1.1 * -981.4 ? 1 : 0) +
+        ```
+        wird zu...
+        ```csharp 
+        int c = (15 < -883.26 || 15 > 1.1 * -981.4 ? 1 : 0) +
+                ...;
+        ```
+
+    2) ``Vergleichoperator`` *<* bindet stärker als ``logischer Operator`` *||*: *15 < -883.26* ist *false*.
+        ```csharp 
+        int c = (15 < -883.26 || 15 > 1.1 * -981.4 ? 1 : 0) +
+                ...;
+        ```
+        wird zu...
+        ```csharp
+        int c = (false || 15 > 1.1 * -981.4 ? 1 : 0) +
+                ...;
+        ```
+
+    3) ``logischer Operator`` *||* bindet schwächer als ``Vergleichsoperator`` *>*: Machen wir *15 > 1.1*? Nein! Daneben ist aber ein ``arithmetischer Operator`` _*_, welcher stärker als beide bindet. Gibt es daneben noch einen stärker bindenden ``Operator``? Nein, ``ternärere Operator`` bindet schwächer als ``arithmetischer Operator`` _*_. Deshalb: *1.1 * -981.4* ist *-1079.54*.
+        ```csharp
+        int c = (false || 15 > 1.1 * -981.4 ? 1 : 0) +
+                ...;
+        ```
+        wird zu...
+        ```csharp
+        int c = (false || 15 > -1079.54 ? 1 : 0) +
+                ...;
+        ```
+    4) ``Vergleichoperator`` *>* bindet stärker als ``ternärer Operator`` *?:*, danach ist die ``Klammer`` zu: *15 > -1079.54* ist *true*.
+        ```csharp
+        int c = (false || 15 > -1079.54 ? 1 : 0) +
+                ...;
+        ```
+        wird zu...
+        ```csharp
+        int c = (false || true ? 1 : 0) +
+                ...;
+        ```
+
+    4) ``logischer Operator`` *||* bindet stärker als ``ternärer Operator`` *?:*, danach ist die ``Klammer`` zu: *false || true* ist *true*.
+        ```csharp
+        int c = (false || true ? 1 : 0) +
+                ...;
+        ```
+        wird zu...
+        ```csharp
+        int c = (true ? 1 : 0) +
+                ...;
+        ```
+
+    4) Es gibt nur mehr den ``ternärer Operator`` *?:*, danach ist die ``Klammer`` zu: *true ? 1 : 0* ist *1*. 
+        ```csharp
+        int c = (true ? 1 : 0) +
+                ...;
+        ```
+        wird zu...
+        ```csharp
+        int c = (1) +
+                ...;
+        ```
+
+    5) In der ``Klammer`` ist nur mehr ein ``Wert``. Es schließt sich die ``Klammer``.
+        ```csharp
+        int c = (1) +
+                ...;
+        ```
+        wird zu...
+        ```csharp
+        int c = 1 + ...;
+        ```
+     6) Alle ``Klammern`` sind gleich augebaut. Wiederhole 1)-5) mit anderen ``Werten``. Das Ergebnis ist.
+        ```csharp
+        int c = (wahr ? 1 : 0) + (wahr ? 1 : 0) + (wahr ? 1 : 0) + (wahr ? 1 : 0) + (wahr ? 1 : 0);
+        ```
+        und wird zu...
+        ```csharp
+        int c = 1 + 1 + 1 + 1 + 1;
+        ```
+        und wird zu...
+        ```csharp
+        int c = 5;
+        ```
+---
+
+2) **Wird ein Alarm ausgelöst? Wie viele Sensoren sin außerhalb der Toleranz? Vergleiche dein Ergebnis mit dem des Programms.**
+
+    Ja es wird ein Alarm ausgelöst. Es sind 5 Sensoren außerhalb der Toleranz.
+
+3) **Sind die Sensorwerte bedenklich? Soll ein Alarm überhaupt ausgelöst werden, wenn ein Sensor eine große Abweichung hat? Wir wollten doch sicher sein, dass erst wenn zwei Sensoren stark abweichen, ein Alarm ausgelöst wird.**
+
+    **Ja, absolut.** Der Wert `temperatureWien1100 = -4968` ist ein extremer Ausreißer im Vergleich zu den anderen Werten, die alle im Bereich 15-16 liegen. Dies deutet stark auf einen Sensorfehler, denn ein komplettes einfrieren des 10. Bezirks wäre nicht plausibel. **Gefühlsmäßig sollte hier jedoch kein Alarm ausgelöst werden, da es nur ein Sensor ist der Abweicht, nicht die mindestens 2 welche wir im Kopf hatten.** 
+    >Das Problem ist der Mittelwert. Wir müssen hier was anderes verwenden.
+
+4) Schreib das Programm um und gib den ``Variablen`` sinnvolle Namen.
+
     ```csharp
-    int sensor1Value = 15;
-    int sensor2Value = 16;
-    int sensor3Value = -4968;
-    int sensor4Value = 15;
-    int sensor5Value = 15;
+    int temperatureWien1210 = 15;
+    int temperatureWien1220 = 16;
+    int temperatureWien1100 = -4968;
+    int temperatureTulln = 15;
+    int temperatureMoedling = 15;
 
-    // HINWEIS: Hier wurde der Fehler korrigiert und durch 5.0 geteilt.
-    double averageValue = (double)(sensor1Value + sensor2Value + sensor3Value + sensor4Value + sensor5Value) / 5.0;
+    double averageTemperature = (temperatureWien1210 + temperatureWien1220 + temperatureWien1100 + temperatureTulln + temperatureMoedling) / 5.0;
+    Console.WriteLine($"Die durchschnittliche Temperatur ist: {averageTemperature}");
 
-    int deviationCount = 0;
-    deviationCount += Math.Abs(sensor1Value - averageValue) > 0.1 * Math.Abs(averageValue) ? 1 : 0;
-    deviationCount += Math.Abs(sensor2Value - averageValue) > 0.1 * Math.Abs(averageValue) ? 1 : 0;
-    deviationCount += Math.Abs(sensor3Value - averageValue) > 0.1 * Math.Abs(averageValue) ? 1 : 0;
-    deviationCount += Math.Abs(sensor4Value - averageValue) > 0.1 * Math.Abs(averageValue) ? 1 : 0;
-    deviationCount += Math.Abs(sensor5Value - averageValue) > 0.1 * Math.Abs(averageValue) ? 1 : 0;
+    int howManySensorsSignalAlarm = 0;
+    howManySensorsSignalAlarm += Math.Abs(temperatureWien1210 - averageTemperature) > 0.1 * Math.Abs(averageTemperature) ? 1 : 0;
+    howManySensorsSignalAlarm += Math.Abs(temperatureWien1220 - averageTemperature) > 0.1 * Math.Abs(averageTemperature) ? 1 : 0;
+    howManySensorsSignalAlarm += Math.Abs(temperatureWien1100 - averageTemperature) > 0.1 * Math.Abs(averageTemperature) ? 1 : 0;
+    howManySensorsSignalAlarm += Math.Abs(temperatureTulln - averageTemperature) > 0.1 * Math.Abs(averageTemperature) ? 1 : 0;
+    howManySensorsSignalAlarm += Math.Abs(temperatureMoedling - averageTemperature) > 0.1 * Math.Abs(averageTemperature) ? 1 : 0;
+    Console.WriteLine($"Anzahl abweichender Sensoren: {howManySensorsSignalAlarm}");
 
-    bool isAlarmTriggered = (deviationCount >= 2 && deviationCount <= 4);
+    bool isAlarmTriggered = 2 <= howManySensorsSignalAlarm;
+    Console.WriteLine($"Alarm? - {isAlarmTriggered}");
     ```
-    *Anmerkung: Die Logik zur Abweichungsprüfung wurde ebenfalls verbessert, um mit positiven und negativen Mittelwerten korrekt umzugehen, indem der Absolutbetrag der Abweichung verglichen wird.*
 
-* **If-Ausdruck oder If-Anweisung?**
-    Für diese spezielle Aufgabe, bei der ein Wert (1 oder 0) basierend auf einer Bedingung direkt zu einer Summe addiert wird, ist der **If-Ausdruck (ternärer Operator `?:`)** sinnvoller. Er ist kompakter und ausdrucksstärker. Eine If-Anweisung wäre länger:
+5) Ist hier ein ``If-Ausdruck`` oder eine ``If-Anweisung`` sinnvoller? 
+
+    Im Originalcode wird ein **If-Ausdruck** (in C# als ternärer Operator `?:` bekannt) verwendet: `(Bedingung ? 1 : 0)`.
+    * **Vorteil:** Er ist sehr kompakt.
+    * **Nachteil:** Bei mehrfacher Aneinanderreihung, wie im Beispiel, wird der Code schnell unübersichtlich und schwer lesbar.
+    
+    Es ist jedoch auch mit einer ``If-Verzweigung`` schwer lesbar und sehr viel Code. Es ist also beides nicht ideal. Gehen wir zur Aufgabe 3 um eine viel angenehmere Lösung zu sehen.
+
+6) Gib die ``Variablen`` in ein ``Array`` und arbeite mit einer ``If-Anweisung`` innerhalb einer ``Schleife`` um doppelten Code zu vermeiden. Überdenke die Antwort auf 2., was ist lesbarer? 
+
     ```csharp
-    if (s1 < 0.9 * m || s1 > 1.1 * m) {
-        c = c + 1;
+    // Sensorwerte in einem Array zusammenfassen
+    int[] temperature = { 15, 16, -4968, 15, 15 };
+
+    // Mittelwert berechnen
+    double averageTemperature = temperature.Sum() / (double)temperature.Length;
+    Console.WriteLine($"Mittelwert: {averageTemperature}");
+
+    // Grenzen für die Abweichung definieren
+    double lowerBound = 0.9 * averageTemperature;
+    double upperBound = 1.1 * averageTemperature;
+
+    // Zähler für abweichende Sensoren
+    int howManySensorsSignalAlarm = 0;
+
+    // Jeden Sensorwert überprüfen
+    foreach (int value in temperature)
+    {
+        // Liegt der Wert außerhalb des Toleranzbereichs?
+        // oder anders gesagt, liegt der wert NICHT innerhalb des Toleranzbereichs.
+        if ( !(lowerBound < value && value < upperBound) )
+        {
+            howManySensorsSignalAlarm++; // Wenn ja, Zähler erhöhen
+        }
     }
-    // ... dies müsste 5x wiederholt werden.
+
+    Console.WriteLine($"Anzahl abweichender Sensoren: {howManySensorsSignalAlarm}");
+
+    bool isAlarmTriggered = howManySensorsSignalAlarm >= 2;
+    Console.WriteLine($"Alarm? - {isAlarmTriggered}");
     ```
-
-* **Sind die Sensorwerte bedenklich?**
-    **Ja, absolut.** Der Wert `s3 = -4968` ist ein extremer Ausreißer im Vergleich zu den anderen Werten, die alle im Bereich 15-16 liegen. Dies deutet stark auf einen Sensorfehler oder eine massive Störung hin. Gefühlsmäßig sollte hier definitiv ein Alarm ausgelöst werden.
-
-* **Was passiert bei 5 abweichenden Sensoren?**
-    Gemäß der ursprünglichen Logik `bool alarm = (2 <= c && c <= 4);` wird der Alarm **nicht ausgelöst**, wenn `c` den Wert 5 annimmt, da `5 <= 4` `false` ist. Dies ist ein **schwerwiegender Logikfehler**. Ein System sollte bei einer solch katastrophalen Abweichung (alle Sensoren melden Fehler) erst recht alarmieren. Eine bessere Logik wäre `c >= 2`, um bei 2 oder mehr abweichenden Sensoren auszulösen.
-
-### Auswertungsreihenfolge und Ergebnis (basierend auf Originalcode)
-
-1.  **Berechnung von `m`**:
-    1.  Klammer `(s1 + s2 + s3 + s4 + s5)`: `15 + 16 - 4968 + 15 + 15` ergibt `-4907`.
-    2.  Division: `-4907 / 4.0` ergibt `m = -1226.75`.
-
-2.  **Berechnung von `c`**: Für jede der 5 Zeilen passiert Folgendes:
-    1.  `0.9 * m` ergibt `-1104.075`.
-    2.  `1.1 * m` ergibt `-1349.425`.
-    3.  Die Bedingung lautet `(sensorWert < -1104.075 || sensorWert > -1349.425)`.
-    4.  **Für s1 (15):** `15 < -1104.075` (false) `||` `15 > -1349.425` (**true**) -> `true`. Ternärer Ausdruck ergibt `1`.
-    5.  **Für s2 (16):** `16 < -1104.075` (false) `||` `16 > -1349.425` (**true**) -> `true`. Ergibt `1`.
-    6.  **Für s3 (-4968):** `-4968 < -1104.075` (**true**) `||` ... -> `true`. Ergibt `1`.
-    7.  **Für s4 (15):** Ergibt `1`.
-    8.  **Für s5 (15):** Ergibt `1`.
-    9.  Addition: `c = 1 + 1 + 1 + 1 + 1` ergibt `c = 5`.
-
-3.  **Berechnung von `alarm`**:
-    1.  Ausdruck: `(2 <= c && c <= 4)`
-    2.  Werte einsetzen: `(2 <= 5 && 5 <= 4)`
-    3.  `2 <= 5` ergibt `true`.
-    4.  `5 <= 4` ergibt `false`.
-    5.  `true && false` ergibt `false`.
-
-Der Wert von `alarm` ist **`false`**.
