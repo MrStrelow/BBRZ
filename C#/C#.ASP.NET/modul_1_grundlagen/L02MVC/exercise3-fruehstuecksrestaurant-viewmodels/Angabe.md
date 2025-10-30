@@ -19,7 +19,7 @@ Erstelle für ``ViewModel`` und ``DTO`` einen eigenen Ornder auf der Ebene des `
 2.  **`FruehstueckViewModel.cs` (ViewModel):** Eine ``Klasse``, die *alle* Daten enthält, die die `Index.cshtml`-View benötigt (alle Listen zur Anzeige + das ``DTO`` für das Formular).
 3.  **`CustomerService.cs`:** Wirft `Exceptions` bei *Systemfehlern*, die vom globalen Error-Handler (z.B. ``Controller`` *ErrorController*) gefangen werden. Erstelle dazu einen `neuen ``Controller`` *ErrorController* und eine ``ViewModel`` *ErrorViewModel*.
 4.  **`FruehstueckController.cs`:** Wird "dünn". Er kümmert sich nur noch um den Workflow (Daten holen, ``Service`` aufrufen) und prüft `ModelState.IsValid`.
-5.  **`Index.cshtml`:** Wird mit **Tag Helpern** (`asp-for`, `asp-items`, `asp-validation-for`) an das ``ViewModel`` gebunden, was uns client-seitige Validierung und die Beibehaltung der Benutzereingaben bei Fehlern ermöglicht.
+5.  **`Index.cshtml`:** Wird mit **Tag Helpern** (`asp-for`, `asp-items`, `asp-validation-for`) an das ``ViewModel`` gebunden.
 
 ---
 
