@@ -28,8 +28,8 @@
                 <select asp-for="OrderForm.CustomerId" class="form-select" asp-items="Model.Customers">
                     <option value="">-- Bitte Kunden wählen --</option>
                 </select>
-                @* Zeigt die [Range]-Fehlermeldung an *@
-                <span asp-validation-for="OrderForm.CustomerId" class="text-danger"></span>
+                @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
+                @* <span asp-validation-for="OrderForm.CustomerId" class="text-danger"></span> *@
             </div>
             <div class="col-md-6 mb-3">
                 @* AKTUALISIERT: Bindet an die DTO-Eigenschaft *@
@@ -37,8 +37,8 @@
                 <select asp-for="OrderForm.TableId" class="form-select" asp-items="Model.Tables">
                     <option value="">-- Bitte Tisch wählen --</option>
                 </select>
-                @* Zeigt die [Range]-Fehlermeldung an *@
-                <span asp-validation-for="OrderForm.TableId" class="text-danger"></span>
+                @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
+                @* <span asp-validation-for="OrderForm.TableId" class="text-danger"></span> *@ 
             </div>
         </div>
 
