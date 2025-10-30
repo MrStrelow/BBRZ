@@ -24,7 +24,7 @@ Bei Unklarheiten hier nachlesen:
 **Anmerkung:**
 * Die 16-bit (4-hexbit) Uni-Codes für schwarze ⬛ und weiße ⬜ Symbole sind `\u21B1` und `\u21B2`. Falls diese nicht schön ausgefüllt dargestellt werden (die verwendete Font im Terminal unterstützt diese Symbole nicht als "emoji") verwende die 24-bit (5-hexbit) emojis 🔲 `\u1F532` und 🔳 `\u1F533`. (*``windows-taste + .``* öffnet dir einen preview einiger Emojis auf Windows. Füge diese dann in den Code ``string blackSquare = "⬛"`` ein)
 
-Der Zusammenhang zwischen wie wir eine Linie zwischen Zwei Punkten und welche Felder im ``2D-Array`` ansprechen ist bildlich hier dargestellt:
+Der Zusammenhang zwischen Zwei Punkten auf einer Linie ist hier bildlich dargestellt:
 ![alt text](figures/steigungsdreieck.png)
 
 Weitere Erklärungen folgen in den jeweiligen Schritten.
@@ -32,7 +32,7 @@ Weitere Erklärungen folgen in den jeweiligen Schritten.
 ---
 
 ## **Schritt 1 - level: 🤔 - erster Versuch**:
-Wir starten eins rechs neben den angegebenen Punk ``🏌🏻`` des Users. Von dort aus wollen wir entlang der *x-Achse*, *nach rechts* jedes Feld des ``2D-Arrays`` mit einer `For-Schleife` bis ein Feld vor dem Ziel ``⛳`` abtasten. 
+Wir starten **ein Feld rechts von ``🏌🏻``**. Von dort aus wollen wir entlang der *x-Achse*, *nach rechts* jedes Feld des ``2D-Arrays`` mit einer `For-Schleife` abtasten, bis wir **ein Feld links vom Ziels ``⛳`` sind**. 
 ```
 Wähle die Figur... [x y]: 1 2
 ... und wähle das Ziel [x y]: 10 4
@@ -47,8 +47,8 @@ Wähle die Figur... [x y]: 1 2
 ```
 
 Für den ``Schleifen-Index`` *x* der ``For-Schleife`` stellen wir uns folgendes vor:
-* Wir tun so als wäre bei ``🏌🏻`` *x=0* und *y=0*. Wir gehen also von **eins rechts von ``🏌🏻``** bis (inklusive) **eins links von ⛳**. Die Distanz dazwischen wird auf der x-Achse wird $\Delta x$ genannt und ist *xEnd - xStart = 10 - 1 = 9* Das ist *x=1* bis *x=9*. xEnd und xStart sind die vom User angegebenen Werte in x.
-Wir können also den ``Schleifen-Index`` **x** der ``For-Schleife`` von **1** bis (exclusive) **$\Delta x$** nehmen.
+* Die Distanz zwischen ``🏌🏻`` und ``⛳`` auf der x-Achse wird $\Delta x$ genannt. Wir berechnen es mit *xEnd - xStart = 10 - 1 = 9*. xEnd und xStart sind die vom User angegebenen Werte in x.
+* Wir tun nun so als wäre bei ``🏌🏻`` *x=0* und *y=0*. Wir können also den ``Schleifen-Index`` **x** der ``For-Schleife`` von **1** bis (exclusive) **$\Delta x$** nehmen.
 
 ```
 🟦0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣7️⃣6️⃣8️⃣9️⃣➡️x-Achse
@@ -62,7 +62,7 @@ Wir können also den ``Schleifen-Index`` **x** der ``For-Schleife`` von **1** bi
 Nun berechen wir folgendes:
 1) *Steigung der Linie:* $k = \frac{\Delta y}{\Delta x} = \frac{\text{Ende in y} - \text{Start in y}}{\text{Ende in y} - \text{Start in y}} = \frac{4 - 2}{10 - 1}= \frac{2}{9} = 0.22...$
 2) *Die Position von ``🔸``:
-    * Wir wissen $x$, da wir es mit der ``For-Schleife`` abgehen und uns fragen, *Auf x=1, was ist der y-Wert auf der Linie?* Die Antwort ist $y = k \cdot x = 0.22 \cdot 1 = 0.22$*. Da wir kein Feld des ``2D-Arrays`` mit einer Kommazahl ansprechen können, runden wir diese **auf** (*ceiling*), **ab** (*floor*) oder **kaufmännisch** (*round*). Wir verwenden *round* und bekommen dadurch $0$. Da wir bei ``🏌🏻`` *x=0* und *y=0* gesetzt haben, müssen wir die Position im ``2D-Array`` anpassen. Wir tun dies mit ``field[yStart + y, xStart + x]`` was eingesetzt ``field[2 + 0, 1 + 1]``, also ``field[2, 2] = "🔸"`` ist. Wir sehen, dass folgendes eingezeichnet wurde und mit der oben gezeigen Linie übereinstimmt.
+    * Wir wissen den x-Wert *x=1* da es der erste ``Schleifenindex`` der ``For-Schleife`` ist. Aber was ist der y-Wert auf der Linie? Die Antwort ist, $y = k \cdot x = 0.22 \cdot 1 = 0.22$*. Da wir kein Feld des ``2D-Arrays`` mit einer Kommazahl ansprechen können, runden wir diese **auf** (*ceiling*), **ab** (*floor*) oder **kaufmännisch** (*round*). Wir verwenden *round* und bekommen dadurch $0$. Da wir bei ``🏌🏻`` *x=0* und *y=0* gesetzt haben, müssen wir die Position im ``2D-Array`` anpassen. Wir tun dies mit ``field[yStart + y, xStart + x]`` was eingesetzt ``field[2 + 0, 1 + 1]``, also ``field[2, 2] = "🔸"`` ist. Wir sehen, dass folgendes eingezeichnet wurde und mit der oben gezeigen Linie übereinstimmt.
     ```
     ... und wähle das Ziel [x y]: 10 4
     🟦0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣7️⃣6️⃣8️⃣9️⃣🔟➡️x-Achse

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise2-fruehstuecksresta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skripten", "Skripten\Skripten.csproj", "{3CAE4437-6AFB-4D78-B3CB-C553BE1E8B33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise3-fruehstuecksrestaurant-viewmodels", "exercise3-fruehstuecksrestaurant-viewmodels\exercise3-fruehstuecksrestaurant-viewmodels.csproj", "{0417E4D0-DA13-4BD4-9506-EEB872679AB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{3CAE4437-6AFB-4D78-B3CB-C553BE1E8B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CAE4437-6AFB-4D78-B3CB-C553BE1E8B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CAE4437-6AFB-4D78-B3CB-C553BE1E8B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0417E4D0-DA13-4BD4-9506-EEB872679AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0417E4D0-DA13-4BD4-9506-EEB872679AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0417E4D0-DA13-4BD4-9506-EEB872679AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0417E4D0-DA13-4BD4-9506-EEB872679AB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
