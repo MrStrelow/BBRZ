@@ -1,50 +1,79 @@
-# Erste Schritte bei der Serverseitigen Validierung
+# Refactoring von Controller-Validierung zu ViewModels & DTOs
 
-Wir gehen von der [Exercise 1](../exercise1-fruehstuecksrestaurant-ohne-validation/Angabe.md) aus und verwenden die [Lösung](../exercise1-fruehstuecksrestaurant-ohne-validation/) dieser.
-
-Unsere Webanwendung nimmt aktuell jede Bestellung an, auch wenn sie unvollständig oder ungültig ist. In dieser Übung erweitern wir den `FruehstueckController`, um Benutzereingaben serverseitig zu validieren. Zusätzlich passen wir die `Index.cshtml`-View an, damit dem Benutzer klare und hilfreiche Fehlermeldungen angezeigt werden.
+Wir gehen von der [Exercise 2](../exercise2-fruehstuecksrestaurant-mit-validation/Angabe.md) aus und verwenden die [Lösung](../exercise2-fruehstuecksrestaurant-mit-validation/) dieser. Falls das eigene Projekt fehlerfrei ist, kann auch dieses verwendet werden.
 
 ## Übersicht der Änderungen
 
-1.  **Controller (`FruehstueckController.cs`)**: Die `Bestellen`-Action wird um eine Validierungslogik erweitert. Erinnere dich an ``Guard Clauses``. Wir prüfen, ob alle notwendigen Daten für eine Bestellung vorhanden sind.
-2.  **View (`Index.cshtml`)**: Die View wird so angepasst, dass sie die vom Controller übermittelten Validierungsfehler in einer übersichtlichen Box anzeigt.
+### Probleme des Codes
+
+1.  **"Fetter" Controller:** Der ``Controller`` *FruehstueckController* ist überladen mit manuellen `Bedingten Anweisungen`, um die Eingaben zu prüfen (z.B. *customerId <= 0*).
+2.  **Kein DRY (Don't Repeat Yourself):** Der Code zum Abrufen aller Listen (Menüs, Tische etc.) wird zweimal geschrieben – einmal für die ``Methode`` *Index* welche für `Http-Methode` *GET* zuständig ist und einmal im Fehlerfall der ``Methode`` Bestellen*, welche für die `Http-Methode` *POST* zuständig ist **(Die Methoden im Controller werden auch ``Action`` genannt)**.
+3.  **"Stilles Versagen":** Der ``Service`` *CustomerService* bricht bei einem Fehler (z.B. Kunde nicht gefunden) einfach mit *return;* ab. Der Benutzer erhält keine Rückmeldung über diese ``Exception``.
+4.  **Schwache Modelle:** Die ``Action`` (``Methode``) *Index* übergibt ein unstrukturiertes `Tuple` an die ``View``. Die ``Action`` (``Methode``) *Bestellen* empfängt *viele einzelne* ``Parameter``.
+5.  **Schlechte User Experience (UX):** Wenn die ``Validierung`` (bis jetzt die ``Guard Clauses`` im ``Controller`` *FruehstueckController*) fehlschlägt, werden die zuvor ausgewählten ``Dropdowns`` und ``Checkboxen`` des Benutzers nicht wiederhergestellt.
+
+### Lösungsvorschläge
+Erstelle für ``ViewModel`` und ``DTO`` einen eigenen Ornder auf der Ebene des ``Controllers``, ``Views``, ``Models``, ``Data``, etc.
+
+1.  **`CreateOrderDto.cs` (DTO):** Eine ``Klasse``, die *nur* die Formulardaten der Bestellung empfängt. Sie ist der **einzige Ort** für die **Validierungslogik** (unsere ``Guards``).
+2.  **`FruehstueckViewModel.cs` (ViewModel):** Eine ``Klasse``, die *alle* Daten enthält, die die `Index.cshtml`-View benötigt (alle Listen zur Anzeige + das ``DTO`` für das Formular).
+3.  **`CustomerService.cs`:** Wirft `Exceptions` bei *Systemfehlern*, die vom globalen Error-Handler (z.B. ``Controller`` *ErrorController*) gefangen werden. Erstelle dazu einen `neuen ``Controller`` *ErrorController* und eine ``ViewModel`` *ErrorViewModel*.
+4.  **`FruehstueckController.cs`:** Wird "dünn". Er kümmert sich nur noch um den Workflow (Daten holen, ``Service`` aufrufen) und prüft `ModelState.IsValid`.
+5.  **`Index.cshtml`:** Wird mit **Tag Helpern** (`asp-for`, `asp-items`, `asp-validation-for`) an das ``ViewModel`` gebunden, was uns client-seitige Validierung und die Beibehaltung der Benutzereingaben bei Fehlern ermöglicht.
 
 ---
 
-## Anforderungen an die Implementierung
+## Schritt 1: Das DTO (`CreateOrderDto`) erstellen
 
-### 1. Serverseitige Validierung im `FruehstueckController`
+Erstellen Sie einen neuen Ordner `ViewModels` und fügen Sie diese Klasse hinzu.
 
-Passen Sie die `[HttpPost]`-Action `Bestellen` an, um die folgenden Validierungsregeln zu implementieren, *bevor* der `_customerService` aufgerufen wird:
+* **`int?` (Nullable Int):** Wird verwendet, damit der Model Binder einen leeren String (`""`) von einem leeren Dropdown als `null` binden kann, anstatt einen Typ-Konvertierungsfehler ("The value '' is invalid") zu werfen.
+* **`[Required]`:** Fängt das `null` ab und zeigt unsere benutzerdefinierte Fehlermeldung.
+* **`[Range]`:** Fängt ungültige Zahlen (z.B. `0`) ab, falls `[Required]` passiert wurde.
+* **`const`:** Verhindert doppelte Fehlermeldungen (DRY-Prinzip).
+* **`IValidatableObject`:** Implementiert die `Validate`-Methode für komplexe "Guards", die mehrere Eigenschaften prüfen (z.B. "mindestens ein Menü ODER ein Gericht").
 
-* **Regel 1: Kunde muss ausgewählt sein**: Prüfen Sie, ob die übergebene `customerId` größer als 0 ist. Wenn nicht, ist die Auswahl ungültig.
-* **Regel 2: Tisch muss ausgewählt sein**: Prüfen Sie, ob die übergebene `tableId` größer als 0 ist.
-* **Regel 3: Mindestens eine Auswahl**: Prüfen Sie, ob die Listen `selectedMenuIds` **und** `selectedDishIds` beide leer sind. Eine gültige Bestellung muss mindestens ein Menü oder ein Gericht enthalten.
-* **Regel 4**: Prüfen Sie am Ende mit `if (!ModelState.IsValid)`, ob Fehler aus **Regel 1-3** hinzugefügt wurden bzw. falls ein nicht korrekter ``http-post`` Request gestellt wurde. Einige nicht korrekten ``http-post`` Request sehen sie in der *wrong_posts.http* Datei. Request 3 ist der Wichtigste dort. Senden Sie diesen um zu sehen was passiert. Vergiss nicht den Port des Servers in die http-Datei einzutragen! Gesendet wird der Request, welcher nicht über das Webinterface ausgeführt wird mit einem Rechtsklick in der Datei und dann senden. **Wichtig**: Es muss ``[ValidateAntiForgeryToken]`` überall vorher entfernt werden, damit wir *wrong_posts.http* verwenden können. Dieses ``Attribut`` führt dazu, dass alle ``http-post`` Requests abgelehnt werden, welche nicht von der View erstellten Website erzeugt werden. 
-    * **Wichtig**: Im Fehlerfall darf **kein** `RedirectToAction` ausgeführt werden. Stattdessen müssen Sie die `Index`-View erneut anzeigen, damit die Fehler sichtbar werden. Rufen Sie `return View("Index", model);` auf, nachdem Sie die notwendigen Daten für die View (Menüs, Tische etc.) erneut geladen haben (Inhalt wie bei der ``[HttpGet] Index(...)`` Methode). Dies stellt sicher, dass die Fehlermeldungen erhalten bleiben.
-    * Füge bei **Regel 1-3** folgendes hinzu. Wenn eine oder mehrere dieser Regeln verletzt werden, fügen Sie eine entsprechende Fehlermeldung zum `ModelState`-Objekt hinzu. Verwenden Sie `ModelState.AddModelError("", "Ihre Fehlermeldung hier");`. Das ist vergleichbar mit einem ``throw new Exception("This guard-clause prevented further execution!")`` oder einem ``return;`` bei ``Guard-Clauses``.
+---
 
-### 2. Darstellung der Fehlermeldung in der View (``Index.cshtml``)
-Damit die im ModelState gespeicherten Fehler dem Benutzer angezeigt werden, müssen Sie die Index.cshtml-Datei anpassen.
+## Schritt 2: Das ViewModel (`FruehstueckViewModel`) erstellen
 
-Fügen Sie direkt nach dem öffnenden ``<form>``-Tag einen ASP.NET Core Tag Helper hinzu, der die Validierungsfehler zusammenfasst.
+Fügen Sie diese Klasse ebenfalls zum Ordner `ViewModels` hinzu. Sie ersetzt das `Tuple`.
 
-Dieser Tag Helper liest automatisch die Fehler aus dem ModelState aus und rendert sie als HTML.
+* **Zweck:** Sie bündelt *alle* Daten für die `Index.cshtml`-View.
+* **`OrderForm { get; set; } = new();`:** Wir initialisieren das DTO immer. Dies ist wichtig, damit die `asp-for`-Tag-Helper in der View bei einem GET-Request (wenn das Formular leer ist) keine `NullReferenceException` werfen.
 
-Sie können die Anzeige optional in eine if-Abfrage packen, damit die Fehlerbox nur erscheint, wenn tatsächlich Fehler vorhanden sind.
+---
 
-Beispielcode:
-```csharp
-<form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
-    @if (!ViewData.ModelState.IsValid)
-    {
-        <div class="alert alert-danger">
-            <strong>Bitte korrigieren Sie die folgenden Fehler:</strong>
-            <div asp-validation-summary="All" class="text-danger"></div>
-        </div>
-    }
+## Schritt 3: Den `CustomerService` anpassen
 
-    @* ... der Rest Ihres Formulars (Kunden-Dropdown, Tische, Menüs etc.) ... *@
+Wir ändern den `CustomerService` so, dass er bei *Systemfehlern* (Daten-Integritätsfehler, z.B. eine ID existiert nicht) eine `Exception` wirft. Diese Fehler sind keine *Validierungsfehler*, die der Benutzer korrigieren kann, sondern *unerwartete* Probleme.
 
-</form>
+---
+
+## Schritt 4: Den `FruehstueckController` refaktorisieren
+
+Der Controller wird jetzt "dünn" und sauber.
+
+* **`PopulateViewModelAsync`:** Eine neue private Methode, um das Laden der Listen zu zentralisieren (DRY).
+* **`[GET] Index`:** Erstellt nur noch das `FruehstueckViewModel` und füllt es.
+* **`[POST] Bestellen`:**
+    * Akzeptiert **nur** das `CreateOrderDto`.
+    * **`[Bind(Prefix = "OrderForm")]`:** Weist den Model Binder an, die Formulardaten (z.B. `OrderForm.CustomerId`) korrekt auf das `orderDto` zu mappen.
+    * **Keine manuelle Validierung:** Alle `if (customerId <= 0)` sind verschwunden.
+    * **`if (!ModelState.IsValid)`:** Dieser Block wird jetzt *automatisch* durch die Attribute und die `Validate`-Methode im DTO ausgelöst.
+    * **Fehlerfall:** Im Fehlerfall erstellen wir das volle `FruehstueckViewModel` neu, füllen die Listen (`PopulateViewModelAsync`) und **weisen das fehlerhafte `orderDto` wieder zu** (`viewModel.OrderForm = orderDto`). Dies stellt sicher, dass die Benutzereingaben erhalten bleiben.
+    * **`.Value`:** Beim Aufruf des Service verwenden wir `orderDto.CustomerId.Value`, da der Service `int` und nicht `int?` erwartet (wir wissen, dass es sicher ist, da `ModelState.IsValid` ist).
+
+---
+
+## Schritt 5: Die `Index.cshtml` View anpassen
+
+Die View wird auf das neue `FruehstueckViewModel` umgestellt und nutzt Tag Helper für die Bindung.
+
+* **`@model`:** Wird auf `FruehstueckViewModel` geändert.
+* **`asp-validation-summary="All"`:** Zeigt alle Fehler (aus `[Required]`, `[Range]` und `IValidatableObject`) oben auf der Seite an.
+* **`asp-for`:** Bindet das `<select>`-Tag an die DTO-Eigenschaft (z.B. `OrderForm.CustomerId`). Dies stellt sicher, dass der Wert gesendet *und* im Fehlerfall wiederhergestellt wird.
+* **`asp-items`:** Füllt die `<option>`-Tags der Dropdown-Liste.
+* **`asp-validation-for`:** Zeigt die spezifische Fehlermeldung (z.B. "Bitte wählen Sie einen Kunden aus") direkt unter dem Feld an.
+* **Manuelles `checked`:** Bei Checkboxen in einer Schleife müssen wir manuell prüfen, ob die ID in der DTO-Liste enthalten ist, um die Auswahl im Fehlerfall wiederherzustellen (`.Contains(...)`).
 ```

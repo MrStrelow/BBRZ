@@ -1,6 +1,6 @@
 # Erste Schritte bei der Serverseitigen Validierung
 
-Wir gehen von der [Exercise 1](../exercise1-fruehstuecksrestaurant-ohne-validation/Angabe.md) aus und verwenden die [Lösung](../exercise1-fruehstuecksrestaurant-ohne-validation/) dieser.
+Wir gehen von der [Exercise 1](../exercise1-fruehstuecksrestaurant-ohne-validation/Angabe.md) aus und verwenden die [Lösung](../exercise1-fruehstuecksrestaurant-ohne-validation/) dieser. Falls das eigene Projekt fehlerfrei ist, kann auch dieses verwendet werden.
 
 Unsere Webanwendung nimmt aktuell jede Bestellung an, auch wenn sie unvollständig oder ungültig ist. In dieser Übung erweitern wir den `FruehstueckController`, um Benutzereingaben serverseitig zu validieren. Zusätzlich passen wir die `Index.cshtml`-View an, damit dem Benutzer klare und hilfreiche Fehlermeldungen angezeigt werden.
 
