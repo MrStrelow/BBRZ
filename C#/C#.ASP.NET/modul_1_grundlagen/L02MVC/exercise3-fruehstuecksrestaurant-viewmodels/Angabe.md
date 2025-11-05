@@ -13,6 +13,8 @@ Wir gehen von der [Exercise 2](../exercise2-fruehstuecksrestaurant-mit-validatio
 5.  **Schlechte User Experience (UX):** Wenn die ``Validierung`` (bis jetzt die ``Guard Clauses`` im ``Controller`` *FruehstueckController*) fehlschlägt, werden die zuvor ausgewählten ``Dropdowns`` und ``Checkboxen`` des Benutzers nicht wiederhergestellt.
 
 ### Kommunikation
+
+![diagramm welches texliche beschreibung von unten ergänzt](Kommunikaiton.dark.png)
  
 1. **`CustomerService.cs` (Service):** ``Service`` kommuniziert mit dem ``Model`` über ``Ef-Core`` mit dem *DbContext*. 
 2. **`FruehstueckController.cs` (Controller):** 
