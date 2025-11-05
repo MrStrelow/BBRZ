@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using FruehstuecksBestellungMVC.Models;
-using FruehstuecksBestellungMVC.DTOs;
 
 namespace FruehstuecksBestellungMVC.ViewModels;
 
@@ -15,5 +14,5 @@ public class FruehstueckViewModel
 
     // 2. Daten für den fehlerhaften Post-Request
     // Wir bündeln alle Formularfelder hier
-    public CreateOrderDto OrderForm { get; set; } = new();
+    public OrderViewModel Order { get; set; } = new();
 }

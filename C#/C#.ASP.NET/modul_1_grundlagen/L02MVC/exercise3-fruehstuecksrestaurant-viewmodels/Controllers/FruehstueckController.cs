@@ -52,7 +52,7 @@ public class FruehstueckController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Bestellen([Bind(Prefix = "OrderForm")] CreateOrderDto orderDto)
+    public async Task<IActionResult> Bestellen([Bind(Prefix = "Order")] OrderViewModel orderViewModel)
     {
         // Alle Guards sind jetzt im DTO.
         // Dieser Check prüft automatisch [Annotations] UND die IValidatableObject.Validate-Methode.
@@ -62,25 +62,21 @@ public class FruehstueckController : Controller
 
             // Wenn die Validierung fehlschlägt, müssen wir
             // das volle ViewModel neu erstellen, um die Seite erneut anzuzeigen.
-            var viewModel = new FruehstueckViewModel();
+            var fruehstueckViewModel = new FruehstueckViewModel();
 
             // 1. Alle benötigten Daten für das ViewModel laden (Menus, Tables etc.) 
-            await PopulateViewModelAsync(viewModel);
+            // Wir werden in Zukunft diese doppelte abfrage cachen. Das heißt keine neue-SQL query bei einem Fehler.
+            await PopulateViewModelAsync(fruehstueckViewModel);
 
-            // 2. Das fehlerhafte DTO mit den Benutzereingaben in das VM einfügen,
+            // 2. Das fehlerhafte DTO mit den Benutzereingaben in das ViewModel einfügen,
             //    damit die Auswahl des Benutzers nicht verloren geht.
-            viewModel.OrderForm = orderDto;
+            fruehstueckViewModel.Order = orderViewModel;
 
-            return View("Index", viewModel);
+            return View("Index", fruehstueckViewModel);
         }
 
-        // Bei Erfolg: Daten aus dem DTO an den Service übergeben
-        await _customerService.CreateOrderAsync(
-            orderDto.CustomerId.Value,
-            orderDto.TableId.Value,
-            orderDto.SelectedMenuIds,
-            orderDto.SelectedDishIds
-        );
+        // Bei Erfolg: Daten aus dem ViewModel als DTO an den Service übergeben
+        await _customerService.CreateOrderAsync(new OrderDto(orderViewModel));
 
         return RedirectToAction(nameof(Index));
     }

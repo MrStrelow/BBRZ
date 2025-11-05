@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FruehstuecksBestellungMVC.DTOs;
+namespace FruehstuecksBestellungMVC.ViewModels;
 
-// Dieses DTO enthält die Daten, die vom Formular POST gesendet werden.
+// Dieses ViewModel enthält die Daten, die vom Formular POST gesendet werden.
 // Es implementiert IValidatableObject für Guards.
-public class CreateOrderDto : IValidatableObject
+public class OrderViewModel : IValidatableObject
 {
     private const string customerIsMissingErrorMessage = "Bitte wählen Sie einen Kunden aus.";
     

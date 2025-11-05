@@ -24,8 +24,8 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 @* Wir geben nicht einzeln die ids zurück sondern DTO-Eigenschaft *@
-                <label asp-for="OrderForm.CustomerId" class="form-label"></label>
-                <select asp-for="OrderForm.CustomerId" class="form-select" asp-items="Model.Customers">
+                <label asp-for="Order.CustomerId" class="form-label"></label>
+                <select asp-for="Order.CustomerId" class="form-select" asp-items="Model.Customers">
                     <option value="">-- Bitte Kunden wählen --</option>
                 </select>
                 @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
@@ -33,8 +33,8 @@
             </div>
             <div class="col-md-6 mb-3">
                 @* AKTUALISIERT: Bindet an die DTO-Eigenschaft *@
-                <label asp-for="OrderForm.TableId" class="form-label"></label>
-                <select asp-for="OrderForm.TableId" class="form-select" asp-items="Model.Tables">
+                <label asp-for="Order.TableId" class="form-label"></label>
+                <select asp-for="Order.TableId" class="form-select" asp-items="Model.Tables">
                     <option value="">-- Bitte Tisch wählen --</option>
                 </select>
                 @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
@@ -55,7 +55,7 @@
                                 name="OrderForm.SelectedMenuIds" 
                                 value="@menu.Id" 
                                 id="menu-@menu.Id" 
-                                @(Model.OrderForm.SelectedMenuIds.Contains(menu.Id) ? "checked" : "")
+                                @(Model.Order.SelectedMenuIds.Contains(menu.Id) ? "checked" : "")
                             >
                             <label class="form-check-label" for="menu-@menu.Id">
                                 @menu.Name (@menu.Price.ToString("C"))
@@ -76,7 +76,7 @@
                                 name="OrderForm.SelectedDishIds" 
                                 value="@dish.Id" 
                                 id="dish-@dish.Id"
-                                @(Model.OrderForm.SelectedDishIds.Contains(dish.Id) ? "checked" : "")
+                                @(Model.Order.SelectedDishIds.Contains(dish.Id) ? "checked" : "")
                             >
                             <label class="form-check-label" for="dish-@dish.Id">
                                 @dish.Name (@dish.Price.ToString("C"))
