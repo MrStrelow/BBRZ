@@ -63,7 +63,7 @@ Fügen Sie diese Klasse ebenfalls zum Ordner `ViewModels` hinzu. Sie ersetzt das
 Fügen Sie diese ``Klasse`` im Ordner ``DTOs`` hinzu. Sie ersetzt den ``Parameter`` im ``Service`` der `Methode` *CreateOrderAsync*.
 
 * **Zweck:** Sie bündelt *alle* ``Parameter`` für eine ``Methode`` im ``Service``.
-* Verwende dort einen ``Copy-Construktor`` welcher ein ``ViewModel`` *OrderViewModel* entgegen nimmt und die benötigten Daten im ``DTO`` als ``Eigenschaft`` speichert.
+* Verwende dort einen ``Copy-Construktor`` welcher ein ``ViewModel`` *OrderViewModel* entgegen nimmt und die benötigten Daten im ``DTO`` als ``Eigenschaft`` speichert. **Verwende hier keinen ``nullable`` ``Operator``! Unser ``DTO`` muss diese nach der ``Validierung`` übertragen und hat deshalb gesichter keine ``null`` werte.**
 
 ---
 
