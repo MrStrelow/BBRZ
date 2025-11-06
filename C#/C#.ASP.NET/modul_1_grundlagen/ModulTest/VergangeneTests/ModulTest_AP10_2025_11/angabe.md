@@ -100,7 +100,12 @@ Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen
     3) Die Logik der ``Server-Seitigen`` ``Validierung`` ist im ``DishViewModel`` durch ``Attribute`` und/oder der ``Methode`` *Validate* umzusetzen. Die ``Methode`` *Validate* ist von dem ``Interface`` *IValidatableObject* zu implementieren. 
     5) In der ``View`` soll durch einen Mausklick auf ein ``html-Element`` *Selection* (mit Dishes befüllt) die ``Action`` *Index* mit der ``http-Methode`` *get* aufgerufen werden.
     6) In der ``View`` soll es **nicht möglich sein ein Dish anzulegen**. 
-    ![alt]()
+
+    ![alt](details.png)
+
+    ![alt](no-details.png)
+
+
 * ``DishController``: Dieser beinhaltet eine ``Methode`` *Index* und eine ``Methode`` *Create*. 
     * *Index*: 
         1) Diese nimmt die ``http-Methode`` *get* für einen spezielles ``Model`` *Dish* entgegen. Diese ``Action`` gibt ein ``ViewModel`` *DishViewModel* mit der ``Eigenschaft`` *Id* des ``Model`` *Dish* von der ``View`` an den ``Controller`` weiter. Das passiert durch einen Klick auf ein *Dish* in der List aller *Dishes* auf der "Hauptseite. Das Verhalten der Hauptseite ist bereits in der Vorlage implementiert. Es muss dort nichts verändert werden.
