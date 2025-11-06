@@ -25,33 +25,21 @@ Notenschlüssel:
 
 ---
 
-##  [40 / 100 Punkte]
+##  [20 / 100 Punkte]
 
-### Programmverständnis [20 / 40 Teilpunkte]
-
-```
-http response header und request header
-beschreibe den ablauf wie das routing ist
-```
-
-1) Finde die Fehler in diesem Code und markiere diese.
-2) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionell falschen `Guard Clause` führen. 
-
----
-
-### Theorie [20 / 35 Teilpunkte]
-1) Wann soll http-get und wann http-post verwendet werden?
-2) Wie kann http-delete request an den server gesendet werden? 
-3) Ist der standardmäßige Anwendugnsfall von javascript client-seitig oder server-seitig?
-4) Ist der standardmäßige Anwendugnsfall von asp.net client-seitig oder server-seitig?
-5) Wo werden bei einem http-post Request Parameter übermittelt?
-5) Wo werden bei einem http-get Request Parameter übermittelt?
-6) Was bedeutet der Serverstatus 200, 400 und 500? Wo kann ich diese finden?
+### Theorie [20 / 20 Teilpunkte]
+1) Wann soll die ``http-Methode`` *get* und wann ``http-Methode`` *post* verwendet werden?
+2) Wie kann die ``http-Methode`` *delete* als ``Request`` request an einen ``Server`` gesendet werden? 
+3) Ist der **standardmäßige** Anwendugnsfall von javascript ``client-seitig`` oder ``server-seitig``?
+4) Ist der **standardmäßige** Anwendugnsfall von ``asp.net`` ``client-seitig`` oder ``server-seitig``?
+5) Wo werden bei einem ``Request`` der ``http-Methode`` *post* die ``Parameter`` übermittelt?
+6) Wo werden bei einem ``Request`` der ``http-Methode`` *get* die ``Parameter`` übermittelt?
+7) Was bedeutet der ``Serverstatus`` *200*, *300*, *400* und *500*? Wo kann ich diese finden?
 
 ---
 
 ## Model, View, Control, Services, ViewModels und DTOs [60 Punkte]
-### Programmverständnis [15 / 60 Teilpunkte]
+### Programmverständnis [15 / 80 Teilpunkte]
 In folgendem ``Controller`` und ``View`` haben sich ein Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
 
 1) ``View``
@@ -90,7 +78,7 @@ public async IActionResult Index()
 
 ---
 
-### Programmieren [35 / 60 Teilpunkte]
+### Programmieren [55 / 80 Teilpunkte]
 Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_2-02_Programmieren.zip)*) und führe folgende Schritte aus:
 * Datenbank *Exam_112025* erstellen
 * in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben
@@ -110,7 +98,6 @@ Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen
     1) Lies aus dem vom ``Controller`` *DishController* übermittelten ``ViewModel`` *DishViewModel* die benötigten ``Eigenschaften`` für die Darstellung des ``cshtml`` *Details* aus. Verwende dazu *@model DishViewModel*.  
     2) Es soll der ``ModelState`` verwendet werden um bei fehlerhaften ``http-Requests`` den User darüber zu informieren. Verwende dazu die ``Tag-helper`` *asp-validation-summary* oder *asp-validation-for*. 
     3) Die Logik der ``Server-Seitigen`` ``Validierung`` ist im ``DishViewModel`` durch ``Attribute`` und/oder der ``Methode`` *Validate* umzusetzen. Die ``Methode`` *Validate* ist von dem ``Interface`` *IValidatableObject* zu implementieren. 
-    4) Verwende *bootstrap* nach belieben. Siehe [Bild](#erwarteter-output) **Achte jedoch auf die Zeit! Der Punkt des Designs ist für diese Prüfung der am wenigsten relevante.**
     5) In der ``View`` soll durch einen Mausklick auf ein ``html-Element`` *Selection* (mit Dishes befüllt) die ``Action`` *Index* mit der ``http-Methode`` *get* aufgerufen werden.
     ![alt]()
 * ``DishController``: Dieser beinhaltet eine ``Methode`` *Index* und eine ``Methode`` *Create*. 
@@ -134,7 +121,7 @@ Bilder von View und Controller.
 
 ---
 
-### Theorie [10 / 60 Teilpunkte]
+### Theorie [10 / 80 Teilpunkte]
 1) Wie schaffen wir es im ``Controller`` und ``Services`` einen Zugriff auf den ``DbContext`` zu bekommen?
 2) Was beschreibt ein ``ViewModel`` und was ein ``Model``? **Hinweis:** Was verwendet die ``Datenbank`` und was die ``View``?
 3) Was sind ``Tag-Helper``? Ein Benutzer geht ins Kontextmenü (Rechtsklick) und navigiert auf der Websitezu zu *Quellcode anzeigen* (CTRL+u). Finden wir in dem angezeigten ``html-file`` ``Tag-Helper`` wie z.B. *asp-controller* und *asp-action*? 
