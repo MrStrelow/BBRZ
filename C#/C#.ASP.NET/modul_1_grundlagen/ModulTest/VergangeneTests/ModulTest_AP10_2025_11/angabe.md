@@ -40,33 +40,78 @@ beschreibe den ablauf wie das routing ist
 ---
 
 ### Theorie [20 / 35 Teilpunkte]
-1) http get ist für dies und post für das
-2) http delete kann nicht als form übergeben werden. wie geht das dann?
-3) javascript ist client seitig und mvc .net ist server seitig
-4) parameter in post ist in der url oder in get
-5) 200 ok und 400 und 500 nicht ok
+1) Wann soll http-get und wann http-post verwendet werden?
+2) Wie kann http-delete request an den server gesendet werden? 
+3) Ist der standardmäßige Anwendugnsfall von javascript client-seitig oder server-seitig?
+4) Ist der standardmäßige Anwendugnsfall von asp.net client-seitig oder server-seitig?
+5) Wo werden bei einem http-post Request Parameter übermittelt?
+5) Wo werden bei einem http-get Request Parameter übermittelt?
+6) Was bedeutet der Serverstatus 200, 400 und 500? Wo kann ich diese finden?
 
 ---
 
 ## Model, View, Control, Services, ViewModels und DTOs [60 Punkte]
-### Programmverständnis [20 / 60 Teilpunkte]
+### Programmverständnis [15 / 60 Teilpunkte]
 In folgendem ``Controller`` und ``View`` haben sich ein Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
 
+1) ``View``
 ```csharp
-es fehlt der parameter.
-es wird kein viewmodel der view übergeben sondern ein array.
-im cshtml wird kein @model angewandt sondern direkt aus der datenbank gelesen.
-``` 
+@model FruehstueckController
+
+<div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
+    <ul>
+        @foreach (var order in DbContext.Orders.ToList())
+        {
+            foreach (var menu in order.Menus)
+            {
+                <li>@menu.Name (Menü)</li>
+            }
+            foreach (var dish in order.Dishes)
+            {
+                <li>@dish.Name (Gericht)</li>
+            }
+        }
+    </ul>
+</div>
+```
+
+2) ``Controller``
+```csharp
+[HttpPost]
+public async IActionResult Index()
+{
+    ViewBag.Title = "Frühstücksbestellung";
+    var view = new FruehstueckView();
+    view.Menus = await _context.Menus.ToList();
+
+    return View("Index", view);
+}
+```
 
 ---
 
-### Programmieren [30 / 60 Teilpunkte]
-Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_2-02_Programmieren.zip)*) und vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen``:
+### Programmieren [35 / 60 Teilpunkte]
+Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_2-02_Programmieren.zip)*) und führe folgende Schritte aus:
+* Datenbank *Exam_112025* erstellen
+* in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben
+* in der ``Package-Manager Console`` *Add-Migration First* und *Update-Database* eingeben 
+
+Falls dies fehlschlägt, öffne die ``Developer-Powershell``
+* gib cd Aufgabe_2 ein
+* gib *dotnet ef migrations add First* ein. (Falls dieser Befehlt nicht funktioniert, gib davor *dotnet tool install --global dotnet-ef* ein und wiederhole.)
+* gib *dotnet ef database update* ein
+
+Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
+
+![alt](sql-obj-explorer.png)
+
+Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen``:
 * ``View``: Erstelle ein ``cshtml`` mit Namen *Details* welches im Ordner *Dish* liegt. Implementiere dort folgendes Verhalten:
     1) Lies aus dem vom ``Controller`` *DishController* übermittelten ``ViewModel`` *DishViewModel* die benötigten ``Eigenschaften`` für die Darstellung des ``cshtml`` *Details* aus. Verwende dazu *@model DishViewModel*.  
     2) Es soll der ``ModelState`` verwendet werden um bei fehlerhaften ``http-Requests`` den User darüber zu informieren. Verwende dazu die ``Tag-helper`` *asp-validation-summary* oder *asp-validation-for*. 
     3) Die Logik der ``Server-Seitigen`` ``Validierung`` ist im ``DishViewModel`` durch ``Attribute`` und/oder der ``Methode`` *Validate* umzusetzen. Die ``Methode`` *Validate* ist von dem ``Interface`` *IValidatableObject* zu implementieren. 
     4) Verwende *bootstrap* nach belieben. Siehe [Bild](#erwarteter-output) **Achte jedoch auf die Zeit! Der Punkt des Designs ist für diese Prüfung der am wenigsten relevante.**
+    5) In der ``View`` soll durch einen Mausklick auf ein ``html-Element`` *Selection* (mit Dishes befüllt) die ``Action`` *Index* mit der ``http-Methode`` *get* aufgerufen werden.
     ![alt]()
 * ``DishController``: Dieser beinhaltet eine ``Methode`` *Index* und eine ``Methode`` *Create*. 
     * *Index*: 
@@ -80,11 +125,9 @@ Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe
 * ``DishDto``: Dieses soll die ``Eigenschaften`` *Name* besitzen. Es wird für die Kommunikation mit dem ``Service`` *DishService* verwendet.
 * ``DishService``: Der ``Parameter`` der ``Methode`` *CreateDish* ist ein ``DTO`` *DishDto*. Erstelle ein neues ``Model`` *Dish* und belege die ``Eigenschaften`` *Ingredients* und *PreparationStep*. Wähle einfachheitshalber die ersten aus der Datenbank mit *await _dbContext.Ingredients.FirstOrDefaultAsync();* aus. Übernimm aus dem ``DTO`` *DishDto* die ``Eigenschaft`` *Name* und verwende den ``Datenbank-Context`` um ein neues ``Model`` in der Datenbank anzulegen.
 
-Die Klassen sind bereits erstellt und die dort stehenden TODOs sind zu implementieren.
-
 >**Amerkung:** Die ``Klassen`` für ``Models`` und ``Data`` (Datenbank) sind bereits fertig implementiert. Diese sind nicht zu verändern.
 
->**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage. Die Startklasse ist nicht zu ändern! Alles wo ein TODO: steht ist anzupassen.
+>**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage. Die Startklasse ist nicht zu ändern!
 
 #### Erwarteter Output:
 Bilder von View und Controller.

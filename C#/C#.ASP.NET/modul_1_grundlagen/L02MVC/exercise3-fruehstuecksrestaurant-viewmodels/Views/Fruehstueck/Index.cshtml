@@ -29,7 +29,7 @@
                     <option value="">-- Bitte Kunden wählen --</option>
                 </select>
                 @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
-                @* <span asp-validation-for="OrderForm.CustomerId" class="text-danger"></span> *@
+                @* <span asp-validation-for="Order.CustomerId" class="text-danger"></span> *@
             </div>
             <div class="col-md-6 mb-3">
                 @* AKTUALISIERT: Bindet an die DTO-Eigenschaft *@
@@ -38,7 +38,7 @@
                     <option value="">-- Bitte Tisch wählen --</option>
                 </select>
                 @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
-                @* <span asp-validation-for="OrderForm.TableId" class="text-danger"></span> *@ 
+                @* <span asp-validation-for="Order.TableId" class="text-danger"></span> *@ 
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                             <input 
                                 class="form-check-input" 
                                 type="checkbox" 
-                                name="OrderForm.SelectedMenuIds" 
+                                name="Order.SelectedMenuIds" 
                                 value="@menu.Id" 
                                 id="menu-@menu.Id" 
                                 @(Model.Order.SelectedMenuIds.Contains(menu.Id) ? "checked" : "")
@@ -73,7 +73,7 @@
                             <input 
                                 class="form-check-input" 
                                 type="checkbox" 
-                                name="OrderForm.SelectedDishIds" 
+                                name="Order.SelectedDishIds" 
                                 value="@dish.Id" 
                                 id="dish-@dish.Id"
                                 @(Model.Order.SelectedDishIds.Contains(dish.Id) ? "checked" : "")

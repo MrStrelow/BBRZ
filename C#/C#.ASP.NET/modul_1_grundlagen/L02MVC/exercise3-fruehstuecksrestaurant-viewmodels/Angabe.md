@@ -20,6 +20,7 @@ Wir gehen von der [Exercise 2](../exercise2-fruehstuecksrestaurant-mit-validatio
 2. **`FruehstueckController.cs` (Controller):** 
     * ``Controller`` kommuniziert mit ``Service`` über ``DTO``, und
     * ``Controller`` kommuniziert mit ``View`` über ``ViewModels``.
+    * ``Controller`` kommuniziert **bei einfachen lesezugriffen** mit dem ``Model`` über ``Ef-Core`` mit dem *DbContext*.
 3. **`Index.cshtml` (View):** ``View`` kommuniziert mit ``Controller`` über ``ViewModels``.
 4. **`OrderViewModel.cs` (ViewModel):** ``View`` kommuniziert mit ``Controller`` über ``ViewModel`` *OrderViewModel*. 
 5. **`FruehstueckViewModel.cs` (ViewModel):** ``Controller`` kommuniziert mit ``View`` über ``ViewModel`` *FruehstueckViewModel*.
