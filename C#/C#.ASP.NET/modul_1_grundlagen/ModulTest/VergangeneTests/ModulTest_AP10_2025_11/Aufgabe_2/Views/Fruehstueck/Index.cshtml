@@ -71,15 +71,19 @@
                     {
                         <div class="form-check">
                             <input 
-                                class="form-check-input" 
-                                type="checkbox" 
-                                name="Order.SelectedDishIds" 
-                                value="@dish.Id" 
+                                class="form-check-input"
+                                type="checkbox"
+                                name="OrderForm.SelectedDishIds"
+                                value="@dish.Id"
                                 id="dish-@dish.Id"
                                 @(Model.Order.SelectedDishIds.Contains(dish.Id) ? "checked" : "")
                             >
+
                             <label class="form-check-label" for="dish-@dish.Id">
-                                @dish.Name (@dish.Price.ToString("C"))
+                                <a asp-controller="Dish" asp-action="Index" asp-route-id="@dish.Id">
+                                    @dish.Name
+                                </a>
+                                (@dish.Price.ToString("C"))
                             </label>
                         </div>
                     }

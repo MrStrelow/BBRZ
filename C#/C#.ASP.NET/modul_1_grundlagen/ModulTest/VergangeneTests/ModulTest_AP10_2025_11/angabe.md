@@ -94,7 +94,7 @@ Falls dies fehlschlägt, öffne die ``Developer-Powershell``
 ![alt](sql-obj-explorer.png)
 
 Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen``:
-* ``View``: Erstelle ein ``cshtml`` mit Namen *Details* welches im Ordner *Dish* liegt. Implementiere dort folgendes Verhalten:
+* ``View``: Verwende aus der **Vorlage** das ``cshtml`` mit Namen *Details* welches im Ordner *Dish* liegt. Es muss nur mit ``Razor-Syntax`` *@* adaptiert werden. Es muss **kein** neuer html-code erstellt werden. Implementiere dort folgendes Verhalten: 
     1) Lies aus dem vom ``Controller`` *DishController* übermittelten ``ViewModel`` *DishViewModel* die benötigten ``Eigenschaften`` für die Darstellung des ``cshtml`` *Details* aus. Verwende dazu *@model DishViewModel*.  
     2) Es soll der ``ModelState`` verwendet werden um bei fehlerhaften ``http-Requests`` den User darüber zu informieren. Verwende dazu die ``Tag-helper`` *asp-validation-summary* oder *asp-validation-for*. 
     3) Die Logik der ``Server-Seitigen`` ``Validierung`` ist im ``DishViewModel`` durch ``Attribute`` und/oder der ``Methode`` *Validate* umzusetzen. Die ``Methode`` *Validate* ist von dem ``Interface`` *IValidatableObject* zu implementieren. 
@@ -109,7 +109,7 @@ Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen
     * *Create*: 
         2) Diese nimmt die ``http-Methode`` *post* entgegen. Als ``Parameter`` wird ein ``ViewModel`` *DishViewModel* empfangen. Wandle dieses mithilfe von der ``Methode`` *ToDto* zu einem ``DTO`` *DishDto* um. Verwende den ``Service`` *DishService* mit der ``Methode`` *CreateDish* welches ein ``DTO`` *DishDto* als ``Parameter`` entgegenimmt. Leite dann mit einem *Redirect()* an die ``Action`` *Index* weiter. 
 * ``DishViewModel``: Die im *DishController* implementierte ``Action`` *Index* bekommt das *DishViewModel* als ``Parameter`` übermittelt. Innerhlab des ``ViewModel`` *DishViewModel* soll ein ``Attribut`` verwendet werden um die Gültigkeit der ``Eigenschaft`` *Id* sicherzustellen. Prüfe hier auf *Range(1, int.MaxValue, ...)* und verwende *Required(...)*. Implementiere zudem eine ``Methode`` *ToDto* welche aus einem ``ViewModel`` *DishViewModel* ein ``DTO`` *DishDto* macht.
-* ``DishDto``: Dieses soll die ``Eigenschaften`` *Name* besitzen. Es wird für die Kommunikation mit dem ``Service`` *DishService* verwendet.
+* ``DishDto``: Dieses soll die ``Eigenschaften`` *Name* und *Price* besitzen. Es wird für die Kommunikation mit dem ``Service`` *DishService* verwendet.
 * ``DishService``: Der ``Parameter`` der ``Methode`` *CreateDish* ist ein ``DTO`` *DishDto*. Erstelle ein neues ``Model`` *Dish* und belege die ``Eigenschaften`` *Ingredients* und *PreparationStep*. Wähle einfachheitshalber die ersten aus der Datenbank mit *await _dbContext.Ingredients.FirstOrDefaultAsync();* aus. Übernimm aus dem ``DTO`` *DishDto* die ``Eigenschaft`` *Name* und verwende den ``Datenbank-Context`` um ein neues ``Model`` in der Datenbank anzulegen.
 
 >**Amerkung:** Die ``Klassen`` für ``Models`` und ``Data`` (Datenbank) sind bereits fertig implementiert. Diese sind nicht zu verändern.
