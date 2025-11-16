@@ -25,11 +25,11 @@ Notenschlüssel:
 
 ---
 
-##  [20 / 100 Punkte]
+## http und html [20 / 100 Punkte]
 
 ### Theorie [20 / 20 Teilpunkte]
 1) Wann soll die ``http-Methode`` *get* und wann ``http-Methode`` *post* verwendet werden?
-2) Wie kann die ``http-Methode`` *delete* als ``Request`` request an einen ``Server`` gesendet werden? 
+2) Wie kann die ``http-Methode`` *delete* als ``Request`` an einen ``Server`` gesendet werden? 
 3) Ist der **standardmäßige** Anwendugnsfall von javascript ``client-seitig`` oder ``server-seitig``?
 4) Ist der **standardmäßige** Anwendugnsfall von ``asp.net`` ``client-seitig`` oder ``server-seitig``?
 5) Wo werden bei einem ``Request`` der ``http-Methode`` *post* die ``Parameter`` übermittelt?
