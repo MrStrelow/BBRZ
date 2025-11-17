@@ -1,4 +1,4 @@
-# Modultest 1
+# Modultest 4
 
 Sie haben `180 Minuten` Zeit die Aufgaben zu lösen
 * Sie können maximal 100 Punkte erreichen
@@ -17,7 +17,7 @@ Die Nutzung von allen anderen Dingen, muss vorher mit mir abgesprochen werden
 (z.B. Nutzung von Ohropax), ansonsten wird dies als schummeln gewertet. 
 Die Folge des Schummeln ist eine Bewertung mit 0 Punkten.
 
-* Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 10:15 schicken)
+* Die Abgabe des Programmcodes erfolgt über Teams (ein zip-File des Projektes mir bis spätestens 15 minuten nach Ende des Tests zu schicken)
 * Viel Erfolg! :)
 
 Notenschlüssel:
@@ -27,9 +27,30 @@ Notenschlüssel:
 
 ## Data Definition Language (DDL) mit EF-Core Model First umsetzen [40 / 100 Punkte]
 
-include uml diagramm of models
+Folgendes ``UML-Diagramm`` ist 
 
 ### Programmverständnis [15 / 50 Teilpunkte]
+
+```csharp
+// TODO: Finde die Fehler in diesem Code
+public class Category
+{
+    // FEHLER 1: 
+    public int CategoryKey { get; set; }
+    public string Name { get; set; }
+
+    // FEHLER 2:
+}
+
+public class Product
+{
+    public int ProductId { get; set; }
+    public string ProductName { get; set; }
+    
+    public int CategoryId { get; set; }
+    // FEHLER 3:
+}
+```
 
 ```
 hist ist code finde die fehler im model.
