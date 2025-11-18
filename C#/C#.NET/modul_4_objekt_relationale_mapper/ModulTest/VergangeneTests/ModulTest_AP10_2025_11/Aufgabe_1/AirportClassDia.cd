@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Aufgabe_1.Models.Airport">
+    <Position X="2.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAABAAAAAAAAAAAAAAAAAAgAgAAAAAAAAA=</HashCode>
+      <FileName>Models\Airport.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Terminals" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Airline">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAgACAAAAAAAAA=</HashCode>
+      <FileName>Models\Airline.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Airplane" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Terminal">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Terminal.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Gates" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Gate">
+    <Position X="5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Gate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Ticket">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Models\Ticket.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Flight" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Passenger">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Passenger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tickets" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Airplane">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Airplane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Pilot">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="GeflogeneFlügePilot" Type="Aufgabe_1.Models.Flight" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.562" Y="1.796" />
+        <Point X="4.562" Y="3.292" />
+        <Point X="7.688" Y="3.292" />
+        <Point X="7.688" Y="3.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.96" Y="0.46" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACABAAIAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Pilot.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="GeflogeneFlugzeuge" />
+      <Property Name="GeflogeneFlügePilot" />
+      <Property Name="GeflogeneFlügeCopilot" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Flight">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <AssociationLine Name="Airplane" Type="Aufgabe_1.Models.Airplane" FixedToPoint="true">
+      <Path>
+        <Point X="8.562" Y="3.75" />
+        <Point X="8.562" Y="1.988" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Gate" Type="Aufgabe_1.Models.Gate" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="4.312" />
+        <Point X="6.5" Y="4.312" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Pilot" Type="Aufgabe_1.Models.Pilot" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="3.75" />
+        <Point X="8.25" Y="2.517" />
+        <Point X="5.312" Y="2.517" />
+        <Point X="5.312" Y="1.796" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.465" Y="0.468" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="CoPilot" Type="Aufgabe_1.Models.Pilot" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8" Y="3.75" />
+        <Point X="8" Y="2.863" />
+        <Point X="4.797" Y="2.863" />
+        <Point X="4.797" Y="1.796" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.999" Y="0.877" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AASHAgAAAAAAAAAAAABAAAAAAIhAAAAAICAAAAAAAAA=</HashCode>
+      <FileName>Models\Flight.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Airplane" />
+      <Property Name="Gate" />
+      <Property Name="Pilot" />
+      <Property Name="CoPilot" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

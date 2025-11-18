@@ -27,7 +27,7 @@ Notenschlüssel:
 
 ## Data Definition Language (DDL) mit EF-Core Model First umsetzen [40 / 100 Punkte]
 
-Folgendes ``UML-Diagramm`` ist 
+Folgendes ``UML-Diagramm`` ist für die folgenden Aufgaben heranzuziehen.
 
 ### Programmverständnis [15 / 50 Teilpunkte]
 
