@@ -143,7 +143,9 @@ namespace Aufgabe_1.Migrations
                     AirplaneId = table.Column<int>(type: "int", nullable: true),
                     GateId = table.Column<int>(type: "int", nullable: true),
                     PilotId = table.Column<int>(type: "int", nullable: false),
-                    CoPilotId = table.Column<int>(type: "int", nullable: false)
+                    CoPilotId = table.Column<int>(type: "int", nullable: false),
+                    FlyFromId = table.Column<int>(type: "int", nullable: true),
+                    FlyToId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,6 +154,16 @@ namespace Aufgabe_1.Migrations
                         name: "FK_Flights_Airplanes_AirplaneId",
                         column: x => x.AirplaneId,
                         principalTable: "Airplanes",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Flights_Airports_FlyFromId",
+                        column: x => x.FlyFromId,
+                        principalTable: "Airports",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Flights_Airports_FlyToId",
+                        column: x => x.FlyToId,
+                        principalTable: "Airports",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Flights_Gates_GateId",
@@ -179,7 +191,8 @@ namespace Aufgabe_1.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BoughtOn = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FlightId = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    FlightId = table.Column<int>(type: "int", nullable: true),
                     PassengerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -189,8 +202,7 @@ namespace Aufgabe_1.Migrations
                         name: "FK_Tickets_Flights_FlightId",
                         column: x => x.FlightId,
                         principalTable: "Flights",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Tickets_Passengers_PassengerId",
                         column: x => x.PassengerId,
@@ -217,6 +229,16 @@ namespace Aufgabe_1.Migrations
                 name: "IX_Flights_CoPilotId",
                 table: "Flights",
                 column: "CoPilotId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Flights_FlyFromId",
+                table: "Flights",
+                column: "FlyFromId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Flights_FlyToId",
+                table: "Flights",
+                column: "FlyToId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Flights_GateId",

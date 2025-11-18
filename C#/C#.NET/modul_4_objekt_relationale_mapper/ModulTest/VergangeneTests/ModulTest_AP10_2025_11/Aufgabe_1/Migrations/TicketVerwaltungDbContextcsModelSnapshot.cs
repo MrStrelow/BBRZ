@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aufgabe_1.Migrations
 {
-    [DbContext(typeof(TicketVerwaltungDbContextcs))]
+    [DbContext(typeof(TicketVerwaltungDbContext))]
     partial class TicketVerwaltungDbContextcsModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -107,6 +107,12 @@ namespace Aufgabe_1.Migrations
                     b.Property<int>("CoPilotId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("FlyFromId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FlyToId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("GateCloses")
                         .HasColumnType("datetime2");
 
@@ -131,6 +137,10 @@ namespace Aufgabe_1.Migrations
                     b.HasIndex("AirplaneId");
 
                     b.HasIndex("CoPilotId");
+
+                    b.HasIndex("FlyFromId");
+
+                    b.HasIndex("FlyToId");
 
                     b.HasIndex("GateId");
 
@@ -232,11 +242,14 @@ namespace Aufgabe_1.Migrations
                     b.Property<DateTime?>("BoughtOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FlightId")
+                    b.Property<int?>("FlightId")
                         .HasColumnType("int");
 
                     b.Property<int?>("PassengerId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -272,6 +285,14 @@ namespace Aufgabe_1.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Aufgabe_1.Models.Airport", "FlyFrom")
+                        .WithMany()
+                        .HasForeignKey("FlyFromId");
+
+                    b.HasOne("Aufgabe_1.Models.Airport", "FlyTo")
+                        .WithMany()
+                        .HasForeignKey("FlyToId");
+
                     b.HasOne("Aufgabe_1.Models.Gate", "Gate")
                         .WithMany("Flights")
                         .HasForeignKey("GateId");
@@ -285,6 +306,10 @@ namespace Aufgabe_1.Migrations
                     b.Navigation("Airplane");
 
                     b.Navigation("CoPilot");
+
+                    b.Navigation("FlyFrom");
+
+                    b.Navigation("FlyTo");
 
                     b.Navigation("Gate");
 
@@ -309,15 +334,15 @@ namespace Aufgabe_1.Migrations
                 {
                     b.HasOne("Aufgabe_1.Models.Flight", "Flight")
                         .WithMany("Tickets")
-                        .HasForeignKey("FlightId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FlightId");
 
-                    b.HasOne("Aufgabe_1.Models.Passenger", null)
+                    b.HasOne("Aufgabe_1.Models.Passenger", "Passenger")
                         .WithMany("Tickets")
                         .HasForeignKey("PassengerId");
 
                     b.Navigation("Flight");
+
+                    b.Navigation("Passenger");
                 });
 
             modelBuilder.Entity("Aufgabe_1.Models.Airline", b =>

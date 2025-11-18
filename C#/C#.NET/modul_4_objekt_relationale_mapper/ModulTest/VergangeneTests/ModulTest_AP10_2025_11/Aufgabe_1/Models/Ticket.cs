@@ -8,5 +8,7 @@ public class Ticket
 {
     public int Id { get; set; }
     public DateTime? BoughtOn { get; set; }
-    public Flight Flight { get; set; }
+    public decimal Price { get; set; }
+    public Flight? Flight { get; set; }
+    public Passenger? Passenger { get; set; }
 }

@@ -20,4 +20,7 @@ public class Flight
 
     public int CoPilotId { get; set; }
     public Pilot? CoPilot { get; set; }
+
+    public Airport? FlyFrom { get; set; }
+    public Airport? FlyTo { get; set; }
 }

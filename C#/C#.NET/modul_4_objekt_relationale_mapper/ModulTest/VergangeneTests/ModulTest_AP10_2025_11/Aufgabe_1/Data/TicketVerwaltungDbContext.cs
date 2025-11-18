@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Aufgabe_1.Data;
 
-public class TicketVerwaltungDbContextcs : DbContext
+public class TicketVerwaltungDbContext : DbContext
 {
     public DbSet<Airline> Airlines { get; set; }
     public DbSet<Airplane> Airplanes { get; set; }

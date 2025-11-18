@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Aufgabe_1.Models.Airport">
-    <Position X="2.5" Y="6" Width="1.5" />
+    <Position X="2.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAADAAAAAAAABAAAAAAAAAAAAAAAAAAgAgAAAAAAAAA=</HashCode>
       <FileName>Models\Airport.cs</FileName>
@@ -21,7 +21,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Terminal">
-    <Position X="5" Y="6.25" Width="1.5" />
+    <Position X="5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Terminal.cs</FileName>
@@ -38,7 +38,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Aufgabe_1.Models.Ticket">
-    <Position X="7.5" Y="6.25" Width="1.5" />
+    <Position X="7.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Models\Ticket.cs</FileName>
@@ -48,7 +48,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Passenger">
-    <Position X="9.75" Y="6.25" Width="1.5" />
+    <Position X="9.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQCAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Passenger.cs</FileName>
@@ -68,13 +68,24 @@
     <Position X="4.25" Y="0.5" Width="1.5" />
     <AssociationLine Name="GeflogeneFlügePilot" Type="Aufgabe_1.Models.Flight" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.562" Y="1.796" />
-        <Point X="4.562" Y="3.292" />
-        <Point X="7.688" Y="3.292" />
-        <Point X="7.688" Y="3.75" />
+        <Point X="5.375" Y="1.796" />
+        <Point X="5.375" Y="2.679" />
+        <Point X="8.125" Y="2.679" />
+        <Point X="8.125" Y="3.75" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.96" Y="0.46" />
+        <Position X="0.86" Y="1.118" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="GeflogeneFlügeCopilot" Type="Aufgabe_1.Models.Flight" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.625" Y="1.796" />
+        <Point X="4.625" Y="3.317" />
+        <Point X="7.812" Y="3.317" />
+        <Point X="7.812" Y="3.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.618" Y="0.443" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -104,23 +115,23 @@
     <AssociationLine Name="Pilot" Type="Aufgabe_1.Models.Pilot" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="8.25" Y="3.75" />
-        <Point X="8.25" Y="2.517" />
-        <Point X="5.312" Y="2.517" />
-        <Point X="5.312" Y="1.796" />
+        <Point X="8.25" Y="2.358" />
+        <Point X="5.5" Y="2.358" />
+        <Point X="5.5" Y="1.796" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.465" Y="0.468" />
+        <Position X="-1.49" Y="0.368" />
       </MemberNameLabel>
     </AssociationLine>
     <AssociationLine Name="CoPilot" Type="Aufgabe_1.Models.Pilot" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
         <Point X="8" Y="3.75" />
-        <Point X="8" Y="2.863" />
-        <Point X="4.797" Y="2.863" />
+        <Point X="8" Y="3.025" />
+        <Point X="4.797" Y="3.025" />
         <Point X="4.797" Y="1.796" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.999" Y="0.877" />
+        <Position X="-2.024" Y="1.052" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
