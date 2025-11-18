@@ -28,6 +28,7 @@ Notenschlüssel:
 ## Data Definition Language (DDL) mit EF-Core Model First umsetzen [40 / 100 Punkte]
 
 Folgendes ``UML-Diagramm`` ist für die folgenden Aufgaben heranzuziehen.
+![alt text]()
 
 ### Programmverständnis [15 / 50 Teilpunkte]
 
@@ -69,8 +70,8 @@ implementiere das uml driagramm und erstelle dazu den model folder.
 2) datenbank create queries erstellen
 3) befülle datenbank mit daten
 4) update daten in der Datenbank
-4) ändere das model - spiele es in die datenbank
-5) sind die daten noch drinnen?
+5) ändere das model - spiele es in die datenbank
+6) sind die daten noch drinnen?
 
 ---
 
@@ -91,9 +92,6 @@ implementiere das uml driagramm und erstelle dazu den model folder.
 3) 
 
 ```csharp
-es fehlt der parameter.
-es wird kein viewmodel der view übergeben sondern ein array.
-im cshtml wird kein @model angewandt sondern direkt aus der datenbank gelesen.
 ``` 
 
 ---
