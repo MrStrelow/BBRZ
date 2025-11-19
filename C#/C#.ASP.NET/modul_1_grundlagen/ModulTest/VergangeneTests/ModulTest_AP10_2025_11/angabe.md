@@ -111,9 +111,7 @@ public async IActionResult Index()
 ### Programmieren [55 / 80 Teilpunkte]
 Im ``Projekt`` *Aufgabe_2* befindet sich funktionierender ``Code``. Damit dieses fehlerfrei startet muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.)
 
-
-folgende Schritte aus:
-* Datenbank *Exam_112025* erstellen
+Führe folgende Schritte aus:
 * in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben
 * in der ``Package-Manager Console`` *Add-Migration First* und *Update-Database* eingeben 
 
