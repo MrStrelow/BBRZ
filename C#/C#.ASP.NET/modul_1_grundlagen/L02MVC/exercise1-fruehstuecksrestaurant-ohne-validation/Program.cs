@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 // Register DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("RestaurantContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbContext")));
 
 // Register custom services
 builder.Services.AddScoped<CustomerService>();

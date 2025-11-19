@@ -9,14 +9,14 @@ builder.Services.AddControllersWithViews();
 
 // Register DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("RestaurantContext")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbContext")));
 
 // Register custom services
 builder.Services.AddScoped<CustomerService>();
 
 var app = builder.Build();
 
-// sage dass der ErrorController sich um den Aufruf der ErrorView kümmert.
+// sage dass der ErrorController sich um den Aufruf der ErrorView kï¿½mmert.
 if (!app.Environment.IsDevelopment())
 {
     // Error/Error ist die Anweisung:

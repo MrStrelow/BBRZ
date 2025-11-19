@@ -15,7 +15,7 @@ public class RestaurantDbContext : DbContext
     public DbSet<Table> Tables { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=exercise1-fruehstueck;User ID=sa;Password=qwertz011235;Trust Server Certificate=True");
+        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=exercise1-fruehstueck;Trust Server Certificate=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
