@@ -25,6 +25,32 @@ Notenschlüssel:
 
 ---
 
+## Vorbereitung
+* **Wie öffne ich die Vorlage?**
+    1) Entpacke das [Zib-Archiv](Vorlage_WebProgModulTest1_112025.zip). Dieses beinhaltet eine Vorlage für die Geamte Prüfung.
+    2) Drücke doppelt auf die **.sln** oder **.slnx** Datei. Diese wird dadurch mit ``Visual Studio`` geöffnet. Falls nicht siehe dem README File innerhalb von [Zib-Archivs](Vorlage_WebProgModulTest1_112025.zip)
+
+* **Die Verbindung zur ``Datenbank`` mit  ``EF-Core`` funktioniert nicht.**
+    Es muss folgendes Installiert sein:
+    1) Öffne den ``Task Manager``, gehe zu ``Dienste`` und suche nach ``SQL Server Agent (SQLExpress)``. Sollte das nicht der Fall sein, dann rufe [diesen](https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x409&culture=en-us&country=us) Installer auf (Falls nicht möglich suche nach SQL Server Express in Google).
+    2) Installiere den SQL Server und verwende folgenden Connection String ``"Server=localhost\\SQLEXPRESS; Database=TemporaryExamDb; Trusted_Connection=True; TrustServerCertificate=True;"``
+
+    Falls dein User keine Rechte hat um eine ``Datenbank`` anzulegen, rufe folgende Befehle auf:
+    1) Öffne nach Abschluss der Installation den ``Terminal`` und gib ``sqlcmd -S localhost\SQLEXPRESS`` ein.
+    2) Gib dort ```sql
+        CREATE LOGIN [DOMAIN\USERNAME] FROM WINDOWS;
+        GO
+        ``` 
+        ein
+    3) Danach gib 
+        ```sql
+        ALTER SERVER ROLE sysadmin ADD MEMBER [DOMAIN\USERNAME];
+        GO
+        ```
+        ein.
+    4) Es soll nun möglich sein eine Datenbank anzulegen (Adminrechte) und sich mit dem oben agegebene Connection string ohne passwort zu verbinden.
+---
+
 ## http und html [20 / 100 Punkte]
 
 ### Theorie [20 / 20 Teilpunkte]
