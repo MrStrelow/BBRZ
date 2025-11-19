@@ -34,6 +34,9 @@ Notenschlüssel:
     Es muss folgendes Installiert sein:
     1) Öffne den ``Task Manager``, gehe zu ``Dienste`` und suche nach ``SQL Server Agent (SQLExpress)``. Sollte das nicht der Fall sein, dann rufe [diesen](https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x409&culture=en-us&country=us) Installer auf (Falls nicht möglich suche nach SQL Server Express in Google).
     2) Installiere den SQL Server und verwende folgenden Connection String ``"Server=localhost\\SQLEXPRESS; Database=TemporaryExamDb; Trusted_Connection=True; TrustServerCertificate=True;"``
+    3) Damit das ``Projekt`` *Aufgabe_2* fehlerfrei startet, muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. Falls keine Rechte dazu besessen werden, siehe weiter unten. 
+    (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
+    4) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
 
     Falls dein User keine Rechte hat um eine ``Datenbank`` anzulegen, rufe folgende Befehle auf:
     1) Öffne nach Abschluss der Installation den ``Terminal`` und gib ``sqlcmd -S localhost\SQLEXPRESS`` ein.
@@ -105,7 +108,10 @@ public async IActionResult Index()
 ---
 
 ### Programmieren [55 / 80 Teilpunkte]
-Verwende die Vorlage (*[Vorlage_Aufgabe_02-02_Programmieren.zip](Vorlage_Aufgabe_2-02_Programmieren.zip)*) und führe folgende Schritte aus:
+Im ``Projekt`` *Aufgabe_2* befindet sich funktionierender ``Code``. Damit dieses fehlerfrei startet muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.)
+
+
+folgende Schritte aus:
 * Datenbank *Exam_112025* erstellen
 * in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben
 * in der ``Package-Manager Console`` *Add-Migration First* und *Update-Database* eingeben 
