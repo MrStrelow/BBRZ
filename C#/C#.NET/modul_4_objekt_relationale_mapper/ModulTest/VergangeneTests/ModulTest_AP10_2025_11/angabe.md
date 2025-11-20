@@ -68,39 +68,24 @@ Folgende ``Models`` versuchen das [UML-Diagramm](AirportClassDia.png) zu impleme
 public class Airport
 {
     public int MeinSuperSchlüssel { get; set; }
-    public string Kennung { get; set; }
-    public string Land { get; set; }
-    public string Ort { get; set; }
+    public string Kennung { get; }
+    public string Land { get; }
+    public string Ort { get; }
     private IEnumerable<Terminal> Terminals = new List<Terminal>();
 }
 ```
 
 ```csharp
-public class Product
+public class Flight
 {
-    public int ProductId { get; set; }
-    public string ProductName { get; set; }
-    
-    public int CategoryId { get; set; }
-    // FEHLER 3:
+    public int Id { get; set; }
+    public Gate GateCloses { get; set; }
+    public Gate GateOpens { get; set; }
+    public string Kennung { get; set; }
+    public string TakesOff { get; set; }
+    public Ticket Tickets { get; set; }
 }
 ```
-
-```csharp
-public class Product
-{
-    public int ProductId { get; set; }
-    public string ProductName { get; set; }
-    
-    public int CategoryId { get; set; }
-    // FEHLER 3:
-}
-```
-
-hist ist code finde die fehler im model.
-eine beziehung ist nicht da. 
-bei einem wird nicht spezifiziert dass es ein key ist.
-
 ---
 
 ### Programmiern [25 / 50 Teilpunkte]
@@ -109,7 +94,7 @@ Implementiere das gegebene [``UML-Diagramm``](AirportClassDia.png) innerhalb ein
 1) Erstelle die ``Klassen`` und implementiere die ``Beziehungen`` als ``Eigenschaften``. Implementiere auch ``Eigenschaften`` wie z.B. ``Primärschlüssel`` und ``Fremdschlüssel``, wenn diese im [``UML-Diagramm``](AirportClassDia.png) angegeben sind.
 2) Erstelle einen ``Migrations`` Ordner mithilfe der ensprechenden ``Commandozeilenbefehle`` von ``Ef-Core``.
 3) Führe den ``Code`` innerhlab der ```Migrations`` mithilfe der ensprechenden ``Commandozeilenbefehle`` von ``Ef-Core`` aus. Ziel ist es ``Tabellen`` in der ``Datenbank`` anzulegen, welche über die ``Models`` definiert werden (``Model-First``). 
-3) Befülle die Datenbank mit ``Dummy-Daten``. Diese sind in der bereits ``Klasse`` *SeedData* implementiert und muss nur in der ``Main-Methode``bzw. im ``Top-Level Statement`` aufgerufen werden. Führe diese aus und stelle sicher dass diese in der Datenbank vorhanden sind. Erstelle einen **``Screenshot``** welcher die Daten in der ``Datenbank`` darstellt.
+3) Befülle die Datenbank mit ``Dummy-Daten``. Diese sind in der **bereits** ``Klasse`` *SeedData* **implementiert** und muss nur in der ``Main-Methode``bzw. im ``Top-Level Statement`` aufgerufen werden. Führe diese aus und stelle sicher dass diese in der Datenbank vorhanden sind. Erstelle einen **``Screenshot``** welcher die Daten in der ``Datenbank`` darstellt.
 5) Ändere nun die ``Klasse`` *Passenger*. Dort ist nun eine zusätzliche ``Eigenschaft`` *PassPhoto* einfachheitshalber vom ``Typ`` *Byte* vorhanden. Übernimm die Änderungen zuerst in dem ``Migrations`` und danach in die ``Datenbank`` mithilfe der ensprechenden ``Commandozeilenbefehle`` von ``Ef-Core``. **Führe das Programm nicht neu aus! Sind die bereits eingefügten Daten in der ``Datenbank`` noch vorhanden?**
 
 ---
@@ -117,32 +102,33 @@ Implementiere das gegebene [``UML-Diagramm``](AirportClassDia.png) innerhalb ein
 ### Theorie [10 / 50 Teilpunkte]
 1) Was sind ``shadow properties`` vs. ``real properties``? Erkläre anhand eines ``Fremdschlüssels``. 
 2) Was erleichtert uns ``Ef-core`` im Vergleich zu ``ado.net``?
-4) Es existieren *fünf* ``Migations``. Der letzte ``Migration`` wurde unabsichtlich erstellt. Wie entfernen wir diese?
+4) Es existieren *fünf* ``Migrations``. Die letzte ``Migration`` wurde unabsichtlich erstellt. Wie entfernen wir diese?
 5) Es soll die Datenbank auf eine ältere ``Migration`` umgestellt werden. Wie führen wir das durch?
 6) Was macht die ``up`` und ``down`` ``Methode`` in den den generierten Files in den ``Migrations``?
 
 ---
 
 ## Async Data Manipulation Language (DML) mit EF Core umsetzen [60 Punkte]
+
 ### Programmverständnis [20 / 60 Teilpunkte]
+Folgende ``Models`` versuchen basierend auf [UML-Diagramm](AirportClassDia.png) Abfragen durchzuführen. Dabei haben sich Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
+
 1)  ```csharp
     var passenger = await _context.Passenger.Find(1);
     var anotherPassenger = _context.Passenger.FindAsync(1);
     ```
 
-2) 
-    ```csharp
-    var passenger = new Passenger(); // wird id = 15 haben
+2) ```csharp
+    var passenger = new Passenger(...); // wird id = 15 haben
     _context.Passenger.Add(passenger); 
 
     var passengerAusDbGeholt = await _context.Passenger.Find(15);
     ``` 
     
-3) 
-    ```csharp
+3) ```csharp
     var passenger = await _context.Passengers
         .Where(p => p.Name == "Müller")
-        .ThenInclude(p => p.Tickets) // <--- FEHLER! then vor include
+        .ThenInclude(p => p.Tickets) 
         .FirstOrDefaultAsync();
     ``` 
 
@@ -153,7 +139,6 @@ Implementiere das gegebene [``UML-Diagramm``](AirportClassDia.png) innerhalb ein
 2) Welche *Flights* haben *DepartureCity == "Vienna"*? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
 3) Welche *Flights* haben *DepartureCity == "Vienna"* und zumindest 3 Tickets gekauft? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
 3) Welche drei *Passengers* pro *Airline* haben den meisten *Umsatz* erzeugt?
-4) joins mit include und then include
 
 #### Erwarteter Output:
 resultate der datenbank
@@ -161,7 +146,7 @@ resultate der datenbank
 ---
 
 ### Theorie [10 / 60 Teilpunkte]
-1) müssen wir sql queries in efcore schreiben? was schreiben wir wirklich?
+1) Ist das ``Keyword`` *Select* in ``LINQ`` und ``SQL`` beides als erstes in einem ``Select-Statement`` üssen wir sql queries in efcore schreiben? was schreiben wir wirklich?
 2) include vs theninclude
 3) was muss bei async und dbset bearchtet werden? es muss immer ein task zurückgegeben werden.
 ```
