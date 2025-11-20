@@ -33,7 +33,9 @@ Notenschlüssel:
     (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
     4) Führe folgende Schritte aus:
         * in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben. Es dürfen keine Fehler entstanden sein.
-        * in der ``Package-Manager Console`` *Add-Migration First* und *Update-Database* eingeben 
+        * in der ``Package-Manager Console`` *Update-Database* eingeben 
+        Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
+        ![alt](sql-obj-explorer.png)
     5) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
 
     Falls *Add-Migration First* fehlschlägt, öffne die ``Developer-Powershell``:
@@ -119,10 +121,7 @@ public async IActionResult Index()
 ---
 
 ### Programmieren [55 / 80 Teilpunkte]
-Im ``Projekt`` *Aufgabe_2* befindet sich funktionierender ``Code``. Damit dieses fehlerfrei startet muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.)
-
-Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
-![alt](sql-obj-explorer.png)
+Im ``Projekt`` *Aufgabe_2* befindet sich funktionierender ``Code``. Damit dieses fehlerfrei startet muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt und befüllt werden. Siehe [Vorbereitung](#vorbereitung-bevor-die-prüfung-startet). (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.)
 
 Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen``:
 * ``View``: Verwende aus der **Vorlage** das ``cshtml`` mit Namen *Details* welches im Ordner *Dish* liegt. Es muss nur mit ``Razor-Syntax`` *@* adaptiert werden. Es muss **kein** neuer html-code erstellt werden. Implementiere dort folgendes Verhalten: 
