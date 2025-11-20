@@ -64,7 +64,7 @@ Notenschlüssel:
     
 ---
 
-## http und html [20 / 100 Punkte]
+## **Aufgabe_1:** http und html [20 / 100 Punkte]
 
 ### Theorie [20 / 20 Teilpunkte]
 1) Wann soll die ``http-Methode`` *get* und wann ``http-Methode`` *post* verwendet werden?
@@ -77,7 +77,7 @@ Notenschlüssel:
 
 ---
 
-## Model, View, Control, Services, ViewModels und DTOs [60 Punkte]
+## **Aufgabe_2:** Model, View, Control, Services, ViewModels und DTOs [60 Punkte]
 ### Programmverständnis [15 / 80 Teilpunkte]
 In folgendem ``Controller`` und ``View`` haben sich ein Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
 

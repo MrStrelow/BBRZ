@@ -27,8 +27,8 @@ Notenschlüssel:
 
 ## Vorbereitung
 * **Wie öffne ich die Vorlage?**
-    1) Entpacke das [Zib-Archiv](Vorlage_WebProgModulTest1_112025.zip). Dieses beinhaltet eine Vorlage für die Geamte Prüfung.
-    2) Drücke doppelt auf die **.sln** oder **.slnx** Datei. Diese wird dadurch mit ``Visual Studio`` geöffnet. Falls nicht siehe dem README File innerhalb von [Zib-Archivs](Vorlage_WebProgModulTest1_112025.zip)
+    1) Entpacke das [Zib-Archiv](../../../../z_leere_projekte_als_Vorlagen_fuer_pruefungen/DonwloadMe-VorlageProgVisualStudio.zip).
+    2) Drücke doppelt auf die **.sln** oder **.slnx** Datei. Diese wird dadurch mit ``Visual Studio`` geöffnet. Falls nicht siehe dem README File innerhalb von [Zib-Archivs](../../../../z_leere_projekte_als_Vorlagen_fuer_pruefungen/DonwloadMe-VorlageProgVisualStudio.zip)
 
 * **Die Verbindung zur ``Datenbank`` mit  ``EF-Core`` funktioniert nicht.**
     Es muss folgendes Installiert sein:
