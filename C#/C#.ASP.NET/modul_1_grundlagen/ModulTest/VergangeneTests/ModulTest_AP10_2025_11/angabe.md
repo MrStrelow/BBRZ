@@ -32,8 +32,8 @@ Notenschlüssel:
     3) Damit das ``Projekt`` *Aufgabe_2* fehlerfrei startet, muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. Das ist mit dem *View->SQL-Server-Object-Explorer* in ``Visual Studio`` (oder mit dem ``SQL Server Management Studio``) möglich. Falls keine Rechte dazu besessen werden, siehe weiter unten. 
     (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
     4) Führe folgende Schritte aus:
-        * in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben. Es dürfen keine Fehler entstanden sein.
-        * in der ``Package-Manager Console`` *Update-Database* eingeben 
+        * In der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben. Es dürfen keine Fehler entstanden sein.
+        * In der ``Package-Manager Console`` *Update-Database* eingeben 
         Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
         ![alt](sql-obj-explorer.png)
     5) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
