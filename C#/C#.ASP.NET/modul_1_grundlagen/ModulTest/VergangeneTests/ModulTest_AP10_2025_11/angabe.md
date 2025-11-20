@@ -36,8 +36,9 @@ Notenschlüssel:
         * Gib in der ``Developer PowerShell`` *dotnet clean* und dann *dotnet build Aufgabe_2* ein. Es dürfen keine Fehler entstanden sein.
         * Gib in der ``Developer PowerShell`` *dotnet tool install --global dotnet-ef* ein.
         * Gib in der ``Developer PowerShell`` *dotnet ef database update* ein.
-        Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
-        ![alt](sql-obj-explorer.png)
+        * Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist: 
+        
+            ![alt](sql-obj-explorer.png)
     5) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
 
 * **Die Verbindung zur ``Datenbank`` mit  ``EF-Core`` funktioniert nicht.**
@@ -149,7 +150,7 @@ Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen
 >**Hinweis:** Nutze die Implementierungen in den bereits getätigten Klassen als Vorlage. Die Startklasse ist nicht zu ändern!
 
 #### Erwarteter Output:
-Bilder von View und Controller.
+![erwarteter output alt text](erwarteter_output.gif)
 
 ---
 
