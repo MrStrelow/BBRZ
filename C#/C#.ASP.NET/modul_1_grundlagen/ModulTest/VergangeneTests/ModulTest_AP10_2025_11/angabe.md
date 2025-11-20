@@ -25,7 +25,7 @@ Notenschlüssel:
 
 ---
 
-## Vorbereitung
+## Vorbereitung (bevor die Prüfung startet)
 * **Wie öffne ich die Vorlage?**
     1) Entpacke das [Zib-Archiv](Vorlage_WebProgModulTest1_112025.zip). Dieses beinhaltet eine Vorlage für die Geamte Prüfung.
     2) Drücke doppelt auf die **.sln** oder **.slnx** Datei. Diese wird dadurch mit ``Visual Studio`` geöffnet. Falls nicht siehe dem README File innerhalb von [Zib-Archivs](Vorlage_WebProgModulTest1_112025.zip)
@@ -122,7 +122,6 @@ public async IActionResult Index()
 Im ``Projekt`` *Aufgabe_2* befindet sich funktionierender ``Code``. Damit dieses fehlerfrei startet muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.)
 
 Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
-
 ![alt](sql-obj-explorer.png)
 
 Vervollständige das Programm in den angegebenen Ebenen durch folgende ``Klassen``:
