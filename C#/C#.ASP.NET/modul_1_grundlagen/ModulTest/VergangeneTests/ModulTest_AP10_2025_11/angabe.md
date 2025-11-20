@@ -32,17 +32,13 @@ Notenschlüssel:
     3) Damit das ``Projekt`` *Aufgabe_2* fehlerfrei startet, muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. Das ist mit dem *View->SQL-Server-Object-Explorer* in ``Visual Studio`` (oder mit dem ``SQL Server Management Studio``) möglich. Falls keine Rechte dazu besessen werden, siehe weiter unten. 
     (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
     4) Führe folgende Schritte aus:
-        * In der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben. Es dürfen keine Fehler entstanden sein.
-        * In der ``Package-Manager Console`` *Update-Database* eingeben 
+        * Gib in der ``Developer PowerShell`` *cd Aufgabe_2* ein. Wir wechseln den Ordner in den Ordner des Projekts.
+        * Gib in der ``Developer PowerShell`` *dotnet clean* und dann *dotnet build Aufgabe_2* ein. Es dürfen keine Fehler entstanden sein.
+        * Gib in der ``Developer PowerShell`` *dotnet tool install --global dotnet-ef* ein.
+        * Gib in der ``Developer PowerShell`` *dotnet ef database update* ein.
         Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
         ![alt](sql-obj-explorer.png)
     5) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
-
-    Falls *Add-Migration First* fehlschlägt, öffne die ``Developer-Powershell``:
-        * gib cd Aufgabe_2 ein
-        * gib *dotnet ef migrations add First* ein. (Falls dieser Befehlt nicht funktioniert, gib davor *dotnet tool install --global dotnet-ef* ein und wiederhole.)
-        * gib *dotnet ef database update* ein
-           
 
 * **Die Verbindung zur ``Datenbank`` mit  ``EF-Core`` funktioniert nicht.**
     Es muss folgendes Installiert sein:
