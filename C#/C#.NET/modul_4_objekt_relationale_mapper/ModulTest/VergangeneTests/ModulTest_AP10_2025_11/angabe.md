@@ -25,15 +25,47 @@ Notenschlüssel:
 
 ---
 
+## Vorbereitung
+* **Wie öffne ich die Vorlage?**
+    1) Entpacke das [Zib-Archiv](Vorlage_WebProgModulTest1_112025.zip). Dieses beinhaltet eine Vorlage für die Geamte Prüfung.
+    2) Drücke doppelt auf die **.sln** oder **.slnx** Datei. Diese wird dadurch mit ``Visual Studio`` geöffnet. Falls nicht siehe dem README File innerhalb von [Zib-Archivs](Vorlage_WebProgModulTest1_112025.zip)
+
+* **Die Verbindung zur ``Datenbank`` mit  ``EF-Core`` funktioniert nicht.**
+    Es muss folgendes Installiert sein:
+    1) Öffne den ``Task Manager``, gehe zu ``Dienste`` und suche nach ``SQL Server Agent (SQLExpress)``. Sollte das nicht der Fall sein, dann rufe [diesen](https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x409&culture=en-us&country=us) Installer auf (Falls nicht möglich suche nach SQL Server Express in Google).
+    2) Installiere den SQL Server und verwende folgenden Connection String ``"Server=localhost\\SQLEXPRESS; Database=TemporaryExamDb; Trusted_Connection=True; TrustServerCertificate=True;"``
+    3) Damit das ``Projekt`` *Aufgabe_2* fehlerfrei startet, muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. Das ist mit dem *View->SQL-Server-Object-Explorer* in ``Visual Studio`` (oder mit dem ``SQL Server Management Studio``) möglich. Falls keine Rechte dazu besessen werden, siehe weiter unten. 
+    (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
+    4) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
+
+    Falls dein User keine Rechte hat um eine ``Datenbank`` anzulegen, rufe folgende Befehle auf:
+    1) Öffne nach Abschluss der Installation den ``Terminal`` und gib ``sqlcmd -S localhost\SQLEXPRESS`` ein.
+    2) Gib dort 
+        ```sql
+        CREATE LOGIN [DOMAIN\USERNAME] FROM WINDOWS;
+        GO
+        ``` 
+        ein
+    3) Danach gib 
+        ```sql
+        ALTER SERVER ROLE sysadmin ADD MEMBER [DOMAIN\USERNAME];
+        GO
+        ```
+        ein.
+    4) Es soll nun möglich sein eine Datenbank anzulegen (Adminrechte) und sich mit dem oben agegebene Connection string ohne passwort zu verbinden.
+
+---
+
 ## Data Definition Language (DDL) mit EF-Core Model First umsetzen [40 / 100 Punkte]
 
-Folgendes ``UML-Diagramm`` ist für die folgenden Aufgaben heranzuziehen.
-![alt text]()
+Folgendes [``UML-Diagramm``](AirportClassDia.png) ist für die **alle** folgenden Aufgaben heranzuziehen.
+![alt text](AirportClassDia.png)
+
 
 ### Programmverständnis [15 / 50 Teilpunkte]
+Folgende ``Models`` versuchen das [UML-Diagramm](AirportClassDia.png) zu implementieren. Dabei haben sich Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
 
 ```csharp
-// TODO: Finde die Fehler in diesem Code
 public class Category
 {
     // FEHLER 1: 
@@ -42,7 +74,9 @@ public class Category
 
     // FEHLER 2:
 }
+```
 
+```csharp
 public class Product
 {
     public int ProductId { get; set; }
@@ -53,53 +87,73 @@ public class Product
 }
 ```
 
+```csharp
+public class Product
+{
+    public int ProductId { get; set; }
+    public string ProductName { get; set; }
+    
+    public int CategoryId { get; set; }
+    // FEHLER 3:
+}
 ```
+
 hist ist code finde die fehler im model.
 eine beziehung ist nicht da. 
 bei einem wird nicht spezifiziert dass es ein key ist.
-```
-
-1) Finde die Fehler in diesem Code und markiere diese.
-2) Erkläre wieso diese Fehler zu einer nicht gültigen bzw. konzeptionell falschen `Guard Clause` führen. 
 
 ---
 
 ### Programmiern [25 / 50 Teilpunkte]
-implementiere das uml driagramm und erstelle dazu den model folder.
-1) models erstellen
-2) datenbank create queries erstellen
-3) befülle datenbank mit daten
-4) update daten in der Datenbank
-5) ändere das model - spiele es in die datenbank
-6) sind die daten noch drinnen?
+
+Implementiere das gegebene [``UML-Diagramm``](AirportClassDia.png) innerhalb eines Ordners ``Models``.
+1) Erstelle die ``Klassen`` und implementiere die ``Beziehungen`` als ``Eigenschaften``. Implementiere auch ``Eigenschaften`` wie z.B. ``Primärschlüssel`` und ``Fremdschlüssel``, wenn diese im [``UML-Diagramm``](AirportClassDia.png) angegeben sind.
+2) Erstelle einen ``Migrations`` Ordner mithilfe der ensprechenden ``Commandozeilenbefehle`` von ``Ef-Core``.
+3) Führe den ``Code`` innerhlab der ```Migrations`` mithilfe der ensprechenden ``Commandozeilenbefehle`` von ``Ef-Core`` aus. Ziel ist es ``Tabellen`` in der ``Datenbank`` anzulegen, welche über die ``Models`` definiert werden (``Model-First``). 
+3) Befülle die Datenbank mit ``Dummy-Daten``. Diese sind in der bereits ``Klasse`` *SeedData* implementiert und muss nur in der ``Main-Methode``bzw. im ``Top-Level Statement`` aufgerufen werden. Führe diese aus und stelle sicher dass diese in der Datenbank vorhanden sind. Erstelle einen **``Screenshot``** welcher die Daten in der ``Datenbank`` darstellt.
+5) Ändere nun die ``Klasse`` *Passenger*. Dort ist nun eine zusätzliche ``Eigenschaft`` *PassPhoto* einfachheitshalber vom ``Typ`` *Byte* vorhanden. Übernimm die Änderungen zuerst in dem ``Migrations`` und danach in die ``Datenbank`` mithilfe der ensprechenden ``Commandozeilenbefehle`` von ``Ef-Core``. **Führe das Programm nicht neu aus! Sind die bereits eingefügten Daten in der ``Datenbank`` noch vorhanden?**
 
 ---
 
 ### Theorie [10 / 50 Teilpunkte]
-1) shadow properties vs real properties
-2) was erleichtert uns efcore vergleiche es mit ado.net.
-4) wir haben 5 migations. der letzte add migration produziert nichts nützliches -> wie entfernen wir die letze migration?
-5) update database mit einer vergangenen migration.
-6) was macht die up und down methode in den den generierten files?
+1) Was sind ``shadow properties`` vs. ``real properties``? Erkläre anhand eines ``Fremdschlüssels``. 
+2) Was erleichtert uns ``Ef-core`` im Vergleich zu ``ado.net``?
+4) Es existieren *fünf* ``Migations``. Der letzte ``Migration`` wurde unabsichtlich erstellt. Wie entfernen wir diese?
+5) Es soll die Datenbank auf eine ältere ``Migration`` umgestellt werden. Wie führen wir das durch?
+6) Was macht die ``up`` und ``down`` ``Methode`` in den den generierten Files in den ``Migrations``?
 
 ---
 
 ## Async Data Manipulation Language (DML) mit EF Core umsetzen [60 Punkte]
 ### Programmverständnis [20 / 60 Teilpunkte]
-1) async vs sync methoden
-2) save to db fehlt
-2) abfragen welche include und then-includen haben. aber falsch.
-3) 
+1)  ```csharp
+    var passenger = await _context.Passenger.Find(1);
+    var anotherPassenger = _context.Passenger.FindAsync(1);
+    ```
 
-```csharp
-``` 
+2) 
+    ```csharp
+    var passenger = new Passenger(); // wird id = 15 haben
+    _context.Passenger.Add(passenger); 
+
+    var passengerAusDbGeholt = await _context.Passenger.Find(15);
+    ``` 
+    
+3) 
+    ```csharp
+    var passenger = await _context.Passengers
+        .Where(p => p.Name == "Müller")
+        .ThenInclude(p => p.Tickets) // <--- FEHLER! then vor include
+        .FirstOrDefaultAsync();
+    ``` 
 
 ---
 
 ### Programmieren [30 / 60 Teilpunkte]
-2) ein async select * form all
-3) ein where mit einem select und dann mit async send an die db schicken
-3) joins mit include
+1) Gib alle *Flights* in der ``Datenbank`` aus. Dies soll ``asynchron`` umgesetzt werden.
+2) Welche *Flights* haben *DepartureCity == "Vienna"*? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
+3) Welche *Flights* haben *DepartureCity == "Vienna"* und zumindest 3 Tickets gekauft? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
+3) Welche drei *Passengers* pro *Airline* haben den meisten *Umsatz* erzeugt?
 4) joins mit include und then include
 
 #### Erwarteter Output:

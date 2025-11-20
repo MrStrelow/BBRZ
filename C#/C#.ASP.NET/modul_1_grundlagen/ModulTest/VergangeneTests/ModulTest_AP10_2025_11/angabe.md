@@ -29,14 +29,23 @@ Notenschlüssel:
 * **Wie öffne ich die Vorlage?**
     1) Entpacke das [Zib-Archiv](Vorlage_WebProgModulTest1_112025.zip). Dieses beinhaltet eine Vorlage für die Geamte Prüfung.
     2) Drücke doppelt auf die **.sln** oder **.slnx** Datei. Diese wird dadurch mit ``Visual Studio`` geöffnet. Falls nicht siehe dem README File innerhalb von [Zib-Archivs](Vorlage_WebProgModulTest1_112025.zip)
+    3) Damit das ``Projekt`` *Aufgabe_2* fehlerfrei startet, muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. Das ist mit dem *View->SQL-Server-Object-Explorer* in ``Visual Studio`` (oder mit dem ``SQL Server Management Studio``) möglich. Falls keine Rechte dazu besessen werden, siehe weiter unten. 
+    (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
+    4) Führe folgende Schritte aus:
+        * in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben. Es dürfen keine Fehler entstanden sein.
+        * in der ``Package-Manager Console`` *Add-Migration First* und *Update-Database* eingeben 
+    5) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
+
+    Falls *Add-Migration First* fehlschlägt, öffne die ``Developer-Powershell``:
+        * gib cd Aufgabe_2 ein
+        * gib *dotnet ef migrations add First* ein. (Falls dieser Befehlt nicht funktioniert, gib davor *dotnet tool install --global dotnet-ef* ein und wiederhole.)
+        * gib *dotnet ef database update* ein
+           
 
 * **Die Verbindung zur ``Datenbank`` mit  ``EF-Core`` funktioniert nicht.**
     Es muss folgendes Installiert sein:
     1) Öffne den ``Task Manager``, gehe zu ``Dienste`` und suche nach ``SQL Server Agent (SQLExpress)``. Sollte das nicht der Fall sein, dann rufe [diesen](https://go.microsoft.com/fwlink/p/?linkid=2216019&clcid=0x409&culture=en-us&country=us) Installer auf (Falls nicht möglich suche nach SQL Server Express in Google).
     2) Installiere den SQL Server und verwende folgenden Connection String ``"Server=localhost\\SQLEXPRESS; Database=TemporaryExamDb; Trusted_Connection=True; TrustServerCertificate=True;"``
-    3) Damit das ``Projekt`` *Aufgabe_2* fehlerfrei startet, muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. Das ist mit dem *View->SQL-Server-Object-Explorer* in ``Visual Studio`` (oder mit dem ``SQL Server Management Studio``) möglich. Falls keine Rechte dazu besessen werden, siehe weiter unten. 
-    (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.) 
-    4) Führe das ``Projekt`` *Aufgabe_2* aus. Es soll eine Website sichtbar sein, welche vom Benutzer ohne Fehler bedient werden kann.
 
     Falls dein User keine Rechte hat um eine ``Datenbank`` anzulegen, rufe folgende Befehle auf:
     1) Öffne nach Abschluss der Installation den ``Terminal`` und gib ``sqlcmd -S localhost\SQLEXPRESS`` ein.
@@ -53,6 +62,7 @@ Notenschlüssel:
         ```
         ein.
     4) Es soll nun möglich sein eine Datenbank anzulegen (Adminrechte) und sich mit dem oben agegebene Connection string ohne passwort zu verbinden.
+    
 ---
 
 ## http und html [20 / 100 Punkte]
@@ -110,15 +120,6 @@ public async IActionResult Index()
 
 ### Programmieren [55 / 80 Teilpunkte]
 Im ``Projekt`` *Aufgabe_2* befindet sich funktionierender ``Code``. Damit dieses fehlerfrei startet muss eine ``Datenbank`` mit Namen *TemporaryExamDb* erstellt werden. (Es kann jeder Name verwendet werden, jedoch muss die ``Datenbank`` welche in *appsettings.json* verwendet wird, am ``SQL-Server`` existieren.)
-
-Führe folgende Schritte aus:
-* in der ``Package-Manager Console`` *dotnet clean* und dann *dotnet build Aufgabe_2* eingeben
-* in der ``Package-Manager Console`` *Add-Migration First* und *Update-Database* eingeben 
-
-Falls dies fehlschlägt, öffne die ``Developer-Powershell``
-* gib cd Aufgabe_2 ein
-* gib *dotnet ef migrations add First* ein. (Falls dieser Befehlt nicht funktioniert, gib davor *dotnet tool install --global dotnet-ef* ein und wiederhole.)
-* gib *dotnet ef database update* ein
 
 Überprüfe im ``SQL-Object-Explorer``, ob folgendes vorhanden ist
 
