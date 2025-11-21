@@ -47,7 +47,7 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 
 | Exercise | Repository | Angabe | Abgabefrist |
 | :--- | :--- | :--- | :--- |
-| Exercise1-HundeUndBesitzer | [Repository]() | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) |  Woche 09 |
+| Exercise1-HundeUndBesitzer | [Repository](https://classroom.github.com/a/Z_hyT6hH) | [Angabe](L05KlassenMethoden/Exercise1-HundeUndBesitzer/Angabe.md) |  Woche 09 |
 
 ### **Alte Prüfungen zum Üben**
 
