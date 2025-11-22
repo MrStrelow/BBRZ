@@ -21,7 +21,7 @@ public class TicketVerwaltungDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=TestAufgabe1Und2;Trust Server Certificate=True");
+        optionsBuilder.UseSqlServer(@"Data Source=localhost\SQLEXPRESS;Database=TestAufgabe1Und2;Trusted_Connection=True;Trust Server Certificate=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

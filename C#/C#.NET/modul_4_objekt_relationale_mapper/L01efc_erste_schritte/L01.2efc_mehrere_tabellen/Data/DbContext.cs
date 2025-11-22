@@ -13,7 +13,7 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=anotherfruehstueckdb;Trust Server Certificate=True");
+        optionsBuilder.UseSqlServer(@"Data Source=localhost\SQLEXPRESS;Database=anotherfruehstueckdb;Trusted_Connection=True;Trust Server Certificate=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

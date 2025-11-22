@@ -14,6 +14,6 @@ public class TodoDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=TodoAsync;Trust Server Certificate=True");
+        optionsBuilder.UseSqlServer(@"Data Source=localhost\SQLEXPRESS;Database=TodoAsync;Trusted_Connection=True;Trust Server Certificate=True");
     }
 }

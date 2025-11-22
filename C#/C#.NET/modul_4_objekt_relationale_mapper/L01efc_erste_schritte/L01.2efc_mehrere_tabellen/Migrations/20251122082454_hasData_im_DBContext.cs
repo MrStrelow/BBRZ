@@ -26,13 +26,20 @@ namespace L01._2efc_mehrere_tabellen.Migrations
                 table: "PreparationSteps",
                 newName: "IX_PreparationSteps_MoreDishId");
 
+            migrationBuilder.AddColumn<decimal>(
+                name: "Price",
+                table: "Dishes",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
+
             migrationBuilder.InsertData(
                 table: "Dishes",
-                columns: new[] { "Id", "Description", "Name" },
+                columns: new[] { "Id", "Description", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Ein einfaches Spiegelei mit Salz.", "Spiegelei" },
-                    { 2, "Ein süßer Klassiker.", "Pfannkuchen" }
+                    { 1, "Ein einfaches Spiegelei mit Salz.", "Spiegelei", 0m },
+                    { 2, "Ein süßer Klassiker.", "Pfannkuchen", 0m }
                 });
 
             migrationBuilder.UpdateData(
@@ -186,6 +193,10 @@ namespace L01._2efc_mehrere_tabellen.Migrations
                 table: "Ingredients",
                 keyColumn: "Id",
                 keyValue: 5);
+
+            migrationBuilder.DropColumn(
+                name: "Price",
+                table: "Dishes");
 
             migrationBuilder.RenameColumn(
                 name: "MoreDishId",

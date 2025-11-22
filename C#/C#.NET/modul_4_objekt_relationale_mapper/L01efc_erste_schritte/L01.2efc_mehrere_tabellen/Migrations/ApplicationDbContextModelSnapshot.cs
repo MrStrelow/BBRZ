@@ -84,6 +84,9 @@ namespace L01._2efc_mehrere_tabellen.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Dishes");
@@ -93,13 +96,15 @@ namespace L01._2efc_mehrere_tabellen.Migrations
                         {
                             Id = 1,
                             Description = "Ein einfaches Spiegelei mit Salz.",
-                            Name = "Spiegelei"
+                            Name = "Spiegelei",
+                            Price = 0m
                         },
                         new
                         {
                             Id = 2,
                             Description = "Ein süßer Klassiker.",
-                            Name = "Pfannkuchen"
+                            Name = "Pfannkuchen",
+                            Price = 0m
                         });
                 });
 

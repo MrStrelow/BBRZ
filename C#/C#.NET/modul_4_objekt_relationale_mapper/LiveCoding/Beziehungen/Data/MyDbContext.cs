@@ -25,7 +25,7 @@ public class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=C432-LT-A7A3\SQLEXPRESS;Database=beziehungen_live;Trust Server Certificate=True");
+        optionsBuilder.UseSqlServer(@"Data Source=localhost\SQLEXPRESS;Database=beziehungen_live;Trusted_Connection=True;Trust Server Certificate=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
