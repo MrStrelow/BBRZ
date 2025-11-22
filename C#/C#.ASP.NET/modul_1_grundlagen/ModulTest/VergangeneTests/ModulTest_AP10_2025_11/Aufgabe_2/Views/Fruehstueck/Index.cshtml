@@ -80,7 +80,7 @@
                             >
 
                             <label class="form-check-label" for="dish-@dish.Id">
-                                <a asp-controller="Dish" asp-action="Index" asp-route-id="@dish.Id">
+                                <a asp-controller="Dish" asp-action="Details" asp-route-id="@dish.Id">
                                     @dish.Name
                                 </a>
                                 (@dish.Price.ToString("C"))

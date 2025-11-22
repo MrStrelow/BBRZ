@@ -19,7 +19,7 @@ namespace FruehstuecksBestellungMVC.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(int id, bool verbose = false)
+        public async Task<IActionResult> Details(int id, bool verbose = false)
         {
             // 1. Dish-Model aus der DB laden
             var dish = await _context.Dishes
@@ -43,7 +43,7 @@ namespace FruehstuecksBestellungMVC.Controllers
             }
 
             // 4. Die "Details"-View mit dem ViewModel zurückgeben
-            return View("Details", viewModel);
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -60,8 +60,8 @@ namespace FruehstuecksBestellungMVC.Controllers
             // 2. Service aufrufen
             var newDish = await _dishService.CreateDish(viewModel.ToDto());
 
-            // 3. Weiterleiten an die "Index" (Details)-Seite des *neuen* Gerichts
-            return RedirectToAction(nameof(Index), new { id = newDish.Id, verbose = true });
+            // 3. Weiterleiten an die Details-Seite des *neuen* Gerichts
+            return RedirectToAction(nameof(Details), new { id = newDish.Id, verbose = true });
         }
     }
 }
