@@ -14,20 +14,22 @@ namespace Aufgabe_1.Services
             _context = context;
         }
 
-        // --- 1) Async Select * (Alle Flugzeuge) ---
+        // --- 1) Gib alle *Flights* in der ``Datenbank`` aus. Dies soll ``asynchron`` umgesetzt werden. ---
         public async Task<List<Airplane>> GetAllAirplanesAsync()
         {
             return await _context.Airplanes.ToListAsync();
         }
 
-        // --- 2) Where mit Select (Projektion) ---
-        public async Task<List<TicketInfoDto>> GetExpensiveTicketsAsync(decimal minPrice)
+        // --- 2) Welche Tickets haben zumidnest den Preis von *50€*? ---
+        public async Task<List<Ticket>> GetExpensiveTicketsAsync(decimal minPrice = 50)
         {
             return await _context.Tickets
                 .Where(t => t.Price > minPrice)
-                .Select(t => new TicketInfoDto(t.Id, t.Price, t.Passenger.Name)) // Mapping in DTO
                 .ToListAsync();
         }
+
+        // --- 3) Welche* Flights* haben* DepartureCity == "Vienna"*? Im Ergebnis soll nur die* Flightnumber* und der *DestinationCity* vorhanden sein ---
+        
 
         // --- 4) Group By: Top 3 Kunden pro Airline ---
         public async Task<List<AirlineTopCustomersDto>> GetTop3CustomersPerAirlineAsync()

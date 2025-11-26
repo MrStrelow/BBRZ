@@ -1,0 +1,145 @@
+﻿@* Hier bekommt die View kein Model mehr, sondern ein ViewModel. Ist im Vergleich zum Tupel typisiert.*@
+@model FruehstueckViewModel
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
+
+<div class="form-section mb-5">
+    <h2 class="mb-3">Neue Bestellung aufgeben</h2>
+    <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
+        @* @Html.AntiForgeryToken() ... *@
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <strong>Bitte korrigieren Sie die folgenden Fehler:</strong>
+                @* Zeigt alle Fehler an, auch den "Mindestens 1 Gericht"-Fehler *@
+                <div asp-validation-summary="All"></div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                @* Wir geben nicht einzeln die ids zurück sondern DTO-Eigenschaft *@
+                <label asp-for="Order.CustomerId" class="form-label"></label>
+                <select asp-for="Order.CustomerId" class="form-select" asp-items="Model.Customers">
+                    <option value="">-- Bitte Kunden wählen --</option>
+                </select>
+                @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
+                @* <span asp-validation-for="Order.CustomerId" class="text-danger"></span> *@
+            </div>
+            <div class="col-md-6 mb-3">
+                @* AKTUALISIERT: Bindet an die DTO-Eigenschaft *@
+                <label asp-for="Order.TableId" class="form-label"></label>
+                <select asp-for="Order.TableId" class="form-select" asp-items="Model.Tables">
+                    <option value="">-- Bitte Tisch wählen --</option>
+                </select>
+                @* Zeigt die [Range]-Fehlermeldung direkt unter dem Feld an -> nicht notwendig aber in zukunft verwendne wird das bei der client-seitigen validierung!*@
+                @* <span asp-validation-for="Order.TableId" class="text-danger"></span> *@ 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">
+                    Menüs auswählen 
+                    (<a asp-controller="Menu" asp-action="Create">
+                        Menü erstellen
+                    </a>)
+                </label>
+                <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
+                    @foreach (var menu in Model.Menus)
+                    {
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input" 
+                                type="checkbox" 
+                                name="Order.SelectedMenuIds" 
+                                value="@menu.Id" 
+                                id="menu-@menu.Id" 
+                                @(Model.Order.SelectedMenuIds.Contains(menu.Id) ? "checked" : "")
+                            >
+                            <label class="form-check-label" for="menu-@menu.Id">
+                                @menu.Name (@menu.Price.ToString("C"))
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Einzelne Gerichte (A la carte)</label>
+                <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
+                    @foreach (var dish in Model.Dishes)
+                    {
+                        <div class="form-check">
+                            <input 
+                                class="form-check-input"
+                                type="checkbox"
+                                name="Order.SelectedDishIds"
+                                value="@dish.Id"
+                                id="dish-@dish.Id"
+                                @(Model.Order.SelectedDishIds.Contains(dish.Id) ? "checked" : "")
+                            >
+
+                            <label class="form-check-label" for="dish-@dish.Id">
+                                <a asp-controller="Dish" asp-action="Details" asp-route-id="@dish.Id">
+                                    @dish.Name
+                                </a>
+                                (@dish.Price.ToString("C"))
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Bestellung aufgeben</button>
+    </form>
+</div>
+
+<div class="list-section">
+    <h2 class="mb-3">Bisherige Rechnungen</h2>
+    @if (Model.Bills.Any())
+    {
+        <div class="accordion" id="billsAccordion">
+            @foreach (var bill in Model.Bills)
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-@bill.Id">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@bill.Id">
+                            <strong>Rechnung #@bill.Id</strong> &nbsp;- Tisch @bill.Visit.Table.TableNumber - @bill.Visit.Customers.FirstOrDefault()?.Name - Betrag: @bill.TotalAmount.ToString("C")
+                        </button>
+                    </h2>
+                    <div id="collapse-@bill.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+                        <div class="accordion-body">
+                            <p><strong>Datum:</strong> @bill.BillDate.ToString("g")</p>
+                            <h6>Bestellung:</h6>
+                            <ul>
+                                @foreach (var order in bill.Visit.Orders)
+                                {
+                                    foreach (var menu in order.Menus)
+                                    {
+                                        <li>@menu.Name (Menü)</li>
+                                    }
+                                    foreach (var dish in order.Dishes)
+                                    {
+                                        <li>@dish.Name (Gericht)</li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            Noch keine Rechnungen vorhanden.
+        </div>
+    }
+</div>

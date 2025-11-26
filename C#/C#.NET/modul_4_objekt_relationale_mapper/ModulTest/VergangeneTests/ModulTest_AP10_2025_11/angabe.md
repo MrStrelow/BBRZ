@@ -135,8 +135,10 @@ Folgende ``Models`` versuchen basierend auf [UML-Diagramm](AirportClassDia.png) 
 ---
 
 ### Programmieren [30 / 60 Teilpunkte]
-1) Gib alle *Flights* in der ``Datenbank`` aus. Dies soll ``asynchron`` umgesetzt werden.
-2) Welche *Flights* haben *DepartureCity == "Vienna"*? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
+Erstelle folgende Abfragen im ``Service`` *AnalyticsService*. Die ``Methoden`` sind bereits vordefiniert. Implementiert müssen sie noch werden. Die Abfragen sollen ``asynchron`` umgesetzt werden.
+1) Gib alle *Flights* in der ``Datenbank`` aus. 
+2) Welche *Tickets* haben zumidnest den *Preis* von *50€*?
+3) Welche *Flights* haben *DepartureCity == "Vienna"*? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
 3) Welche *Flights* haben *DepartureCity == "Vienna"* und zumindest 3 Tickets gekauft? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
 3) Welche drei *Passengers* pro *Airline* haben den meisten *Umsatz* erzeugt?
 
