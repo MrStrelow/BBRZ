@@ -12,7 +12,7 @@ Console.WriteLine("--- 1) Alle Airplanes ---");
 var airplanes = await service.GetAllAirplanesAsync();
 foreach (var a in airplanes)
 {
-    Console.WriteLine($"FlightId: {a.Id}, Airline: {a.Airline?.Name}");
+    Console.WriteLine($"FlightId: {a.Id}, Airline... oh da steht ja nix: {a.Airline?.Name}");
 }
 
 Console.WriteLine("\n--- 2) Tickets >= 50€ ---");
@@ -51,11 +51,20 @@ foreach (dynamic stat in stats)
 Console.WriteLine("\n--- Zusatz: Flüge mit Pilot & Gate ---");
 var flightsWithDetails = await service.GetFlightsWithPilotsAndGatesAsync();
 Console.WriteLine($"{flightsWithDetails.Count} Flüge mit Details geladen.");
+foreach (var flight in flightsWithDetails)
+{
+    Console.WriteLine($"Id:{flight.Id}\n - Airplane: *Id:{flight.Pilot.Name}\n - Airline: *Name{flight.CoPilot.Name}\n Origin: *{flight.FlyFrom}\n Temrinal: *{flight.Airplane}");
+}
 
 // 7)
 Console.WriteLine("\n--- Zusatz: Flüge mit Pilot & Gate ---");
 var flightsWithDeepDetails = await service.GetFlightsWithDeepDetailsAsync();
 Console.WriteLine($"{flightsWithDetails.Count} Flüge mit Details geladen.");
+
+foreach(var flight in flightsWithDetails)
+{
+    Console.WriteLine($"Id:{flight.Id}\n - Airplane: *Id:{flight.Airplane.Id}\n - Airline: *Name{flight.Airplane.Airline.Name}\n Origin: *{flight.FlyFrom}\n Temrinal: *{flight.FlyFrom.Terminals.ToList()}");
+}
 
 Console.WriteLine("\nTaste drücken zum Beenden...");
 Console.ReadKey();

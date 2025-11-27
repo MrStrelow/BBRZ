@@ -147,7 +147,223 @@ Erstelle folgende Abfragen im ``Service`` *AnalyticsService*. Die ``Methoden`` s
     * FlyFrom und Terminals
 
 #### Erwarteter Output:
-TODO
+```bash
+--- 1) Alle Airplanes ---
+FlightId: 1, Airline... oh da steht ja nix:
+FlightId: 2, Airline... oh da steht ja nix:
+FlightId: 3, Airline... oh da steht ja nix:
+FlightId: 4, Airline... oh da steht ja nix:
+FlightId: 5, Airline... oh da steht ja nix:
+FlightId: 6, Airline... oh da steht ja nix:
+FlightId: 7, Airline... oh da steht ja nix:
+FlightId: 8, Airline... oh da steht ja nix:
+FlightId: 9, Airline... oh da steht ja nix:
+FlightId: 10, Airline... oh da steht ja nix:
+
+--- 2) Tickets >= 50? ---
+TicketId: 1, Preis: 120.00
+TicketId: 2, Preis: 130.00
+TicketId: 3, Preis: 110.00
+TicketId: 4, Preis: 150.00
+TicketId: 5, Preis: 125.00
+TicketId: 6, Preis: 500.00
+TicketId: 7, Preis: 550.00
+TicketId: 8, Preis: 520.00
+TicketId: 9, Preis: 480.00
+TicketId: 10, Preis: 600.00
+TicketId: 16, Preis: 800.00
+TicketId: 17, Preis: 850.00
+TicketId: 18, Preis: 780.00
+TicketId: 19, Preis: 820.00
+TicketId: 20, Preis: 900.00
+TicketId: 21, Preis: 200.00
+TicketId: 22, Preis: 210.00
+TicketId: 23, Preis: 190.00
+TicketId: 24, Preis: 220.00
+TicketId: 25, Preis: 205.00
+TicketId: 26, Preis: 180.00
+TicketId: 27, Preis: 185.00
+TicketId: 28, Preis: 175.00
+TicketId: 29, Preis: 190.00
+TicketId: 30, Preis: 160.00
+TicketId: 31, Preis: 300.00
+TicketId: 32, Preis: 310.00
+TicketId: 33, Preis: 320.00
+TicketId: 34, Preis: 290.00
+TicketId: 35, Preis: 330.00
+TicketId: 36, Preis: 700.00
+TicketId: 37, Preis: 720.00
+TicketId: 38, Preis: 680.00
+TicketId: 39, Preis: 750.00
+TicketId: 40, Preis: 710.00
+TicketId: 41, Preis: 950.00
+TicketId: 42, Preis: 980.00
+TicketId: 43, Preis: 920.00
+TicketId: 44, Preis: 960.00
+TicketId: 45, Preis: 990.00
+TicketId: 46, Preis: 100.00
+TicketId: 47, Preis: 110.00
+TicketId: 48, Preis: 95.00
+TicketId: 49, Preis: 105.00
+TicketId: 50, Preis: 90.00
+TicketId: 51, Preis: 100.00
+TicketId: 52, Preis: 110.00
+TicketId: 53, Preis: 95.00
+TicketId: 54, Preis: 105.00
+TicketId: 55, Preis: 90.00
+
+--- 3) Flights ab Vienna (Tuple) ---
+
+--- 4) Beliebte Flights ab Vienna (>= 3 Tickets) ---
+
+--- 5) Top 3 Passengers pro Airline ---
+Airline: Lufthansa
+ - Jane Doe: 150.00?
+ - Erika Musterfrau: 130.00?
+ - Mario Rossi: 125.00?
+Airline: Emirates
+ - Isaac Newton: 600.00?
+ - Jean Dupont: 550.00?
+ - Marie Curie: 520.00?
+Airline: Ryanair
+ - Jean Dupont: 50.00?
+ - Mario Rossi: 45.00?
+ - Max Mustermann: 40.00?
+Airline: Delta Airlines
+ - Isaac Newton: 900.00?
+ - Jane Doe: 850.00?
+ - Marie Curie: 820.00?
+Airline: British Airways
+ - Max Mustermann: 390.00?
+ - Jane Doe: 220.00?
+ - Erika Musterfrau: 210.00?
+Airline: Air France
+ - Albert Einstein: 190.00?
+ - Jean Dupont: 185.00?
+ - Luigi Verdi: 180.00?
+Airline: KLM
+ - Mario Rossi: 330.00?
+ - Max Mustermann: 320.00?
+ - Jane Doe: 310.00?
+Airline: Qatar Airways
+ - Marie Curie: 750.00?
+ - Isaac Newton: 720.00?
+ - Albert Einstein: 710.00?
+Airline: Singapore Airlines
+ - John Doe: 990.00?
+ - Isaac Newton: 980.00?
+ - Albert Einstein: 960.00?
+Airline: Austrian Airlines
+ - Erika Musterfrau: 110.00?
+ - Jean Dupont: 110.00?
+ - Jane Doe: 105.00?
+
+--- Zusatz: Flüge mit Pilot & Gate ---
+10 Flüge mit Details geladen.
+Id:1
+ - Airplane: *Id:Markus Söder
+ - Airline: *NameAngela Merkel
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:2
+ - Airplane: *Id:Olaf Scholz
+ - Airline: *NameFriedrich Merz
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:3
+ - Airplane: *Id:Robert Habeck
+ - Airline: *NameAnnalena Baerbock
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:4
+ - Airplane: *Id:Christian Lindner
+ - Airline: *NameUrsula von der Leyen
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:5
+ - Airplane: *Id:Boris Johnson
+ - Airline: *NameEmmanuel Macron
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:6
+ - Airplane: *Id:Markus Söder
+ - Airline: *NameOlaf Scholz
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:7
+ - Airplane: *Id:Angela Merkel
+ - Airline: *NameFriedrich Merz
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:8
+ - Airplane: *Id:Robert Habeck
+ - Airline: *NameChristian Lindner
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:9
+ - Airplane: *Id:Annalena Baerbock
+ - Airline: *NameUrsula von der Leyen
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+Id:10
+ - Airplane: *Id:Boris Johnson
+ - Airline: *NameMarkus Söder
+ Origin: *
+ Temrinal: *Aufgabe_1.Models.Airplane
+
+--- Zusatz: Flüge mit Pilot & Gate ---
+10 Flüge mit Details geladen.
+Id:1
+ - Airplane: *Id:1
+ - Airline: *NameLufthansa
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:2
+ - Airplane: *Id:2
+ - Airline: *NameEmirates
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:3
+ - Airplane: *Id:3
+ - Airline: *NameRyanair
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:4
+ - Airplane: *Id:4
+ - Airline: *NameDelta Airlines
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:5
+ - Airplane: *Id:5
+ - Airline: *NameBritish Airways
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:6
+ - Airplane: *Id:6
+ - Airline: *NameAir France
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:7
+ - Airplane: *Id:7
+ - Airline: *NameKLM
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:8
+ - Airplane: *Id:8
+ - Airline: *NameQatar Airways
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:9
+ - Airplane: *Id:9
+ - Airline: *NameSingapore Airlines
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+Id:10
+ - Airplane: *Id:10
+ - Airline: *NameAustrian Airlines
+ Origin: *Aufgabe_1.Models.Airport
+ Temrinal: *System.Collections.Generic.List`1[Aufgabe_1.Models.Terminal]
+```
 
 ---
 
@@ -155,4 +371,3 @@ TODO
 1) Ist das ``Keyword`` *Select* in ``LINQ`` und ``SQL`` beides als erstes in einem ``Select-Statement``?
 2) Wird ThenInclude verwendet, um direkte Relationen der Hauptentität zu laden, oder um Relationen von bereits durch Include geladenen Entitäten zu laden? // TODO
 3) Muss bei der Verwendung von asynchronen Methoden (wie ToListAsync) auf einem DbSet der Rückgabetyp der Methode zwingend ein Task (bzw. Task<T>) sein? // TODO
-```
