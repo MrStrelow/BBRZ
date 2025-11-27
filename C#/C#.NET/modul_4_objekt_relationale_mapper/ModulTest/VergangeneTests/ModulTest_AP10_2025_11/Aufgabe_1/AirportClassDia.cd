@@ -2,6 +2,11 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Aufgabe_1.Models.Airport">
     <Position X="2.5" Y="6.5" Width="1.5" />
+    <AssociationLine Name="Terminals" Type="Aufgabe_1.Models.Terminal">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.118" Y="0.649" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAADAAAAAAAABAAAAAAAAAAAAAAAAAAgAgAAAAAAAAA=</HashCode>
       <FileName>Models\Airport.cs</FileName>
@@ -30,7 +35,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Terminal">
-    <Position X="5" Y="6.75" Width="1.5" />
+    <Position X="2.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Terminal.cs</FileName>
@@ -45,12 +50,15 @@
       <HashCode>AAACAAAAAAAQAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Gate.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Flights" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Ticket">
-    <Position X="7.5" Y="7.25" Width="1.5" />
+    <Position X="10" Y="3.75" Width="1.5" />
     <AssociationLine Name="Flight" Type="Aufgabe_1.Models.Flight">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.085" Y="0.243" />
+        <Position X="0.243" Y="0.085" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -62,7 +70,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Passenger">
-    <Position X="9.75" Y="7.25" Width="1.5" />
+    <Position X="10" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQCAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Passenger.cs</FileName>
@@ -72,7 +80,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Airplane">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>QAACAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Airplane.cs</FileName>
@@ -119,14 +127,14 @@
     <Position X="7.5" Y="3.75" Width="1.5" />
     <AssociationLine Name="Airplane" Type="Aufgabe_1.Models.Airplane" FixedToPoint="true">
       <Path>
-        <Point X="8.562" Y="3.75" />
-        <Point X="8.562" Y="1.796" />
+        <Point X="8.489" Y="3.75" />
+        <Point X="8.489" Y="1.796" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Gate" Type="Aufgabe_1.Models.Gate" FixedToPoint="true">
       <Path>
-        <Point X="7.5" Y="4.312" />
-        <Point X="6.5" Y="4.312" />
+        <Point X="7.5" Y="4.248" />
+        <Point X="6.5" Y="4.248" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Pilot" Type="Aufgabe_1.Models.Pilot" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -151,6 +159,20 @@
         <Position X="-2.024" Y="1.052" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="FlyFrom" Type="Aufgabe_1.Models.Airport" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="6.007" />
+        <Point X="8.25" Y="7.82" />
+        <Point X="5.402" Y="7.82" />
+        <Point X="5.402" Y="7.812" />
+        <Point X="4" Y="7.812" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FlyTo" Type="Aufgabe_1.Models.Airport">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="-0.284" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AASHAgAAAAAAAAAAAABAAAAAAIhAAAAAICAAAACAIAA=</HashCode>
       <FileName>Models\Flight.cs</FileName>
@@ -160,7 +182,12 @@
       <Property Name="Gate" />
       <Property Name="Pilot" />
       <Property Name="CoPilot" />
+      <Property Name="FlyFrom" />
+      <Property Name="FlyTo" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tickets" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
