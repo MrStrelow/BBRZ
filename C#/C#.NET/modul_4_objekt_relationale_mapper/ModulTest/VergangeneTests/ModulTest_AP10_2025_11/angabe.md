@@ -136,19 +136,23 @@ Folgende ``Models`` versuchen basierend auf [UML-Diagramm](AirportClassDia.png) 
 
 ### Programmieren [30 / 60 Teilpunkte]
 Erstelle folgende Abfragen im ``Service`` *AnalyticsService*. Die ``Methoden`` sind bereits vordefiniert. Implementiert müssen sie noch werden. Die Abfragen sollen ``asynchron`` umgesetzt werden.
-1) Gib alle *Flights* in der ``Datenbank`` aus. 
+1) Gib alle *Airplanes* in der ``Datenbank`` aus. 
 2) Welche *Tickets* haben zumidnest den *Preis* von *50€*?
 3) Welche *Flights* haben *DepartureCity == "Vienna"*? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
-3) Welche *Flights* haben *DepartureCity == "Vienna"* und zumindest 3 Tickets gekauft? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
-3) Welche drei *Passengers* pro *Airline* haben den meisten *Umsatz* erzeugt?
+4) Welche *Flights* haben *DepartureCity == "Vienna"* und zumindest 3 Tickets gekauft? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein.
+5) Welche drei *Passengers* pro *Airline* haben den meisten *Umsatz* erzeugt? *Hinweis: Suche eine Kette an Verbindungen im Diagramm welche Airline und Passenger verbindet .Verwende ein SubSelect - Innerhalb des Selects eine neue Ef-Core Abfrage mit _context - um es nach Airliens zu gruppieren.*
+6) Flache Joins mit Flights, Pilot, CoPilot und Gate:
+7) Tiefe Joins Flights:
+    * Airplane, Airline und 
+    * FlyFrom und Terminals
 
 #### Erwarteter Output:
-resultate der datenbank
+TODO
 
 ---
 
 ### Theorie [10 / 60 Teilpunkte]
-1) Ist das ``Keyword`` *Select* in ``LINQ`` und ``SQL`` beides als erstes in einem ``Select-Statement`` üssen wir sql queries in efcore schreiben? was schreiben wir wirklich?
-2) include vs theninclude
-3) was muss bei async und dbset bearchtet werden? es muss immer ein task zurückgegeben werden.
+1) Ist das ``Keyword`` *Select* in ``LINQ`` und ``SQL`` beides als erstes in einem ``Select-Statement``?
+2) Wird ThenInclude verwendet, um direkte Relationen der Hauptentität zu laden, oder um Relationen von bereits durch Include geladenen Entitäten zu laden? // TODO
+3) Muss bei der Verwendung von asynchronen Methoden (wie ToListAsync) auf einem DbSet der Rückgabetyp der Methode zwingend ein Task (bzw. Task<T>) sein? // TODO
 ```

@@ -12,6 +12,15 @@
   </Class>
   <Class Name="Aufgabe_1.Models.Airline">
     <Position X="10" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Airplane" Type="Aufgabe_1.Models.Airplane" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="1.438" />
+        <Point X="9" Y="1.438" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.177" Y="0.093" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAgACAAAAAAAAA=</HashCode>
       <FileName>Models\Airline.cs</FileName>
@@ -38,9 +47,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Aufgabe_1.Models.Ticket">
-    <Position X="7.5" Y="6.75" Width="1.5" />
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <AssociationLine Name="Flight" Type="Aufgabe_1.Models.Flight">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.085" Y="0.243" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAoAA=</HashCode>
       <FileName>Models\Ticket.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -48,7 +62,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Passenger">
-    <Position X="9.75" Y="6.75" Width="1.5" />
+    <Position X="9.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQCAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Passenger.cs</FileName>
@@ -63,6 +77,9 @@
       <HashCode>QAACAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Airplane.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Airline" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Pilot">
     <Position X="4.25" Y="0.5" Width="1.5" />
@@ -103,7 +120,7 @@
     <AssociationLine Name="Airplane" Type="Aufgabe_1.Models.Airplane" FixedToPoint="true">
       <Path>
         <Point X="8.562" Y="3.75" />
-        <Point X="8.562" Y="1.988" />
+        <Point X="8.562" Y="1.796" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Gate" Type="Aufgabe_1.Models.Gate" FixedToPoint="true">
@@ -135,7 +152,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AASHAgAAAAAAAAAAAABAAAAAAIhAAAAAICAAAAAAAAA=</HashCode>
+      <HashCode>AASHAgAAAAAAAAAAAABAAAAAAIhAAAAAICAAAACAIAA=</HashCode>
       <FileName>Models\Flight.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

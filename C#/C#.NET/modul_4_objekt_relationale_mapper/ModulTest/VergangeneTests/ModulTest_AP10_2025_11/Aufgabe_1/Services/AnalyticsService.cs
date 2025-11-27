@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Aufgabe_1.Data;
-using Aufgabe_1.Models;
+﻿using Aufgabe_1.Data;
 using Aufgabe_1.DTOs;
+using Aufgabe_1.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Aufgabe_1.Services
 {
@@ -29,44 +30,60 @@ namespace Aufgabe_1.Services
         }
 
         // --- 3) Welche* Flights* haben* DepartureCity == "Vienna"*? Im Ergebnis soll nur die* Flightnumber* und der *DestinationCity* vorhanden sein ---
-        
-
-        // --- 4) Group By: Top 3 Kunden pro Airline ---
-        public async Task<List<AirlineTopCustomersDto>> GetTop3CustomersPerAirlineAsync()
+        public async Task<List<(string Flightnumber, string DestinationCity)>> GetFlightsWithDepartureCity(string location = "Vienna")
         {
-            // Schritt 1: Daten in der DB aggregieren (Summe pro Airline & Kunde)
-            var rawData = await _context.Tickets
-                .Select(t => new
+            var result = await _context.Flights
+                .Where(f => f.FlyFrom.Ort == location) 
+                .Select(f => new
                 {
-                    AirlineName = t.Flight.Airplane.Airline.Name,
-                    PassengerName = t.Passenger.Name,
-                    Preis = t.Price
+                    Flightnumber = f.Kennung,
+                    DestinationCity = f.FlyTo.Ort   
                 })
-                .GroupBy(x => new { x.AirlineName, x.PassengerName })
-                .Select(g => new
-                {
-                    Airline = g.Key.AirlineName,
-                    Passenger = g.Key.PassengerName,
-                    GesamtUmsatz = g.Sum(x => x.Preis)
-                })
-                .ToListAsync(); // Materialisierung im RAM
+                .ToListAsync();
 
-            // Schritt 2: Im Speicher die Top 3 filtern
-            var result = rawData
-                .GroupBy(x => x.Airline)
-                .Select(g => new AirlineTopCustomersDto(
-                    g.Key,
-                    g.OrderByDescending(x => x.GesamtUmsatz)
-                     .Take(3)
-                     .Select(x => new CustomerRevenueDto(x.Passenger, x.GesamtUmsatz))
-                     .ToList()
-                ))
-                .ToList();
-
-            return result;
+            return result.Select(x => (x.Flightnumber, x.DestinationCity)).ToList();
         }
 
-        // --- 5) Einfache Joins (Include) ---
+        // --- 4) Welche *Flights* haben *DepartureCity == "Vienna"* und zumindest 3 Tickets gekauft? Im Ergebnis soll nur die *Flightnumber* und der *DestinationCity* vorhanden sein. ---
+        public async Task<List<(string Flightnumber, string DestinationCity)>> GetFlightsWithDepartureCityWithAtLeastXFlights(string location = "Vienna", int threshold = 3)
+        {
+            var result =  await _context.Flights
+                .Where(f => f.FlyFrom.Ort == location && f.Tickets.Count() >= threshold)
+                .Select(f => new
+                {
+                    Flightnumber = f.Kennung,
+                    DestinationCity = f.FlyTo.Ort
+                })
+                .ToListAsync();
+
+            return result.Select(x => (x.Flightnumber, x.DestinationCity)).ToList();
+        }
+
+        // --- 5) Group By: Top 3 Kunden pro Airline ---
+        public async Task<List<object>> GetTop3PassengersPerAirlineAsync()
+        {
+            var result = await _context.Airlines
+                .Select(a => new
+                {
+                    AirlineName = a.Name,
+                    TopPassengers = _context.Tickets
+                        .Where(t => t.Flight.Airplane.Airline.Id == a.Id)
+                        .GroupBy(t => t.Passenger)
+                        .Select(g => new
+                        {
+                            PassengerName = g.Key.Name,
+                            Umsatz = g.Sum(t => t.Price)
+                        })
+                        .OrderByDescending(x => x.Umsatz)
+                        .Take(3)
+                        .ToList()
+                })
+                .ToListAsync();
+
+            return result.Cast<object>().ToList();
+        }
+
+        // --- 6) Einfache Joins (Include) ---
         public async Task<List<Flight>> GetFlightsWithPilotsAndGatesAsync()
         {
             return await _context.Flights
@@ -76,7 +93,7 @@ namespace Aufgabe_1.Services
                 .ToListAsync();
         }
 
-        // --- 6) Tiefe Joins (Include & ThenInclude) ---
+        // --- 7) Tiefe Joins (Include & ThenInclude) ---
         public async Task<List<Flight>> GetFlightsWithDeepDetailsAsync()
         {
             return await _context.Flights

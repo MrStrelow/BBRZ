@@ -1,52 +1,63 @@
 ﻿using Aufgabe_1.Data;
-using Aufgabe_1.DTOs;
 using Aufgabe_1.Services;
-using Microsoft.EntityFrameworkCore;
+using System;
 
-using (var context = new TicketVerwaltungDbContext())
+using var context = new TicketVerwaltungDbContext();
+context.Database.EnsureCreated();
+SeedData.Initialize(context);
+
+var service = new AnalyticsService(context);
+
+Console.WriteLine("--- 1) Alle Airplanes ---");
+var airplanes = await service.GetAllAirplanesAsync();
+foreach (var a in airplanes)
 {
-    Console.WriteLine("Initialisiere Daten...");
-    SeedData.Initialize(context);
-    Console.WriteLine("Daten wurden erfolgreich geladen.");
-
-    // Überprüfung (optional):
-    var initTickets = await context.Tickets.ToListAsync();
-    var initPassengers = await context.Passengers.ToListAsync();
-    
-    Console.WriteLine($"Anzahl geladener Tickets: {initTickets.Count}");
-    Console.WriteLine($"Anzahl geladener Passagiere: {initPassengers.Count}");
-
-    // Service instanziieren
-    var service = new AnalyticsService(context);
-
-    Console.WriteLine("--- 2) Alle Flugzeuge ---");
-    var planes = await service.GetAllAirplanesAsync();
-    foreach (var p in planes)
-        Console.WriteLine($"Plane {p.Id} ({p.ManufactoringDate:d})");
-
-    Console.WriteLine("\n--- 3) Teure Tickets (> 500 EUR) ---");
-    var tickets = await service.GetExpensiveTicketsAsync(500);
-    foreach (var t in tickets)
-        Console.WriteLine($"Ticket {t.TicketId}: {t.Preis} EUR - {t.PassagierName}");
-
-    Console.WriteLine("\n--- 4) Top 3 Kunden pro Airline ---");
-    var stats = await service.GetTop3CustomersPerAirlineAsync();
-    foreach (var airline in stats)
-    {
-        Console.WriteLine($"Airline: {airline.AirlineName}");
-        foreach (var customer in airline.TopCustomers)
-        {
-            Console.WriteLine($"  - {customer.PassengerName}: {customer.Umsatz:C}");
-        }
-    }
-
-    Console.WriteLine("\n--- 5) Flüge mit Piloten & Gates ---");
-    var flightsBasic = await service.GetFlightsWithPilotsAndGatesAsync();
-    foreach (var f in flightsBasic.Take(3))
-        Console.WriteLine($"Flug {f.Kennung}: Pilot {f.Pilot?.Name}");
-
-    Console.WriteLine("\n--- 6) Flüge mit Deep Details ---");
-    var flightsDeep = await service.GetFlightsWithDeepDetailsAsync();
-    foreach (var f in flightsDeep.Take(3))
-        Console.WriteLine($"Flug {f.Kennung} von {f.FlyFrom?.Ort} mit {f.Airplane?.Airline?.Name}");
+    Console.WriteLine($"FlightId: {a.Id}, Airline: {a.Airline?.Name}");
 }
+
+Console.WriteLine("\n--- 2) Tickets >= 50€ ---");
+var expensiveTickets = await service.GetExpensiveTicketsAsync();
+foreach (var t in expensiveTickets)
+{
+    Console.WriteLine($"TicketId: {t.Id}, Preis: {t.Price}");
+}
+
+Console.WriteLine("\n--- 3) Flights ab Vienna (Tuple) ---");
+var viennaFlights = await service.GetFlightsWithDepartureCity();
+foreach (var (flightNum, dest) in viennaFlights)
+{
+    Console.WriteLine($"Flight: {flightNum}, Destination: {dest}");
+}
+
+Console.WriteLine("\n--- 4) Beliebte Flights ab Vienna (>= 3 Tickets) ---");
+var popularFlights = await service.GetFlightsWithDepartureCityWithAtLeastXFlights();
+foreach (var (flightNum, dest) in popularFlights)
+{
+    Console.WriteLine($"Flight: {flightNum}, Destination: {dest}");
+}
+
+Console.WriteLine("\n--- 5) Top 3 Passengers pro Airline ---");
+var stats = await service.GetTop3PassengersPerAirlineAsync();
+foreach (dynamic stat in stats)
+{
+    Console.WriteLine($"Airline: {stat.AirlineName}");
+    foreach (dynamic p in stat.TopPassengers)
+    {
+        Console.WriteLine($" - {p.PassengerName}: {p.Umsatz}€");
+    }
+}
+
+// 6)
+Console.WriteLine("\n--- Zusatz: Flüge mit Pilot & Gate ---");
+var flightsWithDetails = await service.GetFlightsWithPilotsAndGatesAsync();
+Console.WriteLine($"{flightsWithDetails.Count} Flüge mit Details geladen.");
+
+// 7)
+Console.WriteLine("\n--- Zusatz: Flüge mit Pilot & Gate ---");
+var flightsWithDeepDetails = await service.GetFlightsWithDeepDetailsAsync();
+Console.WriteLine($"{flightsWithDetails.Count} Flüge mit Details geladen.");
+
+Console.WriteLine("\nTaste drücken zum Beenden...");
+Console.ReadKey();
+
+Console.ReadKey();
