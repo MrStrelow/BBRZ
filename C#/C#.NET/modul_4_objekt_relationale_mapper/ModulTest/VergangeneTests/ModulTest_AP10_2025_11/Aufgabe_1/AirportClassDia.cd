@@ -61,12 +61,18 @@
         <Position X="0.243" Y="0.085" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="Passenger" Type="Aufgabe_1.Models.Passenger">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.012" Y="0.191" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAACAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAoAA=</HashCode>
       <FileName>Models\Ticket.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Flight" />
+      <Property Name="Passenger" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Aufgabe_1.Models.Passenger">
