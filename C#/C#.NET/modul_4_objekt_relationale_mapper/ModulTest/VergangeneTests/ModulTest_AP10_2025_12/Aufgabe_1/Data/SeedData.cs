@@ -126,7 +126,7 @@ namespace Aufgabe_1.Data
             // --- Szenario C: Gepäck verloren (Cleared) ---
             var b3 = new Booking { BookingReference = "REF03", Status = BookingStatus.CheckedIn, Passenger = p4, Flight = flight1, Price = 200m, BookingDate = DateTime.Now.AddDays(-20) };
             b3.BoardingPass = new BoardingPass { SeatNumber = "14C", BoardingGroup = 3, IssuedAt = DateTime.Now.AddHours(-2), Gate = gateFra1 };
-            b3.LuggageItems.Add(new Luggage { TagId = "LOST-99", Status = LuggageStatus.Lost, WeightInKg = 20 });
+            ((List<Luggage>)b3.LuggageItems).Add(new Luggage { TagId = "LOST-99", Status = LuggageStatus.Lost, WeightInKg = 20 });
             var sec3 = new SecurityCheck { Result = SecurityResult.Cleared, CheckedAt = DateTime.Now.AddHours(-1.6), Booking = b3 };
 
             // --- Szenario D: No-Show (Confirmed, aber KEIN BoardingPass) ---

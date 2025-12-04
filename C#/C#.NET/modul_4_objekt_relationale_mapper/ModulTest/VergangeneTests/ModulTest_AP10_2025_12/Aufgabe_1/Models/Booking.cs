@@ -13,5 +13,5 @@ public class Booking
     public Passenger? Passenger { get; set; }
     public Flight? Flight { get; set; }
     public BoardingPass? BoardingPass { get; set; }
-    public List<Luggage> LuggageItems { get; set; } = new List<Luggage>();
+    public IEnumerable<Luggage> LuggageItems { get; set; } = new List<Luggage>();
 }
