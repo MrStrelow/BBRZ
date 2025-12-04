@@ -25,7 +25,7 @@ namespace Aufgabe_1.Services
         public async Task<List<Ticket>> GetExpensiveTicketsAsync(decimal minPrice = 50)
         {
             return await _context.Tickets
-                .Where(t => t.Price > minPrice)
+                .Where(t => t.Price >= minPrice)
                 .ToListAsync();
         }
 

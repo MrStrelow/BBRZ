@@ -3,7 +3,6 @@ using Aufgabe_1.Services;
 using System;
 
 using var context = new TicketVerwaltungDbContext();
-context.Database.EnsureCreated();
 SeedData.Initialize(context);
 
 var service = new AnalyticsService(context);

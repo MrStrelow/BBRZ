@@ -55,7 +55,7 @@ Notenschlüssel:
 
 ---
 
-## Data Definition Language (DDL) mit EF-Core Model First umsetzen [40 / 100 Punkte]
+## Aufgabe 1 - Data Definition Language (DDL) mit EF-Core Model First umsetzen [50 / 100 Punkte]
 
 Folgendes [``UML-Diagramm``](AirportClassDia.png) ist für die **alle** folgenden Aufgaben heranzuziehen.
 ![alt text](AirportClassDia.png)
@@ -88,7 +88,7 @@ public class Flight
 ```
 ---
 
-### Programmiern [25 / 50 Teilpunkte]
+### Programmieren [25 / 50 Teilpunkte]
 
 Implementiere das gegebene [``UML-Diagramm``](AirportClassDia.png) innerhalb eines Ordners ``Models``.
 1) Erstelle die ``Klassen`` und implementiere die ``Beziehungen`` als ``Eigenschaften``. Implementiere auch ``Eigenschaften`` wie z.B. ``Primärschlüssel`` und ``Fremdschlüssel``, wenn diese im [``UML-Diagramm``](AirportClassDia.png) angegeben sind.
@@ -108,9 +108,9 @@ Implementiere das gegebene [``UML-Diagramm``](AirportClassDia.png) innerhalb ein
 
 ---
 
-## Async Data Manipulation Language (DML) mit EF Core umsetzen [60 Punkte]
+## Aufgabe 2 - Async Data Manipulation Language (DML) mit EF Core umsetzen [50 Punkte]
 
-### Programmverständnis [20 / 60 Teilpunkte]
+### Programmverständnis [10 / 50 Teilpunkte]
 Folgende ``Models`` versuchen basierend auf [UML-Diagramm](AirportClassDia.png) Abfragen durchzuführen. Dabei haben sich Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
 
 1)  ```csharp
@@ -134,7 +134,9 @@ Folgende ``Models`` versuchen basierend auf [UML-Diagramm](AirportClassDia.png) 
 
 ---
 
-### Programmieren [30 / 60 Teilpunkte]
+### Programmieren [30 / 50 Teilpunkte]
+Diese Aufgabe soll in Projekt [Aufgabe 1](#programmieren-25--50-teilpunkte) umgesetzt werden, nicht in Projekt [Aufgabe 2](#programmieren-30--50-teilpunkte)
+
 Erstelle folgende Abfragen im ``Service`` *AnalyticsService*. Die ``Methoden`` sind bereits vordefiniert. Implementiert müssen sie noch werden. Die Abfragen sollen ``asynchron`` umgesetzt werden.
 1) Gib alle *Airplanes* in der ``Datenbank`` aus. 
 2) Welche *Tickets* haben zumidnest den *Preis* von *50€*?
@@ -367,7 +369,7 @@ Id:10
 
 ---
 
-### Theorie [10 / 60 Teilpunkte]
+### Theorie [10 / 50 Teilpunkte]
 1) Ist das ``Keyword`` *Select* in ``LINQ`` und ``SQL`` beides als erstes in einem ``Select-Statement``?
 2) Wird ThenInclude verwendet, um direkte Relationen der Hauptentität zu laden, oder um Relationen von bereits durch Include geladenen Entitäten zu laden? // TODO
 3) Muss bei der Verwendung von asynchronen Methoden (wie ToListAsync) auf einem DbSet der Rückgabetyp der Methode zwingend ein Task (bzw. Task<T>) sein? // TODO
