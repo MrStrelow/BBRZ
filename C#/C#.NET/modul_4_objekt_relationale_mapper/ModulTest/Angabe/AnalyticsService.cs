@@ -29,13 +29,13 @@ namespace Aufgabe_1.Services
             // TODO
         }
 
-        // --- 2. Berechne Bookings welche eine spezifische fligntNumber haben und sortiere das Ergebnis nach BoardingGroup. Verwende Include um Auf den BoardingPass zugreifen zu können.
+        // --- 3. Berechne Bookings welche eine spezifische fligntNumber haben und sortiere das Ergebnis nach BoardingGroup.
         public async Task<List<Booking>> GetPassengerManifestAsync(string flightNumber)
         {
             // TODO
         }
 
-        // --- 3. Berechne wie viele Passagiere "Cleared", "Denied" oder "AdditionalScreening" in einem SecurityCheck hatten. Verwende dazu ein GroupBy, danach ein Select mit g.Key.ToString() und g.Count().
+        // --- 4. Berechne wie viele Passagiere "Cleared", "Denied" oder "AdditionalScreening" in einem SecurityCheck hatten. Verwende dazu ein GroupBy, danach ein Select mit g.Key.ToString() und g.Count().
         public async Task<List<object>> GetSecurityCheckStatsAsync()
         {
             // var stats = ...
