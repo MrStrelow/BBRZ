@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Aufgabe_1.Models.Airport">
+    <Position X="6.25" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgAAAAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Airport.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="BaggageCarousels" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.BaggageClaim">
+    <Position X="3.25" Y="0.75" Width="1.75" />
+    <AssociationLine Name="CurrentFlight" Type="Aufgabe_1.Models.Flight" FixedToPoint="true">
+      <Path>
+        <Point X="3.688" Y="2.43" />
+        <Point X="3.688" Y="3.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.07" Y="0.735" Height="0.182" Width="1.055" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAAgAAABAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BaggabeClaim.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentFlight" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.BoardingPass">
+    <Position X="0.75" Y="7" Width="1.5" />
+    <AssociationLine Name="Booking" Type="Aufgabe_1.Models.Booking" FixedFromPoint="true">
+      <Path>
+        <Point X="2.25" Y="7.697" />
+        <Point X="3.5" Y="7.697" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACACACAAAIAAAAAAAAAAAAAApAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BordingPass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Gate" />
+      <Property Name="Booking" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Flight">
+    <Position X="3.25" Y="3.5" Width="1.75" />
+    <AssociationLine Name="BaggageClaim" Type="Aufgabe_1.Models.BaggageClaim" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="3.5" />
+        <Point X="4.5" Y="3.125" />
+        <Point X="4.49" Y="3.125" />
+        <Point X="4.49" Y="2.43" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.359" Y="0.133" Height="0.182" Width="1.204" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAYCAQAAAAAgAAAAAAAAAACAACAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Flight.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FromAirport" />
+      <Property Name="BaggageClaim" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Gate">
+    <Position X="0.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Gate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Passenger">
+    <Position X="6.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIg=</HashCode>
+      <FileName>Models\Passenger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Aufgabe_1.Models.SecurityCheck">
+    <Position X="6.5" Y="6" Width="1.5" />
+    <AssociationLine Name="Booking" Type="Aufgabe_1.Models.Booking" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="6.469" />
+        <Point X="6.271" Y="6.469" />
+        <Point X="6.271" Y="7.188" />
+        <Point X="5.25" Y="7.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAQAAAAAAAAAAQAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SecurityCheck.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Result" />
+      <Property Name="Booking" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Booking">
+    <Position X="3.5" Y="7" Width="1.75" />
+    <AssociationLine Name="Passenger" Type="Aufgabe_1.Models.Passenger" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.25" Y="8.375" />
+        <Point X="5.49" Y="8.375" />
+        <Point X="5.49" Y="8.84" />
+        <Point X="6.5" Y="8.84" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="BoardingPass" Type="Aufgabe_1.Models.BoardingPass" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.5" Y="8.312" />
+        <Point X="3.088" Y="8.312" />
+        <Point X="3.088" Y="8.312" />
+        <Point X="2.25" Y="8.312" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="LuggageItems" Type="Aufgabe_1.Models.Luggage">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.089" Y="0.466" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAQAAAIAAAACAAAAAAAAAAAIAEAAAAAAAoAA=</HashCode>
+      <FileName>Models\Booking.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Status" />
+      <Property Name="Passenger" />
+      <Property Name="Flight" />
+      <Property Name="BoardingPass" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="LuggageItems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Aufgabe_1.Models.Luggage">
+    <Position X="3.75" Y="10" Width="1.5" />
+    <AssociationLine Name="Booking" Type="Aufgabe_1.Models.Booking">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.859" Y="0.643" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAAAAAAAgAAAABAAAAAAAgAAAAAAAE=</HashCode>
+      <FileName>Models\Luggage.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Booking" />
+      <Property Name="Status" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="Aufgabe_1.Models.LuggageStatus" Collapsed="true">
+    <Position X="6" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAKAAAEAAAAAABAAAAABAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\LuggageStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Aufgabe_1.Models.SecurityResult" Collapsed="true">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\SecurityResult.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Aufgabe_1.Models.BookingStatus" Collapsed="true">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgBAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\BookingStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

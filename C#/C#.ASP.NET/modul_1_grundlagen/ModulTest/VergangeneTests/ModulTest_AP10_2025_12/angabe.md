@@ -74,7 +74,7 @@ Notenschlüssel:
 
 ---
 
-## **Aufgabe_2:** Model, View, Control, Services, ViewModels und DTOs [60 Punkte]
+## **Aufgabe_2:** Model, View, Control, Services, ViewModels und DTOs [80 Punkte]
 ### Programmverständnis [15 / 80 Teilpunkte]
 In folgendem ``Controller`` und ``View`` haben sich ein Fehler eingeschlichen. Finde und behebe diese. Erkläre warum es ein Fehler oder ein konzeptionell falscher Ansatz ist.
 

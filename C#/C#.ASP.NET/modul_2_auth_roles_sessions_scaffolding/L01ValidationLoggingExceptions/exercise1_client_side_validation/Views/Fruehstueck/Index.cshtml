@@ -1,0 +1,288 @@
+﻿@model FruehstueckViewModel
+
+@{
+    ViewData["Title"] = ViewBag.Title;
+}
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
+
+<div class="form-section mb-5">
+    <h2 class="mb-3">Neue Bestellung aufgeben</h2>
+    <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <strong>Bitte korrigieren Sie die folgenden Fehler:</strong>
+                <div asp-validation-summary="All"></div>
+            </div>
+        }
+
+        <div class="mb-4 p-3 border rounded bg-light">
+            <label class="form-label fw-bold d-block">Wie möchten Sie bestellen?</label>
+
+            <div class="form-check form-check-inline">
+                <input asp-for="Order.Type" type="radio" value="TakeIn" class="form-check-input" id="rbTakeIn" onchange="toggleFields()" />
+                <label class="form-check-label" for="rbTakeIn">Im Restaurant</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="Order.Type" type="radio" value="TakeAway" class="form-check-input" id="rbTakeAway" onchange="toggleFields()" />
+                <label class="form-check-label" for="rbTakeAway">Abholung</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="Order.Type" type="radio" value="Delivery" class="form-check-input" id="rbDelivery" onchange="toggleFields()" />
+                <label class="form-check-label" for="rbDelivery">Lieferung</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Order.CustomerId" class="form-label"></label>
+                <select asp-for="Order.CustomerId" class="form-select" asp-items="Model.Customers">
+                    <option value="">-- Bitte Kunden wählen --</option>
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-3" id="sectionTakeIn">
+                <label asp-for="Order.TableId" class="form-label"></label>
+                <select asp-for="Order.TableId" class="form-select" asp-items="Model.Tables">
+                    <option value="">-- Bitte Tisch wählen --</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="sectionDelivery" style="display:none;" class="border p-3 mb-3 bg-white shadow-sm rounded">
+            <h5 class="text-primary">Lieferdetails</h5>
+
+            <div class="mb-3">
+                <label asp-for="Order.DeliveryAddress" class="form-label"></label>
+                <input asp-for="Order.DeliveryAddress" class="form-control" placeholder="Musterstraße 12 10" />
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Order.DeliveryEmail" class="form-label"></label>
+                    <input asp-for="Order.DeliveryEmail" class="form-control" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Order.DeliveryPhone" class="form-label"></label>
+                    <input asp-for="Order.DeliveryPhone" class="form-control" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Order.ExpectedDeliveryDate" class="form-label"></label>
+                <input asp-for="Order.ExpectedDeliveryDate" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">
+                    Menüs auswählen
+                    (<a asp-controller="Menu" asp-action="Create">Menü erstellen</a>)
+                </label>
+                <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
+                    @foreach (var menu in Model.Menus)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="Order.SelectedMenuIds"
+                                   value="@menu.Id"
+                                   id="menu-@menu.Id"
+                                   @(Model.Order.SelectedMenuIds.Contains(menu.Id) ? "checked" : "")>
+                            <label class="form-check-label" for="menu-@menu.Id">
+                                @menu.Name (@menu.Price.ToString("C"))
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Einzelne Gerichte (A la carte)</label>
+                <div class="border rounded p-3 bg-light" style="max-height: 200px; overflow-y: auto;">
+                    @foreach (var dish in Model.Dishes)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="Order.SelectedDishIds"
+                                   value="@dish.Id"
+                                   id="dish-@dish.Id"
+                                   @(Model.Order.SelectedDishIds.Contains(dish.Id) ? "checked" : "")>
+
+                            <label class="form-check-label" for="dish-@dish.Id">
+                                <a asp-controller="Dish" asp-action="Details" asp-route-id="@dish.Id">
+                                    @dish.Name
+                                </a>
+                                (@dish.Price.ToString("C"))
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Bestellung aufgeben</button>
+    </form>
+</div>
+
+<script>
+    function toggleFields() {
+        // Welcher Radio Button ist gewählt?
+        var typeElement = document.querySelector('input[name="Order.Type"]:checked');
+        if (!typeElement) return; // Sicherheitscheck
+
+        var type = typeElement.value;
+        var secTable = document.getElementById('sectionTakeIn');
+        var secDel = document.getElementById('sectionDelivery');
+
+        if (type === 'TakeIn') {
+            secTable.style.display = 'block';
+            secDel.style.display = 'none';
+        } else if (type === 'Delivery') {
+            secTable.style.display = 'none';
+            secDel.style.display = 'block';
+        } else {
+            // TakeAway -> Weder Tisch noch Lieferadresse
+            secTable.style.display = 'none';
+            secDel.style.display = 'none';
+        }
+    }
+
+    // Beim Laden der Seite den korrekten Zustand herstellen (z.B. nach Validierungsfehler)
+    document.addEventListener("DOMContentLoaded", toggleFields);
+</script>
+
+<div class="list-section mt-5">
+    <h2 class="mb-3">Bisherige Rechnungen</h2>
+    @if (Model.Bills.Any())
+    {
+        <div class="accordion" id="billsAccordion">
+            @foreach (var bill in Model.Bills)
+            {
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-@bill.Id">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@bill.Id">
+                            <strong>Rechnung #@bill.Id</strong> &nbsp;
+
+                            @if (bill.Delivery != null)
+                            {
+                                <span class="badge bg-info text-dark me-2">Lieferung</span>
+                                <span>@bill.Delivery.Customer?.Name</span>
+                                @if (bill.Delivery.IsCanceled)
+                                {
+                                    <span class="badge bg-danger ms-2">STORNIERT</span>
+                                }
+                            }
+                            else if (bill.TakeAway != null)
+                            {
+                                <span class="badge bg-warning text-dark me-2">Abholung (Take Away)</span>
+                                <span>@bill.TakeAway.Customer?.Name</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success me-2">Im Restaurant</span>
+                                <span>Tisch @(bill.Visit?.Table?.TableNumber ?? "?") - @bill.Visit?.Customers.FirstOrDefault()?.Name</span>
+                            }
+                            &nbsp;- Betrag: @bill.TotalAmount.ToString("C")
+                        </button>
+                    </h2>
+                    <div id="collapse-@bill.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+                        <div class="accordion-body">
+
+                            <h6>Bestellung:</h6>
+                            <ul>
+                                @{
+                                    // Logik um an die Orders zu kommen, egal welcher Typ
+                                    ICollection<Order> orders = new List<Order>();
+
+                                    if (bill.Visit != null)
+                                    {
+                                        orders = bill.Visit.Orders;
+                                    }
+                                    else if (bill.Delivery != null && bill.Delivery.Order != null)
+                                    {
+                                        orders.Add(bill.Delivery.Order);
+                                    }
+                                    // Achtung: Im Model heißt die Property beim TakeAway "Orders" (plural), ist aber ein einzelnes Objekt
+                                    else if (bill.TakeAway != null && bill.TakeAway.Orders != null)
+                                    {
+                                        orders.Add(bill.TakeAway.Orders);
+                                    }
+                                }
+
+                                @if (!orders.Any())
+                                {
+                                    <li><em>Keine Artikel gefunden (Ladefehler oder leer).</em></li>
+                                }
+
+                                @foreach (var order in orders)
+                                {
+                                    foreach (var menu in order.Menus)
+                                    {
+                                        <li>@menu.Name (Menü) - @menu.Price.ToString("C")</li>
+                                    }
+                                    foreach (var dish in order.Dishes)
+                                    {
+                                        <li>@dish.Name (Gericht) - @dish.Price.ToString("C")</li>
+                                    }
+                                }
+                            </ul>
+
+                            <hr />
+
+                            @if (bill.Delivery != null)
+                            {
+                                <div class="alert alert-light border">
+                                    <h5>Lieferinformationen</h5>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <p><strong>Adresse:</strong> @bill.Delivery.DeliveryAddress</p>
+                                            <p><strong>Bestellzeit:</strong> @bill.Delivery.CreatedDate.ToString("g")</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>
+                                                <strong>Erwartete Lieferzeit:</strong>
+                                                @(bill.Delivery.ExpectedDeliveryDate?.ToString("g") ?? "Nicht angegeben")
+                                            </p>
+                                            <p>
+                                                <strong>Tatsächliche Lieferzeit:</strong>
+                                                @(bill.Delivery.ActualDeliveryDate?.ToString("g") ?? "Noch nicht geliefert")
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <a asp-action="ManageDelivery" asp-route-deliveryId="@bill.Delivery.Id" class="btn btn-primary">
+                                        Lieferung verwalten / Stornieren
+                                    </a>
+                                </div>
+                            }
+                            else if (bill.TakeAway != null)
+                            {
+                                <p><strong>Abholzeit:</strong> @bill.TakeAway.PickupTime.ToString("g")</p>
+                            }
+                            else
+                            {
+                                <p class="text-muted small">Serviert am Tisch @(bill.Visit?.Table?.TableNumber)</p>
+                            }
+
+                            <div class="text-end text-muted small mt-2">
+                                Rechnungsdatum: @bill.BillDate.ToString("g")
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            Noch keine Rechnungen vorhanden.
+        </div>
+    }
+</div>
