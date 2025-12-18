@@ -117,6 +117,7 @@ Wir beginnen damit, eine `.gitignore`-Datei für C# / Visual Studio Projekte hin
 
 ### 2.3 Bubble Sort Algorithmus hinzufügen (UserA) - Erstelle eine Solution mit Projekt in Visual Studio
 >**``Wichtig! Die folgenden Befehle zeigen nur die benötigte Datei an. Falls ihr die Datei in einem Projekt und dadurch die Datein in Unterordner habt, müsst ihr diese Ordner bei den Befehlen berücksichtigen.``**
+
 Erstelle innerhalb des mit git verknüpften Ordners (wo .git Ordner vorkommt) ein Projekt mit Visual Studio. Erstelle eine ``Solution`` mit ``Projekt`` im gleichen Ordner und Nenne dieses ``Solution`` *MyBubbleSortSolution*. Öffne die dort erstelle Datei mit Endung ``.slnx`` oder ``.sln`` mit ``Visual Studio`` (Doppel klick drauf reicht meistens).
 
 1.  **UserA:** Erstelle innerhalb des Projektes eine Datei `BubbleSort.cs` mit folgendem Inhalt (absichtlich ohne die `- j` Optimierung):
