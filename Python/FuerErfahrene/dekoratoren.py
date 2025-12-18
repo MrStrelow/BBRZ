@@ -43,3 +43,24 @@ def business_logik_ohne_para():
 
 business_logik([11,20,30])
 business_logik_ohne_para()
+
+
+
+
+def decorator(funcy): # kümmert sich um aufruf der funtktion funky
+    def wrapper(parameter): # kümmert sich um weitergabe der parameter der funktion funky
+        print("Vor dem Aufruf von funcy")
+        funcy(parameter)
+        print("Nach dem Aufruf von funcy")
+    
+    return wrapper
+
+@decorator(nach_dem_ufruf=True)
+def say_hello(name):
+    print(f"Hello! {name}")
+
+
+# wrappy = decorator(say_hello)
+# wrappy("Babsi")
+
+say_hello("babsi")
