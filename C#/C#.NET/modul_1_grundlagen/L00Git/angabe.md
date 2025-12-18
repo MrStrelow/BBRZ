@@ -1,11 +1,11 @@
 # Git Kollaborations-Übung: Bubble Sort
 
-In dieser Übung werdet ihr als **UserA** und **UserB** an einem gemeinsamen *Repository* arbeiten. Ihr werdet Code hinzufügen, Änderungen verwalten und absichtlich Konflikte erzeugen, um deren Lösung zu lernen.
+In dieser Übung werdet ihr als **UserA** und **UserB** an einem gemeinsamen ``Repository`` arbeiten. Ihr werdet Code hinzufügen, Änderungen verwalten und absichtlich Konflikte erzeugen, um deren Lösung zu lernen.
 
 **Hinweise:** 
     * Ein Github Account wird benötigt. 
     * Git muss installiert sein. 
-    * Auf Github muss ein *Repository* erstellt werden. Pro Gruppe reicht eines.
+    * Auf Github muss ein ``Repository`` erstellt werden. Pro Gruppe reicht eines.
 ---
 
 ## 1. Vorbereitung und Setup
@@ -19,7 +19,7 @@ In dieser Übung werdet ihr als **UserA** und **UserB** an einem gemeinsamen *Re
 
 ### 1.2 Git-Benutzer konfigurieren (Beide User)
 
-Stellt sicher, dass Git weiß, wer ihr seid. Führt diese Befehle mit euren eigenen Daten im Terminal aus.
+Stellt sicher, dass Git weiß, wer ihr seid. Führt diese Befehle mit euren eigenen Daten im Terminal (z.B. ``Git-Bash``) aus.
 
 ```bash
 git config --global user.name "Dein Name"
@@ -28,7 +28,7 @@ git config --global user.email "deine@email.com"
 
 ### 1.3 Repository klonen (Beide User)
 
-Jeder von euch klont nun das Repository auf seinen eigenen Computer.
+Jeder von euch klont nun das Repository auf seinen eigenen Computer. Wähle einen Ordner in der ``Git-Bash``. Verwende dazu ``cd`` um dort hin zu navigieren. ``ls`` listet euch die vorhanden Ordner auf und ``pwd`` zeigt euch den aktuellen Pfad an.
 
 ```bash
 # Ersetze <url_des_repos> mit der URL von GitHub
@@ -49,7 +49,7 @@ cd Git-Uebung-BubbleSort
 
 Wir beginnen damit, eine `.gitignore`-Datei für C# / Visual Studio Projekte hinzuzufügen.
 
-1.  **UserA:** Erstelle eine Datei namens `.gitignore` im Hauptverzeichnis des Projekts. Füge folgenden Inhalt hinzu:
+1.  **UserA:** Erstelle eine Datei namens `.gitignore` (rechts klick im explorer und neue textdatei - öffne mit einem beliebigen texteditor - z.B. VS code oder Notepad). Füge folgenden Inhalt hinzu:
 
     ```
     # .gitignore für C# / Visual Studio
@@ -116,9 +116,10 @@ Wir beginnen damit, eine `.gitignore`-Datei für C# / Visual Studio Projekte hin
     # Your branch is up to date with 'origin/main'.
     ```
 
-### 2.3 Bubble Sort Algorithmus hinzufügen (UserA)
+### 2.3 Bubble Sort Algorithmus hinzufügen (UserA) - Erstelle eine Solution mit Projekt in Visual Studio
+Erstelle innerhalb des mit git verknüpften Ordners (wo .git Ordner vorkommt) ein Projekt mit Visual Studio. Erstelle eine ``Solution`` mit ``Projekt`` im gleichen Ordner und Nenne dieses ``Solution`` *MyBubbleSortSolution*. Öffne die dort erstelle Datei mit Endung ``.slnx`` oder ``.sln`` mit ``Visual Studio`` (Doppel klick drauf reicht meistens).
 
-1.  **UserA:** Erstelle eine Datei `BubbleSort.cs` mit folgendem Inhalt (absichtlich ohne die `- j` Optimierung):
+1.  **UserA:** Erstelle innerhalb des Projektes eine Datei `BubbleSort.cs` mit folgendem Inhalt (absichtlich ohne die `- j` Optimierung):
 
     ```csharp
     using System;
