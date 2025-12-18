@@ -1,9 +1,11 @@
 # Git Kollaborations-Übung: Bubble Sort
 
-In dieser Übung werdet ihr als **UserA** und **UserB** an einem gemeinsamen Repository arbeiten. Ihr werdet Code hinzufügen, Änderungen verwalten und absichtlich Konflikte erzeugen, um deren Lösung zu lernen.
+In dieser Übung werdet ihr als **UserA** und **UserB** an einem gemeinsamen *Repository* arbeiten. Ihr werdet Code hinzufügen, Änderungen verwalten und absichtlich Konflikte erzeugen, um deren Lösung zu lernen.
 
-**Ziel:** Am Ende sollt ihr sicher im Umgang mit dem täglichen Git-Workflow, dem Branching und der Konfliktlösung sein.
-
+**Hinweise:** 
+    * Ein Github Account wird benötigt. 
+    * Git muss installiert sein. 
+    * Auf Github muss ein *Repository* erstellt werden. Pro Gruppe reicht eines.
 ---
 
 ## 1. Vorbereitung und Setup
@@ -15,7 +17,16 @@ In dieser Übung werdet ihr als **UserA** und **UserB** an einem gemeinsamen Rep
 3.  **UserA:** Füge **UserB** als Mitarbeiter hinzu, indem du seinen GitHub-Benutzernamen eingibst.
 4.  **UserB:** Überprüfe deine E-Mails und nimm die Einladung an.
 
-### 1.2 Repository klonen (Beide User)
+### 1.2 Git-Benutzer konfigurieren (Beide User)
+
+Stellt sicher, dass Git weiß, wer ihr seid. Führt diese Befehle mit euren eigenen Daten im Terminal aus.
+
+```bash
+git config --global user.name "Dein Name"
+git config --global user.email "deine@email.com"
+```
+
+### 1.3 Repository klonen (Beide User)
 
 Jeder von euch klont nun das Repository auf seinen eigenen Computer.
 
@@ -25,18 +36,10 @@ git clone <url_des_repos>
 cd Git-Uebung-BubbleSort
 ```
 
-### 1.3 Git-Benutzer konfigurieren (Beide User)
-
-Stellt sicher, dass Git weiß, wer ihr seid. Führt diese Befehle mit euren eigenen Daten im Terminal aus.
-
-```bash
-git config --global user.name "Dein Name"
-git config --global user.email "deine@email.com"
-```
 
 **Hinweis zu HTTPS vs. SSH:**
 * **HTTPS:** Verwendet eine URL wie `https://github.com/...`. Bei jedem Push werdet ihr nach eurem GitHub-Benutzernamen und einem Personal Access Token (PAT) gefragt.
-* **SSH:** Verwendet eine URL wie `git@github.com:...`. Dies erfordert die Einrichtung von SSH-Schlüsseln, ist aber danach passwortlos. Für diese Übung sind beide Methoden in Ordnung.
+* **SSH:** Verwendet eine URL wie `git@github.com:...`. Dies erfordert die Einrichtung von SSH-Schlüsseln, ist aber danach passwortlos. Für diese Übung wird HTTPS empfohlen.
 
 ---
 
@@ -63,6 +66,10 @@ Wir beginnen damit, eine `.gitignore`-Datei für C# / Visual Studio Projekte hin
 
     # Rider
     .idea/
+
+    # VS
+    .vs/
+    
     ```
 
 2.  **UserA:** Überprüfe den Status.
