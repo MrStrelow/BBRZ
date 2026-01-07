@@ -10,6 +10,8 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 | Exercise | Repository | Angabe | Abgabefrist |
 | :--- | :--- | :--- | :--- |
 |  | [Repository](https://classroom.github.com/a/Ltn4_bvU) | [Angabe](L01ValidationLoggingExceptions/exercise1_bad_design_mit_client_side_validation/angabe.md) |  Woche - |
+|  | [Repository](https://classroom.github.com/a/OrLsxf4w) | [Angabe](L01PartialViewsValidationMiddleWare/exercise2_cs_val_better_design_with_partial_views/angabe.md) |  Woche - |
+
 
 
 ### **Alte Prüfungen zum Üben**
