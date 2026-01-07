@@ -1,0 +1,22 @@
+﻿@model FruehstuecksBestellungMVC.Models.Bill
+
+<div class="accordion-item border-success">
+    <h2 class="accordion-header" id="heading-@Model.Id">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@Model.Id">
+            <strong>Rechnung #@Model.Id</strong> &nbsp;
+            <span class="badge bg-success me-2">Im Restaurant</span>
+            <span>Tisch @(Model.Visit?.Table?.TableNumber ?? "?")</span>
+            &nbsp;- @Model.TotalAmount.ToString("C")
+        </button>
+    </h2>
+    <div id="collapse-@Model.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+        <div class="accordion-body">
+            @* Visit has a collection of Orders, so logic differs slightly, or we flatten it in ViewModel *@
+            @foreach (var order in Model.Visit.Orders)
+            {
+                <partial name="_BillOrderItems" model="order" />
+            }
+            <div class="text-end text-muted small mt-2">@Model.BillDate.ToString("g")</div>
+        </div>
+    </div>
+</div>

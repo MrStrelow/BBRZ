@@ -1,0 +1,9 @@
+﻿@model FruehstueckViewModel
+
+<div id="sectionTakeIn" class="mb-3" style="display:none;">
+    <label asp-for="Order.TableId" class="form-label"></label>
+
+    <select asp-for="Order.TableId" class="form-select" asp-items="Model.Tables">
+        <option value="">-- Bitte Tisch wählen --</option>
+    </select>
+</div>

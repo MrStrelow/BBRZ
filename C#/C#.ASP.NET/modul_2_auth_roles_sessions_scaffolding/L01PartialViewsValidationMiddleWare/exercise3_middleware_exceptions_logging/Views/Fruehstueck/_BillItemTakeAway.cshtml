@@ -1,0 +1,20 @@
+﻿@model FruehstuecksBestellungMVC.Models.Bill
+
+<div class="accordion-item border-warning">
+    <h2 class="accordion-header" id="heading-@Model.Id">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@Model.Id">
+            <strong>Rechnung #@Model.Id</strong> &nbsp;
+            <span class="badge bg-warning text-dark me-2">Abholung</span>
+            <span>@Model.TakeAway.Customer?.Name</span>
+            &nbsp;- @Model.TotalAmount.ToString("C")
+        </button>
+    </h2>
+    <div id="collapse-@Model.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+        <div class="accordion-body">
+            <partial name="_BillOrderItems" model="Model.TakeAway.Orders" />
+            <hr />
+            <p><strong>Abholzeit:</strong> @Model.TakeAway.PickupTime.ToString("g")</p>
+            <div class="text-end text-muted small">@Model.BillDate.ToString("g")</div>
+        </div>
+    </div>
+</div>
