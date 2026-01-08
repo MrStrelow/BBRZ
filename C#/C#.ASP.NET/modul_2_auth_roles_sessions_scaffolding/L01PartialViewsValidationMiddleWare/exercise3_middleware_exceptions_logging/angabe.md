@@ -1,29 +1,6 @@
 # Exercise 3: View-Refactoring & Resilience (Exceptions & Logging)
 
-In dieser Übung werden wir die monolithische View aufbrechen, die Anwendung durch zentrales Fehlerhandling robuster machen und verschiedene Fehlerkategorien sauber implementieren.
-
-## Teil A: Refactoring zu Partial Views
-
-(Dieser Teil bleibt bestehen - siehe vorherige Version für Details zu `_OrderSectionTakeIn`, `Full Model Passing` etc.)
-
----
-
-## Teil B: Kategorie 1 - Input Validation (Model & Controller)
-
-Diese Fehler sind "billig" und sollen den Service gar nicht erst erreichen. Sie werden durch Data Annotations geprüft.
-
-### Aufgabe
-Stellen Sie sicher, dass im `OrderViewModel` folgende Validierungen greifen und die **roten Fehlermeldungen** im Formular (ohne Neuladen der Seite!) erscheinen:
-
-1.  **Pflichtfelder:** `CustomerId` darf nicht leer sein.
-2.  **Format:** `DeliveryEmail` muss eine gültige E-Mail-Adresse sein.
-3.  **Logik (IValidatableObject):** Wenn `Type == Delivery`, muss ein `ExpectedDeliveryDate` gesetzt sein.
-
-*Testen Sie dies, indem Sie das Formular leer absenden. Es darf keine Exception fliegen, sondern es müssen rote Hinweise an den Feldern erscheinen.*
-
----
-
-## Teil C: Kategorie 2 - Business Exceptions (Service -> Middleware)
+## Business Exceptions (Service -> Middleware)
 
 Diese Fehler treten auf, wenn die Daten zwar formal korrekt sind (z.B. ID ist eine Zahl), aber fachlich keinen Sinn ergeben (z.B. ID existiert nicht). Wir wollen den User mit einer **gelben Warnung** auf der Seite behalten.
 
@@ -47,7 +24,7 @@ In `UpdateDeliveryAsync`: Prüfen Sie vor dem Stornieren (`IsCanceled = true`), 
 * *Fehler:* "Bereits ausgelieferte Bestellungen können nicht mehr storniert werden."
 
 #### Szenario 3: Geschäftsregel (Der Unglückstisch)
-In `CreateOrderAsync` (Zweig `TakeIn`): Wir simulieren eine Geschäftsregel. Tisch Nummer 13 darf niemals gebucht werden.
+Mangels komplexerer businesslogik hier eine komische Businessregel. In `CreateOrderAsync` (Zweig `TakeIn`): Wir simulieren eine Geschäftsregel. Tisch Nummer (id) 13 darf niemals gebucht werden.
 * *Code:* `if (orderDto.TableId == 13) throw new FruehstueckBusinessException("Tisch 13 ist wegen Aberglaube gesperrt.");`
 * *Fehler:* "Tisch 13 ist gesperrt."
 
@@ -58,7 +35,7 @@ In `CreateOrderAsync` (Zweig `TakeIn`): Wir simulieren eine Geschäftsregel. Tis
 Diese Fehler sind unerwartet (Bug, Server-Ausfall). Der User kann nichts tun. Er soll auf die **rote Error-Page** geleitet werden.
 
 ### Aufgabe
-Wir simulieren einen technischen Defekt beim Bildupload in `UpdateDeliveryAsync`.
+Wir simulieren einen technischen Defekt beim Bildupload in `UpdateDeliveryAsync`. Diesr passiert mit einer Wahrscheinlichkeit von 50% wenn ein Bild hochgeladen wird.
 
 1.  Fügen Sie einen `try-catch` Block um den File-Stream-Code beim Speichern des Bildes hinzu.
 2.  Werfen Sie im `catch`-Block (oder zu Testzwecken direkt) eine **neue, generische Exception**:
