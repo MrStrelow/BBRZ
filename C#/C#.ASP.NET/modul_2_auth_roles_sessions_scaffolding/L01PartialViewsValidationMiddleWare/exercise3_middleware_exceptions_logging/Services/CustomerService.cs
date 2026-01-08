@@ -56,7 +56,9 @@ public class CustomerService
 
         if (orderDto.Type == OrderType.TakeIn)
         {
-            if (orderDto.TableId == 13)
+            var simulation = new Random().NextDouble() < 0.5;
+
+            if (orderDto.TableId == 13 || simulation)
             {
                 throw new FruehstueckBusinessException("Tisch 13 ist wegen Aberglaube gesperrt.");
             }

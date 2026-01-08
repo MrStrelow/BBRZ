@@ -48,9 +48,16 @@ public class FruehstueckController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string? error)
     {
         ViewBag.Title = "Frühstücksbestellung";
+
+        // Wenn ein Error übergeben wurde (z.B. von der Middleware), fügen wir ihn hinzu
+        if (!string.IsNullOrEmpty(error))
+        {
+            // Fügt den Fehler dem ModelState hinzu, damit asp-validation-summary ihn anzeigt
+            ModelState.AddModelError("", error);
+        }
 
         // Ersetzt das Tupel: Ein sauberes ViewModel erstellen
         var viewModel = new FruehstueckViewModel();

@@ -20,17 +20,14 @@ var app = builder.Build();
 
 // Bestehendes Error Handling für Production anpassen/entfernen, da unsere Middleware übernimmt
 // sage dass der ErrorController sich um den Aufruf der ErrorView kümmert.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     // Error/Error ist die Anweisung:
     // * das 1. Error bedeutet ErrorController verwenden
     // * das 2. Error bedeutet Error Methode im ErrorController verwenden
     app.UseExceptionHandler("/Error/Error"); // Fängt alle übrigen Exceptions
     app.UseHsts();
-}
-else
-{
-    app.UseDeveloperExceptionPage(); // Zeigt Stacktrace im Browser
+    //app.UseDeveloperExceptionPage(); // Zeigt Stacktrace im Browser
 }
 
 // --> HIER EINFÜGEN: Unsere Middleware <--
