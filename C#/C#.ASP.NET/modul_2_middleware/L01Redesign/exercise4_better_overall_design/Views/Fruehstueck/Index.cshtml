@@ -1,0 +1,124 @@
+﻿@model FruehstueckViewModel
+@{
+    ViewData["Title"] = "Frühstücksbestellung";
+}
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
+
+<div class="form-section mb-5">
+    <h2 class="mb-3">Neue Bestellung aufgeben</h2>
+    <form asp-controller="Fruehstueck" asp-action="Bestellen" method="post">
+
+        @*verwende in der css die von asp.net geneierte klasse .validation-summary-valid. 
+        wir blenden es aus wenn es leer ist*@
+        <div asp-validation-summary="All" class="alert alert-danger mb-3"></div>
+
+        @* --- 1. Order Type Selection --- *@
+        <div class="mb-4 p-3 border rounded bg-light">
+            <label class="form-label fw-bold d-block">Wie möchten Sie bestellen?</label>
+            <div class="form-check form-check-inline">
+                <input asp-for="Order.Type" type="radio" value="TakeIn" class="form-check-input" onchange="toggleFields()" />
+                <label class="form-check-label">Im Restaurant</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="Order.Type" type="radio" value="TakeAway" class="form-check-input" onchange="toggleFields()" />
+                <label class="form-check-label">Abholung</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input asp-for="Order.Type" type="radio" value="Delivery" class="form-check-input" onchange="toggleFields()" />
+                <label class="form-check-label">Lieferung</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Order.CustomerId" class="form-label"></label>
+                <select asp-for="Order.CustomerId" class="form-select" asp-items="Model.Customers">
+                    <option value="">-- Bitte Kunden wählen --</option>
+                </select>
+            </div>
+
+            @* --- 2. Dynamic Sections (Partials) --- *@
+            <div class="col-md-6">
+                @* Use ViewData to pass the dropdown list to the partial *@
+                <partial name="_OrderSectionTakeIn" model="Model" />
+            </div>
+        </div>
+
+        @* Delivery Section *@
+        <partial name="_OrderSectionDelivery" model="Model" />
+
+        @* --- 3. Food Selection (Could also be a partial) --- *@
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Menüs</label>
+                <div class="border rounded p-3 bg-light overflow-auto" style="max-height: 200px;">
+                    @foreach (var menu in Model.Menus)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="Order.SelectedMenuIds" value="@menu.Id"
+                                   id="menu-@menu.Id" @(Model.Order.SelectedMenuIds.Contains(menu.Id) ? "checked" : "")>
+                            <label class="form-check-label" for="menu-@menu.Id">@menu.Name (@menu.Price.ToString("C"))</label>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Gerichte</label>
+                <div class="border rounded p-3 bg-light overflow-auto" style="max-height: 200px;">
+                    @foreach (var dish in Model.Dishes)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="Order.SelectedDishIds" value="@dish.Id"
+                                   id="dish-@dish.Id" @(Model.Order.SelectedDishIds.Contains(dish.Id) ? "checked" : "")>
+                            <label class="form-check-label" for="dish-@dish.Id">@dish.Name (@dish.Price.ToString("C"))</label>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Bestellung aufgeben</button>
+    </form>
+</div>
+
+<div class="list-section mt-5">
+    <h2 class="mb-3">Bisherige Rechnungen</h2>
+    @if (Model.Bills.Any())
+    {
+        <div class="accordion" id="billsAccordion">
+            @foreach (var bill in Model.Bills)
+            {
+                string partialName = "_BillItemRestaurant";
+                if (bill.Delivery != null) { partialName = "_BillItemDelivery"; }
+                else if (bill.TakeAway != null) { partialName = "_BillItemTakeAway"; }
+
+                // Geht auch mit einer Variable -> für if-else angenehm
+                <partial name="@partialName" model="bill" />
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">Noch keine Rechnungen vorhanden.</div>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+@* JS remains mostly same, just toggling the IDs provided in the Partials *@
+<script>
+    function toggleFields() {
+        var type = document.querySelector('input[name="Order.Type"]:checked')?.value;
+        var secTable = document.getElementById('sectionTakeIn');
+        var secDel = document.getElementById('sectionDelivery');
+
+        if (!secTable || !secDel) return;
+
+        secTable.style.display = (type === 'TakeIn') ? 'block' : 'none';
+        secDel.style.display = (type === 'Delivery') ? 'block' : 'none';
+    }
+    document.addEventListener("DOMContentLoaded", toggleFields);
+</script>

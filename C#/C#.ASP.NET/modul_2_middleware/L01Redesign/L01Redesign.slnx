@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="exercise1_new_model_bad_view/exercise1_new_model_bad_view.csproj" />
+  <Project Path="exercise2_better_view_und_cs_val/exercise2_better_view_und_cs_val.csproj" />
+  <Project Path="exercise3_exceptions_logging/exercise3_exceptions_logging.csproj" />
+  <Project Path="exercise4_better_overall_design/exercise4_better_overall_design.csproj" />
+</Solution>

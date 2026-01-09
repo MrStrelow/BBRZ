@@ -1,0 +1,18 @@
+﻿@model OrderViewModel
+@* Benötigt Zugriff auf die Listen der Gerichte - wir können diese via ViewData oder Erweiterung des BaseModels übergeben *@
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Menüs</h4>
+        @* Hier Iteration über Menüs (Daten müssen verfügbar gemacht werden, z.B. via ViewBag oder Service Injection in View) *@
+        @foreach(var menu in (List<Menu>)ViewData["AllMenus"]) {
+             <input type="checkbox" name="SelectedMenuIds" value="@menu.Id" /> @menu.Name
+        }
+    </div>
+    <div class="col-md-6">
+        <h4>Gerichte</h4>
+        @foreach(var dish in (List<Dish>)ViewData["AllDishes"]) {
+             <input type="checkbox" name="SelectedDishIds" value="@dish.Id" /> @dish.Name
+        }
+    </div>
+</div>
