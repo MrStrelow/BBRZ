@@ -1,6 +1,64 @@
-<Solution>
-  <Project Path="exercise1_new_model_bad_view/exercise1_new_model_bad_view.csproj" />
-  <Project Path="exercise2_better_view_und_cs_val/exercise2_better_view_und_cs_val.csproj" />
-  <Project Path="exercise3_exceptions_logging/exercise3_exceptions_logging.csproj" />
-  <Project Path="exercise4_better_overall_design/exercise4_better_overall_design.csproj" />
-</Solution>
+if (IstAktiv)
+{
+    if (Alter >= 21)
+    {
+        if (!string.IsNullOrEmpty(Kundenkarte))
+        {
+            if (MitgliedschaftGueltigBis > DateTime.Now)
+            {
+                if (Produkt.IstPremium)
+                {
+                    if (Bestellhistorie > 20)
+                    {
+                        if (Produkt.Preis > Budget)
+                        {
+                            throw new InvalidOperationException("❗ Kunde darf das Premium-Produkt nicht kaufen. Zu wenig Geld.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("✅ Kunde hat mehr als 20 Bestellungen. Dieser Kunde darf Premium-Produkte kaufen.");
+                        }
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("❗ Kunde hat zu wenig Bestellungen für Premium-Produkte.");
+                    }
+                }
+                else
+                {
+                    if (Produkt.Preis > Budget)
+                    {
+                        if (IstKreditwürdig)
+                        {
+                            Console.WriteLine("✅ Kunde hat einen Kredit. Dieser Kunde darf das Produkt kaufen.");
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("❗ Kunde benötigt einen Kredit, da das Produkt zu teuer ist.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("✅ Kunde darf das Produkt kaufen.");
+                    }
+                }
+            }
+            else
+            {
+                throw new InvalidOperationException("❗ Die Mitgliedschaft des Kunden ist abgelaufen.");
+            }
+        }
+        else
+        {
+            throw new InvalidOperationException("❗ Kunde wird gefragt ob eine Kundenkarte erwünscht ist. Diese:r ist generft und geht aus dem Geschäft.");
+        }
+    }
+    else
+    {
+        throw new InvalidOperationException("❗ Kunde muss mindestens 21 Jahre alt sein.");
+    }
+}
+else
+{
+    throw new InvalidOperationException("❗ Kunde ist nicht aktiv.");
+}

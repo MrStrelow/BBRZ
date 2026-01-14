@@ -76,7 +76,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Aufgabe_1.Models.Passenger">
-    <Position X="6.5" Y="8.25" Width="1.5" />
+    <Position X="6.75" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIg=</HashCode>
       <FileName>Models\Passenger.cs</FileName>
@@ -107,8 +107,8 @@
       <Path>
         <Point X="5.25" Y="8.375" />
         <Point X="5.49" Y="8.375" />
-        <Point X="5.49" Y="8.84" />
-        <Point X="6.5" Y="8.84" />
+        <Point X="5.49" Y="9.59" />
+        <Point X="6.75" Y="9.59" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="BoardingPass" Type="Aufgabe_1.Models.BoardingPass" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -140,9 +140,14 @@
   </Class>
   <Class Name="Aufgabe_1.Models.Luggage">
     <Position X="3.75" Y="10" Width="1.5" />
+    <AssociationLine Name="Status" Type="Aufgabe_1.Models.LuggageStatus">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.685" Y="0.118" />
+      </MemberNameLabel>
+    </AssociationLine>
     <AssociationLine Name="Booking" Type="Aufgabe_1.Models.Booking">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.859" Y="0.643" />
+        <Position X="-0.751" Y="1.076" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -150,25 +155,25 @@
       <FileName>Models\Luggage.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Booking" />
       <Property Name="Status" />
+      <Property Name="Booking" />
     </ShowAsAssociation>
   </Class>
-  <Enum Name="Aufgabe_1.Models.LuggageStatus" Collapsed="true">
-    <Position X="6" Y="11" Width="1.5" />
+  <Enum Name="Aufgabe_1.Models.LuggageStatus">
+    <Position X="6" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAKAAAEAAAAAABAAAAABAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Models\LuggageStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Aufgabe_1.Models.SecurityResult" Collapsed="true">
-    <Position X="8.75" Y="6.5" Width="1.5" />
+  <Enum Name="Aufgabe_1.Models.SecurityResult">
+    <Position X="8.75" Y="6.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Models\SecurityResult.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Aufgabe_1.Models.BookingStatus" Collapsed="true">
+  <Enum Name="Aufgabe_1.Models.BookingStatus">
     <Position X="6" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgBAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
