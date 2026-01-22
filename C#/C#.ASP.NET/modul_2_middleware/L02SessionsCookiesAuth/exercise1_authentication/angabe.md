@@ -4,6 +4,45 @@ In diesem Schritt erweitern wir die Authentifizierung um konkrete Berechtigungen
 
 ---
 
+### 0. Vorbereitung
+1) Installiere die Verbindung zur Datenbank mit Login/Authenitcation/Authorisation.
+```bash
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+```
+2) Ändere im ApplicationContext die Ist-Beziehung auf folgendes:
+```csharp
+public class ApplicationDbContext : IdentityDbContext
+{
+    ...
+}
+```
+
+3) Konfiguriere die Services im Programm.cs.
+```csharp
+using FruehstuecksBestellungMVC.Data;
+using FruehstuecksBestellungMVC.Services;
+using FruehstuecksBestellungMVC.Middleware;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity; // Neu
+using Microsoft.AspNetCore.Authorization; // Neu
+using Microsoft.AspNetCore.Mvc.Authorization; // Neu
+
+var builder = WebApplication.CreateBuilder(args);
+... // Was für passwort regegl will ich? AddIdentity
+... // Erlaube iene Zugriffsverhinderung wenn nicht eingeloggt -> genaueres wird im Controller festgelegt!mit z.B. [AllowAnonymous] Attribut.
+
+... 
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+... // Authentication Middleware hinzufügen (VOR Authorization)
+
+app.Run();
+```
+
+
 ## 1. Rollen anlegen ("Admin")
 Damit wir zwischen normalen Nutzern und Administratoren unterscheiden können, müssen wir das Rollen-System von ASP.NET Core Identity nutzen.
 
@@ -26,7 +65,16 @@ Versehen Sie den `DishController` (oder spezifische Actions darin, wie Create/Ed
 
 ---
 
-## 3. Testen & Verifizieren
+## 3. View
+Erstelle eine View welche den Login und passwort übernimmt und an den Controller schickt.
+Dieses html soll ohne login erreichbar sein!
+
+---
+
+## 4. Änderunen in die Datenbank übernehmen
+Es werden neue Tabellen in der Datenbank angelegt. Verwende update, add migration, etc. um diese in der Datenbank zu übernehmen.
+
+## 5. Testen & Verifizieren
 
 Führen Sie die folgenden Tests durch, um sicherzustellen, dass die Sicherheitsmechanismen greifen.
 
