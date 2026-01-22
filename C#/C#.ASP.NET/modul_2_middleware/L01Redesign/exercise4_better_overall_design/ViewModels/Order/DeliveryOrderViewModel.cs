@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FruehstuecksBestellungMVC.ViewModels.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace FruehstuecksBestellungMVC.ViewModels;
 
@@ -16,6 +17,6 @@ public class DeliveryOrderViewModel : OrderViewModel
     public string DeliveryPhone { get; set; } = string.Empty;
 
     [Required]
-    [Date(ErrorMessage = "Lieferdatum muss in der Zukunft liegen.")] // Custom Attribute
+    [FutureDate(ErrorMessage = "Lieferdatum muss in der Zukunft liegen.")] // Custom Attribute!
     public DateTime? ExpectedDeliveryDate { get; set; }
 }

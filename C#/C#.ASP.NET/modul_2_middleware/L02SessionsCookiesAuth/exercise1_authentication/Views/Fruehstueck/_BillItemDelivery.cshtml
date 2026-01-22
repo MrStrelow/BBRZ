@@ -1,0 +1,31 @@
+﻿@model FruehstuecksBestellungMVC.Models.Bill
+
+<div class="accordion-item border-info">
+    <h2 class="accordion-header" id="heading-@Model.Id">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@Model.Id">
+            <strong>Rechnung #@Model.Id</strong> &nbsp;
+            <span class="badge bg-info text-dark me-2">Lieferung</span>
+            <span>@Model.Delivery.Customer?.Name</span>
+            @if (Model.Delivery.IsCanceled)
+            {
+                <span class="badge bg-danger ms-2">STORNIERT</span>
+            }
+            &nbsp;- @Model.TotalAmount.ToString("C")
+        </button>
+    </h2>
+    <div id="collapse-@Model.Id" class="accordion-collapse collapse" data-bs-parent="#billsAccordion">
+        <div class="accordion-body">
+            @* Re-use a small shared partial for the list of items if needed, or inline it here cleanly *@
+            <partial name="_BillOrderItems" model="Model.Delivery.Order" />
+
+            <hr />
+            <div class="alert alert-light border">
+                <h5>Lieferinformationen</h5>
+                <p><strong>Adresse:</strong> @Model.Delivery.DeliveryAddress</p>
+                <p><strong>Status:</strong> @(Model.Delivery.ActualDeliveryDate.HasValue ? "Geliefert" : "Ausstehend")</p>
+                <a asp-action="ManageDelivery" asp-route-deliveryId="@Model.Delivery.Id" class="btn btn-sm btn-primary">Verwalten</a>
+            </div>
+            <div class="text-end text-muted small">@Model.BillDate.ToString("g")</div>
+        </div>
+    </div>
+</div>

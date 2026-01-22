@@ -1,0 +1,26 @@
+﻿@model FruehstueckViewModel
+
+<div id="sectionDelivery" class="border p-3 mb-3 bg-white shadow-sm rounded" style="display:none;">
+    <h5 class="text-primary">Lieferdetails</h5>
+
+    <div class="mb-3">
+        <label asp-for="Order.DeliveryAddress" class="form-label"></label>
+        <input asp-for="Order.DeliveryAddress" class="form-control" placeholder="Musterstraße 12 10" />
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Order.DeliveryEmail" class="form-label"></label>
+            <input asp-for="Order.DeliveryEmail" class="form-control" />
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="Order.DeliveryPhone" class="form-label"></label>
+            <input asp-for="Order.DeliveryPhone" class="form-control" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Order.ExpectedDeliveryDate" class="form-label"></label>
+        <input asp-for="Order.ExpectedDeliveryDate" class="form-control" />
+    </div>
+</div>

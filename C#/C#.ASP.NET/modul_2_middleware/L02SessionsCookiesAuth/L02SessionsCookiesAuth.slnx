@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="exercise1_authentication\exercise1_authentication.csproj" />
+</Solution>
