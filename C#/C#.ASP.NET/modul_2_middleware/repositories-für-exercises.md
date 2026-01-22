@@ -14,12 +14,12 @@ Verwendet diese Links, um ``Repositories`` für die Abgaben der Exercises im Mod
 |  | [Repository](https://classroom.github.com/a/IMqSFJE9) | [Angabe](L01Redesign/exercise3_exceptions_logging/angabe.md) |  Woche - |
 |  | TODO[Repository](https://classroom.github.com/a/IMqSFJE9) | [Angabe](L01Redesign/exercise4_better_view_models/angabe.md) |  Woche - |
 
-### **L01Redesign**
+### **L02SessionsCookiesAuthenticationAuthorisation**
 
 | Exercise | Repository | Angabe | Abgabefrist |
 | :--- | :--- | :--- | :--- |
 |  | [Repository](https://classroom.github.com/a/7aU0xeKi) | [Angabe](L02SessionsCookiesAuth/exercise1_authentication/angabe.md) |  Woche - |
-https://classroom.github.com/a/7aU0xeKi
+|  | [Repository](https://classroom.github.com/a/8091Pw8z) | [Angabe](L02SessionsCookiesAuth/exercise2_authorisation/angabe.md) |  Woche - |
 
 ### **Alte Prüfungen zum Üben**
 

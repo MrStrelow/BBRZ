@@ -1,0 +1,12 @@
+﻿@model FruehstuecksBestellungMVC.Models.Order
+@* Helper to print list items *@
+<ul>
+    @foreach (var menu in Model.Menus)
+    {
+        <li>@menu.Name (Menü) - @menu.Price.ToString("C")</li>
+    }
+    @foreach (var dish in Model.Dishes)
+    {
+        <li>@dish.Name (Gericht) - @dish.Price.ToString("C")</li>
+    }
+</ul>
