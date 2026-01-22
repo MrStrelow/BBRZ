@@ -1,83 +1,161 @@
-# Übung: Rollenbasierte Autorisierung (User vs. Admin) und Passwort-Reset
+# Übung: Authentifizierung + Autorisierung (mehr rollen)
 
-In dieser Übung erweitern wir das System um zwei Rollen: **"User"** und **"Admin"**. Wir implementieren unterschiedliche Berechtigungen für Bestellungen und fügen Sicherheitsfeatures wie Registrierung und Passwort-Wiederherstellung hinzu.
-
----
-
-## 1. Registrierung für neue Benutzer
-Bisher haben wir nur mit festen Test-Usern gearbeitet. Nun soll sich jeder registrieren können.
-
-**Aufgabe:**
-* Stellen Sie sicher, dass die **Registrierungsseite** (`/Identity/Account/Register`) erreichbar ist und funktioniert.
-* Neue Benutzer, die sich hier registrieren, sollen standardmäßig **keine** Admin-Rechte haben (automatisch Rolle "User" oder gar keine Rolle, je nach Implementierung, aber keinesfalls "Admin").
+## Zielsetzung
+Erweitern Sie das bestehende Frühstücks-Bestellsystem um eine Benutzerverwaltung. Das Ziel ist es, die Anwendung so abzusichern, dass nur authentifizierte Nutzer Zugriff haben. Zusätzlich sollen spezifische Geschäftsregeln basierend auf Rollen (`Admin` vs. `User`) implementiert werden.
 
 ---
 
-## 2. Erstellung des "Test-Admins" (Seeding per Knopfdruck)
-Um das Testen zu erleichtern, erstellen wir eine schnelle Möglichkeit, einen Administrator anzulegen.
+## Teil A: Aufgabenstellung
 
-**Aufgabe:**
-* Erstellen Sie in einem Controller (z. B. `HomeController` oder `AdminController`) eine Action `CreateTestAdmin`.
-* Verlinken Sie diese Action temporär auf der Startseite oder im Footer.
-* **Logik dieser Action:**
-    1.  Prüfen, ob die Rolle **"Admin"** und die Rolle **"User"** existieren. Falls nicht -> Erstellen (`RoleManager`).
-    2.  Prüfen, ob ein User mit der E-Mail `admin@restaurant.at` existiert.
-    3.  Falls nicht -> User erstellen und ihm **beide Rollen** ("User" und "Admin") zuweisen.
-    4.  Falls er schon existiert -> Sicherstellen, dass er die Rolle "Admin" hat.
+### Hinweis:
+Die datenbank sollte aus der vorherigen übung schon mit der authentication versehen worden sein. Falls nicht, vergiss nicht die änderungen durch Identity.Efcore in die datenbank zu übernehmen! Davor muss auch das nuget packet installiert werden für Idenity.EfCore. Siehe unten.
 
----
+### 1. Identity Konfiguration & Globaler Schutz
+Die Anwendung ist aktuell für jeden zugänglich. Das soll geändert werden.
+* Konfigurieren Sie **ASP.NET Core Identity** in der `Program.cs`.
+* **Globaler Login-Zwang:** Sorgen Sie dafür, dass **alle** Controller und Actions standardmäßig eine Authentifizierung erfordern (nutzen Sie `AddControllersWithViews` Optionen).
+* Stellen Sie sicher, dass Login, Registrierung und Fehlerseiten (`[AllowAnonymous]`) erreichbar bleiben.
 
-## 3. Autorisierung der Bestellungen (Die Geschäftslogik)
-Hier implementieren wir die eigentliche Unterscheidung.
+### 2. Registrierung & Login
+* Erstellen Sie einen `AccountController` (falls noch nicht vorhanden) und die passenden ViewModels.
+* Implementieren Sie **Login**, **Logout** und **Registrierung**.
+* Neue User erhalten automatisch die Rolle **"User"**.
+* Implementieren Sie **Passwort vergessen** mit einem `MockEmailSender` (Log-Ausgabe statt echter E-Mail).
 
-**Szenario:**
-* **Rolle "User":** Darf normale Bestellungen aufgeben (z. B. Abholung / Dine-In), aber **keine** Lieferungen (Delivery) anlegen.
-* **Rolle "Admin":** Darf **alle** Arten von Bestellungen aufgeben, auch Lieferungen.
+### 3. Rollenmanagement
+* Erstellen Sie eine Hilfs-Methode `/Account/CreateTestUser`.
+* Diese soll einen User `admin@test.at` (PW: `admin`) erstellen und der Rolle **"Admin"** zuweisen.
 
-**Wichtige Einschränkung (Constraint):**
-Die Benutzeroberfläche (GUI/Views) darf **NICHT** verändert werden!
-* Der Button/Link für "Lieferung" (Delivery) muss für den normalen User **sichtbar bleiben**.
-* Wir verstecken den Button nicht. Wir lassen den User klicken, aber der Server muss ihn stoppen.
-
-**Aufgabe:**
-1.  Identifizieren Sie die Controller-Action, die für das Speichern/Anlegen einer **Lieferung** zuständig ist (z. B. `OrdersController.CreateDelivery` oder ähnlich).
-2.  Schützen Sie diese spezifische Action mit dem `[Authorize]`-Attribut.
-3.  Konfigurieren Sie das Attribut so, dass **nur** Benutzer mit der Rolle **"Admin"** Zugriff haben.
-    * *Beispiel-Syntax:* `/'''csharp [Authorize(Roles = "Admin")] /'''`
-4.  Normale Bestellungen (Create Order) sollen für alle eingeloggten Benutzer (`[Authorize]`) möglich sein.
+### 4. Geschäftsregeln (Autorisierung)
+* **User:** Darf bestellen, aber **KEINE Lieferung (Delivery)**.
+* **Admin:** Darf alles bestellen.
+* **Implementierung:** Prüfung im `FruehstueckController`. Bei Verstoß: `ModelState`-Fehler anzeigen (kein Redirect, GUI bleibt gleich).
+* **Access Denied:** Unbefugte Zugriffe (401/403) sollen auf eine freundliche `/Account/AccessDenied` Seite leiten.
 
 ---
 
-## 4. Passwort-Wiederherstellung (Forgot Password)
-Ein professionelles System benötigt einen Prozess, falls ein User sein Passwort vergisst.
+## Teil B: Technische Referenz & Code-Änderungen
 
-**Aufgabe:**
-* Aktivieren Sie die Token-Provider in Ihrer `Program.cs` bei der Identity-Konfiguration:
-    `/'''csharp builder.Services.AddIdentity<...>().AddDefaultTokenProviders()... /'''`
-* Stellen Sie sicher, dass in der Login-Maske ein Link "Passwort vergessen?" existiert.
-* Hinterlegen Sie einen (Dummy-) `IEmailSender`, damit die Anwendung keinen Fehler wirft, wenn sie versucht, eine E-Mail zu senden (für diese Übung reicht es, den Reset-Link in die Konsole zu loggen, statt eine echte E-Mail zu senden).
+### 0. Übersicht: Neu zu erstellende Dateien
+Diese Dateien müssen Sie neu anlegen, um die Funktionalitäten abzubilden:
+
+* **Services/**
+    * `MockEmailSender.cs`
+* **ViewModels/**
+    * `RegisterViewModel.cs`
+    * `ForgotPasswordViewModel.cs`
+    * `ResetPasswordViewModel.cs`
+* **Views/Account/**
+    * `Register.cshtml`
+    * `AccessDenied.cshtml`
+    * `ForgotPassword.cshtml`
+    * `ForgotPasswordConfirmation.cshtml`
+    * `ResetPassword.cshtml`
+    * `ResetPasswordConfirmation.cshtml`
+
+*(Der `AccountController.cs` und `Login.cshtml` existieren ggf. bereits als Rumpf und müssen erweitert werden.)*
 
 ---
 
-## 5. Test-Szenarien
+### 1. Konfiguration in `Program.cs`
 
-Führen Sie folgende Tests durch, um die Implementierung zu verifizieren:
+Fügen Sie diese Blöcke in der `Program.cs` ein, um Identity zu laden, Cookies zu konfigurieren und den globalen Filter zu setzen.
 
-### Test A: Der "Delivery"-Versuch als normaler User
-1.  Registrieren Sie einen neuen Benutzer "Max".
-2.  Loggen Sie sich als Max ein.
-3.  Klicken Sie auf den Button für "Lieferung bestellen" (er ist ja noch sichtbar).
-4.  Füllen Sie das Formular aus und senden Sie es ab.
-5.  **Erwartetes Ergebnis:** Sie erhalten eine **"Access Denied"** (Zugriff verweigert) Seite (HTTP 403) oder werden zum Login umgeleitet (je nach Konfiguration). Die Bestellung darf **nicht** in der Datenbank gespeichert werden.
+```csharp
+// 1. Identity Services & Token Provider (für Passwort Reset)
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 3;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders(); 
 
-### Test B: Der "Delivery"-Versuch als Admin
-1.  Klicken Sie Ihren "Test-Admin erstellen" Button.
-2.  Loggen Sie sich als `admin@restaurant.at` ein.
-3.  Versuchen Sie erneut, eine Lieferung aufzugeben.
-4.  **Erwartetes Ergebnis:** Die Bestellung funktioniert problemlos.
+// 2. Cookie Einstellungen (Redirects anpassen)
+builder.Services.ConfigureApplicationCookie(options => {
+    // Nicht eingeloggt (401) -> AccessDenied (statt Login, um User-Confusion zu vermeiden)
+    options.LoginPath = "/Account/AccessDenied"; 
+    // Keine Rechte (403) -> AccessDenied
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
 
-### Test C: Passwort Reset
-1.  Loggen Sie sich aus.
-2.  Klicken Sie auf "Passwort vergessen".
-3.  Geben Sie die E-Mail eines existierenden Users ein.
-4.  Überprüfen Sie die Konsole (oder das Log), ob ein Reset-Token/Link generiert wurde (da wir keinen echten Mailserver haben).
+// 3. Globaler Filter (Controller Optionen)
+// Dies sperrt die gesamte Anwendung ab, außer Actions mit [AllowAnonymous]
+builder.Services.AddControllersWithViews(options => {
+    var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
+});
+
+// 4. Mock Email Service registrieren
+builder.Services.AddTransient<IEmailSender, MockEmailSender>();
+```
+
+### 2. Neue Klassen & Services
+
+#### ViewModels
+Erstellen Sie im Ordner `ViewModels`:
+* `RegisterViewModel.cs`: (Email, Password, ConfirmPassword)
+* `ForgotPasswordViewModel.cs`: (Email)
+* `ResetPasswordViewModel.cs`: (Email, Password, ConfirmPassword, Code)
+
+#### MockEmailSender
+Erstellen Sie `Services/MockEmailSender.cs` (implementiert `IEmailSender`), um E-Mails nur in den Logger zu schreiben, statt zu senden.
+
+### 3. Logik im `FruehstueckController` (Die Liefersperre)
+
+Die Geschäftslogik, dass normale User keine Lieferungen aufgeben dürfen, wird direkt beim `POST` der Bestellung geprüft.
+
+```csharp
+[HttpPost]
+public async Task<IActionResult> Bestellen([Bind(Prefix = "Order")] OrderViewModel orderViewModel)
+{
+    // --- AUTORISIERUNGS-CHECK ---
+    if (orderViewModel.Type == OrderType.Delivery)
+    {
+        // Wenn User NICHT Admin ist -> Fehler
+        if (!User.IsInRole("Admin"))
+        {
+            ModelState.AddModelError("", "Fehler: Sie haben keine Berechtigung für Lieferungen.");
+        }
+    }
+    // -----------------------------
+
+    if (!ModelState.IsValid) 
+    {
+        // View neu laden (Bestellung wird NICHT gespeichert)
+        var vm = new FruehstueckViewModel();
+        await PopulateViewModelAsync(vm); // Falls Methode vorhanden
+        vm.Order = orderViewModel;
+        return View("Index", vm);
+    }
+    
+    // ... Speichern Logik ...
+}
+```
+
+### 4. AccountController Übersicht
+
+Der `AccountController` benötigt folgende Actions:
+* `Login` (Get/Post)
+* `Logout` (Post)
+* `Register` (Post): Nach `CreateAsync` muss `_userManager.AddToRoleAsync(user, "User")` aufgerufen werden.
+* `AccessDenied`: Gibt einfach die View zurück.
+* `CreateTestUser`: Prüft/Erstellt Rolle "Admin" und weist User zu.
+* `ForgotPassword` / `ResetPassword`: Standard Identity Logik.
+
+### 5. Views
+Erstellen Sie im Ordner `Views/Account`:
+* `Login.cshtml` (mit Links zu "Passwort vergessen" & "Registrieren")
+* `Register.cshtml`
+* `AccessDenied.cshtml` (Wichtig: Muss Link zum Login enthalten!)
+* `ForgotPassword.cshtml` & `Confirmation`
+* `ResetPassword.cshtml` & `Confirmation`
+
+### 6. Datenbank
+Vergessen Sie nicht, die neuen Tabellen anzulegen:
+```powershell
+Add-Migration AddIdentityTables
+Update-Database
+```

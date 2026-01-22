@@ -6,13 +6,13 @@ namespace FruehstuecksBestellungMVC.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly SignInManager<IdentityUser> _signInManager;
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly SignInManager<IdentityUser> _signInService;
+    private readonly UserManager<IdentityUser> _userService;
 
     public AccountController(SignInManager<IdentityUser> signInService, UserManager<IdentityUser> userService)
     {
-        _signInManager = signInService;
-        _userManager = userService;
+        _signInService = signInService;
+        _userService = userService;
     }
 
     [HttpGet]
@@ -28,7 +28,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Login(string username, string password)
     {
         // Einfacher Login-Versuch
-        var result = await _signInManager.PasswordSignInAsync(username, password, isPersistent: false, lockoutOnFailure: false);
+        var result = await _signInService.PasswordSignInAsync(username, password, isPersistent: false, lockoutOnFailure: false);
 
         if (!result.Succeeded)
         {
@@ -42,7 +42,7 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Logout()
     {
-        await _signInManager.SignOutAsync();
+        await _signInService.SignOutAsync();
         return RedirectToAction("Login");
     }
 
@@ -52,7 +52,7 @@ public class AccountController : Controller
     public async Task<IActionResult> CreateTestUser()
     {
         var user = new IdentityUser { UserName = "admin" };
-        var result = await _userManager.CreateAsync(user, "admin");
+        var result = await _userService.CreateAsync(user, "admin");
 
         if (!result.Succeeded)
         {

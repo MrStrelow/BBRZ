@@ -1,8 +1,10 @@
 ﻿using FruehstuecksBestellungMVC.Data;
-using FruehstuecksBestellungMVC.ViewModels;
-using FruehstuecksBestellungMVC.Models;
-using FruehstuecksBestellungMVC.Services;
 using FruehstuecksBestellungMVC.DTOs;
+using FruehstuecksBestellungMVC.Models;
+using FruehstuecksBestellungMVC.Models.Enums;
+using FruehstuecksBestellungMVC.Services;
+using FruehstuecksBestellungMVC.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -70,9 +72,20 @@ public class FruehstueckController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    // Warum geht hier nicht einfach [Authorize(Roles = "Admin")]?
+    // Es scheint ein Designproblem zu geben... Wir entscheiden tief im Service _customerService
+    // mit if-else. Dort sollen wir nicht -> wir erzeugen hier doppelte if und else abfragen...
+    // Lösung siehe L02Exercise3.
+
     // Bind Prefix "Order" ist wichtig, da im ViewModel die Property "Order" heißt
     public async Task<IActionResult> Bestellen([Bind(Prefix = "Order")] OrderViewModel orderViewModel)
     {
+        // 1. Prüfen: Ist es eine Lieferung? UND 2. Ist der User KEIN Admin?
+        if (orderViewModel.Type == OrderType.Delivery && !User.IsInRole("Admin"))
+        {
+            ModelState.AddModelError("", "Nur Administratoren dürfen Lieferungen anlegen!");
+        }
+
         if (!ModelState.IsValid)
         {
             var vm = new FruehstueckViewModel();
@@ -98,6 +111,7 @@ public class FruehstueckController : Controller
     }
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> ManageDelivery(int deliveryId)
     {
         var delivery = await _context.Deliveries
@@ -125,6 +139,7 @@ public class FruehstueckController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateDelivery(DeliveryManagementViewModel vm)
     {
         if (!ModelState.IsValid)

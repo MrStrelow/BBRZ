@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Zugriff verweigert";
+}
+
+<div class="container mt-5 text-center">
+    <div class="card shadow border-danger">
+        <div class="card-header bg-danger text-white">
+            <h2>⛔ Zugriff verweigert</h2>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title text-danger">Dir fehlen die erforderlichen Berechtigungen.</h4>
+            <p class="card-text">
+                Du bist zwar eingeloggt, aber dein Account hat nicht die nötige Rolle (z. B. "Admin"), um diese Seite zu sehen oder diese Aktion auszuführen.
+            </p>
+            <hr />
+            <a asp-controller="Fruehstueck" asp-action="Index" class="btn btn-primary">Zurück zur Startseite</a>
+            <a asp-controller="Account" asp-action="Logout" class="btn btn-outline-secondary">Ausloggen & Konto wechseln</a>
+        </div>
+    </div>
+</div>

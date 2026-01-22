@@ -168,3 +168,211 @@ Der alte, gestohlene Token/Cookie ist zeitlich noch gültig (z.B. 30 Minuten).
 * Bei jeder kritischen Änderung (Passwort, Rolle) ändert der Server den Stempel in der Datenbank.
 * Bei jedem Request prüft Identity (Default: alle 30 Min, konfigurierbar): `Stempel im Token == Stempel in DB?`
 * Wenn nein: Sofortiger Logout, Token wird abgelehnt.
+
+# ASP.NET Core Identity – Cheat Sheet & Theorie
+
+Kurze Zusammenfassung der wichtigsten Konzepte, Konfigurationen und Befehle für Authentication & Authorization in ASP.NET Core MVC.
+
+---
+
+## 1. Theorie: Begriffe
+
+* **Authentication (AuthN):** *Wer bist du?* (Login, Identität feststellen).
+* **Authorization (AuthZ):** *Was darfst du?* (Rechte, Rollen, Policies).
+* **IdentityUser:** Die Standard-Klasse für User in der DB (`AspNetUsers` Tabelle). Kann abgeleitet werden (`ApplicationUser : IdentityUser`), um Felder hinzuzufügen.
+* **IdentityRole:** Repräsentiert eine Rolle (`AspNetRoles`), z. B. "Admin", "User".
+* **Claim:** Ein Schlüssel-Wert-Paar mit Infos über den User (z. B. "HatFuehrerschein: Ja", "Geburtsdatum: 1990").
+
+---
+
+## 2. Grundinstallation (`Program.cs`)
+
+Voraussetzung: `Microsoft.AspNetCore.Identity.EntityFrameworkCore` Paket installiert.
+
+```csharp
+// 1. Identity Services hinzufügen & Konfigurieren
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
+    // Hier kommen die IdentityOptions hin (siehe Punkt 3)
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders(); // Wichtig für Passwort-Reset Tokens!
+
+// 2. Cookie Einstellungen (Login-Pfade etc.)
+builder.Services.ConfigureApplicationCookie(options => {
+    // Hier kommen die Cookie-Settings hin (siehe Punkt 4)
+});
+
+// ...
+
+var app = builder.Build();
+
+// 3. Middleware Reihenfolge beachten!
+app.UseRouting();
+
+app.UseAuthentication(); // <-- Wer ist es?
+app.UseAuthorization();  // <-- Darf er das?
+
+app.MapControllerRoute(...)
+```
+
+---
+
+## 3. Was können wir konfigurieren? (`IdentityOptions`)
+
+Diese Einstellungen kommen in den Lambda-Ausdruck von `.AddIdentity<...>(options => { ... })`.
+
+### Passwort-Regeln (`options.Password`)
+Steuert die Komplexität.
+```csharp
+options.Password.RequireDigit = true;           // Muss Zahl enthalten (0-9)
+options.Password.RequireLowercase = true;       // Muss Kleinbuchstaben enthalten
+options.Password.RequireUppercase = true;       // Muss Großbuchstaben enthalten
+options.Password.RequireNonAlphanumeric = true; // Muss Sonderzeichen enthalten (!?#)
+options.Password.RequiredLength = 6;            // Mindestlänge
+options.Password.RequiredUniqueChars = 1;       // Wie viele verschiedene Zeichen nötig sind
+```
+
+### Lockout / Sperre (`options.Lockout`)
+Schutz gegen Brute-Force-Attacken.
+```csharp
+options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // Wie lange gesperrt?
+options.Lockout.MaxFailedAccessAttempts = 5; // Versuche bis zur Sperre
+options.Lockout.AllowedForNewUsers = true;   // Gilt das auch für neue User?
+```
+
+### User Einstellungen (`options.User`)
+Validierung von Benutzernamen und E-Mails.
+```csharp
+options.User.RequireUniqueEmail = true; // E-Mail darf nur 1x vorkommen
+options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+```
+
+### SignIn Einstellungen (`options.SignIn`)
+Voraussetzungen für den Login.
+```csharp
+options.SignIn.RequireConfirmedAccount = true;     // Login nur wenn Account bestätigt
+options.SignIn.RequireConfirmedEmail = true;       // Login nur wenn E-Mail bestätigt
+options.SignIn.RequireConfirmedPhoneNumber = false; 
+```
+
+---
+
+## 4. Cookie Konfiguration (`ConfigureApplicationCookie`)
+
+Hier steuern wir, was passiert, wenn jemand nicht eingeloggt ist oder keine Rechte hat.
+
+```csharp
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    // Zugriff verweigert (Nicht eingeloggt -> 401)
+    // Standard: "/Account/Login"
+    options.LoginPath = "/Account/Login"; 
+    
+    // Zugriff verweigert (Eingeloggt, aber keine Rechte -> 403)
+    // Standard: "/Account/AccessDenied"
+    options.AccessDeniedPath = "/Account/AccessDenied";
+
+    // Wie lange bleibt das Cookie gültig?
+    options.ExpireTimeSpan = TimeSpan.FromDays(14);
+    
+    // Verlängert sich das Cookie bei Aktivität?
+    options.SlidingExpiration = true;
+});
+```
+
+---
+
+## 5. Zugriffsschutz (Authorization)
+
+### Globaler Filter (Alles schützen)
+In `Program.cs` bei `AddControllersWithViews`. Sorgt dafür, dass man nirgendwo hinkommt, außer es ist explizit erlaubt.
+
+```csharp
+builder.Services.AddControllersWithViews(options =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+        .RequireAuthenticatedUser() // Fordert eingeloggten User
+        .Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
+});
+```
+
+### Attribute (Controller/Action Ebene)
+
+* `[AllowAnonymous]`: Hebt den Schutz auf (z. B. für Login, Register, Startseite).
+* `[Authorize]`: Erfordert Login (wenn kein globaler Filter da ist).
+* `[Authorize(Roles = "Admin")]`: Erfordert Login UND Rolle "Admin".
+* `[Authorize(Roles = "Admin,Manager")]`: Erfordert "Admin" ODER "Manager".
+
+---
+
+## 6. Wichtige Services (Dependency Injection)
+
+Diese Services injizierst du in deinen Controller (`AccountController`, etc.).
+
+### `UserManager<IdentityUser>`
+Verwaltet User-Daten (Erstellen, Löschen, Suchen, Passwort-Hash, Rollen zuweisen).
+* `CreateAsync(user, password)`
+* `FindByEmailAsync(email)`
+* `AddToRoleAsync(user, "Admin")`
+* `CheckPasswordAsync(user, password)`
+* `GeneratePasswordResetTokenAsync(user)`
+
+### `SignInManager<IdentityUser>`
+Verwaltet Login/Logout (Cookies setzen/löschen).
+* `PasswordSignInAsync(user, password, isPersistent, lockoutOnFailure)`
+* `SignInAsync(user, isPersistent)` (Ohne Passwortprüfung, z. B. nach Registrierung)
+* `SignOutAsync()`
+
+### `RoleManager<IdentityRole>`
+Verwaltet Rollen (Erstellen, Löschen).
+* `RoleExistsAsync("Admin")`
+* `CreateAsync(new IdentityRole("Admin"))`
+
+---
+
+## 7. Manuelle Prüfungen im Code (Controller)
+
+Wenn Attribute nicht reichen (z. B. "User darf Button sehen, aber nicht klicken" oder komplexe Logik).
+
+**Im Controller (`User` Property):**
+```csharp
+if (User.IsInRole("Admin")) 
+{
+    // Admin Logik
+}
+
+var currentUserName = User.Identity.Name;
+var isAuthenticated = User.Identity.IsAuthenticated;
+```
+
+**In View (`Context.User`):**
+```html
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hallo @User.Identity.Name</p>
+    
+    @if (User.IsInRole("Admin"))
+    {
+        <button>Löschen</button>
+    }
+}
+```
+
+---
+
+## 8. Troubleshooting: Häufige Fehler
+
+1.  **Login geht nicht trotz richtiger Daten:**
+    * Prüfe `UserName` vs `Email`. `PasswordSignInAsync` nimmt standardmäßig den `UserName`.
+    * User manuell in DB angelegt? Geht nicht, da `PasswordHash` fehlt.
+    * `EmailConfirmed` in DB ist `0`, aber Options fordern `RequireConfirmedAccount = true`.
+
+2.  **Redirect Loop:**
+    * `LoginPath` zeigt auf eine Action, die selbst geschützt ist (vergessenes `[AllowAnonymous]`).
+
+3.  **Änderungen an User-Rollen werden nicht sofort wirksam:**
+    * Rollen stehen im Cookie. Das Cookie wird erst beim **nächsten Login** oder nach 30 Minuten (SecurityStamp Validierung) erneuert. Logout -> Login hilft.
+
+4.  **404 beim Login-Redirect:**
+    * `LoginPath` in `Program.cs` falsch gesetzt oder Controller/Action existiert nicht.

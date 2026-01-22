@@ -22,10 +22,13 @@
 
                     <button type="submit" class="btn btn-primary w-100">Einloggen</button>
                 </form>
+
+                <div class="mt-3 text-center">
+                    <a asp-action="ForgotPassword">Passwort vergessen?</a> |
+                    <a asp-action="Register">Neuen Account erstellen</a>
+                </div>
             </div>
-            <div class="card-footer text-muted text-center">
-                <small>Noch kein User? <a href="/Account/CreateTestUser">Test-User erstellen</a></small>
-            </div>
+            <a asp-controller="Account" asp-action="CreateTestAdmin" class="btn btn-warning btn-sm">Setup Test Admin</a>
         </div>
     </div>
 </div>
