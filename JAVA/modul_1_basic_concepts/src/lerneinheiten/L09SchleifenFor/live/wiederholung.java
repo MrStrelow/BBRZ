@@ -23,13 +23,13 @@ public class wiederholung {
 //        printForm(mirroredXField);
 //        printForm(mirroredYField);
 
-        printForm(field);
-        printForm(drehenRechts(field));
-        printForm(drehenLinks(field));
+//        printForm(field);
+//        printForm(drehenRechts(field));
+//        printForm(drehenLinks(field));
+
 
         // frage den user ob er diese form gedreht haben will (90, 180, 270)
-        printForm();
-
+        printForm(drehen(field, "rchTs"));
     }
 
     // Zuständigkeit: gib das 2D-Array (Eingangs-Parameter) auf der console aus. gib nichts zurück (Rückgabe-Parameter).
@@ -118,8 +118,18 @@ public class wiederholung {
 
     // Zuständigkeit: Der user soll angeben in welche Richtung und wie weit das 2D-Array gedreht werden soll.
     public static String[][] drehen(String[][] field, String richtung) {
-        if (richtung.equals("rechts")) {
-            return drehenRechts(field);
-        }
+//        if (richtung.equalsIgnoreCase("rechts")) {
+//            return drehenRechts(field);
+//        } else if (richtung.equalsIgnoreCase("links")) {
+//            return drehenLinks(field);
+//        } else {
+//            return field;
+//        }
+
+        return switch (richtung.toLowerCase()) {
+            case "rechts" -> drehenRechts(field);
+            case "links" -> drehenLinks(field);
+            default -> field;
+        };
     }
 }
