@@ -5,6 +5,20 @@ var helloBoy = new Hund
     Nachname = "Bello"
 };
 
+var h = new Hund(alter:17);
+h.Name = "hallo";
+
+h = new Hund(alter:17)
+{
+    Name = "hallo"
+};
+
+h = new Hund
+{
+    Name = "hallo",
+    Alter = 17
+};
+
 //var helloBoy = new Hund
 //(
 //    nachname: "bello", 
@@ -18,7 +32,8 @@ Console.WriteLine(helloBoy.Nachname);
 
 public class Hund
 {
-    public required string Name { 
+    public int Alter {  get; set; }
+    public  string Name { 
         get;
         set //init
         {
@@ -36,6 +51,13 @@ public class Hund
     //    Name = name;
     //    Nachname = nachname;
     //}
+
+    public Hund(int alter)
+    {
+        Alter = alter;
+    }
+
+    public Hund() { }
 }
 
 
