@@ -65,4 +65,11 @@ public class wiederholung {
 
         return mirrored;
     }
+
+    // Zuständigkeit: spielgeln in Y eines 2D-String-Arrays.
+    public static ... ...(String[][] field) {
+        String[][] mirrored = new String[field.length][field.length];
+
+        return mirrored;
+    }
 }
