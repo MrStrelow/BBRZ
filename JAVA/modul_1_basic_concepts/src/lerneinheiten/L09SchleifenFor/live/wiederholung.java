@@ -17,9 +17,18 @@ public class wiederholung {
         int size = scanner.nextInt();
 
         String[][] field = createTriangle(size);
+//        String[][] mirroredXField = mirrorX(field);
+//        String[][] mirroredYField = mirrorY(field);
+//        printForm(field);
+//        printForm(mirroredXField);
+//        printForm(mirroredYField);
+
         printForm(field);
+        printForm(drehenRechts(field));
+        printForm(drehenLinks(field));
 
         // frage den user ob er diese form gedreht haben will (90, 180, 270)
+        printForm();
 
     }
 
@@ -57,19 +66,60 @@ public class wiederholung {
     }
 
     // Zuständigkeit: drehen ein beliebiges 2D-String-Array 90°, 180° oder 270° nach rechts.
+    public static String[][] drehenRechts(String[][] field) {
+        return mirrorY(transponieren(field));
+    }
 
+    public static String[][] drehenLinks(String[][] field) {
+        return mirrorX(transponieren(field));
+    }
 
     // Zuständigkeit: spielgeln in X eines 2D-String-Arrays.
-    public static ... ...(String[][] field) {
+    public static String[][] mirrorX(String[][] field) {
         String[][] mirrored = new String[field.length][field.length];
+
+        for (int zeile = 0; zeile < field.length; zeile++) {
+            // Zuständigkeiten: wie viele spalten soll es geben?
+            for (int spalte = 0; spalte < field[0].length; spalte++) {
+                mirrored[field.length - 1 - zeile][spalte] = field[zeile][spalte];
+            }
+        }
 
         return mirrored;
     }
 
     // Zuständigkeit: spielgeln in Y eines 2D-String-Arrays.
-    public static ... ...(String[][] field) {
+    public static String[][] mirrorY(String[][] field) {
         String[][] mirrored = new String[field.length][field.length];
 
+        for (int zeile = 0; zeile < field.length; zeile++) {
+            // Zuständigkeiten: wie viele spalten soll es geben?
+            for (int spalte = 0; spalte < field[0].length; spalte++) {
+                mirrored[zeile][field.length - 1 - spalte] = field[zeile][spalte];
+            }
+        }
+
         return mirrored;
+    }
+
+    // Zuständigkeit:  vertausche x und y koordinaten eines 2D-Arrays.
+    public static String[][] transponieren(String[][] field) {
+        String[][] transposed = new String[field.length][field.length];
+
+        for (int zeile = 0; zeile < field.length; zeile++) {
+            // Zuständigkeiten: wie viele spalten soll es geben?
+            for (int spalte = 0; spalte < field[0].length; spalte++) {
+                transposed[spalte][zeile] = field[zeile][spalte];
+            }
+        }
+
+        return transposed;
+    }
+
+    // Zuständigkeit: Der user soll angeben in welche Richtung und wie weit das 2D-Array gedreht werden soll.
+    public static String[][] drehen(String[][] field, String richtung) {
+        if (richtung.equals("rechts")) {
+            return drehenRechts(field);
+        }
     }
 }
