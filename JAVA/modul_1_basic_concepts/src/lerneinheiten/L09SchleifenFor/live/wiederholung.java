@@ -1,8 +1,10 @@
 package lerneinheiten.L09SchleifenFor.live;
 
 import java.util.Scanner;
+import static lerneinheiten.L09SchleifenFor.live.Winkel.*;
+import static lerneinheiten.L09SchleifenFor.live.Richtung.*;
 
-public class wiederholung {
+public class Wiederholung {
     public static void main(String[] args) {
         // den user entscheiden lassen wie groß die form wird.
         Scanner scanner = new Scanner(System.in);
@@ -16,20 +18,23 @@ public class wiederholung {
 
         int size = scanner.nextInt();
 
-        String[][] field = createTriangle(size);
-//        String[][] mirroredXField = mirrorX(field);
-//        String[][] mirroredYField = mirrorY(field);
-//        printForm(field);
-//        printForm(mirroredXField);
-//        printForm(mirroredYField);
-
-//        printForm(field);
-//        printForm(drehenRechts(field));
-//        printForm(drehenLinks(field));
-
+        System.out.println("-------------------- ab hier FUNKTIONEN --------------------");
+        String[][] field = createTriangle(size, "⬜", "🔸");
+        String[][] anotherField = createTriangle(size, "💀", "✅");
 
         // frage den user ob er diese form gedreht haben will (90, 180, 270)
-        printForm(drehen(field, "rchTs"));
+        printForm(drehen(field, RECHTS, d270));
+        printForm(drehen(field, LINKS, d180));
+        printForm(drehen(anotherField, RECHTS, d90));
+
+        // mit Klassen und Methoden
+        System.out.println("-------------------- ab hier KLASSEN mit METHODEN --------------------");
+        Dreieck dreieck = new Dreieck("⬜", "🔸", size);
+        dreieck.drehen(RECHTS, d270).printForm();
+        dreieck.drehen(LINKS, d180).printForm();
+
+        Dreieck skulleck = new Dreieck("💀", "✅", size);
+        skulleck.drehen(RECHTS, d90).printForm();
     }
 
     // Zuständigkeit: gib das 2D-Array (Eingangs-Parameter) auf der console aus. gib nichts zurück (Rückgabe-Parameter).
@@ -46,7 +51,7 @@ public class wiederholung {
 
     // Zuständigkeit: generiere die form "dreieck". Die größe des dreiecks ist vom aufrufer zu übergeben (Eingangs-Parameter).
     //
-    public static String[][] createTriangle(int size) {
+    public static String[][] createTriangle(int size, String foreground, String background) {
         String[][] field = new String[size][size];
 
         // Zuständigkeiten: wie viele zeilen soll es geben?
@@ -55,9 +60,9 @@ public class wiederholung {
             for (int spalte = 0; spalte < size; spalte++) {
                 // Zuständigkeiten: wann wird ein symbol ausgegeben für unser dreieck?
                 if (zeile >= spalte) {
-                    field[zeile][spalte] = "⬜"; // mit windows und punkt kann ein emoji menü aufgerufen werden.
+                    field[zeile][spalte] = foreground; // mit windows und punkt kann ein emoji menü aufgerufen werden.
                 } else {
-                    field[zeile][spalte] = "🔸";
+                    field[zeile][spalte] = background;
                 }
             }
         }
@@ -118,14 +123,6 @@ public class wiederholung {
 
     // Zuständigkeit: Der user soll angeben in welche Richtung und wie weit das 2D-Array gedreht werden soll.
     public static String[][] drehen(String[][] field, Richtung richtung, Winkel winkel) {
-//        if (richtung.equalsIgnoreCase("rechts")) {
-//            return drehenRechts(field);
-//        } else if (richtung.equalsIgnoreCase("links")) {
-//            return drehenLinks(field);
-//        } else {
-//            return field;
-//        }
-
         return switch (richtung) {
             case RECHTS -> switch (winkel) {
                 case d90 -> drehenRechts(field);
