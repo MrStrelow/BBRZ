@@ -117,7 +117,7 @@ public class wiederholung {
     }
 
     // Zuständigkeit: Der user soll angeben in welche Richtung und wie weit das 2D-Array gedreht werden soll.
-    public static String[][] drehen(String[][] field, String richtung) {
+    public static String[][] drehen(String[][] field, Richtung richtung, Winkel winkel) {
 //        if (richtung.equalsIgnoreCase("rechts")) {
 //            return drehenRechts(field);
 //        } else if (richtung.equalsIgnoreCase("links")) {
@@ -126,10 +126,18 @@ public class wiederholung {
 //            return field;
 //        }
 
-        return switch (richtung.toLowerCase()) {
-            case "rechts" -> drehenRechts(field);
-            case "links" -> drehenLinks(field);
-            default -> field;
+        return switch (richtung) {
+            case RECHTS -> switch (winkel) {
+                case d90 -> drehenRechts(field);
+                case d180 -> drehenRechts(drehenRechts(field));
+                case d270 -> drehenRechts(drehenRechts(drehenRechts(field)));
+            };
+            case LINKS -> switch (winkel) {
+                case d90 -> drehenLinks(field);
+                case d180 -> drehenLinks(drehenLinks(field));
+                case d270 -> drehenLinks(drehenLinks(drehenLinks(field)));
+            };
         };
     }
 }
+
