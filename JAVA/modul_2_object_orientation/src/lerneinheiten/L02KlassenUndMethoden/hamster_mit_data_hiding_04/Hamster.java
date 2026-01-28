@@ -1,4 +1,4 @@
-package lerneinheiten.L02KlassenUndMethoden.hamster_mit_data_hiding;
+package lerneinheiten.L02KlassenUndMethoden.hamster_mit_data_hiding_04;
 
 import java.util.ArrayList;
 import java.util.Random;

@@ -1,8 +1,8 @@
-package lerneinheiten.L09SchleifenFor.live;
+package lerneinheiten.L02KlassenUndMethoden.formen_01;
 
 import java.util.Scanner;
-import static lerneinheiten.L09SchleifenFor.live.Winkel.*;
-import static lerneinheiten.L09SchleifenFor.live.Richtung.*;
+import static lerneinheiten.L02KlassenUndMethoden.formen_01.Winkel.*;
+import static lerneinheiten.L02KlassenUndMethoden.formen_01.Richtung.*;
 
 public class Wiederholung {
     public static void main(String[] args) {

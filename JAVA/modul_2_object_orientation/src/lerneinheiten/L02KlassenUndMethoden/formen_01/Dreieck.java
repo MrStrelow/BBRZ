@@ -1,4 +1,4 @@
-package lerneinheiten.L09SchleifenFor.live;
+package lerneinheiten.L02KlassenUndMethoden.formen_01;
 
 public class Dreieck {
     // EIGENSCHAFTEN - Wer bin ich?

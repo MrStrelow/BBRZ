@@ -1,9 +1,9 @@
-package lerneinheiten.L02KlassenUndMethoden.hamster;
+package lerneinheiten.L02KlassenUndMethoden.hamster_mit_data_hiding_04;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         // variable spielfeld vom Typ Plane anlegen.
-        Plane spielfeld = new Plane(5);
+        Plane spielfeld = new Plane(6);
 
         while (true) {
             // hamster macht was - bewegen und essen

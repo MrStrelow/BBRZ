@@ -1,4 +1,4 @@
-package lerneinheiten.L02KlassenUndMethoden.hamster;
+package lerneinheiten.L02KlassenUndMethoden.hamster_03;
 
 import java.util.Random;
 

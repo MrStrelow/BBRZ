@@ -1,6 +1,6 @@
-package lerneinheiten.L02KlassenUndMethoden.einfuehrendes_beispiel;
+package lerneinheiten.L02KlassenUndMethoden.hunde_und_besitzer_02;
 
-import static lerneinheiten.L02KlassenUndMethoden.einfuehrendes_beispiel.Essen.*;
+import static lerneinheiten.L02KlassenUndMethoden.hunde_und_besitzer_02.Essen.*;
 /*
     Hier betrachten wir die <ist> Beziehung. Wir wollen hier zum Ausdruck bringen, dass ein Hundebesitzer ein Mensch ist.
     Wir können also überall wo wir einen Mensch haben, einen Hundebesitzer angeben, aber umgekehrt nicht!

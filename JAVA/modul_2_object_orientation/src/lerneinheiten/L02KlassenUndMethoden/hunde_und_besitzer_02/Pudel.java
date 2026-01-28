@@ -1,4 +1,4 @@
-package lerneinheiten.L02KlassenUndMethoden.einfuehrendes_beispiel;
+package lerneinheiten.L02KlassenUndMethoden.hunde_und_besitzer_02;
 
 public class Pudel extends Hund {
     double fluff;
