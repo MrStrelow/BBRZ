@@ -23,15 +23,16 @@ public class Wiederholung {
         String[][] anotherField = createTriangle(size, "💀", "✅");
 
         // frage den user ob er diese form gedreht haben will (90, 180, 270)
-        printForm(drehen(field, RECHTS, d270));
-        printForm(drehen(field, LINKS, d180));
+        String[][] fieldGedrehtUm270 = drehen(field, RECHTS, d270); // wir drehen das STANDARD Dreieck um 270°
+        printForm(fieldGedrehtUm270);
+        printForm(drehen(fieldGedrehtUm270, LINKS, d180)); // wir drehen das bereits um 270° nach rechts gedrehte Dreieck um 180° nach links
         printForm(drehen(anotherField, RECHTS, d90));
 
         // mit Klassen und Methoden
         System.out.println("-------------------- ab hier KLASSEN mit METHODEN --------------------");
         Dreieck dreieck = new Dreieck("⬜", "🔸", size);
-        dreieck.drehen(RECHTS, d270).printForm();
-        dreieck.drehen(LINKS, d180).printForm();
+        dreieck.drehen(RECHTS, d270).printForm(); // wir drehen das STANDARD Dreieck um 270°
+        dreieck.drehen(LINKS, d180).printForm(); // wir haben bereits das Dreieck um 270 gedreht und müssen es um 90° nach links drehen, damit wir das gleiche wie oben erreichen!
 
         Dreieck skulleck = new Dreieck("💀", "✅", size);
         skulleck.drehen(RECHTS, d90).printForm();

@@ -51,13 +51,13 @@ public class Dreieck {
 
     // Zuständigkeit: drehen ein beliebiges 2D-String-Array 90°, 180° oder 270° nach rechts.
     private void drehenRechts() {
-        mirrorY();
         transponieren();
+        mirrorY();
     }
 
     private void drehenLinks() {
-        mirrorX();
         transponieren();
+        mirrorX();
     }
 
     // Zuständigkeit: spielgeln in X eines 2D-String-Arrays.
