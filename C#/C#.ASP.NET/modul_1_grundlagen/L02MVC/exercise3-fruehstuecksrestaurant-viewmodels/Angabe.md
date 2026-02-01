@@ -40,8 +40,11 @@ Erstelle für ``ViewModel`` und ``DTO`` einen eigenen Ornder auf der Ebene des `
 
 ## Schritt 1: Das ``ViewModel`` *OrderViewModel* erstellen
 
-Erstellen Sie einen neuen Ordner `ViewModels` und fügen Sie diese ``Klasse`` hinzu.
+Erstellen Sie einen neuen Ordner `ViewModels` und fügen Sie die ``Klasse`` *OrderViewModel* hinzu. Dieses ViewModel enthält die Daten, die vom Formular POST gesendet werden. 
+* ``Properties``: *CustomerId*, *TableId*, *SelectedMenuIds*, *SelectedDishIds*. 
+* ``Methoden``: *Validate* welche aus dem ``Interface`` *IValidatableObject* implementiert wird (``Ist-Beziehung``). Für komplexere **serverseitige** Validierungen. Hier soll überprüft werden, ob der Controller einen http request bekommt, welcher mindestends ein Element jeweils in den Listen *SelectedDishIds* und *SelectedMenuIds* hat.
 
+**Hinweise:**
 * **`int?` (Nullable Int):** Wird verwendet, damit der Model Binder einen leeren String (`""`) von einem leeren Dropdown als `null` binden kann, anstatt einen Typ-Konvertierungsfehler ("The value '' is invalid") zu werfen.
 * **`[Required]`:** Fängt das `null` ab und zeigt unsere benutzerdefinierte Fehlermeldung.
 * **`[Range]`:** Fängt ungültige Zahlen (z.B. `0`) ab, falls `[Required]` passiert wurde.
@@ -52,7 +55,7 @@ Erstellen Sie einen neuen Ordner `ViewModels` und fügen Sie diese ``Klasse`` hi
 
 ## Schritt 2: Das ``ViewModel`` *FruehstueckViewModel* erstellen
 
-Fügen Sie diese Klasse ebenfalls zum Ordner `ViewModels` hinzu. Sie ersetzt das `Tuple`.
+Fügen Sie diese Klasse ebenfalls zum Ordner `ViewModels` hinzu. Sie ersetzt das `Tuple` aus den vorherigen Übungen.
 
 * **Zweck:** Sie bündelt *alle* Daten für die `Index.cshtml`-View.
 * **`OrderForm { get; set; } = new();`:** Wir initialisieren das DTO immer. Dies ist wichtig, damit die `asp-for`-Tag-Helper in der View bei einem GET-Request (wenn das Formular leer ist) keine `NullReferenceException` werfen.
@@ -63,7 +66,7 @@ Fügen Sie diese Klasse ebenfalls zum Ordner `ViewModels` hinzu. Sie ersetzt das
 
 Fügen Sie diese ``Klasse`` im Ordner ``DTOs`` hinzu. Sie ersetzt den ``Parameter`` im ``Service`` der `Methode` *CreateOrderAsync*.
 
-* **Zweck:** Sie bündelt *alle* ``Parameter`` für eine ``Methode`` im ``Service``.
+* **Zweck:** Sie bündelt *alle* ``Parameter`` für eine ``Methode`` im ``Service``. Überlegen Sie sich was der Servie alles braucht zu funktionieren zu können.
 * Verwende dort einen ``Copy-Construktor`` welcher ein ``ViewModel`` *OrderViewModel* entgegen nimmt und die benötigten Daten im ``DTO`` als ``Eigenschaft`` speichert. **Verwende hier keinen ``nullable`` ``Operator``! Unser ``DTO`` muss diese nach der ``Validierung`` übertragen und hat deshalb gesichter keine ``null`` werte.**
 
 ---

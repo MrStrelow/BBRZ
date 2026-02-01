@@ -1,8 +1,4 @@
-# Übung: Modernes C# – Properties & Object Initializer
-
-Diese Übung führt von klassischen Java-Stil Gettern/Settern hin zu modernen C# Features wie `init`, `required` und dem neuen `field` Keyword aus .NET 10.
-
----
+# Übung: Properties & Object Initializer
 
 ## Übung 1: Vom Legacy Code zu Modern C#
 
