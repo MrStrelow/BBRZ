@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="L01_Exercise_1/L01_Exercise_1.csproj" Id="a7729e86-902f-4f16-86f4-528f4e619c6b" />
+  <Project Path="L01_WaldErzeugen/L01_WaldErzeugen.csproj" />
+  <Project Path="L02_WaldErzeugenKlassen/L02_WaldErzeugenKlassen.csproj" Id="13953450-9fbb-4e32-9e8f-3eb213bf2fdf" />
+  <Project Path="L03_WaldErzeugenHatBeziehungen/L03_WaldErzeugenHatBeziehungen.csproj" Id="b3f1af9a-8129-4a92-a6c9-32818ef2afed" />
+</Solution>
