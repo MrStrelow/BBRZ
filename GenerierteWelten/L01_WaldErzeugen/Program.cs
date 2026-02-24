@@ -42,7 +42,7 @@ class Program
         // --- Emojis --- 
         string symbolDerErde = "🟫";
         string symbolDerSteine = "🗻";
-        string symbolDerBaeume = "🌲";
+        string symbolDerBaeume = "🌳";
 
         // --- neues, leeres Array --- 
         string[,] karteMitBaeumen = (string[,]) karteOhneBaeume.Clone();
@@ -127,6 +127,7 @@ class Program
         string symbolDerSteine = "🗻";
         string symbolDesWassers = "🟦";
         string symbolDerBaeume = "🌳";
+        string symbolDerMangroven = "🌴";
 
         // --- Bild welches gespeichert wird ---
         // Kopiere in dem Terminal: dotnet add package SkiaSharp 
