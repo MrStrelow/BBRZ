@@ -127,7 +127,6 @@ class Program
         string symbolDerSteine = "🗻";
         string symbolDesWassers = "🟦";
         string symbolDerBaeume = "🌳";
-        string symbolDerMangroven = "🌴";
 
         // --- Bild welches gespeichert wird ---
         // Kopiere in dem Terminal: dotnet add package SkiaSharp 

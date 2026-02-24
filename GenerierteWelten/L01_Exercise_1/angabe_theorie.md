@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays und Zufallszahlen</title>
+    <style>
+        * {
+            box-sizing: border-box; /* Verhindert, dass Rahmen das Element unkontrolliert verbreitern */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        h1 {
+            color: #000;
+            font-size: 1.6em;
+            margin-bottom: 0.5em;
+        }
+        h3 {
+            color: #000;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.95em;
+            border: 1px solid #ddd;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+            font-family: "Courier New", Courier, monospace;
+            margin: 5px 0;
+        }
+        ul {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            page-break-inside: avoid; /* Verhindert, dass Text und Box auf zwei A4-Seiten getrennt werden */
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        /* Styling für die auszufüllenden Code-Blöcke */
+        .empty-code-block {
+            border: 1px solid #000; /* Etwas dünkler für guten Druck */
+            background-color: transparent;
+            border-radius: 4px;
+            margin: 8px 0 12px 0;
+            display: block;
+            /* width: 100% WURDE ENTFERNT, damit es nicht rechts abschneidet */
+        }
+        /* Kompaktere Höhen für verschiedene Blöcke */
+        .height-sm { height: 45px; }
+        .height-md { height: 90px; }
+        .height-lg { height: 120px; }
+        
+        table {
+            width: 100%;
+            max-width: 500px;
+            border-collapse: collapse;
+            margin: 10px 0;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+        td:empty {
+            height: 25px;
+        }
+        hr {
+            border: 0;
+            border-top: 2px solid #ccc;
+            margin: 20px 0;
+        }
+
+        /* Druck-spezifische Anpassungen */
+        @media print {
+            body {
+                padding: 0;
+                font-size: 10.5pt;
+            }
+            code {
+                background-color: transparent;
+            }
+            pre {
+                background-color: transparent;
+                border: 1px solid #000;
+            }
+            .empty-code-block {
+                border: 1px solid #000 !important; /* Erzwingt den schwarzen Rahmen beim Drucken */
+            }
+            @page {
+                margin: 1.5cm;
+            }
+        }
+    </style>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <h1>Arrays und Zufallszahlen 🌍🎲</h1>
+
+    <p>Verwende folgende Vorlage <a href="../L01_WaldErzeugen/Program.cs">(Link)</a> und erweitere diese.</p>
+
+    <h3>Aufgabe 1 (am Zettel): Pen(C)il (Sharp)ener</h3>
+    <ul>
+        <li>Lege einen <em>Zufallszahlengenerator</em> als <code>Objekt</code> <em>generator</em> der <code>Klasse</code> <em>Random</em> an.
+            <div class="empty-code-block height-sm"></div>
+        </li>
+
+        <li>Lege einen <em>Zufallszahlengenerator</em> als <code>Objekt</code> <em>generator</em> der <code>Klasse</code> <em>Random</em> mit einem <code>Seed</code> an.
+            <div class="empty-code-block height-sm"></div>
+        </li>
+
+        <li>Verwende den <em>Zufallszahlengenerator</em> und ziehe damit eine Kommazahl des <code>Typs</code> <em>double</em> und weise diesen <code>Wert</code> der <code>Variable</code> <em>bedingung</em> zu. Diese <code>Variable</code> soll Zahlen zwischen 15.6 (inklusive) und 115.6 (exclusive) halten.
+            <div class="empty-code-block height-sm"></div>
+        </li>
+
+        <li>Frage mit einer <code>Mehrfachverzweigung</code> ab, ob die oben verwendete <code>Variable</code> <em>bedingung</em> zwischen 
+            <ul>
+                <li>15.6 (inklusive) und 85.6 (exklusive), </li>
+                <li>85.6 (inklusive) und 110.6 (exklusive), und</li>
+                <li>110.6 (inklusive) und 115.6 (exclusive) ist.</li>
+            </ul>
+            <p>Fülle die <code>Zweige</code> mit </p>
+            <ul>
+                <li><em>cw("common");</em></li>
+                <li><em>cw("rate");</em></li>
+                <li><em>cw("epic");</em></li>
+            </ul>
+            <div class="empty-code-block height-lg"></div>
+        </li>
+
+        <li>Verwende den <em>Zufallszahlengenerator</em> und ziehe damit zwei ganze Zahlen des <code>Typs</code> <em>int</em> und weise diese <code>Werte</code> den <code>Variablen</code> <em>x</em> und <em>y</em> zu. Diese <code>Variablen</code> soll Zahlen zwischen 10 (inklusive) und 25 (inklusive) halten.
+            <div class="empty-code-block height-sm"></div>
+        </li>
+
+        <li>Verwende folgenden Linearen Kongruenzgenerator $x_{i+1} = [(k \cdot x_i + d) \;\; \text{mod}\;\; m] + n$ und berechne die ersten 3 Pseudozufallszahlen für $k = 5$, $d = 7$, $m = 16$, $n = 10$ und $x_0=101$. Verwende einen Taschenrechner oder schreibe ein kurzes C#-Programm.
+            <table>
+                <thead>
+                    <tr>
+                        <th>$i$</th>
+                        <th>Aktueller Wert ($x_i$)</th>
+                        <th>Neuer Wert ($x_{i+1}$)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>0</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>1</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+
+        <li>Verwende folgenden Linearen Kongruenzgenerator $x_{i+1} = [(k \cdot x_i + d) \;\; \text{mod}\;\; m] + n$ mit den Konstanten $k = 5$, $d = 7$, $m = 16$, $n = 10$ und $x_0=101$. Füllen den vorgegebenen C#-Code mit den in der Formel verwendeten Konstanten und Seed aus. Es soll der gleiche <code>Seed</code> und der gleiche Bereich der Zufallszahlen im Programmcode und Formel sein.
+<pre><code>Random generator = new Random(  );
+Console.WriteLine(generator.Next(  ,  ));</code></pre>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h3>Aufgabe 2 (am Zettel): Finde die Fehler und behebe diese</h3>
+
+    <ul>
+        <li>Ausgabe mehrerer zufälliger ganzer Zahlen.
+<pre><code>for (int x = 0; x < 100; x++)
+{
+    Random generator = new Random(101);
+    Console.WriteLine(generator.Next(0, 25));
+}</code></pre>
+            <div class="empty-code-block height-md"></div>
+        </li>
+
+        <li>Zugriff auf Arrays mit zufälligem Index.
+<pre><code>int [] zahlen = new int[10];
+Random generator = new Random(101);
+
+for (int x = 0; x < 3; x++)
+{
+    int index = generator.Next(x, zahlen.Length + 1);
+    Console.WriteLine(zahlen[index]);
+}</code></pre>
+            <div class="empty-code-block height-md"></div>
+        </li>
+    </ul>
+
+</body>
+</html>
