@@ -54,6 +54,21 @@ Verwende folgende Vorlage [(Link)](../L01_WaldErzeugen/Program.cs) und erweitere
 
     ```
 
+* Verwende folgenden Linearen Kongruenzgenerator $x_{i+1} = [(k \cdot x_i + d) \;\; \text{mod}\;\; m] + n$ und berechne die ersten 3 Pseudozufallszahlen für $k = 5$, $d = 7$, $m = 16$, $n = 10$ und $x_0=101$. Verwende einen Taschenrechner oder schreibe ein kurzes C#-Programm.
+
+    | $i$ | Aktueller Wert ($x_i$) | Neuer Wert ($x_{i+1}$) |
+    | :--- | :--- | :--- |
+    | **0** |       |                               |
+    | **1** |       |                               |
+    | **2** |       |                               |
+
+
+* Verwende folgenden Linearen Kongruenzgenerator $x_{i+1} = [(k \cdot x_i + d) \;\; \text{mod}\;\; m] + n$ mit den Konstanten $k = 5$, $d = 7$, $m = 16$, $n = 10$ und $x_0=101$. Füllen den vorgegebenen C#-Code mit den in der Formel verwendeten Konstanten und Seed aus. Es soll der gleiche ``Seed`` und der gleiche Bereich der Zufallszahlen im Programmcode und Formel sein.
+    ```csharp
+    Random generator = new Random(  );
+    Console.WriteLine(generator.next(  ,  ));
+    ```
+
 ---
 
 ### Aufgabe 2 (am Zettel): Finde die Fehler und behebe diese
