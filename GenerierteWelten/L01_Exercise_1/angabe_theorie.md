@@ -1,7 +1,5 @@
 # Arrays und Zufallszahlen 🌍🎲
 
-Verwende folgende Vorlage [(Link)](../L01_WaldErzeugen/Program.cs) und erweitere diese.
-
 ### Aufgabe 1 (am Zettel): Pen(C)il (Sharp)ener
 * Lege einen *Zufallszahlengenerator* als ``Objekt`` *generator* der ``Klasse`` *Random* an.
     ```
