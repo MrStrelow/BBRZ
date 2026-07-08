@@ -40,7 +40,8 @@ public class Schachbrett {
                 boolean bausteinGerade = breite % 2 == 0 && hoehe % 2 == 0;
                 boolean bausteinUngerade = breite % 2 == 1 && hoehe % 2 == 1;
 
-                if (bausteinUngerade || bausteinGerade) {
+                if (bausteinGerade || bausteinUngerade) {
+//                if ((breite + hoehe) % 2 == 0) {
                     System.out.print("🖥️");
                 } else {
                     System.out.print("🌳");
