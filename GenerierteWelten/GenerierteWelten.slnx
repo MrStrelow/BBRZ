@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="L01_Exercise_1/L01_Exercise_1.csproj" Id="a7729e86-902f-4f16-86f4-528f4e619c6b" />
   <Project Path="L01_WaldErzeugen/L01_WaldErzeugen.csproj" />
+  <Project Path="live/live.csproj" Id="24256b4c-a3dc-4cb3-bb7d-16e0dd09a921" />
 </Solution>

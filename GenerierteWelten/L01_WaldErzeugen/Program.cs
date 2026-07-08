@@ -13,8 +13,8 @@ class Program
         string pfadOhneBaeume = "../../../world_1.png";
 
         // --- Karte als 2D-string-Array ---
-        //string[,] bildOhneBaeume = LadeKarte(pfadOhneBaeume);
-        string[,] bildOhneBaeume = LadeKarteBackup();
+        string[,] bildOhneBaeume = LadeKarte(pfadOhneBaeume);
+        //string[,] bildOhneBaeume = LadeKarteBackup();
 
         // --- Begrenzungen fuer Waldwuchs ---
         double prozentWaldAufKarte = 0.25;
