@@ -2,7 +2,10 @@
 #   * veroppelt werden wenn diese gerade sind.
 #   * halbiert werden wenn diese ungerade sind.
 #   * nicht verwendet werden wenn diese durch 9 teilbar sind.
-# [4, 9, 11, 18, 20, 27]
+# Das ergebnis soll wieder eine Liste sein. 
+# Input: [4, 9, 11, 18, 20, 27]
+# Output: [8, 5, 36, 40]
+
 
 # variante 1: Statements.
 
