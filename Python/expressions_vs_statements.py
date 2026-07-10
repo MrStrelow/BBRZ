@@ -1,0 +1,13 @@
+# in einer liste sind zahlen, diese zahlen sollen 
+#   * veroppelt werden wenn diese gerade sind.
+#   * halbiert werden wenn diese ungerade sind.
+#   * nicht verwendet werden wenn diese durch 9 teilbar sind.
+# [4, 9, 11, 18, 20, 27]
+
+# variante 1: Statements.
+
+
+
+# Variante 2: Expressions.
+
+
