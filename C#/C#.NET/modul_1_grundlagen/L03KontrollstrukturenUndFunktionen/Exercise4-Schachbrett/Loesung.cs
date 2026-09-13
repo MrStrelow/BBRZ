@@ -17,8 +17,8 @@ void Schritt1()
     Console.Clear();
 
     // multidimensionales array anlegen.
-    string whiteSquare = "🔲";
-    string blackSquare = "🔳";
+    string whiteSquare = "🟨";
+    string blackSquare = "🟦";
     string startSymbol = "🏌🏻";
     string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
     string lineSymbol = "🔸";
@@ -67,8 +67,8 @@ void Schritt2()
     Console.Clear();
 
     // multidimensionales array anlegen.
-    string whiteSquare = "🔲";
-    string blackSquare = "🔳";
+    string whiteSquare = "🟨";
+    string blackSquare = "🟦";
     string startSymbol = "🏌🏻";
     string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
     string lineSymbol = "🔸";
@@ -208,8 +208,8 @@ void Schritt2_FaelleZusammengefasst()
     Console.Clear();
 
     // multidimensionales array anlegen.
-    string whiteSquare = "🔲";
-    string blackSquare = "🔳";
+    string whiteSquare = "🟨";
+    string blackSquare = "🟦";
     string startSymbol = "🏌🏻";
     string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
     string lineSymbol = "🔸";
@@ -317,8 +317,8 @@ void Schritt3()
     Console.Clear();
 
     // multidimensionales array anlegen.
-    string whiteSquare = "🔲";
-    string blackSquare = "🔳";
+    string whiteSquare = "🟨";
+    string blackSquare = "🟦";
     string startSymbol = "🏌🏻";
     string destSymbol = "⛳"; // dest ist die abküzrung für destination -> das Ziel.
     string lineSymbol = "🔸";
