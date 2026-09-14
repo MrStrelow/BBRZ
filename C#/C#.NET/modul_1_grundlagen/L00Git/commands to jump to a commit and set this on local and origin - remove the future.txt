@@ -1,0 +1,3 @@
+git log --oneline
+git reset --hard <commit hash>
+git push origin main --force

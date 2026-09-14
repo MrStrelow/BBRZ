@@ -14,7 +14,7 @@ Bei Unklarheiten hier nachlesen:
 Überlege eine logische ``Formel`` welche folgendes Muster beschreibt:
 ```
              x
-       0 1 2  3 4  5
+       0 1  2 3  4 5
     0 ⬜⬛⬜⬛⬜⬛
     1 ⬛⬜⬛⬜⬛⬜
   y 2 ⬜⬛⬜⬛⬜⬛
@@ -34,7 +34,7 @@ Um eine ``Formel`` schreiben zu können müssen wir die ``Variablen/Atome`` der 
 Versuche die logische Formel für folgendes Muster zu finden.
 ```
              x
-       0 1 2  3 4  5
+       0 1  2 3  4 5
     0 ⬜⬛⬜⬛⬜⬛
     1 ⬜⬛⬜⬛⬜⬛
   y 2 ⬜⬛⬜⬛⬜⬛
@@ -55,7 +55,7 @@ Hinweis:
 Versuche die logische Formel für folgendes Muster zu finden.
 ```
              x
-       0 1 2  3 4  5
+       0 1  2 3  4 5
     0 ⬜⬛⬜⬛⬜⬛
     1 ⬛⬜⬛⬜⬛⬜
   y 2 ⬜⬛⬜⬛⬜⬛
@@ -75,7 +75,7 @@ Hinweis:
 Versuche die logische Formel für folgendes Muster zu finden.
 ```
              x
-       0 1 2  3 4  5
+       0 1  2 3  4 5
     0 🔺⬛⬜🔺⬜⬛
     1 ⬛⬜🔺⬜⬛🔺
   y 2 ⬜🔺⬜⬛🔺⬛
@@ -96,7 +96,7 @@ Versuche nun eine *einfachere* ``Formel`` für das ursprüngliche Problem zu fin
 Hinweis: Was war die Formel für 2)? Schaut das Müster aus 1) ähnlich jenem aus 3) aus wenn du den Kopf um ``45°`` neigst und nochmal hinschaust?
 ```
              x
-       0 1 2  3 4  5
+       0 1  2 3  4 5
     0 ⬜⬛⬜⬛⬜⬛
     1 ⬛⬜⬛⬜⬛⬜
   y 2 ⬜⬛⬜⬛⬜⬛
@@ -113,30 +113,33 @@ Hinweis: Was war die Formel für 2)? Schaut das Müster aus 1) ähnlich jenem au
 Es soll nur der Rand ⬛ sein, jedoch alles andere, egal wie groß das Viereck ist ⬜.
 ```
              x
-       0 1 2  3 4  5
-    0 ⬛⬛⬛⬛⬛⬛
-    1 ⬛⬜⬜⬜⬜⬛
-  y 2 ⬛⬜⬜⬜⬜⬛
-    3 ⬛⬜⬜⬜⬜⬛
-    4 ⬛⬜⬜⬜⬜⬛
-    5 ⬛⬛⬛⬛⬛⬛
+       0 1  2 3  4 5  6
+    0 ⬛⬛⬛⬛⬛⬛⬛
+    1 ⬛⬜⬜⬜⬜⬜⬛
+  y 2 ⬛⬜⬜⬜⬜⬜⬛
+    3 ⬛⬜⬜⬜⬜⬜⬛
+    4 ⬛⬜⬜⬜⬜⬜⬛
+    5 ⬛⬜⬜⬜⬜⬜⬛
+    6 ⬛⬛⬛⬛⬛⬛⬛
 ```
 
 Überlege: 
 * Was ist die ``Formel`` für ein *schwarzes* Feld?
 * Was ist die ``Formel`` für ein *weißes* Feld? 
+* Was wenn wir verschiedene Größen des Brettes erlauben?
 
 #### 7) Ein anderes Muster
 Nun sollen die Ränder abwechselnd ⬛ und ⬜ sein.
 ```
              x
-       0 1 2  3 4  5
-    0 ⬛⬛⬛⬛⬛⬛
-    1 ⬛⬜⬜⬜⬜⬛
-  y 2 ⬛⬜⬛⬛⬜⬛
-    3 ⬛⬜⬛⬛⬜⬛
-    4 ⬛⬜⬜⬜⬜⬛
-    5 ⬛⬛⬛⬛⬛⬛
+       0 1  2 3  4 5  6
+    0 ⬛⬛⬛⬛⬛⬛⬛
+    1 ⬛⬜⬜⬜⬜⬜⬛
+  y 2 ⬛⬜⬛⬛⬛⬜⬛
+    3 ⬛⬜⬛⬜⬛⬜⬛
+    4 ⬛⬜⬛⬛⬛⬜⬛
+    5 ⬛⬜⬜⬜⬜⬜⬛
+    6 ⬛⬛⬛⬛⬛⬛⬛
 ```
 
 Überlege: 
